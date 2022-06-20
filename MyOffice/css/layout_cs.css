@@ -1,0 +1,17 @@
+/*	.titles {clear:both;font-size:11pt;padding-bottom:3px; padding-top:20px;font-weight:bold;background:url(/images_kr/admin/icon/icon_arrow1.gif) 0 20px no-repeat;padding-left:20px; } */
+	.titles {clear:both;font-size:12pt;padding-bottom:3px; padding-top:20px;font-weight:500;color:#333;}
+	.titles:before {content: "\2724";font-size:18px;padding-right:3px;}
+
+	/* INFO STYLE */
+		#admin_info .top {width:1000px;height:11px;background:url(/images_kr/admin/share/info_bg01.gif) 0 0 repeat-x;}
+		#admin_info .bottom {width:1000px;height:11px;background:url(/images_kr/admin/share/info_bg02.gif) 0 0 repeat-x;}
+		#admin_info ul {padding-left:10px;}
+		#admin_info ul li {padding:2px 0px 2px 15px;background:url(/images_kr/admin/share/info_plus.jpg) 0 2px no-repeat;}
+
+
+		#admin_maps .depth3title {float:left;font-size:16px;font-weight:bold; font-family:dotum; background:url(/images_kr/share/icon_depth.gif) 0 3px no-repeat; padding:2px 0px 2px 20px;}
+
+	#chart .searchs {width:100%; margin-bottom:30px;}
+	#chart .searchs th {border:1px solid #ccc; padding:7px 0px; border-left:0px none; background-color:#eee;}
+	#chart .searchs td {border:1px solid #ccc; padding:7px 7px; }
+	#chart .searchs td.td_last {border-right:0px none;}

@@ -1,0 +1,18 @@
+.search th {border:1px solid #ccc; background-color:#eee;}
+.search td {border:1px solid #ccc; height:31px;padding-left:10px;}
+.btn_area {border:0px none !important;}
+
+.caution {font-size:13px; color:#ff0000; font-weight:bold; line-height:16px;}
+.input_text {padding:0px; height:20px; line-height:20px;}
+
+
+.safekey_list {width:100%;}
+.safekey_list th {border:1px solid #ccc; background-color:#eee; padding:5px 0px; line-height:16px;}
+.safekey_list td {border:1px solid #ccc; padding:5px 0px; line-height:16px;}
+
+#safekey.in th {border:1px solid #ccc; background-color:#eee; height:32px;}
+#safekey.in td {border:1px solid #ccc; height:32px; text-indent:10px; line-height:16px;}
+#safekey.in td.btnArea {padding:15px 0px; text-indent:0px; border:0px none; text-align:center;}
+
+
+.width100 {width:100%;}

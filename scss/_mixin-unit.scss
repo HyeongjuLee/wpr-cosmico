@@ -1,0 +1,16 @@
+$base-rem-size: 10px; // 1rem = 10px, 1.6rem = 16px
+
+//단위를 제거할 값을 remove-unit() 함수에 전달하면 단위가 제거된 값을 반환합니다
+//1.단위가 포함된 숫자 유형의 값을 전달 받음
+//2.값을 단위가 포함된 1 값으로 변경 (예: 120px → 1px)
+//3.값을 동일한 단위의 1 로 나눠 단위를 상쇄 (예: 120px/1px → 120)
+@function remove-unit($value) {
+	@return ($value / ($value * 0 + 1));
+}
+
+//px 단위 값을 rem() 함수에 전달하면 rem 단위 값으로 계산한 후, 속성 값으로 반환합니다.
+//1.px 단위 값을 전달 받음 (계산에 사용되는 기준 값은 옵션으로 사용자에 의해 변경 가능)
+//2.remove-unit() 유틸리티 함수를 실행해 단위를 제거한 후, 1rem을 곱해 결과 값을 반환
+@function rem($px, $base: $base-rem-size) {
+	@return (remove-unit($px / $base)) * 1rem;
+}

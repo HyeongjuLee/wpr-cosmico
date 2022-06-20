@@ -1,0 +1,21 @@
+
+/* ##################################### */
+	/* webpro Table sorter custom 2022-05-30 */
+	/* table, ajax table sorter */
+	/*	플러그인 호출
+			<table  id="sortTable">
+
+			$("#sortTable").wprTablesorter({
+				firstColFix : true,	//첫번째열 고정
+				firstColasc : false,	//첫번째열 오름차순 여부	//firstColFix=true일 경우 필수값
+				noSortColumns : [8]		//정렬안하는 컬럼
+			});
+	*/
+/* ##################################### */
+
+  #sortTable thead th.headerAsc {box-shadow: 0px -3px #efaa10 inset; background : #051c2d; color: #fff;}
+  #sortTable thead th.headerDesc {box-shadow: 0px 3px #efaa10 inset; background : #051c2d; color: #fff;}
+  #sortTable thead th.headerAsc:after {content:" ↑"	}
+  #sortTable thead th.headerDesc:after {content:" ↓"}
+  #sortTable tbody td.highlightCol {background-color: #fafafa;}
+  #sortTable tbody tr:hover td {background-color: #f7f7f7;}

@@ -1,0 +1,11 @@
+
+
+
+#event_line {width:970px;height:28px;background:url(/images/event/event_btn_bg.gif) 0 0 repeat-x;}
+#event_line li {float:left;}
+
+
+#event_list { padding-bottom:30px;}
+#event_list .bor1 {border:1px solid #8c8c8c;}
+
+#event_list .wrapper {padding:10px 0px; border-bottom:1px solid #8c8c8c;}

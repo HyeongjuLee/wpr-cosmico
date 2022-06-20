@@ -1,0 +1,284 @@
+@import 'mixin-custom';
+
+body {
+	font-size: $parent-css;
+}
+
+.ui-dialog {
+	@include font-family('Pretendard');
+	line-height: 1.5;
+
+	.ui-dialog-titlebar {
+		padding: $font-size $font-size * 1.5;
+
+		.ui-button-icon-only {
+			text-indent: $default-css;
+		}
+	}
+
+	.ui-dialog-titlebar-close {
+		right: $font-size;
+		top: $font-size;
+		width: $font-size * 2;
+		height: $font-size * 2;
+		margin: 0;
+		// -moz-transform: translateY(-50%);
+		// -webkit-transform: translateY(-50%);
+		// transform: translateY(-50%);
+		@include default-0;
+
+		i {
+			font-size: $font-size;
+			color: $parent-css;
+		}
+		&:active {
+			color: $parent-css;
+		}
+	}
+
+	.ui-dialog-title {
+		margin: 0;
+		font-size: round($font-size * 1.2);
+		font-weight: 700;
+		@include position;
+		overflow: $default-css !important;
+
+		i {
+			@include default-0;
+			@include position;
+
+			&:before {
+				@include presudo($le: 0, $bot: -5px, $w: 100%, $h: $font-size);
+				background: rgba($main-color, 20%);
+				z-index: -1;
+			}
+		}
+
+		.select_voter {
+			width: 100%;
+			margin-top: $font-size;
+			line-height: 1.2;
+			font-size: $font-size + rem(2px);
+			@include position(absolute, $le:0);
+			z-index: 1;
+		}
+	}
+
+	.ui-dialog-buttonpane {
+		@include default-0;
+		text-align: center;
+		margin: round($font-size * 1.5);
+	}
+
+	.ui-dialog-buttonset {
+		float: $default-css !important;
+		width: 100%;
+		@include flex;
+		flex-wrap: wrap;
+
+		button {
+			@include button(material-color('grey', '200'));
+			color: invert(material-color('grey', '200'));
+			flex: auto;
+			// width: 100%;
+			height: $input-height - $font-size;
+			font-size: $font-size;
+			&:hover {
+				color: invert(material-color('grey', '200'));
+				background: material-color('grey', '300');
+				border-color: material-color('grey', '400');
+			}
+			&:active {
+				color: invert(material-color('grey', '200'));
+			}
+
+			&:only-child {
+				width: 100%;
+				flex: $default-css;
+			}
+
+			&.confirm {
+				@include button(material-color('deep-orange', '500'));
+			}
+		}
+	}
+}
+
+.ui-widget-header {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	font-style: normal;
+	text-decoration: none;
+	background: none;
+}
+
+.ui-widget.ui-widget-content {
+	border: 1px solid #222;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ui-corner-all {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.ui-dialog .ui-dialog-content {
+	overflow: $default-css;
+	padding: $font-size $font-size * 1.5;
+}
+
+/*검색*/
+
+#pop_search {
+	width: 100%;
+
+	.searchs {
+		width: 100%;
+		@include flex;
+		margin: $font-size 0;
+
+		.searchText {
+			margin-right: $font-size * 2;
+			font-weight: 500;
+		}
+
+		input {
+			@include default-0;
+			height: $input-height - $font-size;
+
+			&[type='text'] {
+				border: 1px solid #9e9e9e;
+				border-right: none;
+				padding: 0 round($font-size / 2);
+				@include rounded(0);
+			}
+		}
+
+		.search {
+			width: $input-height - $font-size;
+			height: $input-height - $font-size;
+			border: 1px solid #424242;
+			background: #757575;
+			@include inline-flex;
+
+			input {
+				visibility: hidden;
+				position: absolute;
+			}
+
+			i {
+				color: #fff;
+				font-size: round($font-size * 1.2);
+			}
+		}
+	}
+
+	.tables {
+		width: 100%;
+		margin: $font-size 0;
+		color: #222;
+		font-size: $font-size - rem(2px);
+
+		table {
+			border: none;
+			margin: $font-size 0;
+		}
+
+		tr {
+			&.cp {
+				&:hover {
+					background: rgba($sub-color, 0.05);
+				}
+			}
+		}
+
+		tr:nth-of-type(1) th {
+			border-top-width: 2px;
+		}
+
+		th,
+		td {
+			padding: 1.25rem;
+			border: none;
+			height: $input-height - $font-size;
+			text-align: center;
+		}
+
+		th {
+			border: 1px solid #212121;
+			border-left: none;
+			border-right: none;
+			color: #212121;
+		}
+
+		td {
+			border-bottom: 1px solid #9e9e9e;
+		}
+
+		.notdata {
+			text-align: center;
+		}
+	}
+
+	.table {
+		width: 100%;
+		border: none;
+		margin: $font-size 0;
+
+		tr:nth-of-type(1) th {
+			border-top-width: 2px;
+		}
+
+		th,
+		td {
+			padding: 1.25rem;
+			border: none;
+			height: $input-height - $font-size;
+			text-align: center;
+		}
+
+		th {
+			border: 1px solid #212121;
+			border-left: none;
+			border-right: none;
+			color: #212121;
+		}
+
+		td {
+			border-bottom: 1px solid #9e9e9e;
+		}
+
+		.notdata {
+			text-align: center;
+		}
+	}
+}
+
+#modal_view {
+	html {
+		&::-webkit-scrollbar {
+			@include position;
+			width: rem(15px);
+			z-index: 2;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: mix($main-color, material-color('grey', '400'), 0%);
+			background-clip: padding-box;
+			border: rem(0px) solid transparent;
+			//@include rounded($radius: 10rem);
+		}
+
+		&::-webkit-scrollbar-track {
+			background: material-color('grey', '100');
+			//@include rounded;
+			//@include position;
+			z-index: 1;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+	#schedule .sche {font-family:verdana,맑은 고딕, malgun gothic,gulim; color:#7a7a7a;}
+	#schedule .sche th {height:32px;border:1px solid #ccc;font-size:11pt;}
+	#schedule .sche td {height:32px;border:1px solid #ccc;}
+
+	#schedule .sche .sun {color:#ec3d3d !important;}
+	#schedule .sche .today {color:#000000 !important;background:#d6fcc7;}
+	#schedule .sche .sat {color:#6197cf;}
+	#schedule .sche .week {color:#7a7a7a;}
+	#schedule .sche .cosmos {font-family:gulim;font-size:8pt;color:#ec3d3d;}
+	#schedule .sche tbody td {border:1px solid #ccc; min-height:32px; padding:5px 0px;}
+	#schedule .sche tbody td.hts {height:110px; vertical-align:top;}
+	#schedule .sche tbody td:hover {background:#d6fcc7;} /*#dbf9ff*/
+	#schedule .sche tbody td .days {font-weight:bold;}
+	#schedule .sche tfoot td {border:0px none;}
+
+	#schedule .sche td img {vertical-align:top; margin-left:5px;}
+	#schedule .sche td p {font-family:gulim;font-size:9pt; color:#7a7a7a;}
+
+	#schedule .hiddendiv {display:none; position:absolute; width:300px; z-index:1;}
+	#schedule .hiddendiv td {color:#7a7a7a; padding:2px 0px;}
+
+
+	/* 입력창 */
+	#schedule .insert {}
+	#schedule .insert th {border:1px solid #ccc;background-color:#eee; height:32px;}
+	#schedule .insert td {border:1px solid #ccc; text-align:left;padding:5px 0px 5px 10px;}
+	#schedule .insert .input_submit {padding:3px;}
+
+img {vertical-align:middle;}
+label {vertical-align:middle; margin-right:15px;}
+select {vertical-align:top; height:20px;}
+.input_text {vertical-align:top; border:1px solid #ccc; height:16px;padding-top:2px;}
+
+.search th {border:1px solid #ccc; background-color:#eee;}
+.search td {border:1px solid #ccc; height:31px;padding-left:10px;}
+.btn_area {border:0px none !important;}

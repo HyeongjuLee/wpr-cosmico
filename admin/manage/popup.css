@@ -1,0 +1,15 @@
+
+#popup {clear:both;}
+#popup .list th, #popup .list td {border:1px solid #ccc;}
+#popup .list th {padding:5px 8px; background-color:#eee;}
+#popup .list td {padding:10px 8px; text-align:center;}
+
+#popup .notdata {height:180px; text-align:center; font-weight:bold;}
+
+#popup .tables1 {width:100%;}
+#popup .tables1 .submit_area {padding:10px 0px 40px 0px;}
+#popup .tables1 tbody th, #popup .tables1 tbody td {border:1px solid #ccc;}
+#popup .tables1 tbody th {background-color:#eee; padding:8px 0px;}
+#popup .tables1 tbody td { padding:8px 0px 8px 5px;}
+#popup .input_chk {margin:0px 0px 2px 0px;vertical-align:middle;}
+#popup .input_file {border:1px solid #ccc;height:20px;}

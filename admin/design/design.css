@@ -1,0 +1,50 @@
+/*한글*/
+	.bor1 {border:1px solid #ccc;}
+
+
+	#design {}
+
+/* 디폴트 화면 */
+	#design th {border:1px solid #ccc; padding:12px 0px; background-color:#eee;}
+	#design td {border:1px solid #ccc; padding:5px 5px;}
+	#design tr.trbg td {background-color:#e6f5ff;}
+
+
+	#design.banner_insert .insert td {padding-left:7px;}
+	#design.banner_insert .preview td {padding:30px 0px;}
+	#design.banner_insert .list td.notData {padding:30px 0px;}
+	#design.banner_insert .list td.pxinfo {padding-right:7px;}
+	#design.banner_insert .list td.imgInfo {padding-left:7px;}
+
+
+	#design .preview {border:1px solid #cdcdcd; padding:0px; 0px; }
+	#design .shop_index_visual {width:750px; height:390px; border:1px solid #cdcdcd;}
+
+	#design .shop_index_visual .pagination li.current {float:left;width:15px; margin-left:7px;height:15px; background:url(/images/shop/fade_circle.png) 50% 50% no-repeat;}
+	#design .shop_index_visual .pagination li {float:left; width:15px; margin-left:7px;height:15px; background:url(/images/shop/fade_circle_gray.png) 50% 50% no-repeat;}
+
+
+	#design .index_md {clear:both;}
+	#design .index_md li {display:block; border-color:#cfcfcf; border-style:solid; border-width:0px 1px 1px 0px; width:250px; height:130px; overflow:hidden;}
+	#design .index_md li.fstLine {border-top:1px solid #cfcfcf;}
+
+	#design .index_banner01  {margin-top:40px;}
+	#design .index_banner01 .bigs {border:1px solid #cfcfcf;}
+	#design .index_banner01 .middles div {width:480px;border:1px solid #cfcfcf; margin-right:-1px;}
+
+
+	#DB_banner10 {position:relative;width:960px; margin-left:20px;}
+	#DB_banner10 .DB_mask{height:90px;line-height:90px;width:960px;;position:relative;overflow:hidden;}
+	#DB_banner10 ul{white-space:nowrap;font-size:0; margin-top:10px;}
+	#DB_banner10 ul li{display:inline;}
+	#DB_banner10 ul li a{padding:0px 0px}
+	#DB_banner10 ul li a img{vertical-align:middle;}
+	#DB_banner10 .DB_prev{position:absolute;top:40px;left:-20px}
+	#DB_banner10 .DB_next{position:absolute;top:40px;right:-20px}
+
+
+	#bannerModify th {border:1px solid #ccc; padding:12px 0px; background-color:#eee;}
+	#bannerModify td {border:1px solid #ccc; padding:5px;}
+
+
+	#design .btnArea {margin: 10px 0;}

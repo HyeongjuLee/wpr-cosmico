@@ -1,0 +1,49 @@
+body { font-size: 1.5rem; line-height: 1.5; }
+
+.nav-myoffice { width: 24rem; min-height: 100vh; float: left; position: relative; z-index: 11; margin-top: -6rem; text-align: left; font-weight: 400; font-size: 1.5rem; }
+.nav-myoffice:before { content: ''; position: absolute; top: 0; left: 0; z-index: -1; width: 100%; height: 300%; background: #333645; }
+.nav-myoffice .nav-left { width: 100%; border: none; }
+.nav-myoffice .nav-top .logo { width: 100%; height: 6rem; display: flex; justify-content: center; align-items: center; position: relative; color: #b1b5c6; font-size: 3rem; font-weight: 400; letter-spacing: 0.3rem; text-align: center; }
+.nav-myoffice .nav-top .logo img { height: 40%; filter: brightness(10) grayscale(1); position: relative; opacity: .5; }
+.nav-myoffice .info { position: relative; background: #262934; }
+.nav-myoffice .info .name { padding: 2rem 3rem; border-top: 1px solid; border-bottom: 1px solid; border-color: #474a58; }
+.nav-myoffice .info .name h1 { color: #fff; font-size: 1.8rem; font-weight: 600; }
+.nav-myoffice .info .name span { color: rgba(255, 255, 255, 0.6); }
+.nav-myoffice .info .name a { position: absolute; top: 2.2rem; right: 3rem; width: 2.2rem; height: 2.2rem; }
+.nav-myoffice .info .name a i { -moz-transition: all 0.2s; -webkit-transition: all 0.2s; transition: all 0.2s; color: #999ba2; font-size: 2.2rem; line-height: 0; width: 100%; height: 100%; display: block; }
+.nav-myoffice .info .name a i:before { margin: 0; width: 100%; height: 100%; }
+.nav-myoffice .info .name a:hover i { color: #d6d7da; }
+.nav-myoffice .info.admin .name { color: #fff; }
+.nav-myoffice .user { padding: 1.5rem 3rem; }
+.nav-myoffice .user div { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; }
+.nav-myoffice .user div span { float: left; width: 45%; color: #999ba2; }
+.nav-myoffice .user div p { float: left; width: 55%; color: #fff; font-size: 1.6rem; font-weight: 300; }
+.nav-myoffice .nav-menu { position: relative; margin: 3rem 0; background: #333645; width: 100%; }
+.nav-myoffice .nav-menu .icon-angle-right { color: transparent; position: absolute; top: 1.7rem; left: 1.2rem; font-size: 1.4rem; width: 2rem; height: 2rem; display: flex; justify-content: center; align-items: center; }
+.nav-myoffice .nav-menu .icon-angle-right:before { margin: 0; }
+.nav-myoffice .nav-menu .list { position: relative; width: 100%; overflow: hidden; min-height: 5.4rem; }
+.nav-myoffice .nav-menu .list:hover .menu, .nav-myoffice .nav-menu .list:hover .list > a { color: #c2c3c7; }
+.nav-myoffice .nav-menu .list:hover .icon-angle-right { color: #fff; }
+.nav-myoffice .nav-menu .list.select { height: auto; max-height: 100vh; }
+.nav-myoffice .nav-menu .list.select .menu, .nav-myoffice .nav-menu .list.select .list > a { color: #fff; }
+.nav-myoffice .nav-menu .list.select ul { max-height: 100vh; }
+.nav-myoffice .nav-menu .list.select ~ .icon-angle-right { color: #fff; }
+.nav-myoffice .nav-menu .list.select span .icon-plus-1 { opacity: 0; }
+.nav-myoffice .nav-menu .list.select span .icon-minus-1 { opacity: 1; }
+.nav-myoffice .nav-menu .list.select > a { color: #fff; }
+.nav-myoffice .nav-menu .menu, .nav-myoffice .nav-menu .list > a { width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; cursor: pointer; color: #85868f; font-size: 1.6rem; padding: 1.5rem 2rem; }
+.nav-myoffice .nav-menu .menu i, .nav-myoffice .nav-menu .list > a i { width: 2.4rem; height: 2.4rem; font-size: 2rem; line-height: 0; display: flex; justify-content: center; align-items: center; margin: 0 1.5rem; }
+.nav-myoffice .nav-menu .menu i:before, .nav-myoffice .nav-menu .list > a i:before { margin: 0; }
+.nav-myoffice .nav-menu .menu i.icon-th-large, .nav-myoffice .nav-menu .list > a i.icon-th-large { font-size: 1.4rem; }
+.nav-myoffice .nav-menu .menu i.icon-news-paper, .nav-myoffice .nav-menu .list > a i.icon-news-paper, .nav-myoffice .nav-menu .menu i.icon-wallet, .nav-myoffice .nav-menu .list > a i.icon-wallet { font-size: 1.4rem; }
+.nav-myoffice .nav-menu .menu p, .nav-myoffice .nav-menu .list > a p { width: calc(100% - 4.8rem - 4rem); }
+.nav-myoffice .nav-menu .menu span, .nav-myoffice .nav-menu .list > a span { position: relative; float: right; width: 2.4rem; height: 2.4rem; }
+.nav-myoffice .nav-menu .menu span i, .nav-myoffice .nav-menu .list > a span i { position: absolute; top: 0; left: 0; font-size: 1.3rem; margin: 0; width: 100%; height: 100%; -moz-transition: all 0.3s; -webkit-transition: all 0.3s; transition: all 0.3s; }
+.nav-myoffice .nav-menu .menu span .icon-minus-1, .nav-myoffice .nav-menu .list > a span .icon-minus-1 { opacity: 0; }
+.nav-myoffice .nav-menu ul { width: calc(100% - 4rem); margin: 0 auto; max-height: 0; display: flex; flex-direction: column; overflow: hidden; -moz-transition: all 0.5s; -webkit-transition: all 0.5s; transition: all 0.5s; }
+.nav-myoffice .nav-menu ul li { width: 100%; font-size: 1.4rem; margin: 0; }
+.nav-myoffice .nav-menu ul li a { color: #999ba2; cursor: pointer; text-decoration: none; width: 100%; height: 100%; padding: 1rem 0; -moz-transition: all 0.2s; -webkit-transition: all 0.2s; transition: all 0.2s; float: left; width: 100%; height: 100%; }
+.nav-myoffice .nav-menu ul li p { position: relative; margin-left: 6rem; }
+.nav-myoffice .nav-menu ul li p:before { content: ''; position: absolute; top: 50%; left: -1.5rem; transform: translateY(-50%); width: 0.3rem; height: 0.3rem; border-radius: 100%; -moz-transition: all 0.2s; -webkit-transition: all 0.2s; transition: all 0.2s; }
+.nav-myoffice .nav-menu ul li:hover a, .nav-myoffice .nav-menu ul li.select a { background: #3d4154; color: #fff; }
+.nav-myoffice .nav-menu ul li:hover p:before, .nav-myoffice .nav-menu ul li.select p:before { background: #fff; }

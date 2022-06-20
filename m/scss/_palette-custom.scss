@@ -1,0 +1,9 @@
+@import 'social-colors'; //소셜커뮤니티 컬러
+@import 'sass-material-colors/sass/sass-material-colors';
+
+//주 색상
+$main-color: #2682c3;
+$sub-color: #a7adb4;
+
+//폰트 색상 설정
+$main-font-color: grayscale($main-color);

@@ -1,0 +1,54 @@
+		/*
+		* 		jCombox 1.0b | 2008.08.25
+		*		jQuery: HTML Select Tag Replacement Plugin 1.0b
+		*		Licensed under a Creative Commons Attribution 3.0 License
+		*
+		*		Tested to work on Firefox2/3, IE6/7, Safari3.1(Win) and Opera9.5 versions
+		*		Limitations: no keyboard usage + no multiple selections > checkout next version
+		*		_______________________________________________
+		* 		http://jquerylab.com | Sponsored by http://12tb.com
+		*		ruvanepa@gmail.com
+		*
+		*		How-to use: $('.select').jcombox();
+		*			or replce all <select> tags: $('select').jcombox();
+		*/
+
+		/*******************jCombox CSS : DO NOT EDIT THIS******************************/
+
+		.jcombox *, .jcombox-m * { line-height: 1.3; cursor: default;}
+		.jcombox, .jcombox-m { margin:0px; float: left; white-space: nowrap; border: 1px solid #c3c3c3; /*background-color: #eaeaea;*/ }
+		.jcombox { /*width: 100px; height: 70px;*/  background-repeat: no-repeat; background-position: right center; background-image	: url('/images_kr/arrow.gif'); }
+		#ss { width: 188px;}
+
+		.jcombox-m { overflow: auto;  overflow-x: hidden; }
+		.jcombox a, .jcombox-m a { outline: 0px; display: block; /*color: #3c3c3c;*/ font-weight: normal; padding: 0 3px; text-decoration: none !important;}
+		.jcombox a:hover, .jcombox-m a:hover{ background-color: #e5e5e5; text-decoration: none !important; }
+
+		.jcombox a.disabled, .jcombox-m a.disabled { color:#c0c0c0 !important;}
+
+		.actext { padding: 1px 0px 0px 3px; }
+
+		.jcombox span, .jcombox-m div { background: #fff;  height:15px; /*border: 1px solid #eaeaea;border-right-color: #fff; background: #fff url('inner_shadow.gif') no-repeat top left;*/ }
+		.jcombox span{/*color: #3c3c3c; font-weight: bold;*/ display: block; overflow: hidden; margin-right: 20px; margin-top:3px;padding:0 0px 0px 5px; }
+
+		.jcombox-m div { overflow: hidden; /*border-top: 0px;*/ }
+		.jcombox div { background: #fff; margin-left:2px; display: none; position: absolute !important;/* border: 1px solid #808080;*/ z-index: 99 !important; background-color: #fff; overflow: auto; overflow-x: hidden; /*border-top: 0px;*/ }
+		.jcombox-m .current { font-weight: bold; }
+
+		/**********************End******************************/
+
+
+
+
+		/*******jCombox Themes: 'default' *******/
+		.default {
+			/*border				: 1px solid #a8a8a8; */
+			color					: #797979;
+			font-size			: 11px;
+
+			/* font-weight			: bold;
+			background-color	: #e9e9e9;*/
+		}
+		.default .menu { border: 1px solid #808080;}
+		.default-hover { border-color: #808080; }
+		.default .current { background-color: #919191 !important; color: #fff !important; }

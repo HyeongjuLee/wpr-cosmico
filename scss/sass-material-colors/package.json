@@ -1,0 +1,60 @@
+{
+  "_from": "sass-material-colors",
+  "_id": "sass-material-colors@0.0.5",
+  "_inBundle": false,
+  "_integrity": "sha1-uURTkjbJTi1OzjXS7j+iLxCy7UM=",
+  "_location": "/sass-material-colors",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "sass-material-colors",
+    "name": "sass-material-colors",
+    "escapedName": "sass-material-colors",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/sass-material-colors/-/sass-material-colors-0.0.5.tgz",
+  "_shasum": "b944539236c94e2d4ece35d2ee3fa22f10b2ed43",
+  "_spec": "sass-material-colors",
+  "_where": "C:\\Users\\Webpro-D2",
+  "author": {
+    "name": "minusfive",
+    "email": "mail@minusfive.com"
+  },
+  "bugs": {
+    "url": "https://github.com/minusfive/sass-material-colors/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Google's Material Design colors for Sass/Scss",
+  "homepage": "https://github.com/minusfive/sass-material-colors",
+  "keywords": [
+    "sass",
+    "scss",
+    "material",
+    "design",
+    "colors",
+    "palette",
+    "function",
+    "placeholders",
+    "extensions",
+    "classes"
+  ],
+  "license": "MIT",
+  "main": "sass/_sass-material-colors.scss",
+  "name": "sass-material-colors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minusfive/sass-material-colors.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.5"
+}

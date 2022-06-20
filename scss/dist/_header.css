@@ -1,0 +1,334 @@
+@charset "UTF-8";
+body {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+/*전체 공통, 모바일은 여기만 변경해도 ok*/
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif;
+}
+
+/* 상단 공통 */
+#header {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 400;
+  height: 10rem;
+}
+#header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  width: 500%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120rem;
+  margin: 0 auto;
+}
+.header article.header-top {
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+.header-top-btn {
+  width: auto;
+}
+.header-top-btn ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.header-top-btn ul li {
+  float: left;
+}
+.header-top-btn ul li a {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  color: #686868;
+  font-size: 1.3rem;
+}
+.header-top-btn ul li.top-btn {
+  /*top_btn images 명은 top_btn_ + class 명으로 통일 권장.*/
+}
+.header-top-btn ul li.top-btn-line {
+  width: 0.1rem;
+  height: 1.5rem;
+  background: #8f8f8f;
+  padding: 0;
+  margin: 0 1.5rem;
+}
+.header-top-btn ul li.top-btn_login {
+  background: url("/images/share/top_btn_login.png") no-repeat center;
+}
+.header-top-btn ul li.top-btn_logout {
+  background: url("/images/share/top_btn_logout.png") no-repeat center;
+}
+.header-top-btn ul li.top-btn_home {
+  background: url("/images/share/top_btn_home.png") no-repeat center;
+}
+.header-top-btn ul li.top-btn_shop {
+  background: url("/images/share/top_btn_shop.png") no-repeat center;
+}
+.header-top-btn ul li.top-btn_mypage {
+  background: url("/images/share/top_btn_mypage.png") no-repeat center;
+}
+.header-top-btn ul li.top-btn_myoffice {
+  background: url("/images/share/top_btn_myoffice.png") no-repeat center;
+}
+.header-top-btn ul li.top-btn_admin {
+  background: url("/images/share/top_btn_admin.png") no-repeat center;
+}
+.header-top-btn ul li.admin a {
+  color: #05fff6;
+}
+.header-all {
+  position: absolute;
+  right: 0;
+  margin-right: 12rem;
+}
+.header-all .icon-menu {
+  line-height: 0;
+  color: #fff;
+  width: 12rem;
+  height: 12rem;
+  cursor: pointer;
+  display: inline-block;
+}
+.header-all .icon-menu:before {
+  content: initial;
+}
+.header-all .icon-menu span {
+  position: absolute;
+  left: 0;
+  width: 12rem;
+  height: 0.3rem;
+  background: #fff;
+  border-radius: 0.3rem;
+}
+.header-all .icon-menu span:nth-of-type(1) {
+  top: calc(25% - 0.15rem);
+}
+.header-all .icon-menu span:nth-of-type(2) {
+  top: calc(50% - 0.15rem);
+}
+.header-all .icon-menu span:nth-of-type(3) {
+  top: calc(75% - 0.15rem);
+}
+.header-all ul {
+  position: absolute;
+  top: 13rem;
+  left: 50%;
+  z-index: 10;
+  width: auto;
+  max-width: 100vw;
+  padding: 1rem;
+  background: #fff;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.header-all ul li {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.2rem 0.5rem;
+}
+.header-all ul li a {
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  font-size: 1.3rem;
+  color: inherit;
+}
+.header-all ul li a:hover {
+  color: #d0d0d0;
+}
+.header-all ul.active {
+  display: flex !important;
+}
+.header #logo {
+  position: relative;
+  float: left;
+  z-index: 2;
+}
+.header #logo a {
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+}
+.header #logo img {
+  width: 14rem;
+  height: 6.4rem;
+}
+.header .nav {
+  position: relative;
+  z-index: 1;
+  width: 94rem;
+  height: 7.7rem;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: flex-start;
+}
+.header .nav-main {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-style: normal;
+  text-decoration: none;
+  background: none;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 100%;
+  max-height: 7.7rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.header .nav-main::after {
+  position: absolute;
+  top: 0;
+  left: -250%;
+  z-index: -1;
+  width: 500%;
+  height: 100%;
+  background: #fff;
+}
+.header .nav-main > li {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20%;
+  height: 100%;
+}
+.header .nav-main > li > a {
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  font-size: 1.8rem;
+  padding: 2.5rem 0;
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+.header .nav-main > li > a > i {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 0px;
+  height: 0.1rem;
+}
+.header .nav-main > li > a:hover i {
+  width: 100%;
+  background: #555;
+}
+.header .nav-main > li:hover > a {
+  color: #da2027;
+}
+.header .nav-sub {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-style: normal;
+  text-decoration: none;
+  background: none;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  padding: 1.5rem 0;
+  margin-bottom: 0.5rem;
+}
+.header .nav-sub > li {
+  position: relative;
+  float: left;
+  font-size: 0;
+  width: 100%;
+  text-align: left;
+  padding-left: 30%;
+}
+.header .nav-sub > li > a {
+  display: inline-block;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: #424242;
+  padding: 1rem 1rem;
+  font-size: 1.44rem;
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+.header .nav-main:hover {
+  max-height: 100vh;
+}
+.header .nav-main:hover::after {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+.header .nav-main:hover .nav-sub {
+  max-height: 100vh;
+}
+.header .nav-main:hover .nav-sub:hover a {
+  color: #8e8e8e;
+}
+.header .nav-main:hover .nav-sub a:hover {
+  color: #000;
+}
+.header .nav-bg {
+  position: absolute;
+  top: 10rem;
+  left: 0;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-height: 0;
+  background: #fff;
+}
+.header:hover .nav-bg {
+  max-height: 100vh;
+}

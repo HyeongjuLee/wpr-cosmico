@@ -1,0 +1,120 @@
+@import 'mixin-custom';
+
+$border-color: material-color('grey', '300');
+$nav-left-sub-height: rem(85px);
+
+.nav-left-sub {
+	display: block;
+	height: $nav-left-sub-height;
+	margin-bottom: rem(30px);
+	ol {
+		@include flex($bet);
+		//overflow-x: scroll;
+
+		width: 100%;
+		height: $nav-left-sub-height;
+		white-space: nowrap;
+		//box-shadow: 0 -1px 0 0 rgba(0,0,0,0.2);
+
+		li {
+			//display: inline-block;
+			//width: calc(100% / 3);
+			height: calc(100% - 2rem);
+			margin: rem(10px) 0;
+		}
+
+		a {
+			@include default-a;
+			@include flex;
+			padding: 0 rem(20px);
+			font-size: $font-size;
+			color: $nav-color;
+			letter-spacing: -0.025em;
+		}
+
+		.depth2 {
+			a {
+				@include rounded;
+				color: mix($nav-color, $main-color);
+				background: rgba(mix($nav-color, $main-color), 0.1);
+			}
+		}
+	}
+}
+
+.pyramid {
+	width: 100%;
+	//border-bottom: solid 1px $border-color;
+	color: material-color('grey', '800');
+	font-size: $font-size;
+	line-height: 1.5;
+	* {
+		font-family: $parent-css !important;
+	}
+
+	li {
+		border: 1px solid $border-color;
+		@include rounded;
+		width: 100%;
+		background: #fff;
+		margin: $font-size/2 0;
+		overflow: hidden;
+	}
+
+	h6 {
+		padding: $font-size;
+		background: #fff;
+		margin: 0;
+		cursor: pointer;
+		//font: bold 100%/100% Arial, Helvetica, sans-serif;
+		//border-top: solid 1px $border-color;
+		//border-bottom: none;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: $font-size;
+		font-weight: 500;
+
+		p {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+
+		.article {
+			padding-right: $font-size;
+			text-align: center;
+			color: $main-color;
+			white-space: nowrap;
+		}
+
+		.subject {
+			color: mix($main-color, #000);
+		}
+
+		i {
+			color: material-color('grey', '400');
+			//color: $border-color;
+		}
+	}
+	div {
+		background: material-color('grey', '100');
+		//margin: 0 $font-size;
+		margin: 0;
+		padding: $font-size;
+		//@include rounded;
+		font-size: $font-size - rem(2px);
+		display: none;
+	}
+
+	.active {
+		i {
+			transform: rotate(180deg);
+			color: $border-color;
+		}
+		div {
+			display: block;
+		}
+	}
+}

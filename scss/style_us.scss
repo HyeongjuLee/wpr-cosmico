@@ -1,0 +1,93 @@
+@import 'mixin-custom';
+
+.index-bn li a .tit p {
+	letter-spacing: -0.05em;
+	font-size: rem(45px);
+}
+
+.footer-menu {
+	.cscenter {
+		i {
+			margin: 0 rem(25px);
+		}
+		li {
+			word-break: keep-all;
+	
+			&:last-child {
+				width: rem(220px);
+			}
+		}
+		.tit {
+			width: rem(90px);
+		}
+	}
+}
+
+.footer {
+	.banners {
+		right: rem(-55px);
+	}
+	.footer-icon {
+        right: rem(-60px);
+	}
+}
+
+#joinStep .wrap h6 {
+	word-break: keep-all;
+}
+#joinStep .wrap li {
+	word-break: keep-all;
+}
+#joinStep.joinStep3 article > div .con .button {
+	word-break: keep-all;
+	white-space: inherit;
+}
+
+#joinStep.joinStep3 article .bank {
+	width: 160%;
+	margin-left: -12%;
+}
+
+.location-info .info li {
+	flex-direction: column;
+	h6 {
+		width: 100%;
+	}
+	span {
+		width: 100%;
+	}
+}
+.location-info a {
+	width: rem(220px);
+}
+
+.nav-myoffice .nav-menu .menu p, .nav-myoffice .nav-menu .list > a p {
+	word-break: keep-all;
+	font-size: $font-size;
+	letter-spacing: -0.01em;
+}
+
+.nav-myoffice .nav-menu ul li p {
+	word-break: keep-all;
+	letter-spacing: -0.01em;
+}
+
+.voter {
+	.search_form article.table .search {
+		width: 33% !important;
+		.search_reset {
+			font-size: $font-size - rem(2px) !important;
+		}
+	}
+}
+
+.search_form .inputs ~ .buttons button {
+	font-size: $font-size - rem(2px) !important;
+}
+
+.orderList {
+	th, td {
+		word-break: keep-all;
+		line-height: 1.2;
+	}
+}

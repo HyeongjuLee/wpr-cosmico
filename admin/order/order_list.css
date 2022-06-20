@@ -1,0 +1,102 @@
+/*한글*/
+
+.input_text {vertical-align:middle; padding:2px; border:1px solid #ccc;}
+.input_area {vertical-align:middle; padding:2px; border:1px solid #ccc;}
+.imgs {width:70px; height:70px;}
+.readonly {background:#eee;}
+.notData {padding:20px 0px;}
+
+#order td,#order th {border:1px solid #e8e8e8; font-family:dotum; line-height:120%;color:#3e3e3e;}
+
+#order .list {}
+#order .list th.outTH {border:1px solid #bbc0c4; height:34px; background-color:#f5f4f4; color:#80878d; font-size:11px; line-height:14px;}
+#order .list td.outTD {text-align:center; border:1px solid #bbc0c4; padding:6px 0px; color:#555; font-size:11px; line-height:14px;}
+#order .list td.viewCon {border:1px solid #bbc0c4; border-bottom:2px solid #333;background-color:#f4f4f4;}
+#order .list td.stateTD {background-color:#f5f4f4;}
+
+#order .list td.viewCon .inDivs {width:98%; margin:0px auto; padding:10px 0px; background-color:#f4f4f4;}
+
+#order .inTable th {border:1px solid #bbc0c4; height:28px; background-color:#f0f0f0; color:#707070; font-size:11px;}
+#order .inTable td {border:1px solid #bbc0c4; font-size:11px; color:#555; text-align:left; text-indent:12px; font-weight:bold; background-color:#fff;}
+#order .inTable td.addr {padding:5px 0px;}
+#order .inTable td p.red {font-size:12px;}
+
+
+#order .GoodsTable td {text-indent:0px; text-align:center; font-weight:normal;}
+#order .GoodsTable td.deliveryInfo {text-align:left; font-weight:normal; line-height:20px;}
+#order .GoodsTable td.deliveryInfo .input_text {height:14px; line-height:14px;}
+#order .GoodsTable .bor_nl {border-left:0px; }
+#order .GoodsTable .bor_nr {border-right:0px; }
+#order .GoodsTable .thumImg {width:80px; text-align:center; border:1px solid #ccc;}
+#order .GoodsTable .subject {text-align:left;}
+#order .GoodsTable .goodsOption {font-weight:normal;line-height:14px; margin-top:4px;}
+#order .GoodsTable .dtod {line-height:20px; padding-left:4px;}
+#order .GoodsTable {}
+#order .GoodsTable {}
+
+
+
+#order .table1 th {background-color:#eee;}
+#order .table1 td {padding:5px 0px 5px 10px;}
+
+
+
+#order .table2 thead th {background-color:#cfecff; padding:7px 0px; border-bottom:2px solid #a2a2a2 !important; color:#3e3e3e;}
+#order .table2 .td_lheight {line-height:160%; padding-top:3px; padding-bottom:3px;}
+#order .table2 th {background-color:#ffffeb;}
+#order .table2 td {padding-left:5px;}
+#order .table2 td.underline {border-bottom:3px solid #333;}
+
+#order .innerTable {width:99%; margin:3px 0px;}
+#order .innerTable thead td {padding:4px 0px;background-color:#d1dfe7;color:#2a6387;text-align:center; }
+#order .innerTable td {padding:4px 0px;text-align:center;}
+#order .innerTable td.td_dtod {padding-left:10px;}
+#order .innerTable td.td_dtod p {margin-top:3px;}
+
+
+.td_centers {text-align:center; height:40px;color:#3e3e3e; background-color:#e3f2fc; padding-left:0px !important;}
+.td_color2 {background-color:#ffd884;}
+.strong {font-weight:bold; color:#444 !important; padding-right:10px;}
+
+
+#order .table2 .inTableTD {padding:0px;}
+#order .table2 .inTableTD table {width:700px;}
+#order .table2 .inTableTD table td {padding:9px; border:0px none;border-left:1px solid #e8e8e8;}
+#order .table2 .inTableTD table .th {background-color:#d1dfe7; font-weight:bold; text-align:center;}
+#order .table2 .inTableTD table .bt {border-top:1px solid #e8e8e8;}
+
+
+/*
+#order .inTable .th {background:#f4f4f4; padding:5px 0px;padding-left:20px;text-align:left; color:#888; font-weight:bold;}
+#order .inTable td {text-align:right;}
+*/
+.lineBold {border-bottom:3px double #a2a2a2 !important;}
+
+.statusP {padding:4px 0px !important;}
+.statusP a:hover{text-decoration:underline;}
+
+.dtodinput {width:120px; border:1px solid #ccc; height:15px;}
+
+
+.btnZoneLeft {float:left; width:126px; margin-left:6px;}
+.btnZoneRight {float:right; margin-right:6px;width:146px;}
+.btnZoneRight .blines {margin-bottom:4px;}
+
+
+.input_radio {vertical-align:middle;}
+.select_s  {vertical-align:middle;}
+
+.tdse1 {height:25px;width:150px;text-align:center; font-weight:bold; background-color:#eee;}
+.tdse2 {width:650px; padding-left:10px;}
+
+
+#delivery {}
+#delivery .deliveryArea td,#delivery .deliveryArea th {height:31px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+#delivery .deliveryArea th {background-color:#f4f4f4;}
+#delivery .deliveryArea td {padding-left:5px;}
+
+#orderCancel {}
+#orderCancel .content th {background-color:#eee;}
+#orderCancel .content td {padding:5px 0px 5px 10px;}
+#orderCancel td.submitzone {padding:5px 0px 20px 0px; text-align:center; border-top:1px solid #ccc;}
+#orderCancel .bort {border-top:1px solid #ccc;}

@@ -1,0 +1,28 @@
+/* 한글깨짐 */
+
+	#mypage.member_modify th {border-bottom:1px solid #e0e0e0;padding:8px 0px;}
+	#mypage.member_modify td {border-bottom:1px solid #e0e0e0;padding:8px 0px;}
+	#mypage.member_modify th {font-weight:normal; background:#e9e9e9;text-align:left;padding-left:10px; color:#737373;}
+	#mypage.member_modify td {padding-left:15px;}
+	#mypage.member_modify td p {color:#555;margin-left:3px;}
+	#mypage.member_modify .line td {border-top:2px solid #cbcbcb;}
+	#mypage.member_modify .line th {border-top:2px solid #cbcbcb;}
+	#mypage.member_modify .input_text {border:1px solid #ddd; vertical-align:middle; line-height:28px; height:28px; padding-left: 4px;}
+	#mypage.member_modify .summary {margin-left:7px; color:#a2a2a2;font-size:8pt;}
+
+	#mypage .btn_area {padding:30px 0px; }
+
+	#mypage .c_s_title {font-size:14px;font-weight:bold;padding:5px 0px;color:#333333;}
+
+
+	/* 약관 */
+	#mypage .agreeArea {margin-top:0px;}
+	#mypage .agreeTitle {background-color:#555555; color:#fff; padding:2px 20px 0px 20px; height:36px; line-height:36px; font-size:15px;}
+	#mypage .agreeTitle .fright {background-color:#555555; color:#fff; height:30px; line-height:30px; font-size:13px;}
+	#mypage .agreeTitle label {cursor:pointer;}
+	#mypage .agreeTitle input.input_checkbox {width:16px; height:16px; margin:0px; padding:0px; vertical-align:middle; cursor:pointer;}
+	#mypage .agreeBox {border:1px solid #555; overflow-y:scroll; padding:15px; height:130px; border-bottom-width:2px;}
+	#mypage .agreeBox2 {border:1px solid #555;  padding:15px; border-bottom-width:1px;}
+
+
+	select {border:1px solid #ddd; height: 28px;}

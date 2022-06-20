@@ -1,0 +1,201 @@
+@import 'mixin-custom';
+
+$input-height: rem(70px);
+
+#loadingPro {
+	position: fixed;
+	z-index: 99999;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background: url('/images_kr/loading_bg70.png') 0 0 repeat;
+	display: none;
+}
+
+.loadingsInner {
+	position: relative;
+	top: 40%;
+	text-align: center;
+}
+
+.input_text {
+	border-color: material-color('grey', '400');
+	background: #fff;
+	outline: none;
+	width: 100%;
+	height: $input-height - rem(10px);
+
+	&:read-only {
+		background: material-color('grey', '200');
+		// border-color: material-color('grey');
+	}
+}
+
+
+.button {
+	@include button($basic);
+	@include inline-flex;
+	margin: 0;
+	color: #fff;
+	min-width: rem(70px);
+	height: $input-height - rem(10px);
+	padding: 0 rem(10px);
+
+	&:link, &:active, &:visited, &:hover {
+		color: #fff;
+	}
+
+	&.red {
+		@include button($admin);
+	}
+
+	&.answer {
+		@include button($answer);
+	}
+
+	&.delete {
+		@include button($delete);
+	}
+
+	&.edit {
+		@include button($edit);
+	}
+
+	&.green {
+		@include button($save);
+	}
+}
+
+.fixedTableWrap {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+#fixedTable {
+	position: relative;
+	display: block;
+	/*font-size: 13px;*/
+	color: #333;
+
+	.fixedTable_Default {
+		-webkit-overflow-scrolling: touch;
+		overflow-x: scroll;
+		height: 100%;
+	}
+
+	.fixedTable_overCell {
+		background-color: #fff;
+		box-shadow: 2px 0 5px -2px #cdcdcd;
+		left: 0;
+		position: absolute;
+		top: 0;
+		z-index: 21;
+	}
+
+	th,
+	td {
+		white-space: nowrap;
+	}
+
+	th {
+		background: #eeeeee;
+		color: #4e4e4e;
+		border: 1px solid #c5c5c5;
+		font-size: 13px;
+		font-weight: 500;
+	}
+}
+
+td.nodata,
+#fixedTable td.nodata {
+	padding: 30px 0;
+	border: 1px solid #eeeeee;
+}
+
+.input_text_p {
+	border: 1px solid #ccc;
+	line-height: 27px;
+	height: 29px;
+	border-radius: 3px;
+	vertical-align: middle;
+	background-color: #ffffff;
+	padding: 0px 7px;
+}
+
+.total {
+	@include table-color-wrap($oc-orange-5, $wrap: true, $bg: 'darken');
+	th, td {
+		height: $input-height;
+	}
+	th:last-of-type {
+		border-bottom: none;
+	}
+}
+
+#fixedTable {
+	@include table-color($myoffice-color, true);
+	th, td {
+		height: $input-height !important;
+		padding: 0 rem(10px) !important;
+		letter-spacing: -0.025em;
+	}
+
+	.fixedTable_overCell {
+		box-shadow: 2px 0 5px -3px rgba($myoffice-color, .5);
+		&:before {
+			@include presudo($le: 0, $top: 0);
+			z-index: 1;
+			background: $myoffice-color;
+			opacity: 0.05;
+			mix-blend-mode: multiply;
+		}
+	}
+}
+
+.point_transfer {
+	@include table-color-wrap($oc-red-5, $wrap: true, $bg: 'darken');
+	th, td {
+		padding: rem(10px);
+		height: $input-height;
+	}
+	.inputs {
+		@include flex($st);
+		width: 100%;
+
+		.button {
+			margin-left: rem(10px);
+		}
+	}
+	.buttons {
+		margin-top: rem(5.5px);
+		.button {
+			min-width: rem(45px);
+			height: rem(45px);
+			margin: rem(2.5px) 0;
+			// padding: 0 rem(5px);
+
+			&:before {
+				margin: 0;
+				font-size: rem(12px);
+			}
+		}
+		.icon-cancel {
+			background: material-color('grey', '600');
+			color: material-color('grey', '50');
+			border-color: material-color('grey', '900');
+			&:before {
+				font-size: rem(15px);
+			}
+		}
+		.icon-plus-2 {
+			background: material-color('blue', '700');
+			border-color: material-color('blue', '900');
+			color: #fff;
+			&:before {
+				margin-right: rem(10px);
+			}
+		}
+	}
+}

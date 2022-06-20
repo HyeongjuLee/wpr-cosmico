@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+/*ÇÑ±Û*/
+.sbHolder {background-color: #fff;border: solid 1px #ccc;font-size: 12px;font-weight: normal;position: relative;}
+
+.sbHolder	{width:150px; height:20px;}
+.sbSelector	{width:150px; height:20px;}
+.sbToggle	{width:130px; height:20px; background: url(/images/select-icons.png) right -122px no-repeat;}
+.sbOptions	{width:150px;}
+
+.sbSelector {line-height:20px;}
+
+
+#floating2 .sbHolder	{width:107px; height:18px;}
+#floating2 .sbSelector	{width:107px; height:18px;}
+#floating2 .sbToggle	{width:85px;  height:18px; background: url(/images/select-icons.png) right -122px no-repeat;}
+#floating2 .sbOptions	{width:107px;}
+
+#floating2 .sbSelector {line-height:18px;}
+
+
+#detailView .sbHolder	{width:250px; height:18px;}
+#detailView .sbSelector	{width:250px; height:18px;}
+#detailView .sbToggle	{width:23px;  height:18px; background: url(/images/select-icons.png) right -122px no-repeat;}
+#detailView .sbOptions	{width:250px;}
+
+#detailView .sbSelector {line-height:18px;}
+
+#admin_forum .sbHolder	{width:107px; height:18px;}
+#admin_forum .sbSelector{width:107px; height:18px;}
+#admin_forum .sbToggle	{width:85px;  height:18px; background: url(/images/select-icons.png) right -122px no-repeat;}
+#admin_forum .sbOptions	{width:107px;}
+
+#admin_forum .sbSelector {line-height:18px;}
+
+
+
+.sbHolder:focus .sbSelector{}
+.sbSelector {display:block; left:0; outline:none; overflow:hidden; position:absolute; text-indent:10px; top:0;}
+.sbSelector:link, .sbSelector:visited, .sbSelector:hover{outline:none; text-decoration:none;}
+
+.sbToggle { display: block;outline: none; position: absolute;right:0; top: 0; }
+.sbToggle:hover {background: url(/images/select-icons.png) right -167px no-repeat;}
+.sbToggleOpen {background: url(/images/select-icons.png) right -22px no-repeat;}
+.sbToggleOpen:hover {background: url(/images/select-icons.png) right -66px no-repeat;}
+.sbHolderDisabled {background-color: #3C3C3C; border: solid 1px #515151;}
+.sbHolderDisabled .sbHolder {}
+.sbHolderDisabled .sbToggle {}
+
+.sbOptions {background-color: #fff; border: solid 1px #ccc; list-style: none; left: -1px; margin: 0; padding: 0; position: absolute; top: 30px;  z-index: 1; overflow-y: auto;}
+.sbOptions li {padding: 0 7px;}
+.sbOptions a {border-bottom: dotted 1px #515151; display: block; outline: none; padding: 7px 0 7px 3px;}
+.sbOptions a:link, .sbOptions a:visited{text-decoration: none;}
+
+.sbOptions a:hover,
+.sbOptions a:focus,
+.sbOptions a.sbFocus {}
+.sbOptions li.last a {border-bottom: none;}
+
+.sbOptions .sbDisabled { border-bottom: dotted 1px #515151; display: block; padding: 7px 0 7px 3px;}
+.sbOptions .sbGroup {border-bottom: dotted 1px #515151; display: block; font-weight: bold; padding: 7px 0 7px 3px;}
+.sbOptions .sbSub{padding-left: 17px;}

@@ -1,0 +1,80 @@
+/* 한국 */
+	.readonly {background-color:#eee;}
+
+	#cart_title_b {font-size:16px; line-height:36px; height:36px; border-top:1px solid #878787; border-bottom:1px solid #878787; background:#333333; color:#fff; }
+	.cart_title_m {text-align:left; font-size:16px; line-height:25px; background:#333333; color:#fff; padding:6px 4px 2px 4px ; font-weight: 500; text-indent:10px; }
+
+
+	.ordersInfo {margin-top:0px; word-break:keep-all; word-wrap:break-word;}
+	.ordersInfo th {border-bottom:1px solid #ccc; border-top:1px solid #ccc; background-color:#f5f5f5; height:40px; text-align:left; padding:6px 6px; font-size:14px; font-weight:500;}
+	.ordersInfo td {border-bottom:1px solid #ccc; border-top:1px solid #ccc; height:30px; padding: 6px 6px;}
+	.ordersInfo tr:first-child th {border-top:2px solid #444;}
+	.ordersInfo tr:first-child td {border-top:2px solid #444;}
+	.ordersInfo td.zipTD {padding-top:5px;padding-bottom:5px;}
+	.ordersInfo td.zipTD p {margin-top:4px;}
+	.ordersInfo td.zipTD p:first-child {margin-top:0px;}
+	.ordersInfo .input_text1 {line-height:28px; height:28px; border:1px solid #ccc; vertical-align:top;}
+
+
+
+	.input_text {height:27px; line-height:27px;font-size:14px; padding:4px; vertical-align:middle; border:1px solid #ddd;}
+	.width60 {width: 60%}
+	.input_btn {height:27px; line-height:27px;font-size:13px; padding:0px; background-color:#eee; border:1px solid #ddd;vertical-align:middle;}
+	.orderMemo {padding:0px 0px 5px 0px; font-weight:bold; font-size:13px;}
+
+
+
+	.cartPriceArea {border:2px solid #333333;}
+	.cartPriceArea span {display:inline-block; line-height:30px;}
+	.cartPriceArea span.cartPrice_tit {color:#333; width:40%; font-size:15px; text-indent:7px; letter-spacing:-1px;}
+	.cartPriceArea span.cartPrice_Res {color:#777; width:55%; font-weight:400; font-size:15px; letter-spacing:-1px;  text-align:right;}
+	.cartPriceArea span.cartPrice_Res strong {color:#222; font-size:18px; vertical-align:-2px;}
+	
+	.cartPriceArea .price { height:40px; line-height:40px; text-align:right; font-family:tahoma, gulim, dotum, '굴림','돋움'; font-size:22px; font-weight:500; color: #333333;}
+	.cartPriceArea span.won {margin-left:2px; font-size:15px; color:#333333;}
+	.cartPriceArea .totalPV {color:#ff3300;font-size:16px;}
+	.cartPriceArea span.pv {margin-left:5px; font-size:13px; color:#ff3300;}
+	.cartPriceArea .LastArea {color:#ea0000;}
+	.cartPriceArea .pointPrice { height:40px; line-height:40px; text-align:right; font-family:tahoma, gulim, dotum, '굴림','돋움'; font-size:15px; font-weight:500; color: #333333;}
+	.cartPriceArea span.point {margin-left:2px; font-size:13px; color:#333333;}
+
+	.payBtnWrap {width: 100%; border-bottom:1px solid #eee;padding:5px 0px; float: left;}
+	.selectPayBtn {margin:4px 0px; width: 47%; margin-left: 2%; float: left; }
+
+
+
+/* 복합결제 s */
+	#mComplexInfo span.won {margin-left:7px; font-size:13px; color:#606060;font-weight: 500;}
+
+	#mComplexInfo select.input_text {line-height:27px; height:27px; border:1px solid #ccc;}
+	#mComplexInfo th {background-color:#f5f5f5; border-bottom:1px solid #ddd; text-align:left; padding:8px 5px 8px 5px;		border-top:1px solid #ddd;font-weight: 500; }
+	#mComplexInfo th.title {font-size: 14px; }
+	#mComplexInfo td {border-bottom:1px solid #ddd; padding:5px 5px 5px 5px;		border-top:1px solid #ddd; }
+	#mComplexInfo td select {line-height:18px; font:12px/1.4 "돋움", dotum, Gulim, sans-serif; height:18px; zoom:1;}
+	#mComplexInfo td select option {line-height:18px;}
+	#mComplexInfo td ul li {line-height:20px;}
+	#mComplexInfo .input_text {line-height:27px; height:27px; border:1px solid #ccc; vertical-align:top; padding-left: 6px;}
+	#mComplexInfo tr.lastTD th {border-bottom:1px solid #777;}
+	#mComplexInfo tr.lastTD td {border-bottom:1px solid #777;}
+
+	#mComplexInfo .paymethod {background: #A5C1CE; text-align: center;}
+	#mComplexInfo .paymethodAdd {background: #85d6c0; text-align: center;}
+
+	#mComplexInfo .CardPriceTotal {border:1px solid #919191; background-color:#f5f5f5;  margin-right:1px;}
+	#mComplexInfo .CardPriceTotal td.title {font-weight: 500; font-size:17px; text-align:center;}
+	#mComplexInfo .CardPriceTotal td.amount {font-weight: 500; font-size:16px; text-align:right; background-color:#fff;padding-right: 20px;}
+	#mComplexInfo .CardPriceTotal td.amountR {font-weight: 500; font-size:16px; text-align:right; background-color:#fff; padding-right: 20px;}
+	#mComplexInfo .addChk {wi dth: 16px; he ight: 16px; border:2px solid red; margin-top: -2px; border: solid white; }
+
+	#mComplexInfo .a_submit  {display: inline-block; padding: 0px 6px; vertical-align: middle; cursor: pointer; line-height:25px;}
+	#mComplexInfo .addbtn  {display: inline-block; padding: 0px 6px; vertical-align: middle; cursor: pointer; line-height:25px;}
+	#mComplexInfo .design1 {background-color: #337ab7; border:1px solid #2e6da4; border-radius: 3px; color:#fff !important;font-weight:normal;}
+	#mComplexInfo .design2 {background-color: #f9f9f9; border:1px solid #cccccc; border-radius: 3px; color:#666 !important;font-weight:normal;}
+	#mComplexInfo .design3 {background-color: #898989; border:1px solid #606060; border-radius: 3px; color:#fff !important;font-weight:normal;}
+	#mComplexInfo .design4 {background-color: #c40d0d; border:1px solid #880000; border-radius: 3px; color:#fff !important;font-weight:normal;}
+	#mComplexInfo .design5 {background-color: #33b793; border:1px solid #1a9473; border-radius: 3px; color:#fff !important;font-weight:normal;}
+
+	#mComplexInfo .paytypeAddArea {padding:7px 0px; text-align:center; height:25px; line-height:25px;}
+
+	#mComplexInfo .BankInfo {margin-top:20px;}
+/* 복합결제 e */

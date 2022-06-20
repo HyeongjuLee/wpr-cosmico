@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/*레이어팝업 기본*/
+
+.popupLayer {
+	position: absolute;
+	@include box-shadow(0, 3px, 6px, rgba(0,0,0,0.19));
+	@include box-shadow(0, 6px, 10px, rgba(0,0,0,0.23));
+
+	$z-index: 1;
+
+	&-close {
+		cursor: pointer;
+		@include position(absolute, $ri: px(3rem) / 5, $top: px(3rem) / 5);
+		z-index: $z-index + 1;
+
+		i {
+			@include transition(all .3s ease);
+			font-size: px(2rem);
+			line-height: $line-height;
+			color: #111;
+			background: #fff;
+			//border-radius: 100%;
+			// @include box-shadow(0, 1px, 3px, rgba(0,0,0,0.16));
+			// @include box-shadow(0, 3px, 6px, rgba(0,0,0,0.23));
+			-webkit-text-stroke: 1.5px #fff;
+			display: block;
+			width: px(3rem);
+			height: px(3rem);
+			text-align: center;
+			opacity: 0.8;
+		}
+	}
+
+	&-content {
+		overflow: hidden;
+		z-index: $z-index;
+	}
+
+	&-close-today {
+		display: table;
+		width: 100%;
+		z-index: $z-index + 1;
+
+		.close-today, .close {
+			@include transition(all .3s ease);
+			cursor: pointer;
+			color: rgba(0,0,0,0.5);
+			font-size: px(1.5rem);
+			line-height: $line-height;
+			font-weight: 500;
+			text-align: center;
+			display: table-cell;
+			width: 50%;
+			border: 1px solid #eee;
+			padding: px(1.5rem) 0;
+			background: #fff;
+
+			&:hover {
+				color: darken($sub-color, 40%);
+				background: #fefefe;
+			}
+		}
+
+		.close-today {
+			label {
+				
+			}
+
+			input {
+				visibility: hidden;
+				width: 0;
+				height: 0;
+				@include position(absolute);
+				z-index: 0;
+			}
+		}
+
+		.close {
+
+		}
+
+	}
+}

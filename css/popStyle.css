@@ -1,0 +1,68 @@
+@charset "UTF-8";
+body { font-size: 1.5rem; line-height: 1.5; }
+
+/* 팝업관련 기본 */
+#popAll1 { width: 100%; }
+
+#popAll1 .top { clear: both; width: 100%; background: url(/images/admin/pop/popAll1_bg.gif) 0 0 repeat-x; }
+
+#popAll1 .bottom { clear: both; width: 100%; background: url(/images/admin/pop/pop_bottom_bg.gif) 0 0 repeat-x; height: 60px; }
+
+#popAll1 .bottom .info { clear: both; float: left; }
+
+#popAll1 .bottom .btn_area { float: right; }
+
+#pop_title { clear: both; float: left; width: 100%; height: 40px; background: url(/images/pop/popAll1_bg.gif) 0 0 repeat-x; overflow: hidden; }
+
+#popup .close { text-align: center; margin-top: 13px; }
+
+#popup .line1 { height: 1px; background-color: #dedede; }
+
+#popup .line2 { height: 2px; background-color: #f4f4f4; }
+
+#popup .content { clear: both; color: #555; padding-top: 20px; height: 60px; overflow: hidden; }
+
+#pop_search .close { text-align: center; margin-top: 13px; }
+
+#pop_search .line1 { height: 1px; background-color: #dedede; }
+
+#pop_search .line2 { height: 2px; background-color: #f4f4f4; }
+
+#pop_search .content { clear: both; color: #555; padding-top: 20px; height: 450px; /* overflow:hidden; */ overflow-y: auto; }
+
+#pop_search .search_table { width: 100%; }
+
+#pop_search .search_table th { background: #585858; color: #fcfcfc; padding: 1rem; font-weight: 500; font-size: 1.5rem; }
+
+#pop_search .search_table td { padding: 0.5rem 1rem; text-align: center; font-size: 1.4rem; font-weight: 500; }
+
+.tron:hover { background: #eee; }
+
+.pagings { text-align: center; padding-top: 15px; }
+
+.input_text { padding: 2px 0px 1px 0px; border: 1px solid #d6d6d6; vertical-align: middle; }
+
+.searchText { font-weight: bold; }
+
+#popup_d .content { clear: both; color: #555; padding-top: 20px; width: 100%; overflow: hidden; }
+
+#popup_d .line1 { height: 1px; background-color: #dedede; }
+
+#popup_d .line2 { height: 2px; background-color: #f4f4f4; }
+
+#popup_d .close { text-align: center; margin-top: 13px; }
+
+#popup_d table.popDetail { width: 100%; }
+
+#popup_d table.popDetail th, #popup_d table.popDetail td { border: 1px solid #fff; }
+
+#popup_d table.popDetail thead th { background: #8d8d8d; color: #fff; padding: 6px 0px; text-align: center; }
+
+#popup_d table.popDetail tbody td { background-color: #f3f3f3; padding: 3px 0px; text-align: center; }
+
+html { overflow: hidden; }
+
+/*크롬 스크롤바 생성 방지*/
+.bgtitle { padding: 10px 10px; background: #2070aa; display: none; }
+
+.bgtitle .bgFont { font-size: 20px; color: #eee; }

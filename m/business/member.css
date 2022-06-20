@@ -1,0 +1,51 @@
+
+
+
+	.pays td a { background:linear-gradient(#fff 0%,#ececec 35%,#fff 100%);
+		border:1px solid #999; color:#fff; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;
+		padding:5px 8px; text-align:center; color:#333; display:block; cursor:pointer; font-weight:bold; font-size:13px;
+	}
+
+
+
+	#order th {background-color:#eee; border:1px solid #ccc; padding:4px 0px; font-size:12px;}
+	#order td {border:1px solid #ccc;  padding:5px 5px; padding-left:7px; font-size:12px;}
+	#order .htbody td {background-color:#eee; }
+	#order .order_btn .ui-btn-inner {padding:10px 10px 10px 10px;}
+	#order .bot_line_c_333 {border-bottom:1px solid #333;}
+	#order .hid_tbody td.th {background-color:#e7e7e7;}
+
+	#order .btn_a { background:linear-gradient(#eee 0%,#ccc 15%,#eee 100%);
+		border:1px solid #999; color:#fff; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;
+		padding:8px; text-align:center; color:#333; display:block; cursor:pointer; font-weight:bold;
+	}
+
+
+
+	#business {padding-top: 0px;}
+	#business tr:nth-Child(even) {background-color:#f4f4f4;}
+	#business tr:nth-Child(odd) {background-color:#fff;}
+	#business th, #business td {padding:8px 10px; text-align: center;}
+	#business th {background: #7f7f7f; color:#fff; border: 1px solid #c5c5c5; font-size:13px; font-weight:300; white-space: nowrap;}
+	#business td {border:1px solid #e0e0e0;}
+	#business .contents {width:470px; overflow:hidden;}
+	#business .table1 {width:470px;}
+	#business .inPrice {text-align: right;}
+
+	#business .total {text-align: center;}
+	#business .total th {text-align: center; width: 50%; }
+	#business .total th.total {background: #49727a;}
+	#business .total td {text-align: center; font-size: 15px;}
+	#business .total td.total {background: #d9ebef;  font-weight: 500;}
+
+
+
+	.fixedTableWrap {position:relative; width:100%; height:100%;}
+	#fixedTable {position:relative; display:block; font-size:13px;color:#333;}
+	#fixedTable .fixedTable_Default {-webkit-overflow-scrolling:touch; overflow-x:scroll; height: 100%;}
+	#fixedTable .fixedTable_overCell {background-color:#fff; box-shadow:2px 0 5px -2px #cdcdcd; left:0; position:absolute; top:0; z-index:21;}
+
+	#fixedTable th , #fixedTable td {white-space: nowrap; }
+	#fixedTable th.first {width:40px;min-width:40px;}
+	#fixedTable th.second {width:100px;min-width:100px;}
+	#fixedTable th.third {width:90px;min-width:90px;}

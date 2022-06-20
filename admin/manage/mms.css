@@ -1,0 +1,30 @@
+
+
+#sms {}
+#sms .config th {border:1px solid #ccc;  background-color:#eee; }
+#sms .config td {border:1px solid #ccc;  padding:10px 5px;}
+#sms .config td.content {background-color:aliceblue;}
+#sms .config .underline {text-decoration:underline; font-weight:bold;color:teal;}
+#sms .config .underline:hover {color:slateblue;}
+
+#sms {}
+#sms .price th {padding:11px 0px; border:1px solid #ccc; background-color:#eee; }
+#sms .price td {padding:11px 0px; border:1px solid #ccc; text-indent:11px;}
+#sms .price td.tcenter {text-indent:0px;}
+#sms ul.tweight li {margin-left:30px; line-height:24px; color:#878787;}
+
+
+#sms.list td {border:1px solid #ccc; padding:3px 0px;}
+#sms.list th {border:1px solid #ccc; padding:3px 0px;}
+
+
+#sms.list .readonly {background:#eee;}
+#sms.list .input_text {vertical-align:middle; padding:2px; border:1px solid #ccc;}
+#sms.list .table1 th {background-color:#eee;}
+#sms.list .table1 td {padding:5px 0px 5px 10px;}
+
+
+#sms.list .list th {background-color:#eee; padding:10px 0px;}
+#sms.list .list td {padding:7px 0px; text-align:center;}
+#sms.list .list td.tleft {padding-left:4px;}
+

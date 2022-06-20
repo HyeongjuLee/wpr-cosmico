@@ -1,0 +1,5 @@
+body { font-size: 1.5rem; line-height: 1.5; }
+
+#footer .site-top { right: 0; }
+#footer .banners { position: absolute; top: 8rem; right: 0; display: inline-flex; justify-content: flex-end; align-items: center; flex-direction: initial; width: 33rem; }
+#footer .banners a { margin: 0; margin-left: 0.5rem; }

@@ -1,0 +1,27 @@
+	/* 마이오피스 left menu */
+
+
+	#content_M {float:left; width:980px;margin-top:15px;padding-left:30px;}
+	#LeftMenu_M {width:220px; position:relative; background-color:#fff; padding-bottom:40px;z-index:0; float: left;}
+
+	#left_navi {position:relative;}
+	#left_navi .left_Follow {position:absolute;margin-top:2px;z-index:0;}
+	#left_navi .DB_select {color:#fff; font-weight: bold; /*background-image: url(/images_kr/left/left_on.png);*/ background-color: #E94025;}
+	#left_navi .DB_select a {}
+	#left_navi .DB_select2 {color:#0b447a; font-weight: bold;}
+	.left_navi ,.left_navi ul,.left_navi li{margin:0;padding:0;list-style:none}
+	.left_navi img {position: absolute; right: 15px;}
+	.left_navi {position:relative;width:218px; border-left: 1px solid #d3d3d3; border-right: 1px solid #d3d3d3; overflow: hidden;}
+	.left_navi .LEFT_main {position:relative;z-index:1; border-bottom:1px solid #d3d3d3;  width: 220px; cursor:pointer;}
+	.left_navi .LEFT_main>a {display:block; padding:17px 20px; line-height:16px; font-family: 'Nanum Gothic Coding'; font-size:15px; color:#5c5c5c;}
+	.left_navi .LEFT_main>a:hover {color:#fff; font-weight: bold;}
+	.left_navi .LEFT_main ul {padding:10px 25px; display:none;width: 216px; background-color:#f5f5f5;border-top:1px solid #d3d3d3;}
+	.left_navi .LEFT_main ul li a {display:block;padding:8px 0px;border-bottom:0px solid #ddd; font-size:13px;letter-spacing:0px;}	
+
+	.left_navi .LEFT_main ul li a:hover {color:#292424;}
+
+
+
+	.leftinfo {font-size:13px;width:200px;margin:0 auto;margin:10px 10px;}
+	.leftinfo th {text-align:left;padding:3px 4px;border:0px none;}
+	.leftinfo td {text-align:left;padding:3px 4px;border:0px none;}

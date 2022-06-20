@@ -1,0 +1,81 @@
+
+/*검색창*/
+
+.search {
+	$search-height: rem(34px);
+	$font-size: rem(14px);
+
+	@include position;
+	height: $search-height;
+	font-size: $font-size;
+	line-height: 1.5;
+	margin: rem(10px);
+	margin-right: 0;
+	border: 1px solid $main-color;
+
+	form {
+		display: flex;
+		height: 100%;
+	}
+
+	.form-outline {
+		@include position;
+		//border: 1px solid grayscale($main-color);
+
+		input[type="search"] {
+			@include default-0;
+			height: 100%;
+			padding: ($search-height - ($font-size * 1.5)) / 2 rem(10px);
+
+			&::-ms-clear,
+			&::-ms-reveal {
+				display: none;
+				width: 0;
+				height: 0;
+			}
+
+			&::-webkit-search-decoration,
+			&::-webkit-search-cancel-button,
+			&::-webkit-search-results-button,
+			&::-webkit-search-results-decoration, {
+				display: none;
+				-webkit-appeearance: none;
+				cursor: pointer;
+
+			}
+			&::-webkit-search-cancel-button:after {
+				content: '';
+				//@include position(absolute, $top: 0, $ri: 0);
+				display: block;
+				width: $font-size;
+				height: $font-size;
+				background: url('/images/basicUI/svg/020-close.svg') no-repeat center;
+				background-size: $font-size;
+			}
+			cursor: pointer;
+
+		}
+
+		label {
+			@include position(absolute, $top: ($search-height - ($font-size * 1.5)) / 2, $le: rem(5px));
+			@include transition(all .3s);
+			padding: 0 ($search-height - ($font-size * 1.5)) / 2;
+			color: grayscale(lighten($main-color, 20%));
+			
+		}
+
+		input[type="search"]:focus + label {
+			opacity: 0;
+		}
+	}
+
+	button {
+		@include default-0;
+		@include default-a;
+		width: $search-height;
+		height: 100%;
+		background: transparent;
+		color: $main-color;
+		font-size: $font-size * 1.2;
+	}
+}

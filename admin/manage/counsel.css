@@ -1,0 +1,24 @@
+#counsel .list thead th {height:32px; background-color:#eee;border:1px dotted #ccc;border-top:1px solid #a1a1a1;}
+#counsel .list tbody td {padding:7px 0px; text-align:center;border:1px dotted #ccc; border-bottom:1px solid #a1a1a1;}
+#counsel .list tbody td.contents {text-align:left; padding-left:5px;}
+#counsel .list tbody tr:hover {background-color:#ffefbf;}
+
+
+
+
+
+#counsel .view th {background-color:#eee; border:1px solid #ccc;}
+#counsel .view td {padding:7px 0px 7px 7px; border:1px solid #ccc;}
+#counsel .view td.contents {background-color:aliceblue;}
+#counsel .view .underline {text-decoration:underline; font-weight:bold;color:teal;}
+#counsel .view .underline:hover {color:slateblue;}
+#counsel .view .input_area {border:1px solid #ccc;}
+
+
+ .search th {border:1px solid #ccc; background-color:#eee;}
+ .search td {border:1px solid #ccc; height:31px;padding-left:10px;}
+
+img {vertical-align:middle;}
+label {vertical-align:middle; margin-right:15px;}
+select {vertical-align:top; height:20px;}
+.input_text {vertical-align:top; border:1px solid #ccc; height:16px;padding-top:2px;}

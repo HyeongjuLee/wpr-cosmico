@@ -1,0 +1,86 @@
+/* 디테일 뷰 */
+	.width100 {width:100%;}
+
+	#detailView {margin-top:20px;}
+	#detailView .GoodsSubject {font-size:18px; line-height:28px; font-weight:bold; letter-spacing:-1px; color:#333;}
+
+	#detailView .GoodsComment {font-size:11px; line-height:18px; font-family:돋움; }
+
+	#detailView .GoodsComment .icons {margin-right:2px; vertical-align:middle;}
+	#detailView .infowrap {margin-top:10px;}
+
+	#detailView .imgArea {width:380px;}	/*270*/
+	#detailView .bImg {width:350px; height:350px; overflow:hidden; text-align:center; border:1px solid #ccc;}/*250*/
+	#detailView .zoomImg {width:320px; text-align:center;padding:8px 0px 15px 0px;}							/*250*/
+	#detailView .inSimg {float:left;border:1px solid #ccc; width:75px; height:75px; text-align:center;}/*58*/
+	#detailView .sImg {clear:both; width:350px; overflow:hidden;margin-top:4px;}/*252*/
+	#detailView .mr5 {margin-right:14px;}/*4*/
+
+	#detailInfo {float:left; margin-l eft:15px; width:620px; }/*495px*/
+	#detailInfo .price_dis_bg {position:absolute;}
+	#detailInfo .price_dis_bg div {position:absolute; width:68px; height:46px; background:url(/images/shop/price_dis_bg.png) 0 0 no-repeat; left:490px; font:bold 16px tahoma; color:#fff; text-align:center;}
+	#detailInfo .price_dis_bg div span {width:68px; height:46px;display:inline-block; margin-top:6px;}
+
+	#detailInfo .goodSubject {font-family:dotum; font-size:16px; font-weight:bold; color:#58a717; padding:5px 0px 5px 0px; line-height:160%;}
+	#detailInfo .goodsScript {font-family:dotum; font-size:11px; font-weight:bold; color:#fe781e; padding:5px 0px 10px 0px;line-height:160%;}
+	#detailInfo .GoodsNumber {font-family:tahoma, "돋움", dotum, gulim;}
+	#detailInfo div.GoodsCustomer:first-child {border-bottom:1px solid #e2e2e2;}
+	#detailInfo .GoodsCustomer {font-weight:bold; background-color:#f7f7f7;text-indent:14px;  padding:5px 0px 3px 0px;}
+		#detailView .GoodsCustomer .GoodsNumber {text-decoration:line-through;}
+		#detailView .GoodsCustomer .icons {margin-right:2px; vertical-align:middle;}
+
+	#detailInfo .GoodsPrice {font-weight:bold; color:#ea0000; background-color:#f7f7f7; text-indent:14px; border-bottom:1px dotted #e2e2e2; padding:7px 0px 12px 0px; }
+	#detailInfo .GoodsPrice .GoodsNumber {font-size:15px;}
+		#detailInfo .option {background-color:#f7f7f7; }
+		#detailInfo td.option {background-color:#f7f7f7; }
+
+
+
+	#detailInfo th {padding:9px 0px 7px 14px; border-bottom:1px solid #e2e2e2; font-size:11px; vertical-align:top; font-weight:normal; text-align:left; color:#333; font-family:돋움; background-color:#fafafa;}
+	#detailInfo td {padding:9px 0px 7px 14px; border-bottom:1px solid #e2e2e2; font-size:11px; font-family:돋움;}
+	#detailInfo td.GoodsPV {font-weight:bold; color:#ea0000; background-color:#f7f7f7; border-bottom:1px dotted #e2e2e2;font-size:12px;}
+	#detailInfo td.GoodsGV {font-weight:bold; color:green; background-color:#f7f7f7; border-bottom:1px dotted #e2e2e2;font-size:12px;}
+	#detailInfo td.point {background-color:#f7f7f7; font-size:12px; }
+	#detailInfo .ea_bg {display:inline-block;border:1px solid #ccc; line-height:18px; height:18px; vertical-align:top; width:20px; height:18px;text-align:center; background-color:#fafafa;}
+	#detailInfo .ea_bg a {display:block; margin-top:1px;}
+	#detailInfo .input_text_ea {border-width:1px 0px 1px 0px; border-color:#ccc; border-style:solid; line-height:16px; height:16px; font-size:11px; vertical-align:top;}
+
+
+	#detailInfo .btnZone {padding-top:15px; text-align:center;}
+
+
+	.detailView_btn {clear:both;float:left;width:100%; height:33px;}
+	.detailView_btn .tit {float:left; line-height:33px; font-size:22px; font-weight:bold; color:#444;}
+	.detailView_btn ul {float:right;  margin-right:8px;}
+	.detailView_btn li {float:left; height:33px;display:inline-block;}
+	.detailView_btn li a { height:33px; line-height:33px; color:#afafaf;font-weight:bold;}
+	.detailView_btn li.lines {margin:0px 10px;}
+	.inContent {clear:both; float:left; width:100%; overflow-x:hidden;}
+
+
+
+	#detailQna td {text-align:center;font-family:dotum;height:28px;border-bottom:1px dotted #ccc;color:#777;}
+	#detailQna img {vertical-align:middle;}
+	#detailQna td.subject {text-align:left;padding-left:10px;color:#888;}
+	#detailQna td.subject2 {text-align:left;padding-left:10px;color:#8f3900;}
+	#detailQna .pagingArea {width:100%; padding:7px 0px; text-align:center;}
+
+	#detailQna td.qna_reply {padding:0px;}
+	#detailQna td.qna_reply td {background-color:#feffde; padding:10px 0px; border:0px none; font-size:12px;}
+
+
+	#detailReview td {text-align:center;font-family:dotum;height:28px;color:#777;}
+	#detailReview td.underline {border-bottom:1px dotted #ccc;}
+	#detailReview img {vertical-align:middle;}
+	#detailReview td.subject {text-align:left;color:#888; font-weight:bold;}
+	#detailReview td.subject a {color:#666;}
+	#detailReview td.subject a:hover{color:#333;}
+	#detailReview td.subject2 {text-align:left;padding-left:10px;color:#8f3900;}
+	#detailReview .pagingArea {width:100%; padding:7px 0px; text-align:center;}
+	#detailReview td.review_td2 {padding-bottom:10px;}
+	#detailReview td.review_td2 p {width:580px; background-color:#eee; text-align:left; padding:10px; color:#888}
+
+	.in_qna th {background:url(/images/shop/detailinThBg.gif) right top no-repeat; background-color:#ccc;}
+	.in_qna th.last {background-position:-1px 0px;}
+	.in_review th {background:url(/images/shop/detailinThBg.gif) right top no-repeat; background-color:#ccc;}
+	.in_review th.last {background-position:-1px 0px;}

@@ -1,0 +1,44 @@
+.input_text {vertical-align:middle; padding:2px; border:1px solid #ccc;}
+.imgs {width:70px; height:70px;}
+.readonly {background:#eee;}
+
+
+#counsel td,#counsel th {font-family:dotum; line-height:120%;color:#3e3e3e;}
+
+
+#counsel .table1 th {border:1px solid #e8e8e8; background-color:#eee;}
+#counsel .table1 td {border:1px solid #e8e8e8; padding:5px 0px 5px 10px;}
+
+
+#counsel .table2 {margin-top:10px;}
+#counsel .table2 thead th {background-color:#eee; padding:7px 0px; border-bottom:1px solid #ddd; color:#3e3e3e;}
+#counsel .table2 .td_lheight {line-height:160%; padding-top:3px; padding-bottom:3px;}
+#counsel .table2 th {border:1px solid #ddd; background-color:#ffffeb;}
+#counsel .table2 td {border:1px solid #ddd; padding:6px 0px 4px 0px; text-align:center;}
+#counsel .table2 td.underline {border-bottom:3px solid #333;}
+
+
+.td_centers {text-align:center; height:40px;color:#3e3e3e; background-color:#e3f2fc;}
+
+
+
+
+
+.input_radio {vertical-align:middle;}
+.select_s  {vertical-align:middle;}
+
+.tdse1 {height:25px;width:150px;text-align:center; font-weight:bold; background-color:#eee;}
+.tdse2 {width:650px; padding-left:10px;}
+
+
+	#counsel .counselview img {vertical-align:middle;}
+
+	#counsel .counselview .counselSet01 {margin-top:15px;}
+
+	#counsel .counselview  th,td {text-align:left;}
+	#counsel .counselview thead th {padding:5px 0px;border-bottom:1px solid #bbbbbb;}
+	#counsel .counselview tbody th {border:1px solid #cecece; padding:5px 0px 5px 16px; background:#f5f5f5 url(/images/counsel/red_circle.gif) 7px 50% no-repeat;}
+	#counsel .counselview tbody td {border:1px solid #cecece;padding:3px 0px 3px 10px;}
+
+	#counsel .counselview .input_text {border:1px solid #ccc;padding:1px;vertical-align:middle;}
+	#counsel .counselview .input_area {text-align:center; padding:30px 0px;}

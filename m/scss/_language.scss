@@ -1,0 +1,175 @@
+@import 'mixin-custom';
+
+/*다국어*/
+
+#language {
+	$font-size: $font-size - rem(2px);
+	$padding-tb: rem(10px);
+	//$select-height: ($padding-tb * 3) + $font-size; //.select 의 높이 (8 * 3) + 13
+	$select-height: rem(70px);
+	
+	//float: right;
+	@include position(absolute, $ri: rem(120px));
+	//min-width: $inner * 0.1;
+	width: $select-height;
+	z-index: 5;
+	font-size: $font-size;
+	line-height: 1;
+	text-align: left;
+	color: material-color('grey', '800');
+	margin: {
+		top: 0;
+		right: 0;
+		bottom: 0;
+	};
+
+	&:before {
+		@include presudo($le: 0, $top: 0);
+		@include transition(all .1s ease);
+		width: 100%;
+		height: 100%;
+		background: rgba(#fff, 100%);
+		z-index: 0;
+		padding: {
+			//bottom: rem(2px);
+		}
+		border-radius: $select-height / 2;
+		box-shadow: 0 -1px 1px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.24);
+	}
+
+	%list {
+		@include default-a;
+		@include transition(all .1s ease);
+		@include position;
+	}
+
+	.select {
+		@extend %list;
+		padding: $padding-tb;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		color: #fff;
+		height: $select-height;
+		
+		i {
+			flex: none;
+			font-size: $font-size + rem(1px);
+		}
+
+		span {
+			//margin-right: rem(8px);
+		}
+
+		.icon-angle-down {
+			margin-left: auto;
+			@include transition(all .1s ease);
+			color: material-color('grey', '800');
+		}
+	}
+
+	span {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		//border-radius: 100%;
+		//overflow: hidden;
+		//border: 1px solid rgba(#000, 50%);
+		@include position;
+
+		&:before {
+			content: '';
+			@include position(absolute, $le: 0, $top: 0);
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			border-radius: 100%;
+			border: 1px solid #000;
+			opacity: 0.3;
+			box-sizing: border-box;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			//border-radius: 100%;
+		}
+	}
+	
+
+	ul {
+		@include position(absolute, $top: $select-height);
+		z-index: 0;
+		@include transition(all .1s ease);
+
+		overflow: hidden;
+		width: 100%;
+		height: 0;
+
+
+		&:hover {
+			height: $select-height;
+
+			li {
+				color: lighten(material-color('grey', '800'), 20%);
+			}
+		}
+
+		li {
+			@extend %list;
+			width: 100%;
+			height: $select-height;
+			list-style: none;
+			padding: $padding-tb;
+			//background: #fff;
+			line-height: 1.5;
+
+			&.hide {
+				z-index: -1;
+				opacity: 0;
+				display: none;
+			}
+
+			&:hover {
+				color: darken(material-color('grey', '800'), 50%);
+				text-decoration: underline;
+
+				span {
+					&:before {
+						opacity: 0.5;
+					}
+				}
+			}
+		}
+	}
+
+	&:hover {
+		&:before {
+			height: $select-height * 2 !important;
+		}
+		.select .icon-angle-down {
+			//transform: rotate3d(0, 0, 0, 180deg); //3d 회전
+			//transform: rotate(180deg); //2d 회전
+			transform: translate(0, 10%) rotate3d(100, 0, 0, 180deg) scale(1.3);
+			//color: desaturate(lighten($main-color, 40%), 60%);
+		}
+
+		ul {
+			height: $select-height * 1 !important;
+		}
+	}
+}
+
+#header.headerFixed {
+	#language {
+		&:before {
+			//content: none;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.24);
+		}
+		.select {
+			color: material-color('grey', '800');
+		}
+		ul {
+		}
+	}
+}

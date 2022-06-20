@@ -1,0 +1,9 @@
+body { font-size: 1.5rem; line-height: 1.5; }
+
+.footer-menu .cscenter i { margin: 0 2.5rem; }
+.footer-menu .cscenter li { word-break: keep-all; }
+.footer-menu .cscenter li:last-child { width: 22rem; }
+.footer-menu .cscenter .tit { width: 9rem; }
+
+#footer .banners { right: -5.5rem; }
+#footer .footer-icon { right: -6rem; }

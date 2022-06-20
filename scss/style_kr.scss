@@ -1,0 +1,25 @@
+@import 'mixin-custom';
+
+#footer {
+	.site-top {
+		right: 0;
+	}
+	.banners {
+		@include position(absolute, $top: rem(80px), $ri: 0);
+		@include inline-flex(flex-end);
+		flex-direction: $default-css;
+		width: (rem(160px) * 2) + rem(10px);
+
+		a {
+			margin: 0;
+			margin-left: rem(5px);
+		}
+
+		.macco {}
+
+		.kossa {
+		}
+
+		.ftc {}
+	}
+}

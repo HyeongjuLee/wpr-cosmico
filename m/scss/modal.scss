@@ -1,0 +1,243 @@
+@import 'mixin-custom';
+
+.ui-dialog {
+	@include font-family('Pretendard');
+	line-height: 1.5;
+
+	.ui-dialog-titlebar {
+		padding: 3rem 3.75rem;
+
+		.ui-button-icon-only {
+			text-indent: initial;
+		}
+	}
+
+	.ui-dialog-titlebar-close {
+		right: 2rem;
+		top: rem(20px);
+		width: 5rem;
+		height: 5rem;
+		margin: 0;
+		// -moz-transform: translateY(-50%);
+		// -webkit-transform: translateY(-50%);
+		// transform: translateY(-50%);
+		margin: 0;
+		padding: 0;
+		border: none;
+		outline: none;
+		font-style: normal;
+		text-decoration: none;
+		background: none;
+
+		i {
+			font-size: 2.5rem;
+			color: inherit;
+		}
+	}
+
+	.ui-dialog-title {
+		margin: 0;
+		font-size: 3.75rem;
+		font-weight: 700;
+		@include position;
+		overflow: $default-css !important;
+
+		i {
+			margin: 0;
+			padding: 0;
+			border: none;
+			outline: none;
+			font-style: normal;
+			text-decoration: none;
+			background: none;
+			position: relative;
+
+			&:before {
+				content: "";
+				position: absolute;
+				bottom: -5px;
+				left: 0;
+				width: 100%;
+				height: 2.5rem;
+				background: rgba($main-color, 20%);
+				z-index: -1;
+			}
+		}
+
+		.select_voter {
+			width: 100%;
+			margin-top: rem(15px);
+			line-height: 1.2;
+			font-size: $font-size + rem(2px);
+			@include position(absolute, $le:0);
+			z-index: 1;
+		}
+	}
+
+	.ui-dialog-buttonpane {
+		margin: 0;
+		padding: 0;
+		border: none;
+		outline: none;
+		font-style: normal;
+		text-decoration: none;
+		background: none;
+		text-align: center;
+		margin: 3.75rem;
+	}
+
+	.ui-dialog-buttonset {
+		float: initial !important;
+		width: 100%;
+
+		button {
+			margin: 0;
+			padding: 0;
+			border: none;
+			outline: none;
+			font-style: normal;
+			text-decoration: none;
+			background: none;
+			display: inline-block;
+			outline: none;
+			cursor: pointer;
+			text-align: center;
+			text-decoration: none;
+			font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif;
+			padding: 1rem 1.5rem;
+			-moz-border-radius: 0;
+			-webkit-border-radius: 0;
+			border-radius: 0;
+			color: #6f6f6f;
+			font-weight: 400;
+			border: solid 1px #d5d5d5;
+			background: #eeeeee;
+			width: 100%;
+			height: 7rem;
+			font-size: 2.5rem;
+
+			&:hover {
+				text-decoration: none;
+				background: #fbfbfb;
+			}
+
+			&:active {
+				color: #fbfbfb;
+				background: #e1e1e1;
+			}
+		}
+	}
+}
+
+.ui-widget-header {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	font-style: normal;
+	text-decoration: none;
+	background: none;
+}
+
+.ui-widget.ui-widget-content {
+	border: 1px solid #222;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ui-corner-all {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+/*검색*/
+
+#pop_search {
+	width: 100%;
+
+	#searchs {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: rem(70px) 0;
+
+		input {
+			margin: 0;
+			padding: 0;
+			border: none;
+			outline: none;
+			font-style: normal;
+			text-decoration: none;
+			background: none;
+			height: 7rem;
+
+			&[type='text'] {
+				border: 1px solid #9e9e9e;
+				border-right: none;
+				padding: 2.5rem;
+			}
+		}
+
+		.search {
+			width: 7rem;
+			height: 7rem;
+			border: 1px solid #424242;
+			background: #757575;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+
+			input {
+				visibility: hidden;
+				position: absolute;
+			}
+
+			i {
+				color: #fff;
+				font-size: 3.75rem;
+			}
+		}
+	}
+
+	.tables {
+		width: 100%;
+		margin: 2.5rem 0;
+		color: #222;
+		font-size: 2.3rem;
+
+		table {
+			border: none;
+			margin: 2.5rem 0;
+		}
+
+		tr:nth-of-type(1) th {
+			border-top-width: 2px;
+		}
+
+		th,
+		td {
+			padding: 1.25rem;
+			border: none;
+			height: 7rem;
+			text-align: center;
+		}
+
+		th {
+			border: 1px solid #212121;
+			border-left: none;
+			border-right: none;
+			color: #212121;
+		}
+
+		td {
+			border-bottom: 1px solid #9e9e9e;
+		}
+
+		.notdata {
+			text-align: center;
+		}
+	}
+}

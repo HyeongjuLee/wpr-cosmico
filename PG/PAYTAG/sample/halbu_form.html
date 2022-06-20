@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>paytag sample</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<link rel="stylesheet" href="css/sky-forms.css">
+		<link rel="stylesheet" href="css/sky-forms-blue.css">
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="css/sky-forms-ie8.css">
+		<![endif]-->
+		
+		<script src="js/jquery.min.js"></script>
+		<!--[if lt IE 10]>
+			<script src="js/jquery.placeholder.min.js"></script>
+		<![endif]-->		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/sky-forms-ie8.js"></script>
+		<![endif]-->
+
+		<style>
+		  table {
+			width: 100%;
+			border: 1px solid #444444;
+			border-collapse: collapse;
+		  }
+		  th, td {
+			border: 1px solid #444444;
+		  }
+		</style>
+
+	</head>
+	<body>
+		<div class="body">			
+		
+
+
+		<!--------------------------------------------------------------->
+		<!--                      사용자입력폼                              -->
+		<!--------------------------------------------------------------->
+		<form name="userForm" id="userForm"  class="sky-form" >
+
+				<header><img src="./img/paytag.png"> 신용카드 할부행사</header>
+				
+				
+				
+				<footer>
+					<button type="button" class="button" onClick="viewHalbuPopup();">할부행사창호출</button>
+				</footer>
+			</form>
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>
+
+
+<script>
+
+// 신용카드 할부행사 안내 팝업
+function viewHalbuPopup()
+{
+    var agent = navigator.userAgent;
+    var midx		= agent.indexOf("MSIE");
+    var out_size	= (midx != -1 && agent.charAt(midx+5) < '7');
+    
+    var width_	= 550;
+    var height_	= out_size ? 688 : 638;
+    var left_	= screen.width;
+    var top_	= screen.height;
+    
+    //left_ = left_/2 - (width_/2);
+    left_ = left_/2 + (width_/2)+5;
+    top_ = top_/2 - (height_/2);
+
+    var halbuUrl = "https://api.paytag.kr/viewhalbu.asp?schdate=";    // 조회월 : YYYYMM , blank = 현재월
+    PayTagHalbuPopWin = window.open(halbuUrl,'PayTagHalbuPopup', 'height='+height_+',width='+width_+',status=no,scrollbars=yes,resizable=no,left='+left_+',top='+top_+'');
+
+    if (PayTagHalbuPopWin == null)
+    {
+        alert("팝업 차단 기능이 설정되어있습니다\n\n차단 기능을 해제(팝업허용) 한 후 다시 이용해 주십시오.");
+        return false;
+    }
+    
+    PayTagHalbuPopWin.focus();
+}
+</script>

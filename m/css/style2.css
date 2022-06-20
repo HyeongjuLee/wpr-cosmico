@@ -1,0 +1,174 @@
+/* 한글 */
+	@media all and (min-width:1px) and (max-width:480px) {
+		#index .index_vote {float:left;}
+		#index .index_v_goods {float:left; width:48%; margin-top:10px; background-color:#fff;margin-left:1%;}
+		#index .index_v_goods2 {float:left; width:48%;margin-left:2%; margin-top:10px; background-color:#fff;margin-right:1%;}
+	}
+	@media all and (min-width:481px) {
+		#index .index_vote {float:left;}
+		#index .index_v_goods {float:left; width:48%; margin-top:10px; background-color:#fff;margin-left:1%;}
+		#index .index_v_goods2 {float:left; width:48%;margin-left:2%; margin-top:10px; background-color:#fff;margin-right:1%;}
+	}
+
+	/* allWrap S */
+	#allWrap {overflow: hidden;}
+	@media all and (min-width:1024px) {
+		#allWrap {max-width: 1024px; margin: 0 auto;}
+		/*
+		#bottom_fix{max-width: 1024px; margin: 0 auto; left:auto;}
+		#top_wrap.jbFixed .top_menu {max-width: 1024px; margin: 0 auto; left: auto;}
+		*/
+	}
+	/* allWrap E */
+
+#subDesc {box-shadow: #ececec 3px 1px 5px 5px; -webkit-box-shadow: #ececec 3px 1px 5px 5px; margin-top:10px;padding:5px;}
+#subDesc ul {display:block; }
+#subDesc ul li {display:block; line-height:16px;}
+
+.s_title {font-weight:bold; font-size:13px; padding:9px 0px; background-color:#eee; text-indent:11px;}
+
+
+/* New 쇼핑관련*/
+	/* DetailView 관련 줌 버튼 CSS */
+	.detailViewZoom {width:48px; height:48px; background:url(/m/images/zoom.png) 0 0 no-repeat; position:fixed; bottom:40px; right:10px; z-index:999;}
+	.detailViewZoom a {display:block; text-align:center;}
+
+	.detailViewBack {width:48px; height:48px; background:url(/m/images/zoom.png) 0 0 no-repeat; position:fixed; bottom:40px; left:10px;}
+	.detailViewBack a {display:block; text-align:center;}
+
+
+	#goodsTitle {font-size:16px; line-height:150%; border-top:3px double #878787; color:#2e2e2e;font-weight:500;margin-top:10px;border-bottom:3px double #878787;padding:15px 0;}
+	#goodsNote {font-size:11px; color:#888;text-align:center;line-height:20px;}
+	#goodsImg {margin:20px 0;border:1px solid #ddd;}
+	#goodsImg .goodsImgDiv {max-width:550px; margin:0px auto;}
+
+	#priceArea {background-color:#ececec;padding:15px; border:1px solid #d3d3d3;}
+	#priceArea .price_flag {display:block;padding:3px 0px 10px 0px; margin-left:15px;}
+	#priceArea .price_text {display:inline-block; font-weight:bold; width:90px; font-size:14px; line-height:19px; word-break: break-all; letter-spacing: -1px; color:#222; margin-left:15px;}
+	#priceArea .price1 {display:inline-block; word-break: break-all; font-size:14px; color:#787878; }
+	#priceArea .price2 {display:inline-block;word-break: break-all; font-size:19px; line-height:30px; height:30px; color:#404040;}
+	#priceArea .price2Tot {display:inline-block;word-break: break-all; font-size:19px; line-height:30px; height:30px; color:#c20000;}
+	#priceArea .price4 {display:inline-block;word-break: break-all; font-size:16px;  color:#d43f05;}
+	#priceArea .price3 {display:inline-block;word-break: break-all; font-size:16px;  color:green;}
+
+	#priceArea .s_won {font-size:11px; }
+	#priceArea .b_won {font-size:14px; }
+
+
+	#infoArea {border-bottom:1px solid #ccc; padding:15px 0;}
+	#infoArea li {vertical-align:middle; font-size: 13px;}
+	#infoArea .price_text {display:inline-block; font-weight:600; font-size:13px; line-height:150%; word-break: break-all; color:#000;width:50px;position:relative;}
+	#infoArea .price_text::after { width: 1px; height: 10px; background: #ccc;position: absolute;top: 5px;right: 10px;}
+	#infoArea .price1 {display:inline-block;word-break: break-all; font-size:12px; color:#555;line-height:150%;}
+	#infoArea .price2 {display:inline-block;word-break: break-all; font-size:19px; line-height:30px; height:30px; color:#c20000;}
+	#infoArea .price3 {display:inline-block;font-size:11px;}
+	#infoArea .s_won {font-size:11px; }
+	#infoArea .b_won {font-size:14px; }
+
+	#infoArea .ea_text {display:inline-block; font-weight:600; width:40px; font-size:13px; height:30px; line-height:30px; vertical-align:top; word-break: break-all; letter-spacing: -1px; color:#000;}
+	#infoArea .ea {display:inline-block; height:30px; vertical-align:top; }
+	#infoArea .input_text_ea {width:30px; text-align:center; vertical-align:top; height:30px; font-weight: 900; border:none; font-family: 'SCDream', 'Noto Sans CJK', sans-serif; margin: 0 5px}
+	#infoArea .input_text_ea:focus {outline: none; background: #eee; color: #2e2e2e; font-weight: 600;border: 1px solid #ccc;}
+	#infoArea .shop_btn {display:inline-block;width:30px;height:30px; border:1px solid #ccc;}
+	#infoArea .btn_minus {background:url(/m/images/shop_btn_minus.png) 0 0 no-repeat; background-size:100%;}
+	#infoArea .btn_plus {background:url(/m/images/shop_btn_plus.png) 0 0 no-repeat; background-size:100%;}
+
+	#infoArea .minimum, .stock {padding-left: 2px; display: inline-block; font-size: 13px; height: 30px; line-height: 30px;}
+
+
+
+	#buyBtn {height:70px;}
+	#buyBtn .btnList {display: block;}
+	#buyBtn a {display:block; margin:15px 0; border:1px solid red; border-radius:0;  font-size:15px; font-weight:400; line-height:38px; height:40px; text-align:center; background-color:#fff;}
+	#buyBtn a.buys {background:linear-gradient(#f27684 0%,#bc1f31 4%,#cb3849 100%); border:1px solid #cb0808; color:#fff;}
+	#buyBtn a.sout {background:#aaa; border:1px solid #9a9a9a; color:#fff;}
+	#buyBtn a.cart {background:linear-gradient(#f8f8f8 0%,#dddddd 4%,#ededed 100%); border:1px solid #bababa; color:#727272;}
+	#buyBtn a.wish {background:linear-gradient(#41ad39 0%,#2da421 4%,#81c64a 100%); border:1px solid #1ba80d; color:#fff;}
+
+
+
+	#tabArea {position:relative;}
+	#tabArea>span {display:inline-block; width:calc(50% - 5px);margin-left:10px;}	/* width:33%; */
+	#tabArea span:first-child {width:calc(50% - 5px);border-left:0px none;margin:0;}										/* width:34%; */
+	#tabArea span a {display:block; height:40px; line-height:38px; font-size:14px; text-align:center; color:#777;font-weight:600;letter-spacing:-1px;border:1px solid #555;}
+	/* #tabArea span.on a {background-color:#898989; color:#fff;} */
+	#tabArea a.on {background-color:#555; color:#fff;}
+
+
+
+	.index_vote {clear:both;}
+
+		.index_v_goods {width:100%; margin-top:10px;}
+		.goodsArea {border-bottom:1px solid #eee;}
+
+/* 카트 */
+	#Cart {padding: 5px 8px;}
+	#Cart .chkboxArea {height:25px; line-height:25px; border-bottom:1px dashed #ccc; width: 100%;}
+	#Cart .ImgArea {width:90px; height:90px; padding:10px;}
+
+	#Cart .CartInfoArea td {font-weight:bold; letter-spacing:-1px;}
+	#Cart .optionTxtArea {width:100%; font-size:11px; color:#999; line-height:11px; margin-top:7px;}
+	#Cart .tdTitle {font-size:12px; color:#777; height:22px;}
+	#Cart .sellEa			{font-size:14px; color:#222;}
+	#Cart .sellPrice		{font-size:14px; color:#222;}
+	#Cart .sellOptPrice		{font-size:14px; color:#222;}
+	#Cart .sellTotal		{font-size:16px; color:#b00c0c;}
+	#Cart .sellPV			{font-size:16px; color:#d43f05;}
+	#Cart .sellGV			{font-size:16px; color:green;}
+	#Cart .selltype			{font-size:13px; color:green;}
+	#Cart .s_kor {font-size:0.85em; vertical-align:1px; font-weight:normal;}
+
+	#Cart .cartEaInput {width:30px; border:1px solid #ccc; border-radius:2px; line-height:22px; height:22px;}
+	#Cart .cartEaChg {width:45px; border:1px solid #6492c1; border-radius:2px; line-height:26px; height:26px; background-color:#dbedff; font-weight:bold;color:#1a64b1;}
+	#Cart a {display:block; margin:4px 4px; border:1px solid red; border-radius:4px;  font-size:15px; font-weight:600; line-height:40px; height:40px; text-align:center; background-color:#fff;}
+	#Cart a.buys {background:linear-gradient(#f27684 0%,#bc1f31 4%,#cb3849 100%); border:1px solid #cb0808; color:#fff;}
+
+	#Cart .cart_title_m {text-align: left; font-size: 15px; line-height: 25px; background: #e5e5e5; color: #555; padding: 4px; font-weight: bold; text-indent: 10px; letter-spacing: -1px;}
+
+
+	#Cart_Summary {background-color:#869099;}
+	#cartChk {padding:10px 0px 10px 0px;}
+	#cartChk label:hover {cursor:pointer;}
+
+	/* myoffice goodslist*/
+	#cart td select {height:27px;background-color:#fafafa;}
+
+
+
+/* 주문 페이지 */
+	#shop {padding: 15px 8px;}
+	#shop span.goodsInfo_span {color:#333; display:inline-block; width:130px; font-size:11px;}
+	#shop .totalSum {background-color:#fff; }
+	#orderBtn a {display:block; margin:4px 4px; border:1px solid red; border-radius:4px;  font-size:15px; font-weight:600; line-height:40px; height:40px; text-align:center; background-color:#fff;}
+	#orderBtn a.buys {background:linear-gradient(#f27684 0%,#bc1f31 4%,#cb3849 100%); border:1px solid #cb0808; color:#fff;}
+
+	#orderBtn .buys {display:block; margin:4px 4px; border:1px solid red; border-radius:4px;  font-size:15px; font-weight:600; line-height:40px; height:40px; text-align:center; background-color:#fff;background:linear-gradient(#f27684 0%,#bc1f31 4%,#cb3849 100%); border:1px solid #cb0808; color:#fff; width:98%;}
+
+
+/* 카트 */
+	#WishList .chkboxArea {height:25px; line-height:25px; border-bottom:1px dashed #ccc;}
+	#WishList .ImgArea {width:90px; height:90px; padding:10px;}
+
+	#WishList .CartInfoArea td {font-weight:bold; letter-spacing:-1px;}
+	#WishList .optionTxtArea {width:100%; font-size:11px; color:#999; line-height:11px; margin-top:7px;}
+	#WishList .tdTitle {font-size:12px; color:#777; height:22px;}
+	#WishList .sellEa			{font-size:14px; color:#222;}
+	#WishList .sellPrice		{font-size:14px; color:#222;}
+	#WishList .sellOptPrice		{font-size:14px; color:#222;}
+	#WishList .sellTotal		{font-size:16px; color:#b00c0c;}
+	#WishList .sellPV			{font-size:16px; color:#d43f05;}
+	#WishList .s_kor {font-size:0.85em; vertical-align:1px; font-weight:normal;}
+
+	#WishList .cartEaInput {width:30px; border:1px solid #ccc; border-radius:2px; line-height:22px; height:22px;}
+	#WishList .cartEaChg {width:45px; border:1px solid #6492c1; border-radius:2px; line-height:26px; height:26px; background-color:#dbedff; font-weight:bold;color:#1a64b1;}
+	#WishList a {display:block; margin:4px 4px; border:1px solid red; border-radius:4px;  font-size:15px; font-weight:bold; line-height:40px; height:40px; text-align:center; background-color:#fff;}
+	#WishList a.buys {background:linear-gradient(#f27684 0%,#bc1f31 4%,#cb3849 100%); border:1px solid #cb0808; color:#fff;}
+
+
+	#Cart_Summary {background-color:#869099;}
+	#cartChk {padding:10px 0px 10px 0px;}
+	#cartChk label:hover {cursor:pointer;}
+
+
+
+.nextGoods {display:block; width:100%; padding:10px 0px; font-size:13px; text-align:center; font-weight:bold; background-color:#fff; border-top:1px solid #ccc; border-bottom:1px solid #ccc; margin-top:10px;}

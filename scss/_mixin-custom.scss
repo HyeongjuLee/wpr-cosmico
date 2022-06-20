@@ -1,0 +1,18 @@
+@import 'mixin-unit';
+@import 'mixin-basic';
+@import 'palette-custom'; //주색상 설정은 여기서
+
+$vendors: "-moz-", "-webkit-", "";
+$default-css: initial;
+$parent-css: inherit;
+$inner: rem(1200px);
+$contain: rem(1200px);
+$font-size: rem(15px);
+
+$top-height: rem(130px);
+$nav: rem(240px);
+$input-width: $inner / 2.5;
+$input-height: $font-size * 4;
+
+$join-color-1: $main-color;
+$join-color-2: $sub-color;

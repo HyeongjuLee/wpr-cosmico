@@ -1,0 +1,10 @@
+/* 탑메뉴 설정 */
+	
+	.input_text2 {height:26px; border:1px solid #c0c0c0;}
+	.input_text {height:26px; padding:2px 0px; border:1px solid #c0c0c0; background-color:#f4f4f4;vertical-align:middle;}
+	.bor1 {border:1px solid #ccc;}
+
+	
+	#menuSetting {}
+	#menuSetting .list th {padding:7px 0px; border:1px solid #ccc; background:#eee; }
+	#menuSetting .list td {padding:5px 0px 5px 7px; border:1px solid #ccc;}

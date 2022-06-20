@@ -1,0 +1,36 @@
+	#BranchList th, #BranchList td {border:1px solid #cdcdcd;}
+	#BranchList th {padding:10px 0px; background-color:#f6f6f6;}
+	#BranchList tD {padding:5px 0px; text-align:center;}
+	#BranchList .notData {padding:60px 0px; text-align:center; }
+
+	#branchView {width:100%;}
+	#branchView .area {margin:0 auto; margin-top:10px;}
+	#branchView th,#branchView td {border:1px solid #ccc;}
+	#branchView th {background-color:#eaeaea; height:28px;}
+	#branchView td {padding-left:7px;}
+	#branchView th.title {height:32px;color:#444}
+
+	
+	/*지도찾기/검색어 찾기 선택박스*/
+	.sub_nav {width:100%; background-color:#999;}
+	.sub_nav li {display:inline-block; float:left; font-weight:bold; color:#fff; } /* h :56 */
+	.sub_nav li.on { background-color:#73cf00; } /* h :56 */
+	.sub_nav li.off {background-color:#999; } /* h :56 */
+	.sub_nav li a {display:block; width:block; padding:10px 20px; color:#fff; text-decoration:none;} /* h :56 */
+
+	
+	/*검색창*/
+	.search select {vertical-align:middle; height:20px;}
+	.search input {vertical-align:middle;}
+	.search img {vertical-align:middle;}
+	.search th {border:1px solid #ccc; background-color:#eee;}
+	.search td {border:1px solid #ccc; height:31px;padding-left:10px;}.search select {vertical-align:middle; height:20px;}
+
+
+	
+
+
+
+
+
+.searchFullWidth {clear:both; width:100%;}

@@ -1,0 +1,22 @@
+
+.input_text {height:22px; padding-top:2px; border:1px solid #c0c0c0;vertical-align:middle; padding: 2px 4px;}
+.input_chk {margin:0px 0px 2px 0px;vertical-align:middle;}
+.select {height:24px;}
+
+.insert th, .insert td {border-bottom:1px solid #ddd;border-top:1px solid #ddd;}
+.insert th {background:#f4f4f4; height:28px;}
+.insert td {padding: 6px 10px;}
+.insert td.borLeft {border-left:1px dotted #ddd;}
+
+
+.tcblue {color:blue;}
+.tcred {color:red;}
+
+ul.tabs li {float:left;padding:10px 20px;border:1px solid #eee;}
+ul.tabs li:hover {background:#eee;}
+ul.tabs li.on {background:#ccc;}
+
+
+.cates td {height:30px;padding:0px; text-align:center;}
+
+.list td {height:30px; text-align:center;padding:0px;}

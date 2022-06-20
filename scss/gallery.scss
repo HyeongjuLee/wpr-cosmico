@@ -1,0 +1,68 @@
+@import 'mixin-custom';
+
+$height: rem(780px);
+
+.swiper-inner {
+	@include position(absolute, $le: 50%, $bot: 0);
+	width: $inner;
+	height: 0;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+.swiper-button {
+	$size: rem(50px);
+	width: $size;
+	height: $size;
+	font-size: round($size / 1.2);
+	color: #fff;
+	margin-top: ($height / -2) - ($size / 2);
+	@include transition(all 1s, background .3s);
+	opacity: 0;
+
+	&:hover {
+		background: rgba(#fff, 0.8);
+		// box-shadow: 0 3px 6px rgba(#000, 0.1);
+	}
+
+	&.prev {
+		left: -5%;
+		padding: 0;
+		padding-right: 0.5%;
+	}
+	&.next {
+		right: -5%;
+		padding: 0;
+		padding-left: 0.5%;
+	}
+}
+
+.swiper-container {
+	@include rounded($font-size);
+	&:hover {
+		.swiper-button {
+			opacity: 1;
+			filter: drop-shadow(0 3px 6px rgba(#000, 0.3));
+			&.prev {
+				left: 2.5%;
+			}
+			&.next {
+				right: 2.5%
+			}
+		}
+	}
+}
+
+#gallery {
+	h6 {
+		font-size: round($font-size * 3.2);
+		font-weight: 600;
+		letter-spacing: -0.05em;
+		margin-bottom: rem(30px);
+		color: $sub-color;
+		text-transform: uppercase;
+		span {
+			color: $main-color;
+		}
+	}
+}

@@ -1,0 +1,40 @@
+
+
+	#showroom {clear:both; float:left; margin-top:15px;}
+	#showroom .detailView_btn {clear:both;float:left;width:970px; background-color:#f2f2f2;}
+	#showroom .detailView_btn .tit {float:left;}
+	#showroom .detailView_btn ul {float:right; height:34px;}
+	#showroom .detailView_btn li {float:left; height:34px;}
+	#showroom .detailView_btn li img {vertical-align:top;}
+
+	#showroom .info td {padding:4px 0px; text-align:center; border-bottom:1px dotted #ccc;}
+	#showroom .info td.subject {padding-left:5px; text-align:left;}
+
+
+	#showroom .notData {padding:25px 0px !important; text-align:center;}
+
+	#Banner {clear:both;float:left;width:800px; height:380px;position:relative; background:url(/images/showroom/pics_bg.gif) bottom right no-repeat;}
+	.pagination li.current {float:left;width:12px; margin-left:10px;height:12px; background:url(/images/icon/fade_circle_blue.gif) 0 0 no-repeat;}
+	.pagination li {float:left;width:12px; margin-left:10px;height:12px; background:url(/images/icon/fade_circle_gray.gif) 0 0 no-repeat;}
+
+	#Banner .title {clear:both;float:left; margin-top:350px;}
+	#Banner .stitle {clear:both;float:left;width:200px;height:28px;font-size:16px;font-weight:bold; font-family:dotum;  letter-spacing:-2px; padding-top:5px; padding-left:30px;background:url(/images/showroom/pics_stitle_bg.gif) 0 0 no-repeat;}
+/*	#Banner .stitle {float:left;width:117px; height:28px; border-right:1px solid #d7d7d7; border-bottom:1px solid #d7d7d7; background-color:#f5f5f5;} */
+
+	#list {float:left; margin-left:5px;}
+	#list li {width:165px;padding:10px 0px;text-align:center; border-bottom:1px solid #cccccc; font-weight:bold;}
+	#list li a {color:#626262;}
+	#list li a:hover {color:#c7b299;}
+
+	
+	#popAll1 .input_text {border:1px solid #ccc;height:16px; padding-top:1px;}
+	#popSrNotice th, #popSrNotice td {border-top:1px solid #e1e1e1;}
+	#popSrNotice td {padding-left:10px;color:#777;}
+	#popSrNotice th {padding-left:10px; text-align:left;background:#f4f4f4; color:#777; height:30px;}
+	#popSrNotice .contentTD {padding-left:0px;background:#f4f4f4;text-align:center;}
+
+	#srNotice td {padding:10px 0px !important;}
+	div.pagingArea {width:970px; padding:7px 0px; text-align:center;}
+
+	#srReview td {padding:10px 0px !important;}
+	#srQna td {padding:10px 0px !important;}

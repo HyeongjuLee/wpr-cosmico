@@ -1,0 +1,10 @@
+/* 스타일시트 */
+	#member {}
+	#member th {border:1px solid #ccc; background-color:#eee; padding:7px 0px;}
+	#member td {border:1px solid #ccc; }
+
+
+
+	#order {margin-left:20px;}
+	#order th {border:1px solid #ccc; background-color:#eee; padding:7px 0px;}
+	#order td {border:1px solid #ccc; }

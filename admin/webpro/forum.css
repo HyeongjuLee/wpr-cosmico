@@ -1,0 +1,27 @@
+
+.btn_area {text-align:center;}
+.insert th, .insert td {border-bottom:1px solid #ddd;border-top:1px solid #ddd;}
+.insert th {background:#f4f4f4; height:45px;}
+.insert td {padding: 6px 10px;}
+.insert td.borLeft {border-left:1px dotted #ddd;}
+
+
+.tcblue {color:blue;}
+.tcred {color:red;}
+
+ul.tabs li {float:left;border:1px solid #eee; height:37px; line-height:37px;}
+ul.tabs li a {display:block; width:100%; height:100%; padding:0px 20px;}
+ul.tabs li:hover {background:#eee;}
+ul.tabs li.on {background:#333; color:#fff; font-weight:500;}
+ul.tabs li.on a {color:#fff;}
+
+
+.cates td {height:30px;padding:0px; text-align:center;}
+
+.list td {height:30px; text-align:center;padding:0px;}
+
+
+#forum.list th {border-bottom:1px solid #ddd;border-top:1px solid #ddd; height:45px; background-color:#f4f4f4;}
+#forum.list td {border-bottom:1px solid #ddd;border-top:1px solid #ddd; padding:7px 0px;}
+
+

@@ -1,0 +1,29 @@
+
+.bor1 {border:1px solid #ccc;}
+.bank {margin-top:15px; padding-bottom:30px;}
+
+.bank p {font-size:14pt; font-weight:bold; padding:10px 0px 5px 0px;}
+
+
+.bank .list {width:1000px;}
+
+.bank .list td,.bank .list th {border:1px solid #ccc;}
+.bank  th {background:#eee; padding:6px 0px;}
+.bank .list td {padding:5px 0px; text-align:center;}
+.bank .list .th_style {background:#eee; text-align:center; font-weight:bold;}
+.bank .list .td_bottom_line {border-bottom:3px double #999;}
+
+
+.bank .input th,.bank .input td {border:1px solid #ccc;}
+
+
+.bank .input .input_text {border:1px solid #ccc; margin-left:10px; height:19px;}
+.bank select {margin-left:10px;}
+.bank .input .submit {padding:5px 10px;}
+
+
+#joinPoint {}
+#joinPoint th {border:1px solid #ccc; height:30px;background-color:#eee;}
+#joinPoint td {border:1px solid #ccc; padding-left:7px;}
+#joinPoint .input_text {border:1px solid #ccc; height:17px;padding-top:3px; text-align:right;padding-right:3px;font-weight:bold;}
+#joinPoint .btn_zone {padding-top:20px; text-align:center;}

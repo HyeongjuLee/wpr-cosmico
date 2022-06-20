@@ -1,0 +1,418 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
+		<title>
+			FDK 결제 테스트 페이지
+		</title>
+		<style type="text/css">
+			body {padding:0;margin:0;font-size:12px;}
+			#content {width:100%;height:auto;display:inline-block;}
+			#content ul {padding:25px;padding-bottom:0;height:30px;}
+			#content ul li {width:100%;height:30px;overflow:hidden;}
+			.bottom_line {border-bottom:1px solid #eaebf0;line-height:230%;}
+			.fl {float:left;}
+			.fr {float:right;}
+			.txt_title {width:75px;padding-left:10px;text-align:left;}
+			.txt_div {padding:0 5px;color:#fb4f14;}
+			.txt_content {padding:0 10px;color:#00203d; width:150px;}
+			.txt_content2 {padding:0 10px;color:#00203d; width:350px;}
+			.con_input {width:130px;height:10px;border:0;border-bottom:1px solid #fb4f14;color:#00203d;background:#f4f4f4;padding:5px 10px;}
+			#button {width:100%;height:25px;margin-bottom:5px;}
+			#button ul {padding:0;margin-left:7px;width:300px;align:center;}
+			#button li {width:48%;height:38px;font-size:18px;text-align:center;cursor:pointer;}
+			#makedata {border:1px solid #d6d6d6;border-top-left-radius:10px;border-bottom-right-radius:10px;background:#fff;line-height:200%;}
+			#payproc {border:1px solid #df4f1e;border-top-right-radius:10px;border-bottom-left-radius:10px;color:#fff;background:#fb4f14;line-height:200%;}
+		</style>
+		<script type="text/javascript" src="js/sha256.js"></script>
+		<script type="text/javascript" src="js/jquery1.7.1.js"></script>
+		<script type="text/javascript">
+			
+			var keyData = "6aMoJujE34XnL9gvUqdKGMqs9GzYaNo6";	//가맹점 배포 PASSKEY 입력
+
+			//주문번호, 주문시간 자동 생성 처리
+			function initValue(){
+				document.fdpay.MxIssueDate.value = date_data();
+				document.fdpay.MxIssueNO.value = document.fdpay.MxID.value + date_data();
+			}
+
+			//현재 시간 생성 처리(YYYYMMDDHHMMSS)
+			function date_data() {
+				var time = new Date();
+				var year = time.getFullYear() + "";
+				var month = time.getMonth() + 1;
+				var date = time.getDate();
+				var hour = time.getHours();
+				var min = time.getMinutes();
+				var sec = time.getSeconds();
+				if (month < 10) {
+					month = "0" + month;
+				}
+				if (date < 10) {
+					date = "0" + date;
+				}
+				if (hour < 10) {
+					hour = "0" + hour;
+				}
+				if (min < 10) {
+					min = "0" + min;
+				}
+				if (sec < 10) {
+					sec = "0" + sec;
+				}
+				return year + month + date + hour + min + sec;
+			}
+
+			//결제 창 호출 요청 전문 생성 처리
+			$("#makedata").live({
+				click : function(e) {
+
+					var mxid = document.fdpay.MxID.value;
+					var mxissueno = document.fdpay.MxIssueNO.value;
+					var amount = document.fdpay.Amount.value;
+	
+					//HASH DATA 생성!!
+					var callhash = Sha256.hash(mxid + mxissueno + amount + keyData).toUpperCase();
+					
+					var temp = "";
+	
+					try{ temp += "MxID=" + document.fdpay.MxID.value + "|"; }catch (e) { temp += "MxID=|"; }
+					try{ temp += "MxIssueNO=" + document.fdpay.MxIssueNO.value + "|"; }catch (e) { temp += "MxIssueNO=|"; }
+					try{ temp += "MxIssueDate=" + document.fdpay.MxIssueDate.value + "|"; }catch (e) { temp += "MxIssueDate=|"; }
+					try{ temp += "CcProdDesc=" + document.fdpay.CcProdDesc.value + "|"; }catch (e) { temp += "CcProdDesc=|"; }
+					try{ temp += "Amount=" + document.fdpay.Amount.value + "|"; }catch (e) { temp += "Amount=|"; }
+					try{ temp += "rtnUrl=" + document.fdpay.rtnUrl.value + "|"; }catch (e) { temp += "rtnUrl=|"; }
+					try{ temp += "ItemInfo=" + document.fdpay.ItemInfo.value + "|"; }catch (e) { temp += "ItemInfo=|"; }
+					try{ temp += "connectionType=" + document.fdpay.connectionType.value + "|"; }catch (e) { temp += "connectionType=|"; }
+					try{ temp += "URL=" + document.fdpay.URL.value + "|"; }catch (e) { temp += "URL=|"; }
+					try{ temp += "DBPATH=" + document.fdpay.DBPATH.value + "|"; }catch (e) { temp += "DBPATH=|"; }
+					try{ temp += "Currency=" + document.fdpay.Currency.value + "|"; }catch (e) { temp += "Currency=|"; }
+					try{ temp += "SelectPayment=" + document.fdpay.SelectPayment.value + "|"; }catch (e) { temp += "SelectPayment=|"; }
+					try{ temp += "Tmode=" + document.fdpay.Tmode.value + "|"; }catch (e) { temp += "Tmode=|"; }
+					try{ temp += "LangType=" + document.fdpay.LangType.value + "|"; }catch (e) { temp += "LangType=|"; }
+					try{ temp += "BillType=" + document.fdpay.BillType.value + "|"; }catch (e) { temp += "BillType=|"; }
+					try{ temp += "CardSelect=" + document.fdpay.CardSelect.value + "|"; }catch (e) { temp += "CardSelect=|"; }
+					try{ temp += "escrowYn=" + document.fdpay.escrowYn.value + "|"; }catch (e) { temp += "escrowYn=|"; }
+					try{ temp += "cashYn=" + document.fdpay.cashYn.value + "|"; }catch (e) { temp += "cashYn=|"; }
+					try{ temp += "CcNameOnCard=" + document.fdpay.CcNameOnCard.value + "|"; }catch (e) { temp += "CcNameOnCard=|"; }
+					try{ temp += "PhoneNO=" + document.fdpay.PhoneNO.value + "|"; }catch (e) { temp += "PhoneNO=|"; }
+					try{ temp += "Email=" + document.fdpay.Email.value + "|"; }catch (e) { temp += "Email=|"; }
+					try{ temp += "SupportDate=" + document.fdpay.SupportDate.value + "|"; }catch (e) { temp += "SupportDate=|"; }
+	
+					temp += "CallHash=" + callhash + "|"; //CallHash DATA 추가!!
+	
+					document.fdpay.PAYDATA.value = temp;				
+				}
+			});
+
+			//결제하기 호출 시 처리
+			$("#payproc").live({
+				click : function(e) {
+
+					if(document.fdpay.PAYDATA.value == ""){
+						
+						alert("전문 생성 후 결제 요청해 주세요.");
+						
+					}else{
+						var frm = document.fdpay;
+						
+						frm.acceptCharset = 'euc-kr';
+						if(document.all)document.charset = 'euc-kr';
+		
+						frm.action = "https://testpg.firstpay.co.kr/jsp/mobile.jsp";
+						frm.submit();
+					}
+				}
+			});
+			
+		</script>
+	</head>
+	<body onload="initValue();">
+		<form name="fdpay" id="fdpay" method="post">
+		<div id="content">
+			<ul>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title"><b>요청전문</b></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="PAYDATA" id="PAYDATA" value="" /></span>
+ 						<span class="fl txt_div">/</span>
+ 						<span class="fl txt_content2">FDK 전송 요청 전문 입력("전문생성" 버튼으로 생성 처리)</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+			</ul>
+		</div>
+		<div id="button">
+			<ul>
+				<li class="fl" id="makedata">전문생성</li>
+				<li class="fr" id="payproc">결제하기</li>
+			</ul>
+		</div>
+		<div id="content">
+			<ul>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">결제종류</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content">
+							<select name="SelectPayment" id="SelectPayment">
+								<option value="">선택</option>
+								<option value="CRDT">신용카드</option>
+								<option value="ACCT">계좌이체</option>
+								<option value="HP">휴대폰</option>
+								<option value="VACT">무통장입금</option>
+							</select> 
+						</span>
+ 						<span class="fl txt_div">/</span>
+ 						<span class="fl txt_content2">미선택 시 신용-휴대폰-계좌-무통장 순(Default)</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">* 가맹점 ID</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="MxID" id="MxID" value="testcorp" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">FDK 등록 MID 입력</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl bold txt_title">* 주문번호</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="MxIssueNO" id="MxIssueNO" value="" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">가맹점 사용 주문번호</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">* 주문시간</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="MxIssueDate" id="MxIssueDate" value="" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">YYYYMMDDHHMMSS</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">* 상품명</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="CcProdDesc" id="CcProdDesc" value="키보드" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2"> '|' 입력 불가</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">* 결제금액</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="Amount" id="Amount" value="1000" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">숫자만 입력</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">* 결과수신URL</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="rtnUrl" id="rtnUrl" value="http://localhost/utf8/mreturn.asp" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">수신 전체 웹 경로 입력 </span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">상품종류</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content">
+							<select name="ItemInfo" id="ItemInfo">
+								<option value="">선택</option>
+								<option value="1" selected>실물</option>
+								<option value="2">컨텐츠</option>
+							</select> 
+						</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">* 휴대폰 결제 시 필수 (1:실물, 2:컨텐츠)</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">입금통보TYPE</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="connectionType" id="connectionType" value="http" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">* 가상계좌 결제 시 필수 (통보 페이지 프로토콜(http/https))</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">입금통보URL</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="URL" id="URL" value="localhost" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">* 가상계좌 결제 시 필수 (도메인 주소)</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">입금통보상세</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="DBPATH" id="DBPATH" value="/shop/insert.asp" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">* 가상계좌 결제 시 필수 (상세 주소)</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">카드사선택</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="CardSelect" id="CardSelect" value="00" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">전체-00(Default), 비씨사용시-01, 비씨,신한사용시-01:02</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">에스크로사용여부</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content">
+							<select name="escrowYn" id="escrowYn">
+								<option value="">선택</option>
+								<option value="Y">에스크로만</option>
+								<option value="S">에스크로/일반선택</option>
+								<option value="N">일반만</option>
+							</select> 
+						</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">Y:에스크로만, S:에스크로/일반선택(Default), N:일반만</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">현금영수증사용여부</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content">
+							<select name="cashYn" id="cashYn">
+								<option value="">선택</option>
+								<option value="Y">사용</option>
+								<option value="N">미사용</option>
+							</select> 
+						</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">Y:사용(Default), N:미사용</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">사용언어구분</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="LangType" id="LangType" value="HAN" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">HAN:한글, ENG:영어</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">인코딩구분</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" class="con_input" name="EncodeType" id="EncodeType" value="U" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">U:utf-8, E:euc-kr</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+<!--	하기 변수 필요 시 사용
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">주문자명</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" name="CcNameOnCard" id="CcNameOnCard" value="퍼스트" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2"></span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">주문자이메일주소</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" name="Email" id="Email" value="test@test.abc" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2"></span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">주문자연락처</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" name="PhoneNO" id="PhoneNO" value="010-0000-0000" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2"></span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">화폐코드</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" name="Currency" id="Currency" value="KRW" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">KRW:한화, USD:달러화</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">거래방식</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" name="Tmode" id="Tmode" value="WEB" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">WEB:PC결제, MOB:모바일(스마트폰)결제</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">영수증과세구분</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" name="BillType" id="BillType" value="00" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">00:과세, 01:면세</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+				<li>
+					<span class="bottom_line">
+						<span class="fl txt_title">결제창기간</span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content"><input type="text" name="SupportDate" id="SupportDate" value="" /></span>
+						<span class="fl txt_div">/</span>
+						<span class="fl txt_content2">없을경우 미 표기 (사용 예) 2015.04.02 ~ 2016.05.03)</span>
+						<span class="fl txt_div">/</span>
+					</span>
+				</li>
+-->				
+			</ul>
+		</div>
+		</form>
+	</body>
+</html>

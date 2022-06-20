@@ -1,0 +1,27 @@
+/* 팝업관련 기본 */
+	#popAll1 {width:100%;}
+	#popAll1 .top {clear:both;width:100%; background:url(/images_kr/admin/pop/pop_title_bg.gif) 0 0 repeat-x;}
+	#popAll1 .bottom {clear:both;width:100%; background:url(/images_kr/admin/pop/pop_bottom_bg.gif) 0 0 repeat-x; height:60px;}
+	#popAll1 .bottom .info {clear:both;float:left;}
+	#popAll1 .bottom .btn_area {float:right;}
+
+
+	#Relation {}
+	#Relation th {padding:5px 0px;}
+	#Relation th img {}
+
+	#pop_Event {width:100%;}
+	#pop_Event th {border:1px solid #ccc; background-color:#eee;}
+	#pop_Event td {border:1px solid #ccc; padding-left:5px; height:32px;}
+
+
+	.popSubmitArea {padding:10px 0px; text-align:center;}
+	.input_file {height:20px; border:1px solid #ccc;}
+
+
+	#CSGoodsSearch {clear:both;}
+	#CSGoodsSearch th,#CSGoodsSearch td {border:1px solid #ccc;padding:0px 5px 0px 4px;}
+	#CSGoodsSearch thead th {height:32px; background-color:#eee;border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+	#CSGoodsSearch td {height:38px; border-bottom:1px solid #ccc; text-align:center;}
+
+	#CSGoodsSearch td.notData {padding:50px 0px; text-align:center;}

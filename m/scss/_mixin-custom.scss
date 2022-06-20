@@ -1,0 +1,39 @@
+@import '../../scss/_mixin-unit.scss';
+@import '../../scss/_mixin-basic.scss';
+@import '../../scss/_palette-custom.scss'; //주색상 설정은 여기서
+
+$line-height: 1.5;
+$images: '/images';
+$vendors: "-moz-", "-webkit-", "";
+$default-css: initial;
+$parent-css: inherit;
+$inner: rem(640px);
+$font-size: rem(25px);
+
+$top-height: rem(130px);
+$input-width: $inner - rem(160px);
+$input-height: round($font-size * 2.8);
+
+$contain-height: calc(var(--c-vh, 1vh) * 100);
+$footer-height: calc(var(--f-vh, 1vh) * 100);
+
+$common-font-color: #212121;
+$input-width: $inner / 2.5;
+$input-height: rem(80px);
+$nav-color: #333645;
+$nav-color-200: saturate(lighten($nav-color, 65), 5);
+$nav-color-200-d: darken($nav-color-200, 10);
+$nav-color-600: saturate(lighten($nav-color, 10), 25);
+$contain: rem(640px);
+
+$pay-color: mix(material-color('green', '50'), #fff, 50);
+$pay-color-darken: darken($pay-color, 10);
+$pay-color-grey: mix(material-color('grey', '300'), $pay-color, 50);
+
+$point-color: mix(material-color('blue', '50'), #fff, 50);
+$point-color-darken: darken($point-color, 10);
+$point-color-grey: mix(material-color('grey', '300'), $point-color, 50);
+
+$indigo-color: mix(material-color('red', '50'), #fff, 50);
+$indigo-color-darken: darken($indigo-color, 10);
+$indigo-color-grey: mix(material-color('grey', '300'), $indigo-color, 50);

@@ -1,0 +1,324 @@
+	/* 국기 정보 */
+
+	#nation {font-family:tahoma;}
+	#nation .input_chk {height:15px; width:15px; padding:0px; vertical-align:top;}
+
+	#nation span.nat {display:inline-block; height:16px; width:16px;vertical-align:middle;}
+	#nation span.ncd {display:inline-block; font-weight:bold; color:#ccc; vertical-align:middle;}
+	#nation span.nname {display:inline-block; font-weight:bold;vertical-align:middle;}
+	#nation span.nhighlight {font-weight:bold; color:red;}
+	#nation li {display:block;height:16px; margin:0px 0px 2px 0px; padding:0px; font-weight:bold;}
+	#nation label {padding:0px; margin-top:0px;  line-height:16px; line-height:18px; letter-spacing:0px;}
+
+	#nation div.Wraps {overflow:hidden;border-top:1px dotted #ccc; padding-bottom:20px;}
+	#nation ul.ss {}
+	#nation .lineTop {padding-bottom:10px; font-size:13px;}
+	#nation .li_list {padding-left:20px;}
+
+	#nation .Afghanistan							{background:url(/images/nation.png) no-repeat 0px 0px;}
+	#nation .African_Union							{background:url(/images/nation.png) no-repeat -16px  0px;}
+	#nation .Aland_Islands							{background:url(/images/nation.png) no-repeat -32px  0px;}
+	#nation .Albania								{background:url(/images/nation.png) no-repeat -48px  0px;}
+	#nation .Alderney								{background:url(/images/nation.png) no-repeat -64px  0px;}
+	#nation .Algeria								{background:url(/images/nation.png) no-repeat -80px  0px;}
+	#nation .American_Samoa							{background:url(/images/nation.png) no-repeat -96px  0px;}
+	#nation .Andorra								{background:url(/images/nation.png) no-repeat -112px 0px;}
+	#nation .Angola									{background:url(/images/nation.png) no-repeat -128px 0px;}
+	#nation .Anguilla								{background:url(/images/nation.png) no-repeat -144px 0px;}
+	#nation .Antarctica								{background:url(/images/nation.png) no-repeat -160px 0px;}
+	#nation .Antigua_Barbuda						{background:url(/images/nation.png) no-repeat -176px 0px;}
+	#nation .Arab_League							{background:url(/images/nation.png) no-repeat -192px 0px;}
+	#nation .Argentina								{background:url(/images/nation.png) no-repeat -208px 0px;}
+	#nation .Armenia								{background:url(/images/nation.png) no-repeat -224px 0px;}
+	#nation .Aruba									{background:url(/images/nation.png) no-repeat -240px 0px;}
+	#nation .ASEAN									{background:url(/images/nation.png) no-repeat -256px 0px;}
+	#nation .Australia								{background:url(/images/nation.png) no-repeat -272px 0px;}
+	#nation .Austria								{background:url(/images/nation.png) no-repeat -288px 0px;}
+	#nation .Azerbaijan								{background:url(/images/nation.png) no-repeat -304px 0px;}
+
+	#nation .Bahamas								{background:url(/images/nation.png) no-repeat    0px -16px;}
+	#nation .Bahrain								{background:url(/images/nation.png) no-repeat  -16px -16px;}
+	#nation .Bangladesh								{background:url(/images/nation.png) no-repeat  -32px -16px;}
+	#nation .Barbados								{background:url(/images/nation.png) no-repeat  -48px -16px;}
+	#nation .Basque_Country							{background:url(/images/nation.png) no-repeat  -64px -16px;}
+	#nation .Belarus								{background:url(/images/nation.png) no-repeat  -80px -16px;}
+	#nation .Belgium								{background:url(/images/nation.png) no-repeat  -96px -16px;}
+	#nation .Belize									{background:url(/images/nation.png) no-repeat -112px -16px;}
+	#nation .Benin									{background:url(/images/nation.png) no-repeat -128px -16px;}
+	#nation .Bermuda								{background:url(/images/nation.png) no-repeat -144px -16px;}
+	#nation .Bhutan									{background:url(/images/nation.png) no-repeat -160px -16px;}
+	#nation .Bolivia								{background:url(/images/nation.png) no-repeat -176px -16px;}
+	#nation .Bosnia_Herzegovina						{background:url(/images/nation.png) no-repeat -192px -16px;}
+	#nation .Botswana								{background:url(/images/nation.png) no-repeat -208px -16px;}
+	#nation .Bouvet									{background:url(/images/nation.png) no-repeat -224px -16px;}
+	#nation .Brazil									{background:url(/images/nation.png) no-repeat -240px -16px;}
+	#nation .British_Indian_Ocean_Territory			{background:url(/images/nation.png) no-repeat -256px -16px;}
+	#nation .Brunei									{background:url(/images/nation.png) no-repeat -272px -16px;}
+	#nation .Bulgaria								{background:url(/images/nation.png) no-repeat -288px -16px;}
+	#nation .Burkina_Faso							{background:url(/images/nation.png) no-repeat -304px -16px;}
+	#nation .Burundi								{background:url(/images/nation.png) no-repeat -320px -16px;}
+
+	#nation .Cambodia								{background:url(/images/nation.png) no-repeat    0px -32px;}
+	#nation .Cameroon								{background:url(/images/nation.png) no-repeat  -16px -32px;}
+	#nation .Canada									{background:url(/images/nation.png) no-repeat  -32px -32px;}
+	#nation .Cape_Verde								{background:url(/images/nation.png) no-repeat  -48px -32px;}
+	#nation .CARICOM								{background:url(/images/nation.png) no-repeat  -64px -32px;}
+	#nation .Catalonia								{background:url(/images/nation.png) no-repeat  -80px -32px;}
+	#nation .Cayman_Islands							{background:url(/images/nation.png) no-repeat  -96px -32px;}
+	#nation .Central_African_Republic				{background:url(/images/nation.png) no-repeat -112px -32px;}
+	#nation .Chad									{background:url(/images/nation.png) no-repeat -128px -32px;}
+	#nation .Chile									{background:url(/images/nation.png) no-repeat -144px -32px;}
+	#nation .China									{background:url(/images/nation.png) no-repeat -160px -32px;}
+	#nation .Christmas								{background:url(/images/nation.png) no-repeat -176px -32px;}
+	#nation .CIS									{background:url(/images/nation.png) no-repeat -192px -32px;}
+	#nation .Cocos_Keeling							{background:url(/images/nation.png) no-repeat -208px -32px;}
+	#nation .Colombia								{background:url(/images/nation.png) no-repeat -224px -32px;}
+	#nation .Commonwealth							{background:url(/images/nation.png) no-repeat -240px -32px;}
+	#nation .Comoros								{background:url(/images/nation.png) no-repeat -256px -32px;}
+	#nation .Congo-Brazzaville						{background:url(/images/nation.png) no-repeat -272px -32px;}
+	#nation .Congo-KinshasaZaire					{background:url(/images/nation.png) no-repeat -288px -32px;}
+	#nation .Cook_Islands							{background:url(/images/nation.png) no-repeat -304px -32px;}
+	#nation .Costa_Rica								{background:url(/images/nation.png) no-repeat -320px -32px;}
+	#nation .Cote_dIvoire							{background:url(/images/nation.png) no-repeat -336px -32px;}
+	#nation .Croatia								{background:url(/images/nation.png) no-repeat -352px -32px;}
+	#nation .Cuba									{background:url(/images/nation.png) no-repeat -368px -32px;}
+	#nation .Curacao								{background:url(/images/nation.png) no-repeat -384px -32px;}
+	#nation .Cyprus									{background:url(/images/nation.png) no-repeat -400px -32px;}
+	#nation .Czech_Republic							{background:url(/images/nation.png) no-repeat -416px -32px;}
+
+	#nation .Denmark								{background:url(/images/nation.png) no-repeat   0px -48px;}
+	#nation .Djibouti								{background:url(/images/nation.png) no-repeat -16px -48px;}
+	#nation .Dominica								{background:url(/images/nation.png) no-repeat -32px -48px;}
+	#nation .Dominican_Republic						{background:url(/images/nation.png) no-repeat -48px -48px;}
+
+	#nation .East_Timor								{background:url(/images/nation.png) no-repeat    0px -64px;}
+	#nation .Ecuador								{background:url(/images/nation.png) no-repeat  -16px -64px;}
+	#nation .Egypt									{background:url(/images/nation.png) no-repeat  -32px -64px;}
+	#nation .El_Salvador							{background:url(/images/nation.png) no-repeat  -48px -64px;}
+	#nation .England								{background:url(/images/nation.png) no-repeat  -64px -64px;}
+	#nation .Equatorial_Guinea						{background:url(/images/nation.png) no-repeat  -80px -64px;}
+	#nation .Eritrea								{background:url(/images/nation.png) no-repeat  -96px -64px;}
+	#nation .Estonia								{background:url(/images/nation.png) no-repeat -112px -64px;}
+	#nation .Ethiopia								{background:url(/images/nation.png) no-repeat -128px -64px;}
+	#nation .European_Union							{background:url(/images/nation.png) no-repeat -144px -64px;}
+
+	#nation .Falkland_Malvinas						{background:url(/images/nation.png) no-repeat    0px -80px;}
+	#nation .FAO									{background:url(/images/nation.png) no-repeat  -16px -80px;}
+	#nation .Faroes									{background:url(/images/nation.png) no-repeat  -32px -80px;}
+	#nation .Fiji									{background:url(/images/nation.png) no-repeat  -48px -80px;}
+	#nation .Finland								{background:url(/images/nation.png) no-repeat  -64px -80px;}
+	#nation .France									{background:url(/images/nation.png) no-repeat  -80px -80px;}
+	#nation .French_Southern_and_Antarctic_Lands	{background:url(/images/nation.png) no-repeat  -96px -80px;}
+	#nation .French-Guiana							{background:url(/images/nation.png) no-repeat -112px -80px;}
+
+	#nation .Gabon									{background:url(/images/nation.png) no-repeat    0px -96px;}
+	#nation .Galicia								{background:url(/images/nation.png) no-repeat  -16px -96px;}
+	#nation .Gambia									{background:url(/images/nation.png) no-repeat  -32px -96px;}
+	#nation .Georgia								{background:url(/images/nation.png) no-repeat  -48px -96px;}
+	#nation .Germany								{background:url(/images/nation.png) no-repeat  -64px -96px;}
+	#nation .Ghana									{background:url(/images/nation.png) no-repeat  -80px -96px;}
+	#nation .Gibraltar								{background:url(/images/nation.png) no-repeat  -96px -96px;}
+	#nation .Greece									{background:url(/images/nation.png) no-repeat -112px -96px;}
+	#nation .Greenland								{background:url(/images/nation.png) no-repeat -128px -96px;}
+	#nation .Grenada								{background:url(/images/nation.png) no-repeat -144px -96px;}
+	#nation .Guadeloupe								{background:url(/images/nation.png) no-repeat -160px -96px;}
+	#nation .Guam									{background:url(/images/nation.png) no-repeat -176px -96px;}
+	#nation .Guatemala								{background:url(/images/nation.png) no-repeat -192px -96px;}
+	#nation .Guernsey								{background:url(/images/nation.png) no-repeat -208px -96px;}
+	#nation .Guinea									{background:url(/images/nation.png) no-repeat -224px -96px;}
+	#nation .Guinea-Bissau							{background:url(/images/nation.png) no-repeat -240px -96px;}
+	#nation .Guyana									{background:url(/images/nation.png) no-repeat -256px -96px;}
+
+	#nation .Haiti									{background:url(/images/nation.png) no-repeat   0px -112px;}
+	#nation .Heard_Island_and_McDonald				{background:url(/images/nation.png) no-repeat -16px -112px;}
+	#nation .Honduras								{background:url(/images/nation.png) no-repeat -32px -112px;}
+	#nation .Hong_Kong								{background:url(/images/nation.png) no-repeat -48px -112px;}
+	#nation .Hungary								{background:url(/images/nation.png) no-repeat -64px -112px;}
+
+	#nation .IAEA									{background:url(/images/nation.png) no-repeat    0px -128px;}
+	#nation .Iceland								{background:url(/images/nation.png) no-repeat  -16px -128px;}
+	#nation .IHO									{background:url(/images/nation.png) no-repeat  -32px -128px;}
+	#nation .India									{background:url(/images/nation.png) no-repeat  -48px -128px;}
+	#nation .Indonesia								{background:url(/images/nation.png) no-repeat  -64px -128px;}
+	#nation .Iran									{background:url(/images/nation.png) no-repeat  -80px -128px;}
+	#nation .Iraq									{background:url(/images/nation.png) no-repeat  -96px -128px;}
+	#nation .Ireland								{background:url(/images/nation.png) no-repeat -112px -128px;}
+	#nation .Islamic_Conference						{background:url(/images/nation.png) no-repeat -128px -128px;}
+	#nation .Isle_of_Man							{background:url(/images/nation.png) no-repeat -144px -128px;}
+	#nation .Israel									{background:url(/images/nation.png) no-repeat -160px -128px;}
+	#nation .Italy									{background:url(/images/nation.png) no-repeat -176px -128px;}
+
+	#nation .Jamaica								{background:url(/images/nation.png) no-repeat   0px -144px;}
+	#nation .Japan									{background:url(/images/nation.png) no-repeat -16px -144px;}
+	#nation .Jersey									{background:url(/images/nation.png) no-repeat -32px -144px;}
+	#nation .Jordan									{background:url(/images/nation.png) no-repeat -48px -144px;}
+
+	#nation .Kazakhstan								{background:url(/images/nation.png) no-repeat    0px -160px;}
+	#nation .Kenya									{background:url(/images/nation.png) no-repeat  -16px -160px;}
+	#nation .Kiribati								{background:url(/images/nation.png) no-repeat  -32px -160px;}
+	#nation .Korea_North							{background:url(/images/nation.png) no-repeat  -48px -160px;}
+	#nation .Korea_South							{background:url(/images/nation.png) no-repeat  -64px -160px;}
+	#nation .Kosovo									{background:url(/images/nation.png) no-repeat  -80px -160px;}
+	#nation .Kuwait									{background:url(/images/nation.png) no-repeat  -96px -160px;}
+	#nation .Kyrgyzstan								{background:url(/images/nation.png) no-repeat -112px -160px;}
+
+	#nation .Laos									{background:url(/images/nation.png) no-repeat    0px -176px;}
+	#nation .Latvia									{background:url(/images/nation.png) no-repeat  -16px -176px;}
+	#nation .Lebanon								{background:url(/images/nation.png) no-repeat  -32px -176px;}
+	#nation .Lesotho								{background:url(/images/nation.png) no-repeat  -48px -176px;}
+	#nation .Liberia								{background:url(/images/nation.png) no-repeat  -64px -176px;}
+	#nation .Libya									{background:url(/images/nation.png) no-repeat  -80px -176px;}
+	#nation .Liechtenstein							{background:url(/images/nation.png) no-repeat  -96px -176px;}
+	#nation .Lithuania								{background:url(/images/nation.png) no-repeat -112px -176px;}
+	#nation .Luxembourg								{background:url(/images/nation.png) no-repeat -128px -176px;}
+
+	#nation .Macao									{background:url(/images/nation.png) no-repeat    0px -192px;}
+	#nation .Macedonia								{background:url(/images/nation.png) no-repeat  -16px -192px;}
+	#nation .Madagascar								{background:url(/images/nation.png) no-repeat  -32px -192px;}
+	#nation .Malawi									{background:url(/images/nation.png) no-repeat  -48px -192px;}
+	#nation .Malaysia								{background:url(/images/nation.png) no-repeat  -64px -192px;}
+	#nation .Maldives								{background:url(/images/nation.png) no-repeat  -80px -192px;}
+	#nation .Mali									{background:url(/images/nation.png) no-repeat  -96px -192px;}
+	#nation .Malta									{background:url(/images/nation.png) no-repeat -112px -192px;}
+	#nation .Marshall_Islands						{background:url(/images/nation.png) no-repeat -128px -192px;}
+	#nation .Martinique								{background:url(/images/nation.png) no-repeat -144px -192px;}
+	#nation .Mauritania								{background:url(/images/nation.png) no-repeat -160px -192px;}
+	#nation .Mauritius								{background:url(/images/nation.png) no-repeat -176px -192px;}
+	#nation .Mayotte								{background:url(/images/nation.png) no-repeat -192px -192px;}
+	#nation .Mexico									{background:url(/images/nation.png) no-repeat -208px -192px;}
+	#nation .Micronesia								{background:url(/images/nation.png) no-repeat -224px -192px;}
+	#nation .Moldova								{background:url(/images/nation.png) no-repeat -240px -192px;}
+	#nation .Monaco									{background:url(/images/nation.png) no-repeat -256px -192px;}
+	#nation .Mongolia								{background:url(/images/nation.png) no-repeat -272px -192px;}
+	#nation .Montenegro								{background:url(/images/nation.png) no-repeat -288px -192px;}
+	#nation .Montserrat								{background:url(/images/nation.png) no-repeat -304px -192px;}
+	#nation .Morocco								{background:url(/images/nation.png) no-repeat -320px -192px;}
+	#nation .Mozambique								{background:url(/images/nation.png) no-repeat -336px -192px;}
+	#nation .Myanmar_Burma							{background:url(/images/nation.png) no-repeat -352px -192px;}
+
+	#nation .Namibia								{background:url(/images/nation.png) no-repeat    0px -208px;}
+	#nation .NATO									{background:url(/images/nation.png) no-repeat  -16px -208px;}
+	#nation .Nauru									{background:url(/images/nation.png) no-repeat  -32px -208px;}
+	#nation .Nepal									{background:url(/images/nation.png) no-repeat  -48px -208px;}
+	#nation .Netherlands							{background:url(/images/nation.png) no-repeat  -64px -208px;}
+	#nation .Netherlands_Antilles					{background:url(/images/nation.png) no-repeat  -80px -208px;}
+	#nation .New_Caledonia							{background:url(/images/nation.png) no-repeat  -96px -208px;}
+	#nation .New_Zealand							{background:url(/images/nation.png) no-repeat -112px -208px;}
+	#nation .Nicaragua								{background:url(/images/nation.png) no-repeat -128px -208px;}
+	#nation .Niger									{background:url(/images/nation.png) no-repeat -144px -208px;}
+	#nation .Nigeria								{background:url(/images/nation.png) no-repeat -160px -208px;}
+	#nation .Niue									{background:url(/images/nation.png) no-repeat -176px -208px;}
+	#nation .Norfolk								{background:url(/images/nation.png) no-repeat -192px -208px;}
+	#nation .Northern_Cyprus						{background:url(/images/nation.png) no-repeat -208px -208px;}
+	#nation .Northern_Ireland						{background:url(/images/nation.png) no-repeat -224px -208px;}
+	#nation .Northern_Mariana						{background:url(/images/nation.png) no-repeat -240px -208px;}
+	#nation .Norway									{background:url(/images/nation.png) no-repeat -256px -208px;}
+
+	#nation .OAS									{background:url(/images/nation.png) no-repeat   0px -224px;}
+	#nation .OECD									{background:url(/images/nation.png) no-repeat -16px -224px;}
+	#nation .Olimpic_Movement						{background:url(/images/nation.png) no-repeat -32px -224px;}
+	#nation .Oman									{background:url(/images/nation.png) no-repeat -48px -224px;}
+	#nation .OPEC									{background:url(/images/nation.png) no-repeat -64px -224px;}
+
+	#nation .Pakistan								{background:url(/images/nation.png) no-repeat    0px -240px;}
+	#nation .Palau									{background:url(/images/nation.png) no-repeat  -16px -240px;}
+	#nation .Palestine								{background:url(/images/nation.png) no-repeat  -32px -240px;}
+	#nation .Panama									{background:url(/images/nation.png) no-repeat  -48px -240px;}
+	#nation .Papua_New_Guinea						{background:url(/images/nation.png) no-repeat  -64px -240px;}
+	#nation .Paraguay								{background:url(/images/nation.png) no-repeat  -80px -240px;}
+	#nation .Peru									{background:url(/images/nation.png) no-repeat  -96px -240px;}
+	#nation .Philippines							{background:url(/images/nation.png) no-repeat -112px -240px;}
+	#nation .Pitcairn								{background:url(/images/nation.png) no-repeat -128px -240px;}
+	#nation .Poland									{background:url(/images/nation.png) no-repeat -144px -240px;}
+	#nation .Portugal								{background:url(/images/nation.png) no-repeat -160px -240px;}
+	#nation .Puerto_Rico							{background:url(/images/nation.png) no-repeat -176px -240px;}
+
+	#nation .Qatar									{background:url(/images/nation.png) no-repeat 0px -256px;}
+
+	#nation .Red_Cross								{background:url(/images/nation.png) no-repeat   0px -272px;}
+	#nation .Reunion								{background:url(/images/nation.png) no-repeat -16px -272px;}
+	#nation .Romania								{background:url(/images/nation.png) no-repeat -32px -272px;}
+	#nation .Russian_Federation						{background:url(/images/nation.png) no-repeat -48px -272px;}
+	#nation .Rwanda									{background:url(/images/nation.png) no-repeat -64px -272px;}
+
+	#nation .Saint_Barthelemy						{background:url(/images/nation.png) no-repeat    0px -288px;}
+	#nation .Saint_Helena							{background:url(/images/nation.png) no-repeat  -16px -288px;}
+	#nation .Saint_Kitts_Nevis						{background:url(/images/nation.png) no-repeat  -32px -288px;}
+	#nation .Saint_Lucia							{background:url(/images/nation.png) no-repeat  -48px -288px;}
+	#nation .Saint_Martin_French					{background:url(/images/nation.png) no-repeat  -64px -288px;}
+	#nation .Saint_Pierre_and_Miquelon				{background:url(/images/nation.png) no-repeat  -80px -288px;}
+	#nation .Saint_Vincent_the_Grenadines			{background:url(/images/nation.png) no-repeat  -96px -288px;}
+	#nation .Samoa									{background:url(/images/nation.png) no-repeat -112px -288px;}
+	#nation .San_Marino								{background:url(/images/nation.png) no-repeat -128px -288px;}
+	#nation .Sao_Tome_Principe						{background:url(/images/nation.png) no-repeat -144px -288px;}
+	#nation .Saudi_Arabia							{background:url(/images/nation.png) no-repeat -160px -288px;}
+	#nation .Scotland								{background:url(/images/nation.png) no-repeat -176px -288px;}
+	#nation .Senegal								{background:url(/images/nation.png) no-repeat -192px -288px;}
+	#nation .Serbia									{background:url(/images/nation.png) no-repeat -208px -288px;}
+	#nation .Seyshelles								{background:url(/images/nation.png) no-repeat -224px -288px;}
+	#nation .Sierra_Leone							{background:url(/images/nation.png) no-repeat -240px -288px;}
+	#nation .Singapore								{background:url(/images/nation.png) no-repeat -256px -288px;}
+	#nation .Sint-Maarten							{background:url(/images/nation.png) no-repeat -272px -288px;}
+	#nation .Slovakia								{background:url(/images/nation.png) no-repeat -288px -288px;}
+	#nation .Slovenia								{background:url(/images/nation.png) no-repeat -304px -288px;}
+	#nation .Solomon_Islands						{background:url(/images/nation.png) no-repeat -320px -288px;}
+	#nation .Somalia								{background:url(/images/nation.png) no-repeat -336px -288px;}
+	#nation .Somaliland								{background:url(/images/nation.png) no-repeat -352px -288px;}
+	#nation .South_Afriica							{background:url(/images/nation.png) no-repeat -368px -288px;}
+	#nation .South_Georgia_and_South_Sandwich		{background:url(/images/nation.png) no-repeat -384px -288px;}
+	#nation .South_Sudan							{background:url(/images/nation.png) no-repeat -400px -288px;}
+	#nation .Spain									{background:url(/images/nation.png) no-repeat -416px -288px;}
+	#nation .Sri_Lanka								{background:url(/images/nation.png) no-repeat -432px -288px;}
+	#nation .Sudan									{background:url(/images/nation.png) no-repeat -448px -288px;}
+	#nation .Suriname								{background:url(/images/nation.png) no-repeat -464px -288px;}
+	#nation .Svalbard_and_Jan_Mayen					{background:url(/images/nation.png) no-repeat -480px -288px;}
+	#nation .Swaziland								{background:url(/images/nation.png) no-repeat -496px -288px;}
+	#nation .Sweden									{background:url(/images/nation.png) no-repeat -512px -288px;}
+	#nation .Switzerland							{background:url(/images/nation.png) no-repeat -528px -288px;}
+	#nation .Syria									{background:url(/images/nation.png) no-repeat -544px -288px;}
+
+	#nation .TahitiFrench_Polinesia					{background:url(/images/nation.png) no-repeat    0px -304px;}
+	#nation .Taiwan									{background:url(/images/nation.png) no-repeat  -16px -304px;}
+	#nation .Tajikistan								{background:url(/images/nation.png) no-repeat  -32px -304px;}
+	#nation .Tanzania								{background:url(/images/nation.png) no-repeat  -48px -304px;}
+	#nation .Thailand								{background:url(/images/nation.png) no-repeat  -64px -304px;}
+	#nation .Togo									{background:url(/images/nation.png) no-repeat  -80px -304px;}
+	#nation .Tokelau								{background:url(/images/nation.png) no-repeat  -96px -304px;}
+	#nation .Tonga									{background:url(/images/nation.png) no-repeat -112px -304px;}
+	#nation .Trinidad_Tobago						{background:url(/images/nation.png) no-repeat -128px -304px;}
+	#nation .Tristan-da-Cunha						{background:url(/images/nation.png) no-repeat -144px -304px;}
+	#nation .Tunisia								{background:url(/images/nation.png) no-repeat -160px -304px;}
+	#nation .Turkey									{background:url(/images/nation.png) no-repeat -176px -304px;}
+	#nation .Turkmenistan							{background:url(/images/nation.png) no-repeat -192px -304px;}
+	#nation .Turks_and_Caicos_Islands				{background:url(/images/nation.png) no-repeat -208px -304px;}
+	#nation .Tuvalu									{background:url(/images/nation.png) no-repeat -224px -304px;}
+
+	#nation .Uganda									{background:url(/images/nation.png) no-repeat    0px -320px;}
+	#nation .Ukraine								{background:url(/images/nation.png) no-repeat  -16px -320px;}
+	#nation .UNESCO									{background:url(/images/nation.png) no-repeat  -32px -320px;}
+	#nation .UNICEF									{background:url(/images/nation.png) no-repeat  -48px -320px;}
+	#nation .United_Arab_Emirates					{background:url(/images/nation.png) no-repeat  -64px -320px;}
+	#nation .United_KingdomGreat_Britain			{background:url(/images/nation.png) no-repeat  -80px -320px;}
+	#nation .United_Nations							{background:url(/images/nation.png) no-repeat  -96px -320px;}
+	#nation .United_States_Minor_Outlying			{background:url(/images/nation.png) no-repeat -112px -320px;}
+	#nation .United_States_of_America				{background:url(/images/nation.png) no-repeat -128px -320px;}
+	#nation .Uruguay								{background:url(/images/nation.png) no-repeat -144px -320px;}
+	#nation .Uzbekistan								{background:url(/images/nation.png) no-repeat -160px -320px;}
+
+	#nation .Vanutau								{background:url(/images/nation.png) no-repeat   0px -336px;}
+	#nation .Vatican_City							{background:url(/images/nation.png) no-repeat -16px -336px;}
+	#nation .Venezuela								{background:url(/images/nation.png) no-repeat -32px -336px;}
+	#nation .VietNam								{background:url(/images/nation.png) no-repeat -48px -336px;}
+	#nation .Virgin_Islands_British					{background:url(/images/nation.png) no-repeat -64px -336px;}
+	#nation .Virgin_Islands_US						{background:url(/images/nation.png) no-repeat -80px -336px;}
+
+	#nation .Wales									{background:url(/images/nation.png) no-repeat   0px -352px;}
+	#nation .Wallis_and_Futuna						{background:url(/images/nation.png) no-repeat -16px -352px;}
+	#nation .Western_Sahara							{background:url(/images/nation.png) no-repeat -32px -352px;}
+	#nation .WHO									{background:url(/images/nation.png) no-repeat -48px -352px;}
+	#nation .WTO									{background:url(/images/nation.png) no-repeat -64px -352px;}
+
+	#nation .Yemen									{background:url(/images/nation.png) no-repeat 0px -368px;}
+
+	#nation .Zambia									{background:url(/images/nation.png) no-repeat 0px -384px;}
+	#nation .Zimbabwe								{background:url(/images/nation.png) no-repeat -16px -384px;}

@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/*다국어*/
+#top_area .all_wrap { position: relative; z-index: 100; float: right; }
+#top_area .all_inner_wrap { position: relative; }
+#top_area .wrap { width: 138px; height: 45px; border-left: 1px solid #404455; border-right: 1px solid #404455; background: #1c2131; }
+#top_area .arrow { width: 7px; height: 5px; background-image: url(/images/share/top_arrow.png); position: absolute; top: 20px; right: 25px; }
+#top_area .options { width: 138px; height: 45px; line-height: 45px; border: 1px solid #404455; background: #1c2131; margin-bottom: -1px; }
+#top_area .options:hover { background: #0f121d; }
+#top_area .options:hover .opt_text { font-weight: 500; letter-spacing: -0.2px; text-decoration: underline; }
+#top_area .opt_text { color: #00f3ff; float: left; font-size: 12px; line-height: 45px; margin-left: 20px; }
+#top_area .hiddens { display: none; background: #fff; position: absolute; top: 45px; }
+
+/*#top_wrap #wrap.jbFixed {position: fixed; top: 0; left: 0; z-index: 99999; width: 100%; height: 80px; background: #fff;}
+*/
+.top_search { float: right; margin-top: 44px; }
+.top_search .searchBar { width: 200px; height: 30px; position: relative; overflow: hidden; border-bottom: 1px solid #2a2f42; }
+.top_search .input_search { float: left; width: 171px; height: 30px; margin: 0; padding: 0; padding-left: 5px; border: 0 none; font-size: 14px; line-height: 28px; color: #2a2a2a; outline: none; ime-mode: active; background: transparent; position: relative; z-index: 2; }
+.top_search .btn_search { position: absolute; right: 0; top: 5px; overflow: hidden; width: 20px; height: 20px; border: 0 none; cursor: pointer; padding: 0; margin: 0; background: transparent; z-index: 2; }
+.top_search .btn_search img { position: absolute; right: 0; top: 0; padding: 3px; }
+.top_search.on u { width: 392px; height: 40px; box-sizing: border-box; border: 2px solid #323232; position: absolute; top: 0; left: 0; z-index: 1; border-radius: 4px; }
+.top_search *:focus { outline: none; }
+.top_search input { font-weight: 400; font-size: 14px; }
+.top_search input::-webkit-input-placeholder, .top_search input::-moz-input-placeholder, .top_search input:-moz-input-placeholder, .top_search input:-ms-input-placeholder { color: #adadad; font-size: 14px; }
+
+/*입력 창 글자 설정 S*/
+/*입력 창 글자 설정 E*/
+#top_menu { z-index: 90; width: 1030px; position: relative; float: right; margin: 0 -68px; }
+#top_menu .layout_inner { position: relative; }
+#top_menu tr td { font-size: 17px; text-align: center; margin: 0; position: relative; font-weight: 500; padding: 0; width: 20%; line-height: 75px; height: 75px; border: none; }
+#top_menu tr td > a { color: #000; position: relative; font-size: 19px; width: 80%; padding: 10px; }
+
+.lt-ie9 #top_menu tr td > a { font-weight: 600; }
+
+#top_menu tr td > a > i { width: 100%; height: 0; left: 0; bottom: -16px; position: absolute; z-index: 999; transition: all .2s ease; -webkit-transition: all .2s ease; -moz-transition: all .2s ease; -o-transition: all .2s ease; }
+#top_menu tr td:hover a { color: #2a2f42; }
+#top_menu tr td:hover i { background: #2a2f42; height: 3px; }
+#top_menu .sub_menu { position: absolute; top: 74px; left: 0px; padding: 15px 0; width: 100%; z-index: 99; text-align: center; display: none; font-weight: 400; }
+#top_menu .sub_menu li { position: relative; z-index: 99; float: left; width: 100%; }
+#top_menu .sub_menu a { font-size: 16px; color: #313131; z-index: 999999; width: 100%; line-height: 250%; float: left; }
+#top_menu .sub_menu .line { position: absolute; top: 0; right: 0; background: #eee; width: 1px; height: 100%; }
+#top_menu .sub_menu .linel { left: 0; }
+#top_menu .sub_menu li:hover { z-index: 999; }
+#top_menu .sub_menu li span { position: relative; }
+#top_menu .sub_menu li span i { position: absolute; width: 0; height: 1px; background: #555; bottom: 0; left: 0; transition: all .2s ease; -webkit-transition: all .2s ease; -moz-transition: all .2s ease; -o-transition: all .2s ease; }
+#top_menu .sub_menu li:hover span { font-weight: 500; }
+#top_menu .sub_menu li:hover span i { width: 100%; }
+#top_menu .sub_bg { position: absolute; width: 1000%; background: #fff; z-index: -1; top: 74px; left: -500%; border-bottom: 1px solid #000; opacity: .97; display: none; }
+
+.ie7 #top_menu .sub_menu .line { top: -1px; }
+.ie7 #top_menu .sub_bg { margin: 0; border-top: 1px solid #eee; }
+
+#top_menu .sub_bg td { width: 1000%; height: 1px; background: #eee; position: absolute; top: 0; left: -500%; z-index: 1; }
+#top_menu .sub_bg td.bottom { bottom: 0; }

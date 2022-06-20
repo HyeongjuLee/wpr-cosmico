@@ -1,0 +1,40 @@
+
+	#div_date {margin-top:15px;}
+	#div_date th {background-color:#eee; border:1px solid #ccc; }
+	#div_date td {border:1px solid #ccc; padding:2px 0px;}
+	#div_date td .input_text_date {border:1px solid #ccc; line-height:22px; height:22px; text-align:center; background-color:#eee; width:95%;}
+
+	#div_date .date_submit { background:linear-gradient(#fff 0%,#ddd 35%,#fff 100%);
+		border:1px solid #999; color:#fff; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;
+		padding:15px 8px; text-align:center; color:#333; display:block; cursor:pointer; font-weight:bold;
+		width:100%;
+	}
+
+	.pays td a { background:linear-gradient(#fff 0%,#ececec 35%,#fff 100%);
+		border:1px solid #999; color:#fff; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;
+		padding:5px 8px; text-align:center; color:#333; display:block; cursor:pointer; font-weight:bold; font-size:13px;
+	}
+
+
+	.pays .htbody td {background-color:#ffffff;}
+	.pays .htbody td.bg_y {background-color:#fffffa;padding:0px 0px 0px 0px;}
+	.pays .htbody td.th14 {background-color:#eee;font-weight:bold;text-align:center;font-size:14px;}
+	.pays .htbody td.th12 {background-color:#eee;font-weight:bold;text-align:center;font-size:12px;}
+	.pays .htbody th {font-weight:bold;text-align:center;background-color:#efefef;}
+	.pays .htbody .f12 {font-size:12px;}
+	.pays .htbody .f13 {font-size:13px;}
+	.pays .htbody .f14 {font-size:14px;}
+
+	.pays th.title {border-top:0px none;font-size:12px;}
+
+	/*신 상세내역 버튼*/
+   .btn01 {display:inline-block;border:1px solid #848484; width:55px;height:15px; padding:2px 5px 2px 5px;}
+   .fon1 {font-family:malgun gothic,dotum,gulim;font-size:9pt;font-weight:bold;color:#0057d3;text-align:center;}
+   a:hover{color:green;}
+
+
+	/* 페이징 모바일(5)*/
+	.pagingMob5d  {clear:both;width:100%;text-align:center;padding:20px 0px;margin-bottom:5px; font-size: 14px;}
+	.pagingMob5d .currentPage {display:inline-block;border:1px solid #888;color:#fff;margin:2px;background:#888; width:32px;height:32px;line-height:30px; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;}
+	.pagingMob5d .defalut a   {display:inline-block;border:1px solid #ccc;color:#777;margin:2px;background:#fff; width:32px;height:32px;line-height:32px;  padding:0;}
+	.pagingMob5d a:hover {border:1px solid #888;color:#888;}

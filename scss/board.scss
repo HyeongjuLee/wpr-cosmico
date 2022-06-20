@@ -1,0 +1,249 @@
+@import 'mixin-custom';
+
+.board {
+
+	input,
+	textarea {
+		&::placeholder {
+			color: material-color('grey', '400');
+			font-size: $font-size;
+			line-height: 1.5;
+			white-space: normal;
+		}
+
+		&::-webkit-input-placeholder {
+			color: material-color('grey', '400');
+			font-size: $font-size;
+			line-height: 1.5;
+			white-space: normal;
+		}
+
+		&::-moz-input-placeholder {
+			color: material-color('grey', '400');
+			font-size: $font-size;
+			line-height: 1.5;
+			white-space: normal;
+		}
+
+		&::-ms-input-placeholder {
+			color: material-color('grey', '400');
+			font-size: $font-size;
+			line-height: 1.5;
+			white-space: normal;
+		}
+	}
+
+	color: #222;
+
+    .button {
+        @include button($basic);
+        margin: 0;
+
+        &.admin {
+            @include button($admin);
+        }
+
+        &.write {
+            @include button($write);
+        }
+
+        &.answer {
+            @include button($answer);
+        }
+
+        &.delete {
+            @include button($delete);
+        }
+
+        &.edit {
+            @include button($edit);
+        }
+
+        &.save {
+            @include button($save);
+        }
+    }
+
+	th,
+	td {
+		font-size: $font-size;
+		font-weight: 400;
+		height: $input-height - rem(10px);
+		color: #333;
+		padding: 0 $font-size;
+	}
+
+	td {
+		border: none;
+		padding: $font-size;
+
+		&.contentTD2 {
+			border-bottom: 1px solid material-color('grey', '300');
+			padding: $font-size * 2 $font-size;
+		}
+
+		&.contentTD3 {
+			padding: {
+				left: 0;
+				right: 0;
+			}
+		}
+
+	}
+
+	thead {
+		tr {
+		}
+
+		th {
+			font-weight: 500;
+		}
+	}
+
+	tbody {
+		tr {
+		}
+
+		td a {
+			color: #333;
+
+			&:hover {
+				color: #1e2e71;
+				text-decoration: underline;
+			}
+		}
+
+		&.no {
+			color: #aaa;
+		}
+
+		&.subject {
+			color: #444;
+		}
+	}
+
+	.nothing {
+		height: 150px;
+		text-align: center;
+	}
+
+	tfoot td {
+		text-align: right;
+		border: none;
+
+		padding: $font-size {
+			right: 0;
+		};
+	}
+
+	.notice1 a,
+	.notice2 a,
+	.notice3 a,
+	.notice4 a {
+		color: #505050;
+	}
+
+	.notice1 a:hover,
+	.notice2 a:hover,
+	.notice3 a:hover,
+	.notice4 a:hover {
+		color: #528979;
+		text-decoration: underline;
+	}
+
+	.table_for {
+		th, td {
+		text-align: center;
+		//height: 25px;
+
+			&.subject {
+				text-align: left;
+			}
+		}
+	}
+
+	.cnt {
+		font-size: 8pt;
+		color: #ff3c00;
+		font-weight: normal;
+
+		strong {
+			font-weight: normal;
+			font-family: verdana;
+		}
+	}
+
+	.contentTD {
+		text-align: $default-css !important;
+        border-color: #ebebeb;
+	}
+	&.reply {
+		.title {
+			input {
+				&[type="text"] {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+    td {
+        label {
+            @include inline-flex;
+            margin-left: 10px;
+            vertical-align: middle;
+            .input_radio {
+                margin-top: 0;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.board {
+    @include table-color(material-color('grey'));
+
+}
+
+#forum.board {
+    
+    @include table-color(material-color('grey'));
+    
+    &.view {
+        td:not(.contentTD) {
+            border: none;
+        }
+        .contentTD {
+            border-color: #ebebeb;
+        }
+        tr {
+            border-top-color: #ccc;
+            border-bottom-color: #ccc;
+        }
+    }
+
+    &.write {
+		.contentTD {
+            font-size: 0;
+            padding: rem(15px) 0;
+        }
+	}
+
+
+}
+
+.prenext {
+	td {
+		height: $input-height - rem(15px);
+	}
+	.tit {
+		background-color: transparent;
+		color: $main-color;
+		font-weight: 500;
+	}
+	.subject {}
+}
+
+.button {
+
+}

@@ -1,0 +1,205 @@
+@import 'mixin-custom';
+
+/*카피라이터 영역 */
+.footer {
+	$footer-color: #6a6a6a;
+
+	@include clear;
+	width: 100%;
+	background: #2c2c2c;
+	font-size: $font-size;
+	font-weight: 500;
+	color: $footer-color;
+	//display: flex; //임시
+	letter-spacing: -0.01em;
+
+	.layout_inner {
+		@include position;
+		//display: flex;
+	}
+
+	article {
+		display: inline-flex;
+	}
+
+	&-menu {
+		width: 100%;
+		height: rem(70px);
+		border-bottom: 1px solid #232323;
+		.layout_inner {
+			@include flex;
+			//width: 100%;
+			height: 100%;
+			margin: 0 auto;
+		}
+
+		ul {
+			@include inline-flex;
+			height: 100%;
+
+			li {
+				height: 100%;
+				@include inline-flex;
+				margin-right: rem(20px);
+				&:last-child {
+					margin-right: 0;
+				}
+				a {
+					@include position;
+					display: block;
+					color: $footer-color;
+					letter-spacing: -0.05em;
+				}
+			}
+
+			.policy2 {
+				a {
+					color: #8f7474;
+				}
+				a::after {
+					//content: '';
+					@include position(absolute, $le: 0, $bot: -15%);
+					width: 100%;
+					height: 2px;
+					background: darken($footer-color, 5%);
+				}
+			}
+		}
+		i {
+			width: 1px;
+			height: rem(13px);
+			background: #fff;
+			opacity: 0.08;
+			margin: 0 rem(50px);
+		}
+		.cscenter {
+			.tit, .tel {
+				color: #909090;
+				margin-right: rem(15px);
+			}
+			.tit {
+				font-weight: 600;
+			}
+			.tel {
+				font-size: rem(21px);
+				font-weight: 700;
+			}
+		}
+	}
+
+	&-logo {
+		width: rem(140px);
+		margin-right: rem(50px);
+		img {
+			width: 100%;
+			filter: grayscale(1) brightness(1.5);
+		}
+	}
+
+	&-info {
+		font-size: $font-size;
+		font-weight: 600;
+		letter-spacing: letter-spacing(-25, $font-size);
+		//line-height: 2;
+		float: left;
+
+		span {
+			margin-right: rem(15px);
+		}
+	}
+
+	.copyright {
+		font-size: $font-size - rem(1px);
+		font-weight: 700;
+		letter-spacing: letter-spacing(40, $font-size - rem(1px));
+		margin-top: rem(15px);
+		text-transform: uppercase;
+
+		a {
+			cursor: text;
+			color: $parent-css;
+		}
+	}
+
+	& > .layout_inner {
+		@include flex($st);
+		padding: rem(50px) 0;
+	}
+
+	&-right {
+		flex-direction: column;
+		justify-content: flex-start;
+		width: calc(100% - (#{rem(190) + rem(160px) + rem(50px)}));
+	}
+
+	.footer-icon {
+		@include position(absolute, $top: rem(10px), $ri: rem(-5px));
+		ul {
+			@include flex;
+		}
+		li {
+			width: rem(40px);
+			height: rem(40px);
+			margin: rem(5px);
+			font-size: rem(40px);
+			background: material-color('grey', '300');
+			@include rounded(100%);
+			color: #6a6a6a;
+			a {
+				width: 100%;
+				height: 100%;
+				@include flex;
+				cursor: pointer;
+				color: $parent-css;
+				font-size: $parent-css;
+			}
+
+			&:hover {
+				color: #fff;
+				&.naver {
+					background: $naver-green;
+				}
+				&.youtube {
+					background: $youtube-red;
+				}
+				&.facebook {
+					background: $facebook-old;
+				}
+				&.insta {
+					background: $instagram-magenta;
+				}
+				&.kakao {
+					background: $kakao-yellow;
+				}
+			}
+		}
+	}
+
+	.site-top {
+		@include position(absolute, $ri: rem(-55px), $bot: 0);
+		@include default-0;
+		@include default-a;
+		width: rem(55px);
+		height: rem(55px);
+		background: url('/images/share/top_btn-arrow.gif') no-repeat center;
+	}
+
+	.banners {
+		@include position(absolute, $top: rem(80px), $ri: 0);
+		@include inline-flex(flex-end);
+		flex-direction: $default-css;
+		width: (rem(160px) * 2) + rem(10px);
+
+		a {
+			margin: 0;
+			margin-left: rem(5px);
+		}
+
+		.macco {}
+
+		.kossa {
+		}
+
+		.ftc {}
+	}
+}

@@ -1,0 +1,872 @@
+@import 'mixin-custom';
+
+$input-height: $font-size * 4;
+$nav-color: #333645;
+$board-color: material-color('teal', '50');
+$board-color-darken: darken($board-color, 10);
+$board-color-grey: mix(material-color('grey', '300'), $board-color, 50);
+$myoffice-color: material-color('teal', 'a700');
+$input-color: mix(#fff, material-color('blue-grey', '50'), 50);
+$input-border: mix(#fff, material-color('blue-grey', '100'), 25);
+
+.orderList {
+	.board {
+		@include table-color($myoffice-color, true);
+		table {
+			background: #fff;
+		}
+		th, td {
+			padding: rem(5px) !important;
+			font-size: $font-size - rem(4px);
+			height: rem(70px) !important;
+		}
+		.detail_btn {
+			color: #fff;
+			font-size: $parent-css;
+			&:hover {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+	}
+	.htbody {
+		.titles {
+			text-align: left;
+			padding-top: 0;
+		}
+		table {
+			margin: $font-size 0;
+		}
+		.table {
+			background: #fff;
+			@include table-color-wrap(material-color('indigo'), $wrap: true);
+			@include table-color(material-color('indigo'), true);
+		}
+		.table1 {
+			background: #fff;
+			@include table-color-wrap(material-color('blue-grey', '900'), $wrap: true);
+			@include table-color(material-color('blue-grey', '900'), true);
+			th {
+				font-weight: 600;
+			}
+
+			a {
+				color: #fff;
+				text-decoration: none;
+				&:hover {
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+
+			.plus {
+				$plus-color: mix(#fff, material-color('blue'), 90);
+				$plus-color-darken: darken($plus-color, 10);
+				$plus-color-grey: mix(material-color('grey', '300'), $plus-color, 60);
+				$plus-text: mix(#000, $plus-color-darken, 50);
+
+				th {
+					background: $plus-color;
+					border-color: $plus-color-darken;
+					color: $plus-text;
+				}
+				td {
+					background: mix(#fff, $plus-color, 50);
+					border-color: $plus-color-grey;
+				}
+			}
+			.minus {
+				$minus-color: mix(#fff, material-color('red'), 90);
+				$minus-color-darken: darken($minus-color, 10);
+				$minus-color-grey: mix(material-color('grey', '300'), $minus-color, 60);
+				$minus-text: mix(#000, $minus-color-darken, 50);
+
+				th {
+					background: $minus-color;
+					border-color: $minus-color-darken;
+					color: $minus-text;
+				}
+				td {
+					background: mix(#fff, $minus-color, 50);
+					border-color: $minus-color-grey;
+				}
+			}
+		}
+		.tcenters {
+			padding: $font-size;
+			background: mix($myoffice-color, #fff, 5);
+			border-bottom: 1px solid mix($myoffice-color, #000, 70);
+			border-right: none;
+			font-size: $font-size - rem(5px);
+			padding: $font-size !important;
+		}
+		.innerTable {
+			@include table-color-wrap(material-color('green'), $wrap: true);
+			@include table-color(material-color('green'), true);
+			th, td {
+				padding: rem(5px);
+				font-size: $font-size - rem(4px);
+			}
+		}
+		.innerTableVote {
+			background: #fff;
+			@include table-color-wrap(material-color('red'), $wrap: true);
+			@include table-color(material-color('red'), true);
+			th, td {
+				padding: rem(5px);
+				font-size: $font-size - rem(4px);
+				height: rem(60px) !important;
+			}
+			td {
+				&:last-of-type {
+					border-bottom: none;
+				}
+			}
+			tbody {
+				$table-color: mix(#fff, material-color('red'), 90);
+				$table-color-darken: darken($table-color, 10);
+				$table-color-grey: mix(material-color('grey', '300'), $table-color, 50);
+				@include position;
+				&:after {
+					@include presudo($le: 0, $bot: 0, $h: 1px);
+					z-index: 1;
+					background: darken($table-color-grey, 5);
+				}
+				&:nth-of-type(even) {
+					background: mix($table-color-grey, #fff, 25);
+				}
+				&:last-of-type {
+					&:after {
+						content: none;
+					}
+				}
+			}
+		}
+
+		.innerTablePay {
+			@include table-color-wrap(material-color('red'), $wrap: true);
+			@include table-color(material-color('red'), true);
+			th, td {
+				padding: rem(5px);
+				font-size: $font-size - rem(4px);
+			}
+		}
+
+		.innerTableBuy {
+			$color: material-color('purple');
+			@include table-color-wrap($color, $wrap: true);
+			@include table-color($color, true);
+			th, td {
+				padding: rem(5px);
+				font-size: $font-size - rem(4px);
+			}
+			.detail_btn {
+				@include button(mix($color, #fff, 10));
+				color: $color;
+				text-decoration: none;
+				&:hover {
+					text-decoration: none;
+					color: $color;
+				}
+				&.active {
+					color: #fff;
+					background: darken(mix($color, #fff, 10), 50);
+					border-color: darken(mix($color, #fff, 10), 80);
+				}
+			}
+		}
+
+		.innerTableRece td.th {
+			background-color: #feecd8;
+			font-weight: bold;
+			text-align: center;
+			font-size: 13px;
+		}
+
+	}
+
+	.total {
+		@include table-color-wrap(material-color('cyan', '900'), true);
+		@include table-color(material-color('cyan', '900'), true);
+	}
+
+	.detail_btn {
+		width: 100%;
+		background: #757575;
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+		}
+
+		&.red {
+			background: material-color('pink');
+
+			&:hover {
+				background: material-color('pink', '700');
+			}
+		}
+
+		&.green {
+			background: material-color('green');
+
+			&:hover {
+				background: material-color('green', '700');
+			}
+		}
+
+		&.purple {
+			background: material-color('purple');
+			&:hover {
+				background: material-color('purple', '700');
+			}
+		}
+		&.dark-red {
+			background: material-color('red', '700');
+
+			&:hover {
+				background: material-color('red', '900');
+			}
+		}
+
+		&.active {
+			background: #303f9f;
+		}
+
+		&.slim {
+			padding: rem(5px) rem(15px);
+			// height: auto;
+			line-height: 1.2;
+			margin: rem(5px) rem(15px);
+			margin-bottom: 0;
+			width: auto;
+		}
+	}
+}
+
+.readonly {
+	background: #eee;
+}
+
+.input_text {
+	line-height: 1.5;
+	height: $input-height - rem(20px);
+	@include rounded($font-size / 3);
+	vertical-align: middle;
+	padding: 0px $font-size;
+	border: 1px solid $input-border;
+	background: $input-color;
+	width: 100%;
+}
+
+.input_text2 {
+	vertical-align: middle;
+	padding: 4px;
+	border: 1px solid #ccc;
+	width: 176px;
+	background-color: #f4f4f4;
+}
+
+.table1 {
+	// th {
+	// 	background-color: #eee;
+	// 	font-weight: 600;
+	// }
+
+	// td {
+	// 	padding: 5px 0px 5px 10px;
+	// 	font-weight: 400;
+	// }
+}
+
+.table2 {
+	// th {
+	// 	background-color: #eee;
+	// 	padding: 10px 0px;
+	// 	font-weight: 600;
+	// }
+
+	td {
+		// padding: 7px 4px;
+		text-align: right;
+
+		&.tcenter {
+			//padding-right: 0px;
+		}
+	}
+}
+
+.table3 {
+	// th {
+	// 	background-color: #eee;
+	// 	padding: 10px 0px;
+	// }
+
+	td {
+		// padding: 0px;
+		// padding-right: 3px;
+		text-align: right;
+
+		&.tcenter {
+			padding-right: 0px;
+		}
+	}
+}
+
+.inTable {
+	td {
+		border: 0px none;
+		text-align: right;
+		padding-right: 3px;
+	}
+
+	th {
+		border: 0px none;
+		background-color: #eee;
+		padding: 4px 0px;
+	}
+
+	.btop {
+		border-top: 1px solid #ccc;
+	}
+
+	.tcenter {
+		padding-right: 0px;
+	}
+}
+
+.h2 {
+
+	td,
+	th {
+		height: 30px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+}
+
+.h3 {
+
+	td,
+	th {
+		height: 20px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+}
+
+.f12 {
+	font-size: 12px;
+}
+
+/* 惑技郴开 */
+
+#under_search {
+	.search_content {
+		width: 980px;
+		height: 150px;
+		margin: 0px;
+		border: 0px solid #c7c7c7;
+		overflow-y: scroll;
+		background: #fff;
+		padding: 0px;
+	}
+
+	.search_content1 {
+		width: 455px;
+		height: 150px;
+		margin: 0px;
+		border: 1px solid #c7c7c7;
+		overflow-y: scroll;
+		background: #fff;
+		padding-bottom: 0px;
+	}
+}
+
+.btnZone {
+	@include flex;
+	//flex-direction: column;
+
+	padding: {
+		top: $font-size * 2;
+	}
+
+	width: calc(#{$inner / 2} + 5%);
+	margin: 0 auto;
+
+	a,
+	input {
+		@include inline-flex;
+		width: 100%;
+		height: $input-height;
+		margin: $font-size / 2 auto;
+		background: transparent;
+		font-size: $font-size * 1.2;
+		cursor: pointer;
+		font-family: $parent-css;
+		border: none;
+		@include rounded(rem(5px));
+
+		@include unify-parent('input') {
+			background: $main-color;
+			color: #fff;
+		}
+
+		@include unify-parent('a') {
+			background: $sub-color;
+			//border: 1px solid $sub-color;
+			color: #fff;
+
+			* {
+				background: none;
+				font-family: $parent-css;
+				font-size: $parent-css;
+				color: $parent-css;
+				left: $default-css;
+				height: $default-css;
+			}
+		}
+	}
+
+	a:hover {
+		color: $parent-css;
+	}
+
+	.cancel {
+		background: material-color('grey', '300');
+		color: #222;
+
+		&:hover {
+			background: darken(material-color('grey', '300'), 5);
+		}
+
+		//width: $input-width / 2;
+	}
+
+	.promise {
+		background: $myoffice-color;
+		color: #fff;
+
+		&:hover {
+			background: lighten($myoffice-color, 10);
+			color: #fff;
+		}
+	}
+}
+
+#board1 {
+
+	th,
+	td {
+		font-size: $font-size;
+		font-weight: 400;
+		text-align: center;
+		height: $input-height - rem(10px);
+		color: #333;
+	}
+
+	thead {
+		tr {
+			//border-bottom: 1px solid $board-color-grey;
+			border-top: 1px solid $board-color-darken;
+			border-bottom: 1px solid $board-color-darken;
+		}
+
+		th {
+			background: $board-color;
+			color: mix(#000, $board-color-darken, 50);
+			font-weight: 500;
+		}
+	}
+
+	tbody {
+		tr {
+			border-bottom: 1px solid $board-color-grey;
+		}
+
+		td a {
+			color: #333;
+
+			&:hover {
+				color: #1e2e71;
+				text-decoration: underline;
+			}
+		}
+
+		&.no {
+			color: #aaa;
+		}
+
+		&.subject {
+			color: #444;
+		}
+	}
+
+	.nothing {
+		height: 150px;
+		text-align: center;
+	}
+
+	tfoot td {
+		text-align: right;
+	}
+
+	.notice1 a,
+	.notice2 a,
+	.notice3 a,
+	.notice4 a {
+		color: #505050;
+	}
+
+	.notice1 a:hover,
+	.notice2 a:hover,
+	.notice3 a:hover,
+	.notice4 a:hover {
+		color: #528979;
+		text-decoration: underline;
+	}
+
+	.table_for td {
+		text-align: center;
+		height: 25px;
+
+		&.subject {
+			text-align: left;
+		}
+	}
+
+	.cnt {
+		font-size: 8pt;
+		color: #ff3c00;
+		font-weight: normal;
+
+		strong {
+			font-weight: normal;
+			font-family: verdana;
+		}
+	}
+}
+
+.board {
+	th,
+	td {
+		font-size: $font-size;
+		font-weight: 400;
+		text-align: center;
+		height: $input-height - rem(10px);
+		color: #333;
+		border: none;
+	}
+
+	thead {
+		tr {
+			//border-bottom: 1px solid mix(material-color('grey', '300'), $board-color, 50);
+			border-top: 1px solid $board-color-darken;
+			border-bottom: 1px solid $board-color-darken;
+		}
+
+		th {
+			background: $board-color;
+			color: mix(#000, $board-color-darken, 50);
+			font-weight: 500;
+		}
+	}
+
+	tbody {
+		tr {
+			border-bottom: 1px solid mix(material-color('grey', '300'), $board-color, 50);
+		}
+	}
+
+	.input_text {
+		&[type="text"], &[type="password"] {
+			line-height: 1.5;
+			height: $input-height - rem(20px);
+			@include rounded($font-size / 3);
+			vertical-align: middle;
+			padding: 0px $font-size;
+			border: 1px solid $input-border;
+			background: $input-color;
+			width: 100%;
+		}
+	}
+}
+
+table {
+	& ~ .titles {
+		margin-top: $font-size * 2;
+	}
+}
+
+$point-color: mix(material-color('blue', '50'), #fff, 50);
+$point-color-darken: darken($point-color, 10);
+$point-color-grey: mix(material-color('grey', '300'), $point-color, 50);
+
+#point {
+	// th {
+	// 	padding: 8px 8px;
+	// 	background: #e9e9e9;
+	// 	font-weight: 500;
+	// }
+
+	td {
+		// padding: 8px 16px 8px 8px;
+
+		&.price {
+			font-size: 19px;
+			text-align: right;
+			font-weight: 500;
+		}
+
+		&.price2 {
+			font-size: 18px;
+			text-align: right;
+			font-weight: 600;
+		}
+
+		&.priceTotal {
+			font-size: 18px;
+			text-align: right;
+			font-weight: 600;
+			background: #FFFFE6;
+		}
+
+		&.details {
+			.detail_btn {
+				margin-top: 0;
+				width: 100%;
+				height: $input-height - $font-size;
+			}
+		}
+	}
+
+	table {
+		&.password {
+			border: 1px solid $board-color-grey;
+			width: 100%;
+
+			th {
+				background: $board-color;
+				border: 1px solid $board-color-darken;
+				border-right: none;
+				color: mix(#000, $board-color-darken, 50);
+				font-weight: 500;
+
+				&:not(:first-of-type) {
+					border-left: none;
+				}
+			}
+			td {
+				text-align: left;
+				border: none;
+			}
+
+			&.meminfo {
+				margin-top: $font-size * 2;
+			}
+		}
+	}
+
+	.htbodyWrap {
+		border: 1px solid $point-color-grey;
+		background: mix($point-color-grey, #fff, 50);
+		table {
+			background: #fff;
+			border: 1px solid $point-color-darken;
+		}
+		tr {
+			border-color: $point-color-grey;
+			&:last-of-type {
+				border: none;
+			}
+		}
+		th {
+			background: $point-color;
+			border: 1px solid $point-color-darken;
+			border-right: none;
+			color: mix(#000, $point-color-darken, 50);;
+		}
+	}
+
+	.btnZone {
+		input {
+			&.red {
+				background: material-color('red', 'a700');
+			}
+			&.blue {
+				background: material-color('blue', '600');
+				&:hover {
+					background: material-color('blue', '800');
+				}
+			}
+			&.warn {
+				background: material-color('orange', '600');
+				&:hover {
+					background: material-color('orange', '800');
+				}
+			}
+		}
+	}
+}
+
+.input_text_p {
+	vertical-align: middle;
+	border: 1px solid #ccc;
+	height: 18px;
+	padding: 8px 8px;
+	font-size: 19px;
+}
+
+
+.point_use_list {
+	padding: $font-size * 2 0;
+	ul {}
+	li {
+		padding: $font-size;
+		margin: round($font-size / 1.5) 0;
+		@include flex(space-between);
+		//flex-wrap: wrap;
+		border: 1px solid darken($board-color-darken, 20);
+		// background: mix($board-color, #fff, 50);
+		background: #fff;
+		font-weight: 500;
+		div {
+			color: mix(#000, $point-color-darken, 50);
+			width: calc(40% - #{$font-size});
+			font-weight: 600;
+		}
+		i {
+			width: 4px;
+			height: 4px;
+			background: $board-color-darken;
+			margin: 0 $font-size
+		}
+		p {
+			width: calc(60% - #{$font-size});
+			text-align: right;
+		}
+	}
+}
+
+.point_transfer {
+	table + table {
+		margin-top: $font-size * 2;
+	}
+	.detail_btn {
+		width: 100%;
+		margin-top: $font-size / 2;
+		height: $input-height - rem(20px);
+		text-decoration: none;
+	}
+}
+
+.pay_totals {
+	background-color: none;
+	padding: 0; 
+	
+	.innerTable {
+		box-shadow: 0px 0px 0px 1px darken($point-color-darken, 20);
+
+		tr, th, td {
+			border: none;
+		}
+		thead {
+			tr {
+				border-bottom: 1px solid $point-color-darken;
+			}
+			th {
+				background: $point-color;
+				color: mix(#000, $point-color-darken, 50);
+				font-weight: 500;
+				border-right: 1px solid $point-color-darken;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+		tbody {
+			tr {
+				border-bottom: 1px solid $point-color-grey;
+				&:last-of-type {
+					border-bottom: none;
+				}
+			}
+			th {
+				background: mix(material-color('grey', '50'), $point-color-darken, 85);
+				color: mix(#000, $point-color-darken, 50);
+				font-weight: 500;
+				border-right: 1px solid mix(material-color('grey', '50'), $point-color-darken, 50);
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+			td {
+				border-right: 1px solid $point-color-grey;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+
+	}
+
+	.innerTable3 {
+		box-shadow: 0px 0px 0px 1px darken($pay-color-darken, 20);
+
+		tr, th, td {
+			border: none;
+		}
+		thead {
+			tr {
+				border-bottom: 1px solid $pay-color-darken;
+			}
+			th {
+				background: $pay-color;
+				color: mix(#000, $pay-color-darken, 50);
+				font-weight: 500;
+				border-right: 1px solid $pay-color-darken;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+		tbody {
+			tr {
+				border-bottom: 1px solid $pay-color-grey;
+				&:last-of-type {
+					border-bottom: none;
+				}
+			}
+			th {
+				background: mix(material-color('grey', '50'), $pay-color-darken, 85);
+				color: mix(#000, $pay-color-darken, 50);
+				font-weight: 500;
+				border-right: 1px solid mix(material-color('grey', '50'), $pay-color-darken, 50);
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+			td {
+				border-right: 1px solid $pay-color-grey;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+	}
+}
+
+.pay_inDivWrap {
+	.nodata {
+		border: none !important;
+		text-align: center;
+	}
+}
+
+
+	

@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			FDK 결제 테스트 페이지
+		</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<style type="text/css">
+			table { margin: 1em; border-collapse: collapse; }
+			td, th { padding: .3em; border: 1px #ccc solid; font-size:12px; }
+			thead { background: #fc9; }
+			input { background-color: #ffffff; border: #bbbbbb 1px solid; font-size: 9pt; height: 20px; width: 250px;}
+			select { background-color: #ffffff; border-bottom: #a5a4a4 1px solid; border-left: #a5a4a4  1px solid; border-right: #a5a4a4  1px solid; border-top: #a5a4a4 1px solid; font-size: 9pt; height: 20px }
+		</style>
+		<script type="text/javascript" src="js/jquery1.7.1.js"></script>
+		<script type="text/javascript">
+
+			//주문번호, 주문시간 자동 생성 처리
+			function initValue(){
+				document.fdpay.MxIssueDate.value = date_data();
+				document.fdpay.MxIssueNO.value = document.fdpay.MxID.value + date_data();
+			}
+	
+			//현재 시간 생성 처리(YYYYMMDDHHMMSS)
+			function date_data() {
+				var time = new Date();
+				var year = time.getFullYear() + "";
+				var month = time.getMonth() + 1;
+				var date = time.getDate();
+				var hour = time.getHours();
+				var min = time.getMinutes();
+				var sec = time.getSeconds();
+				if (month < 10) {
+					month = "0" + month;
+				}
+				if (date < 10) {
+					date = "0" + date;
+				}
+				if (hour < 10) {
+					hour = "0" + hour;
+				}
+				if (min < 10) {
+					min = "0" + min;
+				}
+				if (sec < 10) {
+					sec = "0" + sec;
+				}
+				return year + month + date + hour + min + sec;
+			}
+		
+			function cashProc(){
+				document.fdpay.action = "send.asp";
+				document.fdpay.submit();
+			}
+		</script>
+	</head>
+	<body onload="initValue();">
+		<form name="fdpay" id="fdpay" method="post">
+		<table>
+			<thead>
+				<tr>
+					<th>Description</th>
+					<th>Values</th>
+					<th>Remark</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>* 가맹점 ID</td>
+					<td><input type="text" name="MxID" id="MxID" value="testcorp" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>* 주문번호</td>
+					<td><input type="text" name="MxIssueNO" id="MxIssueNO" value="" /></td>
+					<td>가맹점 사용 주문번호</td>
+				</tr>
+				<tr>
+					<td>* 주문시간</td>
+					<td><input type="text" name="MxIssueDate" id="MxIssueDate" value="" /></td>
+					<td>YYYYMMDDHHMMSS</td>
+				</tr>
+				<tr>
+					<td>* 결제금액</td>
+					<td><input type="text" name="Amount" id="Amount" value="" /></td>
+					<td>숫자만 입력</td>
+				</tr>
+				<tr>
+					<td>* 화폐코드</td>
+					<td><input type="text" name="Currency" id="Currency" value="KRW" /></td>
+					<td>KRW:한화 (고정 DATA)</td>
+				</tr>
+				<tr>
+					<td>* 거래모드</td>
+					<td><input type="text" name="CcMode" id="CcMode" value="10" /></td>
+					<td>10:승인 (고정 DATA)</td>
+				</tr>
+				<tr>
+					<td>* 결제종류</td>
+					<td><input type="text" name="PayMethod" id="PayMethod" value="CA" /></td>
+					<td>CA:현금 (고정 DATA)</td>
+				</tr>
+				<tr>
+					<td>* 결제구분</td>
+					<td><input type="text" name="TxCode" id="TxCode" value="EC301000" /></td>
+					<td>EC301000:현금 (고정 DATA)</td>
+				</tr>
+				<tr>
+					<td>* 거래방식</td>
+					<td><input type="text" name="Tmode" id="Tmode" value="WEB" /></td>
+					<td>WEB:PC결제, MOB:모바일(스마트폰)결제</td>
+				</tr>
+				<tr>
+				<tr>
+					<td> * 발행종류</td>
+					<td>
+						<select name="ReqType" id="ReqType">
+							<option value="0">소득공제용</option>
+							<option value="1">지출증빙용</option>
+						</select> 
+					</td>
+					<td>0:소득공제용, 1:지출증빙용</td>
+				</tr>
+				<tr>
+					<td> * 과세종류</td>
+					<td>
+						<select name="BillType" id="BillType">
+							<option value="00">과세</option>
+							<option value="10">면세</option>
+						</select> 
+					</td>
+					<td>00:과세, 10:면세</td>
+				</tr>
+				<tr>
+					<td>* 신분확인번호</td>
+					<td><input type="text" name="PIDS" id="PIDS" value="" /></td>
+					<td>현금영수증 발행 처리 번호(휴대폰, 카드번호, 주민번호, 사업자번호 등)</td>
+				</tr>
+				<tr>
+					<td> 발행요청사업자번호</td>
+					<td><input type="text" name="ReqRegNO" id="ReqRegNO" value="" /></td>
+					<td>숫자만 입력</td>
+				</tr>
+				<tr>
+					<td> 부가세</td>
+					<td><input type="text" name="VAT" id="VAT" value="" /></td>
+					<td>숫자만 입력</td>
+				</tr>
+				<tr>
+					<td> 주문자명</td>
+					<td><input type="text" name="CcNameOnCard" id="CcNameOnCard" value="퍼스트" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> 주문자이메일주소</td>
+					<td><input type="text" name="Email" id="Email" value="test@test.abc" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> 주문자연락처</td>
+					<td><input type="text" name="PhoneNO" id="PhoneNO" value="010-0000-0000" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> 상품명</td>
+					<td><input type="text" name="CcProdDesc" id="CcProdDesc" value="키보드" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center">
+						<a href="javascript:cashProc();"><img src="http://pg.firstdatacorp.co.kr/mall/images/btn_payment.gif" width="131" height="46" border="0"></a>	
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
+	</body>
+</html>

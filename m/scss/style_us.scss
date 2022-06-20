@@ -1,0 +1,21 @@
+@import 'mixin-custom';
+
+.nav-left {
+	li {
+		white-space: $default-css !important;
+		word-break: keep-all;
+	}
+}
+
+#footer {
+	.footer-info {
+		p {
+			@include flex;
+			flex-direction: column;
+		}
+
+		span {
+			margin: 0;
+		}
+	}
+}

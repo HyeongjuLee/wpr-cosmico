@@ -1,0 +1,107 @@
+/* 한국 */
+
+#cart_title_b {font-size:16px; line-height:36px; height:36px; border-top:1px solid #878787; border-bottom:1px solid #878787; background:#6d6d6d; color:#fff; }
+.cart_title_m {text-align: left; font-size: 15px; height: 34px; line-height: 34px; background: #e5e5e5; color: #555; font-weight: 600; text-indent: 8px; letter-spacing: -1px;}
+
+
+	.deliveryBtn {display:inline-block; float:left; width:50%; text-align:center;}
+	.deliveryBtn a {display:block; font-size:14px; line-height:40px; font-weight:bold; color:#25779e;}
+	.deli1 {}
+	.deli2 {border-left:1px solid #ccc;}
+	.deliveryBtn a.off {border-bottom:1px solid #ccc; font-weight:normal; color:#777;}
+
+	.user_info1 {width:95%; padding:10px 0px 20px 0px; border-bottom:1px dotted #ccc; margin:0px auto;}
+	.user_info1 th {padding:5px 0px; text-align:left; text-indent:7px; color:#333; font-size:12px;}
+	.user_info1 td {padding:5px 0px; font-size:13px; letter-spacing:-0.01em;}
+	.user_info1 td div {display:inline-block;}
+
+	.user_info2 {width:95%; padding:10px 0px 10px 0px; margin:0px auto;}
+
+	.input_text {height:28px; line-height:28px;font-size:14px; padding:0px 6px; vertical-align:middle; border:1px solid #ddd;}
+	.input_btn {height:27px; line-height:27px;font-size:13px; padding:0px; background-color:#eee; border:1px solid #ddd;vertical-align:middle;}
+	.orderMemo {padding:0px 0px 5px 0px; font-weight:bold; font-size:13px;}
+
+
+	.cartGoodsArea {border-bottom:2px dotted #ccc; padding-bottom:7px;}
+	.cartGoodsImg {width:90px; height:90px; margin:10px 0px 10px 5px}
+	.cartGoodsName {width:100%; font-size:14px; color:#444; line-height:25px;}
+	.cartIcon .icons {margin-right:2px;}
+
+
+	.cartPriceArea {border:8px solid #e5e5e5;}
+	.cartPriceArea span {display:inline-block; line-height:30px;}
+	.cartPriceArea span.cartPrice_tit {color:#333; width:30%; font-size:13px; text-indent:7px; letter-spacing:-1px;}
+	.cartPriceArea span.cartPrice_Res {color:#777; width:65%; font-weight:bold; font-size:12px; letter-spacing:-1px;  text-align:right;}
+	.cartPriceArea span.cartPrice_Res strong {color:#222; font-size:18px; vertical-align:-2px;}
+
+
+	#buyBtn a {display:block; margin:4px 4px; border:1px solid red; border-radius:4px;  font-size:15px; font-weight:bold; line-height:40px; height:40px; text-align:center; background-color:#fff;}
+	#buyBtn a.buys {background:linear-gradient(#f27684 0%,#bc1f31 4%,#cb3849 100%); border:1px solid #cb0808; color:#fff;}
+
+	.selectPayBtn {margin: 4px 0px; width: 47%; margin-left: 2%; float: left;}
+	.payBtnWrap {margin:5px 0px 0px 0px; border-bottom:1px solid #eee;padding-bottom:10px;}
+	.orderGoodsPrice1 {vertical-align:-2px; color:#ea0000; font-size:17px;}
+	.orderCurrency {font-size:0.80em;}
+	.orderGoodsPrice2 {vertical-align:-1px;color:#ff6600; font-size:14px;}
+	.orderGoodsPrice3 {vertical-align:-1px;color:#ea0000; font-size:14px;}
+
+	.orderGoodsInfoTH {color:#333;; font-size:12px; text-indent:7px; vertical-align:top;}
+	.orderGoodsInfoTD {letter-spacing:-1px; font-size:12px;}
+
+
+
+
+/* 복합결제 s */
+	#mComplexInfo span.won {margin-left:7px; font-size:13px; color:#606060;font-weight:bold;}
+
+	#mComplexInfo select.input_text {line-height:27px; height:27px; border:1px solid #ccc;}
+	#mComplexInfo th {background-color:#f5f5f5; border-bottom:1px solid #ddd; text-align:left; padding:8px 5px 8px 5px;		border-top:1px solid #ddd; }
+	#mComplexInfo td {border-bottom:1px solid #ddd; padding:5px 5px 5px 5px;		border-top:1px solid #ddd; }
+	#mComplexInfo td select {line-height:18px; font:12px/1.4 "돋움", dotum, Gulim, sans-serif; height:18px; zoom:1;}
+	#mComplexInfo td select option {line-height:18px;}
+	#mComplexInfo td ul li {line-height:20px;}
+	#mComplexInfo .input_text {line-height:27px; height:27px; border:1px solid #ccc; vertical-align:top; padding-left: 6px;}
+	#mComplexInfo tr.lastTD th {border-bottom:1px solid #777;}
+	#mComplexInfo tr.lastTD td {border-bottom:1px solid #777;}
+
+	#mComplexInfo .paymethod {background: #A5C1CE; text-align: center;}
+	#mComplexInfo .paymethodAdd {background: #85d6c0; text-align: center;}
+
+	#mComplexInfo .CardPriceTotal {border:1px solid #919191; background-color:#f5f5f5;  margin-right:1px;}
+	#mComplexInfo .CardPriceTotal td.title {font-weight:bold; font-size:14px; text-align:center;}
+	#mComplexInfo .CardPriceTotal td.amount {font-weight:bold; font-size:16px; text-align:right; background-color:#fff;padding-right: 20px;}
+	#mComplexInfo .CardPriceTotal td.amountR {font-weight:bold; font-size:16px; text-align:right; background-color:#fff; padding-right: 20px;}
+	#mComplexInfo .addChk {wi dth: 16px; he ight: 16px; border:2px solid red; margin-top: -2px; border: solid white; }
+
+	#mComplexInfo .a_submit  {display: inline-block; padding: 0px 6px; vertical-align: middle; cursor: pointer; line-height:25px;}
+	#mComplexInfo .addbtn  {display: inline-block; padding: 0px 6px; vertical-align: middle; cursor: pointer; line-height:25px;}
+	#mComplexInfo .design1 {background-color: #337ab7; border:1px solid #2e6da4; border-radius: 3px; color:#fff !important;font-weight:normal;}
+	#mComplexInfo .design2 {background-color: #f9f9f9; border:1px solid #cccccc; border-radius: 3px; color:#666 !important;font-weight:normal;}
+	#mComplexInfo .design3 {background-color: #898989; border:1px solid #606060; border-radius: 3px; color:#fff !important;font-weight:normal;}
+	#mComplexInfo .design4 {background-color: #c40d0d; border:1px solid #880000; border-radius: 3px; color:#fff !important;font-weight:normal;}
+	#mComplexInfo .design5 {background-color: #33b793; border:1px solid #1a9473; border-radius: 3px; color:#fff !important;font-weight:normal;}
+
+	#mComplexInfo .paytypeAddArea {padding:7px 0px; text-align:center; height:25px; line-height:25px;}
+
+	#mComplexInfo .BankInfo {margin-top:20px;}
+/* 복합결제 e */
+
+
+/* 약관  */
+	#Agreement {padding:10px 0px; border-top: 1px solid #eee;}
+	#Agreement .AgreementBox {width:94%; margin: 0 auto; padding:5px; background-color:#f7f7f7; line-height:18px; font-size: 12px; border:1px solid #ccc; margin-top:5px;}
+	#Agreement div.ag {font-weight:300; margin-left:1%; letter-spacing:-1px; font-size: 14px;}
+	#Agreement .yesagree {color:#d75623;font-size:14px;}
+	#Agreement label {font-weight: 700; }
+	#Agreement .input_chk {vertical-align: -4px; width: 18px; height: 18px;}
+
+	#PG_POLICY_AREA {padding-bottom:15px; backg round-color:#f7f7f7; }
+
+	#PGAgreement {padding:5px 0px; back ground-color:#f7f7f7;      float: left; width: 97%;}
+	#PGAgreement div.ag {font-weight:300; letter-spacing:-1px; font-size: 14px;}
+
+	#PGAgreement .AgreementBox {width:90%; padding:15px; background-color:#fff; line-height:18px; font-size: 12px; border:1px solid #ccc; margin-left:5%; margin-top:5px; overflow-y: scroll; height: 50px;}
+	#PGAgreement .yesagree {color:#d75623;font-size:14px;}
+	#PGAgreement .input_chk {vertical-align: -4px; width: 18px; height: 18px;}
+	#PGAgreement label {font-weight: 700; padding-left:5px;}
+

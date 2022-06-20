@@ -1,0 +1,126 @@
+/* Basic styling */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,blockquote,input{margin:0;padding:0;word-break:break-all;}
+
+body {font-size:11px;color:#000;}
+
+		table {border-collapse: separate;}
+
+a {color: #E05E00;text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+.tweight {font-weight:bold;}
+/* list stuff */
+#org{background-color:white;margin:10px;padding:10px;}
+
+#show-list{cursor:pointer;}
+
+.cp {cursor:pointer;}
+img {border:0px none;}
+
+.vmiddle {vertical-align:middle;}
+.bgs {background-color:#ccc;}
+
+/* */
+.red {color:red;}
+.blue {color:blue;}
+.blue2 {color:#3366ff;}
+.red2 {color:#eb301b;}
+.green2 {color:#339966;}
+
+
+/* Custom chart styling */
+.jOrgChart {padding:20px 0px;  width:100%; clear:both; float:left;overflow-x:scroll;}
+
+/* Draw the lines */
+.jOrgChart .line {height:20px; width:2px;}
+.jOrgChart .down {background-color:#777; margin:0px auto;}
+.jOrgChart .top {border-top:2px solid #777;}
+.jOrgChart .left {border-right:1px solid #777;}
+.jOrgChart .right {border-left:1px solid #777;}
+.jOrgChart .node {font-size:12px;background-color:#fff; border:2px solid #777;color:#000;display:inline-block; width:80px; height:80px; z-index:10;margin:0px 2px;}
+.jOrgChart .fnode {height:67px; width:80px;}
+.jOrgChart .fnode2 {height:51px; width:80px;}
+.jOrgChart .fnode3 {height:65px; width:80px;}
+.jOrgChart .w100 {width:100px;}
+
+.jOrgChart .fnodeTop {height:180px;width:140px;}
+.jOrgChart .fnodeSub {height:105px;width:100px;}
+
+.jOrgChart .fnodeTop0 {height:65px;width:113px;}
+.jOrgChart .fnodeTop1 {height:81px;width:125px;}
+.jOrgChart .fnodeTop2 {height:97px;width:125px;}
+.jOrgChart .fnodeTop3 {height:113px;width:125px;}
+.jOrgChart .fnodeTop4 {height:129px;width:125px;}
+.jOrgChart .fnodeTop5 {height:145px;width:125px;}
+.jOrgChart .fnodeTop6 {height:161px;width:125px;}
+.jOrgChart .fnodeTop7 {height:177px;width:125px;}
+.jOrgChart .fnodeTop8 {height:193px;width:165px;}
+
+.jOrgChart .fnodeSub0 {height:48px;width:100px;}
+.jOrgChart .fnodeSub1 {height:64px;width:115px;}
+.jOrgChart .fnodeSub2 {height:80px;width:115px;}
+.jOrgChart .fnodeSub3 {height:96px;width:115px;}
+.jOrgChart .fnodeSub4 {height:112px;width:115px;}
+.jOrgChart .fnodeSub5 {height:128px;width:115px;}
+.jOrgChart .fnodeSub6 {height:144px;width:115px;}
+.jOrgChart .fnodeSub7 {height:160px;width:115px;}
+.jOrgChart .fnodeSub8 {height:176px;width:140px;}
+
+
+.node p {font-size: 11px;line-height:13px;padding:1px 0px 2px 0px;}
+
+/*nodecell*/
+.jOrgChart td {text-align:center; vertical-align:top; padding:0px;}
+
+.SearchLayer {width:100%;position:fixed; top:0px; left:0px; height:27px; background-color:#000; color:#fff; padding-top:3px;}
+
+.innerSearch {float:left;margin-left:5px;}
+.listarea {float:left; position:fixed; top:28px; left:20px;}
+.listscroll {max-height:300px; width:420px;overflow:auto;} /*overflow-y:scroll;*/
+.input_text {border:2px solid #ababab; border-right:0px none; border-left: 0px none; width:200px; height:14px; padding-left:4px; padding-top:3px; font-size:11px;}
+.listicon {float:left; margin-left:20px;}
+
+#search_wrapAll{width:1500px;height:22px; padding:5px; border:0px solid #CCC; background:g ray;}
+/*상세조직도 검색창*/
+.SearchLayer2 {width:100%;position:fixed; top:0px; left:0px; height:35px; background-color:#000; color:#fff; padding-top:3px;}
+.input_text2 {border:2px solid #ababab; border-right:0px none; border-left: 0px none; width:85px; height:14px; padding-left:4px; padding-top:3px; font-size:11px;}
+.listicon2 {float:left; margin-left:5px;}
+#search_wrap{width:1100px;height:22px; padding:5px; border:0px solid #CCC; background:g ray;}
+ #search_member {width:250px;height:22px;margin-right:0px;float:left;background:p urple;}
+ #search_period {width:265px;height:22px;margin-left:5px;margin-top:2px;float:left;background:b lue;}
+ #cheack_area   {width:510px;height:22px;margin-left:5px;margin-top:0px;float:left;background:g reen;}
+
+
+.sTable {border-collapse:collapse;}
+.sTable th {border:1px solid #bbb; background-color:#ccc; height:22px; color:#000; font-size:12px; font-family:tahoma;}
+.sTable td {border:1px solid #ccc; background-color:#fff; color:#333; font-size:12px; text-align:center; padding:7px 0px;}
+.sTable td.notData {padding:20px 0px; text-align:center;}
+
+#firstnode {position:absolute;color:#000;z-index:9;}
+
+
+span.s320over {display:none;}
+
+@media screen and (min-width: 359px) {
+	span.s320over {display:none;}
+}
+
+
+.sellType_0 {background-color:#585858; font-family:"malgun gothic";color:#fff; font-weight:bold;}
+.sellType_1 {background-color:#8bb140; font-family:"malgun gothic";color:#fff; font-weight:bold;}
+.sellType_2 {background-color:#e67d22; font-family:"malgun gothic";color:#fff; font-weight:bold;}
+.sellType_3 {background-color:#6b4d93; font-family:"malgun gothic";color:#fff; font-weight:bold;}
+.sellType_4 {background-color:#bf3535; font-family:"malgun gothic";color:#fff; font-weight:bold;}
+.sellType_5 {background-color:#2c6fc0; font-family:"malgun gothic";color:#fff; font-weight:bold;}
+
+
+/* block_orga */
+.bg1 {background-color:#be2026 !important; color:#fff !important;}
+.bg2 {background-color:#002599 !important; color:#fff !important;}
+.bg3 {background-color:#efab00 !important;}
+
+.sellType_mt1 {background-color:#8bb140; font-size:15px !important; line-height:28px;}
+.sellType_mt2 {background-color:#e67d22; font-size:15px !important; line-height:28px;}
+.sellType_mt3 {background-color:#6b4d93; font-size:15px !important; line-height:28px;}
+.sellType_mt4 {background-color:#bf3535; font-size:15px !important; line-height:28px;}
+.sellType_mt5 {background-color:#2c6fc0; font-size:15px !important; line-height:28px;}

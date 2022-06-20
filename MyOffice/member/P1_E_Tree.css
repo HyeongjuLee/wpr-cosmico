@@ -1,0 +1,66 @@
+
+	body,input,span{font-family: 'Noto Sans KR', 'malgun gothic', sans-serif; font-weight: 400; font-size: 14px;}
+
+	li {display:block; word-wrap:nowrap; list-style:none; white-space:nowrap; margin:0px; padding:0px; line-height:18px; margin-left:2px; padding-left:14px;background:url(img/line.gif) 14px 0 repeat-y;}
+
+	#top_line {display:block; width:100%; position:fixed; z-index:10; top:0px; background-color:#fff;font-family:verdana;  font-weight:bold; line-height:40px; height:40px; background-color:#000; color:#fff;}
+
+	#leftOff {float:left; display:inline-block; wi dth:140px; height:40px; padding:0px 20px; background-color:#fff; }
+	#leftOn {float:left; display:none; wi dth:140px; height:36px; padding:0px 20px; background-color:#fff; border-bottom:3px solid #000;}
+
+	#top_line .span1 {margin-left:20px;font-size:15px;}
+	#top_line .span2 {font-size:12px; color:#c3c3c3; margin-left:10px;}
+	#top_line .span2 a {color:#c3c3c3;}
+	#top_line .span2 a:hover {color:#e5e5e5;}
+
+	#leftMenu { z-index:10; display:block; width:326px; top:40px; position:fixed; background-color:#fff; border-color:black; border-style:solid; border-width:0px 3px 3px 0px; padding:20px; }
+	#leftMenu .wraps { border:1px solid #ccc; margin-top:3px; padding:5px 0px; background-color:#eee;}
+	#leftMenu .title {text-indent:10px; font-weight:bold; margin-top:12px; line-height:18px;}
+	#leftMenu .chkBox label {vertical-align:middle; line-height:22px; margin-left:7px; cursor:pointer;}
+	#leftMenu .chkBox .input_checkbox {vertical-align:middle; line-height:18px;}
+	#leftMenu .chkBox .input_text {font-family:verdana;  line-height: 22px; height: 22px; font-size: 12px; border:1px solid #c7c7c7; background-color:#e0e0e0;}
+	#leftMenu .chkBox .dateP {margin-left:7px; margin-top:10px; line-height:15px; width:100%;}
+	#leftMenu .chkBox .dateP:first-child {margin-top:0px;}
+
+	#leftMenu .tables_wrap td {border-style:solid; border-color:#ccc; border-width:0px 1px 1px 1px; padding:5px 0px;}
+	#leftMenu .tables_wrap td.bg1 {background-color:#fafafa;}
+	#leftMenu .tables_wrap td.tright span {margin-right:8px;}
+	#leftMenu .spec1 {width:100%; max-height:120px; overflow-y:scroll; overflow-x:hidden;}
+	#leftMenu .spec2 {width:100%; max-height:120px; overflow-y:scroll; overflow-x:hidden;}
+	#leftMenu .spec3 {width:100%; max-height:120px; overflow-y:scroll; overflow-x:hidden;}
+
+
+
+	#treeview {position:absolute; top:40px; left:320px; z-index:2;} /*레프트 메뉴와 40px 차이로 유지 */
+	#tree a {display:inline-block; line-height:18px; padding-left:18px;word-wrap:nowrap;}
+	#tree .dateFlagColor {color:#f49c9c;}
+	#tree .leaveFontColor {color:#cacaca;}
+
+	#tree a.minus {background:url(img/minus.gif) 0 0 no-repeat; }
+	#tree a.minusbottom {background:url(img/minusbottom.gif) 0 0 no-repeat;}
+
+	#tree a.plus {background:url(img/plus.gif) 0 0 no-repeat;}
+	#tree a.plusbottom {background:url(img/plusbottom.gif) 0 0 no-repeat;}
+
+	#tree a.plus2 {background:url(img/plus.gif) 0 0 no-repeat !important;}
+	#tree a.plusbottom2 {background:url(img/plusbottom.gif) 0 0 no-repeat !important;}
+
+	#tree a.minus2 {background:url(img/minus.gif) 0 0 no-repeat !important; }
+	#tree a.minusbottom2 {background:url(img/minusbottom.gif) 0 0 no-repeat !important;}
+
+
+
+
+	#tree .uls {background:none;}
+	#tree .onoff {display:none;}
+
+
+	.bgyellow {background-color:yellow;}
+	.input_text_search {line-height:19px; height:19px; border:1px solid #ccc;}
+
+
+/* P2용 */
+	#leftMenu .wraps2 {border:1px solid #ccc; padding:5px 0px;border-top:0px none;}
+	#leftMenu .verdana {font-family:verdana;}
+	#leftMenu .nSearch .input_text {line-height:19px; height:19px; font-size:12px; border:1px solid #ccc; background-color:#eee; text-align:center;}
+	#leftMenu .nSearch .input_text:first-child {margin-left:7px;}

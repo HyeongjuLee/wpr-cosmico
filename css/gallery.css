@@ -1,0 +1,16 @@
+body { font-size: 1.5rem; line-height: 1.5; }
+
+.swiper-inner { position: absolute; bottom: 0; left: 50%; width: 120rem; height: 0; transform: translateX(-50%); z-index: 1; }
+
+.swiper-button { width: 5rem; height: 5rem; font-size: 4rem; color: #fff; margin-top: -41.5rem; -moz-transition: all 1s, background 0.3s; -webkit-transition: all 1s, background 0.3s; transition: all 1s, background 0.3s; opacity: 0; }
+.swiper-button:hover { background: rgba(255, 255, 255, 0.8); }
+.swiper-button.prev { left: -5%; padding: 0; padding-right: 0.5%; }
+.swiper-button.next { right: -5%; padding: 0; padding-left: 0.5%; }
+
+.swiper-container { -moz-border-radius: 1.5rem; -webkit-border-radius: 1.5rem; border-radius: 1.5rem; }
+.swiper-container:hover .swiper-button { opacity: 1; filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3)); }
+.swiper-container:hover .swiper-button.prev { left: 2.5%; }
+.swiper-container:hover .swiper-button.next { right: 2.5%; }
+
+#gallery h6 { font-size: 5rem; font-weight: 600; letter-spacing: -0.05em; margin-bottom: 3rem; color: #2f2f2f; text-transform: uppercase; }
+#gallery h6 span { color: #da2027; }

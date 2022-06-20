@@ -1,0 +1,167 @@
+
+
+/* 공통영역 */
+	.input_chk {vertical-align:middle; margin:0px 0px 2px 0px; width:16px; height:16px;}
+	.input_chk2 {vertical-align:middle; margin:0px 0px 0px 0px; padding:0px;width:13px; height:13px;}
+	.input_chk3 {vertical-align:middle; margin:0px 0px 3px 0px; padding:0px;width:13px; height:13px;}
+	.input_radio {vertical-align:middle; margin:0px 0px 3px 0px; padding:0px;width:13px; height:13px;}
+
+
+/*카트 */
+#cart .order_title {height:30px; line-height:30px; font-weight:bold; font-size:15px; }
+#cart .order_title label {height:30px; line-height:30px; font-weight:normal; font-size:12px; float:right;}
+
+
+#cart .TotalArea {border-bottom:1px solid #777; border-top:2px solid #333; margin-top:15px;}
+#cart .TotalArea .AreaZoneWrap {background-color:#f5f5f5; padding-top:0px;width:100%;}
+#cart .TotalArea .AreaZone {background-color:#f5f5f5;padding-bottom:15px; margin:0px auto; width:100%;}
+#cart .TotalArea div {float:left;}
+#cart .TotalArea div span {}
+#cart .TotalArea span.tit {font-size:14px; line-height:40px; font-weight: 500; margin-left:20px;}
+#cart .TotalArea span.tit2 {padding-left:30px;}
+#cart .TotalArea span.won {margin-left:7px; font-size:15px; color:#333333;}
+
+/* #cart .price {position:relative; right:2px; height:40px; line-height:40px; text-align:right; font-family:tahoma, gulim, dotum, '굴림','돋움'; font-size:22px; font-weight:500; margin-left:60px; color: #333333;} */
+#cart .price { height:40px; line-height:40px; text-align:right; font-family:tahoma, gulim, dotum, '굴림','돋움'; font-size:22px; font-weight:500; marg in-right:10px; color: #333333;}
+
+
+#cart .PriceArea	{}
+#cart .DeliveryArea	{}
+#cart .PointArea	{}
+#cart .LastArea		{color:#ea0000;}
+
+
+
+#cart .AreaZoneWrap {margin-top:0px; text-align:left;}
+#cart .AreaZoneWrap th {text-align:center; color: #333333; backgr ound:#e9e9e9; font-weight:500; font-size: 15px; }
+#cart .AreaZoneWrap td {text-align:left; height:36px; font-size:14px; color: #333333; padding: 6px 6px;}
+#cart .AreaZoneWrap .priceArea {float:right;padding-right:20px;}
+#cart .AreaZoneWrap .pvArea {float:right;padding-right:52px;}
+#cart .AreaZoneWrap .totalPV {color:#ff3300;font-size:16px;}
+#cart .AreaZoneWrap .pointArea {float:right;padding-right:50px;}
+
+
+#cart .cart_list {margin-top:0px; text-align:left;}
+#cart .cart_list th, #cart .cart_list td {border:1px solid #cacaca;}
+#cart .cart_list th {text-align:center; height:36px; font-size:14px; color: #333333; padding:12px 6px; background:#e9e9e9; font-weight:500;}
+#cart .cart_list td {text-align:left; height:36px; font-size:14px; color: #333333; padding: 6px 6px; background-color: #fff;}
+#cart .cart_list td.inPrice {text-align:right; padding-right: 8px;}
+#cart .cart_list tr:first-child th {border-top:2px solid #444;}
+#cart .cart_list tr:first-child td {border-top:2px solid #444;}
+
+#cart td.bor_r {border-right:1px solid #cdcdcd;}
+
+
+#cart .cart_list .goodsInfo .goodsName {font-weight:500;}
+#cart .cart_list .goodsInfo .bor_l {border-left:1px dotted #ccc;}
+#cart .cart_list .goodsInfo .lastTD {border-bottom:1px solid #777;}
+#cart .cart_list .goodsInfo tbody tr:first-child td {border-top:1px solid #777;}
+
+
+#cart .disArea {}
+#cart .disArea td {font-size:13px; padding:14px 14px 14px 20px; border-top:1px solid #ccc;}
+#cart .disArea td.bor_l2 {border-left:1px dotted #ccc;}
+#cart .disArea td.bor_l {border-left:1px solid #ccc;}
+#cart .disArea td li {line-height:16px;}
+#cart .disArea td li strong {display:inline-block; text-align:right;}
+#cart .disArea td.summ {vertical-align:top;}
+#cart .disArea td.summ li>strong {display:inline-block; width:180px; text-align:right;}
+#cart .disArea td.point li strong {display:inline-block; width:140px; text-align:right;}
+#cart .input_gray01 {font-size:13px; line-height:26px; height:26px; border:1px solid #ccc; width:80px; padding:0px 4px; text-align:right;}
+#cart .disArea td.summ .summTD td {padding-left:0px; border-top:0px solid #ccc;}
+#cart .disArea td.summ .summTD strong {text-align:right; display:inline; width:auto;}
+
+
+
+#cart .ordersInfo {margin-top:10px;}
+#cart .ordersInfo th {border-bottom:1px solid #ccc; border-top:1px solid #ccc; background-color:#f5f5f5; height:40px; text-align:left; padding:12px 10px; font-size:14px; font-weight:500;}
+#cart .ordersInfo td {border-bottom:1px solid #ccc; border-top:1px solid #ccc; height:30px; padding: 6px 6px; background-color: #fff;}
+#cart .ordersInfo tr:first-child th {border-top:2px solid #444;}
+#cart .ordersInfo tr:first-child td {border-top:2px solid #444;}
+#cart .ordersInfo td.zipTD {padding-top:5px;padding-bottom:5px;}
+#cart .ordersInfo td.zipTD p {margin-top:4px;}
+#cart .ordersInfo td.zipTD p:first-child {margin-top:0px;}
+#cart .ordersInfo .input_text1 {line-height:28px; height:28px; border:1px solid #ccc; vertical-align:top;}
+
+#cart .payment {margin-top:10px; border-bottom:2px solid #444; }
+#cart .payment .selectPay {background-color:#f5f5f5; line-height:40px; padding:4px 15px;border-bottom:1px solid #ccc; border-top:2px solid #444; }
+#cart .payment .selectPay label {font-weight: 500; margin-left:11px; cursor:pointer;}
+#cart .payment .selectPay label:first-child {margin-left:0px;}
+
+#cart .payment .Agreement {padding:15px 0px;}
+
+#cart .payment .payinfoWrap {background:url(/images_kr/shop/payWarp_bg.gif) 72% 0 repeat-y;}
+#cart .payment .payinfoWrap .cart_btn {text-align:center;}
+#cart .payment .payinfoWrap .tit {text-align:left;font-size:16px; line-height:40px; font-weight:500; margin:4px 20px; font-weight: 500;}
+#cart .payment .payinfoWrap #payArea {font-family:tahoma, gulim, dotum, '굴림','돋움'; font-size:28px; font-weight:500; line-height:40px; vertical-align:middle; text-align:right;  height:40px;  color:#ea0000}
+#cart .payment .payinfoWrap span.won {margin-left:7px; font-size:15px; color:#606060;font-weight:500;}
+#cart .payment .payinfoWrap .PriceArea {margin-top:5px; vertical-align:middle; background-color:#fff; padding:10px 0px; }
+#cart .payment .payinfoWrap .btnArea {margin:25px 0;}
+#cart .payment .payinfoWrap .btnArea input {display:inline-block; height:40px; padding:0px 35px; cursor:pointer;}
+#cart .payment .payinfoWrap .btnArea a {display:inline-block; height:38px; padding:0px 35px; margin-left:6px;}
+
+/* 카드, 무통장, 복합결제... 2020-07-01*/
+#cart .payment .payinfoWrap table {border-bottom:2px solid #919191;}
+
+#cart .payment .payinfoWrap select.input_text {line-height:29px; height:29px; border:1px solid #ccc;}
+#cart .payment .payinfoWrap th {background-color:#f5f5f5; border-bottom:1px solid #ddd; text-align:left; padding:7px 10px; border-top:1px solid #ddd; font-weight: 500;}
+#cart .payment .payinfoWrap td {border-bottom:1px solid #ddd; padding:7px 0px 7px 15px;		border-top:1px solid #ddd; }
+#cart .payment .payinfoWrap td select {line-height:18px; font:12px/1.4 "돋움", dotum, Gulim, sans-serif; height:18px; zoom:1;}
+#cart .payment .payinfoWrap td select option {line-height:18px;}
+#cart .payment .payinfoWrap td ul li {line-height:20px;}
+#cart .payment .payinfoWrap .input_text {line-height:29px; height:29px; border:1px solid #ccc; vertical-align:top; padding-left: 6px;}
+#cart .payment .payinfoWrap tr.lastTD th {border-bottom:1px solid #777;}
+#cart .payment .payinfoWrap tr.lastTD td {border-bottom:1px solid #777;}
+
+#cart .payment .payinfoWrap .paymethod {background: #A5C1CE; text-align: center; padding : 2px;}
+#cart .payment .payinfoWrap .paymethodAdd {background: #85d6c0; text-align: center; padding : 2px;}
+
+
+#cart .payTypeLeftArea {width:72%; background:#f7f7f7; min-height: 210px; border-right: 1px solid #ccc;}
+
+#Agreement {padding:10px 0px; background-color:#f7f7f7; }
+#Agreement p {font-weight:bold; width:90%; margin-left:5%; }
+#Agreement p.ag {letter-spacing:-1px;}
+#Agreement .AgreementBox {width:90%; padding:15px; background-color:#fff; line-height:18px; font-size: 12px; border:1px solid #ccc; margin-left:5%; margin-top:5px;}
+#Agreement div.ag {font-weight:300; width:90%; margin-left:5%; letter-spacing:-1px; font-size: 14px;}
+#Agreement .yesagree {color:#d75623;font-size:13px;}
+#Agreement label {font-weight: 700; padding-left:5px;}
+
+#PG_POLICY_AREA {padding-bottom:15px; background-color:#f7f7f7; }
+#PGAgreement {padding:5px 0px; background-color:#f7f7f7; }
+#PGAgreement div.ag {font-weight:300; width:90%; margin-left:5%; letter-spacing:-1px; font-size: 14px;}
+#PGAgreement .AgreementBox {width:90%; padding:15px; background-color:#fff; line-height:18px; font-size: 12px; border:1px solid #ccc; margin-left:5%; margin-top:5px; overflow-y: scroll; height: 50px;}
+#PGAgreement .yesagree {color:#d75623;font-size:13px;}
+#PGAgreement .input_chk {vertical-align:middle; }
+#PGAgreement label {font-weight: 700; padding-left:5px;}
+
+
+/*주문완료 */
+	#cart .cart_infos {font-weight:500;  border:5px solid #eee; text-align:left;padding:5px 0 5px 10px;margin-bottom:10px;}
+	#cart .cart_infos .ordNo { font-size:14px; color:#ea0000; font-family:tahoma;}
+
+#cart .cart_select {width:100%; clear:both; float:left; margin-top:60px; text-align:center;}
+#cart .cart_select img {margin-left:9px;}
+
+
+/* 복합결제 S */
+#mComplexInfo .CardPriceTotal {border:1px solid #919191; background-color:#f5f5f5;  margin-right:1px;}
+#mComplexInfo .CardPriceTotal td.title {font-weight:500; font-size:14px; text-align:center;}
+#mComplexInfo .CardPriceTotal td.amount {font-weight:500; font-size:20px; text-align:center; background-color:#fff;}
+#mComplexInfo .CardPriceTotal td.amountR {font-weight:500; font-size:20px; text-align:right; background-color:#fff; padding-right: 60px;}
+#mComplexInfo .addChk {width: 16px; height: 16px; border:2px solid red; margin-top: -2px; border: solid white; }
+
+#cart .a_submit  {display: inline-block; padding: 0px 12px; vertical-align: middle; cursor: pointer; line-height:25px;}
+#cart .addbtn  {display: inline-block; padding: 0px 12px; vertical-align: middle; cursor: pointer; line-height:25px;}
+#cart .design1 {background-color: #337ab7; border:1px solid #2e6da4; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#cart .design2 {background-color: #f9f9f9; border:1px solid #cccccc; border-radius: 3px; color:#666 !important;font-weight:normal;}
+#cart .design3 {background-color: #898989; border:1px solid #606060; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#cart .design4 {background-color: #c40d0d; border:1px solid #880000; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#cart .design5 {background-color: #33b793; border:1px solid #1a9473; border-radius: 3px; color:#fff !important;font-weight:normal;}
+
+#cart .paytypeAddArea {padding:7px 10px; text-align:center; height:40px; line-height:40px;}
+/* 복합결제 E */
+
+
+#shopIndex {text-align: center; margin-bottom: -20px; overflow: hidden;}
+#shopIndex .goods_wrap.layout_inner {overflow: hidden;}

@@ -1,0 +1,162 @@
+@charset "UTF-8";
+body { font-size: 1.5rem; line-height: 1.5; }
+
+.board { color: #222; }
+
+.board input::-webkit-input-placeholder, .board textarea::-webkit-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
+
+.board input:-ms-input-placeholder, .board textarea:-ms-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
+
+.board input::-ms-input-placeholder, .board textarea::-ms-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
+
+.board input::placeholder, .board textarea::placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
+
+.board input::-webkit-input-placeholder, .board textarea::-webkit-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
+
+.board input::-moz-input-placeholder, .board textarea::-moz-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
+
+.board input::-ms-input-placeholder, .board textarea::-ms-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
+
+.board .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; margin: 0; }
+
+.board .button:hover { color: #fff; text-decoration: none; background: #828282; }
+
+.board .button:active { color: whitesmoke; background: #686868; }
+
+.board .button.admin { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
+
+.board .button.admin:hover { color: #fff; text-decoration: none; background: #e84f4c; }
+
+.board .button.admin:active { color: white; background: #e2231e; }
+
+.board .button.write { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #166dba; background: #1e88e5; }
+
+.board .button.write:hover { color: #fff; text-decoration: none; background: #3594e8; }
+
+.board .button.write:active { color: white; background: #187bd1; }
+
+.board .button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
+
+.board .button.answer:hover { color: #fff; text-decoration: none; background: #a028bf; }
+
+.board .button.answer:active { color: #f0d7f6; background: #7c2095; }
+
+.board .button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
+
+.board .button.delete:hover { color: #fff; text-decoration: none; background: #e4286d; }
+
+.board .button.delete:active { color: #fef4f8; background: #c11856; }
+
+.board .button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
+
+.board .button.edit:hover { color: #fff; text-decoration: none; background: #3f51be; }
+
+.board .button.edit:active { color: #ebedf8; background: #334198; }
+
+.board .button.save { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
+
+.board .button.save:hover { color: #fff; text-decoration: none; background: #4bb24f; }
+
+.board .button.save:active { color: #ebf7ec; background: #3b8e3f; }
+
+.board th, .board td { font-size: 1.5rem; font-weight: 400; height: 5rem; color: #333; padding: 0 1.5rem; }
+
+.board td { border: none; padding: 1.5rem; }
+
+.board td.contentTD2 { border-bottom: 1px solid #e0e0e0; padding: 3rem 1.5rem; }
+
+.board td.contentTD3 { padding-left: 0; padding-right: 0; }
+
+.board thead th { font-weight: 500; }
+
+.board tbody td a { color: #333; }
+
+.board tbody td a:hover { color: #1e2e71; text-decoration: underline; }
+
+.board tbody.no { color: #aaa; }
+
+.board tbody.subject { color: #444; }
+
+.board .nothing { height: 150px; text-align: center; }
+
+.board tfoot td { text-align: right; border: none; padding: 1.5rem; padding-right: 0; }
+
+.board .notice1 a, .board .notice2 a, .board .notice3 a, .board .notice4 a { color: #505050; }
+
+.board .notice1 a:hover, .board .notice2 a:hover, .board .notice3 a:hover, .board .notice4 a:hover { color: #528979; text-decoration: underline; }
+
+.board .table_for th, .board .table_for td { text-align: center; }
+
+.board .table_for th.subject, .board .table_for td.subject { text-align: left; }
+
+.board .cnt { font-size: 8pt; color: #ff3c00; font-weight: normal; }
+
+.board .cnt strong { font-weight: normal; font-family: verdana; }
+
+.board .contentTD { text-align: initial !important; border-color: #ebebeb; }
+
+.board.reply .title input[type="text"] { width: 100%; }
+
+.board td label { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-left: 10px; vertical-align: middle; }
+
+.board td label .input_radio { margin-top: 0; margin-right: 5px; }
+
+.board { width: 100%; }
+
+.board tr { border: 1px solid transparent; }
+
+.board th, .board td { border: 1px solid transparent; padding: 10px; }
+
+.board thead th { background: whitesmoke; color: #6e6e6e; font-weight: 500; border: 1px solid gainsboro; height: 5rem; }
+
+.board tbody tr { border-bottom: 1px solid #ebebeb; }
+
+.board tbody th { border: 1px solid #dedede; background: #f8f8f8; color: #6e6e6e; height: 5rem; }
+
+.board tbody td { border: 1px solid #ebebeb; height: 5rem; }
+
+.board a { color: inherit; }
+
+.board a:hover { text-decoration: underline; color: #0cf8ef; }
+
+.board thead th { border-left: none; border-right: none; }
+
+.board tbody th { border-left: none; border-right: none; }
+
+.board tbody td { border-left: none; border-right: none; }
+
+#forum.board { width: 100%; }
+
+#forum.board tr { border: 1px solid transparent; }
+
+#forum.board th, #forum.board td { border: 1px solid transparent; padding: 10px; }
+
+#forum.board thead th { background: whitesmoke; color: #6e6e6e; font-weight: 500; border: 1px solid gainsboro; height: 5rem; }
+
+#forum.board tbody tr { border-bottom: 1px solid #ebebeb; }
+
+#forum.board tbody th { border: 1px solid #dedede; background: #f8f8f8; color: #6e6e6e; height: 5rem; }
+
+#forum.board tbody td { border: 1px solid #ebebeb; height: 5rem; }
+
+#forum.board a { color: inherit; }
+
+#forum.board a:hover { text-decoration: underline; color: #0cf8ef; }
+
+#forum.board thead th { border-left: none; border-right: none; }
+
+#forum.board tbody th { border-left: none; border-right: none; }
+
+#forum.board tbody td { border-left: none; border-right: none; }
+
+#forum.board.view td:not(.contentTD) { border: none; }
+
+#forum.board.view .contentTD { border-color: #ebebeb; }
+
+#forum.board.view tr { border-top-color: #ccc; border-bottom-color: #ccc; }
+
+#forum.board.write .contentTD { font-size: 0; padding: 1.5rem 0; }
+
+.prenext td { height: 4.5rem; }
+
+.prenext .tit { background-color: transparent; color: #da2027; font-weight: 500; }

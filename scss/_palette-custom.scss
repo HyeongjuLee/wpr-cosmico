@@ -1,0 +1,20 @@
+@import 'sass-material-colors/sass/sass-material-colors';
+@import 'social-colors';
+@import 'open-color';
+
+//주 색상
+$main-color: #1C287B;
+$sub-color: #fff;
+// $sub-color2: #37518a;
+
+$basic: material-color('grey', '600');
+$write: material-color('blue', '600');
+$admin: material-color('red', '600');
+$answer: material-color('purple', '600');
+$delete: material-color('pink', '600');
+$edit: material-color('indigo', '600');
+$save: material-color('green', '600');
+
+$nav-color: #333645;
+$myoffice-color: invert($main-color);
+$myoffice-color2: darken(adjust-color(invert($main-color), $saturation: -20), 10);

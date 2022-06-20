@@ -1,0 +1,249 @@
+//기본 mixin 설정
+
+// float clear
+@mixin clear {
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin ellipsis($line: 1) {
+	@if ($line==1) {
+		display: -webkit-box;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: $line;
+	}
+
+	@else {
+		display: -webkit-box;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: $line;
+	}
+}
+
+$devices: (mobile: 576px, tablet: 768px, desktop: 1280px);
+
+@mixin mq($device) {
+	@if map-has-key($devices, $device) {
+		$device-width: map-get($devices, $device);
+
+		@media screen and (min-width: #{$device-width}) {
+			@content;
+		}
+	}
+
+	@else {
+		@warn 'Invalid breakpoint: #{$device}.';
+	}
+}
+
+@mixin media($min: false, $max: false) {
+	@if $max {
+		@media (max-width: $max) {
+			@content;
+		}
+	}
+	@else if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	}
+	@else {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	}
+}
+
+@mixin box-shadow ($top, $left, $blur, $color, $inset: false) {
+	@if $inset {
+		@each $vendor in $vendors {
+			#{$vendor}box-shadow: inset $top $left $blur $color;
+		}
+	}
+
+	@else {
+		@each $vendor in $vendors {
+			#{$vendor}box-shadow: $top $left $blur $color;
+		}
+	}
+}
+
+@mixin text-field {
+	display: inline-block;
+	outline: none;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	@include rounded();
+	@include box-shadow(0, 1px, 2px, rgba(0, 0, 0, 0.2));
+}
+
+@mixin buttons($color: red, $text_color: white) {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	@include rounded();
+	@include box-shadow(0, 1px, 2px, rgba(0, 0, 0, 0.2));
+
+	color: $text_color !important;
+	font-weight: 700;
+	border: solid 1px darken($color, 18%);
+	background: $color;
+	@include gradient(saturate($color, 15%), darken($color, 15%));
+
+	&:hover {
+		text-decoration: none;
+		background: saturate($color, 10%);
+		@include gradient(saturate($color, 5%), darken($color, 5%));
+	}
+
+	&:active {
+		position: relative;
+		top: 1px;
+		color: saturate($color, 15%);
+		@include gradient(saturate($color, 15%), lighten($color, 15%));
+	}
+}
+
+@mixin button($background: material-color('grey', '900'), $color: #fff) {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	@include font-family('Pretendard');
+	padding: 1rem 1.5rem;
+	@include rounded(0);
+
+	color: $color;
+	font-weight: 400;
+	border: solid 1px darken($background, 10%);
+	background: $background;
+
+	&:hover {
+		text-decoration: none;
+		background: lighten($background, 5%);
+	}
+
+	&:active {
+		color: lighten($background, 50%);
+		background: darken($background, 5%);
+	}
+}
+
+@mixin rounded($radius: 0.5em) {
+	@each $vendor in $vendors {
+		#{$vendor}border-radius: $radius;
+	}
+}
+
+@mixin gradient($from, $to) {
+	background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background: -moz-linear-gradient(top, $from, $to);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+}
+
+@mixin unify-parent($child) {
+	@at-root #{selector-unify(&, $child)} {
+		@content;
+	}
+}
+
+@mixin default-a {
+	display: block;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+@mixin default-0 {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	font-style: normal;
+	text-decoration: none;
+	background: none;
+}
+
+@mixin layout-inner {
+	width: $inner;
+	margin: 0 auto;
+}
+
+@mixin position ($p: relative, $top: null, $bot: null, $le: null, $ri: null) {
+	position: $p;
+	top: $top;
+	bottom: $bot;
+	left: $le;
+	right: $ri;
+}
+
+@mixin transition ($transition...) {
+	@each $vendor in $vendors {
+		#{$vendor}transition: $transition;
+	}
+}
+
+@mixin transform ($transform...) {
+	@each $vendor in $vendors {
+		#{$vendor}transform: $transform;
+	}
+}
+
+@function letter-spacing($val, $font-size) {
+	@return ($val * $font-size / 1000) * 1;
+}
+
+@function zindex($element, $sub-element: false) {
+	$index: map-get($z-index, $element);
+
+	@if $sub-element {
+		$index: map-get($index, $sub-element);
+	}
+
+	@return $index;
+}
+
+@mixin presudo($content: '', $p: absolute, $top: null, $bot: null, $le: null, $ri: null, $width: 100%, $height: 100%) {
+	content: $content;
+	position: $p;
+	top: $top;
+	bottom: $bot;
+	left: $le;
+	right: $ri;
+	width: $width;
+	height: $height;
+}
+
+@mixin font-family($name: null, $size: null, $weight: null, $color: null, $style: null, $lh: null) {
+	font-family: $name, 'Roboto', 'Noto Sans KR', sans-serif;
+	font-size: $size;
+	font-weight: $weight;
+	color: $color;
+	font-style: $style;
+	line-height: $lh;
+}
+
+@mixin flex($justify: center, $items: center) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $items;
+}
+@mixin inline-flex($justify: center, $items: center) {
+	display: inline-flex;
+	justify-content: $justify;
+	align-items: $items;
+}

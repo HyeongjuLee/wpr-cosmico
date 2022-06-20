@@ -1,0 +1,147 @@
+/*한글*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body,input,select,textarea{font-family: 'Nanum Gothic', sans-serif;}
+
+	#subTitle {height:45px; border-bottom:1px solid #ccc; position:relative;}
+	#subTitle .maps_title {line-height:45px; height:45px; vertical-align:middle; position:absolute;  margin-top:0px; font-size:22px; font-weight:bold;}
+	#subTitle .maps_navi {line-height:45px;}
+	#subTitle .maps_navi span.last_navi {color:#8d4dad;}
+
+	.orderNum {font-size:11px; font-family:tahoma; color:#555; font-weight:bold; text-align:center; line-height:15px;}
+
+	.goodsInfo {}
+	.goodsInfo .thumImg {float:left;width:80px; border:1px solid #cdcdcd; text-align:center;}
+	.goodsInfo .goodsName {float:left; margin-left:5px; width:170px; font-weight:bold;}
+	.goodsInfo .goodsOption {clear:both; background-color:#eee; margin-top:5px; line-height:16px; padding:3px 5px; color:#999; font-size:11px;}
+
+	.deliTD p {margin-top:2px;}
+	.deliTD p:first-child {margin-top:0px;}
+
+	.orderlist th {background-color:#eee; padding:12px 0px; border:1px solid #cdcdcd;}
+	.orderlist td {border:1px solid #ddd;}
+	.orderlist tr.fisrtTR td {border-top:2px solid #ddd;}
+
+
+	.pagingArea {padding:20px 0px; text-align:center;}
+
+			   .order_title {height:30px; line-height:30px; font-weight:bold; font-size:15px; }
+	.orderView .order_title_01 {height:30px; width:250px; background:url(/images_kr/shop/order_title_01.png) 0 50% no-repeat;}
+	.orderView .order_title_03 {height:30px; width:250px; background:url(/images_kr/shop/order_title_03.png) 0 50% no-repeat; line-height:30px; text-align:right;}
+	.orderView .order_title_04 {height:30px; width:250px; background:url(/images_kr/shop/order_title_04.png) 0 50% no-repeat; line-height:30px; text-align:right;}
+	.orderView .order_title_05 {height:30px; width:250px; background:url(/images_kr/shop/order_title_05.png) 0 50% no-repeat;}
+	.orderView .cart_title_01 {height:30px; width:250px; background:url(/images_kr/shop/cart_title_01.png) 0 50% no-repeat;}
+
+	.orderView .cart_infos {font-weight:bold; width:800px; border:5px solid #eee; text-align:left;padding:5px 0 5px 10px;margin-bottom:10px;}
+	.orderView .cart_infos .ordNo { font-size:14px; color:#ea0000; font-family:tahoma;}
+
+	.orderView .cart_list {margin-top:12px; text-align:left;}
+	.orderView .cart_list th {text-align:center; height:30px; background:url(/images_kr/shop/order_table_bg.gif) 0 0 repeat-x; font-size:11px; font-family:돋움;}
+	.orderView .cart_list tbody td {border:1px dotted #ccc; padding:2px 0px; }
+	.orderView .cart_list tfoot td {padding-top:2px;}
+	.orderView .cart_list tfoot td img {margin-right:2px;}
+
+	.orderView .cart_list .goodsInfo p {margin-top:9px;}
+	.orderView .cart_list .goodsInfo p:first-child {margin-top:0px;}
+	.orderView .cart_list .goodsInfo .icons {margin-right:2px; vertical-align:middle;}
+	.orderView .cart_list .goodsInfo .goodsName {clear:both;}
+	.orderView .cart_list .goodsInfo .goodsOption {clear:both;margin-top:15px;}
+	.orderView .cart_list .goodsInfo .goodsOption span {line-height:14px;}
+	.orderView .cart_list .goodsInfo .bor_l {border-left:1px dotted #ccc;}
+	.orderView .cart_list .goodsInfo tr.bgC1 td {background-color:#fcfcfc;}
+	.orderView .cart_list .goodsInfo tr.lastTR td {border-bottom:1px solid #777;}
+	.orderView .cart_list .goodsInfo .lastTD {border-bottom:1px solid #777;}
+	.orderView .cart_list .goodsInfo tbody {border-bottom:1px solid #777;}
+	.orderView .cart_list .goodsInfo tbody tr:first-child td {border-top:1px solid #777;}
+
+
+	.orderView .TotalArea {border-top:2px solid #333 ;border-bottom:2px solid #333; padding-top:15px; }
+	.orderView .TotalArea .AreaZoneWrap {background-color:#f5f5f5; border-top:1px solid #ccc; width:100%;}
+	.orderView .TotalArea .AreaZone {float:left; background-color:#f5f5f5; padding-top:15px; padding-bottom:15px; width:410px;}
+	.orderView .TotalArea div {float:left; }
+	.orderView .TotalArea div span {display:inline-block;}
+	/*
+	.orderView .TotalArea .PriceArea	{clear:both; width:100%; height:40px; padding-left:70px; margin-left:10px; }
+	.orderView .TotalArea .DeliveryArea	{height:40px;padding-left:70px; }
+	.orderView .TotalArea .PointArea	{clear:both; width:100%; height:40px; padding-left:70px; margin-left:10px; background:url(/images_kr/shop/order_final_icon.png) 0 -35px no-repeat;}
+	.orderView .TotalArea .LastArea		{clear:both; width:100%; height:40px; padding-left:70px; margin-left:10px; background:url(/images_kr/shop/order_final_icon.png) 0 -74px no-repeat;}
+	.orderView .TotalArea span.won		{width:30px; height:40px; back ground:url(/images_kr/shop/order_final_price.png) 10px -107px no-repeat;}
+
+	.orderView .TotalArea .PriceArea	span.tit {width:120px; height:40px; background:url(/images_kr/shop/order_final_price.png) 0 13px no-repeat;}
+	.orderView .TotalArea .DeliveryArea	span.tit {width:120px; height:40px; background:url(/images_kr/shop/order_final_price.png) 0 -47px no-repeat;}
+	.orderView .TotalArea .PointArea	span.tit {width:120px; height:40px; background:url(/images_kr/shop/order_final_price.png) 0 -17px no-repeat;}
+	.orderView .TotalArea .LastArea		span.tit {width:120px; height:40px; background:url(/images_kr/shop/order_final_price.png) 0 -77px no-repeat;}
+	*/
+	/* Global Text S*/
+	.orderView .TotalArea .PriceArea	{clear:both; width:100%; height:40px; padding-left:40px; margin-left:10px; }
+	.orderView .TotalArea .DeliveryArea	{height:40px;padding-left:40px; }
+	.orderView .TotalArea .PointArea	{clear:both; width:100%; height:40px; padding-left:40px; margin-left:10px; background:url(/images_kr/shop/order_final_icon.png) 0 -35px no-repeat;}
+	.orderView .TotalArea .LastArea		{clear:both; width:100%; height:40px; padding-left:40px; margin-left:10px; background:url(/images_kr/shop/order_final_icon.png) 0 -74px no-repeat;}
+	.orderView .TotalArea span.won		{width:30px; height:40px; padding:15px 0px 0px 5px;font-size:13px; color:#606060;font-weight:bold;}
+
+	.orderView .TotalArea span.tit {font-size:17px; line-height:40px; font-weight:bold; margin-left:0px;font-weight:bold;}
+	.orderView .TotalArea .PriceArea	span.tit {width:150px; height:40px;}
+	.orderView .TotalArea .DeliveryArea	span.tit {width:150px; height:40px;}
+	.orderView .TotalArea .PointArea	span.tit {width:150px; height:40px;}
+	.orderView .TotalArea .LastArea		span.tit {width:150px; height:40px;}
+	/* Global Text E*/
+
+	.orderView .TotalArea .PriceArea	span#PriceArea		 {font-family:tahoma, gulim, dotum, 굴림,돋움; font-size:22px; font-weight:bold; line-height:40px; vertical-align:top;text-align:right; width:140px; height:40px; text-align:right;}
+	.orderView .TotalArea .DeliveryArea	span#DeliveryArea	 {font-family:tahoma, gulim, dotum, 굴림,돋움; font-size:22px; font-weight:bold; line-height:40px; vertical-align:top;text-align:right; width:140px; height:40px; text-align:right;}
+	.orderView .TotalArea .PointArea	span#PointArea		 {font-family:tahoma, gulim, dotum, 굴림,돋움; font-size:22px; font-weight:bold; line-height:40px; vertical-align:top;text-align:right; width:140px; height:40px; text-align:right;}
+	.orderView .TotalArea .LastArea		span#LastArea		 {font-family:tahoma, gulim, dotum, 굴림,돋움; font-size:22px; font-weight:bold; line-height:40px; vertical-align:top;text-align:right; width:140px; height:40px; text-align:right; color:#ea0000}
+
+	.orderView .disArea {float:left; width:50%;}
+	.orderView .disArea td {font-size:11px; padding:7px 0px 7px 20px; border-bottom:1px dotted #ccc;}
+	.orderView .disArea td.bor_l2 {border-left:1px dotted #ccc;}
+	.orderView .disArea td.bor_l {border-left:1px solid #ccc;}
+	.orderView .disArea td table td {border:0px none; padding:3px 0px; line-height:16px;}
+	.orderView .disArea td.bor_l {border-left:1px solid #ccc;}
+	.orderView .disArea td li {line-height:16px;}
+	.orderView .disArea td li strong {display:inline-block; text-align:right; width:100%;}
+	.orderView .disArea td.summ {vertical-align:top; border-bottom:0px none;}
+	.orderView .disArea td.summ li strong {display:inline-block;  text-align:right;}
+
+	.orderView .disArea td.point li strong {display:inline-block; text-align:right;}
+
+
+.orderView .ordersInfo {margin-top:50px;}
+.orderView .ordersInfo th {border-bottom:1px dotted #ccc; border-top:1px dotted #ccc; background-color:#f5f5f5; height:30px; text-align:left; padding-left:7px;}
+.orderView .ordersInfo td {border-bottom:1px dotted #ccc; border-top:1px dotted #ccc; height:30px; padding-left:11px;}
+.orderView .ordersInfo tr:first-child th {border-top:2px solid #333;}
+.orderView .ordersInfo tr:first-child td {border-top:2px solid #333;}
+.orderView .ordersInfo td.zipTD {padding-top:5px;padding-bottom:5px;}
+.orderView .ordersInfo td.zipTD p {margin-top:4px;}
+.orderView .ordersInfo td.zipTD p:first-child {margin-top:0px;}
+.orderView .ordersInfo .input_text1 {line-height:16px; height:16px; border:1px solid #ccc; vertical-align:top;}
+
+.orderView .payment {margin-top:50px; border-bottom:2px solid #333;}
+.orderView .payment .selectPay {background-color:#f5f5f5; line-height:40px; padding-left:0px;border-bottom:1px solid #ccc; border-top:2px solid #333;overflow:hidden; }
+.orderView .payment .selectPay label {font-weight:bold; margin-left:11px; cursor:pointer;}
+.orderView .payment .selectPay label:first-child {margin-left:0px;}
+
+.orderView .payment .Agreement {padding:15px 0px;}
+
+.orderView .payment .payinfoWrap {background:url(/images_kr/shop/payWarp_bg.gif) 65% 0 repeat-y;}
+.orderView .payment .payinfoWrap .cart_btn {text-align:center;}
+.orderView .payment .payinfoWrap .LastArea {clear:both; float:right; width:90px; height:40px; background:url(/images_kr/shop/order_final_price.png) 0 -77px no-repeat; margin-left:35px;}
+.orderView .payment .payinfoWrap .PriceArea {margin-top:5px; vertical-align:middle; background-color:#f5f5f5; padding:15px 0px; border-left:1px solid #ccc;}
+.orderView .payment .payinfoWrap .btnArea {margin-top:25px;}
+.orderView .payment .payinfoWrap #payArea {font-family:tahoma, gulim, dotum, 굴림,돋움; font-size:28px; font-weight:bold; line-height:40px; vertical-align:middle; text-align:right; width:140px; height:40px; text-align:right; color:#ea0000}
+.orderView .payment .payinfoWrap span.won {width:30px; height:40px; background:url(/images_kr/shop/order_final_price.png) 10px -107px no-repeat;vertical-align:middle; }
+
+
+#CardInfo th {background-color:#f5f5f5; border-bottom:1px solid #ddd; text-align:left; padding:7px 0px 7px 15px;}
+#CardInfo td {border-bottom:1px solid #ddd; padding:7px 0px 7px 15px;}
+#CardInfo td select {line-height:18px; font:12px/1.4 "돋움", dotum, Gulim, sans-serif; height:18px; zoom:1;}
+#CardInfo td select option {line-height:18px;}
+#CardInfo tr.lastTD th {border-bottom:1px solid #777;}
+#CardInfo tr.lastTD td {border-bottom:1px solid #777;}
+
+#BankInfo th {background-color:#f5f5f5; border-bottom:1px solid #ddd; text-align:left; padding:7px 0px 7px 15px;}
+#BankInfo td {border-bottom:1px solid #ddd; padding:7px 0px 7px 15px;}
+#BankInfo td select {line-height:18px; font:12px/1.4 "돋움", dotum, Gulim, sans-serif; height:18px; zoom:1;}
+#BankInfo td select option {line-height:18px;}
+#BankInfo td ul.bankInfo li {line-height:20px;}
+#BankInfo .input_text {line-height:18px; height:18px; border:1px solid #ccc; vertical-align:top;}
+#BankInfo tr.lastTD th {border-bottom:1px solid #777;}
+#BankInfo tr.lastTD td {border-bottom:1px solid #777;}

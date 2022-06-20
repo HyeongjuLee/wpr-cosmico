@@ -1,0 +1,39 @@
+/* 한국 */
+
+#cart_title_b {font-size:16px; line-height:36px; height:36px; border-top:1px solid #878787; border-bottom:1px solid #878787; background:#6d6d6d; color:#fff; }
+.cart_title_m {text-align:left; font-size:15px; line-height:25px; border-bottom:1px solid #d3d3d3; background:#e5e5e5; color:#555; padding:4px; font-weight:bold; text-indent:10px; letter-spacing:-1px;}
+
+
+	.deliveryBtn {display:inline-block; float:left; width:50%; text-align:center;}
+	.deliveryBtn a {display:block; font-size:14px; line-height:40px; font-weight:bold; color:#25779e;}
+	.deli1 {}
+	.deli2 {border-left:1px solid #ccc;}
+	.deliveryBtn a.off {border-bottom:1px solid #ccc; font-weight:normal; color:#777;}
+
+	.user_info1 {width:95%; padding:10px 0px 20px 0px; border-bottom:1px dotted #ccc; margin:0px auto;}
+	.user_info1 th {padding:5px 0px; text-align:left; text-indent:7px; color:#333; font-size:14px;}
+	.user_info1 td {padding:5px 0px; font-size:13px; letter-spacing:-0.01em;}
+	.user_info1 td div {display:inline-block;}
+
+	.user_info2 {width:95%; padding:10px 0px 10px 0px; margin:0px auto;}
+
+	.input_text {height:25px; line-height:25px;font-size:14px; padding:0px; vertical-align:middle; border:1px solid #ddd;}
+	.input_btn {height:27px; line-height:27px;font-size:13px; padding:0px; background-color:#eee; border:1px solid #ddd;vertical-align:middle;}
+	.orderMemo {padding:0px 0px 5px 0px; font-weight:bold; font-size:13px;}
+
+
+	.cartGoodsArea {border-bottom:2px dotted #ccc; padding-bottom:7px;}
+	.cartGoodsImg {width:90px; height:90px; margin:10px 0px 10px 5px}
+	.cartGoodsName {width:100%; font-size:14px; color:#444; line-height:25px;}
+	.cartIcon .icons {margin-right:2px;}
+
+
+	.cartPriceArea {border:8px solid #e5e5e5;}
+	.cartPriceArea span {display:inline-block; line-height:30px;}
+	.cartPriceArea span.cartPrice_tit {color:#333; width:30%; font-size:13px; text-indent:7px; letter-spacing:-1px;}
+	.cartPriceArea span.cartPrice_Res {color:#777; width:65%; font-weight:bold; font-size:12px; letter-spacing:-1px;  text-align:right;}
+	.cartPriceArea span.cartPrice_Res strong {color:#222; font-size:18px; vertical-align:-2px;}
+
+
+	#buyBtn a {display:block; margin:4px 4px; border:1px solid red; border-radius:4px;  font-size:15px; font-weight:bold; line-height:40px; height:40px; text-align:center; background-color:#fff;}
+	#buyBtn a.buys {background:linear-gradient(#f27684 0%,#bc1f31 4%,#cb3849 100%); border:1px solid #cb0808; color:#fff;}

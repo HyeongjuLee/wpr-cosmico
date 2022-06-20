@@ -1,0 +1,1056 @@
+@import 'mixin-custom';
+
+$input-width: $inner - rem(160px);
+$input-height: round($font-size * 2.8);
+$common-button-color: material-color('blue','700');
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000rem material-color('blue', '50') inset !important;
+	-webkit-text-fill-color: #111 !important;
+	//font-size: $font-size;
+	font-weight: 400;
+	letter-spacing: 0;
+	&::first-line, &:hover, &:focus, &:active {
+		@extend :-webkit-autofill;
+	}
+}//join01 x
+
+#header.join {
+	margin-bottom: $font-size * 2;
+}
+
+#contain_wrap {
+	color: #212121;
+	font-size: $font-size;
+}
+
+.back {
+	@include position;
+	z-index: 1;
+	font-size: $font-size;
+	color: #000;
+	opacity: .8;
+
+	p {
+		@include inline-flex(flex-start);
+		margin: 0;
+		padding: $font-size / 2;
+		cursor: pointer;
+	}
+	
+	i {
+		font-size: $font-size + rem(5px);
+		margin-right: rem(5px);
+	}
+}
+
+#sub-header {
+	//margin-top: rem(80px);
+	.sub-header-txt {
+		color: $parent-css;
+		font-weight: 600;
+
+		.maps_title {
+			margin: 0;
+		}
+
+		&:after {
+			content: none;
+		}
+	}
+}
+
+.content {
+	padding: 0;
+	text-align: center;
+	.maps_title {
+		display: none;
+	}
+	.sub_title {
+		@include inline-flex;
+		font-size: $font-size * 1.2;
+		color: material-color('grey', '900');
+		font-weight: 400;
+		padding: $font-size 0;
+		//margin-bottom: $font-size * 2;
+		@include position;
+		&:before, &:after {
+			@include presudo($le: 0, $h: 1px);
+			background: material-color('grey', '500');
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			bottom: 0;
+		}
+	}
+}//join01 x
+
+.joinstep {
+	font-size: $font-size;
+	text-align: center;
+	//color: $parent-css;
+	margin: 0 auto;
+
+	h6 {
+		font-size: $font-size + rem(4px);
+		font-weight: 400;
+		//margin-top: $input-height;
+
+		& + p {
+			color: material-color('grey', '800');
+			margin-bottom: $input-height / 3;
+		}
+	}
+
+	.wrap {
+		width: $input-width;
+		margin: 0 auto;
+	}
+
+	.input-wrap {
+		@include flex;
+		flex-direction: column;
+		width: $input-width;
+		margin: 0 auto;
+		//border: 1px solid #aaa;
+		//overflow: hidden;
+
+		label {
+			@include position;
+			z-index: 1;
+			@include flex;
+			width: 100%;
+			height: $input-height + rem(5px);
+			font-size: $font-size * 1.2;
+			background: #fff;
+			cursor: $default-css;
+			border: 1px solid #aaa;
+			//margin: -1px;
+
+			&:before {
+				@include presudo($le: 0, $h: 1px);
+				background: rgba(mix(#000, material-color('blue', '50'), 50), 50%);
+				z-index: 5;
+			}
+
+			i {
+				//@include position(absolute, $le: rem(15px));
+				font-size: $font-size * 1.2;
+				width: $input-height;
+			}
+
+			span {
+				@include position(absolute, $le: $input-height / 2, $top: auto);
+				z-index: 1;
+				opacity: 1;
+				color: rgba(#000, 50%);
+			}
+
+			input {
+				@include default-0;
+				@include position;
+				width: 100%;
+				height: 100%;
+				background: transparent;
+				font-size: $font-size * 1.2;
+				float: right;
+				padding: 0 $input-height / 3;
+			}
+
+			&:not(:first-child) {
+				border-top: none;
+				padding-top: 1px;
+				&:before {
+					top: 0;
+				}
+				//margin-bottom: -1px;
+			}
+
+			&:not(:last-child) {
+				border-bottom: none;
+				padding-bottom: 1px;
+				margin-bottom: -1px;
+				&:before {
+					top: 0;
+				}
+			}
+
+			&:first-child {
+				&:before {
+					content: none;
+				}
+			}
+
+			&:last-child {
+				border-top: none;
+				padding-top: 1px;
+				&:before {
+					top: 0;
+				}
+			}
+
+			&.key {
+				z-index: 1;
+
+				span {
+					z-index: -1;
+					opacity: 0;
+				}
+			}
+
+			&.focus {
+				z-index: 2;
+				//border-color: saturate($main-color, 30%);
+				padding: {
+					top: 0;
+					bottom: 0;
+				};
+				border: 1px solid $parent-css;
+				box-shadow: 0 0 0 1px $parent-css;
+				&:before {
+					content: none;
+				}
+				//border-color: #aaa;
+				//box-shadow: 0 5px 50px rgba(0, 0, 0, 0.05), 0 5px 20px rgba(0, 0, 0, 0.05);
+
+				i {
+					//color: $main-color;
+				}
+
+				span {
+					//color: rgba($main-color, 50%);
+				}
+
+			}
+		}
+	}
+
+	.find {
+		width: $input-width;
+		padding: rem(40px) 0;
+		overflow: hidden;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+
+		a {
+			text-decoration: none;
+			//float: right;
+			color: $parent-css;
+			font-weight: 400;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		i {
+			width: rem(1px);
+			height: rem(20px);
+			background: material-color('grey', '300');
+			margin: 0 rem(20px);
+		}
+	}
+
+	.button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: $input-width;
+		height: $input-height;
+		margin: rem(15px) auto;
+		background: transparent;
+		font-size: $font-size * 1.2;
+		cursor: pointer;
+		font-family: $parent-css;
+		text-align: center;
+
+		@include unify-parent('input') {
+			background: $main-color;
+			color: #fff;
+		}
+
+		@include unify-parent('a') {
+			background: $sub-color;
+			//border: 1px solid $sub-color;
+			color: #fff;
+		}
+
+	}
+
+	.DaumPostcode {
+		@include position(fixed, $le: 50%, $top: 50%);
+		@include transform(translate(-50%, -50%));
+		width: calc(100% - #{$font-size * 2});
+		min-height: 300px;
+		background: #fff;
+		z-index: 9;
+		border: 1px solid #222;
+
+		.icon-close-outline {
+			@include position(absolute, $ri: $font-size - rem(11px), $top: $font-size - rem(11px));
+			@include flex;
+			z-index: 9;
+			font-size: $font-size;
+			background: material-color('grey', '700');
+			color: #fff;
+			cursor: pointer;
+			width: $font-size * 2;
+			height: $font-size * 2;
+		}
+	}
+
+
+}
+
+#login {
+	margin-bottom: rem(100px);
+}
+
+///*배경색 있음*/
+// #contain_wrap {
+// 	background: material-color('grey', '100');
+// 	overflow: hidden;
+// }
+// .common {
+// 	width: $input-width * 2;
+// 	background: #fff;
+// 	display: flex;
+// 	margin: 0 auto {
+// 		bottom: 5%;
+// 	};
+// 	padding: $input-height 0;
+
+// }
+
+//회원가입
+$join-color-1: $main-color;
+$join-color-2: material-color('blue-grey');
+$border: 1px solid material-color('grey', '300');
+.joinstep {
+	padding: 0;
+
+
+	@include flex;
+	flex-direction: column;
+
+	h2 {
+		color: material-color('grey', '900');
+		font-weight: 400;
+		padding: $font-size 0;
+		margin-bottom: $font-size * 2;
+		@include position;
+		&:before, &:after {
+			@include presudo($le: 0, $h: 1px);
+			background: material-color('grey', '500');
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			bottom: 0;
+		}
+	}
+
+	.wrap {
+		width: $input-width + rem(50px);
+		padding: $font-size * 1.5 {
+			//top: rem(50px)
+		};
+		border: 1px solid material-color('grey', '200');
+		@include flex(space-between);
+		flex-direction: column;
+		margin: 0 auto {
+			bottom: $input-height;
+		};
+
+		h6 {
+			display: inline-block;
+			//width: $input-width / 2;
+			width: 100%;
+			//height: $input-height / 2;
+			//padding: rem(15px);
+			font-size: $font-size * 1.8;
+			line-height: 1.2;
+			font-weight: 600;
+
+			& + p {
+				margin: $font-size / 2 0;
+			}
+		}
+
+		ul {
+			margin: rem(10px) 0;
+		}
+		li {
+			text-align: left;
+			padding: $font-size / 2;
+			margin: $font-size / 2 0;
+			font-size: $font-size - rem(2px);
+		}
+
+		.button {
+			width: 100%;
+			margin: 0 {
+				//top: rem(20px)
+			};
+			color: #fff;
+		}
+	}	
+
+	.btnZone {
+		@include flex;
+		padding: {
+			top: $font-size * 2;
+		}
+		width: 100%;
+
+		a, input {
+			@include inline-flex;
+			@include default-0;
+			@include rounded;
+			width: $font-size * 10;
+			height: $input-height * 1.2;
+			margin: 0 $font-size / 2;
+			cursor: pointer;
+			font-size: $font-size + rem(2px);
+			line-height: 1.5;
+			text-align: center;
+			@include transition(all .3s);
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: $parent-css;
+		}
+
+		.cancel {
+			background: material-color('grey', '300');
+			color: #222;
+			&:hover {
+				background: darken(material-color('grey', '300'),5);
+			}
+		}
+		.promise {
+			background: $common-button-color;
+			color: #fff;
+			&:hover {
+				background: lighten($common-button-color,10);
+			}
+		}
+	}
+}
+
+#join01 {
+	h2 {
+		display: none;
+	}
+
+	.wrap {
+		&:nth-of-type(1) {
+			//border-right: none;
+			h6 {
+				color: $join-color-1;
+			}
+			p {
+				//color: $join-color-1;
+				font-weight: 400;	
+			}
+			li {
+				background: rgba($join-color-1, 0.1);
+				color: mix(#000, $join-color-1, 30%);
+			}
+			.button {
+				background: $join-color-1;
+			}
+		}
+		&:nth-of-type(2) {
+			//border-left: none;
+			h6 {
+				color: $join-color-2;
+			}
+			li {
+				background: rgba($join-color-2, 0.1);
+				color: mix(#000, $join-color-2, 30%);
+			}
+			.button {
+				background: $join-color-2;
+				&.account {
+					margin-top: $font-size / 2;
+					background: saturate(adjust-hue($join-color-2, -25deg), 15);
+				}
+			}
+		}
+	}
+}
+
+#join02 {
+	flex-direction: column;
+	text-align: left;
+	//margin: rem(50px) 0;
+	margin-top: rem(50px);
+
+	.wrap {
+		//width: rem(980px);
+		height: auto;
+		//padding: 0 rem(90px);
+	}
+
+	section {
+		//width: $input-width + rem(100px);
+		width: calc(100% - 9rem);
+		margin: $font-size * 2 auto;
+
+		.agree_tit {
+			@include flex(space-between);
+		}
+
+		h6 {
+			font-size: $font-size + rem(5px);
+			font-weight: 600;
+			line-height: 1.5;
+		}
+		
+		label {
+			display: inline-flex;
+			justify-content: flex-end;
+			align-items: center;
+			cursor: pointer;
+		}
+
+		input {
+			margin: rem(10px);
+		}
+	}
+
+	.all {
+		border-bottom: 1px solid rgba(#000, 50%);
+		margin: 0 auto;
+		padding-bottom: $font-size * 1.5;
+		font-size: $font-size + rem(2px);
+		text-align: right;
+
+	}
+
+	.agree_box {
+		@include position;
+		z-index: 1;
+		border: 1px solid material-color('grey', '400');
+		width: 100%;
+		height: $input-width / 2;
+		//padding: rem(50px);
+		margin: rem(20px) auto;
+		// overflow-x: hidden;
+		// overflow-y: scroll;
+		scroll-behavior: smooth;
+		//@include rounded;
+		@include transition(all, .3s);
+
+		&:before, &:after {
+			//content: '';
+			@include position(absolute, $le: 0);
+			z-index: 2;
+			width: $input-width * 2 - rem(100px) - rem(20px);
+			height: 5%;
+		}
+		&:before {
+			top: 0;
+			background: linear-gradient(180deg, #fff, transparent);
+		}
+		&:after {
+			bottom: 0;
+			background: linear-gradient(0deg, #fff, transparent);
+		}
+
+	}
+
+	.agree_content {
+		@include position;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		padding: $font-size;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		font-size: $font-size - rem(1px);
+		color: material-color('grey', '800');
+		font-weight: 400;
+
+		b {
+			//color: mix($main-color, #000, 50%);
+			//color: saturate(invert($main-color), 50%);
+			font-size: $font-size + rem(1px);
+			font-weight: 500;
+			overflow: hidden;
+		}
+		
+		&::-webkit-scrollbar {
+			@include position;
+			width: rem(20px);
+			z-index: 2;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: mix($main-color, material-color('grey', '400'), 0%);
+			background-clip: padding-box;
+			border: rem(0px) solid transparent;
+			//@include rounded($radius: 10rem);
+		}
+		&::-webkit-scrollbar-track {
+			background: material-color('grey', '100');
+			//@include rounded;
+			//@include position;
+			z-index: 1;
+		}
+	}
+
+	.privacy {
+		//$paddingLR: ($input-width - ($input-width * 1.5) / 2);
+		$paddingLR: $input-height / 2;
+		width: 100%;
+		padding: $font-size * 2 $paddingLR;
+		border-top: 1px solid material-color('grey', '300');
+		text-align: center;
+
+		h6 {
+			font-weight: 600;
+			font-size: $font-size + rem(10px);
+			margin-bottom: rem(20px);
+			color: #000;
+		}
+
+		table {
+			width: 100%;
+			margin: $font-size * 2 auto;
+			tr {
+				border-top: 1px solid material-color('grey', '300');
+			}
+			th, td {
+				padding: $font-size / 2;
+				border: none;
+			}
+			th {
+				text-align: right;
+			}
+			td {
+				font-size: 0;
+				input {
+					&[type="text"] {
+						@include default-0;
+						width: 100%;
+						height: $input-height;
+						border: 1px solid material-color('grey', '400');
+						//@include rounded(rem(3px));
+						padding: 0 $font-size / 2;
+						font-size: $font-size;
+					}
+				}
+				select {
+					@include default-a;
+					@include inline-flex;
+					width: calc(30% - #{$font-size / 2});
+					height: $input-height;
+					background: #fff;
+					border: 1px solid material-color('grey', '400');
+					padding: 0 $font-size / 2;
+					margin-left: $font-size / 2;
+					font-size: $font-size;
+					@include rounded(0);
+
+					&:first-child {
+						width: 40%;
+						margin: 0;
+					}
+				}
+			}
+		}
+
+		.button {
+			width: $input-width / 1.5;
+			height: $input-height * 1.1;
+			font-size: $font-size;
+			background: $main-color;
+			margin: $font-size * 1.5 auto;
+		}
+
+	}
+	.btnZone {
+		padding-top: 0;
+	}
+}
+
+#join03 {
+	.wrap {
+		width: 100%;
+		border: none;
+		text-align: center;
+		margin: 0 auto;
+
+		h6 {
+			font-weight: 600;
+			font-size: $font-size + rem(5px);
+			margin-bottom: $font-size;
+			text-align: left;
+		}
+
+		table {
+			width: 100%;
+			tr {
+				border-top: $border;
+				&:first-child {
+					border-top-color: $default-css;
+					border-top-width: 2px;
+				}
+				&:last-child {
+					border-bottom: $border;
+					border-bottom-color: $default-css;
+				}
+			}
+			th, td {
+				padding: $font-size;
+				//height: rem(56px);
+				border: none;
+			}
+			th {
+				text-align: right;
+				word-break: keep-all;
+			}
+			td {
+				text-align: left;
+				@include flex(space-between);
+				flex-wrap: wrap;
+
+				input {
+					&[type="text"], &[type="password"], &[type="tel"], &[type="email"] {
+						flex: 1;
+						@include default-0;
+						width: 100%;
+						height: $input-height;
+						border: 1px solid material-color('grey', '400');
+						//@include rounded(rem(3px));
+						padding: 0 $font-size;
+						font-size: $font-size - rem(4px);
+						vertical-align: middle;
+					}
+					&[type="button"] {
+						min-width: $input-height * 1.5;
+						height: $input-height;
+						@include button(material-color('blue-grey', '700'));
+						margin-left: $font-size / 2;
+					}
+
+					&.readonly {
+						background: material-color('grey', '200');
+						font-weight: 300;
+					}
+				}
+				select {
+					@include default-a;
+					width: calc(30% - 1rem);
+					height: $input-height;
+					border: 1px solid material-color('grey', '400');
+					padding: 0 $font-size / 2;
+					margin-left: $font-size / 2;
+					font-size: $font-size;
+					@include rounded(0);
+
+					&:first-child {
+						width: 40%;
+						margin: 0;
+					}
+				}
+			}
+			.name {
+				input[type="text"] {
+					width: calc(50% - #{$input-height * 2});
+					flex: 0.48;
+				}
+			}
+			.id {
+				input[type="text"] {
+					width: calc(100% - #{$input-height * 1.5});
+				}
+			}
+			.password {
+				td {
+					flex-direction: column;
+					align-items: flex-start;
+					input {
+						flex: auto;
+					}
+				}
+			}
+
+			.voter {
+				td {
+					input[type="text"] {
+						width: calc(100% - #{$input-height * 1.5});
+					}
+					font-size: 0;
+					a {
+						float: right;
+						margin-left: $font-size / 2;;
+						input[type="button"] {
+							float: left;
+							margin: 0;
+						}
+					}
+				}
+			}
+
+			.address {
+				td {
+					//font-size: 0;
+					a {
+						float: right;
+					}
+					input {
+						&[type="button"] {
+							margin: {
+								left: $font-size / 2;
+								//right: rem(20px);
+							}
+						}
+					}
+				}
+			}
+			.address2 {
+				input[type="text"] {
+					width: 100%;
+				}
+			}
+
+			.mobile {
+				input[type="tel"] {
+					width: calc(100% - #{$input-height * 1.5});
+					//flex: auto;
+				}
+				input[type="button"] {
+					margin-left: $font-size / 2;
+				}
+			}
+
+			.center {
+				td {
+					select {
+						width: 100%;
+					}
+				}
+			}
+
+			.bank {
+				td {
+					select {
+						width: 100%;
+					}
+				}
+			}
+
+			.radio {
+				td {
+					justify-content: flex-start;
+				}
+				label {
+					@include inline-flex;
+					vertical-align: $parent-css;
+					cursor: pointer;
+					margin-right: $font-size * 1.5;
+					color: material-color('grey', '400');
+
+					input {
+						margin: 0;
+						visibility: hidden;
+						@include position(absolute);
+					}
+					i {
+						margin-right: $font-size / 2.5;
+					}
+				}
+				&.birth {
+					td {
+						flex-direction: column;
+						div {
+							flex: 1;
+							width: 100%;
+							margin-bottom: $font-size / 2;
+							p {
+								display: inline-block;
+								padding: $font-size / 2 $font-size;
+								background: material-color('grey', '100');
+							}
+						}
+						.labels {
+							@include flex($st);
+							margin-bottom: 0;
+						}
+					}
+				}
+				input:checked {
+					& ~ * {
+						color: $default-css;
+					}
+				}
+			}
+
+			.birth {
+				td {
+					flex-wrap: $default-css;
+					select 
+					div {
+						flex: auto;
+						width: 100%;
+						margin-bottom: $font-size / 2;
+						p {
+							display: inline-block;
+							padding: $font-size / 2 $font-size;
+							background: material-color('grey', '100');
+						}
+					}
+				}
+			}
+
+			.summary {
+				font-size: $font-size - rem(2px);
+				font-weight: 400;
+				margin-left: $font-size;
+			}
+			p.summary {
+				margin: {
+					left: 0;
+					/*top: $font-size;*/
+				}
+				width: 100%;
+				&.blue2 {
+					line-height: rem(50px);
+				}
+				
+			}
+			p.tweight {
+				display: inline;
+				margin-right: $font-size;
+			}
+
+			#strZipDaum {
+				width: calc(100% - 85px);
+			}
+			#strADDR1Daum {
+				width: 100%;
+				margin-top: $font-size / 2;
+				flex: auto;
+			}
+			// #DaumPostcode {
+			// 	padding: 0;
+			// }
+		}
+
+		.button {
+			width: $input-width / 2;
+			height: rem(50px);
+			font-size: $font-size;
+		}
+	}
+	.button.small {
+		@include button(material-color('blue'));
+		width: 50%;
+		height: $input-height;
+		margin: rem(20px) auto;
+	}
+
+	#result_text {
+		@include flex;
+		color: material-color('blue', '800');
+		font-size: $font-size + rem(2px);
+	}
+	.info_txt {
+		width: calc(100% - #{$font-size * 3});
+		margin: $font-size auto;
+		ul {
+			padding: $font-size;
+			text-align: left;
+			background: material-color('grey', '100');
+			border: 1px solid material-color('grey', '300');
+		}
+		li {
+			word-break: keep-all;
+			text-indent: $font-size * -1;
+			padding-left: $font-size;
+		}
+		& ~ p {
+			width: calc(100% - #{$font-size * 3});
+			margin: 0 auto;
+			padding: $font-size 0;
+			word-break: keep-all;
+		}
+	}
+}
+
+#join03.joinstep4 {
+	.id, .voter {
+		.input_text {
+			width: calc(75% - #{$font-size - rem(10px)});
+			&:first-child {
+				margin-right: $font-size - rem(5px);
+			}
+		}
+	}
+	.button {
+		width: 25%;
+		margin-left: 0 !important;
+		font-size: $font-size - rem(5px);
+		height: $input-height;
+		@include button(material-color('blue-grey', '700'));
+	}
+	p.summary {
+		margin-top: $font-size;
+	}
+	.input_select {
+		width: 100% !important;
+	}
+	.radio {
+		td {
+			justify-content: flex-start;
+		}
+	}
+	label {
+		@include inline-flex($st);
+		input {
+			margin: 0;
+			margin-right: rem(10px);
+		}
+	}
+	.birth {
+		flex-wrap: wrap;
+		td {
+			flex-wrap: wrap !important;
+		}
+		.inputs {
+			width: 100%;
+			@include flex($bet);
+			margin-bottom: $font-size;
+			input {
+				width: calc(33% - #{rem(10px)}) !important;
+				flex: 0.25 !important;
+				padding: 0 $font-size / 2 !important;
+			}
+			p {
+				background: none;
+			}
+		}
+	}
+	input:not([type="button"]):not([type="submit"]):read-only {
+		background: material-color('grey', '100') !important;
+	}
+}
+
+/*카피라이터 숨김*/
+footer {
+	padding-top: $font-size * 2;
+	display: block;
+}
+.footer {
+	display: none;
+}
+
+
+/*modal*/

@@ -1,0 +1,69 @@
+@font-face {
+	font-family: Noto Sans CJK T;
+	src: url(/fonts/notokr-thin.eot);
+	src: local(※), 
+		 url('/fonts/notokr-thin.woff2') format('woff2'),
+		 url('/fonts/notokr-thin.woff') format('woff'),
+		 url('/fonts/notokr-thin.ttf') format('truetype');
+	font-weight: 100
+}
+
+@font-face {
+	font-family: Noto Sans CJK L;
+	src: url(/fonts/notokr-light.eot);
+	src: local(※), 
+		 url('/fonts/notokr-light.woff2') format('woff2'),
+		 url('/fonts/notokr-light.woff') format('woff'),
+		 url('/fonts/notokr-light.ttf') format('truetype');
+	font-weight: 200
+}
+
+@font-face {
+	font-family: Noto Sans CJK DL;
+	src: url(/fonts/notokr-demilight.eot);
+	src: local(※), 
+		 url('/fonts/notokr-demilight.woff2') format('woff2'),
+		 url('/fonts/notokr-demilight.woff') format('woff'),
+		 url('/fonts/notokr-demilight.ttf') format('truetype');
+	font-weight: 300
+}
+
+@font-face {
+	font-family: Noto Sans CJK R;
+	src: url(/fonts/notokr-regular.eot);
+	src: local(※),
+		 url('/fonts/notokr-regular.woff2') format('woff2'),
+		 url('/fonts/notokr-regular.woff') format('woff'),
+		 url('/fonts/notokr-regular.ttf') format('truetype');
+	font-weight: 400
+}
+
+@font-face {
+	font-family: Noto Sans CJK M;
+	src: url(/fonts/notokr-medium.eot);
+	src: local(※),
+		 url('/fonts/notokr-medium.woff2') format('woff2'),
+		 url('/fonts/notokr-medium.woff') format('woff'),
+		 url('/fonts/notokr-medium.ttf') format('truetype');
+	font-weight: 500
+}
+
+@font-face {
+	font-family: Noto Sans CJK B;
+	src: url(/fonts/notokr-bold.eot);
+	src: local(※),
+		 url('/fonts/notokr-bold.woff2') format('woff2'),
+		 url('/fonts/notokr-bold.woff') format('woff'),
+		 url('/fonts/notokr-bold.ttf') format('truetype');
+	font-weight: 600
+}
+
+@font-face {
+	font-family: Noto Sans CJK EB;
+	src: url(/fonts/notokr-black.eot);
+	src: local(※),
+		 url('/fonts/notokr-black.woff2') format('woff2'),
+		 url('/fonts/notokr-black.woff') format('woff'),
+		 url('/fonts/notokr-black.ttf') format('truetype');
+	font-weight: 800
+}

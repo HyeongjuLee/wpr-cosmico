@@ -1,0 +1,37 @@
+
+#left_navi {position: relative; min-width: 1200px;height: 56px;}
+	#left_navi .left_Follow {position: absolute; margin-top: 2px; z-index: 0;}
+	#left_navi .DB_select {}
+	#left_navi a.DB_select {color:#fff; background-color: #cd2121; border-color: #cd2121; *border-right: none;}
+	#left_navi a.DB_select:after {content: url(/images/left/left_on.png); position: absolute; top: 0; left: 50%; margin-left: -100px; width: 200px;}
+	.left_navi .LEFT_main.none a.DB_select:after {opacity: 0;}
+	.left_navi ,.left_navi ul,.left_navi li{margin: 0; padding: 0; list-style: none;}
+	.left_navi img {position: absolute; right: 15px;}
+	.left_navi {position:relative; overflow: hidden; width: 1200px; height: 56px; display: table;  *display: block; *overflow: hidden;}
+
+	.left_navi .LEFT_main {position:relative;z-index:1; display: table-cell; width: 12%; height: 56px; *float: left;}
+	.left_navi .LEFT_main.w1 {width: 100%;}
+	.left_navi .LEFT_main.w2 {width: 50%;}
+	.left_navi .LEFT_main.w3 {width: 33.33%;}
+	.left_navi .LEFT_main.w4 {width: 25%;}
+	.left_navi .LEFT_main.w6 {width: 16.66%;}
+	.left_navi .LEFT_main.w7 {width: 14.28%;}
+	.left_navi .LEFT_main.w8 {width: 12.5%;}
+	.left_navi .LEFT_main.first a {margin-left: 0;}
+	.left_navi .LEFT_main>a {display:block; line-height:48px; font-size: 14px; color: #565656; text-align: center; border: 1px solid #ddd; margin-left: -1px; *width: 99.5%; cursor: pointer; word-wrap: break-word; word-break: keep-all;}
+	.left_navi .LEFT_main ul {display:none; background-color:#f5f5f5; border: 1px solid #dedede; border-bottom: none; margin-top: -1px;}
+	.left_navi .LEFT_main ul li a {display:block;padding:10px 0px;border-bottom:1px solid #dedede; font-size:12px;letter-spacing:0px; text-align: center;}
+	.left_navi .LEFT_main ul li a:hover {color: #2a2a2a; text-decoration: underline;}
+	.left_navi .LEFT_main ul li a:active {color: #2a2a2a; text-decoration: underline;}
+
+	#LeftMenu .left_navi .LEFT_main.lh {top: -10px; *top:0;}
+	#LeftMenu .left_navi .LEFT_main.lh a {line-height: 20px; padding: 4px 0; word-break: keep-all;
+		*position: absolute; *top: 0; *left: 0; *width: 99.5%; /*ie7 적용*/
+
+		position: absolute\0/IE8+9; top: 10px\0/IE8+9; width: 99.5%\0/IE8+9; /*ie8~9 적용*/
+	}
+	#left_navi .lh a.DB_select:after {top: 10px;}
+
+	/*ie edge*/
+	_:-ms-lang(x)::backdrop, #LeftMenu .left_navi .LEFT_main.lh a {position: absolute; top: 0;}
+	_:-ms-lang(x)::backdrop, #left_navi .lh a.DB_select:after {top: 10px;}

@@ -1,0 +1,70 @@
+
+
+.member_list .search th {border:1px solid #ccc; background-color:#eee; padding:0px;}
+.member_list .search td {border:1px solid #ccc; height:31px; padding:0px;padding-left:10px;}
+
+
+.member_default th, .member_default td {border:1px solid #cdcdcd;padding:10px 0px;}
+.member_default th {background:#ddd;border:1px solid #cdcdcd;}
+.member_default td {text-align:right; padding-right:10px;}
+
+
+
+#list #searchTable th {padding:5px 0px 4px 0px; border:1px solid #cdcdcd; background:#f4f4f4;}
+#list #searchTable td {border:1px solid #cdcdcd; padding:6px 0px 5px 10px;}
+#list #searchTable .bgchg:hover{background-color:#f9f9f9;}
+
+#list #listTable th {padding:8px 0px 7px 0px; border:1px solid #cdcdcd; background:#f4f4f4;}
+#list #listTable td {text-align:center; border:1px solid #cdcdcd; padding:6px 0px 5px 0px;}
+#list #listTable .bgchg:hover{background-color:#f9f9f9;}
+
+
+.paging_area {padding:10px 0px 30px 0px;text-align:center;}
+#list .chgColor {color:#676767;}
+
+
+#detail th {background:#f4f4f4; border-top:1px solid #cdcdcd; border-bottom:1px solid #cdcdcd; color:#555;}
+#detail td {padding:8px 0px 7px 0px;border-top:1px solid #cdcdcd; border-bottom:1px solid #cdcdcd; padding-left:10px;}
+#detail p.info_btns {text-align:center; padding:10px 0px 20px 0px;}
+
+
+.member_list td, .member_list th {border:1px solid #cdcdcd;}
+.member_list td img {vertical-align:middle;}
+.member_list th {padding:8px 6px;background-color:#ddd; text-align:center;}
+.member_list td {padding:6px 6px;}
+
+.input_area {padding:10px 0px; text-align:center;}
+.insert_bg_js {}
+
+.list_area {width:100% padding:0px 5px; border-top:1px solid #cae9fe; text-align:center;}
+.list_area .counter {text-align:right; padding-right:10px;margin-top:10px;}
+.list_area .tables1 {width:680px;}
+.list_area .tables1 th {background:#d7d7d7; border:1px solid #a2a2a2;padding:5px 0px;}
+.list_area .tables1 td {border:1px solid #a2a2a2;padding:3px 0px;}
+
+
+#point {width:400px;}
+#point .pointarea table {width:400px;}
+#point .pointarea th, #point .pointarea td {border:1px solid #3099d6;padding:5px 0px;}
+#point .pointarea th {color:#1679b2;}
+#point .pointarea td {padding:4px 20px 4px 10px; text-align:right; font-weight:bold;}
+#point select {padding:1px;}
+
+
+#pointd .pointlog {width:730px; clear:both; float:left; text-align:left;}
+#pointd .pointlog .list {width:730px;}
+#pointd .pointlog .list th {height:30px; background:#fff url(/images/mypage/th_bg.gif) repeat-x 0 0; color:#929292;  text-align:center;padding-top:1px;border-bottom:1px solid #cdcdcd;}
+#pointd .pointlog .list tbody td {border-bottom:1px solid #cdcdcd;padding:5px; text-align:center;}
+#pointd .pointlog .border-left {border-left:1px solid #cdcdcd;}
+#pointd .pointlog a:hover {text-decoration:underline;}
+
+
+.member_modify th, .member_modify td {border-bottom:1px solid #e0e0e0;padding:8px 0px;}
+.member_modify th {font-weight:normal; background:#e9e9e9;text-align:left;padding-left:10px; color:#737373;}
+.member_modify td {padding-left:15px;}
+.member_modify td p {color:#555;margin-left:3px;}
+.member_modify .line td, .member_modify .line th {border-top:2px solid #cbcbcb;}
+.member_modify .summary {margin-left:7px; color:#a2a2a2;font-size:8pt;}
+.btn_area {text-align:center; margin-top: 20px;}
+.member_modify img {vertical-align:middle;}
+.member_modify th.th {padding-left:0px; font-weight:bold; text-align:center;background:#d9d9d9;}

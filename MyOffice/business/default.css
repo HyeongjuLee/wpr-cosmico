@@ -1,0 +1,19 @@
+
+#business th, #business td {border:1px solid #e5e8ec;}
+#business tr {background-color: #fff;}
+#business th {padding:12px 6px; background:#eaeff8; color: #626976; height: 5rem; font-weight: 500; border: 1px solid #c4d2eb;}
+#business td {padding:6px 15px; height:36px;}
+
+#business.member .list th {text-align: center;}
+#business.member .list td {text-align: center;}
+#business.member .list td.inPrice {text-align: right; padd ing-right: 15px;}
+
+#business.member .total {text-align: center; }
+#business.member .total th {text-align: center; }
+#business.member .total th.total {background: #49727a; color: #fff;}
+#business.member .total td {text-align: center; font-size: 17px;}
+#business.member .total td.total {background: #d9ebef;  font-weight: 500; border: 1px solid #dddddd;}
+
+#business.member .sums {clear:both; padding-top:10px; font-size:17px; font-weight: 500;}
+#business.member .search th {background-color:#eee;}
+#business.member .search td {padding:5px 0px 5px 10px;;}

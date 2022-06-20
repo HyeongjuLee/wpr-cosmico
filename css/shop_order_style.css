@@ -1,0 +1,297 @@
+/*********************************************/
+/* Cart.asp Order.asp Order_finish.asp 공통  */
+/* detailView.asp 공통  											*/
+/*********************************************/
+
+#loadingPro {position:fixed; z-index:99999; width:100%; height:100%; top:0px; left:0px; background:url(/images_kr/loading_bg70.png) 0 0 repeat; display:none;}
+#loadingPro .loadingImg {position:relative; top:40%; text-align:center;}
+
+#order {color: #353535;}
+#order .order_title {height:30px; line-height:30px; font-weight: 500; font-size:16px; }
+#order .order_title label {height:30px; line-height:30px; font-weight:normal; font-size:14px; float:right;}
+
+#order .TotalArea {border-bottom:1px solid #777; border-top:3px solid #545454; margin-top:15px;}
+#order .TotalArea .AreaZoneWrap {background-color:#f5f5f5; padding-top:15px;width:100%;}
+#order .TotalArea .AreaZone {background-color:#f5f5f5;padding-bottom:15px; margin:0px auto;}
+#order .TotalArea div {float:left;}
+#order .TotalArea div span {}
+#order .TotalArea span.tit {font-size: 16px; line-height:40px; font-weight: 500; margin-left:20px; color: #383838;}
+#order .TotalArea span.tit2 {padding-left:30px;}
+#order .TotalArea span.won {margin-left: 0px; font-size:14px; color:#3f3e3e;}
+
+#order .pws {}
+#order #PriceArea	{width:420px;}
+#order #DeliveryArea	{width:350px; background:url(/images_kr/shop/order_final_icon.png) 5px 5px no-repeat;  }
+#order #PointArea	{width:300px; background:url(/images_kr/shop/order_final_icon.png) 5px -35px no-repeat;}
+#order #LastArea		{width:390px;background:url(/images_kr/shop/order_final_icon.png) 5px -74px no-repeat;}
+
+#order .price {position:relative; right:2px; height:40px; line-height:40px; text-align:right; font-family:tahoma; font-size:24px; font-weight:600; color: #3f3e3e; margin-left: 110px;}
+
+#order .PriceArea	{}
+#order .DeliveryArea	{}
+#order .PointArea	{}
+#order .LastArea		{color: #f2002e;}
+
+
+#order .order_list {margin-top:12px; text-align:left ; color: #353535}
+#order .order_list th {text-align:center; height:40px; background:#f5f5f5; font-weight:500; font-size:14px; border-top:2px solid #333; padding: 2px 2px;}
+
+#order .order_list td {background-color:#ffffff;}
+#order .order_list tbody td {border-bottom:1px dotted #ccc; padding:13px 12px; font-size:15px;}
+#order .order_list tfoot td {padding-top: 8px;}
+#order .order_list tfoot td img {margin-right:2px;}
+#order .thumImg {width:82px; text-align:center; border:1px solid #ccc; background-color:#fff;}
+#order .newWindow {width:82px; text-align:center; border:1px solid #ccc; border-top:0px none; padding:2px 0px;letter-spacing:-1px;}
+
+#order .order_list .goodsInfo p {margin-top: 3px;}
+#order .order_list .goodsInfo p:first-child {margin-top:0px;}
+#order .order_list .goodsInfo .icons {margin-right:2px; vertical-align:middle;}
+#order .order_list .goodsInfo .goodsName {font-size: 15px; font-weight: 500;}
+#order .order_list .goodsInfo .goodsNote {font-size: 14px; color: #5a5a5a;}
+#order .order_list .goodsInfo .goodsComment {font-size: 13px; color: #5a5a5a;}
+#order .order_list .goodsInfo .goodsOption span {line-height:14px;}
+#order .order_list .goodsInfo .bor_l {border-left:1px dotted #ccc;}
+#order .order_list .goodsInfo .bor_l2 {border-left:1px solid #dddddd;}
+#order .order_list .goodsInfo tr.bgC1 td {background-color:#ffffff;}
+#order .order_list .goodsInfo tr.lastTR td {border-bottom:1px solid #a7a7a7;}
+#order .order_list .goodsInfo .lastTD {/* border-bottom:1px solid #a7a7a7; */  padding: 15px 10px; word-break:keep-all; word-wrap:break-word;}
+#order .order_list .goodsInfo tbody tr:first-child td {border-top:1px solid #a7a7a7; }
+#order .order_list .goodsInfo tbody {border-top:1px solid #a7a7a7; border-bottom:1px solid #a7a7a7;}
+
+#order .order_list .goodsInfo .strComName {font-size: 13px; color: #b5abab; text-decoration: underline; }
+#order .order_list .goodsInfo .deliveryeach {font-size: 13px; color: #777777; }
+#order .order_list .goodsInfo .deliverytotal {font-size: 13px; color: #454545; display: inline-block; padding-top: 8px;}
+#order .order_list .goodsInfo .selltypeName {font-size: 13px; font-weight: 400; }
+#order .order_list .goodsInfo .goodsAlert {font-weight: 500; color: #eb301b;}
+
+#order .icon-red {display: inline-block; min-width: 50px;padding: 2px 4px; background-color: #df4545; color: #fff; font-size: 14px; font-weight: 300;}
+
+#order .disArea td {font-size:14px; padding:14px 0px 14px 20px; border-top:1px solid #ccc; color: #4a4a4a;}
+#order .disArea td.bor_l2 {border-left:1px dotted #ccc;}
+#order .disArea td.bor_l {border-left:1px solid #ccc;}
+#order .disArea td li {line-height:22px;}
+#order .disArea td li strong {display:inline-block; text-align:right;}
+#order .disArea td.summ {vertical-align:top;}
+#order .disArea td.summ li>strong {display:inline-block; width:180px; text-align:right;}
+
+#order .disArea td.point li strong {display:inline-block; width:140px; text-align:right;}
+
+#order .input_gray01 {font-size:12px; line-height:22px; height:22px; border:1px solid #ccc; width:50px; padding:0px 4px; text-align:right;}
+#order .disArea td.summ .summTD td {padding-left:0px; border-top:0px solid #ccc;}
+#order .disArea td.summ .summTD strong {text-align:right; display:inline; width:auto;}
+#order .disArea td.noline {border-top:none;}
+
+
+#order .ordersInfo {margin-top:50px;}
+#order .ordersInfo th {border-bottom:1px dotted #ccc; border-top:1px dotted #ccc; height:40px; padding-left:7px; background-color:#f5f5f5; text-align:left; font-weight: 400;}
+#order .ordersInfo td {border-bottom:1px dotted #ccc; border-top:1px dotted #ccc; height:30px; padding-left:11px;}
+#order .ordersInfo tr:first-child th {border-top:2px solid #333;}
+#order .ordersInfo tr:first-child td {border-top:2px solid #333;}
+#order .ordersInfo td.zipTD {padding-top:5px;padding-bottom:5px;}
+#order .ordersInfo td.zipTD p {margin-top:4px;}
+#order .ordersInfo td.zipTD p:first-child {margin-top:0px;}
+#order .ordersInfo .input_text1 {line-height:28px; height:28px; border:1px solid #ccc; vertical-align:top;}
+
+#order .payment {margin-top:50px; border-bottom:1px solid #ddd;}
+#order .payment .selectPay {background-color:#f5f5f5; line-height:40px; padding-left: 10px; border-bottom:1px solid #ccc; border-top: 2px solid #333; font-weight: 500; }
+#order .payment .selectPay label {font-weight: 500; margin-left:11px; cursor:pointer;}
+#order .payment .selectPay label:first-child {margin-left:0px;}
+
+#order .payment .Agreement {padding:15px 0px;}
+
+#order .payment .payinfoWrap {background:url(/images_kr/shop/payWarp_bg.gif) 65% 0 repeat-y;}
+#order .payment .payinfoWrap .cart_btn {text-align:center;}
+#order .payment .payinfoWrap .tit {text-align:left; font-size: 17px; line-height:40px; font-weight: 500; margin: 5px 20px;}
+#order .payment .payinfoWrap #payArea {font-family:tahoma, gulim, dotum, '굴림','돋움'; font-size:28px; font-weight: 600; line-height:40px; vertical-align:middle; text-align:right;  height:40px;  color:#ea0000}
+#order .payment .payinfoWrap span.won {margin-left: 2px; font-size: 15px; color:#3f3e3e; font-weight: 500;     vertical-align: sub;}
+#order .payment .payinfoWrap .PriceArea {margin-top:5px; vertical-align:middle; background-color:#f5f5f5; padding:15px 0px; }
+#order .payment .payinfoWrap .btnArea {margin:25px 0;}
+#order .payment .payinfoWrap .btnArea input {display:inline-block; height:40px; padding:0px 35px; cursor:pointer;}
+#order .payment .payinfoWrap .btnArea a {display:inline-block; height:38px; padding:0px 35px; margin-left:6px;}
+
+/* 카드, 무통장, 복합결제 */
+#order .payment .payinfoWrap table.mComplex {border-top: 1px solid #898989;}	/* 복합결제 구분선 */
+
+#order .payment .payinfoWrap select.input_text {line-height:27px; height:27px; border:1px solid #ccc;}
+#order .payment .payinfoWrap th {background-color:#f5f5f5; border-bottom:1px solid #ddd; text-align:left; padding:7px 0px 7px 12px;	font-weight: 400; }
+#order .payment .payinfoWrap td {border-bottom:1px solid #ddd; padding:7px 0px 7px 15px; background: #fff; }
+
+#order .payment .payinfoWrap .pay td {border-right:1px solid #ebebeb;}
+#order .payment .payinfoWrap .pay tr:last-child th {border-bottom: none;}
+#order .payment .payinfoWrap .pay tr:last-child td {border-bottom: none;}
+
+#order .payment .payinfoWrap td select {line-height:18px; font:12px/1.4 "돋움", dotum, Gulim, sans-serif; height:18px; zoom:1;}
+#order .payment .payinfoWrap td select option {line-height:18px;}
+#order .payment .payinfoWrap td ul li {line-height:20px;}
+#order .payment .payinfoWrap .input_text {line-height:29px; height:29px; border:1px solid #ccc; vertical-align:top; padding-left: 6px;}
+/* #order .payment .payinfoWrap tr.lastTD th {border-bottom:1px solid #777;}
+#order .payment .payinfoWrap tr.lastTD td {border-bottom:1px solid #777;} */
+
+
+#order .payment .payinfoWrap .paymethod {background: #A5C1CE; text-align: center; padding : 2px; border-bottom: none;}
+#order .payment .payinfoWrap .paymethodAdd {background: #85d6c0; text-align: center; padding : 2px;}
+
+#order .payTypeLeftArea {width:65%; background: #f7f7f7; min-height: 210px; border-right: 1px solid #ccc;}
+
+/*주문완료 */
+/* cart_infos -> order_infos */
+#order .order_infos {font-size: 16px; font-weight: 500; border: 3px solid #ebebeb; color: #3a3a3a; text-align:left; padding: 8px 0 8px 8px; margin: 10px 0;}
+#order .order_infos .ordNo {color:#3a3a3a; font-weight: 400;}
+#order .cart_select {width:100%; clear:both; float:left; margin-top:60px; margin-bottom: 30px; text-align:center;}
+#order .cart_select img {margin-left:9px;}
+
+
+#Agreement {padding:15px 0px; background-color:#f7f7f7;      border-top: 1px solid #999999; margin-top: -1px; }
+#Agreement p {font-weight:bold; width:90%; margin-left:5%;;}
+#Agreement p.ag {letter-spacing:-1px;}
+#Agreement .AgreementBox {width:90%; padding:15px; background-color:#fff; line-height:18px; font-size: 13px; border:1px solid #ccc; margin-left:5%; margin-top:5px;}
+#Agreement div.ag {font-weight: 400; width:90%; margin-left:5%; letter-spacing:-1px; font-size: 14px;}
+#Agreement .yesagree {color:#d75623; font-size: 14px;}
+#Agreement label {font-weight: 500; padding-left:5px;}
+
+#PG_POLICY_AREA {padding-bottom:15px; background-color:#f7f7f7; }
+#PGAgreement {padding:5px 0px; background-color:#f7f7f7; }
+#PGAgreement div.ag {font-weight: 400; width:90%; margin-left:5%; letter-spacing:-1px; font-size: 14px;}
+#PGAgreement .AgreementBox {width:90%; padding:15px; background-color:#fff; line-height:18px; font-size: 13px; border:1px solid #ccc; margin-left:5%; margin-top:5px; overflow-y: scroll; height: 50px;}
+#PGAgreement .yesagree {color:#d75623;font-size: 14px;}
+#PGAgreement .input_chk {vertical-align:middle; }
+#PGAgreement label {font-weight: 500; padding-left:5px;}
+
+
+/* 복합결제 S */
+#mComplexInfo .CardPriceTotal {border: 1px solid #919191; background-color:#f5f5f5;  margin-right: 0px;}
+#mComplexInfo .CardPriceTotal td.title {font-weight:bold; font-size:14px; text-align:center;}
+#mComplexInfo .CardPriceTotal td.amount {font-weight:bold; font-size:20px; text-align:center; background-color:#fff;}
+#mComplexInfo .CardPriceTotal td.amountR {font-weight:bold; font-size:20px; text-align:right; background-color:#fff; padding-right: 60px;}
+#mComplexInfo .addChk {width: 16px; height: 16px; border:2px solid red; margin-top: -2px; border: solid white; }
+/*
+#or der .a_submit  {display: inline-block; padding: 0px 10px; vertical-align: middle; cursor: pointer; line-height: 27px; font-size: 13px;}
+#or der .addbtn  {display: inline-block; padding: 0px 10px; vertical-align: middle; cursor: pointer; line-height: 27px; font-size: 13px;}
+#or der .design1 {background-color: #337ab7; border:1px solid #2e6da4; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#or der .design2 {background-color: #f9f9f9; border:1px solid #cccccc; border-radius: 3px; color:#666 !important;font-weight:normal;}
+#or der .design3 {background-color: #898989; border:1px solid #606060; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#or der .design4 {background-color: #c40d0d; border:1px solid #880000; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#or der .design5 {background-color: #33b793; border:1px solid #1a9473; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#or der .design6 {background-color: #ffffff; border:1px solid #cccccc; border-radius: 3px; color:#222 !important;font-weight:normal;}
+*/
+#order .paytypeAddArea {padding:7px 10px; text-align:center; height:40px; line-height:40px;}
+/* 복합결제 E */
+
+
+/* 업체별 주문합계 */
+ #order .order_list td.sumCartShopArea {background: #fffcfc !important;	}
+	.sumCartShop {display: flex; justify-content: space-evenly; align-items: center; }
+	.sumCartShop div {position: relative; font-size: 16px; line-height: 1.5; display: inline-flex; align-items: center;}
+	.sumCartShop span {display: inline-block; vertical-align: bottom;}
+	.sumCart02 {color: #3f3e3e;}
+	.sumCartShop .pStitle {margin-right: 40px; color: #2b2b2b;}
+	.sumCartShop .pStitle.sWidth {width: 70px;}
+	.sumCartShop .pStitle.tWidth {width: 130px;}
+	.sumCartShop .sPrice {min-width: 92px; text-align: right;}
+	.sumCartShop .pPrice {font-size: 20px; font-weight: 500; margin-right: 5px;}
+	.sumCartShop .pUnit {font-size: 15px;}
+	.sumCartShop .pv {font-size: 18px; font-weight: 500; color: #f2002e;}
+	.sumCartShop .pvUnit {font-size: 13px;color: #f2002e;}
+	.sumCartShop .flexColumn {flex-direction: column; justify-content: center;}
+	.sumCartShop h2.plus:after {content: ' \002B';}
+	.sumCartShop h2.equal:after {content: ' \003D';}
+
+
+
+
+	/* detialView */
+	#detailView {margin-top:30px;}
+	#detailView .GoodsSubject {line-height:102px; height: 80px; vertical-align:middle; font-size:30px; font-weight: 500; position: relative; color: #2a2a2a;}
+	#detailView .GoodsSubject_R {height: 60px; vertical-align:middle; font-size:30px; font-weight: 400; position: relative; color: #2a2a2a; background:#ffffff; }
+	#detailView .GoodsComment_R {vertical-align:middle; font-size:15px; font-weight: normal; position: relative; color: #2a2a2a; background:#ffffff; padding:0px 0px 10px 2px;}
+
+
+	#detailView .GoodsComment {font-size: 12px; line-height:18px; font-family: 'dotum'; }
+
+	#detailView .GoodsComment .icons {margin-right:2px; vertical-align:middle;}
+	#detailView .infowrap {margin-top:10px;}
+
+	#detailView .imgArea {width:480px;}	/*270*/
+	#detailView .bImg {width:450px; height:450px; overflow:hidden; text-align:center; border:1px solid #ccc;}/*250*/
+	#detailView .zoomImg {width:450px; text-align:center;padding:8px 0px 15px 0px;}							/*250*/
+	#detailView .inSimg {float:left;border:1px solid #ccc; width:75px; height:75px; text-align:center;}/*58*/
+	#detailView .sImg {clear:both; width:450px; overflow:hidden;margin-top:4px;}/*252*/
+	#detailView .mr5 {margin-right:14px;}/*4*/
+
+	#detailInfo {float:left; margin-left:15px; width:705px; }/* 620px*/
+	#detailInfo .price_dis_bg {position:absolute;}
+	#detailInfo .price_dis_bg div {position:absolute; width:68px; height:46px; background:url(/images_kr/shop/price_dis_bg.png) 0 0 no-repeat; top: 60px; left:630px; font:bold 16px tahoma; color:#fff; text-align:center;}
+	#detailInfo .price_dis_bg div span {width:68px; height:46px;display:inline-block; margin-top:6px;}
+
+	#detailInfo .goodSubject {font-family:dotum; font-size:16px; font-weight:bold; color:#58a717; padding:5px 0px 5px 0px; line-height:160%;}
+	#detailInfo .goodsScript {font-family:dotum; font-size: 12px; font-weight:bold; color:#fe781e; padding:5px 0px 10px 0px;line-height:160%;}
+	#detailInfo .GoodsNumber {font-family:tahoma, "돋움", dotum, gulim;}
+	#detailInfo div.GoodsCustomer:first-child {border-bottom:1px solid #e2e2e2; }
+	#detailInfo .GoodsCustomer {font-weight: 600; background-color:#f7f7f7; text-indent:14px;  padding:5px 0px 3px 0px; font-size:16px; color:#525252; }
+		#detailView .GoodsCustomer .GoodsNumber {text-decoration:line-through;	font-size:18px;}
+		#detailView .GoodsCustomer .icons {margin-right:2px; vertical-align:middle;}
+
+	#detailInfo .GoodsPrice {font-weight: 600;  background-color:#f7f7f7; text-indent:14px; border-bottom:1px solid #e2e2e2; padding:7px 0px 12px 0px; font-size: 16px; color:#3f3e3e;}
+	#detailInfo .GoodsPrice .GoodsNumber {font-size:22px;}
+	#detailInfo .GoodsPriceTot {font-weight:600; background-color:#ffffff; text-indent:14px; border-bottom:1px solid #e2e2e2; padding:7px 0px 12px 0px; font-size:15px; color:#3f3e3e;}
+	#detailInfo .GoodsPriceTot .GoodsNumber {font-size:22px; }
+
+	#detailInfo .GoodsPV {font-weight:600; background-color:#ffffff; text-indent:14px; border-bottom:1px solid #e2e2e2; padding:7px 0px 12px 0px; font-size: 14px; color: #ea0000;}
+	#detailInfo .GoodsPV .GoodsNumber {font-size: 18px; }
+
+	#detailInfo .GoodsGV {font-weight:600; background-color:#ffffff; text-indent:14px; border-bottom:1px solid #e2e2e2; padding:7px 0px 12px 0px; font-size: 14px; color: green;}
+	#detailInfo .GoodsGV .GoodsNumber {font-size: 18px; }
+
+	#detailInfo .option {background-color:#f7f7f7; }
+	#detailInfo td.option {background-color:#f7f7f7; }
+
+	#detailInfo th {padding:12px 0px 12px 14px; border-bottom:1px solid #e2e2e2; font-size:15px; font-weight: 500; text-align:left; color:#404040; background-color:#fafafa;}
+	#detailInfo td {padding:12px 0px 12px 14px; border-bottom:1px solid #e2e2e2; font-size:15px; color: #3f3e3e;}
+
+	#detailInfo td.point {background-color:#f7f7f7; font-size:14px; }
+	#detailInfo .ea_bg {display:inline-block;border:1px solid #ccc; /* line-height:22px; */ vertical-align:top; width:24px; height:24px;text-align:center; background-color:#fafafa;}
+	#detailInfo .ea_bg a {display:block;}
+	#detailInfo .input_text_ea {border-width:1px 0px 1px 0px; border-color:#ccc; border-style:solid; line-height:24px; height:24px; font-size:13px; vertical-align:top;}
+
+
+	#detailInfo .btnZone {padding-top:15px; text-align:center;}
+	#detailInfo .ShopBtnZone {padding-top:35px; text-align:center;}
+	#detailInfo .ShopBtnZone a {display:inline-block; height:38px; padding:0px 20px; margin-left:6px;}
+
+
+
+	.detailView_btn {clear:both;float:left;width:100%; height:33px;margin-top:30px; border-bottom:1px solid #ccc;}
+	.detailView_btn .tit {float:left; line-height:33px; font-size:22px; font-weight: normal; color:#444;}
+	.detailView_btn ul {float:right;  margin-right:8px;}
+	.detailView_btn li {float:left; height:33px;display:inline-block;}
+	.detailView_btn li a { height:33px; line-height:33px; color:#878787; font-weight: normal;}
+	.detailView_btn li.lines {margin:0px 10px;}
+	.inContent {clear:both; float:left; width:100%; overflow-x:hidden;}
+
+
+
+	#detailQna td {text-align:center;font-family:dotum;height:28px;border-bottom:1px dotted #ccc;color:#777;}
+	#detailQna img {vertical-align:middle;}
+	#detailQna td.subject {text-align:left;padding-left:10px;color:#888;}
+	#detailQna td.subject2 {text-align:left;padding-left:10px;color:#8f3900;}
+	#detailQna .pagingArea {width:100%; padding:7px 0px; text-align:center;}
+
+	#detailQna td.qna_reply {padding:0px;}
+	#detailQna td.qna_reply td {background-color:#feffde; padding:10px 0px; border:0px none; font-size:12px;}
+
+
+	#detailReview td {text-align:center;font-family:dotum;height:28px;color:#777;}
+	#detailReview td.underline {border-bottom:1px dotted #ccc;}
+	#detailReview img {vertical-align:middle;}
+	#detailReview td.subject {text-align:left;color:#888; font-weight:bold;}
+	#detailReview td.subject a {color:#666;}
+	#detailReview td.subject a:hover{color:#333;}
+	#detailReview td.subject2 {text-align:left;padding-left:10px;color:#8f3900;}
+	#detailReview .pagingArea {width:100%; padding:7px 0px; text-align:center;}
+	#detailReview td.review_td2 {padding-bottom:10px;}
+	#detailReview td.review_td2 p {width:580px; background-color:#eee; text-align:left; padding:10px; color:#888}
+
+	.in_qna th {background:url(/images_kr/shop/detailinThBg.gif) right top no-repeat; background-color:#ccc;}
+	.in_qna th.last {background-position:-1px 0px;}
+	.in_review th {background:url(/images_kr/shop/detailinThBg.gif) right top no-repeat; background-color:#ccc;}
+	.in_review th.last {background-position:-1px 0px;}

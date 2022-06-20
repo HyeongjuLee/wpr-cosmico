@@ -1,0 +1,20 @@
+
+/* 한줄 게시판용 CSS S */
+	#liner {border-top:2px solid #585858}
+	#liner .input_area {width:100%; height:72px; resize:none; overflow-y:scroll; border:1px solid #ccc; border-right:0px; line-height:1.6; border-radius: 0px ; vertical-align:middle; background-color:#fff; padding:5px 7px;}
+	#liner .replySubmit {width:85px; position:absolute; top:0px; right:0px; height:100%; font-weight:400; display:block; background-color:#444; font-size:14px; color:#fff; border:0px;}
+
+	#board_liner {margin-top:25px;}
+
+	#liner .table_for th {border-top:1px solid #ccc;border-bottom:1px solid #ccc; padding:11px; background-color:#efefef; font-weight:normal;}
+	#liner .table_for td {border-top:1px solid #ccc;border-bottom:1px solid #ccc; padding:11px;}
+	#liner .regDate {font-weight:300; font-size:12px;}
+	#liner .names {font-weight:500; font-size:14px;}
+
+	#liner .pageArea { margin-top:20px;}
+
+	#liner .replyDel {border:1px solid #dd2507; color:#dd2507;  width:20px; height:20px; text-align:center; background-color:#fff; padding:0px; margin:0px; font-size:14px; line-height:18px;}
+	#liner .replyDel i {margin:0px; padding:0px;color:#dd2507;}
+
+
+/* 한줄 게시판용 CSS E */

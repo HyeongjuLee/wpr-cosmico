@@ -1,0 +1,66 @@
+
+	#schedulearea {clear:both;margin-top:10px;}
+
+	#schedule .button a {color:#000;}
+	#schedule .button a:hover {color:red;}
+	#schedule .button.f10px a {font-size:10px; color:#999;}
+	#schedule .button.f10px a:hover {color:red;}
+	#schedule .yyyydd {clear:both;float:left;}
+	#schedule .move_yyyydd {float:left; margin-left:15px;}
+	#schedule .fon2 {font-family:malgun gothic;font-size:15pt;font-weight:bold; color:#000;}
+	#schedule .fon3 {font-family:malgun gothic;font-size:12pt;font-weight:bold; color:#000;}
+	#schedule .fon4 {font-family:malgun gothic;font-size:11pt;font-weight:bold; color:#000;}
+
+	#schedule {clear:both;float:left;margin-top:10px;}
+
+	#schedule .sche { }
+	#schedule .sche th {text-align:center; height:32px; border:1px solid #ccc; font-weight:bold; background-color:#f7f7f7;}
+	#schedule .sche .sun, #schedule .sche .sun a {color:#ec3d3d !important;}
+	#schedule .sche .sat, #schedule .sche .sat a {color:#6197cf;}
+	#schedule .sche .week a {color:#999;}
+	#schedule .sche .cosmos a {font-size:8pt;color:#ec3d3d;}
+	#schedule .sche .today {color:#000000 !important;background-color:#f3feef;}		/* Today-background-color*/
+
+	#schedule .sche tbody td {border:1px solid #ccc;}
+	#schedule .sche tbody td.hts {min-height:115px; height:115px; vertical-align:top;}
+/*	#schedule .sche tbody td:hover {background:#dbf9ff;}*/
+	#schedule .sche tbody td .days {font-weight:bold; padding-bottom:6px;}
+	#schedule .sche tbody td .days>p>a {font-family:verdana;}
+	#schedule .sche tfoot td {border:0px none;}
+
+	#schedule .sche td img {vertical-align:middle; margin-left:5px;}
+	#schedule .sche td p {font-size:9pt;}
+
+	#schedule .layers {margin-left:2px;margin-right:2px; margin-top:6px; padding:2px 0px 2px 14px; background:url(/images_kr/content/schedule_icon_01.png) 0 3px no-repeat; line-height:15px;}
+
+	#schedule .hiddendiv {display:none; position:absolute; z-index:1; background-color:#eee; padding:10px;border:1px solid #ccc;}
+	#schedule .hiddendiv th {background-color:#fbfbfb; width:90px;}
+	#schedule .hiddendiv td {color:#7a7a7a; padding:4px 7px 4px 7px;line-height:17px; font-weight:normal;}
+
+	#schedule.dateList h2 {font-size:16pt;}
+	#schedule.dateList .dlist {margin-top:30px;}
+	#schedule.dateList .title {font-size:11pt; font-weight:bold;}
+	#schedule.dateList th {border:1px solid #ccc; background-color:#eee;}
+	#schedule.dateList td {border:1px solid #ccc; padding:7px 0px 7px 7px;}
+	#schedule.dateList .btn_area {text-align:center; padding-top:30px;}
+
+
+	#schedule .txtbg {float:left;width:101px; height:24px; margin:0 0px 0 4px; background:url(/images_kr/content/schedule_txt_bg.png) 0 3px no-repeat;}
+	#schedule .numbg {float:left;width:11px; height:24px; margin:0 1px 0 0; background:url(/images_kr/content/schedule_number_bg.png) 0 50% no-repeat;}
+	#schedule .n0 {background-position:0px 50%;}
+	#schedule .n1 {background-position:-15px 50%;}
+	#schedule .n2 {background-position:-30px 50%;}
+	#schedule .n3 {background-position:-45px 50%; width:12px;}
+	#schedule .n4 {background-position:-60px 50%; width:12px;}
+	#schedule .n5 {background-position:-75px 50%; width:12px;}
+	#schedule .n6 {background-position:-90px 50%;}
+	#schedule .n7 {background-position:-105px 50%;}
+	#schedule .n8 {background-position:-120px 50%; width:12px;}
+	#schedule .n9 {background-position:-135px 50%;}
+	#schedule .dot {background-position:-151px 50%; width:5px;}
+	#schedule .button a {color:#000;}
+	#schedule .button a:hover {color:red;}
+	#schedule .button.f10px a {font-size:10px; color:#999;}
+	#schedule .button.f10px a:hover {color:red;}
+	#schedule .yyyydd {clear:both;float:left;margin-bottom:10px;}
+	#schedule .move_yyyydd {float:right;margin-bottom:10px;}

@@ -1,0 +1,103 @@
+
+	/* 인덱스 */
+	#index .index_vote {width:100%;}
+	#index .index_vote a {display:block;}
+	#index .index_vote .textArea {/*padding-left:10px;*/ margin-top:10px;}
+	#index .index_vote .noteLine {font-size:11px; color:#999; line-height:13px;}
+	#index .index_vote .subjLine {font-size:14px; color:#444; line-height:18px; margin-top:7px;}
+	#index .index_vote .priceArea {margin-top:15px;  height:50px;}
+	/#index .index_vote .priceArea {margin-top:15px;  height:50px;}
+	#index .index_vote .discount {font-size:35px; color:#dd1500; font-weight:bold; line-height:35px; letter-spacing:-1px;}
+	#index .index_vote .percent {font-size:18px; color:#dd1500; font-weight:bold; line-height:18px; letter-spacing:-1px;}
+	/*#index .index_vote .priceInArea {margin-left:12px;} PV 표시를 위해서 디스카운트&소비자가 삭제*/
+	#index .index_vote .priceInArea {}
+	#index .index_vote .CustPrice {font-size:12px; color:#999; text-decoration:line-through; line-height:12px; letter-spacing:-1px;}
+	#index .index_vote .sellPrice {font-size:26px; color:#ff5a00; font-weight:bold; line-height:20px; letter-spacing:-1px;}
+	#index .index_vote .sellPrice .currency {color: #3e3d3d; font-size: 12px; margin-left: 5px;}
+	#index .index_vote .PvPrice {font-size:15px; color:#d43f05; font-weight:bold; line-height:20px; letter-spacing:-1px;}
+	#index .index_vote .comment {color: #797979; font-size: 14px;line-height:20px;height:20px;}
+	#index .index_vote .subjLine {font-size:20px;}
+
+
+	#index .index_vote .deliArea {width:120px; right:5px; line-height:25px; text-align:right;}
+	#index .index_vote .delivery {background-color:#d41400; padding:4px 6px; letter-spacing:-1px; color:#fff; width:70px;}
+	#index .index_vote .deliType {margin-top:12px; letter-spacing:-1px;padding:4px 6px; }
+
+
+	#index .index_vote .deliArea {width:120px; right:5px; line-height:25px; text-align:right;}
+	#index .index_vote .delivery {background-color:#d41400; padding:4px 6px; letter-spacing:-1px; color:#fff; width:70px;}
+	#index .index_vote .deliType {margin-top:12px; letter-spacing:-1px;padding:4px 6px; }
+
+
+	
+	
+	.m_MainVisual {position:relative; width:100%; overflow:hidden; height:100%; background: url(/images/visual_bg.jpg) no-repeat; background-size: 100%;}
+	.m_MainVisual .visual {position: relative;z-index:0;}
+	.m_MainVisual .DB_imgSet {position:absolute; width:100%; z-index:1; left:0; top:0px;}
+	.m_MainVisual .DB_imgSet li {position:absolute;left:0;top:0;width:100%;height:100%; }
+	.m_MainVisual .DB_imgSet li a{display:block;height:100%}
+
+	.m_MainVisual .DB_prevBtn{position:absolute;z-index:10;top:50%;cursor:pointer;left:20px}
+	.m_MainVisual .DB_nextBtn{position:absolute;z-index:10;top:50%;cursor:pointer;right:20px}
+
+
+
+	.m_MainVisual .DB_menuSet{position:absolute;width:100%;text-align:center;height:40px; bottom:0px; z-index:5}
+	.m_MainVisual .DB_menuSet li{display:inline;cursor:pointer;padding:0px 0px;font:bold 14px 돋움;color:#333333;line-height:40px;margin-right:20px; background-color:#fff}
+	.m_MainVisual .DB_menuSet li span {display:inline-block; width:15px; height:15px;}
+	.m_MainVisual .DB_menuSet li:hover{color:#ff9900;  background-color:#ff6600}
+	.m_MainVisual .DB_menuSet li.DB_select{color:#ff6600; background-color:#ff6600}
+
+	.m_MainVisual .btn {position: relative; border-top: 5px solid #991313;}
+	.m_MainVisual .btn .btn01 {z-index: 9999; overflow: hidden;}
+	.m_MainVisual .btn .btn01 li{width:50%; float: left;}
+
+	.m_MainVisual .img {position: relative;}
+	.m_MainVisual .img .img_btn {position: absolute; top:0; width:53%;}
+
+
+
+
+	/* 인덱스 */
+	#index .index_vote {width:100%;}
+
+	#index .gArea {text-align: left; position: relative; font-weight: 400;  background-color: #fff; border-bottom:0px solid #ccc; margin-bottom: 10px;}
+
+	#index .gArea a {display:block;}
+	#index .gArea .img {position:relative;height:0;overflow:hidden;border: 1px solid #f1f1f1;}
+	#index .gArea .img p {width: 32px; height: 37px; position: absolute; top: 8px; left: 10px; background-image: url(/m/images/mall_icon.svg); background-size: 32px; color: #fff; font-size: 10px; line-height: 37px; text-align: center; font-weight: 300;z-index:9;}
+
+	#index .gArea .textArea {/*padding:0px 10px;*/ height: 100px;}
+
+	#index .gArea .comment {color: #ababab; font-size: 12px;line-height:20px;height:20px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;/*길어진 텍스트 ...로 자르기*/}
+	#index .gArea .goodsName {text-align: left; /*padding: 0 5px;*/ margin-top: 10px; position: relative; z-index: 5; color: #3a3a3a; font-size: 14px; line-height: 20px; margin-top: 5px; height: 20px; overflow: hidden;  }
+	#index .gArea .priceArea {margin-top:15px;margin-bottom:10px;  height:50px; }				
+	#index .gArea .priceInArea {}
+	#goodsCate {width:100%; background:#eeeeee;; overflow: hidden; }
+
+	#index .gArea .sellPrice {float: left; font-size:13px; color:#242424; line-height:10px; letter-spacing:-1px;}
+/*
+	#index .gArea .textArea .sale {width: 25px; height: 25px; border-radius: 25px; background-color: #4c4c4c; color: #fff; line-height: 25px; font-size: 8px; text-align: center; position: absolute; bottom: 12px; left: 10px;}
+	#index .gArea .textArea .sale span {font-size: 12px;}
+*/
+	#index .gArea .textArea .sale {color: #f36465; font-size: 10px; float: right; margin-top: 25px; padding: 0 5px;	 position: absolute; bottom: 5px; right: 10px; display: none;}
+	#index .gArea .textArea .sale span {font-size: 22px; font-weight: 600; display: none;}
+
+
+	#index .textArea .gTable {margin-top:4px;}
+	#index .textArea .gTable td {padding:0px 0px;}
+
+
+
+	#index .textArea .gTable td.price {color: #818181; font-size: 12px; line-height: 10px; /* display: none; */}
+	/*	#index .textArea .gTable td.price span {font-size: 13px; margin-right: 5px; color: #464646;font-weight:normal;} */
+	#index .textArea .gTable td.price2 {color: #ba2129; font-size: 14px; line-height: 18px; margin-top: 5px; font-weight: 600;}
+	/*	#index .textArea .gTable td.price2 span {font-size: 14px; margin-right: 5px; color: #282424;font-weight:bold;} */
+
+	#index .textArea .gTable td.PV {font-size: 11px; color: #656565;font-weight:normal;}
+	/*	#index .textArea .gTable td.PV span {font-size: 13px; margin-right: 5px; color: #656565;font-weight:normal;} */
+
+	#index .btn {clear:both;width: 122px; height: 32px; border: 1px solid #828282; margin: 0 auto; margin-top: 20px;  margin-bottom: 28px; display: inline-block;}
+	#index .btn a {width: 122px; height: 32px; display: block; line-height: 32px;}
+	#index .btn p {text-align: center; color: #616060; font-size: 15px;}
+	#index .btn span {margin-left: 15px;}

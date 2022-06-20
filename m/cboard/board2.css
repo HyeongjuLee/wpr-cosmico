@@ -1,0 +1,23 @@
+
+
+.input_text {height:15px;}
+.input_file {border:1px solid #ccc; background-color:#eee; height:20px;}
+.bor1 {border:1px solid #ccc;}
+
+.padding_left7 {padding-left:7px;}
+.input_check {vertical-align:middle; margin:0px; padding:0px;}
+
+th, td {border:1px solid #ccc; padding:4px 0px;}
+th {background-color:#eee;}
+
+
+.insert td {padding-left:7px;}
+
+.list th {padding:8px 0px; border:0px none; border-top:1px solid #ccc;border-bottom:1px solid #ccc;}
+.list td {padding:8px 0px; border:0px none; border-top:1px solid #ccc;border-bottom:1px solid #ccc;}
+
+.regist th {padding:8px 0px;}
+.regist td {padding-left:7px;}
+
+.contentTD {padding:20px 0px;}
+

@@ -1,0 +1,633 @@
+@import 'mixin-custom';
+
+/*전체 공통, 모바일은 여기만 변경해도 ok*/
+html {
+	//font-size: 62.5%; // 62.5% = 10px
+					  // 1rem = 10px, 1.6rem = 16px
+	font-size: 10px;
+}
+
+body {
+	@include font-family('Pretendard');
+}
+
+
+/* 상단 공통 */
+$top-height: rem(100px);
+$top-logo-width: rem(140px);
+$top-logo-height: rem(64px);
+$top-logo-margin: ($top-height / 2) - ($top-logo-height / 2); //top-height 에서 중앙정렬
+$top-nav-index: 1;
+
+header {
+	height: $top-height;
+}
+
+#header {
+	@include position;
+	z-index: 100;
+	@include flex(flex-start);
+	flex-direction: column;
+	text-align: center;
+	font-weight: 400;
+	height: $top-height;
+	//margin-bottom: $top-height * -1;
+	transition: all .3s;
+	// padding: $top-logo-margin / 2 0;
+	//box-shadow: 0 1px 0 rgba(#000, 10%);
+	&::after {
+		@include presudo($le: 0, $bot: 0);
+		z-index: $top-nav-index;
+		width: 100% * 5;
+		height: 1px;
+		background: rgba(#fff, 0.1);
+	}
+
+	&:hover {
+		&:after {
+			background: rgba(#000, 0.1);
+			z-index: 1;
+		}
+	}
+}
+
+.header {
+	@include flex;
+	article {
+		@include flex;
+		width: $inner;
+		margin: 0 auto;
+
+		&.header-top {
+			//height: $top-height / 2;
+			justify-content: flex-end;
+			margin-top: $top-height * 0.1;
+		}
+
+		color: #222;
+	}
+
+	&-top {
+		&-btn {
+			width: auto;
+			
+			ul {
+				@include flex;
+				flex-wrap: nowrap;
+
+				li {
+					float: left;
+
+					a {
+						display: block;
+						@include default-a;
+						color: lighten(material-color('grey', '800'), 15%);
+						font-size: rem(13px);
+
+						&:hover {
+
+						}
+					}
+
+					&.top-btn {
+						&-line {
+							width: rem(1px);
+							height: rem(15px);
+							background: lighten(material-color('grey', '800'), 30%);
+							padding: 0;
+							margin: 0 rem(15px);
+						}
+
+						//top_btn 이미지형
+
+						/*top_btn images 명은 top_btn_ + class 명으로 통일 권장.*/
+						$top_btn_img: '/images/share/top_btn_';
+						$top_btn_bgset: no-repeat center;
+
+						//top_btn class 리스트
+						$top_btns: (login, logout, home, shop, mypage, myoffice, admin);
+
+						@each $top_btn in $top_btns {
+							&_#{$top_btn} {
+								background: url('#{$top_btn_img}#{$top_btn}.png') $top_btn_bgset;
+							}
+						}
+
+					}
+
+					&.admin a {
+						color: saturate(invert($main-color), 50%);
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	&-all {
+		//@include position(absolute, $ri: 0);
+		//margin-right: rem(120px);
+		@include position;
+		z-index: 2;
+		font-size: 0;
+		width: rem(50px);
+		height: rem(50px);
+		cursor: pointer;
+		@include inline-flex;
+		margin-left: rem(40px);
+		color: $parent-css;
+		.icon-menu {
+			@include position;
+			//font-size: rem(120px);
+			line-height: 0;
+			width: rem(16px);
+			height: rem(12px);
+			color: $parent-css;
+			display: inline-block;
+			cursor: pointer;
+
+			&:before {
+				content: $default-css;
+			}
+
+			span {
+				@include position(absolute, $le: 0);
+				z-index: 1;
+				width: rem(16px);
+				height: rem(2px);
+				background: #222;
+				cursor: pointer;
+				transition: all .2s;
+
+				&:nth-of-type(1) {
+					top: 0;
+				}
+				&:nth-of-type(2) {
+					width: rem(12px);
+					top: rem(5px);
+				}
+				&:nth-of-type(3) {
+					top: rem(10px);
+				}
+			}
+		}
+		&:hover {
+			.icon-menu {
+				span {
+					&:nth-of-type(1) {
+						width: rem(12px);
+					}
+					&:nth-of-type(2) {
+						width: rem(16px);
+					}
+					&:nth-of-type(3) {
+						width: rem(12px);
+					}
+				}
+			}
+		}
+		ul {
+			@include position(absolute, $le: 50%, $top: rem(50px));
+			z-index: 10;
+			width: auto;
+			max-width: 100vw;
+			padding: rem(10px);
+			background: #fff;
+			white-space: nowrap;
+			transform: translateX(-50%);
+			display: none;
+			flex-direction: column;
+			border-radius: rem(5px);
+			box-shadow: 0 0 10px rgba(0,0,0,0.4);
+
+			li {
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				margin: rem(2px) rem(5px);
+
+				a {
+					@include default-a;
+					font-size: $font-size - rem(2px);
+					color: $parent-css;
+
+					&:hover {
+						color: $main-color;
+					}
+				}
+			}
+
+			.admin {
+				a {
+					color: adjust-hue(invert($main-color), 30);
+				}
+				&:hover {
+					a {
+						color: darken(adjust-hue(invert($main-color), 30), 10);
+					}
+				}
+			}
+
+		}
+
+		&:hover {
+			ul {
+				display: flex!important;
+			}
+		}
+	}
+	
+
+	//로고
+	#logo {
+		@include position;
+		float: left;
+		z-index: 2;
+		//margin-top: $top-logo-margin;
+
+		a {
+			@include default-a;
+		}
+
+		img {
+			width: $top-logo-width;
+			height: $top-logo-height;
+		}
+
+	}
+
+	//탑메뉴
+
+	.nav {
+		$top-menu-font-size: rem(18px);
+		$padding: rem(25px);
+		$top-menu-width: $inner - $top-logo-width - ($inner / 5);
+		$top-menu-height: ($top-menu-font-size * (150 / 100)) + ($padding * 2);
+
+		@include position;
+		z-index: $top-nav-index;
+		width: $top-menu-width;
+		height: $top-height;
+		// margin-top: $top-height - $top-menu-height - rem(40px);
+		margin-left: auto; //오른쪽 정렬
+
+		display: inline-flex;
+		align-items: flex-start;
+		color: $parent-css;
+
+		&-main {
+			&::after {
+				content: '';
+				@include position(absolute, $le: -100% * 2.5, $top: 0);
+				z-index: -1;
+				width: 100% * 5;
+				height: 0;
+				background: #fff;
+				@include transition(all .3s ease .05s);
+			}
+			@include position;
+			@include default-0;
+			@include transition(all .3s ease);
+			width: 100%;
+			max-height: $top-height;
+			@include flex($st, $st);
+			color: $parent-css;
+
+
+			&>li {
+				@include position;
+				@include inline-flex;
+				flex-direction: column;
+				/* width: (100% / 5); */
+				width: 100%;
+				height: 100%;
+				color: $parent-css;
+				
+				&>a {
+					@include position;
+					@include default-a;
+					@include flex;
+					padding: $font-size $font-size * 2;
+					height: $top-height;
+					font-size: $top-menu-font-size;
+					//padding: $padding 0;
+					word-wrap: break-word;
+					word-break: keep-all;
+					color: $parent-css;
+					font-weight: 400;
+
+					&>i {
+						@include position(absolute, $le: 0, $bot: 0);
+						@include transition(all .3s ease);
+						width: 0px;
+						height: rem(1px);
+					}
+
+					&:hover {
+						//color: $main-color;
+
+						i {
+							width: 100%;
+							background: #555;
+						}
+					}
+				}
+				
+				&:hover {
+					> a {
+						color: $main-color;
+					}
+				}
+			}
+
+		}
+
+		&-sub {
+			//@include position(absolute, $le: 0, $top: $top-menu-height);
+			@include position;
+			@include default-0;
+			@include transition(all .3s ease);
+			width: 100%;
+			max-height: 0;
+			overflow: hidden;
+			//padding-bottom: 0;
+			padding: rem(15px) 0;
+			margin-bottom: rem(5px);
+			opacity: 0;
+
+			&>li {
+				//@include transition(all 3s ease);
+				@include position;
+				float: left;
+				font-size: 0;
+				width: 100%;
+				text-align: left;
+				padding-left: 20%;
+
+				&>a {
+					display: inline-block;
+					@include transition(all .3s ease);
+					cursor: pointer;
+					color: material-color('grey', '800');
+					padding: round($padding * 0.2) rem(10px);
+					font-size: $top-menu-font-size - rem(3px);
+					word-wrap: break-word;
+					word-break: keep-all;
+				}
+			}
+		}
+	}
+
+	.nav-main:hover {
+		max-height: 100vh;
+		
+		&::after {
+			height: 100%;
+			box-shadow: 0 rem(5px) rem(10px) rgba(#000, 0.05);
+		}
+
+		.nav-sub {
+			max-height: 100vh;
+			opacity: 1;
+			//padding-bottom: 30px;
+
+			&:hover {
+				a {
+					color: mix(material-color('grey', '800'), #fff, 60%);
+				}
+			}
+
+			a:hover {
+				//color: $main-color;
+				color: #000;
+			}
+		}
+		&>li {
+			&>a {
+				color: material-color('grey', '800');
+				font-weight: 400;
+
+				&:hover {
+					color: $main-color;
+				}
+			}
+		}
+	}
+}
+
+#nav {
+	&:hover {
+		& ~ .header-all {
+			.icon-menu {
+				span {
+					background: material-color('grey', '800');
+				}
+			}
+		}
+
+		& ~ #language {
+			color: material-color('grey', '800');
+		}
+		
+	}
+}
+
+#header.index {
+	article {
+		color: #fff;
+		a {
+			color: $parent-css;
+		}
+	}
+	.nav {
+		&-main {
+			> li {
+				> a {
+					font-weight: 300;
+				}
+			}
+		}
+		li {
+			color: $parent-css;
+			a {
+				color: #fff;
+			}
+		}
+	}
+
+	.header-all {
+		color: #222;
+		span {
+			background: #fff;
+		}
+	}
+	&:hover {
+		color: #222;
+		font-weight: 400;
+		.nav {
+			color: #fff;
+			li {
+				color: $parent-css;
+				a {
+					&:hover {
+						color: $main-color;
+					}
+				}
+			}
+			&-sub {
+				//max-height: 100vh;
+				//opacity: 1;
+				//padding-bottom: 30px;
+
+				&:hover {
+					li {
+						a {
+							color: mix(material-color('grey', '800'), #fff, 60%);
+						}
+					}
+				}
+
+				li {
+					a:hover {
+						//color: $main-color;
+						color: #000;
+					}
+				}
+			}
+			&:hover {
+				color: $parent-css;
+				li {
+					a {
+						color: #222;
+						&:hover {
+							color: $main-color;
+						}
+					}
+				}
+			}
+		}
+		.header-all {
+			.icon-menu {
+				span {
+					//background: #222;
+				}
+			}
+		}
+	}
+}
+
+$fixed: rem(80px);
+
+#header.fixed {
+	@include position(fixed, $le: 0, $top: 0);
+	width: 100%;
+	height: $fixed;
+	background: #fff;
+	box-shadow: 1px 0 5px rgba(#000, 0.1);
+	color: #222;
+	#logo {
+		img {
+			width: rem(110px);
+		}
+	}
+	.nav {
+		height: $fixed;
+		color: #222;
+		&-main {
+			max-height: $fixed;
+			&:hover {
+				max-height: 100vh;
+			}
+			& > li {
+				color: #222;
+				& > a {
+					height: $fixed;
+					color: #222;
+					font-weight: 400;
+
+					&:hover {
+						color: $main-color;
+					}
+				}
+			} 
+		}
+	}
+	#language {
+		color: #222;
+	}
+	.header-all {
+		.icon-menu {
+			span {
+				background: #222;
+			}
+		}
+	}
+}
+
+#header.index.fixed {
+	@include position(fixed, $le: 0, $top: 0);
+	width: 100%;
+	height: $fixed;
+	background: #fff;
+	box-shadow: 1px 0 5px rgba(#000, 0.1);
+	color: #222;
+	font-weight: 400;
+	#logo {
+		img {
+			width: rem(110px);
+		}
+	}
+	.nav {
+		li {
+			color: $parent-css;
+			a {
+				color: #222;
+				&:hover {
+					color: $main-color;
+				}
+			}
+		}
+		&-main {
+			> li {
+				> a {
+					font-weight: 400;
+				}
+			}
+		}
+		li {
+			color: $parent-css;
+			a {
+				color: #222;
+			}
+		}
+		&-sub {
+
+			&:hover {
+				li {
+					a {
+						color: mix(material-color('grey', '800'), #fff, 60%);
+					}
+				}
+			}
+
+			li {
+				a:hover {
+					color: #000;
+				}
+			}
+		}
+	}
+	#language {
+		color: #222;
+	}
+	.header-all {
+		.icon-menu {
+			span {
+				background: #222;
+			}
+		}
+	}
+}

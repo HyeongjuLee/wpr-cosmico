@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			FDK 결제 테스트 페이지
+		</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<style type="text/css">
+			table { margin: 1em; border-collapse: collapse; }
+			td, th { padding: .3em; border: 1px #ccc solid; font-size:12px; }
+			thead { background: #fc9; }
+			input { background-color: #ffffff; border: #bbbbbb 1px solid; font-size: 9pt; height: 20px; width: 250px;}
+			select { background-color: #ffffff; border-bottom: #a5a4a4 1px solid; border-left: #a5a4a4  1px solid; border-right: #a5a4a4  1px solid; border-top: #a5a4a4 1px solid; font-size: 9pt; height: 20px }
+		</style>
+		<script type="text/javascript" src="js/sha256.js"></script>
+		<script type="text/javascript" src="js/jquery1.7.1.js"></script>
+		<script type="text/javascript">
+
+			function canProc(){
+				
+				var mxid = document.fdpay.MxID.value;
+				var mxissueno = document.fdpay.MxIssueNO.value;
+				var amount = document.fdpay.Amount.value;
+
+				var payflag = "S";	//C:클라이언트 취소(javascript 취소 처리), S:서버 취소(ASPX 취소 처리)
+
+				if(payflag == "C"){
+				
+					//HASH DATA 생성!!
+					var keyData = "6aMoJujE34XnL9gvUqdKGMqs9GzYaNo6";	//가맹점 배포 PASSKEY 입력
+					
+					var fdhash = Sha256.hash(mxid + mxissueno + amount + keyData).toUpperCase();
+
+					//결제 요청!!
+					$.ajax({
+					 	type : "POST",
+					    url : "https://testps.firstpay.co.kr/jsp/common/req.jsp",
+					    data : {
+					       "MxID" : mxid,
+					       "MxIssueNO" : mxissueno,
+					       "MxIssueDate" : document.fdpay.MxIssueDate.value,
+					       "Amount" : document.fdpay.Amount.value,
+					       "CcMode" : document.fdpay.CcMode.value,
+					       "PayMethod" : document.fdpay.PayMethod.value,
+					       "TxCode" : document.fdpay.TxCode.value,
+					       "RefundBankCode" : document.fdpay.RefundBankCode.value,
+					       "HolderName" : document.fdpay.HolderName.value,
+					       "RefundAccount" : document.fdpay.RefundAccount.value,
+					       "FDHash" : fdhash,
+					       "SpecVer" : "F100C000"
+					    },
+					    dataType : "jsonp",
+					    jsonp : "callback",
+					    success: function(data) {
+					        if(data != null)    {
+
+					            if(data.ReplyCode == "0000"){
+
+									var msg = "[취소성공]\n"
+											+ "서비스종류[" + data.PayMethod + "]\n"
+											+ "가맹점ID[" + data.MxID + "]\n"
+											+ "주문번호[" + data.MxIssueNO + "]\n"
+											+ "주문시간[" + data.MxIssueDate + "]\n"
+											+ "결제금액[" + data.Amount + "]\n"
+											+ "거래모드[" + data.CcMode + "]\n"
+											+ "응답코드[" + data.ReplyCode + "]\n"
+											+ "응답메세지[" + data.ReplyMessage + "]\n"
+											+ "승인번호[" + data.AuthNO + "]\n"
+											+ "매입사코드[" + data.AcqCD + "]\n"
+											+ "매입사명[" + data.AcqName + "]\n"
+											+ "발급사코드[" + data.IssCD + "]\n"
+											+ "발급사명[" + data.IssName + "]\n"
+											+ "체크카드여부[" + data.CheckYn + "]\n"
+											+ "카드번호[" + data.CcNO + "]\n"
+											+ "가맹점번호[" + data.AcqNO + "]\n"
+											+ "할부개월[" + data.Installment + "]";
+
+									alert(msg);
+
+									/*********************************
+									* 취소 결과 DATA (가맹점 필요에 따라 아래 DATA 사용)
+									* ※ 아래 변수에 대한 상세 내용은 첨부된 엑셀의 변수정의 문서를 참조 하세요.
+           					        * data.PayMethod	: 서비스종류
+           					     	* data.MxID			: 가맹점ID
+           					     	* data.MxIssueNO	: 주문번호
+           					     	* data.MxIssueDate	: 주문시간
+           					     	* data.Amount		: 결제금액
+           					     	* data.CcMode		: 거래모드
+           					     	* data.ReplyCode	: 응답코드(0000:결제성공, 그 외:결제실패)
+           					     	* data.ReplyMessage	: 응답메세지
+           					     	* data.AuthNO		: 승인번호(신용카드)
+           					     	* data.AcqCD		: 매입사코드(신용카드)
+           					     	* data.AcqName		: 매입사명(신용카드)
+           					     	* data.IssCD		: 발급사코드(신용카드)
+           					     	* data.IssName		: 발급사명(신용카드)
+           					     	* data.CheckYn		: 체크카드여부(신용카드)
+           					     	* data.CcNO			: 카드번호(신용카드)
+           					     	* data.AcqNO		: 가맹점번호(신용카드)
+           					     	* data.Installment	: 할부개월(신용카드)
+									*********************************/
+									
+					            }else{
+									alert("취소 실패[실패 사유:["+data.ReplyCode+"]" + data.ReplyMessage + "]");
+					            }
+
+					        }else{
+						        alert("거래 전송 후 응답 없음(관리자 확인 요망)");
+					        }
+					    },
+					    error: function(data) {
+					    	if(data != null)    {
+					            alert(data.result);
+					        }else{
+						        alert("거래 전송 실패(관리자 확인 요망)");
+					        }
+					    }
+					});
+				
+				}else{
+
+					document.fdpay.action = "send.asp";
+					document.fdpay.submit();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name="fdpay" id="fdpay" method="post">
+		<table>
+			<thead>
+				<tr>
+					<th>Description</th>
+					<th>Values</th>
+					<th>Remark</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>* 가맹점 ID</td>
+					<td><input type="text" name="MxID" id="MxID" value="testcorp" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>* 주문번호</td>
+					<td><input type="text" name="MxIssueNO" id="MxIssueNO" value="" /></td>
+					<td>가맹점 사용 주문번호</td>
+				</tr>
+				<tr>
+					<td>* 주문시간</td>
+					<td><input type="text" name="MxIssueDate" id="MxIssueDate" value="" /></td>
+					<td>YYYYMMDDHHMMSS</td>
+				</tr>
+				<tr>
+					<td>취소요청금액</td>
+					<td><input type="text" name="Amount" id="Amount" value="" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>* 거래모드</td>
+					<td><input type="text" name="CcMode" id="CcMode" value="10" /></td>
+					<td>10:승인 (고정 DATA)</td>
+				</tr>
+				<tr>
+					<td>* 결제종류</td>
+					<td><input type="text" name="PayMethod" id="PayMethod" value="" /></td>
+					<td>CC:신용, IC:계좌, MO:휴대폰, VA:가상, CA:현금</td>
+				</tr>
+				<tr>
+					<td>* 결제구분</td>
+					<td><input type="text" name="TxCode" id="TxCode" value="" /></td>
+					<td>EC131400:신용, EC601200:계좌, EC1D1100:휴대폰, EC801200:가상, EC301200:현금</td>
+				</tr>
+				<tr>
+					<td> 환불은행코드</td>
+					<td><input type="text" name="RefundBankCode" id="RefundBankCode" value="" /></td>
+					<td> 가상계좌 취소 시 필수</td>
+				</tr>
+				<tr>
+					<td> 환불예금주명</td>
+					<td><input type="text" name="HolderName" id="HolderName" value="" /></td>
+					<td> 가상계좌 취소 시 필수</td>
+				</tr>
+				<tr>
+					<td> 환불계좌번호</td>
+					<td><input type="text" name="RefundAccount" id="RefundAccount" value="" /></td>
+					<td> 가상계좌 취소 시 필수</td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center">
+						<a href="javascript:canProc();"><img src="img/btn_payment.png" width="131" height="46" border="0"></a>	
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
+	</body>
+</html>

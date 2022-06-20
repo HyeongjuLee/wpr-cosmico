@@ -1,0 +1,130 @@
+	/* 스타 스타일시트 */
+	/*	* {font-family: 'Noto Sans KR', sans-serif;	-moz-box-sizing: border-box;box-sizing: border-box; font-size:13px;} */
+		/** {font-family: 'Nanum Gothic', sans-serif;	-moz-box-sizing: border-box;box-sizing: border-box; }*/
+		* {font-family: 'Pretendard', sans-serif;	-moz-box-sizing: border-box;box-sizing: border-box; }
+
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,blockquote{margin:0;padding:0;word-break:break-all;}
+		html {overflow-y:scroll;}
+		html,body {height:100%; }
+
+		body{color:#333; font-size:13px;}
+
+		form {margin: 0;padding: 0;}
+
+		img,fieldset,iframe {border:0px none;}
+		table {border-collapse: collapse;}
+		/* div {overflow:hidden;} */
+		ul,ol,li,dl,dt,dd {list-style:none;}
+
+	/* 기본 링크 스타일 */
+		A:link {color:#3a3a3a; text-decoration:none; }
+		A:visited {color:#3a3a3a; text-decoration:none;}
+		A:active {color:#3a3a3a; text-decoration:none;}
+		A:hover {color:#3333FF; text-decoration:none;}
+
+	/* Flaot 속성 */
+		.block {display:block !important;}
+		.clear {clear:both !important;}
+		.fleft {float:left !important;}
+		.fright {float:right !important;}
+		.cl_left {clear:both !important; float:left !important;}
+		.cleft {clear:both; float:left; }
+		.posi_rel {position:relative;}
+		.posi_abs {position:absolute;}
+
+	/* Align 속성 */
+		.tright {text-align:right !important;}
+		.tleft {text-align:left !important;}
+		.tcenter {text-align:center !important;}
+		.vmiddle {vertical-align:middle;}
+		.vtop {vertical-align:top;}
+		.vbottom {vertical-align:bottom;}
+		.tweight {font-weight:bold !important;}
+		.rcalign {vertical-align:-2px;}	/*radioButton, checkbox 정렬*/
+
+	/* Font 속성 */
+		.imes {ime-mode:disabled;}
+		.imes_kr {ime-mode:active;}
+		.weight {font-weight:bold;}
+		.mline {text-decoration:line-through !important;}
+		.font_f1 {font-family:돋움,dotum;}
+		.font_dotum8 {font-family:돋움,dotum;font-size:8pt;}
+		.lheight160 {line-height:160%;}
+		.lheight130 {line-height:130%;}
+		.tweight {font-weight:bold;}
+
+		.text_red {color:red;}
+		.text_small {font-size:7pt; color:red;}
+		.text_black {color:black;}
+		.text_blue {color:#6666ff;}
+
+	/* Image 속성 */
+		.imgbor01 {border:1px solid #eee;}
+		.png24 {tmp:expression(setPng24(this));}
+		.cp {cursor:pointer;}
+
+
+
+
+	/* Input // Select */
+		.select8pt {font-size:8pt;}
+		.readonly {background-color:#bfbfbf !important;}
+
+	/* */
+		.red {color:red;}
+		.red2 {color:#eb301b;}
+		.blue {color:#6666ff;}
+		.blue2 {color:#3366ff;}
+		.green {color:#53a725;}
+
+		.b_gray {background-color:#efefef;}
+		.b_yellow {background-color:#ffffee;}
+
+
+/* 게시판용 페이져 */
+		.paging_area {clear:both;width:100%; text-align:center;padding:10px 0px;}
+		.pages {clear:both;float:center;border:1px solid #000;overflow:hidden;}
+		.pagers {display:inline-block;border:1px solid #eee; width:24px; height:24px; padding-top:5px;font-weight:bold;color:#0057d3;margin-left:3px;text-align:center;}
+		.pagers2 {display:inline-block;border:1px solid #eee;  height:24px; padding:5px 4px 0px 4px;font-weight:bold;color:#0057d3;margin-left:3px;text-align:center;}
+		.pagers a , .pagers2 a {display:inline-block;width: 24px;height: 24px;font-weight:bold;color:#666;text-align:center;}
+		.pagers a:hover , .pagers2 a:hover{color:#3063ab;text-decoration:none;}
+
+	/*NEW LISTING 2014-09-15*/
+		.pagingNew {clear:both; width:100%;text-align:center;padding:20px 0px;margin-bottom:5px;}
+		.pagingNew .currentPage {border:1px solid #72b1e0;width:90px; padding:5px 6px 4px 6px;color:#fff;font-weight:bold;margin:2px;background-color:#72b1e0;display:inline-block;}
+	    .pagingNew a			{border:1px solid #cccccc;padding:5px 6px 4px 6px;color:#777;font-weight:bold;margin:2px;display:inline-block;}
+		.pagingNew a:hover		{border:1px solid #72b1e0;color:#72b1e0;}
+
+	/*NEW LISTING 2014-09-15*/
+		.pageListAdmin {clear:both; width:100%;text-align:center; padding:10px 0px; margin-bottom:5px;}
+		.pageListAdmin span {display:inline-block;}
+		.pageListAdmin .currentPage {border:1px solid #72b1e0; min-width:30px; padding:0px 6px; height:27px; line-height:25px; color:#fff;font-weight:bold;margin:1px;background-color:#72b1e0;display:inline-block;}
+	    .pageListAdmin a			{border:1px solid #cccccc;min-width:30px; padding:0px 6px; height:27px; line-height:25px; color:#777;font-weight:bold;margin:1px;display:inline-block;}
+		.pageListAdmin a:hover		{border:1px solid #72b1e0;color:#72b1e0;}
+/* NEW LISTING3 2017-03-05 */
+		.pagingNew4 {text-align:center;}
+		.pagingNew4 .currentPage {border:1px solid #666666;width:33px; height:33px; line-height:31px; color:#fff;font-weight:bold;margin:1px;background-color:#666666;display:inline-block;text-align:center;}
+		.pagingNew4 a			{border:1px solid #cccccc;width:33px; height:33px; line-height:31px;color:#777;font-weight:bold;margin:1px;display:inline-block; text-align:center;}
+		.pagingNew4 a:hover		{border:1px solid #666666;color:#666666;}
+
+		.pagingNew4s {text-align:center;}
+		.pagingNew4s .currentPage, .pagingNew4s a {width:25px; height:25px; line-height:23px; }
+		.pagingNew4s .currentPage {border:1px solid #666666; color:#fff;font-weight:bold;margin:1px;background-color:#666666;display:inline-block;text-align:center;}
+		.pagingNew4s a			{border:1px solid #cccccc; color:#777;font-weight:bold;margin:1px;display:inline-block; text-align:center;}
+		.pagingNew4s a:hover	{border:1px solid #666666;color:#666666;}
+
+		.pageArea2 {clear:both;width:100%; text-align:center;padding:10px 0px;}
+		.pageArea2 .pages {clear:both;float:center;border:1px solid #000;overflow:hidden;}
+		.pageArea2 .pagers {display:inline-block;border:1px solid #eee; width:24px; height:19px; padding-top:5px;font-weight:bold;color:#0057d3;margin-left:3px;text-align:center;}
+		.pageArea2 .pagers2 {display:inline-block;border:1px solid #eee;  height:19px; padding:5px 4px 0px 4px;font-weight:bold;color:#0057d3;margin-left:3px;text-align:center;}
+		.pageArea2 .pagers a {color:#666;text-decoration:none;}
+		.pageArea2 .pagers2 a {color:#666;text-decoration:none;}
+		.pageArea2 .pagers a:hover {color:#3063ab;text-decoration:none;}
+		.pageArea2 .pagers2 a:hover{color:#3063ab;text-decoration:none;}
+
+
+/* NEW LISTING3 2017-03-05 */
+		.pagingNew3 {clear:both; text-align:center;padding:20px 0px;margin-bottom:5px; font-size: 14px;}
+		.pagingNew3 .currentPage {border:1px solid #666666; width: 30px; height: 30px; line-height: 28px; color:#fff !important;font-weight:600;margin:1px; display:inline-block; text-align:center; background-color:#666666; }
+		.pagingNew3 a			 {border:1px solid #cccccc; width: 30px; height: 30px; line-height: 28px; color:#777 !important;font-weight:600;margin:1px; display:inline-block; text-align:center; }
+		.pagingNew3 a:hover		{border:1px solid #666666; color:#fff !important; background-color:#999; }

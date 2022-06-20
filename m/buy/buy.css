@@ -1,0 +1,64 @@
+
+	#div_date {margin-top:15px;}
+	#div_date th {background-color:#eee; border:1px solid #ccc; }
+	#div_date td {border:1px solid #ccc; padding: 4px 6px;}
+	#div_date td .input_text_date {border:1px solid #ccc; line-height:22px; height:22px; text-align:center; background-color:#eee; width:95%;}
+
+	#div_date .date_submit { background:linear-gradient(#fff 0%,#ddd 35%,#fff 100%);
+		border:1px solid #999; color:#fff; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;
+		padding:15px 8px; text-align:center; color:#333; display:block; cursor:pointer; font-weight:bold;
+		width:100%;
+	}
+
+
+/* 본인매출 수정 */
+	#order th {background-color:#eee; border:1px solid #ccc; padding:4px 0px; font-size:15px;}
+	#order td {border:1px solid #ccc;  padding:5px 5px; padding-left:7px; font-size:14px;}
+	#order .htbody td {background-color:#eee; }
+	#order .order_btn .ui-btn-inner {padding:10px 10px 10px 10px;}
+	#order .bot_line_c_333 {border-bottom:1px solid #333;}
+	#order .bot_line_c_ccc {border-bottom:1px solid #ccc;}
+	#order .bot_line_c_999 {border-bottom:2px solid #999;}
+	#order .top_line_c_888 {border-top:2px solid #888;}
+	#order .hid_tbody td.th {background-color:#e7e7e7;}
+	#order .hid_tbody td.td {background-color:#fff;}
+	#order .hid_tbody .innerTablePay td.th {background-color:#e4f3e7;font-weight:bold;text-align:center;font-size:13px;}
+	#order .hid_tbody .innerTableBuy td.th {background-color:#dff8ff;font-weight:bold;text-align:center;font-size:13px;}
+	#order .hid_tbody .innerTableRece td.th {background-color:#feecd8;font-weight:bold;text-align:center;font-size:13px;}
+
+#order .btn_a, #AjaxPurchaseContent .btn_a { background: #dfdfdf;
+	border:1px solid #bfbfbf; color:#fff; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;
+	padding:8px; text-align:center; color:#333; display:block; cursor:pointer; font-weight:bold;
+	width: 100%;
+}
+
+/* 추천/후원 하선 구매내역 */
+#loadings {width:100%; height:100%;position:absolute;display:none; }
+#loading_bg {width:100%;height:100%;top:0px;left:0px;position:fixed;display:block; opacity:0.7;background-color:#fff;z-index:99;text-align:center; }
+#loading-image {position:absolute; top:40%; left:45%; z-index:100;}
+
+.sub_title {clear:both; margin-top:10px; width: 100%; text-align:center; font-size:16px; padding:5px 0px 5px 0px;  color:#fff; background-color:#4D494A; }
+.purchase th {background-color:#eee; border:1px solid #ccc; padding:5px 0px; font-size:16px;}
+.purchase td {border:1px solid #ccc;  padding:5px 5px;  font-size:16px;}
+
+.purchase .ins .trc td {background-color:#fbd6cb;}
+.purchase .ins th {border:1px solid #cacaca; background-color:#EDF7EF; color:#000; height:28px; line-height:14px; font-size:12px; padding:2px;}
+.purchase .ins td {border:1px solid #cacaca; background-color:#ffffff; color:#000; height:28px; line-height:14px; font-size:12px; text-align:center; border-style:none; }
+.purchase .ins td.price {text-align:right !important;padding-right:7px !important;}
+.purchase .ins td.bd1 {border:1px solid #cacaca;}
+.purchase .ins td.first-cell {border-left:1px solid #cacaca; background: #fff;}
+.purchase .ins td.selldate-bd-top {border-top:1px solid #cacaca;}
+.purchase .ins td.bd-bottom {height:0px;border-top:1px solid #cacaca;}
+
+.purchase .dv_cell1, .purchase .dv_cell2 { display: none; }
+.purchase .dv320_inline_t { display: inline; }
+.purchase .dv320_inline_f, .purchase .dv320_block { display: none; }
+
+@media screen and (min-width: 370px) { .purchase .dv_cell1 { display: table-cell; }
+	.purchase .dv320_inline_t { display: none; }
+	.purchase .dv320_inline_f { display: inline; }
+	.purchase .dv320_block { display: block; } }
+@media screen and (min-width: 480px) { .purchase .dv_cell2 { display: table-cell; }
+	.purchase .dv_cell2_text { display: none; } }
+
+.purchase .pagingArea.underdetail {padding:15px 0px;background-color:#fff;color:#000;}

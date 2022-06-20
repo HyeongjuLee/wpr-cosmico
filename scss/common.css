@@ -1,0 +1,171 @@
+@use "sass:selector";
+/**
+ * Retrieves a color value from the $material-colors Sass map
+ * Inspired by https://github.com/nilskaspersson/Google-Material-UI-Color-Palette/
+ *
+ * @function
+ * @param {string} color-name             - quoted, lower-case, dasherized color
+ *                                          name (e.g. 'pink', 'amber')
+ * @param {string} [color-variant='500']  - quoted, lowercase color variant (e.g.
+ *                                          '200', 'a100')
+ */
+#sub-header .sub-header-txt {
+  color: #212121;
+  font-weight: 600; }
+
+.common {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #212121; }
+  .common .wrap {
+    width: 480px;
+    margin: 0 auto; }
+  .common .input-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    margin: 0 auto; }
+    .common .input-wrap label {
+      position: relative;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 6rem;
+      font-size: initial;
+      background: #fff;
+      cursor: initial;
+      border: 1px solid #aaa; }
+      .common .input-wrap label i {
+        font-size: 1.8rem;
+        width: 6rem; }
+      .common .input-wrap label span {
+        position: absolute;
+        top: auto;
+        left: 6rem;
+        z-index: 1;
+        opacity: 1;
+        color: rgba(33, 33, 33, 0.5); }
+      .common .input-wrap label input {
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        position: relative;
+        width: 42rem;
+        height: 100%;
+        background: transparent;
+        font-size: 1.65rem; }
+      .common .input-wrap label:first-child {
+        border-bottom-color: #ddd;
+        margin-bottom: -1px; }
+      .common .input-wrap label:last-child {
+        border-top: 1px solid #ddd; }
+      .common .input-wrap label.key {
+        z-index: 1; }
+        .common .input-wrap label.key span {
+          z-index: -1;
+          opacity: 0; }
+      .common .input-wrap label.focus {
+        z-index: 2;
+        border-color: #2682c3; }
+        .common .input-wrap label.focus i {
+          color: #2682c3; }
+        .common .input-wrap label.focus span {
+          color: rgba(38, 130, 195, 0.5); }
+  .common .find {
+    width: 480px;
+    padding: 2rem 0;
+    overflow: hidden; }
+    .common .find a {
+      float: right;
+      color: #212121;
+      font-weight: 400; }
+  .common .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    height: 6rem;
+    margin: 1.5rem auto;
+    background: transparent;
+    font-size: 1.8rem;
+    cursor: pointer;
+    font-family: inherit; }
+    .common input.button {
+      background: #2682c3;
+      color: #fff; }
+    .common a.button {
+      background: #e3e3e3;
+      color: #1c1c1c; }
+  .common .sns_login_tit {
+    position: relative;
+    color: #555;
+    font-weight: 700;
+    margin: 0 auto; }
+    .common .sns_login_tit i {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 1px;
+      background: #ddd; }
+    .common .sns_login_tit span {
+      display: inline-block;
+      background: #fff;
+      padding: 0 1.5rem; }
+  .common .sns_login {
+    width: 320px;
+    margin: 0px auto; }
+    .common .sns_login div {
+      width: 100%;
+      height: 5.4545454545rem;
+      cursor: pointer;
+      font-weight: 400;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      margin: 1.5rem 0;
+      overflow: hidden; }
+    .common .sns_login a {
+      color: inherit;
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .common .sns_login a i {
+        width: 5.4545454545rem;
+        height: 5.4545454545rem;
+        border-right: 1px solid rgba(0, 0, 0, 0.15); }
+      .common .sns_login a span {
+        width: 26.5454545455rem;
+        display: block;
+        font-size: 1.8rem; }
+    .common .sns_login .kakao {
+      background: #fee500;
+      color: #333; }
+    .common .sns_login .naver {
+      background: #1FCC00;
+      color: #fff; }
+    .common .sns_login .google {
+      background: #fff;
+      color: #444; }
+    .common .sns_login .facebook {
+      background: #3C5A9A;
+      color: #fff; }
+    .common .sns_login .kakao i {
+      background: url("/images/login/kakao.svg") no-repeat center;
+      background-size: 4rem; }
+    .common .sns_login .naver i {
+      background: url("/images/login/naver.svg") no-repeat center;
+      background-size: 4rem; }
+    .common .sns_login .google i {
+      background: url("/images/login/google.svg") no-repeat center;
+      background-size: 4rem; }
+    .common .sns_login .facebook i {
+      background: url("/images/login/facebook.svg") no-repeat center;
+      background-size: 4rem; }
+
+/*# sourceMappingURL=common.css.map */

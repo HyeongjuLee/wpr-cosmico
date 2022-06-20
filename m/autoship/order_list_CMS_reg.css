@@ -1,0 +1,80 @@
+
+	.orderList th {font-weight: 500; font-size: 14px;}
+	.orderList .innerTable th {padding:6px 10px;text-align:center;height:24px; background: #dff8ff;}
+	.orderList .innerTable td {padding:6px 10px;text-align:center;}
+	.orderList .innerTable td.inPrice {text-align:right; padding-right:4px;}
+	.orderList .innerTable td.total {text-align:right; padding-right:4px;background:#ececec;font-weight:500;}
+
+	.orderList .innerTable td.price {color: #3366ff; font-weight: 500; font-size: 1.6rem;}
+	.orderList .innerTable td span.pUnit {color: #3366ff; font-weight: 500; font-size: 1.4rem;}
+	.orderList .innerTable td.pv {color: #eb301b; font-weight: 500; font-size: 1.6rem;}
+	.orderList .innerTable td span.pv {color: #eb301b; font-weight: 500; font-size: 1.3rem;}
+	.orderList .innerTable td.bv {color: green; font-weight: 500; font-size: 1.6rem;}
+	.orderList .innerTable td span.bv {color: green; font-weight: 500; font-size: 1.3rem;}
+
+	.orderList .innerTable td .regItemCount {width: 50px; background: #fbfce4;}
+
+	.orderList .innerTable2 th {padding:6px 10px;text-align:left; height:24px; background: #feecd8;}
+	.orderList .innerTable2 td {padding:6px 6px; text-align:left;}
+	.orderList .innerTable2 td .zip {width: 60px;}
+	.orderList .innerTable2 td .addr1 {width: 380px;}
+	.orderList .innerTable2 td .addr2 {width: 520px; ime-mode: active;}
+	.orderList .innerTable2 .input_text {height: 29px;}
+
+	.orderList .innerTable3 th {padding:6px 10px; text-align:left;height:24px; background: #e4f3e7; }
+	.orderList .innerTable3 td {padding:6px 6px; text-align:left;}
+	.orderList .innerTable3 td .card {width: 60px;}
+	.orderList .innerTable3 .input_text {height: 29px;}
+	#buy select.input_text {line-height: 29px; height: 29px; border:1px solid #ccc;}
+	#buy input.input_checkbox {width:16px; height:16px; margin:2px; padding:0px; vertical-align:middle; cursor:pointer;}
+
+
+
+	.btn01 {display:inline-block;border:1px solid #848484; width:55px;height:15px; padding:2px 0px 2px 0px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
+	.fon1 {font-family:malgun gothic,dotum,gulim;font-size:9pt;font-weight:500;color:#0057d3;text-align:center;}
+	a:hover{color:blue;}
+
+	.boldedClass a {font-weight:500 !important;color:green !important;}
+
+	#buy .agree_info {border-top:1px dotted #ddd; border-bottom:1px dotted #ddd; background-color:#eee; padding:12px 12px; font-size:14px; line-height:160%;}
+	#buy .agree_info li {text-indent: 0px;}
+	#buy .agree_info .li_title {color:#ee2200; font-size:15px; font-weight:500;text-indent:0px; margin-bottom:8px;}
+	#buy .agree_info .agreement {padding:10px; background-color:#fff; margin-top:15px;}
+	#buy  input.input_check {width:16px; height:16px; margin:0px; padding:0px; vertical-align:middle; margin-top:-4px; cursor:pointer;}
+
+
+	option {background:#fcf5bc;color:#333333;font-size:12pt;line-height:130px;height:130px; }
+
+
+
+	.topBtnZone {text-align:right; margin:20px 0px -40px 0px; padding-right:4px;}
+	.topBtnZone a {display:inline-block;border-radius:5px;color:#333;border:1px solid #666;height:32px;line-height:30px;padding:0px 10px;font-size:15px; background-color: #fff;}
+	.topBtnZone a:hover {color:#f20000; background-color:#f4f4f4;}
+
+
+	/* 달력 특정일 */
+	.boldedClass a {
+		font-weight:bold !important;
+		color: green !important;
+	}
+
+	/* loading */
+	.loadingsA {position: fixed; height: 100%; background:url(/images_kr/join/loading_bg70_1.png) 0 0 repeat; z-index:999; display: none; top: 0px; left: 0px;}
+	.loadingsInnerA {position: relative; top:40%; text-align:center;}
+
+
+	.alertBox {margin 20px 0px; border:1px solid #ccc; background:#fbfce4; color: #eb301b; line-height: 18px; font-size: 16px; text-align: center; font-weight: 500; padding:20px;}
+
+
+
+	.input_text {
+		border: 1px solid #ccc;
+		line-height: 27px;
+		height: 29px;
+		border-radius: 3px;
+		vertical-align: middle;
+		background-color: #f4f4f4;
+		padding: 0px 7px;
+	}
+
+	.btnZone {padding:20px;}

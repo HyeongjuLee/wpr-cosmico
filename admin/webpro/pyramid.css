@@ -1,0 +1,14 @@
+
+.notbor {border:0px none;  margin-top: 20px;}
+.input_text {border: 1px solid #ccc; line-height: 27px; height: 29px;border-radius: 3px; vertical-align: middle; background-color: #f4f4f4; padding: 0px 7px;}
+.bor1 {border:1px solid #ccc;}
+
+th, td {border:1px solid #ccc; padding:4px 4px;}
+th {background-color:#eee; height:32px;}
+td {height:28px;}
+td.content {padding-left:7px;}
+
+
+.insert td {padding-left:7px;}
+
+.btnArea {margin: 10px 0;}

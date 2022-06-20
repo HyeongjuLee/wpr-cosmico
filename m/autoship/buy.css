@@ -1,0 +1,36 @@
+	#div_date {margin-top:15px;}
+	#div_date th {background-color:#eee; border:1px solid #ccc; }
+	#div_date td {border:1px solid #ccc; padding:2px 0px;}
+	#div_date td .input_text_date {border:1px solid #ccc; line-height:22px; height:22px; text-align:center; background-color:#eee; width:95%;}
+
+	#div_date .date_submit { background:linear-gradient(#fff 0%,#ddd 35%,#fff 100%);
+		border:1px solid #999; color:#fff; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;
+		padding:15px 8px; text-align:center; color:#333; display:block; cursor:pointer; font-weight:bold;
+		width:100%;
+	}
+
+
+/* 본인매출 수정 */
+	#order th {background-color:#eee; border:1px solid #ccc; padding:4px 0px; font-size:15px;}
+	#order td {border:1px solid #ccc;  padding:5px 5px; padding-left:7px; font-size:14px;}
+	#order .htbody td {background-color:#eee; }
+	#order .order_btn .ui-btn-inner {padding:10px 10px 10px 10px;}
+	#order .bot_line_c_333 {border-bottom:1px solid #333;}
+	#order .bot_line_c_ccc {border-bottom:1px solid #ccc;}
+	#order .bot_line_c_999 {border-bottom:2px solid #999;}
+	#order .top_line_c_888 {border-top:2px solid #888;}
+	#order .hid_tbody td.th {background-color:#e7e7e7;}
+	#order .hid_tbody td.td {background-color:#fff;}
+	#order .hid_tbody .innerTablePay td.th {background-color:#e4f3e7;font-weight:bold;text-align:center;font-size:13px;}
+	#order .hid_tbody .innerTableBuy td.th {background-color:#dff8ff;font-weight:bold;text-align:center;font-size:13px;}
+	#order .hid_tbody .innerTableRece td.th {background-color:#feecd8;font-weight:bold;text-align:center;font-size:13px;}
+
+#order .btn_a { background:linear-gradient(#eee 0%,#ccc 15%,#eee 100%);
+	border:1px solid #999; color:#fff; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;
+	padding:8px; text-align:center; color:#333; display:block; cursor:pointer; font-weight:bold;
+}
+
+
+	.topBtnZone {text-align:right;margin:20px 0px 10px 0px;padding-right:4px;}
+	.topBtnZone a {display:inline-block;border-radius:5px;color:#333;border:1px solid #666;height:32px;line-height:30px;padding:0px 10px;font-size:15px;}
+	.topBtnZone a:hover {color:#f20000; background-color:#f4f4f4;}

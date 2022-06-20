@@ -1,0 +1,21 @@
+
+.bor1 {border:1px solid #ccc;}
+.dtod {margin-top:15px; padding-bottom:30px;}
+
+.dtod p {font-size:14pt; font-weight:bold; padding:10px 0px 5px 0px;}
+
+
+.dtod .list {width:1000px;}
+
+.dtod .list td,.dtod .list th {border:1px solid #ccc;}
+.dtod  th {background:#eee; padding:6px 0px;}
+.dtod .list td {padding:5px 0px; text-align:center;}
+.dtod .list .th_style {background:#eee; text-align:center; font-weight:bold;}
+.dtod .list .td_bottom_line {border-bottom:3px double #999;}
+
+
+.dtod .input th,.dtod .input td{border:1px solid #ccc;}
+
+
+.dtod .input .input_text {border:1px solid #ccc; margin-left:10px; height:19px;}
+.dtod .input .submit {padding:5px 10px;}

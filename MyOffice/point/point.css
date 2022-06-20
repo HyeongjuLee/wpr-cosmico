@@ -1,0 +1,54 @@
+td, th {border:1px solid #ccc; padding:3px 0px;}
+
+
+.readonly {background:#eee;}
+.input_text {vertical-align:middle; padding:5px; border:1px solid #ccc;}
+.input_text2 {vertical-align:middle; padding:4px; border:1px solid #ccc; width:176px;background-color:#f4f4f4;}
+.table1 th {background-color:#7f7f7f; color: #fff; font-weight: 500;}
+.table1 td {padding:5px 0px 5px 10px; font-weight: 400; background-color: #fff;}
+
+
+.table2 th {background-color:#7f7f7f; color: #fff; padding:10px 0px; font-weight: 500;}
+.table2 td {padding:7px 4px; text-align:right; background-color: #fff;}
+.table2 td.tcenter {padding-right:0px; }
+
+
+
+.table3 th {background-color:#7f7f7f; color: #fff; padding:10px 0px;}
+.table3 td {padding:0px; padding-right:3px; text-align:right;}
+.table3 td.tcenter {padding-right:0px;}
+
+.inTable td {border:0px none;text-align:right; padding-right:3px;}
+.inTable th {border:0px none;background-color:#7f7f7f; color: #fff; padding:4px 0px;}
+.inTable .btop {border-top:1px solid #ccc;}
+.inTable .tcenter {padding-right:0px;}
+
+.h2 td, .h2 th {height:30px; padding-top:0px; padding-bottom:0px;}
+.h3 td, .h3 th {height:20px; padding-top:0px; padding-bottom:0px;}
+
+.f12 {font-size: 12px;}
+
+/* 상세내역 */
+#under_search .search_content {width:980px; height:150px; margin:0px;border:0px solid #c7c7c7;overflow-y:scroll;background:#fff;padding:0px;}
+
+#under_search .search_content1 {width:455px; height:150px; margin:0px;border:1px solid #c7c7c7;overflow-y:scroll;background:#fff;padding-bottom:0px}
+
+
+/*
+#under_search {clear:both; width:970px;margin:0px auto;background-color:#fff; padding:0px 20px;}
+#under_search .agree {clear:both;  padding:10px 0px;}
+#under_search .agree .agree_box {clear:both;width:968px; border:1px solid #9e9e9e; margin-top:5px;background:#e0e0e0;}
+*/
+
+
+.point th {padding:12px 0px; background:#e9e9e9;}
+.point td {padding-left:10px;}
+
+
+#point th, td {border:1px solid #cacaca; font-size:14px; font-weight: normal; word-break: keep-all;}
+#point th {padding:8px 8px; background:#e9e9e9; font-weight:500; background-color: #7f7f7f; color: #fff;}
+#point td {padding:8px 16px 8px 8px; background-color: #fff; }
+#point td.price {font-size:19px; text-align:right; font-weight:500;}
+#point td.price2 {font-size:19px; text-align:right; font-weight:600;}
+#point td.priceTotal {font-size:19px; text-align:right; font-weight:600; background: #FFFFE6;}
+.input_text_p {vertical-align:middle; border:1px solid #ccc; height:30px; padding:8px 8px; font-size:19px;}

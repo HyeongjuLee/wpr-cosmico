@@ -1,0 +1,80 @@
+
+label span {font-size:12px !important;}
+
+
+
+#counsel th,#counsel td {border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6; padding:5px 0px; color:#787878;}
+#counsel th {background-color:#f6f6f6;  text-align:center;}
+#counsel td {padding:5px;}
+
+#counsel thead th, #counsel thead td {border-top:2px solid #91b014;}
+#counsel label:hover {cursor:pointer;}
+
+
+#counsel .counsel_warp {padding:20px 0px;}
+
+#counsel .sector02 {}
+#counsel .sector02 li {line-height:14px; color:#ea7777;}
+#counsel .sector03 {margin-top:10px;}
+#counsel .sector04 {margin-top:40px;}
+#counsel .sector05 {margin:0 auto; overflow-y:scroll; border:1px solid #dcdcdc; width:90%; height:120px; padding:15px;}
+#counsel .sector06 {margin:10px auto 0px auto; text-align:right; color:#787878; width:95%;}
+#counsel .sector07 {margin-top:20px; text-align:center; padding-bottom:30px;}
+#counsel .sector07 a {display:inline-block;}
+#counsel .sector07 img {display:inline-block;}
+
+#counsel .counsel02 .sector01 {margin-top:10px;}
+#counsel .counsel02 .sector02 {margin-top:20px;}
+
+
+
+
+
+#scheduler .scheduler_wrap {padding:10px 0px 6px 0px;}
+#scheduler .moveMonth {margin-top:10px;}
+#scheduler .moveMonth .ui-btn-inner {padding-left:0px !important;padding-right:0px !important; color:#555;}
+#scheduler .moveMonth a span {font-size:12px !important;}
+#scheduler .moveMonth .f1 {float:left; width:35%;}
+#scheduler .moveMonth .f2 {float:left; width:30%;}
+#scheduler .moveMonth .f3 {float:left; width:35%;}
+
+#scheduler .date {font-size:28px;font-weight:bold;border:0px solid red;padding-top:4px;text-align:center;}
+
+#scheduler .backBtn .ui-btn-inner {padding-left:0px !important;padding-right:0px !important; color:#555;}
+#scheduler .backBtn a span {font-size:12px !important;}
+
+#scheduler .inTable th {border-bottom:1px solid #dfdfdf; padding:10px 0px;}
+#scheduler .inTable td {border-bottom:1px solid #dfdfdf; border-left:1px solid #dfdfdf; padding:10px; line-height:16px;}
+#scheduler .inTable tr:first-child td {border-top:2px solid #69b4e2; border-bottom:1px solid #dfdfdf; border-left:1px solid #dfdfdf; padding:10px;}
+#scheduler .inTable tr:first-child th {border-top:2px solid #69b4e2; border-bottom:1px solid #dfdfdf; padding:10px;}
+
+#schedule .sche { }
+#schedule .date {font-size:28px;font-weight:bold;border:0px solid red;padding-top:4px;text-align:center;}
+#schedule .sche th {background-color:#fbfbfb;border-bottom:1px solid #dfdfdf;border-top:2px solid #91b014; padding:15px 0px; border-left:1px solid #dfdfdf;}
+#schedule .sche th:first-child {border-left:0px none;}
+#schedule .sche div.allA {display:block;}
+#schedule .sche p.p_title {font-weight:bold; color:#666; margin:0px 0px 5px 0px; padding-top:3px;}
+#schedule .sche p.loc_info {letter-spacing:-1px; color:#888; font-weight:normal; line-height:20px;}
+
+#schedule .sche td {border-bottom:1px solid #dfdfdf;border-left:1px solid #dfdfdf; padding:10px;}
+#schedule .sche td:first-child {border-left:0px none; padding:10px 0px;}
+#schedule .sche td li {line-height:16px;}
+
+	#schedule .sche tbody td.hts {min-height:60px; height:60px; vertical-align:top;padding:2px;}
+	#schedule .sche tbody td .days {font-weight:bold; padding-bottom:6px;}
+	#schedule .sche tbody td .days>p>a {font-family:verdana;}
+	#schedule .sche tfoot td {border:0px none;}
+
+
+#schedule .sche .sun, #schedule .sche .sun a {color:#ec3d3d !important;}
+#schedule .sche .sat, #schedule .sche .sat a {color:#6197cf;}
+#schedule .sche .week a {color:#999;}
+#schedule .sche .cosmos a {font-size:8pt;color:#ec3d3d;}
+#schedule .sche .today {color:#000000 !important;background-color:#f3feef;}		/* Today-background-color*/
+
+#listUp td {border-color:#dfdfdf; border-style:solid; border-width:1px 0px 1px 1px; padding:6px; }
+#listUp td:first-child {border-left:0px none;text-align:center;}
+#listUp td.colspanTD {border-color:#91b014; border-style:solid; border-width:2px 0px 1px 0px; font-size:15px; font-weight:bold; letter-spacing:-1px; padding:6px 0px; line-height:150%; text-align:left;background-color:#f5fbdc;}
+
+#listUp td.spaceTD {height:32px; border:0px none;}
+

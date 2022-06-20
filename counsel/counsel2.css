@@ -1,0 +1,54 @@
+
+#page .infos {margin: 10px 0;}
+#page .infos .img {position: absolute; width: 400px; height: 660px; background: url('/images/content/counsel_img.jpg') no-repeat center; right: 0; top: 60px;}
+#page .infos .txt {padding: 20px 15px; margin: 20px 0; border-top: 1px solid #555; border-bottom: 1px solid #555;}
+#page .infos .txt li {font-size: 14px; line-height: 200%;}
+#page .counsel_tit {text-align: left; font-size: 30px; color: #111; font-weight: 600;}
+#page .counsel_wrap {float: left; width: 720px;text-align: center;margin: 50px 0; padding-right: 450px; position: relative;}
+#page .counsel_wrap * {outline: none;}
+#page .counsel_wrap input {padding: 10px 15px;border: 1px solid #aaa; height: 25px; font-weight: 500;}
+#page .counsel_wrap .inputs {overflow: hidden; margin: 30px 0;}
+#page .counsel_wrap .inputs div {float: left;margin-right: 30px; width: 220px;}
+#page .counsel_wrap .inputs input {width: 188px;}
+#page .counsel_wrap .inputs .number {margin-right: 0;}
+#page .counsel_wrap .title input {width: 688px;}
+#page .counsel_wrap .textarea {margin: 30px  0;}
+#page .counsel_wrap textarea {padding: 10px 15px; width: 688px; resize: none; font-weight: 500;}
+
+#page .counsel_wrap .imgCaptcha {width: 100%; overflow: hidden;}
+#page .counsel_wrap .imgCaptcha .wrap {background: #eee;overflow: hidden;float: left;padding: 10px;padding-right: 20px;}
+#page .counsel_wrap .imgCaptcha .img {float: left; border: 1px solid #aaa; margin-right: 20px;}
+#page .counsel_wrap .imgCaptcha .img img {height: 45px;}
+#page .counsel_wrap .imgCaptcha .btn {position: relative; float: left; margin: 1px;}
+#page .counsel_wrap .imgCaptcha .refresh {position: absolute; bottom: 0;left: 0;width: 100%;font-size: 12px;font-weight: 400;text-align: center; z-index: 0; }
+#page .counsel_wrap .imgCaptcha button {background: url('/images/content/counsel_arrow.png') no-repeat center top; width: 45px; height: 45px; border: none;padding: 0;cursor: pointer; position: relative; z-index: 1;}
+#page .counsel_wrap .txtCaptcha {float: left; margin: 10px 0; margin-left: 40px;}
+#page .counsel_wrap .txtCaptcha input {width: 188px;}
+
+#page .counsel_wrap .btn_wrap {margin: 50px auto; display: inline-block; *display: inline;}
+#page .counsel_wrap .btn_wrap div {float: left; margin: 0 15px;}
+#page .counsel_wrap .btn_wrap input {padding: 10px 20px; height: 50px; font-size: 16px; border: none; cursor: pointer; font-weight: 500; border: 1px solid #888;
+	transition: all ease .2s;
+	-webkit-transition: all ease .2s;
+	-moz-transition: all ease .2s;
+	-o-transition: all ease .2s;
+}
+#page .counsel_wrap .btn_wrap .btn01 input {background: #888; color: #fff;}
+#page .counsel_wrap .btn_wrap .btn02 input {background: #ff6a21; color: #fff; border-color: #ff6a21;}
+
+#page .counsel_wrap .btn_wrap .btn01:hover input {background: #666; border-color: #666}
+#page .counsel_wrap .btn_wrap .btn02:hover input {background: #fff; color: #ff6a21; font-weight: 600;}
+
+#page .counsel_wrap input::placeholder {font-size: 15px;}
+#page .counsel_wrap input::-webkit-placeholder {font-size: 15px;}
+#page .counsel_wrap input::-moz-placeholder {font-size: 15px;}
+#page .counsel_wrap input::-ms-placeholder {font-size: 15px;}
+#page .counsel_wrap textarea::placeholder {font-size: 15px;}
+#page .counsel_wrap textarea::-webkit-placeholder {font-size: 15px;}
+#page .counsel_wrap textarea::-moz-placeholder {font-size: 15px;}
+#page .counsel_wrap textarea::-ms-placeholder {font-size: 15px;}
+
+#page .counsel_wrap input:focus {border-color: #ff6a21;}
+#page .counsel_wrap input:visited {border-color: #ff6a21;}
+#page .counsel_wrap textarea:focus {border-color: #ff6a21;}
+#page .counsel_wrap textarea:visited {border-color: #ff6a21;}

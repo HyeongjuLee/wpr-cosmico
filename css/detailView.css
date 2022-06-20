@@ -1,0 +1,145 @@
+
+
+#detailView {clear:both;float:left; width:750px;}
+#detailView .imgArea {float:left;}
+#detailView .bImg {width:250px; height:250px; overflow:hidden; text-align:center; border:1px solid #ccc;}
+#detailView .zoomImg {text-align:center;padding:8px 0px 15px 0px;}
+#detailView .inSimg {float:left;border:1px solid #ccc; width:82px; height:82px; text-align:center;}
+#detailView .sImg {clear:both; width:250px; overflow:hidden;}
+#detailView .mr5 {margin-right:5px;}
+
+#detailView .infowrap {width:700px; border:5px solid #d5d5d5; padding:20px;}
+
+#detailInfo {float:left; margin-left:30px;}
+#detailInfo .goodsIcon {padding:5px 0px;}
+#detailInfo .goodsIcon img {margin-right:5px;}
+#detailInfo .goodSubject {font-family:dotum; font-size:16px; font-weight:bold; color:#444; padding:5px 0px 5px 0px;}
+#detailInfo .goodsScript {font-family:dotum; font-size:11px; font-weight:bold; color:#fe781e; padding:5px 0px 10px 0px;}
+#detailInfo .goodsPrice {}
+
+
+#detailInfo .goodsPrice th {text-align:left;padding-left:10px;}
+#detailInfo .goodsPrice .bor1 { border-top:1px solid #929292;}
+#detailInfo .goodsPrice .bor2 { border-bottom:1px solid #ccc;}
+#detailInfo .goodsPrice .bg1 {background-color:#f8f8f8;}
+#detailInfo .goodsPrice .bg2 {background-color:#f8f8f8;}
+#detailInfo .goodsPrice .color1 {color:#444;}
+#detailInfo .goodsPrice .color2 {color:#666;}
+
+#detailInfo .goodsPrice .Tprice .th {padding-left:10px;}
+#detailInfo .goodsPrice .Tprice td {}
+#detailInfo .goodsPrice .Tprice td {font-family:tahoma,verdana, "돋움", "굴림", sans-serif;}
+
+
+#detailInfo .first {margin-top:15px; border-top:1px solid #dbdbdb;}
+#detailInfo .second {border-top:1px dotted #dbdbdb; border-bottom:1px solid #bdbdbd;}
+
+#detailInfo .otherInfo {width:400px;}
+#detailInfo .otherInfo th {padding-left:5px;height:24px;}
+#detailInfo .otherInfo td {font-size:8pt;height:24px;font-family:"돋움",dotum, sans-serif;}
+#detailInfo .input_text {border:1px solid #ddd;}
+
+#detailInfo .optionArea {width:400px;border-bottom:1px solid #bdbdbd;}
+#detailInfo .optionArea th {padding-left:5px;font-size:8pt; background-color:#eee;}
+#detailInfo .optionArea td {font-size:8pt;padding:3px 0px; font-family:"돋움",dotum, sans-serif; background-color:#eee;}
+#detailInfo .optionArea .select {width:240px;}
+
+#detailInfo .btnZone {clear:both;padding-top:15px; text-align:right;}
+
+
+#functionInfo {float:right; background-color:#ddd; width:160px; margin-left:5px; border:1px solid #ccc;}
+
+
+.banner {clear:both;float:left;margin-top:20px;}
+.banner img {display:block;}
+
+.relationGood {clear:both; float:left; border:5px solid #eee; margin-top:2px; width:960px;padding:10px 0px;}
+.relationGood .relationArea {float:left; margin-left:13px;}
+.relationGood .relationArea img {border:1px solid #ccc; padding:2px;}
+.relationGood .relationArea .relationImg { width:176px; height:126px;}
+.relationGood .relationArea .relationTitle {padding-top:5px; text-align:center; font-weight:bold;}
+.relationGood .relationArea .relationPrice {padding:3px 0px; text-align:center; font-family:tahoma,verdana, "돋움", "굴림", sans-serif;}
+
+
+
+.relationTit {clear:both; float:left;  margin-top:20px;}
+.relationBtn {float:right;  margin-top:20px;}
+
+.inContent {clear:both; float:left; width:750px;}
+.deliveryInfo {text-align:center; margin-top:20px;}
+
+#inDelivery {margin:0 auto; width:801px; margin-top:20px;}
+#inDelivery .tit {width:801px;float:left;background:url(/images/shop/delivery_tit_bg.gif) 0 0 no-repeat;}
+#inDelivery .titArea {float:left;}
+#inDelivery .TA1 {margin-left:6px;}
+
+#inDelivery .con {width:801px; height:512px;float:left;background:url(/images/shop/delivery_con_bg.gif) 0 0 repeat-y;}
+#inDelivery .bot {width:801px;height:18px;float:left;background:url(/images/shop/delivery_bot_bg.gif) 0 0 no-repeat; margin-bottom:20px;}
+
+
+#viewImg {padding-top:50px;padding-left:50px;}
+#detailView .imgAdd {margin-top:10px;}
+#detailView .imgAdd ul li {float:left; margin-right:10px;width:80px; height:80px; border:1px solid #cdcdcd;}
+
+
+
+#detailView .dvTL {float:left; width:460px;}
+#detailView .dvTR {float:left; width:500px;margin-left:10px;}
+#detailView .bor_bottom2 {border-bottom:1px dashed #ccc;}
+
+#detailView .dvTR td {padding:5px 0px;}
+
+#detailView .inTable1 {width:380px;}
+#detailView .inTable1 td {text-align:left;background-color:#eee; height:18px; border-bottom:1px dotted #ccc;}
+#detailView .inTable2 {width:380px;}
+#detailView .inTable2 td {text-align:left;background-color:#f7f7f7; height:18px; border-bottom:1px dotted #ccc;}
+#detailView .inTable2 .tdResult {text-align:right;padding-right:10px;}
+
+
+.iconField ul {padding-left:7px;}
+.iconField li {float:left; margin-right:5px;}
+.iconField .iconbgt {clear:both;float:left;width:450px; height:9px;background:url(/images/shop/icon_bg_top.gif) 0 0 no-repeat;margin-top:10px;}
+.iconField .iconbgm {clear:both;float:left;width:450px; background:url(/images/shop/icon_bg_middle.gif) 0 0 repeat-y;}
+.iconField .iconbgb {clear:both;float:left;width:450px; height:9px; background:url(/images/shop/icon_bg_bottom.gif) 0 0 no-repeat;}
+
+
+.baseOption {clear:both;float:left; margin-top:10px;}
+.baseOption th,.baseOption td {border:1px solid #ccc; padding:4px 0px;}
+.baseOption th {background-color:#eee;}
+.baseOption td {padding-left:5px;}
+
+
+.baseTag {clear:both;float:left; margin-top:5px;}
+.baseTag td {border:1px solid #ccc; padding:7px;background-color:#ecf7ff;line-height:16px; color:#888;}
+
+
+.detailView_btn {clear:both;float:left;width:750px; height:33px; border-bottom:2px solid #f4a948;}
+.detailView_btn .tit {float:left;}
+.detailView_btn ul {float:right; margin-top:11px; margin-right:8px;}
+.detailView_btn li {float:left; height:34px;}
+.detailView_btn li img {vertical-align:top;}
+.detailView_btn li.lines {margin:0px 10px;}
+
+
+#detailQna td {text-align:center;font-family:dotum;height:28px;border-bottom:1px dotted #ccc;color:#777;}
+#detailQna img {vertical-align:middle;}
+#detailQna td.subject {text-align:left;padding-left:10px;color:#888;}
+#detailQna td.subject2 {text-align:left;padding-left:10px;color:#8f3900;}
+
+#detailQna .pagingArea {width:750px; padding:7px 0px; text-align:center;}
+
+
+#detailQna td.qna_reply {padding:0px;}
+#detailQna td.qna_reply td {background-color:#feffde; padding:10px 0px; border:0px none; font-size:12px;}
+
+
+#detailReview td {text-align:center;font-family:dotum;height:28px;color:#777;}
+#detailReview td.underline {border-bottom:1px dotted #ccc;}
+#detailReview img {vertical-align:middle;}
+#detailReview td.subject {text-align:left;color:#888; font-weight:bold;}
+#detailReview td.subject a {color:#666;}
+#detailReview td.subject a:hover{color:#333;}
+#detailReview td.subject2 {text-align:left;padding-left:10px;color:#8f3900;}
+#detailReview .pagingArea {width:750px; padding:7px 0px; text-align:center;}
+#detailReview td.review_td2 {padding-bottom:10px;}
+#detailReview td.review_td2 p {width:530px; background-color:#eee; text-align:left; padding:10px; color:#888}

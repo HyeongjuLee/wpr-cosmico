@@ -1,0 +1,7 @@
+@font-face {
+	font-family: Corsiva;
+	src: url('../fonts/Corsiva.eot'); /* IE 호환성 보기 */
+	src: local(※), /* IE 6 ~ 8 */
+		 url('../fonts/Corsiva.ttf') format('truetype'),
+		 url('../fonts/Corsiva.woff') format('woff');
+	}

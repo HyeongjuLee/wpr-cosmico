@@ -1,0 +1,20 @@
+
+	#order .innerTable th {padding:6px 0px; background:#dff8ff; }
+	#order .innerTable2 th {padding:6px 0px; background:#feecd8; border-top:1px solid #cbcbcb;}
+	#order .innerTable3 th {padding:6px 0px; background:#e4f3e7; }
+	#order .innerTable td.inPrice {text-align:right; padding-right:4px;}
+	#order .innerTable td {padding:6px 4px;text-align:center;}
+	#order .innerTable td.total {text-align:right; padding-right:4px;background:#ececec;font-weight:bold;}
+
+	#order select.input_text {line-height:28px; height:28px; border:1px solid #ccc;}
+	#order input.input_checkbox {width:16px; height:16px; margin:2px; padding:0px; vertical-align:middle; cursor:pointer;}
+	.readonly {background:#eee;}
+
+
+	/* 달력 특정일 */
+	.boldedClass a {
+		font-weight:bold !important;
+		color: green !important;
+	}
+
+

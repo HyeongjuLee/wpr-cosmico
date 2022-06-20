@@ -1,0 +1,96 @@
+
+
+img {vertical-align:middle;}
+label {vertical-align:middle; margin-right:15px;}
+select {vertical-align:top; height:20px;}
+
+.search th {border:1px solid #ccc; background-color:#eee;}
+.search td {border:1px solid #ccc; height:31px;padding-left:10px;}
+.btn_area {border:0px none !important;}
+
+
+#counsel .list thead th {height:32px; background-color:#eee;border:1px dotted #ccc;border-top:1px solid #a1a1a1;}
+#counsel .list tbody td {padding:7px 0px; text-align:center;border:1px dotted #ccc; border-bottom:1px solid #a1a1a1;}
+#counsel .list tbody td.contents {text-align:left; padding-left:5px;}
+#counsel .list tbody tr:hover {background-color:#ffefbf;}
+
+
+#counsel .view th {border-right:1px dotted #ccc; border-bottom:1px solid #ccc; background-color:#eee; }
+#counsel .view td {border-bottom:1px solid #ccc; padding:10px 5px;}
+#counsel .view td.contents {background-color:aliceblue;}
+#counsel .view .underline {text-decoration:underline; font-weight:bold;color:teal;}
+#counsel .view .underline:hover {color:slateblue;}
+
+
+
+#qna .list thead th {height:32px; background-color:#eee;border:1px dotted #ccc;}
+#qna .list thead tr.topline th {border-top:1px solid #ccc;}
+
+#qna .list tbody td {padding:7px 0px; text-align:center;border:1px dotted #ccc;}
+#qna .list tbody tr.bottomline td {border-bottom:1px solid #a1a1a1;}
+#qna .list tbody .bottomline {border-bottom:1px solid #a1a1a1;}
+#qna .list tbody .th {background-color:#eee;}
+#qna .list tbody .subject {padding-left:5px; font-weight:bold; text-align:left; background-color:#eefaff;}
+#qna .list tbody .contents {padding-left:5px; text-align:left; color:#777;}
+#qna .list tbody:hover {background-color:#eefaff;}
+
+
+#qna .view tbody th, #qna .view tbody td {border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+#qna .view tbody th {border-right:1px dotted #ccc; background-color:#eee; }
+#qna .view tbody td {padding:10px 5px;}
+#qna .view tbody td.contents {background-color:aliceblue;min-height:80px;}
+
+#qna .view .input_area {width:750px; height:200px;border:1px solid #ccc;}
+
+#qna .view tfoot td {padding:20px 0px; text-align:center;}
+#qna .view tfoot td img {padding:0px 5px;}
+
+
+#review .list thead th {height:32px; background-color:#eee;border:1px dotted #ccc;}
+#review .list thead tr.topline th {border-top:1px solid #ccc;}
+
+#review .list tbody td {height:38px; text-align:center; border:1px dotted #ccc; border-top:0px none;}
+#review .list tbody .bottomline {height:1px;border-bottom:1px solid #a1a1a1;}
+#review .list tbody .underline {border-bottom:1px solid #a1a1a1;}
+#review .list tbody .th {background-color:#eee;}
+#review .list tbody .subject {padding-left:5px; font-weight:bold; text-align:left;}
+#review .list tbody .subjects {padding-left:5px; font-weight:bold; text-align:left;border-bottom:0px none;}
+#review .list tbody .contents {padding-left:5px; text-align:left; color:#777;border-bottom:0px none;border-top:1px dotted #ccc;}
+#review .list tbody:hover {background-color:#eefaff;}
+
+
+#sms {}
+#sms .config th {border-right:1px dotted #ccc; border-bottom:1px solid #ccc; background-color:#eee; }
+#sms .config td {border-bottom:1px solid #ccc; border-left:1px dotted #ccc; padding:10px 5px;}
+#sms .config td.content {background-color:aliceblue;}
+#sms .config .underline {text-decoration:underline; font-weight:bold;color:teal;}
+#sms .config .underline:hover {color:slateblue;}
+
+#sms.list td {border:1px solid #ccc; padding:3px 0px;}
+#sms.list th {border:1px solid #ccc; padding:3px 0px;}
+
+
+#sms.list .readonly {background:#eee;}
+#sms.list .input_text {vertical-align:middle; padding:2px; border:1px solid #ccc;}
+#sms.list .table1 th {background-color:#eee;}
+#sms.list .table1 td {padding:5px 0px 5px 10px;}
+
+
+#sms.list .list th {background-color:#eee; padding:10px 0px;}
+#sms.list .list td {padding:7px 0px; text-align:center;}
+#sms.list .list td.tleft {padding-left:4px;}
+
+
+#collaboration .list {font-size:8pt;}
+#collaboration .list thead th {height:32px; background-color:#eee; border:1px solid #ccc;}
+#collaboration .list tbody td {padding:7px 0px; text-align:center; border:1px solid #ccc;}
+#collaboration .list tbody td.contents {text-align:left; padding-left:5px;}
+#collaboration .list tbody tr:hover {background-color:#ffefbf;}
+
+
+#collaboration .view th {background-color:#eee; border:1px solid #ccc;}
+#collaboration .view td {padding:7px 0px 7px 7px; border:1px solid #ccc;}
+#collaboration .view td.contents {background-color:aliceblue;}
+#collaboration .view .underline {text-decoration:underline; font-weight:bold;color:teal;}
+#collaboration .view .underline:hover {color:slateblue;}
+#collaboration .view .input_area {border:1px solid #ccc;}

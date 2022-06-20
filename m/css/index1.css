@@ -1,0 +1,61 @@
+
+	/* 인덱스 */
+	#index .index_vote {width:100%;}
+	#index .index_vote a {display:block;}
+	#index .index_vote .textArea {padding-left:10px; margin-top:10px;}
+	#index .index_vote .noteLine {font-size:11px; color:#999; line-height:13px;}
+	#index .index_vote .subjLine {font-size:14px; color:#444; line-height:18px; margin-top:7px;}
+	#index .index_vote .priceArea {margin-top:15px;  height:50px;}
+	/#index .index_vote .priceArea {margin-top:15px;  height:50px;}
+	#index .index_vote .discount {font-size:35px; color:#dd1500; font-weight:bold; line-height:35px; letter-spacing:-1px;}
+	#index .index_vote .percent {font-size:18px; color:#dd1500; font-weight:bold; line-height:18px; letter-spacing:-1px;}
+	/*#index .index_vote .priceInArea {margin-left:12px;} PV 표시를 위해서 디스카운트&소비자가 삭제*/
+	#index .index_vote .priceInArea {}
+	#index .index_vote .CustPrice {font-size:12px; color:#999; text-decoration:line-through; line-height:12px; letter-spacing:-1px;}
+	#index .index_vote .sellPrice {font-size:22px; color:#e32c2c; font-weight:bold; line-height:20px; letter-spacing:-1px;}
+	#index .index_vote .sellPrice .currency {color: #3e3d3d; font-size: 14px; margin-left: 2px;}
+	#index .index_vote .PvPrice {font-size:15px; color:#d43f05; font-weight:bold; line-height:20px; letter-spacing:-1px;}
+	#index .index_vote .comment {color: #797979; font-size: 12px;line-height:20px;height:20px;font-weight:bold;}
+	#index .index_vote .subjLine {font-size:16px;}
+
+	#index .index_vote .deliArea {width:120px; right:5px; line-height:25px; text-align:right;}
+	#index .index_vote .delivery {background-color:#d41400; padding:4px 6px; letter-spacing:-1px; color:#fff; width:70px;}
+	#index .index_vote .deliType {margin-top:12px; letter-spacing:-1px;padding:4px 6px; }
+
+
+
+	.m_MainVisual {position:relative; width:100%; overflow:hidden; height:100%; background: url(/images/visual_bg.jpg) no-repeat; background-size: 100%;}
+	.m_MainVisual .visual {position: relative;z-index:0;}
+	.m_MainVisual .DB_imgSet {position:absolute; width:100%; z-index:1; left:0; top:0px;}
+	.m_MainVisual .DB_imgSet li {position:absolute;left:0;top:0;width:100%;height:100%; }
+	.m_MainVisual .DB_imgSet li a{display:block;height:100%}
+
+	.m_MainVisual .DB_prevBtn{position:absolute;z-index:10;top:50%;cursor:pointer;left:20px}
+	.m_MainVisual .DB_nextBtn{position:absolute;z-index:10;top:50%;cursor:pointer;right:20px}
+
+
+
+	.m_MainVisual .DB_menuSet{position:absolute;text-align:center;height:12px; bottom:10px; left: 50%; z-index:5; margin-left: -27px;}
+	.m_MainVisual .DB_menuSet li{display:inline;cursor:pointer;padding:0px 0px; line-height:14px; margin: 0 2px; float: left; border-radius: 12px; width:12px; height:12px; background: #7f7f7f;}
+	.m_MainVisual .DB_menuSet li span {display:inline-block;}
+	.m_MainVisual .DB_menuSet li:hover{background-color:#0381bb;}
+	.m_MainVisual .DB_menuSet li.DB_select{background-color:#0381bb;}
+
+	.m_MainVisual .btn {position: relative;}
+	.m_MainVisual .btn .btn01 {z-index: 9999; overflow: hidden;}
+	.m_MainVisual .btn .btn01 li{width:25%; float: left;}
+
+	.m_MainVisual .img {position: relative;}
+	.m_MainVisual .img .img_btn {position: absolute; top:0; width:53%;}
+
+
+	#index .GoodsLiner {margin:20px auto 0 auto; width:100%; display:inline-block;}
+	#index .GoodsLiner>div {width:32%; margin-left:2%; }
+	#index .GoodsLiner>div:first-child{margin-left:0px;}
+
+	#index .GoodsLiner .imgBoxWrap {position:relative; width:100%;}
+	#index .GoodsLiner .imgBoxWrap:before {content:"";display:block; padding-top:100%;}
+	#index .GoodsLiner .imgBox {position:absolute;top:0; right:0; bottom:0; left:0; border:1px solid #ddd;}
+	#index .GoodsLiner .imgBox a {display:block; width:100%; height:100%;}
+	#index .GoodsLiner .textBox {position:relative; text-align:center; margin-top:10px; line-height:22px;}
+	#index .GoodsLiner .textBox a {display:block; width:100%; height:100%;}

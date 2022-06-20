@@ -1,0 +1,34 @@
+
+
+#member {margin-top:10px;}
+#member th {background-color:#eee; border:1px solid #ccc; border-left:0px none; border-right:0px none; padding:5px 0px; font-size:14px;}
+#member td {border:1px solid #ccc;  padding:5px 5px; padding-left:7px; font-size:13px;}
+#member .htbody td {background-color:#eee;  }
+
+#member .btn_a { background:linear-gradient(#ddd 0%,#bbb 15%,#ccc 100%);
+	border:1px solid #999; color:#fff; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;
+	padding:8px; text-align:center; color:#333; display:block; cursor:pointer;
+}
+
+
+#member_modify .input_radio {vertical-align:middle; padding:0px; margin:0px 0px 2px 0px;}
+
+#member_modify {width:100%; padding:10px 0px 20px 0px;  margin:0px auto;}
+#member_modify th {width: 25%; padding:7px 5px; text-align:left;  color:#333; font-size:13px; border-bottom:1px dashed #ccc; background-color:#fafafa;}
+#member_modify td {width: 75%; padding:7px 5px; font-size:13px; letter-spacing:-0.01em; border-bottom:1px dashed #ccc;}
+#member_modify td div {display:inline-block;}
+#member_modify td div.summary {font-size:12px;}
+#member_modify .input_text {height:26px; line-height:26px;font-size:14px; padding:0px; vertical-align:middle; border:1px solid #ddd;}
+#member_modify .input_btn {height:27px; line-height:27px;font-size:13px; padding:0px; background-color:#eee; border:1px solid #ddd;vertical-align:middle;}
+
+#member_modify .joinBtn {position: relative;display: block; width:45%; margin:0px auto; padding: 8px ;font-size: 13px;line-height: 30px;color: #fff;background: #000;border: none;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px; text-align:center;cursor: pointer;}
+#member_modify .joinTxt {font-weight:bold; letter-spacing:-1px; line-height:28px; font-size:14px; color:#888;}
+#member_modify .jBtn1 {background-color:#ad0d0d; margin-top:15px;}
+#member_modify .jBtn2 {background-color:#777; margin-top:15px;}
+#member_modify a {display:block;color:#fff;}
+
+
+#mypage .agreeArea {margin-top:0px;}
+#mypage .agreeTitle {background-color:#555555; color:#fff; padding:2px 20px 0px 20px; height:36px; line-height:36px; font-size:15px;width:100%;}
+#mypage .agreeBox {border:1px solid #555; overflow-y:scroll; padding:15px; height:130px; border-bottom-width:2px;}
+#mypage .agreeBox2 {border:1px solid #555;  padding:15px; border-bottom-width:1px; width: calc(100% - 0px)}

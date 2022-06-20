@@ -1,0 +1,43 @@
+<!--#include virtual = "/_lib/strFunc.asp" -->
+<%
+	Call noCache
+	Server.ScriptTimeOut = 7200
+
+	MaxFileAbort = 50 * 1024 * 1024 ' 최대파일 크기 업로드 거부(각 파일 별 공통 사항 / 하단의 파일 업로드 사이즈중 가장 큰 값으로 설정)
+	MaxDataSize  = 2
+	MaxDataSize1 = MaxDataSize * 1024 * 1024
+
+	ALERTS_METHOD = "p_reloada"
+
+	If DK_MEMBER_LEVEL < 10 Then Call alerts(LNG_ERROR_MSG_12,ALERTS_METHOD,"")		'권한 추가
+
+	Set Upload = Server.CreateObject("TABSUpload4.Upload")
+	Upload.MaxBytesToAbort = MaxFileAbort
+	Upload.Codepage = 65001
+	Call ChkPathToCreate(BVIR_PATH("upload"))
+	Upload.Start BREAL_PATH("upload")
+
+
+	If Upload.Form("update_image").ImageType = 0 Then Call alerts("이미지만 업로드 할 수 있습니다.",ALERTS_METHOD,"")
+
+	imagepath = trim(Upload.Form("imagepaths"))
+
+	irid = trim(Upload.Form("id"))
+
+	Call ChkPathToCreate(imagepath)
+
+	DirectoryPath = Server.MapPath(imagepath)
+
+	newFileName = Replace(date,"-","")&"_"&Hour(now)&minute(now)&second(now)&"_"&session.sessionID	'.SaveAS
+
+	strData1 = FN_IMAGEUPLOAD("update_image","F",MaxDataSize1,DirectoryPath,"","F","0","0","",ALERTS_METHOD,newFileName,"t3")
+
+
+	Rurl = Upload.Form("callback")&"?callback_func="&Upload.Form("callback_func")
+	Rurl = Rurl & "&sFileName="&strData1
+	Rurl = Rurl & "&sFileURL="&imagepath&"/"&strData1
+	Rurl = Rurl & "&bNewLine=true"
+
+
+	Response.Redirect(Rurl)
+%>

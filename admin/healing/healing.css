@@ -1,0 +1,36 @@
+
+/* 폰 공통영역 */
+	.input_text {border:1px solid #ccc; height:18px; line-height:18px; vertical-align:middle; background-color:#efefef;}
+	.input_file {border:1px solid #ccc; height:20px; line-height:20px; vertical-align:middle; background-color:#efefef;}
+	.select2 {height:20px; line-height:20px; vertical-align:middle;}
+	.select02 {height:22px; line-height:22px; vertical-align:middle; padding-right:20px; padding-left:7px;}
+	.btnZone {border:0px none !important; padding:15px 0px; text-align:center;}
+	.bor1 {border:1px solid #ccc;}
+
+
+	.input_radio {margin:0px 0px 0px 0px; padding:0px; width:16px; height:16px; vertical-align:middle;}
+	label {cursor:pointer;}
+	th {padding:10px 0px; border:1px solid #ccc; background-color:#eee;}
+	td {padding:10px 0px; border:1px solid #ccc; }
+
+
+/* 카테고리 선택 */
+	#ContentArea1 {clear:both; float:left; margin-top:10px; width:230px; overflow:hidden;}
+
+	td.ContentArea1 {padding:0px 0px 0px 10px; border:1px solid #ccc;}
+	td.ContentArea2 {padding:0px; border:0px none;}
+
+/* 카테고리 추가 */
+	#inCate {margin-top:10px; }
+	#inCate td {border:1px solid #ccc; text-indent:7px; padding:6px 0px;}
+
+
+	#divList {clear:both;float:left;margin-top:10px; width:1000px;overflow:hidden;}
+	#divList th, #divList td {border:1px solid #ccc; text-align:center;}
+	#divList td {padding:9px 0px; border-top:0px none;}
+	#divList td.tleft {padding-left:8px;}
+	#divList th {background-color:#eee; height:32px;border:1px solid #ccc;}
+
+
+	.submit {padding:15px 50px;font-weight:bold; font-size:14px;}
+

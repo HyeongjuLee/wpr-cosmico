@@ -1,0 +1,343 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>paytag sample</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<link rel="stylesheet" href="css/sky-forms.css">
+		<link rel="stylesheet" href="css/sky-forms-blue.css">
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="css/sky-forms-ie8.css">
+		<![endif]-->
+		
+		<script src="js/jquery.min.js"></script>
+		<!--[if lt IE 10]>
+			<script src="js/jquery.placeholder.min.js"></script>
+		<![endif]-->		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/sky-forms-ie8.js"></script>
+		<![endif]-->
+
+		<style>
+		  table {
+			width: 100%;
+			border: 1px solid #444444;
+			border-collapse: collapse;
+		  }
+		  th, td {
+			border: 1px solid #444444;
+		  }
+		</style>
+
+	</head>
+	<body>
+		<div class="body">			
+		
+
+
+		<!--------------------------------------------------------------->
+		<!--                      사용자입력폼                              -->
+		<!--------------------------------------------------------------->
+		<form name="userForm" id="userForm"  class="sky-form" >
+
+				<header><img src="./img/paytag.png"> 연동모듈 (classic ASP)</header>
+				
+				<fieldset>	
+				<table>
+					<thead>
+						<tr>
+							<th style='min-width:1px; white-space:nowrap;'>연동방식</th>
+                            <th style='min-width:1px; white-space:nowrap;'>샘플</th>
+							<th style='min-width:1px; white-space:nowrap;'>모둘명</th>
+							<th style='min-width:1px; white-space:nowrap;'>설명</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td rowspan="4">링크방식</td>
+                            <td><strong><a href="./request_form.html" target="_new">request_form.html</a></strong></td>
+                            <td><strong>결제요청</strong></td>
+							<td style="padding-left:5px;">
+                            <strong>신용카드키인</strong>
+                            <br><strong>신용카드결제요청(카카오알림톡)</strong>
+                            <br><strong>가상계좌발급(카카오알림톡)</strong>
+                            </td>
+						</tr>
+						 <tr>
+                            <td><strong><a href="./cancel_form.html" target="_new">cancel_form.html</a></strong></td>
+                            <td><strong>결제취소</strong></td>
+                            <td style="padding-left:5px;">
+                                <strong>신용카드결제취소</strong>
+                            </td>
+                        </tr>	
+						<tr>
+                            <td><strong><a href="./order_cancel_form.html" target="_new">ordcancel_form.html</a></strong></td>
+                            <td><strong>주문취소</strong></td>
+                            <td style="padding-left:5px;">바로결제가 아닌 비동기 결제요청에 대한 취소
+								<br><strong>신용카드결제요청 (카카오알림톡)</strong>
+                            	<br><strong>가상계좌발급 (카카오알림톡)</strong>
+                            </td>
+                        </tr>
+						<tr>
+                            <td><strong><a href="./halbu_form.html" target="_new">halbu_form.html</a></strong></td>
+                            <td><strong>무이자할부</strong></td>
+                            <td style="padding-left:5px;">링크를 통해 새창에서 할부내용확인
+                            </td>
+						</tr>	
+						
+						<tr>
+							<td rowspan="6">API방식</td>
+                            <td><strong><a href="./card_request_api.asp" target="_new">card_request_api.asp</a></strong></td>
+                            <td><strong>신용카드키인결제</strong></td>
+                            <td style="padding-left:5px;">신용카드 번호입력 후 바로 결제
+                            <br><strong>신용카드키인실행</strong>
+                            </td>
+                        </tr>	
+						<tr>
+                            <td><strong><a href="./card_cancel_api.asp" target="_new">card_cancel.asp</a></strong></td>
+                            <td><strong>신용카드결제취소</strong></td>
+                            <td style="padding-left:5px;">결제된 승인거래를 취소함
+                                <br><strong>신용카드결제취소</strong>
+                            </td>
+                        </tr>	
+						<tr>
+                            <td><strong><a href="./card_order_api.asp" target="_new">card_order_api.asp</a></strong></td>
+                            <td><strong>신용카드결제요청</strong></td>
+                            <td style="padding-left:5px;">주문서 등록 후 카카오알림톡으로 주문서전송
+                            <br><strong>신용카드결제요청</strong>
+                            </td>
+                        </tr>	
+						
+                        <tr>
+                            <td><strong><a href="./vbank_order_api.asp" target="_new">vbank_order_api.asp</a></strong></td>
+                            <td><strong>가상계좌발급요청</strong></td>
+                            <td style="padding-left:5px;">주문서 등록 후 카카오알림톡으로 주문서전송
+                            <br><strong>가상계좌발급요청</strong>
+                            </td>
+                        </tr>	
+                        <tr>
+                            <td><strong><a href="./order_cancel_api.asp" target="_new">order_cancel_api.asp</a></strong></td>
+                            <td><strong>주문취소</strong></td>
+                            <td style="padding-left:5px;">결제 요청된 주문서를 취소처리함
+								<br><strong>신용카드결제요청</strong>
+                            	<br><strong>가상계좌발급</strong>
+                            </td>
+						</tr>								
+						<tr>
+                            <td><strong><a href="./halbu_api.asp" target="_new">halbu_api.asp</a></strong></td>
+                            <td><strong>신용카드 무이자할부</strong></td>
+                            <td style="padding-left:5px;">진행중인 시용카드 무이사 할부행사를 수신</td>
+                        </tr>	
+
+					</tbody>
+				</table>
+				</fieldset>
+
+
+				
+				<footer>
+				</footer>
+			</form>
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+		<!--------------------------------------------------------------->
+		<!--      PAYTAG 결제를 위한 폼을 호출                         -->
+		<!-- 해당 폼이름은 고유해야 하며 변경하지 마시기 바랍니다 -->
+		<!-- 해당 폼과 사용자 폼은 분리되어 존재해야 합니다 --------->
+		<!-- 폼이 분리되지 않으면 페이지 이동이 안됩니다    --------->
+		<!--------------------------------------------------------------->
+		<form name="PayTagPayForm" id="PayTagPayForm">
+
+		<!------------------------------------------------->
+		<!-- 가맹점 정보에 맞게 값을 채워주세요       -->
+		<!-- 위 사용자폼에서 값을 입력받아 채움       -->
+		<!------------------------------------------------->        
+		<input type="hidden" name="servicecode" value="PAYTAG">          <!-- 고정값, 필수값 -->
+		<input type="hidden" name="shopcode">
+		<input type="hidden" name="loginid">
+		<input type="hidden" name="alert_path">									
+		<input type="hidden" name="redirect_path">								<!-- alert_path와 동일한 도메인이어야 page 이동이 됩니다. -->
+		<input type="hidden" name="goods_name">
+		<input type="hidden" name="tran_amt">
+		<input type="hidden" name="order_name">
+		<input type="hidden" name="order_hp">
+		<input type="hidden" name="order_email">
+		<input type="hidden" name="taxfree_yn">
+		<input type="hidden" name="pay_method">
+		<input type="hidden" name="order_send_type">
+		<input type="hidden" name="shop_orderno">
+		<input type="hidden" name="shop_member">
+		<input type="hidden" name="shop_field1">
+		<input type="hidden" name="shop_field2">
+		<input type="hidden" name="shop_field3">
+
+
+		<!----------------------------------------------------->
+		<!-- 결제결과를 가져올 필드정보들 ( 고정값 )  ------>
+		<!-- 아래 항목들은 수정이나 변경하지 마십시오!!! -->
+		<!---------------------------------------------->
+		<input type="hidden" name="resultcode">								<!-- 결과코드 : '00', '0000' 은 정상코드 -->
+		<input type="hidden" name="errmsg">									<!-- 실패사유 : 요청이 실패하였을 경우 사유 -->
+		<input type="hidden" name="orderno">									<!-- 페이태그 주문번호 ( 취소시 꼭 필요한 값 ) -->
+
+		<!-- 신용카드 바로결제 관련 결과 필드값 -->
+		<input type="hidden" name="payer_name">								<!-- 결제자명 -->
+		<input type="hidden" name="payer_hp">									<!-- 결제자휴대폰번호 -->
+		<input type="hidden" name="payer_email">								<!-- 결제자이메일 -->
+		<input type="hidden" name="tranno">									<!-- PG거래번호 -->
+		<input type="hidden" name="apprno">									<!-- 승인번호 -->
+		<input type="hidden" name="trandate">									<!-- 거래일자 -->
+		<input type="hidden" name="trantime">									<!-- 거래시간 -->
+		<input type="hidden" name="cardno">									<!-- 결제카드번호 일부값 -->
+		<input type="hidden" name="tran_inst">									<!-- 할부기간 : 00 또는 공백은 '일시불' -->
+		<input type="hidden" name="cardname">								<!-- 결제카드 매입사명 -->
+		<!---------------------------------------->
+
+		<!-- 신용카드 카카오톡 결제요청 관련 결과 필드값 -->
+		<input type="hidden" name="orderinfo_path">							<!-- 주문서 상세정보 url -->
+		<input type="hidden" name="orderinfo_ars">							<!-- ARS 결제 번호 -->
+
+		<!-- 주문서 만기일자 : 신용카드 결제요청 과 가상계좌인 경우만 해당  -->
+		<input type="hidden" name="orderinfo_expiredt">						<!-- 주문 만기일자 -->
+		<!---------------------------------------->
+
+		<!-- 가상계좌 결제요청 관련 결과 필드값 ---->
+		<input type="hidden" name="vbankcode">								<!-- 가상계좌 요청 은행코드 -->
+		<input type="hidden" name="vbankname">								<!-- 가상계좌 요청 은행명 -->
+		<input type="hidden" name="vbankno">									<!-- 가상계좌 요청 계좌번호 -->
+		<input type="hidden" name="vbankowner">								<!-- 가상계좌 요청 예금주명 -->
+		<!---------------------------------------->
+		</form>
+
+		<iframe src="./blank.html" name="hiddenPayTagFrame"  height=0 width=0 frameBorder=0></iframe>
+
+
+
+
+
+
+	</body>
+</html>
+
+
+<script>
+
+	
+	var doubleSubmitFlag = false;   // 중복서브밋 방지 필드
+
+	function requestPayTag()
+	{
+		if( !doubleSubmitFlag )
+		{
+			doubleSubmitFlag = true;
+			// 타이밍 추가
+			setTimeout(function () {
+				doubleSubmitFlag = false;
+			}, 3000)
+			
+
+			var _payForm = document.PayTagPayForm;
+			var _usrForm	  = _usrForm;
+			// --------------------------------------------------------
+			// 입력폼의 값을 페이테그 결제폼의 값에 대입한다.
+			// --------------------------------------------------------
+			$("input[name='shopcode']", _payForm).val( $("input[name='shopcode']", _usrForm).val() );
+			$("input[name='loginid']", _payForm).val( $("input[name='loginid']", _usrForm).val() );			
+			$("input[name='goods_name']", _payForm).val( $("input[name='goods_name']", _usrForm).val() );
+			$("input[name='tran_amt']", _payForm).val( $("input[name='tran_amt']", _usrForm).val() );
+			$("input[name='order_name']", _payForm).val( $("input[name='order_name']", _usrForm).val() );
+			$("input[name='order_hp']", _payForm).val( $("input[name='order_hp']", _usrForm).val() );
+			$("input[name='order_email']", _payForm).val( $("input[name='order_email']", _usrForm).val() );
+			$("input[name='taxfree_yn']", _payForm).val( $("select[name='taxfree_yn'] option:selected", _usrForm).val() );
+			$("input[name='pay_method']", _payForm).val( $("select[name='pay_method'] option:selected", _usrForm).val() );
+			$("input[name='order_send_type']", _payForm).val( $("select[name='order_send_type'] option:selected", _usrForm).val() );  
+			$("input[name='alert_path']", _payForm).val( $("input[name='alert_path']", _usrForm).val() );
+			$("input[name='redirect_path']", _payForm).val( $("input[name='redirect_path']", _usrForm).val() );
+
+			$("input[name='shop_orderno']", _payForm).val( $("input[name='shop_orderno']", _usrForm).val() );
+			$("input[name='shop_member']", _payForm).val( $("input[name='shop_member']", _usrForm).val() );
+			$("input[name='shop_field1']", _payForm).val( $("input[name='shop_field1']", _usrForm).val() );
+			$("input[name='shop_field2']", _payForm).val( $("input[name='shop_field2']", _usrForm).val() );
+			$("input[name='shop_field3']", _payForm).val( $("input[name='shop_field3']", _usrForm).val() );
+			
+			
+			// --------------------------------------------------------
+			// 전송할 값의 유효성검사를 실시
+			// 연동 업체에서 유현하게 처리하시면 됩니다.
+			// --------------------------------------------------------
+			if( $("input[name='shopcode']",  _payForm).val() == "" )
+			{
+				alert("페이태그가맹점 번호를 입력하세요");
+				return;
+			}
+			if( $("input[name='loginid']",  _payForm).val() == "" )
+			{
+				alert("페이태그 ID를 입력하세요");
+				return;
+			}
+			if( $("input[name='alert_path']",  _payForm).val() == "" )
+			{
+				alert("결과를 수신할 전체 URL을 입력하세요");
+				return;
+			}
+			if( $("input[name='redirect_path']",  _payForm).val() == "" )
+			{
+				alert("작업후 이동할 전체 URL을 입력하세요");
+				return;
+			}
+
+			if( $("input[name='goods_name']",  _payForm).val() == "" )
+			{
+				alert("상품명을 입력하시기 바랍니다.");
+				return;
+			}
+			if( $("input[name='tran_amt']",  _payForm).val() == "" )
+			{
+				alert("상품금액을 입력하시기 바랍니다.");
+				return;
+			}
+			if(   parseInt(  $("input[name='tran_amt']", _payForm)  ) < 1000 )
+			{
+				alert("금액은 1000원 이상부터 가능합니다.");
+				return;
+			}
+			if( $("input[name='order_name']",  _payForm).val() == "" )
+			{
+				alert("주문자명을 입력하세요");
+				return;
+			}
+			if( $("input[name='pay_method']",  _payForm).val() == "" )
+			{
+				alert("결제종류를 선택하세요");
+				return;
+			}
+
+			_payForm.target		=	"hiddenPayTagFrame";
+			_payForm.method		=	"POST";
+			_payForm.action		=	"https://api.paytag.kr/callpaytag";		
+			_payForm.submit();
+
+		}
+		else
+		{
+			alert("중복결제 위험으로 잠시후에 재시도 바랍니다");
+			return;
+		}
+	}
+</script>

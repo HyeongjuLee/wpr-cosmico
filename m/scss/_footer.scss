@@ -1,0 +1,186 @@
+@import 'mixin-custom';
+
+/*카피라이터 영역 */
+.footer {
+	$footer-color: lighten(material-color('grey', '800'), 20%);
+	$footer-size: $font-size - rem(3px);
+
+	@include clear;
+	width: 100%;
+	//height: 100%;
+	background: #2c2c2c;
+	font-size: $footer-size;
+	font-weight: 500;
+	color: $footer-color;
+	max-width: 640px;
+	margin: 0 auto;
+
+	.layout_inner {
+		@include position;
+		width: 100%;
+		//height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: rem(40px);
+	}
+
+	article {
+		display: inline-flex;
+		padding: 0 rem(30px) {};
+	}
+	&-left{
+		flex-direction: column;
+		//width: 80%;
+		width: calc(100% - (16.5rem * 2));
+	}
+	&-menu{
+		// ul {
+			@include flex($even);
+			width: 100%;
+			li {
+				a {
+					@include position;
+					@include default-a;
+					color: #6a6a6a;
+					letter-spacing: letter-spacing(-20, $footer-size);
+				}
+				&.foo-menu-line {
+					margin: 0;
+					margin-top: 1px;
+					width: 1px;
+					height: $footer-size - rem(1px);
+					background: #fff;
+					opacity: 0.1;
+	
+				}
+			}
+			.policy2 {
+				a {
+					color: #8f7474;
+				}
+				a::after {
+					//content: '';
+					@include position(absolute, $le: 0, $bot: -15%);
+					width: 100%;
+					height: 2px;
+					background: darken($footer-color, 5%);
+				}
+			}
+		// }
+	}
+	&-info{
+		width: 100%;
+		text-align: center;
+		font-size: $footer-size;
+		letter-spacing: letter-spacing(-20, $footer-size - rem(1px));
+		//line-height: 2;
+		margin-top: rem(30px);
+		
+		p {
+			padding: rem(4px) 0;
+			//white-space: nowrap;
+			@include flex;
+			word-wrap: break-word;
+			word-break: keep-all;
+		}
+		span {
+			margin: 0 1.5%;
+		}
+
+		$link: lighten($footer-color, 15);
+
+		a {
+			@include inline-flex;
+			color: $link;
+			//background: material-color('grey', '50');
+			padding: rem(10px) rem(20px);
+			border: 1px solid rgba($main-color, 0.5);
+			@include rounded(0);
+			cursor: pointer;
+			margin: rem(5px) 1.5%;
+		}
+		a:link, a:active, a:visited, a:hover {
+			color: $link;
+		}
+	}
+	.copyright {
+		font-size: $footer-size - rem(4px);
+		//letter-spacing: letter-spacing(40, $footer-size - rem(4px));
+		color: #5e5e5e;
+		margin-top: rem(15px);
+		a {
+			cursor: text;
+			color: #5e5e5e;
+			text-decoration: none;
+		}
+	}
+
+	&-right {
+	}
+	.footer-icon {
+		@include position;
+		margin-top: rem(20px);
+		ul {
+			@include flex;
+		}
+		li {
+			width: rem(60px);
+			height: rem(60px);
+			margin: rem(10px);
+			font-size: rem(60px);
+			background: material-color('grey', '300');
+			@include rounded(100%);
+			color: #6a6a6a;
+			a {
+				width: 100%;
+				height: 100%;
+				@include flex;
+				cursor: pointer;
+				color: $parent-css;
+				font-size: $parent-css;
+			}
+
+			&:hover {
+				color: #fff;
+				&.naver {
+					background: $naver-green;
+				}
+				&.youtube {
+					background: $youtube-red;
+				}
+				&.facebook {
+					background: $facebook-old;
+				}
+				&.insta {
+					background: $instagram-magenta;
+				}
+				&.kakao {
+					background: $kakao-yellow;
+				}
+			}
+		}
+	}
+	.banners {
+		display: flex;
+		justify-content: flex-end;
+		width: calc(16.5rem * 2);
+		margin-top: rem(60px);
+		a {
+			margin-left: rem(5px);
+		}
+		.macco {}
+		.kossa {display: none;}
+		.ftc {}
+	}
+	button {
+		@include position(fixed, $ri: rem(15px), $bot: rem(30px));
+		z-index: 10;
+		@include default-0;
+		@include default-a;
+		width: rem(70px);
+		height: rem(70px);
+		background: url('/m/images/shop_top.svg') no-repeat center / 100%;
+	}
+}

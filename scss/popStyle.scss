@@ -1,0 +1,194 @@
+@import 'mixin-custom';
+
+/* 팝업관련 기본 */
+
+#popAll1 {
+    width: 100%;
+  
+    .top {
+      clear: both;
+      width: 100%;
+      background: url(/images/admin/pop/popAll1_bg.gif) 0 0 repeat-x;
+    }
+  
+    .bottom {
+      clear: both;
+      width: 100%;
+      background: url(/images/admin/pop/pop_bottom_bg.gif) 0 0 repeat-x;
+      height: 60px;
+  
+      .info {
+        clear: both;
+        float: left;
+      }
+  
+      .btn_area {
+        float: right;
+      }
+    }
+  }
+  
+  #pop_title {
+    clear: both;
+    float: left;
+    width: 100%;
+    height: 40px;
+    background: url(/images/pop/popAll1_bg.gif) 0 0 repeat-x;
+    overflow: hidden;
+  }
+  
+  #popup {
+    .close {
+      text-align: center;
+      margin-top: 13px;
+    }
+  
+    .line1 {
+      height: 1px;
+      background-color: #dedede;
+    }
+  
+    .line2 {
+      height: 2px;
+      background-color: #f4f4f4;
+    }
+  
+    .content {
+      clear: both;
+      color: #555;
+      padding-top: 20px;
+     // width: 300px;
+      height: 60px;
+      overflow: hidden;
+    }
+  }
+  
+  #pop_search {
+    .close {
+      text-align: center;
+      margin-top: 13px;
+    }
+  
+    .line1 {
+      height: 1px;
+      background-color: #dedede;
+    }
+  
+    .line2 {
+      height: 2px;
+      background-color: #f4f4f4;
+    }
+  
+    .content {
+      clear: both;
+      color: #555;
+      padding-top: 20px;
+      //width: 550px;
+      height: 450px;
+  
+      /* overflow:hidden; */
+  
+      overflow-y: auto;
+    }
+  
+    .search_table {
+      width: 100%;
+  
+      th {
+        background: #585858;
+        color: #fcfcfc;
+        padding: rem(10px);
+        font-weight: 500;
+        font-size: $font-size;
+      }
+  
+      td {
+        padding: rem(5px) rem(10px);
+        text-align: center;
+        font-size: $font-size - rem(1px);
+        font-weight: 500;
+      }
+    }
+  }
+  
+  .tron:hover {
+    background: #eee;
+  }
+  
+  .pagings {
+    text-align: center;
+    padding-top: 15px;
+  }
+  
+  .input_text {
+    padding: 2px 0px 1px 0px;
+    border: 1px solid #d6d6d6;
+    vertical-align: middle;
+  }
+  
+  .searchText {
+    font-weight: bold;
+  }
+  
+  #popup_d {
+    .content {
+      clear: both;
+      color: #555;
+      padding-top: 20px;
+      width: 100%;
+      overflow: hidden;
+    }
+  
+    .line1 {
+      height: 1px;
+      background-color: #dedede;
+    }
+  
+    .line2 {
+      height: 2px;
+      background-color: #f4f4f4;
+    }
+  
+    .close {
+      text-align: center;
+      margin-top: 13px;
+    }
+  
+    table.popDetail {
+      width: 100%;
+  
+      th, td {
+        border: 1px solid #fff;
+      }
+  
+      thead th {
+        background: #8d8d8d;
+        color: #fff;
+        padding: 6px 0px;
+        text-align: center;
+      }
+  
+      tbody td {
+        background-color: #f3f3f3;
+        padding: 3px 0px;
+        text-align: center;
+      }
+    }
+  }
+  
+  html {
+    overflow: hidden;
+  }
+  
+  /*크롬 스크롤바 생성 방지*/
+  
+  .bgtitle {
+    padding: 10px 10px;
+    background: #2070aa;
+    display: none;
+  
+    .bgFont {
+      font-size: 20px;
+      color: #eee;
+    }
+  }

@@ -1,0 +1,419 @@
+@charset "UTF-8";
+body { font-size: 1.5rem; line-height: 1.5; }
+
+input, textarea, select { font-family: inherit; }
+input::placeholder, input::-webkit-input-placeholder, textarea::placeholder, textarea::-webkit-input-placeholder, select::placeholder, select::-webkit-input-placeholder { font-family: inherit; color: rgba(33, 33, 33, 0.5); font-size: inherit; line-height: 1.5; font-weight: 500; white-space: normal; }
+
+/*헤더 콘텐츠 영역 */
+#contain { width: 120rem; position: relative; padding: 6rem 0; margin-bottom: 6rem; }
+
+/*GOODS*/
+#index { padding: 0 3rem; }
+
+.goods_wrap { font-size: 0; width: calc(100% + 3rem); margin: 0 -0.75rem; }
+
+.goods { position: relative; width: 39rem; display: inline-block; font-size: 1.5rem; vertical-align: top; margin: 0 0.75rem; margin-bottom: 4.5rem; }
+.goods a { cursor: pointer; text-decoration: none; width: 100%; height: 100%; height: 100%; display: block; }
+.goods .sale { position: absolute; top: 2.25rem; left: 2.25rem; z-index: 1; font-size: 2.25rem; width: 5.7rem; height: 5.7rem; background: #d81b60; color: #fff; display: flex; justify-content: center; align-items: center; font-weight: 200; border-radius: 100%; }
+.goods .img { position: relative; width: 100%; height: 0; padding-bottom: 100%; overflow: hidden; background: #fafafa; }
+.goods .img:after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box; opacity: 0; -moz-transition: all 0.3s; -webkit-transition: all 0.3s; transition: all 0.3s; background: #515151; mix-blend-mode: overlay; }
+.goods .img img { margin-top: 50%; margin-left: 50%; transform: translate(-50%, -50%); }
+.goods:hover .img:after { opacity: 1; }
+.goods .txt { width: 100%; color: #515151; font-weight: 500; letter-spacing: -0.5px; margin-top: 1.9rem; }
+.goods .txt .name { font-size: 1.9rem; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 1; }
+.goods .txt .comment { font-weight: 400; color: #9a9a9a; font-size: 1.6rem; margin-top: 1.5rem; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.goods .txt .price { margin-top: 1.5rem; font-size: 1.7rem; }
+.goods .txt .price .line { color: #a8a8a8; text-decoration: line-through; }
+.goods .txt .price div { display: flex; align-items: center; font-size: 1.7rem; line-height: 1; font-weight: 400; }
+.goods .txt .price div span { font-size: 1.9rem; font-weight: 600; margin-right: 0.5rem; letter-spacing: -0.038rem; }
+.goods .txt .price .pv { margin-top: 0.95rem; color: #da2027; font-size: 1.9rem; font-weight: 600; }
+
+.category { text-align: center; border-top: 2px solid #677485; border-bottom: 1px solid #d9d9d9; width: 100%; height: 9rem; display: flex; justify-content: space-between; align-items: center; padding: 2rem; margin-bottom: 5rem; }
+.category .cate_tit { color: #363636; font-size: 2.25rem; font-weight: 600; letter-spacing: -0.09rem; }
+.category .arrow { width: 4rem; height: 4rem; color: #bdbdbd; border: 1px solid #e0e0e0; border-radius: 100%; font-size: 2.5rem; display: inline-flex; justify-content: center; align-items: center; }
+.category .arrow.left i { -moz-transform: translateX(-5%); -webkit-transform: translateX(-5%); transform: translateX(-5%); }
+.category .arrow.right i { -moz-transform: translateX(5%); -webkit-transform: translateX(5%); transform: translateX(5%); }
+.category .arrow:hover { border-color: #bdbdbd; }
+.category .arrow:hover i { color: #9e9e9e; }
+
+.detail_btn { display: inline-flex; justify-content: center; align-items: center; height: 4.5rem; line-height: 1.5; padding: 0.5rem 1rem; cursor: pointer; z-index: 2; color: #7d7d7d; font-size: 1.3rem; font-weight: 500; border: 1px solid #979797; background: transparent; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
+.detail_btn:hover { background: #da2027; border-color: #da2027; color: #fff; box-shadow: none; }
+.detail_btn.noline { border: none; background: #757575; color: #fff; }
+.detail_btn.noline:hover { background: #303f9f; }
+.detail_btn.width100 { margin-top: 1.5rem; }
+.detail_btn.qr { width: 100%; }
+.detail_btn.red { background: #e91e63; }
+.detail_btn.red:hover { background: #c2185b; }
+.detail_btn.green { background: #4caf50; }
+.detail_btn.green:hover { background: #388e3c; }
+.detail_btn.blue { background: #da2027; }
+.detail_btn.blue:hover { background: #ae191f; }
+.detail_btn.purple { background: #2f2f2f; }
+.detail_btn.purple:hover { background: #161616; }
+.detail_btn.gray { background: #757575; }
+.detail_btn.gray:hover { background: #424242; }
+
+.btnZone { display: flex; justify-content: center; width: 70%; margin: 0 auto; padding-top: 3rem; padding-bottom: 3rem; }
+.btnZone a, .btnZone input { display: inline-flex; justify-content: center; align-items: center; height: 5rem; width: 30%; margin: 1.5rem; background: transparent; font-size: 1.8rem; cursor: pointer; font-family: inherit; border: none; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
+.btnZone input { background: #da2027; color: #fff; }
+.btnZone a { background: #2f2f2f; color: #fff; }
+.btnZone a * { background: none; font-family: inherit; font-size: inherit; color: inherit; left: initial; height: initial; }
+.btnZone a:hover { color: inherit; }
+.btnZone .cancel { background: #e0e0e0; color: #222; }
+.btnZone .cancel:hover { background: lightgray; }
+.btnZone .promise { background: #da2027; color: #fff; }
+.btnZone .promise:hover { background: #e4494f; }
+.btnZone .order { background: #d50000; color: #fff; }
+.btnZone .order:hover { background: #a20000; }
+
+#order.orderFinish .payment .selectPay { margin: 1.5rem 0; }
+#order.orderFinish .payment .selectPay p { width: 100%; padding: 1.5rem; background: #f5f5f5; font-size: 2rem; text-align: center; }
+#order.orderFinish .payinfoWrap { display: flex; justify-content: center; align-items: center; }
+#order.orderFinish .payinfoWrap table tr:first-child th, #order.orderFinish .payinfoWrap table tr:first-child td { border-top: none; }
+#order.orderFinish .payinfoWrap .cart_btn p { word-break: keep-all; margin: 0 auto; font-weight: 500; width: 70%; }
+#order.orderFinish .totals p { padding: 3rem; margin-top: 20%; word-break: keep-all; }
+
+/*********************************************/
+/* Cart.asp Order.asp Order_finish.asp 공통  */
+/* detailView.asp 공통  											*/
+/*********************************************/
+#loadingPro { position: fixed; z-index: 99999; width: 100%; height: 100%; top: 0px; left: 0px; background: url(/images_kr/loading_bg70.png) 0 0 repeat; display: none; }
+#loadingPro .loadingImg { position: relative; top: 40%; text-align: center; }
+
+.input_text, .input_select { width: 30rem; height: 4.5rem; font-size: inherit; line-height: inherit; background: #fff; border: 1px solid #bdbdbd; padding: 0 1.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; }
+
+.input_select { cursor: pointer; }
+
+#order { color: #353535; }
+#order .order_title { height: 3rem; line-height: 3rem; font-weight: 500; font-size: 2rem; margin-bottom: 1.5rem; }
+#order .order_title label { height: 3rem; line-height: 3rem; font-weight: normal; font-size: 1.5rem; float: right; }
+#order .TotalArea { border-bottom: 1px solid #777; border-top: 2px solid #545454; margin-top: 1.5rem; }
+#order .TotalArea .AreaZone { background-color: #f5f5f5; padding: 1.5rem; margin: 0px auto; width: 100%; display: flex; justify-content: center; align-items: center; }
+#order .TotalArea .AreaZone li { display: inline-flex; justify-content: space-evenly; align-items: center; position: relative; width: 30%; flex: 1; padding: 1.5rem; font-weight: 600; }
+#order .TotalArea .AreaZone li i { position: absolute; top: 50%; left: 0; -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #bdbdbd; font-size: 3rem; width: 2.25rem; height: 2.25rem; display: flex; justify-content: center; align-items: center; }
+#order .TotalArea .AreaZone li p { display: flex; align-items: center; }
+#order .TotalArea .AreaZone #DeliveryArea i { font-size: 1.8rem; color: #bdbdbd; }
+#order .TotalArea span.tit { font-size: 1.6rem; line-height: 1; font-weight: 600; color: #383838; }
+#order .TotalArea span.tit2 { padding-left: 3rem; }
+#order .TotalArea span.won { margin-left: 0.5rem; margin-top: 1px; font-size: 1.4rem; color: #3f3e3e; }
+#order .TotalArea .point th.noline { font-weight: 500; }
+#order .TotalArea .point td { padding: 1.5rem; }
+#order .TotalArea .point.bor_12 { padding: 1.5rem; }
+#order .TotalArea .point div.point { display: inline-flex; justify-content: flex-start; align-items: center; }
+#order .TotalArea .point div.point input[name="useCmoney"] { width: 15rem; height: 3rem; }
+#order .TotalArea .point div.point input ~ p { margin-left: 3rem; font-size: 1.5rem; }
+#order #LastArea .tit { color: #222; }
+#order .price { font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ position: relative; position: relative; font-size: 2.5rem; text-align: right; font-weight: 700; color: #3f3e3e; letter-spacing: -1px; }
+#order .LastArea { color: #f2002e; }
+#order .list { text-align: left; color: #353535; }
+#order .list th { text-align: center; background: #f5f5f5; font-weight: 500; font-size: 1.5rem; border-top: 2px solid #333; padding: 1.5rem; }
+#order .list td { background-color: #ffffff; }
+#order .list tbody td { border-bottom: 1px dotted #ccc; padding: 1.5rem; font-size: 1.5rem; }
+#order .list tfoot td { padding-top: 0.75rem; }
+#order .list tfoot td img { margin-right: 2px; }
+#order .thumImg { width: 82px; text-align: center; border: 1px solid #ccc; background-color: #fff; }
+#order .newWindow { width: 82px; text-align: center; border: 1px solid #ccc; border-top: 0px none; padding: 2px 0px; letter-spacing: -1px; }
+#order .goodsInfo p { margin-top: 3px; }
+#order .goodsInfo p:first-child { margin-top: 0px; }
+#order .goodsInfo .icons { margin-right: 2px; vertical-align: middle; }
+#order .goodsInfo .goodsName { font-size: 1.6rem; font-weight: 600; }
+#order .goodsInfo .goodsNote { font-size: 1.5rem; color: #5a5a5a; }
+#order .goodsInfo .goodsComment { font-size: 1.4rem; color: #5a5a5a; }
+#order .goodsInfo .goodsOption { color: #757575; line-height: 1.5; font-size: 1.4rem; }
+#order .goodsInfo .goodsOption b { color: #616161; font-weight: 500; display: block; line-height: inherit; }
+#order .goodsInfo .goodsOption span { font-weight: 500; line-height: inherit; margin-right: 1.5rem; }
+#order .goodsInfo .bor_l { border-left: 1px dotted #ccc; }
+#order .goodsInfo .bor_l2 { border-left: 1px solid #dddddd; }
+#order .goodsInfo tr.bgC1 td { background-color: #ffffff; }
+#order .goodsInfo tr.lastTR td { border-bottom: 1px solid #a7a7a7; }
+#order .goodsInfo .lastTD { /* border-bottom:1px solid #a7a7a7; */ padding: 1.5rem 10px; word-break: keep-all; word-wrap: break-word; }
+#order .goodsInfo tbody { border-top: 1px solid #a7a7a7; border-bottom: 1px solid #a7a7a7; }
+#order .goodsInfo tbody tr:first-child td { border-top: 1px solid #a7a7a7; }
+#order .goodsInfo .strComName { font-size: 13px; color: #b5abab; text-decoration: underline; }
+#order .goodsInfo .deliveryeach { font-size: 13px; color: #777777; }
+#order .goodsInfo .deliverytotal { font-size: 13px; color: #454545; display: inline-block; padding-top: 8px; }
+#order .goodsInfo .selltypeName { font-size: 13px; font-weight: 400; }
+#order .goodsInfo .goodsAlert { font-weight: 500; color: #eb301b; }
+#order .icon-red { display: inline-block; min-width: 50px; padding: 2px 4px; background-color: #df4545; color: #fff; font-size: 14px; font-weight: 300; }
+#order .disArea th.bor_top { border-top: 1px solid #ccc; }
+#order .disArea td { font-size: 1.5rem; padding: 1.5rem 3rem; border-top: 1px solid #ccc; color: #4a4a4a; }
+#order .disArea td.bor_l2 { border-left: 1px dotted #ccc; }
+#order .disArea td.bor_l { border-left: 1px solid #ccc; }
+#order .disArea td li { line-height: 22px; }
+#order .disArea td li strong { display: inline-block; text-align: right; }
+#order .disArea td.summ { vertical-align: top; }
+#order .disArea td.summ .tit { color: #222; font-weight: 600; }
+#order .disArea td.summ li > strong { display: inline-block; width: 180px; text-align: right; }
+#order .disArea td.point li strong { display: inline-block; width: 140px; text-align: right; }
+#order .disArea td b { font-weight: 600; margin-right: 0.75rem; }
+#order .input_gray01 { font-size: 12px; line-height: 22px; height: 22px; border: 1px solid #ccc; width: 50px; padding: 0px 4px; text-align: right; }
+#order .disArea td.summ .summTD td { padding-left: 0px; border-top: 0px solid #ccc; }
+#order .disArea td.summ .summTD strong { text-align: right; display: inline; width: auto; }
+#order .disArea td.noline { border-top: none; }
+#order .label_wrap.labels { position: relative; }
+#order .label_wrap.labels label { float: left; cursor: pointer; color: #212121; font-weight: 500; position: relative; display: inline-flex; justify-content: center; align-items: center; font-size: 1.5rem; flex: auto; margin: 1.5rem; line-height: 2; }
+#order .label_wrap.labels label i { color: #757575; font-size: 1.2rem; margin-right: 0.75rem; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; position: relative; z-index: 2; }
+#order .label_wrap.labels label span { position: relative; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; z-index: 1; }
+#order .label_wrap.labels label span:before { content: ""; position: absolute; bottom: -5px; right: -10px; width: calc(100% + 10px + 3rem); height: calc(100% + 10px); background: #f5f5f5; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; z-index: -1; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
+#order .label_wrap.labels label input[type="radio"] { position: absolute; visibility: hidden; z-index: -1; }
+#order .label_wrap.labels label input[type="radio"]:checked ~ i { color: #fff; }
+#order .label_wrap.labels label input[type="radio"]:checked ~ span { color: #fff; }
+#order .label_wrap.labels label input[type="radio"]:checked ~ span:before { color: #fff; background: #25a8df; }
+#order .label_wrap.labels label input[type="radio"]:disabled ~ span, #order .label_wrap.labels label input[type="radio"]:disabled ~ i { color: #bdbdbd; }
+#order .orderInfos { margin-top: 6rem; display: inline-block; width: 100%; }
+#order .orderInfos .order_title { position: relative; }
+#order .orderInfos .label_wrap.labels { position: absolute; bottom: -10px; right: 0; }
+#order .orderInfos th, #order .orderInfos td { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 1.5rem; text-align: left; }
+#order .orderInfos th { background-color: #f5f5f5; font-weight: 500; }
+#order .orderInfos tr:first-child th, #order .orderInfos tr:first-child td { border-top: 2px solid #333; }
+#order .orderInfos td.zipTD > div { display: flex; justify-content: flex-start; align-items: center; font-size: 0; }
+#order .orderInfos td.zipTD > div input { width: 100%; }
+#order .orderInfos td.zipTD > div p { margin-right: 1.5rem; font-size: 1.5rem; }
+#order .orderInfos td.zipTD > div p:nth-of-type(1) input { width: auto; }
+#order .orderInfos td.zipTD > div p:nth-of-type(2) { flex: 1; }
+#order .orderInfos td.zipTD > div p:nth-of-type(3) { flex: 1; margin-right: 0; }
+#order .orderInfos td.zipTD > div .detail_btn { margin-left: 0.75rem; }
+#order .orderInfos input[name="orderMemo"] { width: 100%; }
+#order .orderInfos .input_text1 { line-height: 28px; height: 28px; border: 1px solid #ccc; vertical-align: top; }
+#order .payment { margin-top: 6rem; }
+#order .payment .order_title { border-bottom: 2px solid #333; padding-bottom: 1.5rem; height: auto; margin-bottom: 0; }
+#order .payment .selectPay { display: flex; justify-content: flex-start; align-items: center; }
+#order .payment .selectPay label { flex: initial; }
+#order .payment .selectPay .input_select { background: #fff; padding: 0.5rem 1.5rem; height: 3rem; width: auto; margin-left: 0.75rem; }
+#order .payment .selectPay.title { padding: 1.5rem; color: #da2027; font-size: 1.5rem; line-height: 1.5; font-weight: 700; }
+#order .payment .selectPay.title p { background: rgba(218, 32, 39, 0.1); -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; padding: 0.75rem 1.5rem; }
+#order .payment .Agreement { padding: 1.5rem 0px; }
+#order .payment .payinfoWrap { background: url(/images_kr/shop/payWarp_bg.gif) 65% 0 repeat-y; border-top: 1px solid #999; border-bottom: 1px solid #999; position: relative; }
+#order .payment .payinfoWrap::before { content: ""; position: absolute; top: 0; left: 0; width: 65%; height: 100%; z-index: -1; background: #f7f7f7; }
+#order .payment .payinfoWrap .cart_btn { text-align: center; }
+#order .payment .payinfoWrap .tit { text-align: left; font-size: 1.6rem; line-height: 40px; font-weight: 500; margin: 5px 20px; }
+#order .payment .payinfoWrap #payArea { font-size: 3rem; line-height: 1.5; font-weight: 700; vertical-align: middle; text-align: right; height: auto; color: #ea0000; letter-spacing: -1px; }
+#order .payment .payinfoWrap span.won { margin-left: 2px; font-size: 1.5rem; color: #3f3e3e; font-weight: 500; vertical-align: sub; }
+#order .payment .payinfoWrap .PriceArea { margin-top: 1.5rem; vertical-align: middle; background-color: #f5f5f5; padding: 1.5rem; text-align: center; }
+#order .payment .payinfoWrap .btnArea { margin: 25px 0; }
+#order .payment .payinfoWrap .btnArea input { display: inline-block; height: 40px; padding: 0px 35px; cursor: pointer; }
+#order .payment .payinfoWrap .btnArea a { display: inline-block; height: 38px; padding: 0px 35px; margin-left: 6px; }
+#order .payment .payinfoWrap table.mComplex { border-top: 1px solid #898989; margin-top: -1px; }
+#order .payment .payinfoWrap table.mComplex tr:first-child th, #order .payment .payinfoWrap table.mComplex tr:first-child td { border-top: 1px solid #555; }
+#order .payment .payinfoWrap select.input_text, #order .payment .payinfoWrap select.input_select { line-height: 27px; height: 27px; border: 1px solid #ccc; }
+#order .payment .payinfoWrap th, #order .payment .payinfoWrap td { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 1.5rem; text-align: left; background: #fff; }
+#order .payment .payinfoWrap th { background-color: #f5f5f5; font-weight: 500; word-break: keep-all; }
+#order .payment .payinfoWrap .pay td { border-right: 1px solid #ebebeb; }
+#order .payment .payinfoWrap .pay tr:last-child th, #order .payment .payinfoWrap .pay tr:last-child td { border-bottom: none; }
+#order .payment .payinfoWrap td select { zoom: 1; width: auto; }
+#order .payment .payinfoWrap td select option { line-height: 18px; }
+#order .payment .payinfoWrap td ul li { line-height: 20px; }
+#order .payment .payinfoWrap .input_text, #order .payment .payinfoWrap .input_select { line-height: 29px; height: 29px; border: 1px solid #ccc; /* vertical-align: top; */ padding-left: 6px; }
+#order .payment .payinfoWrap .paymethod { background: #A5C1CE; text-align: center; padding: 2px; border-bottom: none; }
+#order .payment .payinfoWrap .paymethodAdd { background: #85d6c0; text-align: center; padding: 2px; }
+#order .payment .payinfoWrap .totals { padding: 1.5rem; word-break: keep-all; }
+#order .payment .payinfoWrap .totals .tit { margin: 0; line-height: 1.5; }
+#order .payment .payinfoWrap .btnZone { flex-direction: row; padding: 0; padding-top: 0.75rem; width: 100%; }
+#order .payment .payinfoWrap .btnZone input { width: calc(50% - 0.75rem); }
+#order .payTypeLeftArea { width: 65%; min-height: 210px; border-right: 1px solid #ccc; }
+#order .payTypeLeftArea table tr:first-child th, #order .payTypeLeftArea table tr:first-child td { border-top: none; }
+#order .order_infos { font-size: 16px; font-weight: 500; border: 3px solid #ebebeb; color: #3a3a3a; text-align: left; padding: 8px 0 8px 8px; margin: 10px 0; }
+#order .order_infos .ordNo { color: #3a3a3a; font-weight: 400; }
+#order .cart_select { width: 100%; clear: both; float: left; margin-top: 60px; margin-bottom: 3rem; text-align: center; }
+#order .cart_select img { margin-left: 9px; }
+
+/* 카드, 무통장, 복합결제 */
+/* 복합결제 구분선 */
+/* #order .payment .payinfoWrap tr.lastTD th {border-bottom:1px solid #777;}
+#order .payment .payinfoWrap tr.lastTD td {border-bottom:1px solid #777;} */
+/*주문완료 */
+/* cart_infos -> order_infos */
+#Agreement { padding: 1.5rem 0px; background-color: #f7f7f7; border-top: 1px solid #999999; margin-top: -1px; font-weight: 500; }
+#Agreement p { font-weight: bold; width: 90%; margin-left: 5%; }
+#Agreement p.ag { letter-spacing: -1px; }
+#Agreement .AgreementBox { width: 90%; padding: 1.5rem; background-color: #fff; line-height: 1.5; font-size: 1.3rem; border: 1px solid #ccc; margin-left: 5%; margin-top: 5px; }
+#Agreement div.ag { font-weight: 600; width: 90%; margin-left: 5%; letter-spacing: -1px; font-size: 1.4rem; margin-bottom: 0.75rem; }
+#Agreement .yesagree { color: #d75623; font-size: 1.4rem; display: inline-flex; justify-content: center; align-items: center; }
+#Agreement .yesagree input { margin: 0; margin-right: 0.5rem; }
+#Agreement label { font-weight: 500; padding-left: 5px; }
+
+#PG_POLICY_AREA { padding-bottom: 1.5rem; background-color: #f7f7f7; }
+
+#PGAgreement { padding: 5px 0px; background-color: #f7f7f7; }
+#PGAgreement div.ag { font-weight: 600; width: 90%; margin-left: 5%; letter-spacing: -1px; font-size: 1.4rem; }
+#PGAgreement .AgreementBox { width: 90%; padding: 1.5rem; background-color: #fff; line-height: 18px; font-size: 1.5rem; border: 1px solid #ccc; margin-left: 5%; margin-top: 5px; overflow-y: scroll; height: 50px; }
+#PGAgreement .yesagree { color: #d75623; font-size: 1.4rem; }
+#PGAgreement .input_chk { vertical-align: middle; }
+#PGAgreement label { font-weight: 500; padding-left: 5px; }
+
+/* 복합결제 S */
+#mComplexInfo .CardPriceTotal { display: flex; justify-content: center; align-items: center; }
+#mComplexInfo .CardPriceTotal .box { display: inline-flex; justify-content: center; align-items: center; padding: 0 1.5rem; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; flex: 1; color: #222; margin: 0.75rem; }
+#mComplexInfo .CardPriceTotal .box .tit { font-size: 1.5rem; }
+#mComplexInfo .CardPriceTotal .box p { display: flex; justify-content: center; align-items: center; }
+#mComplexInfo .CardPriceTotal .box p span { font-size: 2.25rem; font-weight: 700; letter-spacing: -1px; }
+#mComplexInfo .CardPriceTotal .box p span.won { font-size: inherit; color: inherit; margin-left: 0.5rem; letter-spacing: 0; font-weight: 500; }
+#mComplexInfo .CardPriceTotal .box.red { background: rgba(255, 235, 238, 0.5); }
+#mComplexInfo .CardPriceTotal .box.blue { background: rgba(227, 242, 253, 0.5); }
+#mComplexInfo .CardPriceTotal td.title { font-weight: bold; font-size: 14px; text-align: center; }
+#mComplexInfo .CardPriceTotal td.amount { font-weight: bold; font-size: 20px; text-align: center; background-color: #fff; }
+#mComplexInfo .CardPriceTotal td.amountR { font-weight: bold; font-size: 20px; text-align: right; background-color: #fff; padding-right: 60px; }
+#mComplexInfo .addChk { width: 16px; height: 16px; border: 2px solid red; margin-top: -2px; border: solid white; }
+
+/*
+#or der .a_submit  {display: inline-block; padding: 0px 10px; vertical-align: middle; cursor: pointer; line-height: 27px; font-size: $font-size;}
+#or der .addbtn  {display: inline-block; padding: 0px 10px; vertical-align: middle; cursor: pointer; line-height: 27px; font-size: $font-size;}
+#or der .design1 {background-color: #337ab7; border:1px solid #2e6da4; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#or der .design2 {background-color: #f9f9f9; border:1px solid #cccccc; border-radius: 3px; color:#666 !important;font-weight:normal;}
+#or der .design3 {background-color: #898989; border:1px solid #606060; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#or der .design4 {background-color: #c40d0d; border:1px solid #880000; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#or der .design5 {background-color: #33b793; border:1px solid #1a9473; border-radius: 3px; color:#fff !important;font-weight:normal;}
+#or der .design6 {background-color: #ffffff; border:1px solid #cccccc; border-radius: 3px; color:#222 !important;font-weight:normal;}
+*/
+#order .paytypeAddArea { padding: 7px 10px; text-align: center; overflow: hidden; }
+#order .paytypeAddArea .fleft { margin-top: 4px; }
+#order .paytypeAddArea .fright { position: relative; }
+#order .paytypeAddArea .fright label { position: relative; float: left; cursor: pointer; color: #009688; font-weight: 500; position: relative; display: inline-flex; justify-content: center; align-items: center; font-size: 1.3rem; flex: auto; margin: 1rem; line-height: 1.5; }
+#order .paytypeAddArea .fright label i { font-size: 1.2rem; margin-right: 0.75rem; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; position: relative; z-index: 2; }
+#order .paytypeAddArea .fright label span { position: relative; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; z-index: 1; }
+#order .paytypeAddArea .fright label span:before { content: ""; position: absolute; bottom: -5px; right: -10px; width: calc(100% + 10px + 3rem); height: calc(100% + 10px); -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; z-index: -1; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #4db6ac; }
+#order .paytypeAddArea .fright label input[type="checkbox"] { position: absolute; visibility: hidden; z-index: -1; }
+#order .paytypeAddArea .fright label input[type="checkbox"]:checked ~ i { color: #fff; }
+#order .paytypeAddArea .fright label input[type="checkbox"]:checked ~ span { color: #fff; }
+#order .paytypeAddArea .fright label input[type="checkbox"]:checked ~ span:before { color: #fff; background: #009688; border-color: #009688; }
+
+/* 복합결제 E */
+/* 업체별 주문합계 */
+.sumCartShopArea { background: rgba(250, 250, 250, 0.5) !important; border-bottom: 1px solid #555 !important; }
+
+.sumCartShop { display: flex; justify-content: space-evenly; align-items: center; }
+.sumCartShop div { position: relative; font-size: 16px; line-height: 1.5; display: inline-flex; align-items: center; }
+.sumCartShop span { display: inline-block; vertical-align: bottom; }
+
+.sumCart02 { color: #3f3e3e; }
+
+.sumCartShop .pStitle { margin-right: 40px; color: #2b2b2b; }
+.sumCartShop .pStitle.sWidth { width: 70px; }
+.sumCartShop .pStitle.tWidth { width: 1 3rem; }
+.sumCartShop .sPrice { min-width: 92px; text-align: right; }
+.sumCartShop .pPrice { font-size: 20px; font-weight: 500; margin-right: 5px; }
+.sumCartShop .pUnit { font-size: 1.5rem; }
+.sumCartShop .pv { font-size: 18px; font-weight: 500; color: #f2002e; }
+.sumCartShop .pvUnit { font-size: 13px; color: #f2002e; }
+.sumCartShop .flexColumn { flex-direction: column; justify-content: center; }
+.sumCartShop h2.plus:after { content: ' \002B'; }
+.sumCartShop h2.equal:after { content: ' \003D'; }
+
+/* detialView */
+#detailView { margin-top: 3rem; }
+#detailView .GoodsSubject { line-height: 102px; height: 80px; vertical-align: middle; font-size: 3rem; font-weight: 500; position: relative; color: #2a2a2a; }
+#detailView .GoodsSubject_R { height: 60px; vertical-align: middle; font-size: 3rem; font-weight: 400; position: relative; color: #2a2a2a; background: #ffffff; }
+#detailView .GoodsComment_R { vertical-align: middle; font-size: 1.5rem; font-weight: normal; position: relative; color: #2a2a2a; background: #ffffff; padding: 0px 0px 10px 2px; }
+#detailView .GoodsComment { font-size: 12px; line-height: 18px; font-family: 'dotum'; }
+#detailView .GoodsComment .icons { margin-right: 2px; vertical-align: middle; }
+#detailView .infowrap { margin-top: 10px; }
+#detailView .imgArea { width: 480px; }
+#detailView .bImg { width: 450px; height: 450px; overflow: hidden; text-align: center; border: 1px solid #ccc; }
+#detailView .zoomImg { width: 450px; text-align: center; padding: 8px 0px 1.5rem 0px; }
+#detailView .inSimg { float: left; border: 1px solid #ccc; width: 75px; height: 75px; text-align: center; }
+#detailView .sImg { clear: both; width: 450px; overflow: hidden; margin-top: 4px; }
+#detailView .mr5 { margin-right: 14px; }
+
+/*270*/
+/*250*/
+/*250*/
+/*58*/
+/*252*/
+/*4*/
+#detailInfo { float: left; margin-left: 1.5rem; width: 705px; }
+#detailInfo .price_dis_bg { position: absolute; }
+#detailInfo .price_dis_bg div { position: absolute; width: 68px; height: 46px; background: url(/images_kr/shop/price_dis_bg.png) 0 0 no-repeat; top: 60px; left: 6 3rem; font: bold 16px tahoma; color: #fff; text-align: center; }
+#detailInfo .price_dis_bg div span { width: 68px; height: 46px; display: inline-block; margin-top: 6px; }
+#detailInfo .goodSubject { font-family: dotum; font-size: 16px; font-weight: bold; color: #58a717; padding: 5px 0px 5px 0px; line-height: 160%; }
+#detailInfo .goodsScript { font-family: dotum; font-size: 12px; font-weight: bold; color: #fe781e; padding: 5px 0px 10px 0px; line-height: 160%; }
+#detailInfo .GoodsNumber { font-family: tahoma, "돋움", dotum, gulim; }
+#detailInfo div.GoodsCustomer:first-child { border-bottom: 1px solid #e2e2e2; }
+#detailInfo .GoodsCustomer { font-weight: 600; background-color: #f7f7f7; text-indent: 14px; padding: 5px 0px 3px 0px; font-size: 16px; color: #525252; }
+
+/* 620px*/
+#detailView .GoodsCustomer .GoodsNumber { text-decoration: line-through; font-size: 18px; }
+#detailView .GoodsCustomer .icons { margin-right: 2px; vertical-align: middle; }
+
+#detailInfo .GoodsPrice { font-weight: 600; background-color: #f7f7f7; text-indent: 14px; border-bottom: 1px solid #e2e2e2; padding: 7px 0px 12px 0px; font-size: 16px; color: #3f3e3e; }
+#detailInfo .GoodsPrice .GoodsNumber { font-size: 22px; }
+#detailInfo .GoodsPriceTot { font-weight: 600; background-color: #ffffff; text-indent: 14px; border-bottom: 1px solid #e2e2e2; padding: 7px 0px 12px 0px; font-size: 1.5rem; color: #3f3e3e; }
+#detailInfo .GoodsPriceTot .GoodsNumber { font-size: 22px; }
+#detailInfo .GoodsPV { font-weight: 600; background-color: #ffffff; text-indent: 14px; border-bottom: 1px solid #e2e2e2; padding: 7px 0px 12px 0px; font-size: 14px; color: #ea0000; }
+#detailInfo .GoodsPV .GoodsNumber { font-size: 18px; }
+#detailInfo .GoodsGV { font-weight: 600; background-color: #ffffff; text-indent: 14px; border-bottom: 1px solid #e2e2e2; padding: 7px 0px 12px 0px; font-size: 14px; color: green; }
+#detailInfo .GoodsGV .GoodsNumber { font-size: 18px; }
+#detailInfo .option, #detailInfo td.option { background-color: #f7f7f7; }
+#detailInfo th { padding: 12px 0px 12px 14px; border-bottom: 1px solid #e2e2e2; font-size: 1.5rem; font-weight: 500; text-align: left; color: #404040; background-color: #fafafa; }
+#detailInfo td { padding: 12px 0px 12px 14px; border-bottom: 1px solid #e2e2e2; font-size: 1.5rem; color: #3f3e3e; }
+#detailInfo td.point { background-color: #f7f7f7; font-size: 14px; }
+#detailInfo .ea_bg { display: inline-block; border: 1px solid #ccc; /* line-height:22px; */ vertical-align: top; width: 24px; height: 24px; text-align: center; background-color: #fafafa; }
+#detailInfo .ea_bg a { display: block; margin-top: 1px; }
+#detailInfo .input_text_ea { border-width: 1px 0px 1px 0px; border-color: #ccc; border-style: solid; line-height: 24px; height: 24px; font-size: 13px; vertical-align: top; }
+#detailInfo .btnZone { padding-top: 1.5rem; text-align: center; }
+#detailInfo .ShopBtnZone { padding-top: 35px; text-align: center; }
+#detailInfo .ShopBtnZone a { display: inline-block; height: 38px; padding: 0px 20px; margin-left: 6px; }
+
+.detailView_btn { clear: both; float: left; width: 100%; height: 33px; margin-top: 3rem; border-bottom: 1px solid #ccc; }
+.detailView_btn .tit { float: left; line-height: 33px; font-size: 22px; font-weight: normal; color: #444; }
+.detailView_btn ul { float: right; margin-right: 8px; }
+.detailView_btn li { float: left; height: 33px; display: inline-block; }
+.detailView_btn li a { height: 33px; line-height: 33px; color: #878787; font-weight: normal; }
+.detailView_btn li.lines { margin: 0px 10px; }
+
+.inContent { clear: both; float: left; width: 100%; overflow-x: hidden; }
+
+#detailQna td { text-align: center; font-family: dotum; height: 28px; border-bottom: 1px dotted #ccc; color: #777; }
+#detailQna img { vertical-align: middle; }
+#detailQna td.subject { text-align: left; padding-left: 10px; color: #888; }
+#detailQna td.subject2 { text-align: left; padding-left: 10px; color: #8f3900; }
+#detailQna .pagingArea { width: 100%; padding: 7px 0px; text-align: center; }
+#detailQna td.qna_reply { padding: 0px; }
+#detailQna td.qna_reply td { background-color: #feffde; padding: 10px 0px; border: 0px none; font-size: 12px; }
+
+#detailReview td { text-align: center; font-family: dotum; height: 28px; color: #777; }
+#detailReview td.underline { border-bottom: 1px dotted #ccc; }
+#detailReview img { vertical-align: middle; }
+#detailReview td.subject { text-align: left; color: #888; font-weight: bold; }
+#detailReview td.subject a { color: #666; }
+#detailReview td.subject a:hover { color: #333; }
+#detailReview td.subject2 { text-align: left; padding-left: 10px; color: #8f3900; }
+#detailReview .pagingArea { width: 100%; padding: 7px 0px; text-align: center; }
+#detailReview td.review_td2 { padding-bottom: 10px; }
+#detailReview td.review_td2 p { width: 580px; background-color: #eee; text-align: left; padding: 10px; color: #888; }
+
+.in_qna th, .in_review th { background: url(/images_kr/shop/detailinThBg.gif) right top no-repeat; background-color: #ccc; }
+.in_qna th.last, .in_review th.last { background-position: -1px 0px; }
+
+#fix_menu { position: relative; background: #fafafa; padding: 3rem; margin: 1.5rem 0; margin-top: 3rem; font-size: 1.5rem; color: #2b2b2b; line-height: 1.5; font-weight: 500; border: 1px solid #e0e0e0; }
+#fix_menu .layout_inner { width: 100%; display: flex; justify-content: center; align-items: center; }
+#fix_menu .all label { -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; display: flex; justify-content: center; align-items: center; padding: 0.75rem 1.5rem; background: #eeeeee; border: 1px solid #e0e0e0; font-size: inherit; color: #424242; font-weight: 500; cursor: pointer; -moz-transition: all 0s; -webkit-transition: all 0s; transition: all 0s; }
+#fix_menu .all label input { margin-right: 0.5rem; }
+#fix_menu .sumCart { display: flex; justify-content: center; align-items: center; flex: 1; justify-content: space-around; }
+#fix_menu .sumCart .flexColumn { position: relative; display: flex; justify-content: center; align-items: center; flex-direction: column; }
+#fix_menu .sumCart .flexColumn > div { display: flex; justify-content: center; align-items: center; width: 100%; min-height: 3.75rem; }
+#fix_menu .sumCart .flexColumn > div.sumCart03 { color: #329900; padding-right: 0; justify-content: space-between; width: 100%; }
+#fix_menu .sumCart .flexColumn > div.sumCart03 p:first-of-type { margin-right: 1.5rem; }
+#fix_menu .sumCart .flexColumn ~ i { width: 1px; height: 3rem; background: #e0e0e0; margin: 0 1.5rem; }
+#fix_menu .sumCart .pStitle { margin-left: 1.5rem; margin-right: 3rem; color: #2b2b2b; }
+#fix_menu .sumCart .pISO { font-size: 3rem; font-weight: 700; letter-spacing: -1px; margin-right: 0.5rem; flex: 1; text-align: right; line-height: 1; }
+#fix_menu .sumCart .pPriceT { font-size: 3rem; font-weight: 700; letter-spacing: -1px; margin-right: 0.5rem; flex: 1; text-align: right; }
+#fix_menu .sumCart02 { color: #f2002e; }
+#fix_menu div.sumCart03 { color: #329900; padding-right: 0; justify-content: space-between; width: 100%; }
+#fix_menu div.addCart { float: right; }
+#fix_menu .addCart input { width: 200px; height: 54px; border-radius: 3px; background: #A576B1; font-size: 20px; color: #fff; font-weight: 500; line-height: 50px; border: none; outline: none; cursor: pointer; transition: all .2s ease; -webkit-transition: all .2s ease; -moz-transition: all .2s ease; -o-transition: all .2s ease; }
+#fix_menu .addCart input:hover { background: #D6224C; }
+
+.cart input[type="checkbox"] { cursor: pointer; width: 2rem; height: 2rem; }
+.cart tfoot .detail_btn { background: transparent; height: auto; }
+.cart tfoot .detail_btn.red { color: #f44336; border-color: #f44336; }
+.cart tfoot .detail_btn.red:hover { background: #f44336; color: #fff; }
+.cart tfoot .detail_btn.amber { color: #ffa000; border-color: #ffa000; }
+.cart tfoot .detail_btn.amber:hover { background: #ffa000; color: #fff; }
+.cart tfoot .detail_btn.purple { color: #7b1fa2; border-color: #7b1fa2; }
+.cart tfoot .detail_btn.purple:hover { background: #7b1fa2; color: #fff; }
+
+.order_finish { display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; padding: 3rem 5rem; background: #fdf4f4; font-size: 2rem; margin-bottom: 5rem; }
+.order_finish h5 { font-size: 2rem; margin-bottom: 1.5rem; font-weight: 500; }
+.order_finish div { font-size: 2.25rem; font-weight: 600; }
+
+.ui-dialog .ui-dialog-buttonpane button { margin: 0 !important; padding: 0.2rem 1rem; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ font-size: 1.5rem; }

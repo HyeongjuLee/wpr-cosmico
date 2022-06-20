@@ -1,0 +1,26 @@
+
+	html {overflow: hidden;}
+	.bgtitle {width:100%; padding:10px 10px; margin:0px auto; background: #ffffff; border-bottom: 1px solid #929292;}
+	.bgtitle .bgFont{font-size: 20px;color: #353535; font-weight: 500;}
+
+	#pop_content {font-size: 14px;font-weight: 400; color: #222222; padding: 5px 10px;}
+
+	.tit_title {height:15px;}
+	.tit_title_sub {font-size:15px; font-weight: 500; color: #222222; float: left;}
+
+	.thumImg {width: 82px; height: 82px; text-align:center; border:1px solid #ccc; background-color:#fff;}
+
+	.cart {margin-top:10px;}
+	.cart th {text-align:center; height:30px; background: #e7e7e7; border: 1px solid #ccc; font-weight: 500; }
+	.cart td {border:1px dotted #ccc; padding: 10px 10px; font-size: 15px; }
+	.cart .goodsComment {color:#999; margin-top:5px;}
+	.cart .strComName {font-size: 13px; color: #b5abab; text-decoration: underline; }
+	.cart .ea_area {float: left;}
+	.cart .ea_bg {display:inline-block;border:1px solid #ccc; vertical-align:top; width:24px; height:24px;text-align:center; background-color:#fafafa;}
+	.cart .ea_bg a {display:block; margin-top:1px;}
+	.cart .input_text_ea {border-width:1px 0px 1px 0px; border-color:#ccc; border-style:solid; line-height:24px; height:24px; font-size:13px; vertical-align:top; width: 40px;}
+
+	.popBtnArea {margin:30px 0px;}
+	.popBtn {margin: 0; min-height: 50px; font-size: 15px; width:48%; cursor: pointer;}
+	.popBtn.green {color: #f1f1f1; border: 1px solid #1bb80d; border-bottom-color: #1bb80d; background: #2da421;}
+	.popBtn.gray {color: #555555; border: 1px solid #e1e1e1; border-bottom-color: #e1e1e1; background: ##cfcfcf;}

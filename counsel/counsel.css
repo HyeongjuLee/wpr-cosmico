@@ -1,0 +1,110 @@
+
+#page .infos {margin: 20px 0;}
+#page .infos .img {position: absolute; width: 400px; height: 610px; background: url('/images/content/counsel_img.jpg') no-repeat center; right: 0; top: 60px;}
+#page .infos .txt {padding: 20px 15px; margin: 20px 0; border-top: 1px solid #555; border-bottom: 1px solid #555;}
+#page .infos .txt li {font-size: 14px; line-height: 200%;}
+#page .counsel_tit {text-align: left; font-size: 30px; color: #111; font-weight: 600;}
+#page .counsel_wrap {float: left; width: 100%;text-align: center;margin: 50px 0; position: relative; font-size: 0;}
+#page .counsel_wrap * {outline: none; box-sizing: border-box;}
+#page .counsel_wrap input {padding: 10px 15px; border: 1px solid #aaa; height: 50px; font-weight: 500; margin: 10px 0; width: 700px; background: #fff;
+	transition: all ease .2s;
+	-webkit-transition: all ease .2s;
+	-moz-transition: all ease .2s;
+	-o-transition: all ease .2s;
+}
+#page .counsel_wrap .counsel_bg {position: absolute; z-index: -1; left: 50%;top: -50px;}
+#page .counsel_wrap .counsel_bg img {position: absolute; left: -1000px; top: 0;}
+#page .counsel_inner { margin: 0 auto;padding: 30px 100px; position: relative; background: #fff; z-index: 9; width: 900px; box-shadow: 0 20px 50px 0px rgba(0,0,0,0.1);
+}
+#page .counsel_wrap .inputs {overflow: hidden; margin: 30px 0;display: inline-block;}
+#page .counsel_wrap .inputs div {float: left; width: 100%;}
+#page .counsel_wrap .inputs input {width: 188px;}
+#page .counsel_wrap .inputs .number {margin-right: 0;}
+#page .counsel_wrap .title input {}
+#page .counsel_wrap .textarea {display: inline-block; margin: 10px 0;}
+#page .counsel_wrap textarea {padding: 10px 15px; resize: none; font-weight: 500; width: 700px;}
+
+#page .counsel_wrap .imgCaptcha {width: 700px;font-size: 0;display: inline-block;}
+#page .counsel_wrap .imgCaptcha .wrap {font-size: 0;float: right;width: 700px;background: #eee;padding: 30px 50px; margin: 10px 0;}
+#page .counsel_wrap .imgCaptcha .inner {overflow: hidden;float: left;padding-right: 30px;border-right: 1px solid #ccc;}
+#page .counsel_wrap .imgCaptcha .img {float: left; border: 1px solid #555; margin-right: 20px;}
+#page .counsel_wrap .imgCaptcha .img img {he ight: 49px;}
+#page .counsel_wrap .imgCaptcha .btn {position: relative; float: left; margin: 1px;}
+#page .counsel_wrap .imgCaptcha .refresh {position: absolute; bottom: 0;left: 0;width: 100%;font-size: 12px;font-weight: 400;text-align: center; z-index: 0; }
+#page .counsel_wrap .imgCaptcha button {background: url('/images/content/refresh.png') no-repeat center top; width: 45px; height: 45px; border: none;padding: 0;cursor: pointer; position: relative; z-index: 1;}
+#page .counsel_wrap .txtCaptcha {float: right;}
+#page .counsel_wrap .txtCaptcha input {width: 250px;margin: 0;}
+
+#page .counsel_wrap .btn_wrap {margin: 50px auto; display: inline-block; *display: inline;}
+#page .counsel_wrap .btn_wrap div {float: left; margin: 0 15px;}
+#page .counsel_wrap .btn_wrap input {padding: 10px 20px; height: 50px; font-size: 18px; border: none; cursor: pointer; font-weight: 500; border: 1px solid #888; width: 200px; border-radius: 5px;
+	transition: all ease .2s;
+	-webkit-transition: all ease .2s;
+	-moz-transition: all ease .2s;
+	-o-transition: all ease .2s;min-width: 110px;line-height: 20px;
+}
+#page .counsel_wrap .btn_wrap .btn01 input {background: #999; color: #fff; border-color: #999}
+#page .counsel_wrap .btn_wrap .btn02 input {background: #83bc45; color: #fff; border-color: #83bc45;}
+
+#page .counsel_wrap .btn_wrap .btn01:hover input {background: #666; border-color: #666; box-shadow: 0 0 5px 0 #ccc, 0 8px 25px 0 #ccc;}
+#page .counsel_wrap .btn_wrap .btn02:hover input {background: #438b13; border-color: #438b13; box-shadow: 0 0 5px 0 #83bc45, 0 8px 25px 0 #83bc45;}
+
+#page .counsel_wrap input::placeholder {font-size: 15px;
+	transition: all ease .1s;
+	-webkit-transition: all ease .1s;
+	-moz-transition: all ease .1s;
+	-o-transition: all ease .1s;
+}
+#page .counsel_wrap input::-webkit-placeholder {font-size: 15px;
+	transition: all ease .1s;
+	-webkit-transition: all ease .1s;
+	-moz-transition: all ease .1s;
+	-o-transition: all ease .1s;
+}
+#page .counsel_wrap input::-moz-placeholder {font-size: 15px;
+	transition: all ease .1s;
+	-webkit-transition: all ease .1s;
+	-moz-transition: all ease .1s;
+	-o-transition: all ease .1s;
+}
+#page .counsel_wrap input::-ms-placeholder {font-size: 15px;
+	transition: all ease .1s;
+	-webkit-transition: all ease .1s;
+	-moz-transition: all ease .1s;
+	-o-transition: all ease .1s;
+}
+#page .counsel_wrap textarea::placeholder {font-size: 15px;
+	transition: all ease .1s;
+	-webkit-transition: all ease .1s;
+	-moz-transition: all ease .1s;
+	-o-transition: all ease .1s;
+}
+#page .counsel_wrap textarea::-webkit-placeholder {font-size: 15px;
+transition: all ease .1s;
+	-webkit-transition: all ease .1s;
+	-moz-transition: all ease .1s;
+	-o-transition: all ease .1s;
+}
+#page .counsel_wrap textarea::-moz-placeholder {font-size: 15px;
+transition: all ease .1s;
+	-webkit-transition: all ease .1s;
+	-moz-transition: all ease .1s;
+	-o-transition: all ease .1s;
+}
+#page .counsel_wrap textarea::-ms-placeholder {font-size: 15px;
+transition: all ease .1s;
+	-webkit-transition: all ease .1s;
+	-moz-transition: all ease .1s;
+	-o-transition: all ease .1s;
+}
+
+#page .counsel_wrap input:focus {border-color: #ff6a21;}
+#page .counsel_wrap input:visited {border-color: #ff6a21;}
+#page .counsel_wrap textarea:focus {border-color: #ff6a21;}
+#page .counsel_wrap textarea:visited {border-color: #ff6a21;}
+
+#page .counsel_wrap input:focus {background: #fff; border-color: #fff; box-shadow: 0 0 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.1); border-radius: 5px}
+#page .counsel_wrap input:focus::placeholder {color: #aaa; font-size: 18px; font-weight: 500;}
+#page .counsel_wrap textarea:focus {background: #fff; border-color: #fff; box-shadow: 0 0 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.1); border-radius: 5px}
+#page .counsel_wrap textarea:focus::placeholder {color: #aaa; font-size: 18px; font-weight: 500; line-height: 18px;}
+/*#page .counsel_wrap input:focus + i {width: 100%;}*/

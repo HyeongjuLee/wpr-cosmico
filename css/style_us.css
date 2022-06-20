@@ -1,0 +1,36 @@
+body { font-size: 1.5rem; line-height: 1.5; }
+
+.index-bn li a .tit p { letter-spacing: -0.05em; font-size: 4.5rem; }
+
+.footer-menu .cscenter i { margin: 0 2.5rem; }
+.footer-menu .cscenter li { word-break: keep-all; }
+.footer-menu .cscenter li:last-child { width: 22rem; }
+.footer-menu .cscenter .tit { width: 9rem; }
+
+.footer .banners { right: -5.5rem; }
+.footer .footer-icon { right: -6rem; }
+
+#joinStep .wrap h6 { word-break: keep-all; }
+
+#joinStep .wrap li { word-break: keep-all; }
+
+#joinStep.joinStep3 article > div .con .button { word-break: keep-all; white-space: inherit; }
+
+#joinStep.joinStep3 article .bank { width: 160%; margin-left: -12%; }
+
+.location-info .info li { flex-direction: column; }
+.location-info .info li h6 { width: 100%; }
+.location-info .info li span { width: 100%; }
+
+.location-info a { width: 22rem; }
+
+.nav-myoffice .nav-menu .menu p, .nav-myoffice .nav-menu .list > a p { word-break: keep-all; font-size: 1.5rem; letter-spacing: -0.01em; }
+
+.nav-myoffice .nav-menu ul li p { word-break: keep-all; letter-spacing: -0.01em; }
+
+.voter .search_form article.table .search { width: 33% !important; }
+.voter .search_form article.table .search .search_reset { font-size: 1.3rem !important; }
+
+.search_form .inputs ~ .buttons button { font-size: 1.3rem !important; }
+
+.orderList th, .orderList td { word-break: keep-all; line-height: 1.2; }

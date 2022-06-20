@@ -1,0 +1,119 @@
+.fixedTableWrap {position: relative; width: 100%; min-height: 620px; border-right: 0px solid #e0e0e0;}
+#fixedTable {position: relative; display:block; font-size:13px;color:#717171;}
+#fixedTable .fixedTable_Default {-webkit-overflow-scrolling:touch; overflow-x: auto;}
+#fixedTable .fixedTable_overCell {background-color:#fff; box-shadow:2px 0 5px -2px #cdcdcd; left:0; position:absolute; top:0; z-index:21;}
+#fixedTable .fixedTable_overCell2 {background-color:#fff; box-shadow: -5px 0 5px -5px #cdcdcd; right:0; position:absolute; top:0; z-index:21;}
+
+#fixedTable th , #fixedTable td {white-space: nowrap; }
+#fixedTable th.first {width:40px;min-width:40px;}
+#fixedTable th.second {width:100px;min-width:100px;}
+#fixedTable th.third {width:90px;min-width:90px;}
+#fixedTable td.inPrice {text-align:right; padding-left:15px;}
+
+
+ td, th {border:1px solid #ccc; }
+ #myoffice_pay th {color:#555; background-color: #7f7f7f; color: #fff; font-weight: 400;}
+
+ /* 합계 */
+ #myoffice_pay .sum_total {margin-top:2px;}
+ #myoffice_pay .sum_total th {border:1px solid #cdcdcd; padding:6px 6px; background:#dbe6f1; color: #333; height: 50px; line-height: 135%; font-weight: 500;}
+ #myoffice_pay .sum_total td {border:1px solid #cdcdcd; padding:6px 6px; height: 50px; text-align:right;  font-size: 14px; font-weight: 500;}
+
+ #myoffice_pay .fixedTable {padding-top: 15px;}
+ #myoffice_pay .fixedTable tr:nth-Child(even) {background-color:#f9f9f9;}
+ #myoffice_pay .fixedTable tr:nth-Child(odd) {background-color:#fff;}
+ #myoffice_pay .fixedTable th, #myoffice_pay .fixedTable td {padding:8px 10px; text-align: center; height: 38px;}
+ #myoffice_pay .fixedTable th {
+	 background:#e9dcce; color:#333333; border:1px solid #c5c5c5;
+	 font-weight: 600; height: 50px;
+	 padding: 12px 6px; white-space: nowrap;
+	 font-size: 14px;
+ }
+ #myoffice_pay .fixedTable td {border:1px solid #e0e0e0; padding:4px 6px; font-size: 14px; height: 50px;}
+ #myoffice_pay .fixedTable td.first {background:#f4efea;}
+ #myoffice_pay .fixedTable td.inPrice {text-align:right; padding-left:15px;}
+
+
+ form {padding-top: 15px;}
+
+ .readonly {background:#eee;}
+ .input_text {vertical-align:middle; padding:2px; border:1px solid #ccc;}
+ .table1 th {background-color:#eee; }
+ .table1 td {padding:5px 0px 5px 10px; background-color:#ffffff;}
+
+
+ .table2 th {background-color:#e3e3e3; padding:10px 4px; line-height:130%;}
+ .table2 td {background-color:#ffffff; padding:7px 4px; text-align: right; }
+ .table2 td.tcenter {padding-right:0px;}
+ .table2 .td_bg_02 {background-color:#f5f5f5;}
+ .table2 .hovers:hover {background-color:#f0f0f0 !important; cursor:pointer;}
+
+
+ .table3 th {background-color:#eee; padding:10px 0px;}
+ .table3 td {padding:0px; padding-right:3px; text-align:right;}
+ .table3 td.tcenter {padding-right:0px;}
+
+ .inTable td {border:0px none;text-align:right; padding-right:3px;}
+ .inTable th {border:0px none;background-color:#eee; padding:4px 0px;}
+ .inTable .btop {border-top:1px solid #ccc;}
+ .inTable .tcenter {padding-right:0px;}
+
+ .h2 td, .h2 th {height:30px; padding-top:0px; padding-bottom:0px;}
+ .h3 td, .h3 th {height:20px; padding-top:0px; padding-bottom:0px;}
+
+
+ /* 상세내역 */
+
+ /*	.pay_totals {margin-top:0px; background-color:#fff; width:775px;padding:5px;margin-bottom:10px;} */
+	 .pay_totals {margin-top:0px; background-color:#fff; width: 100%; padding: 5px; margin-bottom:10px;}
+	 .pay_detail_left {margin-top:0px; background-color:#fff; width: 49%; padding:5px;}
+	 .pay_detail_right {margin-top:0px; background-color:#fff; width: 49%; padding:5px;}
+
+	 .pay_detail_left th, .pay_detail_right th {padding: 8px; background-color:#e3e3e3;}
+
+
+	 .inTable1 {color:#555; padding:5px;}
+	 .inTable1 td {font-weight: 400; padding: 5px 5px; text-align: right; padding-right:4px; }
+	 .inTable1 td .tcenter {padding-right: 0px;}
+	 .inTable1 td.th {background-color: #efefef;}
+		 .inTable1 td.minus {background-color:#ffc9c9;}
+		 .inTable1 td.plus {background-color:#c9ddff;}
+
+	 .hfix td {height: 45px;}
+	 .pay_totals_td td {}
+	 .pay_totals_td .th {text-align: center; padding-right: 0px; }
+
+
+	 .pay_inDivWrap {}
+	 .pay_inDiv {height:100%; overflow-y: auto; overflow-x:hidden;padding-bottom:10px; border-bottom:1px solid #ccc;}
+	 .pay_paging {height: 50px; padding-top: 10px; text-align:center;}
+	 .inTable2 th {text-align:center; padding: 8px 4px;}
+	 .inTable2 td {text-align:center; padding: 5px 4px;}
+	 .inTable2 td.tright {padding-right:3px;}
+	 .inTable2 td.th {background-color:#efefef;}
+
+
+	 .loading {position:absolute; z-index:100; width:780px; background:url(/images/loading_bg70.png) 0 0 repeat; text-align:center; height:390px; display:none;}
+	 .loading a {display:block; vertical-align:mi}
+
+ /* 상세내역 */
+ .dialog-Content {width: 100%; padding: 0px 10px 10px 10px; max-height: 600px; overflow: auto;}
+
+
+ #under_search .search_content {width:980px; height:150px; margin:0px;border:0px solid #c7c7c7;overflow-y:scroll;background:#fff;padding:0px;}
+
+ #under_search .search_content1 {width:455px; height:180px; margin:0px;border:1px solid #c7c7c7;overflow-y:scroll;background:#fff;padding-bottom:0px}
+
+ #loading {position:fixed; z-index:99999; width:100%; height:100%; top:0px; left:0px; display:none;}
+ #loading .loadingImg {position:relative; top:40%; text-align:center;}
+
+
+
+ /*신 상세내역 버튼*/
+		.btn01 {display:inline-block;border:1px solid #848484; width:66px;height:23px; padding:2px 5px 2px 5px;}
+		.fon1 {font-family:malgun gothic,dotum,gulim;font-size:9pt;font-weight:bold;color:#0057d3;text-align:center;}
+		a:hover{color:green;}
+
+ /******expression : 실시간으로 속성값이 평가 되기 때문에 브라우저에 알게 모르게 부하가 간다 -> onfocus="this.blur();"***************
+		a {selector-dummy : expression(this.hideFocus=true); }
+ */

@@ -1,0 +1,109 @@
+
+
+/* 공통 S */
+	#counseling {margin-top:15px; padding:0px 10px;}
+	#counseling, #counseling * {-moz-box-sizing: border-box;box-sizing: border-box;}
+
+	select {padding:0px 0px 0px 4px; height:35px; vertical-align:middle; border-color:#ccc;  border-radius: 3px; }
+	.width50 {width:50%;}
+
+/* 공통 E */
+
+
+/* 리스트 S */
+	#counseling.cs_list {}
+	#counseling.cs_list th {border-bottom:1px solid #ddd;border-top:2px solid #999; background-color:#eee; padding:10px 0px; font-weight:normal; font-size:13px;}
+	#counseling.cs_list .midline th {border-top:1px solid #999;}
+	#counseling.cs_list td {border-bottom:1px solid #ddd; font-size:14px; padding:15px 0px;}
+	#counseling.cs_list td.subject {padding-left:10px; font-weight:500;}
+	#counseling.cs_list td.dates {text-align:left;padding-left:10px; font-size:13px;}
+	#counseling.cs_list td.replytf {text-align:center; font-size:13px;}
+	#counseling.cs_list tr.link:hover td {background-color:#f5f5f5; cursor:pointer;}
+	#counseling.cs_list td.notData {padding:50px 0px; text-align:center;}
+
+	#counseling.cs_list .writeBtnZone {text-align:right; padding:10px 10px 10px 0px; border-top:1px solid #eee;}
+	#counseling.cs_list .writeBtnZone a {display:inline-block;border-radius:5px; color:#333; border:1px solid #666;height:32px; line-height:30px;padding:0px 10px; font-size:15px;}
+	#counseling.cs_list .writeBtnZone a:hover {color:#f20000; background-color:#f4f4f4;}
+/* 리스트 E */
+
+
+	#counseling.cs_write .counsel_info {border-top:1px dotted #ddd; border-bottom:1px dotted #ddd; background-color:#eee; padding:15px 30px; font-size:14px; line-height:160%;}
+
+	#counseling.cs_write .counseling {float:left; width:100%;}
+	#counseling.cs_write .counseling th {font-weight:normal; font-size:15px; text-align:left; text-indent:8px; color:#333;vertical-align:top; padding-top:7px;}
+	#counseling.cs_write .counseling td {padding:4px 9px 4px 0px; }
+	#counseling.cs_write .counseling td div {font-size:14px;}
+	#counseling.cs_write .counseling td div a {color:#333; text-decoration:underline;}
+	#counseling.cs_write .counseling td div a:hover {color:#111}
+	#counseling.cs_write .counseling .input_text {border:1px solid #ccc; line-height:42px; height:44px; border-radius: 3px; vertical-align:middle; padding:0px 15px; font-size:14px;}
+	#counseling.cs_write .counseling .disabled {background-color:#eee;}
+	#counseling.cs_write .counseling .input_area {border:1px solid #ccc; border-radius: 3px;padding: 15px;font-size:14px;}
+	#counseling.cs_write .counseling .input_check  {margin:0px; margin-top:2px; padding:0px; height:15px; width:15px; vertical-align:middle; cursor:pointer;}
+	#counseling.cs_write .counseling label {cursor:pointer; vertical-align:-1px; margin:0px; font-size:14px;}
+	#counseling.cs_write .counseling ::placeholder {color: #aaa; opacity: 1;}
+	#counseling.cs_write .counseling :-ms-input-placeholder {color: red;}
+	#counseling.cs_write .counseling ::-ms-input-placeholder {color: red;}
+
+
+	#counseling.cs_write .counseling {width:100%; margin-top:35px;padding-bottom:45px;}
+	#counseling.cs_write .counseling .a_submit  {display: inline-block; padding: 0px 15px; vertical-align: middle; cursor: pointer; text-align:center; font-size:14px;}
+	#counseling.cs_write .counseling .design1 {background-color: #337ab7; border:1px solid #2e6da4; border-radius: 3px; color:#fff !important;font-weight:normal; line-height:48px; width:240px; height:50px;}
+	#counseling.cs_write .counseling .design2 {background-color: #f9f9f9; border:1px solid #cccccc; border-radius: 3px; color:#666 !important;font-weight:normal; line-height:48px; width:240px; height:50px;}
+
+
+
+	#counseling.cs_write .btnArea {width:100%; text-align:center; margin-top:22px;padding-top:28px; padding-bottom:45px; border-top:1px dashed #d7d7d7;}
+	#counseling.cs_write .btnArea .a_submit  {display: inline-block; padding: 0px 15px; vertical-align: middle; cursor: pointer; text-align:center; font-size:14px;}
+	#counseling.cs_write .btnArea .design1 {background-color: #337ab7; border:1px solid #2e6da4; border-radius: 3px; color:#fff !important;font-weight:normal; line-height:48px; width:150px; height:50px;}
+	#counseling.cs_write .btnArea .design2 {background-color: #f9f9f9; border:1px solid #cccccc; border-radius: 3px; color:#666 !important;font-weight:normal; line-height:48px; width:150px; height:50px;}
+
+	#counsel .counsel_info {border-top:1px dotted #ddd; border-bottom:1px dotted #ddd; background-color:#eee; padding:15px 30px; font-size:14px; line-height:160%;}
+
+
+/* 파일 디자인 S */
+	#counseling.cs_write .counseling 	.filebox input[type="file"] {position: absolute; width: 0px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; border: 0; }
+	#counseling.cs_write .counseling 	.filebox label {line-height:42px;}
+	#counseling.cs_write .counseling 	.filebox label.ser {display: inline-block; padding: 0px 25px; vertical-align: top; background-color: #f4f4f4; cursor: pointer; border: 1px solid #ccc; border-radius: 3px; font-weight:300;}
+	#counseling.cs_write .counseling 	.filebox span {display: inline-block; line-height:44px;}
+	#counseling.cs_write .counseling 	.filebox .upload-name {display: inline-block; padding: 0px 9px;height:44px;line-height:42px; vertical-align: top; background-color: #f4f4f4; border: 1px solid #ccc; border-radius: 3px; width:calc(100% - 110px); }
+
+	/* imaged preview */
+	#counseling.cs_write .counseling 	.filebox .upload-display {margin-bottom: 5px;}
+	@media(min-width: 768px) {
+		.filebox .upload-display {display: inline-block; margin-right: 5px; margin-bottom: 0;}
+	}
+	#counseling.cs_write .counseling 	.filebox .upload-thumb-wrap {display: inline-block;width: 54px;padding: 2px;vertical-align: middle;border: 1px solid #ddd;border-radius: 5px;background-color: #fff;}
+	#counseling.cs_write .counseling 	.filebox .upload-display img {display: block; max-width: 100%; width: 100% \9; height: auto;}
+	#counseling.cs_write .counseling 	.filebox.bs3-primary label.ser {color: #fff; background-color: #337ab7; border-color: #2e6da4;}
+
+/*
+
+
+
+/* 1:1 문의 S */
+
+
+
+	#counseling.cs_view .view {}
+	#counseling.cs_view .view th {border-bottom:1px solid #ddd; padding:15px 0px; font-weight:normal; font-size:18px;}
+	#counseling.cs_view .view td {border-bottom:1px solid #ddd; font-size:14px; padding:15px 0px;}
+	#counseling.cs_view .view tr.subject td {background-color:#f5f5f5; font-size:18px; line-height:150%;border-top:2px solid #999;}
+	#counseling.cs_view .view td.counselContent {padding:30px 15px;}
+	#counseling.cs_view .view td.last td {border-bottom:2px solid #999;}
+
+
+	#counseling.cs_view .replyInfo {font-size:15px; text-align:center; margin-top:30px; line-height:48px; border-bottom:1px dashed #eee;background-color:#eee;}
+	#counseling.cs_view .replyInfo2 {font-size:14px; color:#000; text-align:center; margin-top:30px; line-height:48px; border-bottom:1px dashed #eee;background-color:#ddd;}
+	#counseling.cs_view .reply {font-size:14px; padding:35px; border-bottom:1px dashed #ccc; background-color:#f4f4f4;}
+	#counseling.cs_view .DataS {float:left; padding-left:15px; background-color:#f4f4f4; line-height:45px; width:100%;}
+	#counseling.cs_view .DataD {float:left;  background-color:#f4f4f4; line-height:38px; width:calc(100% - 60px);}
+	#counseling.cs_view .DataD:before {content: " | "}
+
+
+
+	#counseling .btnArea {width:100%; text-align:center; margin-top:22px;padding-top:28px; padding-bottom:45px; }
+	#counseling .btnArea .a_submit  {display: inline-block; padding: 0px 15px; vertical-align: middle; cursor: pointer; text-align:center; font-size:14px;}
+	#counseling .btnArea .design1 {background-color: #337ab7; border:1px solid #2e6da4; border-radius: 3px; color:#fff !important;font-weight:normal; line-height:48px; width:240px; height:50px;}
+	#counseling .btnArea .design2 {background-color: #f9f9f9; border:1px solid #cccccc; border-radius: 3px; color:#666 !important;font-weight:normal; line-height:48px; width:240px; height:50px;}
+
+/* 1:1 문의 E */

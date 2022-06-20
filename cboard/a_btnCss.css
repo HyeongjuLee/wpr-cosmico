@@ -1,0 +1,64 @@
+	img {vertical-align:middle;}
+	label {cursor:pointer; vertical-align:-1px; margin:0px;}
+/*	select {padding:0px 11px 0px 4px; height:29px; vertical-align:middle; border-color:#ccc;  border-radius: 3px; } */
+	select {padding:0px 0px 0px 4px; height:29px; vertical-align:middle; border-color:#ccc;  border-radius: 3px; }
+	select.select02 {padding:6px 3px 6px 3px; height:29px; vertical-align:middle; border-color:#ccc;  border-radius: 3px; }
+	.bor1 {border:1px solid #ccc;}
+
+	.input_text {border:1px solid #ccc; line-height:27px; height:29px; border-radius: 3px; vertical-align:middle; background-color:#f4f4f4; padding:0px 7px;}
+	.input_check  {margin:0px; margin-top:2px; padding:0px; height:15px; width:15px; vertical-align:middle; cursor:pointer;}
+	.input_check2 {margin:0px; margin-top:2px; padding:0px; height:15px; width:15px; vertical-align:middle; cursor:pointer; margin-left:11px;}
+	.input_radio  {margin:0px; margin-top:2px; padding:0px; height:15px; width:15px; vertical-align:middle; cursor:pointer;}
+	.input_radio2 {margin:0px; margin-top:2px; padding:0px; height:15px; width:15px; vertical-align:middle; cursor:pointer; margin-left:11px;}
+	.input_area {border:1px solid #ccc; border-radius: 3px;padding: 6px 9px;}
+	.input_file {border:1px solid #ccc;  height:29px; line-height:27px; border-radius: 3px; vertical-align:middle; background-color:#fff; padding:0px 7px 0px 3px;}
+
+	.input_submit  {font-size:13px; display: inline-block; padding: 0px 15px; vertical-align: middle; cursor: pointer; line-height:27px; height:29px;}
+	.input_submit2 {font-size:13px; display: inline-block; padding: 0px 9px; vertical-align: middle; cursor: pointer; line-height:23px;}
+	.a_submit  {font-size:13px; display: inline-block; padding: 0px 15px; vertical-align: middle; cursor: pointer; line-height:27px; height:29px;}
+	.a_submit2 {font-size:13px; display: inline-block; padding: 0px 9px;  vertical-align: middle; cursor: pointer; line-height:27px;}
+	.design1 {background-color: #337ab7; border:1px solid #2e6da4; border-radius: 3px; color:#fff !important;font-weight:300;}
+	.design2 {background-color: #f9f9f9; border:1px solid #cccccc; border-radius: 3px; color:#666 !important;font-weight:300;}
+	.design3 {background-color: #898989; border:1px solid #606060; border-radius: 3px; color:#fff !important;font-weight:300;}
+	.design4 {background-color: #c40d0d; border:1px solid #880000; border-radius: 3px; color:#fff !important;font-weight:300;}
+	.design5 {background-color: #33b793; border:1px solid #1a9473; border-radius: 3px; color:#fff !important;font-weight:300;}
+	.design6 {background-color: #333333; border:1px solid #ffffff; border-radius: 3px; color:#fff !important;font-weight:300;}
+	.design7 {background-color: #fff; border:1px solid #c40d0d; border-radius: 3px; color:#c40d0d !important;font-weight:300;}
+
+	.input_submit_b {display: inline-block; padding: 15px 20px; vertical-align: middle; cursor: pointer; line-height:1;}
+	.input_submit_b2 {padding:11px 110px; font-size:17px;}
+/* 파일 디자인 S */
+	.filebox input[type="file"] {position: absolute; width: 0px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; border: 0; }
+	.filebox label {line-height:27px;}
+	.filebox label.ser {display: inline-block; padding: 0px 15px; vertical-align: middle; background-color: #f4f4f4; cursor: pointer; border: 1px solid #ccc; border-radius: 3px;}
+	.filebox .upload-name {display: inline-block; padding: 0px 9px;height:29px;line-height:29px; vertical-align: middle; background-color: #f4f4f4; border: 1px solid #ccc; border-radius: 3px; }
+
+	/* imaged preview */
+	.filebox .upload-display {margin-bottom: 5px;}
+	@media(min-width: 768px) {
+		.filebox .upload-display {display: inline-block; margin-right: 5px; margin-bottom: 0;}
+	}
+	.filebox .upload-thumb-wrap {display: inline-block;width: 54px;padding: 2px;vertical-align: middle;border: 1px solid #ddd;border-radius: 5px;background-color: #fff;}
+	.filebox .upload-display img {display: block; max-width: 100%; width: 100% \9; height: auto;}
+	.filebox.bs3-primary label.ser {color: #fff; background-color: #337ab7; border-color: #2e6da4;}
+
+/*
+		var fileTarget = $('.filebox .upload-hidden');
+
+		fileTarget.on('change', function(){
+			if(window.FileReader){ // 파일명 추출
+				var filename = $(this)[0].files[0].name;
+			} else { // Old IE 파일명 추출
+				var filename = $(this).val().split('/').pop().split('\\').pop();
+			};
+			$(this).siblings('.upload-name').val(filename);
+		});
+		<div class="filebox bs3-primary preview-image">
+			<input class="upload-name" value="파일선택" disabled="disabled" style="width: 415px;">
+			<label for="Img1Ori">파일찾기</label>
+			<input type="file" id="Img1Ori" name="Img1Ori" class="upload-hidden">
+			<span class="red">(Size : <%=upImgWidths_Default%>px x <%=upImgHeight_Default%>px)</span>
+		</div>
+
+*/
+/* 파일 디자인 E */

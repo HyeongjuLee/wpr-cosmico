@@ -1,0 +1,70 @@
+
+/* 카테고리 S */
+	#counseling, #counseling * {-moz-box-sizing: border-box;box-sizing: border-box;}
+
+	
+	#counseling.category th {padding:10px 0px; border:1px solid #ccc; background-color:#eee;}
+	#counseling.category td {padding:10px 0px; border:1px solid #ccc; }
+	#counseling.category .btnZone {border:0px none !important; padding:15px 0px; text-align:center;}
+	#counseling.category .bor1 {border:1px solid #ccc;}
+
+
+	#counseling.category #cate_select {clear:both; float:left; margin-top:10px; width:330px; overflow:hidden;}
+	#counseling.category #cate_select td {padding:30px 0px;}
+	#counseling.category #cate_select td .submit {padding:5px;margin-top:10px;}
+						 
+	#counseling.category #cate_select p {clear:both; }
+	#counseling.category #cate_select #cate2 {margin-top:10px;}
+
+	#counseling.category #cate_insert {float:left;margin-top:10px; width:660px; margin-left:10px;}
+	#counseling.category #cate_insert td {border:1px solid #ccc; text-indent:7px; padding:6px 0px;}
+	#counseling.category #cate_List {clear:both;float:left;margin-top:10px; width:1000px;overflow:hidden;}
+	#counseling.category #cate_List th, #cate_List td {border:1px solid #ccc; text-align:center;}
+	#counseling.category #cate_List td {padding:4px 0px; border-top:0px none;}
+	#counseling.category #cate_List th {background-color:#eee; height:32px;border:1px solid #ccc;}
+	#counseling.category #cate_List td.tleft {padding-left:7px;}
+
+/* 카테고리 E */
+
+
+/* 카테고리 기능 MODAL S */
+	#ModalScrollable1.modal_category th {padding:10px 0px; border:1px solid #ccc;  background-color:#eee;}
+	#ModalScrollable1.modal_category td {padding-left:11px;padding:10px 0px 10px 11px; border:1px solid #ccc;}
+	#ModalScrollable1.modal_category .btnZone {border:0px none !important; padding:15px 0px; text-align:center;}       
+	#ModalScrollable1.modal_category .bor1 {border:1px solid #ccc;}                                                    /* 카테고리 기능 MODAL S */
+
+/*
+.submit {padding:15px 50px;font-weight:bold; font-size:14px;}
+*/
+
+
+/* 리스트 S */
+	#counseling.list {}
+	#counseling.list .search th {border:1px solid #ccc; background-color:#eee; text-align:left; padding-left:11px;}
+	#counseling.list .search td {border:1px solid #ccc; height:39px;  padding-left:10px;}
+
+	#counseling.list .tbl_list th {border:1px solid #ccc; background-color:#eee; padding:15px 0px; }
+	#counseling.list .tbl_list td {border:1px solid #ccc; text-align:center; line-height:140%; padding:7px 0px;}
+	#counseling.list .tbl_list td.tleft {padding-left:7px;}
+
+
+/* 리스트 E */
+
+
+/* 보기 S */
+	#counseling.view {}
+	#counseling.view th {border-bottom:1px solid #ddd; padding:15px 0px; background-color:#f5f5f5; padding-left:11px; text-align:left;}
+	#counseling.view td {border-bottom:1px solid #ddd;  padding:15px;}
+	#counseling.view tr.subject td {background-color:#f5f5f5; font-size:18px; line-height:150%;border-top:2px solid #999;}
+	#counseling.view td.counselContent {padding:25px 15px; line-height:145%;}
+	#counseling.view td.last td {border-bottom:2px solid #999;}
+	#counseling.view th.tdline {background-color:#f5f5f5; border-top:2px solid #999; text-align:center; padding:12px 0px; font-weight:bold;}
+
+
+
+	#counseling.view .comment th {border-top:1px solid #ddd; border-bottom:1px solid #ddd; border-right:1px solid #eee;}
+	#counseling.view .comment td {border-top:1px solid #ddd; border-bottom:1px solid #ddd; border:1px solid #ddd;  padding:15px;}
+
+
+.btnArea {width:100%; text-align:center; margin-top:22px;padding-top:28px; padding-bottom:45px; }
+.btnArea .input_submit  { font-size:14px;}

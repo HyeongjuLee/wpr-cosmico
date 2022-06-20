@@ -1,0 +1,510 @@
+@import 'mixin-custom';
+
+$input-width: $inner / 2.5;
+$input-height: rem(60px);
+$input-height-50: rem(50px);
+$common-button-color: material-color('red');
+$nav-color-200: saturate(lighten($nav-color, 65), 5);
+$nav-color-200-d: darken($nav-color-200, 10);
+$nav-color-600: saturate(lighten($nav-color, 10), 25);
+
+.orderList {
+	@include table-color($myoffice-color, true);
+	th, td {
+		padding: rem(5px) !important;
+		height: rem(60px) !important;
+		font-size: $font-size - rem(2px);
+		letter-spacing: -0.05em;
+	}
+
+	.regist {
+		@include position;
+		@include flex($st);
+		padding-bottom: 0;
+		a {
+			// $myoffice-color: adjust-hue($myoffice-color, 50);
+			@include button(#fff);
+			font-size: $font-size - rem(1px);
+			line-height: 1;
+			border-color: mix($myoffice-color, #fff, 30);
+			color: $myoffice-color;
+			font-weight: 700;
+			margin-left: auto;
+			margin-bottom: rem(10px);
+
+			i {
+				margin-right: rem(5px);
+			}
+
+			&:hover {
+				background: mix($myoffice-color, #fff, 5);
+				color: $myoffice-color;
+			}
+		}
+	}
+	.inPrice {
+		text-align: right !important;
+	}
+	.detail_btn {
+		$color: mix($myoffice-color, material-color('purple'), 50);
+
+		border-color: $color;
+		// color: $color !important;
+
+		&:hover {
+			border-color: $color;
+			background: $color !important;
+			color: #fff !important;
+		}
+	}
+}
+
+.orderList {
+	&.cms {
+		.titles {
+			padding-top: $font-size;
+			padding-bottom: 0;
+		}
+		.input_text {
+
+		}
+		table {
+			width: 100%;
+			margin: $font-size 0 $font-size * 2 0;
+			font-size: $font-size - rem(3px) !important;
+			letter-spacing: -0.025em;
+			th {
+				font-weight: 600;
+			}
+		}
+
+		.pay_totals {
+			margin-top: 0;
+			table {
+				margin: $font-size 0;
+			}
+		}
+		.table1 {
+			@include table-color-wrap(material-color('amber', '900'), 'darken', true);
+		}
+		.table2 {
+			@include table-color-wrap(material-color('green', '900'), 'darken', true);
+		}
+		.table3 {
+			@include table-color-wrap(material-color('light-green', '900'), 'darken', true);
+			td {
+				text-align: left;
+			}
+		}
+	}
+}
+.orderList {
+	&.cms {
+		.innerTable3 {
+			td {
+				.card {
+					width: calc(25% - #{rem(3.5px)});
+				}
+				select {
+					&[name="A_CardType"] {
+						width: calc(45% - #{rem(3.5px)});
+					}
+					&[name="A_CardCode"] {
+						width: calc(55% - #{rem(3.5px)});
+					}
+					&[name="A_Period1"] {
+						width: calc(50% - #{rem(3.5px)});
+					}
+					&[name="A_Period2"] {
+						width: calc(50% - #{rem(3.5px)});
+					}
+				}
+			}
+		}
+	}
+}
+
+.orderList {
+	&.cms {
+		.close_btn {
+			@include position;
+			width: rem(50px);
+			height: rem(50px);
+			@include button(material-color('grey', '200'));
+			@include rounded(3px);
+			cursor: pointer;
+			@include inline-flex;
+			input {
+				@include default-0;
+				@include position(absolute);
+				z-index: -1;
+				visibility: hidden;
+			}
+			i {
+				color: material-color('grey', '800');
+			}
+		}
+	}
+}
+
+.orderList {
+	&.cms {
+		.table4 {
+			@include table-color-wrap(material-color('blue', '900'), 'darken', true);
+			text-align: center;
+			.detail_btn {
+				color: #fff;
+				width: 100%;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+			.inPrice {
+				text-align: right;
+			}
+			.input_submit {
+				width: 100%;
+			}
+
+			tfoot {
+				$table-color: mix(#fff, $nav-color-600, 90);
+				$table-color-darken: darken($table-color, 10);
+				$table-color-grey: mix(material-color('grey', '300'), $table-color, 50);
+				$table-text: mix(#000, $table-color-darken, 50);
+				color: $table-text;
+				th {
+					&:first-of-type {
+						border-left: none;
+					}
+					&:last-of-type {
+						border-right: none;
+					}
+				}
+				td {
+					text-align: right;
+					&:first-of-type {
+						border-left: none;
+						text-align: center;
+					}
+					&:last-of-type {
+						border-right: none;
+					}
+				}
+				th, td {
+					background: $table-color;
+					font-weight: 500;
+					border: 1px solid $table-color-darken;
+					border-bottom: none;
+					height: rem(50px);
+					border-top: 1px solid $table-color-darken !important;
+				}
+			}
+		}
+		.table5 {
+			@include table-color-wrap(material-color('purple', '900'), 'darken', true);
+		}
+	}
+}
+
+.orderList {
+	&.reg {
+		table {
+			margin: $font-size 0;
+			th, td {
+				font-size: $font-size - rem(3px);
+			}
+			.consumer {
+				padding: $font-size !important;
+			}
+		}
+		.input_text {
+			height: 30px;
+			width: 100%;
+			line-height: 1.5;
+		}
+		.button {
+			@include button($admin);
+			@include inline-flex;
+			height: 30px;
+			line-height: 1.5;
+			padding: 0 rem(15px);
+			color: #fff !important;
+
+			* {
+				left: $default-css;
+				cursor: $parent-css;
+				display: $default-css;
+				font-size: $parent-css;
+				font-family: $parent-css;
+				background: $parent-css;
+				vertical-align: $default-css;
+				color: $parent-css;
+			}
+		}
+		.promise {
+			@include button(material-color('amber', '800'));
+			margin: 0 auto;
+			margin-bottom: $font-size;
+			height: rem(50px);
+			font-size: $font-size + rem(2px);
+		}
+		.buttons {
+			.button {
+				width: rem(150px);
+				height: rem(60px);
+				margin-bottom: rem(20px);
+				font-weight: 600;
+				&:not(:only-child) {
+					&:first-child {
+						margin-bottom: rem(5px);
+					}
+				}
+				i {
+					margin-right: 5px;
+				}
+			}
+		}
+		.voterWrite {
+			text-align: center;
+			margin-bottom: $font-size;
+			input.button {
+				@include button($write);
+				width: 100%;
+				height: rem(80px);
+				font-size: $font-size;
+			}
+		}
+	}
+}
+
+#buy.cms {
+	.agree_info {
+		@include default-0;
+		padding: 0;
+		font-size: $font-size - rem(1px);
+		line-height: 1.5;
+		color: $parent-css;
+		width: 100%;
+		ul {
+			border: 1px solid material-color('grey', '300');
+			background: material-color('grey', '100');
+			width: 100%;
+			padding: rem(15px) rem(30px);
+			display: block;
+		}
+		li {
+			font-size: $parent-css;
+			color: $parent-css;
+			text-indent: 0;
+			line-height: 1.7;
+
+			&.li_title {
+				color: material-color('red', '600');
+				font-size: $font-size + rem(1px);
+			}
+		}
+		.agreement {
+			margin: rem(15px) 0;
+			padding: 0;
+			label {
+				font-size: $font-size;
+				font-weight: 500;
+				color: #444;
+				@include flex($st, $st);
+				padding: rem(15px);
+			}
+			input {
+				margin: rem(5px);
+				margin-right: rem(10px);
+			}
+		}
+	}
+	// .input_text, .input_select {
+	// 	border: 1px solid material-color('grey', '400');
+	// 	background: material-color('grey', '50');
+	// }
+}
+
+.innerTableS {
+	@include table;
+	background: #fff;
+	@include position;
+	$slr: material-color('light-blue');
+	$csm: material-color('red');
+	
+	.slr {
+		@include grid-color($slr, true);
+	}
+	.csm {
+		@include grid-color($csm, true);
+	}
+	thead {
+		tr {
+			&:first-child {
+				th {
+					&:before {
+						@include presudo($top: 0, $w: 1px, $h: 100%);
+						z-index: 1;
+					}
+					&.slr {
+						border-top: 1px solid darken($slr, 10);
+						&:before {
+							left: 0;
+							background: darken($slr, 10);
+						}
+					}
+					&.csm {
+						border-top: 1px solid darken($csm, 10);
+						&:before {
+							right: 0;
+							background: darken($csm, 10);
+						}
+					}
+				}
+			}
+		}
+	}
+	tbody {
+		tr {
+			&:last-child {
+				td {
+					border-top-width: 1.5px;
+					&.total {
+						background: desaturate(lighten($slr, 48), 50);
+						border-color: darken(desaturate(lighten($slr, 48), 50), 15);
+						border-bottom: 1px solid darken($slr, 10);
+					}
+					&.total2 {
+						background: desaturate(lighten($csm, 38), 50);
+						border-color: darken(desaturate(lighten($csm, 38), 50), 15);
+						border-bottom: 1px solid darken($csm, 10);
+					}
+				}
+			}
+			td {
+				height: rem(50px);
+			}
+			.inPrice {
+				text-align: right;
+			}
+			.total, .total2 {
+				font-weight: 600;
+				text-align: right;
+			}
+		}
+	}
+}
+
+.ea {
+	@include flex;
+	a {
+		width: rem(50px);
+		height: rem(50px);
+		background: material-color('grey', '50');
+		border: 1px solid material-color('grey', '400');
+		color: material-color('grey', '500');
+		font-size: $font-size;
+		line-height: 1;
+		cursor: pointer;
+		@include inline-flex;
+		i {
+			&:before {
+				width: auto;
+				margin: 0;
+			}
+		}
+		&:hover {
+			background: material-color('grey', '200');
+			//border: 1px solid material-color('grey', '500');
+			color: material-color('grey', '700');
+		}
+	}
+	.input_text_ea {
+		width: rem(70px);
+		height: rem(50px);
+		border: none;
+		border-top: 1px solid material-color('grey', '400');
+		border-bottom: 1px solid material-color('grey', '400');
+	}
+}
+
+.addBtn {
+	padding: 0;
+	.button {
+		margin: 0;
+		@include button($write);
+		height: rem(60px);
+		* {
+			background: none;
+			font-family: $parent-css;
+			font-size: $parent-css;
+			color: $parent-css;
+			left: $default-css;
+			height: $default-css;
+			display: $default-css;
+		}
+	}
+}
+
+.btnZone {
+	@include flex;
+	flex-direction: column;
+	padding: 0 {
+		top: $font-size * 2;
+		//bottom: $font-size * 2;
+	}
+	width: 100%;
+
+	a, input {
+		@include inline-flex;
+		width: 100%;
+		height: $input-height + rem(10px);
+		margin: $font-size / 2 auto;
+		background: transparent;
+		font-size: $font-size * 1.2;
+		cursor: pointer;
+		font-family: $parent-css;
+		border: none;
+		@include rounded(rem(5px));
+
+		@include unify-parent('input') {
+			background: $main-color;
+			color: #fff;
+		}
+
+		@include unify-parent('a') {
+			background: $sub-color;
+			//border: 1px solid $sub-color;
+			color: #fff;
+
+			* {
+				background: none;
+				font-family: $parent-css;
+				font-size: $parent-css;
+				color: $parent-css;
+				left: $default-css;
+				height: $default-css;
+			}
+		}
+	}
+
+	a:hover {
+		color: $parent-css;
+	}
+
+	.cancel {
+		background: material-color('grey', '300');
+		color: #222;
+		&:hover {
+			background: darken(material-color('grey', '300'),5);
+		}
+		//width: 100% / 2;
+	}
+	.promise {
+		background: $main-color;
+		color: #fff;
+		&:hover {
+			background: lighten($main-color,10);
+		}
+	}
+}

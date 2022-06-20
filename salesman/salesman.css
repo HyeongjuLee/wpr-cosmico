@@ -1,0 +1,35 @@
+	#bbs_search_top {height:50px;float:right; text-align:left;}
+	#bbs_search_top .searchbar {height:44px;background: url(/cboard/images_kr/search_bg.gif) 0 0 repeat-x;}
+	#bbs_search_top .searchterm {width:76px;height:20px;color:#666666;font-size:13px;font-family:Dotum; border:1px solid #c3c3c3;}
+	#bbs_search_top .searchstr {width:148px;height:28px;padding-top:2px;color:#666666;font-size:12px;font-family:Dotum; border:1px solid #c3c3c3; background-color:#ffffff; margin-left:5px;}
+	#bbs_search_top .searchText {font-size:13px;}
+
+	#sales_pa .pages {clear:both;float:center; overflow:hidden;}
+	#sales_pa .pagers {display:inline-block; width:15px; height:19px; padding-top:5px; color:#858585; margin-left:3px; text-align:center;}
+	#sales_pa .pagers2 {display:inline-block;  height:15px; padding:5px 4px 0px 4px;color:#858585; margin-left:3px; text-align:center;}
+	#sales_pa .pagers a  {color:#3063ab;text-decoration:none;}
+	#sales_pa .pagers2 a {color:#858585; text-decoration:none;}
+	#sales_pa .pagers a:hover  {color:#3063ab;text-decoration:none;}
+	#sales_pa .pagers2 a:hover {color:#3063ab;text-decoration:none;}
+
+
+	#salesman th {height:32px;border-top:2px solid #858585; border-bottom:1px solid #c3c3c3; height:32px; font-size:13px;}
+	#salesman td {height:32px;border-top:1px solid #f0f0f0; font-size:15px; text-align:center;}
+	#salesman .notData {text-align:center; height:80px;}
+	#salesman .dataText {text-align:center; height:80px;color:#3366ff;padding: 30px 0px;}
+	#salesman tr.for_td:hover {background-color:#eee;}
+
+
+	#faq th {font-weight:normal;color:#797979;border-top:2px solid #858585; border-bottom:1px solid #c3c3c3; height:32px; font-size:13px;}
+
+	#faq .td_q td {border-top:1px solid #f0f0f0; padding:8px 0px;}
+	#faq .td_q td.nots {border-top:0px none;padding:8px 0px;}
+	#faq .td_q td a {color:#858585; }
+	#faq .td_q td a:hover {text-decoration:underline;}
+	#faq .notData {text-align:center; height:80px;}
+
+
+	.searchBoard {height:26px; width:26px; display:block; position:relative; border:1px solid #c3c3c3; border-left:0 none;}
+	.searchBoard .searchGlass:before, .searchGlass:after{content:''; height:8px; display:block; position:absolute; top: 5px; left:5px;}
+	.searchBoard .searchGlass:before{width: 8px; border:2px #626262 solid; border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;}
+	.searchBoard .searchGlass:after{width: 3px; background:#626262; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); top: 13px; left:16px;}

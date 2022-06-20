@@ -1,0 +1,342 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>paytag sample</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<link rel="stylesheet" href="css/sky-forms.css">
+		<link rel="stylesheet" href="css/sky-forms-blue.css">
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="css/sky-forms-ie8.css">
+		<![endif]-->
+		
+		<script src="js/jquery.min.js"></script>
+		<!--[if lt IE 10]>
+			<script src="js/jquery.placeholder.min.js"></script>
+		<![endif]-->		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/sky-forms-ie8.js"></script>
+		<![endif]-->
+
+		<style>
+		  table {
+			width: 100%;
+			border: 1px solid #444444;
+			border-collapse: collapse;
+		  }
+		  th, td {
+			border: 1px solid #444444;
+		  }
+		</style>
+
+	</head>
+	<body>
+		<div class="body">			
+		
+
+
+		<!--------------------------------------------------------------->
+		<!--                      사용자입력폼                              -->
+		<!--------------------------------------------------------------->
+		<form name="userForm" id="userForm"  class="sky-form" >
+
+				<header><img src="./img/paytag.png"> 신용카드 결제취소</header>
+				
+				<fieldset>	
+				<table>
+					<thead>
+						<tr>
+							<th style='min-width:1px; white-space:nowrap;'>필수</th>
+							<th style='min-width:1px; white-space:nowrap;'>필드구분</th>
+							<th style='min-width:1px; white-space:nowrap;'>값</th>
+							<th style='min-width:1px; white-space:nowrap;'>설명</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>페이태그가맹점코드</td>
+								<td><label class="input"><input type="text" name="shopcode" id="shopcode" value="1901110002"></td>
+								<td style="padding-left:5px;"><strong>shopcode</strong></td>
+						</tr>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>페이태그ID</td>
+								<td><label class="input"><input type="text" name="loginid" id="loginid" value="paytag"></td>
+								<td style="padding-left:5px;"><strong>loginid</strong></td>
+						</tr>
+
+						<tr>
+							<td> </td>
+							<td>결과수신URL</td>
+							<td><label class="input"><input type="text" name="alert_path" id="alert_path" value=""></td>
+							<td style="padding-left:5px;"><strong>alert_path</strong>
+								<br>취소결과를 PG로부터 수신하는 주소값 ( http 를 포함한 full url )	
+								<br><span style="color:red;">호출도메인과 일치!!</span>
+								<br>결제취소결과수신 : http://도메인/cancel_receive.asp
+								<br>alert_paht값이 공란이면 이동URL에 값이 있어도 이동하지 않습니다.
+							</td>
+						</tr>
+						
+						<tr>
+							<td>  </td>
+							<td>페이지이동URL</td>
+							<td><label class="input"><input type="text" name="redirect_path" id="redirect_path" value=""></td>
+							<td style="padding-left:5px;"><strong>redirect_path</strong></strong>
+							<br>취소결과 작업 후 이동할 페이지 주소값 ( http 를 포함한 full url )
+								<br><span style="color:red;">호출도메인과 일치!!</span> 
+								<br>이동할페이지주소 : http://도메인/cancel_result.asp
+								<br>해당 필드값이 공란이면 이동URL에 값이 있어도 이동하지 않습니다.
+								<br>해당 필드값이 공란이면 호출창에 결과를 보여주게 됩니다.
+							</td>
+						</tr>
+						
+						
+
+						<tr>
+                            <td style="text-align:center;"> * </td>
+                            <td>페이태그 원주문번호</td>
+                            <td><label class="input"><input type="text" name="orderno" id="orderno" value=""></td>
+                            <td style="padding-left:5px;"><strong>orderno</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"> * </td>
+                            <td>원결제일자</td>
+                            <td><label class="input"><input type="text" name="orgpaydate" id="orgpaydate" value=""></td>
+                            <td style="padding-left:5px;"><strong>orderno</strong>
+                            <br>YYYYMMDD
+                            </td>
+                        </tr>                    
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>원결제금액</td>
+								<td><label class="input"><input type="text" name="orgtranamt" id="orgtranamt" value=""></td>
+                                <td style="padding-left:5px;"><strong>orgtranamt</strong>
+                                </td>
+                        </tr>
+                        
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>취소구분</td>
+								<td><label class="select">
+									<select name="canceltype" id="canceltype">
+										<option value="0" selected>전액취소</option>
+										<option value="1">부분취소</option>
+									</select>
+								</td>
+								<td style="padding-left:5px;"><strong>canceltype</strong>
+								</td>
+						</tr>
+						<!--
+                        <tr>
+                            <td> * </td>
+                            <td>취소요청금액</td>
+                            <td><label class="input"><input type="text" name="req_cancelamt" id="req_cancelamt" value=""></td>
+                            <td style="padding-left:5px;"><strong>req_cancelamt</strong>
+                            <br>전체취소는 입력하지 않아도됨(잔액만큼취소)
+                            </td>
+                        </tr>
+					-->
+
+						<tr>
+								<td>  </td>
+								<td>여유필드1</td>
+								<td><label class="input"><input type="text" name="shop_field1" id="shop_field1" value=""></td>
+								<td style="padding-left:5px;"><strong>shop_field1</strong>
+								</td>
+						</tr>
+						<tr>
+								<td>  </td>
+								<td>여유필드2</td>
+								<td><label class="input"><input type="text" name="shop_field2" id="shop_field2" value=""></td>
+								<td style="padding-left:5px;"><strong>shop_field2</strong>
+								</td>
+						</tr>
+						<tr>
+								<td>  </td>
+								<td>여유필드3</td>
+								<td><label class="input"><input type="text" name="shop_field3" id="shop_field3" value=""></td>
+								<td style="padding-left:5px;"><strong>shop_field3</strong>
+								</td>
+						</tr>
+
+
+					</tbody>
+				</table>
+				</fieldset>
+
+
+				
+				<footer>
+					<button type="button" class="button" onClick="requestPayTag();">페이태그호출</button>
+				</footer>
+			</form>
+
+		</div>
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+		<!--------------------------------------------------------------->
+		<!--      PAYTAG 결제를 위한 폼을 호출                         -->
+		<!-- 해당 폼이름은 고유해야 하며 변경하지 마시기 바랍니다 -->
+		<!-- 해당 폼과 사용자 폼은 분리되어 존재해야 합니다 --------->
+		<!-- 폼이 분리되지 않으면 페이지 이동이 안됩니다    --------->
+		<!--------------------------------------------------------------->
+		<form name="PayTagPayForm" id="PayTagPayForm">
+        <input type="hidden" name="servicecode" value="PAYTAG">        <!-- 고정값, 필수값 -->
+        <input type="hidden" name="pay_method" value="C">                <!-- 고정값, 필수값 -->
+        <input type="hidden" name="reqLink" value="">
+        
+		<!------------------------------------------------->
+		<!-- 가맹점 정보에 맞게 값을 채워주세요       -->
+		<!-- 위 사용자폼에서 값을 입력받아 채움       -->
+		<!------------------------------------------------->        
+		<input type="hidden" name="shopcode">
+		<input type="hidden" name="loginid">
+		<input type="hidden" name="alert_path">									
+		<input type="hidden" name="redirect_path">								
+        <input type="hidden" name="orderno">
+        <input type="hidden" name="orgpaydate">
+        <input type="hidden" name="orgtranamt">
+		<input type="hidden" name="canceltype">
+		<!--
+        <input type="hidden" name="req_cancelamt">
+		-->
+		<input type="hidden" name="shop_field1">
+		<input type="hidden" name="shop_field2">
+		<input type="hidden" name="shop_field3">
+
+
+
+		<!----------------------------------------------------->
+		<!-- 취소결과를 가져올 필드정보들 ( 고정값 )  ------>
+		<!-- 아래 항목들은 수정이나 변경하지 마십시오!!! -->
+		<!---------------------------------------------->
+		<input type="hidden" name="resultcode">								<!-- 결과코드 : '00', '0000' 은 정상코드 -->
+		<input type="hidden" name="errmsg">									<!-- 실패사유 : 요청이 실패하였을 경우 사유 -->
+
+		<!-- 신용카드 결제취소 관련 결과 필드값 -->
+        <input type="hidden" name="cancelamt">      <!-- 취소금액 -->
+        <input type="hidden" name="trandate">       <!-- 취소일자 -->
+        <input type="hidden" name="trantime">       <!-- 취소시간 -->
+        <input type="hidden" name="restamt">        <!-- 취소후 잔액 -->
+        <input type="hidden" name="shop_orderno">   <!-- 원거래-가맹점 자체 주문번호 -->
+        <input type="hidden" name="shop_member">    <!-- 원거래-가맹점 자체 회원번호 -->
+        <input type="hidden" name="apprno">         <!-- 원거래-승인번호 -->
+        <input type="hidden" name="transeq">        <!-- 페이태그 거래번호-->
+        <input type="hidden" name="receipt_url">    <!-- 신용카드 영수중 url ( full path ) -->
+        <input type="hidden" name="goods_name">     <!-- 원거래의 상품명 -->
+        
+
+		</form>
+
+		<iframe src="./blank.html" name="hiddenPayTagFrame"  height=0 width=0 frameBorder=0></iframe>
+
+
+
+	</body>
+</html>
+
+
+<script>
+
+	
+	var doubleSubmitFlag = false;   // 중복서브밋 방지 필드
+
+	function requestPayTag()
+	{
+		if( !doubleSubmitFlag )
+		{
+			doubleSubmitFlag = true;
+			// 타이밍 추가
+			setTimeout(function () {
+				doubleSubmitFlag = false;
+			}, 3000)
+			
+
+			var _payForm = document.PayTagPayForm;
+			var _usrForm	  = _usrForm;
+
+         
+			// --------------------------------------------------------
+			// 입력폼의 값을 페이테그 결제폼의 값에 대입한다.
+			// --------------------------------------------------------
+			$("input[name='shopcode']", _payForm).val( $("input[name='shopcode']", _usrForm).val() );
+			$("input[name='loginid']", _payForm).val( $("input[name='loginid']", _usrForm).val() );			
+			$("input[name='alert_path']", _payForm).val( $("input[name='alert_path']", _usrForm).val() );
+			$("input[name='redirect_path']", _payForm).val( $("input[name='redirect_path']", _usrForm).val() );
+            $("input[name='orderno']", _payForm).val( $("input[name='orderno']", _usrForm).val() );
+			$("input[name='orgpaydate']", _payForm).val( $("input[name='orgpaydate']", _usrForm).val() );
+			$("input[name='orgtranamt']", _payForm).val( $("input[name='orgtranamt']", _usrForm).val() );            
+            $("input[name='canceltype']", _payForm).val( $("select[name='canceltype'] option:selected", _usrForm).val() );
+			$("input[name='shop_field1']", _payForm).val( $("input[name='shop_field1']", _usrForm).val() );
+			$("input[name='shop_field2']", _payForm).val( $("input[name='shop_field2']", _usrForm).val() );
+			$("input[name='shop_field3']", _payForm).val( $("input[name='shop_field3']", _usrForm).val() );
+			
+			
+			// --------------------------------------------------------
+			// 전송할 값의 유효성검사를 실시
+			// 연동 업체에서 유현하게 처리하시면 됩니다.
+			// --------------------------------------------------------
+			if( $("input[name='shopcode']",  _payForm).val() == "" )
+			{
+				alert("페이태그가맹점 번호를 입력하세요");
+				return;
+			}
+			if( $("input[name='loginid']",  _payForm).val() == "" )
+			{
+				alert("페이태그 ID를 입력하세요");
+				return;
+			}
+
+			if( $("input[name='orderno']",  _payForm).val() == "" )
+			{
+				alert("패이테그 원주문번호를 입력하시기 바랍니다.");
+				return;
+			}
+            if( $("input[name='orgpaydate']",  _payForm).val() == "" )
+			{
+				alert("원거래일자를 입력하시기 바랍니다.");
+				return;
+			}
+			if( $("input[name='orgtranamt']",  _payForm).val() == "" )
+			{
+				alert("원승인금액을 입력하시기 바랍니다.");
+				return;
+			}
+			
+			if( $("input[name='canceltype']",  _payForm).val() == "" )
+			{
+				alert("취소종류를 입력하세요");
+				return;
+			}
+            
+			_payForm.target		=	"hiddenPayTagFrame";
+			_payForm.method		=	"POST";
+			_payForm.action		=	"https://api.paytag.kr/callpaytag2";		
+			_payForm.submit();
+
+		}
+		else
+		{
+			alert("중복작업 위험으로 잠시후에 재시도 바랍니다");
+			return;
+		}
+	}
+</script>

@@ -1,0 +1,84 @@
+/*한글*/
+#goods {width:1000px; overflow:hidden;}
+
+#goods .titles {font-size:11pt;padding-bottom:3px; padding-top:20px;font-weight:bold;}
+
+#goods th,#goods td {border:1px solid #ccc;padding:4px 0px; line-height:18px;}
+#goods th {bacKground:#eee;text-align:left;padding-left:5px;}
+#goods td {padding-left:10px;}
+
+#goods .input_text1 {height:16px; padding:2px 5px; border:1px solid #c0c0c0;}
+#goods .input_text2 {height:20px; border:1px solid #c0c0c0;background-color:#f4f4f4;}
+#goods .input_text3 {height:16px; padding:2px 5px; border:1px solid #c0c0c0; background-color:#d1d1d1;vertical-align:middle;}
+#goods .input_area {line-height:20px; padding:0px 5px; border:1px solid #c0c0c0;}
+
+#goods .input_number {text-align:right;}
+#goods .input_size1 {width:80%}
+#goods .size_s1 {width:180px;}
+#goods .check2 {margin-left:18px;}
+
+
+#goods .notBorTable td {border:1px solid #fff; background:#eee;}
+#goods .notBorTable .tableintdf {padding-right:5px; font-weight:bold;text-align:right;}
+#goods td.text_small8 p {line-height:160%;}
+
+#goods .req {background:#ffe44c !important;}
+.wonSpan {margin-left:20px; color:#ee7600; font-weight:bold;}
+
+
+#goods .tableintable1 {width:120px;}
+#goods .tableintable2 {width:180px;}
+#goods .tableintable3 {width:450px;}
+
+#goods .priceTable th {text-align:center; padding:9px 0px;}
+#goods .submit_area {text-align:center; padding:20px 0px;}
+
+
+
+#goods_search img, #goods_search input, #goods_search select {vertical-align:middle;}
+#goods_search td {border:1px solid #d8d8d8;padding:7px 5px 7px 5px;}
+#goods_search th {background-color:#f3f3f3; text-align:center; font-weight:bold; color:#686868;border:1px solid #d8d8d8;}
+#goods_search .goodSearch {width:1000px;}
+#goods_search .orders {height:23px;text-align:right;background-color:#fff; border:none;}
+
+
+
+
+#goods_list .goodList {width:1000px;}
+#goods_list .goodList td {height:130px;}
+#goods_list .lh160 {line-height:160%;}
+#goods_list th {height:55px;background-color:#eaeaea;border:1px solid #d8d8d8; padding: 5px 5px;}
+#goods_list .goodList td .imgs {width:120px;height:120px; border:2px solid #0099ff;vertical-align:middle;}
+
+#goods_list tbody td {border:1px solid #d8d8d8;}
+#goods_list tbody td.no_right {border-right:0px none;}
+#goods_list tbody td.no_left {border-left:0px none;}
+
+#goods_list .intable {margin:0 auto;}
+#goods_list .intable th {height:25px; padding:2px 2px; border:1px solid #acbbc0; background-color:#e6ebed;}
+#goods_list .intable td {height:25px; padding:2px 2px; border:1px solid #cccccc; background-color:#fff;}
+#goods_list .intable td.tds1{background-color:#f4fafc;}
+#goods_list .intable td.tds2{text-align: right;padding-right:2px;}
+#goods_list .intable td.tds3{text-align: left;font-size: 12px;}
+#goods_list .intable td.bgs1{background-color:#ffbaba; font-weight:bold;}
+#goods_list .intable td.b-r {border-right: none;}
+#goods_list .intable td.b-l {border-left: none;}
+
+#goods_list .btnArea{margin: 10px 0;}
+#goods_list .cs_ncode {color:#1563da;}
+#goods_list .category {color:#e81d3c;}
+#goods_list .goodsname {font-size: 15px; font-weight: 600;}
+#goods_list .comment {font-size: 11px; }
+
+
+#divList {clear:both;float:left;margin-top:10px; width:1000px;overflow:hidden;}
+#divList th, #divList td {border:1px solid #ccc; text-align:center;}
+#divList td {padding:4px 0px; border-top:0px none;}
+#divList th {background-color:#eee; height:32px;border:1px solid #ccc;}
+#divList .bor1 {border:1px solid #ccc;}
+#divList .button {padding:20px 5px;font-weight:bold; color:#686868;}
+
+#goods.view th {min-height:26px;}
+#goods.view td {min-height:26px; line-height:16px;}
+#goods.view .innerDIVscroll {width:100%; height:500px; overflow-y:scroll;}
+#goods.view .input_area {line-height:20px; padding:0px 5px; border:1px solid #c0c0c0;}

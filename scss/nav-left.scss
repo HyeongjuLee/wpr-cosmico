@@ -1,0 +1,187 @@
+@import 'mixin-custom';
+
+#left i.line {
+	display: none;
+}
+
+.nav-left {
+	$nav-size: $font-size + rem(2px);
+	$nav-color: #737373;
+	$nav-right: $nav-size - rem(5px);
+
+	width: 100%;
+	@include position;
+	font-size: $nav-size;
+	font-weight: 600;
+	line-height: 1.5;
+	letter-spacing: -0.05em;
+	color: $nav-color;
+	border-bottom: 1px solid rgba(#000, 0.1);
+
+	ul {
+		width: $inner;
+		margin: 0 auto;
+		@include position;
+		display: flex;
+		flex-direction: row;
+		//flex-wrap: wrap;
+
+		&>li {
+			margin: 0 $nav-right * 0.1;
+			min-width: rem(150px);
+
+			&>a {
+				display: flex;
+				align-items: center;
+				padding: $nav-size;
+				padding-right: $nav-size * 2.5;
+				color: $nav-color;
+			}
+
+			&.home {
+				min-width: $default-css;
+			}
+		}
+
+	}
+
+	li {
+		@include position;
+		white-space: nowrap;
+	}
+
+	i.right {
+		font-size: $nav-right;
+		@include position(absolute, $ri: $nav-size * 1, $top: 50%);
+		transform: translateY(-50%);
+		@include transition(all, .15s);
+	}
+
+	a.depth {
+		@include position;
+
+	}
+
+	ol {
+		@include position(absolute);
+		min-width: 100%;
+		max-width: 100vh;
+		//padding: 0 $nav-right * 0.5;
+		overflow: hidden;
+		background: #fff;
+		box-shadow: 0 rem(2px) rem(10px) rgba(#000, 0.15);
+		@include rounded(rem(3px));
+		@include transition(all, .5s);
+
+		li {
+			margin: 0;
+		}
+
+		a {
+			@include default-a;
+			display: block;
+			padding: $nav-right * 0.8;
+			padding-right: $nav-right * 2;
+			z-index: 10;
+			overflow: hidden;
+			font-size: $nav-size - rem(1px);
+			color: lighten($nav-color, 10%);
+			@include transition(all, .3s);
+
+		}
+
+		&:hover {
+			a {
+				color: rgba($nav-color, 0.8);
+
+				&:hover {
+					color: #000;
+				}
+			}
+		}
+
+		.depth {
+			a {
+				color: $main-color;
+				font-weight: 700;
+			}
+		}
+
+	}
+
+	.depth1,
+	.depth2 {
+		&.view {
+			&>a {
+				background: rgba($nav-color, 0.05);
+				@include transition(all, .5s);
+			}
+
+			i.right {
+				transform: translateY(-50%) rotate(90deg) scale(1.2);
+				opacity: .7;
+			}
+
+			ol {
+				z-index: 9;
+			}
+		}
+	}
+
+	.depth2 {
+		&>a {
+			color: $main-color;
+		}
+
+		i.right {
+			opacity: 0;
+		}
+
+		&:hover,
+		&.view {
+			i.right {
+				opacity: 1;
+			}
+		}
+
+		&.view>a {
+			background: rgba($main-color, 0.05);
+		}
+	}
+
+
+	//slide
+	// ol {
+	// 	max-height: 0;
+	// }
+	// .depth1, .depth2 {
+	// 	&.view {
+	// 		ol {
+	// 			max-height: 100vh;
+	//			padding: $nav-right;
+	// 		}
+	// 	}
+	// }
+
+	//fade
+	ol {
+		max-height: 100vh;
+		opacity: 0;
+		padding: $nav-right;
+
+		top: ($nav-size + $nav-right) * 1.8;
+		z-index: -1;
+	}
+
+	.depth1,
+	.depth2 {
+		&.view {
+			ol {
+				max-height: 100vh;
+				opacity: 1;
+
+				top: ($nav-size + $nav-right) * 2 + rem(2px);
+			}
+		}
+	}
+}

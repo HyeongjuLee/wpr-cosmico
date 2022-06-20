@@ -1,0 +1,113 @@
+/* Basic styling */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,blockquote,input{margin:0;padding:0;word-break:break-all;}
+
+body,input,select,textarea{font-family:'Noto Sans KR', 'malgun gothic',굴림,굴림체,gulim,돋움,dotum,tahoma,sans-serif,arial,verdana;}
+body {}
+
+a {color: #E05E00;text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+.tweight {font-weight:bold;}
+/* list stuff */
+#org{background-color:white;margin:10px;padding:10px;}
+
+#show-list{cursor:pointer;}
+
+.cp {cursor:pointer;}
+img {border:0px none;}
+
+.vmiddle {vertical-align:middle;}
+.bgs {background-color:#ccc;}
+
+/* */
+.red {color:red;}
+.blue {color:blue;}
+.blue2 {color:#3366ff;}
+.red2 {color:#eb301b;}
+.green2 {color:#339966;}
+
+/* Custom chart styling */
+.jOrgChart {padding:20px;}
+
+/* Draw the lines */
+.jOrgChart .line {height:20px; width:2px;}
+.jOrgChart .down {background-color:#777; margin:0px auto;}
+.jOrgChart .top {border-top:2px solid #777;}
+.jOrgChart .left {border-right:2px solid #777;}
+.jOrgChart .right {border-left:2px solid #777;}
+.jOrgChart .node {font-size:12px;background-color:#fff; border:2px solid #777;color:#000;display:inline-block; width:96px; height:80px; z-index:10;margin:0px 2px;}
+.jOrgChart .fnode {height:96px;}
+.jOrgChart .fnode1 {height:112px;}
+.jOrgChart .fnodeTop {height:180px;width:150px;}
+.jOrgChart .fnodeSub {height:105px;width:100px;}
+
+.jOrgChart .fnodeATop {height:64px;width:110px;}
+.jOrgChart .fnodeASub {height:48px;width:110px;}
+
+.jOrgChart .fnodeTop0 {height:116px;width:140px;margin-top:20px;}
+.jOrgChart .fnodeTop1 {height:132px;width:165px;margin-top:20px;}
+.jOrgChart .fnodeTop2 {height:148px;width:165px;margin-top:20px;}
+.jOrgChart .fnodeTop3 {height:164px;width:165px;margin-top:20px;}
+.jOrgChart .fnodeTop4 {height:180px;width:165px;margin-top:20px;}
+.jOrgChart .fnodeTop5 {height:196px;width:165px;margin-top:20px;}
+.jOrgChart .fnodeTop6 {height:212px;width:165px;margin-top:20px;}
+.jOrgChart .fnodeTop7 {height:228px;width:165px;margin-top:20px;}
+.jOrgChart .fnodeTop8 {height:244px;width:165px;margin-top:20px;}
+
+.jOrgChart .fnodeSub0 {height:91px;width:120px;}
+.jOrgChart .fnodeSub1 {height:107px;width:145px;}
+.jOrgChart .fnodeSub2 {height:123px;width:145px;}
+.jOrgChart .fnodeSub3 {height:139px;width:145px;}
+.jOrgChart .fnodeSub4 {height:155px;width:145px;}
+.jOrgChart .fnodeSub5 {height:171px;width:145px;}
+.jOrgChart .fnodeSub6 {height:187px;width:145px;}
+.jOrgChart .fnodeSub7 {height:203px;width:145px;}
+.jOrgChart .fnodeSub8 {height:219px;width:145px;}
+
+.jOrgChart .fnodeTopA {height:163px;width:130px;}
+.jOrgChart .fnodeSubA {height:137px;width:115px;}
+
+.node p {font-size: 11px;line-height:13px;padding:1px 0px 2px 0px;}
+
+/*nodecell*/
+.jOrgChart td {text-align:center; vertical-align:top; padding:0px;}
+
+.SearchLayer {width:100%;position:fixed; top:0px; left:0px; height:27px; background-color:#000; color:#fff; padding-top:3px;}
+
+.innerSearch {float:left;margin-left:5px;}
+
+.listarea {float:left; position:fixed; top:28px; left:20px;}
+.listscroll {max-height:300px; width:420px;overflow:auto;}
+.input_text {border:2px solid #ababab; border-right:0px none; border-left: 0px none; width:200px; height:14px; padding-left:4px; padding-top:3px; font-size:11px;}
+
+.listicon {float:left; margin-left:20px;}
+
+
+#search_wrapAll{float:left;width:1200px;height:22px; padding:5px; border:0px solid #CCC; background:g ray;}
+.SearchLayer3 {width:100%;position:fixed; top:0px; left:0px; height:35px; background-color:#000; color:#fff; padding-top:3px;}
+/*상세조직도 검색창*/
+.SearchLayer2 {width:100%;position:fixed; top:0px; left:0px; height:60px; background-color:#000; color:#fff; padding-top:3px;}
+.input_text2 {border:2px solid #ababab; border-right:0px none; border-left: 0px none; width:55px; height:14px; padding-left:4px; padding-top:3px; font-size:11px;}
+.listicon2 {float:left; margin-left:5px;}
+#search_wrap{float:left;width:520px;height:45px; padding:5px; border:0px solid #CCC; background:g ray;}
+ #search_period {width:345px;height:22px;margin-left:5px;margin-top:2px;float:left;background:b lue;}
+ #search_member {width:160px;height:22px;margin-right:10px;float:right;background:p urple;}
+
+#zoom{float:right;padding:2px; border:0px solid #CCC; background:#000;}
+#zoom2{float:right;padding:0px; border:0px solid #CCC; background:#000;}
+/*
+ #search_period {width:265px;height:22px;margin-left:5px;margin-top:2px;float:left;background:b lue;}
+ #search_member {width:240px;height:22px;margin-right:10px;float:right;background:p urple;}
+*/
+ #cheack_area   {width:510px;height:20px;margin-left:5px;margin-top:5px;float:left;background:g reen;}
+
+
+.sTable {border-collapse:collapse;}
+.sTable th {border:1px solid #bbb; background-color:#ccc; height:22px; color:#000; font-size:12px; font-family:tahoma;}
+.sTable td {border:1px solid #ccc; background-color:#fff; color:#333; font-size:12px; text-align:center; padding:7px 0px;}
+.sTable td.notData {padding:20px 0px; text-align:center;}
+
+#firstnode {position:absolute;color:#000;z-index:9;}
+
+#top_line {background-color:#fff;font-family:verdana;  font-weight:bold; line-height:40px; height:40px; background-color:#7d7d7d; color:#fff;}
+#top_line .span1 {margin-left:20px;font-size:16px;}

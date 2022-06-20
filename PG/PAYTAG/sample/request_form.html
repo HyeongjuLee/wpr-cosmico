@@ -1,0 +1,410 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>paytag sample</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<link rel="stylesheet" href="css/sky-forms.css">
+		<link rel="stylesheet" href="css/sky-forms-blue.css">
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="css/sky-forms-ie8.css">
+		<![endif]-->
+		
+		<script src="js/jquery.min.js"></script>
+		<!--[if lt IE 10]>
+			<script src="js/jquery.placeholder.min.js"></script>
+		<![endif]-->		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/sky-forms-ie8.js"></script>
+		<![endif]-->
+
+		<style>
+		  table {
+			width: 100%;
+			border: 1px solid #444444;
+			border-collapse: collapse;
+		  }
+		  th, td {
+			border: 1px solid #444444;
+		  }
+		</style>
+
+	</head>
+	<body>
+		<div class="body">			
+		
+
+
+		<!--------------------------------------------------------------->
+		<!--                      사용자입력폼                              -->
+		<!--------------------------------------------------------------->
+		<form name="userForm" id="userForm"  class="sky-form" >
+
+				<header><img src="./img/paytag.png"> 링크결제</header>
+				
+				<fieldset>	
+				<table>
+					<thead>
+						<tr>
+							<th style='min-width:1px; white-space:nowrap;'>필수</th>
+							<th style='min-width:1px; white-space:nowrap;'>필드구분</th>
+							<th style='min-width:1px; white-space:nowrap;'>값</th>
+							<th style='min-width:1px; white-space:nowrap;'>설명</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>페이태그가맹점코드</td>
+								<td><label class="input"><input type="text" name="shopcode" id="shopcode" value="1901110002"></td>
+								<td style="padding-left:5px;"><strong>shopcode</strong></td>
+						</tr>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>페이태그ID</td>
+								<td><label class="input"><input type="text" name="loginid" id="loginid" value="paytag"></td>
+								<td style="padding-left:5px;"><strong>loginid</strong></td>
+						</tr>
+						
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>결과수신URL</td>
+								<td><label class="input"><input type="text" name="alert_path" id="alert_path" value=""></td>
+								<td style="padding-left:5px;"><strong>alert_path</strong>
+								<br>결제결과를 PG로부터 수신하는 주소값 ( http 를 포함한 full url )	
+								<br><span style="color:red;">페이지를 호출하는 도메인과 일치!!</span>
+								<br>신용카드바로결제 : http://도메인/pay_receive.asp
+								<br>결제요청(카드,가상계좌) : http://도메인/order_receive.asp
+								</td>
+						</tr>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>페이지이동URL</td>
+								<td><label class="input"><input type="text" name="redirect_path" id="redirect_path" value=""></td>
+								<td style="padding-left:5px;"><strong>redirect_path</strong></strong>
+								<br>결제결과 작업 후 이동할 페이지 주소값 ( http 를 포함한 full url )
+								<br><span style="color:red;">페이지를 호출하는 도메인과 일치!!</span> 
+								<br>신용카드바로결제 : http://도메인/pay_result.asp
+								<br>결제요청(카드,가상계좌) : http://도메인/order_result.asp
+								</td>
+						</tr>
+
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>상품명</td>
+								<td><label class="input"><input type="text" name="goods_name" id="goods_name" value="모나미볼펜"></td>
+								<td style="padding-left:5px;"><strong>goods_name</strong></td>
+						</tr>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>요청금액</td>
+								<td><label class="input"><input type="text" name="tran_amt" id="tran_amt" value="1004"></td>
+								<td style="padding-left:5px;"><strong>tran_amt</strong></td>
+						</tr>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>주문자명</td>
+								<td><label class="input"><input type="text" name="order_name" id="order_name" value="홍길동"></td>
+								<td style="padding-left:5px;"><strong>order_name</strong></td>
+						</tr>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>주문자휴대폰</td>
+								<td><label class="input"><input type="text" name="order_hp" id="order_hp" value=""></td>
+								<td style="padding-left:5px;"><strong>order_hp</strong></td>
+						</tr>
+						<tr>
+								<td>  </td>
+								<td>주문자이메일</td>
+								<td><label class="input"><input type="text" name="order_email" id="order_email" value=""></td>
+								<td style="padding-left:5px;"><strong>order_email</strong></td>
+						</tr>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>면세구분</td>
+								<td><label class="select">
+									<select name="taxfree_yn" id="taxfree_yn">
+										<option value="N" selected>과세</option>
+										<option value="Y">면세</option>
+									</select>
+								</td>
+								<td style="padding-left:5px;"><strong>taxfree_yn</strong>
+								</td>
+						</tr>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>결제방법</td>
+								<td><label class="select">
+									<select name="pay_method" id="pay_method">
+										<option value="C" selected>신용카드</option>
+										<option value="V">가상계좌</option>
+									</select>
+								</td>
+								<td style="padding-left:5px;"><strong>pay_method</strong>
+								</td>
+						</tr>
+						<tr>
+								<td style="text-align:center;"> * </td>
+								<td>전송방법</td>
+								<td><label class="select">
+									<select name="order_send_type" id="order_send_type">
+										<option value="X" selected>바로결제</option>
+										<option value="A">알림톡요청</option>
+									</select>
+								</td>
+								<td style="padding-left:5px;"><strong>order_send_type</strong>
+								<br>결제방법이 신용카드일때만 선택
+								<br>가상계좌는 자동으로 알림톡요청
+								</td>
+						</tr>
+
+						<tr>
+								<td>  </td>
+								<td>자체주문번호</td>
+								<td><label class="input"><input type="text" name="shop_orderno" id="shop_orderno" value=""></td>
+								<td style="padding-left:5px;"><strong>shop_orderno</strong>
+								</td>
+						</tr>
+						<tr>
+								<td>  </td>
+								<td>자체회원번호</td>
+								<td><label class="input"><input type="text" name="shop_member" id="shop_member" value=""></td>
+								<td style="padding-left:5px;"><strong>shop_member</strong>
+								</td>
+						</tr>
+						<tr>
+								<td>  </td>
+								<td>여유필드1</td>
+								<td><label class="input"><input type="text" name="shop_field1" id="shop_field1" value=""></td>
+								<td style="padding-left:5px;"><strong>shop_field1</strong>
+								</td>
+						</tr>
+						<tr>
+								<td>  </td>
+								<td>여유필드2</td>
+								<td><label class="input"><input type="text" name="shop_field2" id="shop_field2" value=""></td>
+								<td style="padding-left:5px;"><strong>shop_field2</strong>
+								</td>
+						</tr>
+						<tr>
+								<td>  </td>
+								<td>여유필드3</td>
+								<td><label class="input"><input type="text" name="shop_field3" id="shop_field3" value=""></td>
+								<td style="padding-left:5px;"><strong>shop_field3</strong>
+								</td>
+						</tr>
+
+
+					</tbody>
+				</table>
+				</fieldset>
+
+
+				
+				<footer>
+					<button type="button" class="button" onClick="requestPayTag();">페이태그호출</button>
+				</footer>
+			</form>
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+		<!--------------------------------------------------------------->
+		<!--      PAYTAG 결제를 위한 폼을 호출                         -->
+		<!-- 해당 폼이름은 고유해야 하며 변경하지 마시기 바랍니다 -->
+		<!-- 해당 폼과 사용자 폼은 분리되어 존재해야 합니다 --------->
+		<!-- 폼이 분리되지 않으면 페이지 이동이 안됩니다    --------->
+		<!--------------------------------------------------------------->
+		<form name="PayTagPayForm" id="PayTagPayForm">
+
+		<!------------------------------------------------->
+		<!-- 가맹점 정보에 맞게 값을 채워주세요       -->
+		<!-- 위 사용자폼에서 값을 입력받아 채움       -->
+		<!------------------------------------------------->        
+		<input type="hidden" name="servicecode" value="PAYTAG">          <!-- 고정값, 필수값 -->
+		<input type="hidden" name="shopcode">
+		<input type="hidden" name="loginid">
+		<input type="hidden" name="alert_path">									
+		<input type="hidden" name="redirect_path">								<!-- alert_path와 동일한 도메인이어야 page 이동이 됩니다. -->
+		<input type="hidden" name="goods_name">
+		<input type="hidden" name="tran_amt">
+		<input type="hidden" name="order_name">
+		<input type="hidden" name="order_hp">
+		<input type="hidden" name="order_email">
+		<input type="hidden" name="taxfree_yn">
+		<input type="hidden" name="pay_method">
+		<input type="hidden" name="order_send_type">
+		<input type="hidden" name="shop_orderno">
+		<input type="hidden" name="shop_member">
+		<input type="hidden" name="shop_field1">
+		<input type="hidden" name="shop_field2">
+		<input type="hidden" name="shop_field3">
+
+
+		<!----------------------------------------------------->
+		<!-- 결제결과를 가져올 필드정보들 ( 고정값 )  ------>
+		<!-- 아래 항목들은 수정이나 변경하지 마십시오!!! -->
+		<!---------------------------------------------->
+		<input type="hidden" name="resultcode">								<!-- 결과코드 : '00', '0000' 은 정상코드 -->
+		<input type="hidden" name="errmsg">									<!-- 실패사유 : 요청이 실패하였을 경우 사유 -->
+		<input type="hidden" name="orderno">									<!-- 페이태그 주문번호 ( 취소시 꼭 필요한 값 ) -->
+
+		<!-- 신용카드 바로결제 관련 결과 필드값 -->
+		<input type="hidden" name="payer_name">								<!-- 결제자명 -->
+		<input type="hidden" name="payer_hp">									<!-- 결제자휴대폰번호 -->
+		<input type="hidden" name="payer_email">								<!-- 결제자이메일 -->
+		<input type="hidden" name="tranno">									<!-- PG거래번호 -->
+		<input type="hidden" name="apprno">									<!-- 승인번호 -->
+		<input type="hidden" name="trandate">									<!-- 거래일자 -->
+		<input type="hidden" name="trantime">									<!-- 거래시간 -->
+		<input type="hidden" name="cardno">									<!-- 결제카드번호 일부값 -->
+		<input type="hidden" name="tran_inst">									<!-- 할부기간 : 00 또는 공백은 '일시불' -->
+		<input type="hidden" name="cardname">								<!-- 결제카드 매입사명 -->
+		<!---------------------------------------->
+
+		<!-- 신용카드 카카오톡 결제요청 관련 결과 필드값 -->
+		<input type="hidden" name="orderinfo_path">							<!-- 주문서 상세정보 url -->
+		<input type="hidden" name="orderinfo_ars">							<!-- ARS 결제 번호 -->
+
+		<!-- 주문서 만기일자 : 신용카드 결제요청 과 가상계좌인 경우만 해당  -->
+		<input type="hidden" name="orderinfo_expiredt">						<!-- 주문 만기일자 -->
+		<!---------------------------------------->
+
+		<!-- 가상계좌 결제요청 관련 결과 필드값 ---->
+		<input type="hidden" name="vbankcode">								<!-- 가상계좌 요청 은행코드 -->
+		<input type="hidden" name="vbankname">								<!-- 가상계좌 요청 은행명 -->
+		<input type="hidden" name="vbankno">									<!-- 가상계좌 요청 계좌번호 -->
+		<input type="hidden" name="vbankowner">								<!-- 가상계좌 요청 예금주명 -->
+		<!---------------------------------------->
+		</form>
+
+		<iframe src="./blank.html" name="hiddenPayTagFrame"  height=0 width=0 frameBorder=0></iframe>
+
+
+
+
+
+
+	</body>
+</html>
+
+
+<script>
+
+	
+	var doubleSubmitFlag = false;   // 중복서브밋 방지 필드
+
+	function requestPayTag()
+	{
+		if( !doubleSubmitFlag )
+		{
+			doubleSubmitFlag = true;
+			// 타이밍 추가
+			setTimeout(function () {
+				doubleSubmitFlag = false;
+			}, 3000)
+			
+
+			var _payForm = document.PayTagPayForm;
+			var _usrForm	  = _usrForm;
+			// --------------------------------------------------------
+			// 입력폼의 값을 페이테그 결제폼의 값에 대입한다.
+			// --------------------------------------------------------
+			$("input[name='shopcode']", _payForm).val( $("input[name='shopcode']", _usrForm).val() );
+			$("input[name='loginid']", _payForm).val( $("input[name='loginid']", _usrForm).val() );			
+			$("input[name='goods_name']", _payForm).val( $("input[name='goods_name']", _usrForm).val() );
+			$("input[name='tran_amt']", _payForm).val( $("input[name='tran_amt']", _usrForm).val() );
+			$("input[name='order_name']", _payForm).val( $("input[name='order_name']", _usrForm).val() );
+			$("input[name='order_hp']", _payForm).val( $("input[name='order_hp']", _usrForm).val() );
+			$("input[name='order_email']", _payForm).val( $("input[name='order_email']", _usrForm).val() );
+			$("input[name='taxfree_yn']", _payForm).val( $("select[name='taxfree_yn'] option:selected", _usrForm).val() );
+			$("input[name='pay_method']", _payForm).val( $("select[name='pay_method'] option:selected", _usrForm).val() );
+			$("input[name='order_send_type']", _payForm).val( $("select[name='order_send_type'] option:selected", _usrForm).val() );  
+			$("input[name='alert_path']", _payForm).val( $("input[name='alert_path']", _usrForm).val() );
+			$("input[name='redirect_path']", _payForm).val( $("input[name='redirect_path']", _usrForm).val() );
+
+			$("input[name='shop_orderno']", _payForm).val( $("input[name='shop_orderno']", _usrForm).val() );
+			$("input[name='shop_member']", _payForm).val( $("input[name='shop_member']", _usrForm).val() );
+			$("input[name='shop_field1']", _payForm).val( $("input[name='shop_field1']", _usrForm).val() );
+			$("input[name='shop_field2']", _payForm).val( $("input[name='shop_field2']", _usrForm).val() );
+			$("input[name='shop_field3']", _payForm).val( $("input[name='shop_field3']", _usrForm).val() );
+			
+			
+			// --------------------------------------------------------
+			// 전송할 값의 유효성검사를 실시
+			// 연동 업체에서 유현하게 처리하시면 됩니다.
+			// --------------------------------------------------------
+			if( $("input[name='shopcode']",  _payForm).val() == "" )
+			{
+				alert("페이태그가맹점 번호를 입력하세요");
+				return;
+			}
+			if( $("input[name='loginid']",  _payForm).val() == "" )
+			{
+				alert("페이태그 ID를 입력하세요");
+				return;
+			}
+			if( $("input[name='alert_path']",  _payForm).val() == "" )
+			{
+				alert("결과를 수신할 전체 URL을 입력하세요");
+				return;
+			}
+			if( $("input[name='redirect_path']",  _payForm).val() == "" )
+			{
+				alert("작업후 이동할 전체 URL을 입력하세요");
+				return;
+			}
+
+			if( $("input[name='goods_name']",  _payForm).val() == "" )
+			{
+				alert("상품명을 입력하시기 바랍니다.");
+				return;
+			}
+			if( $("input[name='tran_amt']",  _payForm).val() == "" )
+			{
+				alert("상품금액을 입력하시기 바랍니다.");
+				return;
+			}
+			if(   parseInt(  $("input[name='tran_amt']", _payForm)  ) < 1000 )
+			{
+				alert("금액은 1000원 이상부터 가능합니다.");
+				return;
+			}
+			if( $("input[name='order_name']",  _payForm).val() == "" )
+			{
+				alert("주문자명을 입력하세요");
+				return;
+			}
+			if( $("input[name='pay_method']",  _payForm).val() == "" )
+			{
+				alert("결제종류를 선택하세요");
+				return;
+			}
+
+			_payForm.target		=	"hiddenPayTagFrame";
+			_payForm.method		=	"POST";
+			_payForm.action		=	"https://api.paytag.kr/callpaytag";		
+			_payForm.submit();
+
+		}
+		else
+		{
+			alert("중복결제 위험으로 잠시후에 재시도 바랍니다");
+			return;
+		}
+	}
+</script>

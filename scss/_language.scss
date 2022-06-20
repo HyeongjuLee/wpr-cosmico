@@ -1,0 +1,183 @@
+@import 'mixin-custom';
+
+/*다국어*/
+
+$padding-tb: rem(12px);
+//$select-height: ($padding-tb * 3) + $font-size; //.select 의 높이 (8 * 3) + 13
+$select-height: rem(45px);
+
+#language {
+	//float: right;
+	@include position;
+	//min-width: $inner * 0.1;
+	min-width: $select-height * 2.5;
+	z-index: 5;
+	font-size: $font-size;
+	line-height: 1;
+	text-align: left;
+	color: $parent-css;
+	cursor: pointer;
+	margin: {
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: rem(20px);
+	};
+
+	&:before {
+		@include presudo($le: 0, $top: 0);
+		@include transition(all .1s ease);
+		width: 100%;
+		height: 100%;
+		background: transparent;
+		border: 1px solid transparent;
+		z-index: 0;
+		padding: {
+			//bottom: rem(2px);
+		}
+		// border-radius: $select-height / 2;
+	}
+
+	%list {
+		@include default-a;
+		@include transition(all .1s ease);
+		@include position;
+	}
+
+	.select {
+		@extend %list;
+		padding: $padding-tb;
+		padding-left: $padding-tb * 2;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		height: $select-height;
+		color: $parent-css;
+		
+		i {
+			flex: none;
+			font-size: $font-size + rem(3px);
+		}
+
+		.icon-angle-down {
+			margin-left: auto;
+			@include transition(all .1s ease);
+		}
+	}
+
+	span {
+		@include flex;
+		//border-radius: 100%;
+		//overflow: hidden;
+		//border: 1px solid rgba(#000, 50%);
+		@include position;
+		z-index: 2;
+		color: $parent-css;
+
+		&:before {
+			//content: '';
+			@include position(absolute, $le: 0, $top: 0);
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			//border-radius: 100%;
+			//border: 1px solid #000;
+			opacity: 0.3;
+			box-sizing: border-box;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			//border-radius: 100%;
+		}
+	}
+	
+
+	ul {
+		@include position(absolute, $top: ($select-height - $padding-tb));
+		z-index: 0;
+		@include transition(all .1s ease);
+
+		overflow: hidden;
+		width: 100%;
+		height: 0;
+
+
+		&:hover {
+			height: $select-height;
+
+			li {
+				//color: lighten(material-color('grey', '800'), 20%);
+			}
+		}
+
+		li {
+			@extend %list;
+			width: 100%;
+			height: $select-height;
+			list-style: none;
+			padding: $padding-tb;
+			padding-left: $padding-tb * 2;
+			//background: #fff;
+			line-height: 1.5;
+			&:first-of-type {
+				//padding-top: 0;
+			}
+
+			&.hide {
+				z-index: -1;
+				opacity: 0;
+				display: none;
+			}
+
+			&:hover {
+				//color: darken(material-color('grey', '800'), 50%);
+				text-decoration: underline;
+
+				span {
+					&:before {
+						opacity: 0.5;
+					}
+				}
+			}
+		}
+	}
+
+	&.view {
+		&:before {
+			height: $select-height * 2 - $padding-tb;
+			//border-color: black;
+			background: rgba(#fff, 0.2);
+		}
+		.select .icon-angle-down {
+			transform: rotate3d(1, 0, 0, 180deg); //3d 회전
+			//transform: rotate(180deg); //2d 회전
+			//transform: translate(0, 10%) rotate3d(100, 0, 0, 180deg) scale(1.3);
+			//color: desaturate(lighten($main-color, 40%), 60%);
+		}
+		color: $parent-css;
+		
+		ul {
+			height: $select-height * 1;
+		}
+	}
+}
+
+#header.fixed {
+	#language {
+		&:before {
+			//content: none;
+			//box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.24);
+		}
+		.select {
+			color: material-color('grey', '800');
+		}
+		&.view {
+			&::before {
+				background: #fff;
+				box-shadow: 0 1px 10px rgba(#000, 0.12);
+			}
+		}
+	}
+}

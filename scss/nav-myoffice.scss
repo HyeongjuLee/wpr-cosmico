@@ -1,0 +1,373 @@
+@import 'mixin-custom';
+
+$common-font-color: #212121;
+$input-width: $inner / 2.5;
+$input-height: $font-size * 4;
+$nav-color: #333645;
+$nav-color-200: saturate(lighten($nav-color, 65), 5);
+$nav-color-200-d: darken($nav-color-200, 10);
+$nav-color-600: saturate(lighten($nav-color, 10), 25);
+$sub_title-height: $font-size * 4;
+
+.nav-myoffice {
+	width: $nav;
+	min-height: 100vh;
+	float: left;
+	@include position;
+	z-index: 11;
+	margin-top: $sub_title-height * -1;
+	text-align: left;
+	font-weight: 400;
+	font-size: $font-size;
+
+	&:before {
+		content: '';
+		@include position(absolute, $le: 0, $top: 0);
+		z-index: -1;
+		width: 100%;
+		height: 300%;
+		background: $nav-color;
+	}
+
+	.nav {
+		&-left {
+			width: 100%;
+			border: none;
+		}
+
+		&-top {
+			.logo {
+				width: 100%;
+				height: $sub_title-height;
+				@include flex;
+				@include position;
+
+				color: lighten($nav-color, 50);
+				font-size: $font-size * 2;
+				font-weight: 400;
+				letter-spacing: $font-size / 5;
+				text-align: center;
+				
+				// &:before, &:after {
+				// 	content: '';
+				// 	@include position(absolute);
+				// 	width: 100%;
+				// 	height: 100%;
+				// 	background: url('/images/share/logo.svg') no-repeat center / 100%;
+				// 	opacity: 0.1;
+				// }
+				// &:before {
+				// 	left: rem(-1px);
+				// 	top: rem(-1px);
+				// }
+				// &:after {
+				// 	right: rem(-1px);
+				// 	bottom: rem(-1px);
+				// }
+
+				img {
+					height: 40%;
+					//margin-left: rem(30px);
+					filter: brightness(10) grayscale(1);
+					@include position;
+					opacity: .5;
+
+				}
+			}
+
+		}
+	}
+
+	.info {
+		@include position;
+		background: mix(#000, $nav-color, 25%);
+
+		.name {
+			padding: rem(20px) rem(30px);
+
+			border: {
+				top: 1px solid;
+				bottom: 1px solid;
+				color: mix(#fff, $nav-color, 10%);
+			}
+
+			h1 {
+				color: #fff;
+				font-size: rem(18px);
+				font-weight: 600;
+			}
+
+			span {
+				color: rgba(#fff, 60%);
+				//font-size: rem(15px);
+			}
+
+			a {
+				$size: rem(22px);
+				@include position(absolute, $ri: rem(30px), $top: rem(22px));
+				width: $size;
+				height: $size;
+
+				i {
+					@include transition(all .2s);
+					color: mix(#fff, $nav-color, 50%);
+					font-size: $size;
+					line-height: 0;
+					width: 100%;
+					height: 100%;
+					display: block;
+
+					&:before {
+						margin: 0;
+						width: 100%;
+						height: 100%;
+					}
+				}
+
+				&:hover i {
+					color: mix(#fff, $nav-color, 80%);
+				}
+			}
+		}
+
+		&.admin {
+			.name {
+				color: #fff;
+			}
+		}
+	}
+
+	.user {
+		padding: rem(15px) rem(30px);
+
+		div {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: rem(5px) 0;
+
+			span {
+				float: left;
+				width: 45%;
+				color: mix(#fff, $nav-color, 50%);
+			}
+
+			p {
+				float: left;
+				width: 55%;
+				color: #fff;
+				font-size: rem(16px);
+				font-weight: 300;
+			}
+		}
+	}
+
+	$nav-menu: rem(24px);
+
+	.nav-menu {
+		@include position;
+		margin: rem(30px) 0;
+		background: $nav-color;
+		width: 100%;
+
+		.icon-angle-right {
+			color: transparent;
+			@include position(absolute, $top: rem(17px), $le: rem(12px));
+			font-size: rem(14px);
+			width: rem(20px);
+			height: rem(20px);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&:before {
+				margin: 0;
+			}
+		}
+
+		.list {
+			@include position;
+			width: 100%;
+			overflow: hidden;
+			min-height: rem(54px);
+			//@include transition(all .2s);
+
+			&>a {
+				@extend .menu;
+			}
+
+			&:hover {
+				.menu {
+					color: mix(#fff, $nav-color, 70%);
+					//background: mix(#000, $nav-color, 10%);
+				}
+
+				.icon-angle-right {
+					color: #fff;
+				}
+			}
+
+			&.select {
+				height: auto;
+				max-height: 100vh;
+
+				.menu {
+					color: #fff;
+				}
+
+				ul {
+					//@include position(relative, $top: auto, $le: auto);
+					max-height: 100vh;
+				}
+
+				&~.icon-angle-right {
+					color: #fff;
+				}
+
+				span {
+					.icon-plus-1 {
+						opacity: 0;
+					}
+
+					.icon-minus-1 {
+						opacity: 1;
+					}
+				}
+
+				& > a {
+					color: #fff;
+				}
+			}
+		}
+
+		.menu {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			cursor: pointer;
+			//@include transition(all .2s);
+
+			color: mix(#fff, $nav-color, 40%);
+			font-size: rem(16px);
+			padding: rem(15px) rem(20px);
+
+			i {
+				width: $nav-menu;
+				height: $nav-menu;
+				font-size: rem(20px);
+				line-height: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 0 rem(15px);
+
+				&:before {
+					margin: 0;
+				}
+
+				&.icon-th-large {
+					font-size: rem(14px);
+				}
+
+				&.icon-news-paper,
+				&.icon-wallet {
+					font-size: rem(14px);
+				}
+			}
+
+			p {
+				width: calc(100% - 4.8rem - 4rem);
+			}
+
+			span {
+				@include position;
+				float: right;
+				width: $nav-menu;
+				height: $nav-menu;
+
+				i {
+					@include position(absolute, $le: 0, $top: 0);
+					font-size: rem(13px);
+					margin: 0;
+					width: 100%;
+					height: 100%;
+					@include transition(all .3s);
+				}
+
+				.icon-plus-1 {}
+
+				.icon-minus-1 {
+					opacity: 0;
+				}
+
+			}
+		}
+
+		ul {
+			//@include position(absolute, $le: rem(20px), $top: rem(54px));
+			width: calc(100% - 4rem);
+			margin: 0 auto;
+			max-height: 0;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			@include transition(all .5s);
+
+			li {
+				width: 100%;
+				font-size: rem(14px);
+				margin: 0;
+
+				a {
+					color: mix(#fff, $nav-color, 50%);
+					@include default-a;
+					padding: rem(10px) 0;
+					@include transition(all .2s);
+					float: left;
+					width: 100%;
+					height: 100%;
+					// display: flex;
+					// justify-content: space-between;
+					// align-items: center;
+				}
+
+				p {
+					@include position;
+
+					margin: {
+						left: rem(60px);
+					}
+
+					//width: 100%;
+					&:before {
+						content: '';
+						@include position(absolute, $le: rem(-15px), $top: 50%);
+						transform: translateY(-50%);
+						width: rem(3px);
+						height: rem(3px);
+						border-radius: 100%;
+						@include transition(all .2s);
+						//background: #fff;
+					}
+				}
+
+				&:hover,
+				&.select {
+					a {
+						background: saturate(lighten($nav-color, 5), 1);
+						color: #fff;
+					}
+
+					p {
+						&:before {
+							background: #fff;
+						}
+					}
+				}
+			}
+		}
+	}
+}

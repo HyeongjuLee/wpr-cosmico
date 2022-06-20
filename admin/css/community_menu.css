@@ -1,0 +1,81 @@
+
+/* 폰 공통영역 */
+	.input_text {height:16px; padding-top:2px; border:1px solid #c0c0c0; background-color:#f4f4f4;}
+	.input_text2 {height:14px; border:1px solid #c0c0c0;}
+	.input_file {height:18px; padding-top:2px; border:1px solid #c0c0c0; background-color:#f4f4f4;}
+	.bor1 {border:1px solid #ccc;}
+	.bor2 {border-bottom:3px double #bbb !important;}
+	.bor_clear {border:0px none !important;}
+/* 카테고리 선택 */
+	#selectCate {clear:both; float:left;margin-top:10px; width:200px; overflow:hidden;}
+
+	#selectCate table {width:190px;}
+	#selectCate th, #selectCate td {border: 1px solid #ccc;}
+	#selectCate td {padding:33px 0px; text-align:center;}
+	#selectCate td .submit {padding:5px;margin-top:10px;}
+	#selectCate th {background-color:#eee; height:32px;border:1px solid #ccc;}
+
+
+
+	#divList {clear:both;float:left;margin-top:10px; width:1000px;overflow:hidden;}
+	#divList th, #divList td {border:1px solid #ccc; text-align:center;}
+	#divList td {padding:4px 0px; border-top:0px none;}
+	#divList th {background-color:#eee; height:32px;border:1px solid #ccc;}
+
+
+/* 카테고리 추가 */
+	#inCate {float:left;margin-top:10px; }
+	#inCate td {border:1px solid #ccc;}
+	#inCate .tds1 {height:25px;background-color:#eee; text-align:center;}
+	#inCate .tds2 {height:25px;padding-left:10px; text-align:left;}
+	#inCate th {background-color:#eee; height:32px;border:1px solid #ccc;}
+
+
+/* 핸드폰 등록 */
+	#phone th, #phone td {border:1px solid #ccc;}
+	#phone thead th {background-color:#eee; height:32px;}
+	#phone tbody th {background-color:#eee;}
+	#phone tbody td {padding:3px 0px;padding-left:10px;}
+
+	#phone .phoneReg2 tbody th {padding:3px 0px;}
+	#phone .phoneReg3 tbody td {padding:0px;}
+
+.submit {padding:15px 50px;font-weight:bold; font-size:14px;}
+
+/* 부가서비스 */
+	#Service th, #Service td {border: 1px solid #ccc;}
+	#Service thead th {background-color:#eee; height:32px;}
+
+	#Service_input {clear:both; float:left;margin-top:10px;}
+	#Service_input td {padding:3px 0px;padding-left:5px;}
+	#Service_input tbody th {background-color:#eee;}
+
+	#Service_list {float:left;margin-top:10px;margin-left:10px;}
+	#Service_list tbody th {background-color:#eee;height:22px;}
+	#Service_list tbody td {padding:3px 0px;text-align:center;border-top:0px none;}
+
+	#Service .notData {height:80px; text-align:center;}
+
+/* 핸드폰 리스트 */
+	#phoneList th, #phoneList td {border: 1px solid #ccc;}
+	#phoneList thead th {height:32px;background-color:#eee;}
+	#phoneList .bor_bottom {border:0px none; border-bottom:1px dotted #ccc;}
+	#phoneList .subject {font-size:17px;font-weight:bold;padding:5px 0px;}
+	#phoneList .viewImg {padding:5px;}
+	#phoneList .make {padding:2px 0px;}
+	#phoneList .phoneicon li {float:left; margin-right:5px;}
+	#phoneList .listTable .paddings td {padding-left:5px;}
+	#phoneList .inTable th, #phoneList .inTable td {border:0px none;border-bottom:1px dotted #ccc;}
+	#phoneList .inTable th {background-color:#eee; padding:8px 0px;}
+	#phoneList .bgcolor2 {background-color:#f3f3f3;}
+
+	#phoneList .cntList {padding:4px 0px; padding-left:10px;}
+	#phoneList .cntListView {width:980px;}
+	#phoneList .cntListView th {background-color:#eee;padding:3px 0px;}
+	#phoneList .cntListView1 th,#phoneList .cntListView1 td {font-size:8pt; border-left:0px none; border-bottom:0px none;}
+	#phoneList .cntListView1 th {padding:5px 0px;background-color:#f8f8f8; border-top:0px none;}
+	#phoneList .cntListView1 td {padding:2px 2px 2px 0px; text-align:right;}
+	#phoneList .cntListView1 .inPadL1 {padding-left:3px;}
+	#phoneList .cntListView1 .bor_r_not {border-right:0px none;}
+	#phoneList .cntListView1 tbody tr:hover {background-color:#eee; font-weight:bold;}
+

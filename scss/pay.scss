@@ -1,0 +1,906 @@
+@import 'mixin-custom';
+
+$input-height: $font-size * 4;
+$nav-color: #333645;
+$board-color: material-color('blue-grey', '50');
+$board-color-darken: darken($board-color, 10);
+$board-color-grey: mix(material-color('grey', '300'), $board-color, 50);
+$myoffice-color: $myoffice-color;
+$input-color: mix(#fff, material-color('blue-grey', '50'), 50);
+$input-border: mix(#fff, material-color('blue-grey', '100'), 25);
+
+$pay-color: mix(material-color('green', '50'), #fff, 50);
+$pay-color-darken: darken($pay-color, 10);
+$pay-color-grey: mix(material-color('grey', '300'), $pay-color, 50);
+
+$point-color: mix(material-color('blue', '50'), #fff, 50);
+$point-color-darken: darken($point-color, 10);
+$point-color-grey: mix(material-color('grey', '300'), $point-color, 50);
+
+$indigo-color: mix(material-color('indigo', '50'), #fff, 50);
+$indigo-color-darken: darken($indigo-color, 10);
+$indigo-color-grey: mix(material-color('grey', '300'), $pay-color, 50);
+
+th,
+td {
+	font-size: $font-size;
+	font-weight: 400;
+	text-align: center;
+	height: $input-height - rem(10px);
+	color: #333;
+	padding: $font-size / 3;
+	border: none;
+	background: #fff;
+
+	&.price {
+		text-align: right;
+	}
+}
+
+thead {
+	tr {
+		//border-bottom: 1px solid mix(material-color('grey', '300'), $board-color, 50);
+		border-top: 1px solid $board-color-darken;
+		border-bottom: 1px solid $board-color-darken;
+	}
+
+	th {
+		background: $board-color;
+		color: mix(#000, $board-color-darken, 50);
+		font-weight: 500;
+	}
+}
+
+tbody {
+	tr {
+		border-bottom: 1px solid mix(material-color('grey', '300'), $board-color, 50);
+	}
+}
+
+.detail_btn {
+	width: auto;
+	color: #fff;
+
+	&.noline {
+		&:hover {
+			background: material-color('indigo', '700');
+			color: #fff;
+			text-decoration: none !important;
+		}
+	}
+}
+
+.readonly {
+	background: #eee;
+}
+
+.input_text {
+	line-height: 1.5;
+	height: $input-height;
+	@include rounded($font-size / 3);
+	vertical-align: middle;
+	padding: 0px $font-size;
+	border: 1px solid $input-border;
+	background: $input-color;
+}
+
+.table1 {
+	// th {
+	// 	background-color: #eee;
+	// 	font-weight: 600;
+	// }
+
+	// td {
+	// 	padding: 5px 0px 5px 10px;
+	// }
+}
+
+.table2 {
+	// th {
+	// 	background-color: #e3e3e3;
+	// 	padding: 10px 0px;
+	// 	line-height: 130%;
+	// 	font-weight: 600;
+	// }
+
+	td {
+		// padding: 9px 4px;
+		text-align: right;
+		// padding-right: 4px;
+
+		&.tcenter {
+			padding-right: 0px;
+		}
+	}
+
+	.td_bg_02 {
+		background-color: #f5f5f5;
+	}
+}
+
+.table3 {
+	th {
+		background-color: #eee;
+		padding: 10px 0px;
+	}
+
+	td {
+		padding: 0px;
+		padding-right: 3px;
+		text-align: right;
+
+		&.tcenter {
+			padding-right: 0px;
+		}
+	}
+}
+
+.inTable {
+	td {
+		border: 0px none;
+		text-align: right;
+		padding-right: 3px;
+	}
+
+	th {
+		border: 0px none;
+		background-color: #eee;
+		padding: 4px 0px;
+	}
+
+	.btop {
+		border-top: 1px solid #ccc;
+	}
+
+	.tcenter {
+		padding-right: 0px;
+	}
+}
+
+.h2 {
+
+	td,
+	th {
+		height: 30px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+}
+
+.h3 {
+
+	td,
+	th {
+		height: 20px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+}
+
+/* 상세내역 */
+
+/*	.pay_totals {margin-top:0px; background-color:#fff; width:775px;padding:5px;margin-bottom:10px;} */
+
+.pay_totals {
+	margin-top: 0px;
+	background-color: #fff;
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 10px;
+
+	.inTable1 {
+		@include table-color-wrap(material-color('green'), $bg: 'darken', $wrap: true);
+		@include table-color(material-color('green'), true);
+	}
+
+    .innerTable {
+        @include table-color-wrap(material-color('green'), $wrap: true);
+		@include table-color(material-color('green'), true);
+    }
+}
+
+
+/*345*/
+
+.pay_detail_right {
+	margin-top: 0px;
+	background-color: #fff;
+	width: 430px;
+	padding: 5px;
+}
+
+/*370*/
+
+.inTable1 {
+	color: #555;
+	padding: 5px;
+
+	td {
+		font-weight: bold;
+		padding: 0px;
+		padding-right: 3px;
+
+		.tcenter {
+			padding-right: 0px;
+		}
+
+		&.th {
+			background-color: #efefef;
+		}
+
+		&.minus {
+			background-color: #ffc9c9;
+		}
+
+		&.plus {
+			background-color: #c9ddff;
+		}
+	}
+}
+
+.hfix td {
+	height: 30px;
+}
+
+.pay_totals_td {
+	td {
+		padding-top: 4px;
+		padding-bottom: 4px;
+	}
+
+	.th {
+		text-align: center;
+		padding-right: 0px;
+	}
+}
+
+.pay_inDivWrap {}
+
+.pay_inDiv {
+	height: 250px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.pay_paging {
+	// height: 30px;
+	padding-top: 5px;
+	text-align: center;
+}
+
+.inTable2 {
+	th {
+		text-align: center;
+		padding: 10px 0px;
+	}
+
+	td {
+		text-align: center;
+		padding: 7px 0px;
+
+		&.tright {
+			padding-right: 3px;
+		}
+
+		&.th {
+			background-color: #efefef;
+		}
+	}
+}
+
+.loading {
+	position: absolute;
+	z-index: 100;
+	width: 900px;
+	background: url(/images/loading_bg70.png) 0 0 repeat;
+	text-align: center;
+	height: 490px;
+	display: none;
+
+	a {
+		display: block;
+		vertical-align: mi;
+	}
+}
+
+/* 상세내역 */
+
+#under_search {
+	.search_content {
+		width: 980px;
+		height: 150px;
+		margin: 0px;
+		border: 0px solid #c7c7c7;
+		overflow-y: scroll;
+		background: #fff;
+		padding: 0px;
+	}
+
+	.search_content1 {
+		width: 455px;
+		height: 180px;
+		margin: 0px;
+		border: 1px solid #c7c7c7;
+		overflow-y: scroll;
+		background: #fff;
+		padding-bottom: 0px;
+	}
+}
+
+/*
+#under_search {clear:both; width:970px;margin:0px auto;background-color:#fff; padding:0px 20px;}
+#under_search .agree {clear:both;  padding:10px 0px;}
+#under_search .agree .agree_box {clear:both;width:968px; border:1px solid #9e9e9e; margin-top:5px;background:#e0e0e0;}
+*/
+
+/*신 상세내역 버튼*/
+
+.btn01 {
+	display: inline-block;
+	border: 1px solid #848484;
+	width: 55px;
+	height: 15px;
+	padding: 2px 5px 2px 5px;
+}
+
+.fon1 {
+	font-family: malgun gothic, dotum, gulim;
+	font-size: 9pt;
+	font-weight: bold;
+	color: #0057d3;
+	text-align: center;
+}
+
+a:hover {
+	color: green;
+}
+
+.inbg {
+	background: mix($myoffice-color, material-color('grey','50'), 5) !important;
+}
+
+.pay_totals {
+		background-color: none;
+		padding: 0; 
+	}
+
+	.innerTable {
+		box-shadow: 0px 0px 0px 1px darken($point-color-darken, 20);
+
+		tr, th, td {
+			border: none;
+		}
+		thead {
+			tr {
+				border-bottom: 1px solid $point-color-darken;
+			}
+			th {
+				background: $point-color;
+				color: mix(#000, $point-color-darken, 50);
+				font-weight: 500;
+				border-right: 1px solid $point-color-darken;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+		tbody {
+			tr {
+				border-bottom: 1px solid $point-color-grey;
+				&:last-of-type {
+					border-bottom: none;
+				}
+			}
+			th {
+				background: mix(material-color('grey', '50'), $point-color-darken, 85);
+				color: mix(#000, $point-color-darken, 50);
+				font-weight: 500;
+				border-right: 1px solid mix(material-color('grey', '50'), $point-color-darken, 50);
+				padding: $font-size $font-size / 3;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+			td {
+				border-right: 1px solid $point-color-grey;
+				padding: $font-size $font-size / 3;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+
+	}
+
+	.innerTable3 {
+		box-shadow: 0px 0px 0px 1px darken($pay-color-darken, 20);
+
+		tr, th, td {
+			border: none;
+		}
+		thead {
+			tr {
+				border-bottom: 1px solid $pay-color-darken;
+			}
+			th {
+				background: $pay-color;
+				color: mix(#000, $pay-color-darken, 50);
+				font-weight: 500;
+				border-right: 1px solid $pay-color-darken;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+		tbody {
+			tr {
+				border-bottom: 1px solid $pay-color-grey;
+				&:last-of-type {
+					border-bottom: none;
+				}
+			}
+			th {
+				background: mix(material-color('grey', '50'), $pay-color-darken, 85);
+				color: mix(#000, $pay-color-darken, 50);
+				font-weight: 500;
+				border-right: 1px solid mix(material-color('grey', '50'), $pay-color-darken, 50);
+				padding: $font-size $font-size / 3;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+			td {
+				border-right: 1px solid $pay-color-grey;
+				padding: $font-size $font-size / 3;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+	}
+
+/******expression : 실시간으로 속성값이 평가 되기 때문에 브라우저에 알게 모르게 부하가 간다 -> onfocus="this.blur();"***************
+   a {selector-dummy : expression(this.hideFocus=true); }
+*/
+
+.orderList {
+	@include table-color($myoffice-color, true);
+	th.total {
+		$table-color: mix(#fff, material-color('cyan', '900'), 80);
+		$table-color-darken: darken($table-color, 10);
+		$table-color-grey: mix(material-color('grey', '300'), $table-color, 50);
+		$table-text: mix(#000, $table-color-darken, 50);
+		background: $table-color;
+		border-color: $table-color-darken;
+		color: $table-text;
+
+		&:nth-of-type(2) {
+			border-right: none;
+		}
+	}
+
+    .underPurchase_detail {
+        padding: 0;
+    }
+    .innerTableVote {
+    	background: mix(adjust-hue($myoffice-color, 30), #fff, 5);
+    	padding: rem(30px);
+		@include table-color(material-color('amber', 'a700'), true);
+		table {
+			@include table-color-wrap(material-color('amber', 'a700'), $wrap: true);
+			background: #fff;
+		}
+	}
+
+	tfoot {
+		$table-color: mix(#fff, material-color('green'), 90);
+		$table-color-darken: darken($table-color, 10);
+		$table-color-grey: mix(material-color('grey', '300'), $table-color, 50);
+		$table-text: mix(#000, $table-color-darken, 50);
+		color: $table-text;
+		th {
+			&:first-of-type {
+				border-left: none;
+			}
+			&:last-of-type {
+				border-right: none;
+			}
+		}
+		td {
+			&:first-of-type {
+				border-left: none;
+			}
+			&:last-of-type {
+				border-right: none;
+			}
+		}
+		th, td {
+			background: $table-color;
+			font-weight: 500;
+			border: 1px solid $table-color-darken;
+			//border-bottom: none;
+			height: rem(50px);
+			border-top: 1px solid $table-color-darken !important;
+		}
+		td {
+			text-align: right;
+		}
+	}
+
+	.sum_total.table2 {
+		@include table-color($myoffice-color, $line: true);
+
+		.inPrice {
+			padding-right: rem(10px);
+		}
+	}
+
+	.fixedTableWrap {
+		border-right: none;
+
+		.fixedTable_Default {
+			//overflow-x: $default-css !important;
+		}
+	}
+
+    .pay_detail_left {
+        //margin-top: 0px;
+        //background-color: #fff;
+        //width: 325px;
+        margin: rem(10px) 0;
+        @include table-color-wrap(material-color('blue'), $bg: 'darken', $wrap: true);
+		@include table-color(material-color('blue'), true);
+	    
+	    a {
+	    	text-decoration: none !important;
+	    	&:hover {
+	    		text-decoration: none !important;
+	    		color: $main-color;
+	    	}
+	    }
+    }
+
+    .hovers {
+    	cursor: pointer;
+    	&:hover {
+    		> td {
+   				background: mix($myoffice-color, #fff, 3);
+    		}
+    	}
+    }
+    &.voter {
+		.hovers {
+			cursor: pointer;
+			> td {
+				text-align: right;
+			}
+		}
+		.active {
+			.hid_tbody {
+				> td {
+					background: mix(mix(material-color('grey', '500'), $myoffice-color, 50), #fff, 7);
+				}
+				.tcenters {
+					padding: 10px 30px;
+				}
+			}
+			.titles {
+				text-align: left;
+				padding: rem(10px) 0;
+			}
+			.table {
+				background: #fff;
+				@include table-color-wrap(material-color('indigo'), $wrap: true);
+				@include table-color(material-color('indigo'), true);
+			}
+			.table1 {
+				background: #fff;
+				@include table-color-wrap(material-color('blue-grey', '900'), $wrap: true);
+				@include table-color(material-color('blue-grey', '900'), true);
+				width: calc(50% - 20px);
+
+				a {
+					color: #fff;
+					&:hover {
+						color: #fff;
+					}
+				}
+
+				.plus {
+					$plus-color: mix(#fff, material-color('blue'), 90);
+					$plus-color-darken: darken($plus-color, 10);
+					$plus-color-grey: mix(material-color('grey', '300'), $plus-color, 60);
+					$plus-text: mix(#000, $plus-color-darken, 50);
+
+					th {
+						background: $plus-color;
+						border-color: $plus-color-darken;
+						color: $plus-text;
+					}
+					td {
+						background: mix(#fff, $plus-color, 50);
+						border-color: $plus-color-grey;
+					}
+				}
+				.minus {
+					$minus-color: mix(#fff, material-color('red'), 90);
+					$minus-color-darken: darken($minus-color, 10);
+					$minus-color-grey: mix(material-color('grey', '300'), $minus-color, 60);
+					$minus-text: mix(#000, $minus-color-darken, 50);
+
+					th {
+						background: $minus-color;
+						border-color: $minus-color-darken;
+						color: $minus-text;
+					}
+					td {
+						background: mix(#fff, $minus-color, 50);
+						border-color: $minus-color-grey;
+					}
+				}
+			}
+
+		}
+	}
+}
+
+.modal {
+	* {
+		word-wrap: break-word;
+		word-break: keep-all;
+	}
+
+	.close {
+		.icon-cancel {
+			@include position(absolute, $top: 0, $ri: 0);
+			color: #222;
+			font-size: $font-size + rem(10px);
+			padding: rem(10px);
+			cursor: pointer;
+		}
+	}
+
+	h6 {
+		text-align: left;
+		padding: $font-size 0;
+		//margin-bottom: $font-size;
+		font-size: $font-size * 2;
+		color: #222;
+		//border-bottom: 1px solid material-color('grey', '500');
+	}
+	.detail_btn {
+		@include inline-flex;
+		//width: 100%;
+		height: $input-height - rem(10px);
+		line-height: 1.5;
+		padding: rem(5px) rem(10px);
+		cursor: pointer;
+		z-index: 2;
+		vertical-align: middle;
+		color: grayscale($main-color);
+		font-size: $font-size - rem(2px);
+		font-weight: 500;
+		border: 1px solid lighten(grayscale($main-color), 10);
+		background: transparent;
+		@include rounded(rem(5px));
+
+		&:hover {
+			background: $main-color;
+			border-color: $main-color;
+			color: #fff;
+			box-shadow: none;
+		}
+
+		&.noline {
+			border: none;
+			background: material-color('grey', '600');
+			color: #fff;
+
+			&:hover {
+				background: material-color('indigo', '700');
+			}
+		}
+		&.width100 {
+			margin-top: $font-size;
+		}
+
+		&.qr {
+			width: 100%;
+		}
+		&.red {
+			background: material-color('pink');
+			&:hover {
+				background: material-color('pink', '700');
+			}
+		}
+		&.green {
+			background: material-color('green');
+			&:hover {
+				background: material-color('green', '700');
+			}
+		}
+		&.blue {
+			background: material-color('blue');
+			&:hover {
+				background: material-color('blue', '700');
+			}
+		}
+		&.purple {
+			background: material-color('purple');
+			&:hover {
+				background: material-color('purple', '700');
+			}
+		}
+	}
+	article {
+		padding: $font-size + rem(5px) 0;
+		> div {
+			@include flex($bet);
+			border-bottom: 1px solid material-color('grey', '200');
+
+			&:first-child {
+				border-top: 1px solid material-color('grey', '500');
+			}
+
+			&:last-child {
+				//border-bottom: 1px solid material-color('grey', '500');
+			}
+			
+			h5 {
+				font-weight: 500;
+				color: material-color('grey', '700');
+				text-align: right;
+				font-size: $font-size;
+				flex: 0.2;
+				padding-right: $font-size * 2;
+				word-break: keep-all;
+			}
+			.con {
+				flex: 0.8;
+				//margin: 0;
+				text-align: left;
+				font-weight: 500;
+				font-size: $font-size + rem(3px);
+				min-height: $input-height - rem(10px);
+				padding: $font-size 0;
+				.summary {
+					font-size: $font-size - rem(1px);
+					font-weight: 400;
+					color: material-color('grey', '500');
+					margin-top: $font-size;
+					text-align: left;
+					width: 100%;
+
+					&.red {
+						color: material-color('red');
+					}
+					&.blue {
+						color: material-color('blue');
+					}
+				}
+
+				.input_text {
+					border: 1px solid material-color('grey', '400');
+					padding: $font-size;
+					width: 100%;
+					height: $input-height - rem(10px);
+					font-size: $font-size;
+					@include rounded(rem(5px));
+				}
+				.input_text {
+					&:read-only {
+						background: material-color('grey', '200');
+						outline: none;
+					}
+				}
+				.button {
+					display: inline-flex;
+					margin: 0;
+					width: calc(25% - #{$font-size - rem(10px)});
+					height: $input-height - rem(10px);
+					font-size: $font-size;
+					background: material-color('indigo');
+					@include rounded(rem(5px));
+				}
+
+				.inputs {
+					display: inline-flex;
+					align-items: center;
+					width: calc(75% - #{$font-size - rem(10px)});
+
+					span {
+						margin: $font-size / 1.5;
+					}
+
+					input {
+						//width: 50%;
+					}
+
+					& ~ .detail_btn {
+						width: 25%;
+					}
+				}
+			}
+		}
+
+		.id {
+			.detail_btn {
+				margin-left: $font-size;
+			}
+		}
+	}
+
+	.btnZone {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: {
+			//top: $font-size * 2;
+			//bottom: $font-size * 2;
+		}
+		width: 100%;
+
+		a, input {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: $input-height;
+			margin: $font-size / 2 auto;
+			background: transparent;
+			font-size: $font-size * 1.2;
+			cursor: pointer;
+			font-family: $parent-css;
+			border: none;
+			@include rounded(rem(5px));
+
+			@include unify-parent('input') {
+				background: $main-color;
+				color: #fff;
+			}
+
+			@include unify-parent('a') {
+				background: $sub-color;
+				//border: 1px solid $sub-color;
+				color: #fff;
+
+				* {
+					background: none;
+					font-family: $parent-css;
+					font-size: $parent-css;
+					color: $parent-css;
+					left: $default-css;
+					height: $default-css;
+				}
+			}
+		}
+
+		a:hover {
+			color: $parent-css;
+		}
+
+		.cancel {
+			background: material-color('grey', '300');
+			color: #222;
+			&:hover {
+				background: darken(material-color('grey', '300'),5);
+			}
+			//width: 100% / 2;
+		}
+		.promise {
+			background: $main-color;
+			color: #fff;
+			&:hover {
+				background: lighten($main-color,10);
+			}
+		}
+	}
+}

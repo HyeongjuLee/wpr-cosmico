@@ -1,0 +1,28 @@
+@import 'mixin-custom';
+
+.footer-menu {
+	.cscenter {
+		i {
+			margin: 0 rem(25px);
+		}
+		li {
+			word-break: keep-all;
+	
+			&:last-child {
+				width: rem(220px);
+			}
+		}
+		.tit {
+			width: rem(90px);
+		}
+	}
+}
+
+#footer {
+	.banners {
+		right: rem(-55px);
+	}
+	.footer-icon {
+		right: rem(-60px);
+	}
+}

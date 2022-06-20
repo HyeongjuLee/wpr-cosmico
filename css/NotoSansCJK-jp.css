@@ -1,0 +1,59 @@
+@font-face {
+	font-family: 'Noto Sans CJK jp';
+	src: url('/fonts/jp/notojp-Light.eot');
+	src: local(※), 
+		 url('/fonts/jp/notojp-Light.woff2') format('woff2'),
+		 url('/fonts/jp/notojp-Light.woff') format('woff'),
+		 url('/fonts/jp/notojp-Light.ttf') format('truetype');
+	font-weight: 200
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK jp';
+	src: url('/fonts/jp/notojp-DemiLight.eot');
+	src: local(※),
+		 url('/fonts/jp/notojp-DemiLight.woff2') format('woff2'),
+		 url('/fonts/jp/notojp-DemiLight.woff') format('woff'),
+		 url('/fonts/jp/notojp-DemiLight.ttf') format('truetype');
+	font-weight: 300
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK jp';
+	src: url('/fonts/jp/notojp-Regular.eot');
+	src: local(※),
+		 url('/fonts/jp/notojp-Regular.woff2') format('woff2'),
+		 url('/fonts/jp/notojp-Regular.woff') format('woff'),
+		 url('/fonts/jp/notojp-Regular.ttf') format('truetype');
+	font-weight: 400
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK jp';
+	src: url('/fonts/jp/notojp-Medium.eot');
+	src: local(※),
+		 url('/fonts/jp/notojp-Medium.woff2') format('woff2'),
+		 url('/fonts/jp/notojp-Medium.woff') format('woff'),
+		 url('/fonts/jp/notojp-Medium.ttf') format('truetype');
+	font-weight: 500
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK jp';
+	src: url('/fonts/jp/notojp-Bold.eot');
+	src: local(※),
+		 url('/fonts/jp/notojp-Bold.woff2') format('woff2'),
+		 url('/fonts/jp/notojp-Bold.woff') format('woff'),
+		 url('/fonts/jp/notojp-Bold.ttf') format('truetype');
+	font-weight: 600
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK jp';
+	src: url('/fonts/jp/notojp-Black.eot');
+	src: local(※),
+		 url('/fonts/jp/notojp-Black.woff2') format('woff2'),
+		 url('/fonts/jp/notojp-Black.woff') format('woff'),
+		 url('/fonts/jp/notojp-Black.ttf') format('truetype');
+	font-weight: 800
+}

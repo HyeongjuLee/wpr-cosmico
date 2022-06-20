@@ -1,0 +1,481 @@
+//기본 mixin 설정
+
+// float clear
+@mixin clear {
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin ellipsis($line: 1) {
+	@if ($line==1) {
+		display: -webkit-box;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: $line;
+	}
+
+	@else {
+		display: -webkit-box;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: $line;
+	}
+}
+
+$devices: (mobile: 576px, tablet: 768px, desktop: 1280px);
+
+@mixin mq($device) {
+	@if map-has-key($devices, $device) {
+		$device-width: map-get($devices, $device);
+
+		@media screen and (min-width: #{$device-width}) {
+			@content;
+		}
+	}
+
+	@else {
+		@warn 'Invalid breakpoint: #{$device}.';
+	}
+}
+
+@mixin media($min: false, $max: false) {
+	@if $max {
+		@media (max-width: $max) {
+			@content;
+		}
+	}
+	@else if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	}
+	@else {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	}
+}
+
+@function strip-units($number) {
+	@return $number / ($number * 0 + 1);
+}
+
+@function invert-color($bgcolor) {
+	$text: #fff;
+	@if (round(strip-units(lightness($bgcolor))) > 50) {
+		$text: invert($bgcolor);
+
+	}
+	@return $text;
+}
+
+@function is-color-light($color) {
+
+	// Get the components of the specified color
+	$red: red($color);
+	$green: green($color);
+	$blue: blue($color);
+
+	// Compute the perceptive luminance, keeping
+	// in mind that the human eye favors green.
+	$l: 1 - (0.299 * $red + 0.587 * $green + 0.114 * $blue) / 255;
+	@return ($l < 0.5);
+
+}
+
+@mixin button($background: material-color('grey', '900'), $color: #fff) {
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	@include font-family('Pretendard');
+	padding: 1rem 1.5rem;
+	@include rounded(0);
+
+	color: $color;
+	font-weight: 400;
+	border: solid 1px darken($background, 10%);
+	background: $background;
+
+	&:hover {
+		color: $color;
+		text-decoration: none;
+		background: lighten($background, 5%);
+	}
+
+	&:active {
+		color: lighten($background, 50%);
+		background: darken($background, 5%);
+	}
+
+	@if (round(strip-units(lightness($background))) > 50) {
+		$color: invert($background);
+	}
+}
+
+@mixin rounded($radius: 0.5em) {
+	@each $vendor in $vendors {
+		#{$vendor}border-radius: $radius;
+	}
+}
+
+@mixin unify-parent($child) {
+	@at-root #{selector-unify(&, $child)} {
+		@content;
+	}
+}
+
+@mixin default-a {
+	cursor: pointer;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+}
+
+@mixin default-0 {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	font-style: normal;
+	text-decoration: none;
+	background: none;
+}
+
+@mixin position ($p: relative, $top: null, $bot: null, $le: null, $ri: null) {
+	position: $p;
+	top: $top;
+	bottom: $bot;
+	left: $le;
+	right: $ri;
+}
+
+@mixin transition ($transition...) {
+	@each $vendor in $vendors {
+		#{$vendor}transition: $transition;
+	}
+}
+
+@mixin transform ($transform...) {
+	@each $vendor in $vendors {
+		#{$vendor}transform: $transform;
+	}
+}
+
+@function letter-spacing($val, $font-size) {
+	@return ($val * $font-size / 1000) * 1;
+}
+
+@function zindex($element, $sub-element: false) {
+	$index: map-get($z-index, $element);
+
+	@if $sub-element {
+		$index: map-get($index, $sub-element);
+	}
+
+	@return $index;
+}
+
+@mixin presudo($content: '', $p: absolute, $top: null, $bot: null, $le: null, $ri: null, $w: 100%, $h: 100%) {
+	content: $content;
+	position: $p;
+	top: $top;
+	bottom: $bot;
+	left: $le;
+	right: $ri;
+	width: $w;
+	height: $h;
+}
+
+@mixin font-family($name: null, $size: null, $weight: null, $color: null, $style: null, $lh: null) {
+	font-family: $name, 'Roboto', 'Noto Sans KR', sans-serif;
+	font-size: $size;
+	font-weight: $weight;
+	color: $color;
+	font-style: $style;
+	line-height: $lh;
+	font-feature-settings: 'tnum'; /* 고정폭 숫자 */
+}
+
+
+$bet: space-between;
+$aro: space-around;
+$even: space-evenly;
+$st: flex-start;
+$end: flex-end;
+
+
+@mixin flex($justify: center, $items: center) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $items;
+}
+@mixin inline-flex($justify: center, $items: center) {
+	display: inline-flex;
+	justify-content: $justify;
+	align-items: $items;
+}
+
+@mixin table {
+	width: 100%;
+	table {
+		border: none;
+	}
+	tr {
+		border: none;
+	}
+	th, td {
+		border: none;
+		padding: rem(5px) rem(10px);
+	}
+}
+
+@mixin table-color($mainColor: material-color('grey'), $line: false) {
+	@include table;
+
+	$table-color: mix(#fff, $mainColor, 90);
+	$table-color-darken: darken($table-color, 10);
+	$table-color-grey: mix(material-color('grey', '300'), $table-color, 50);
+	$table-text: mix(#000, $table-color-darken, 50);
+
+	thead {
+		th {
+			background: $table-color;
+			color: $table-text;
+			font-weight: 600;
+			border: 1px solid $table-color-darken;
+		}
+	}
+	tbody {
+		tr {
+			border-bottom: 1px solid $table-color-grey;
+		}
+		th {
+			border: 1px solid mix(material-color('grey', '300'), $table-color-darken, 50);
+			background: mix(mix(material-color('grey', '500'), $table-color-darken, 50), #fff, 10);
+			color: $table-text;
+		}
+		td {
+			border: 1px solid $table-color-grey;
+		}
+	}
+
+	@if ($line == true) {
+		thead {
+			th {
+				&:first-of-type {
+					border-left: none;
+				}
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+		tbody {
+			th {
+				&:first-of-type {
+					border-left: none;
+				}
+				&:last-of-type {
+					border-right: none;
+				}
+				+ td {
+					border-left: 1px solid mix(material-color('grey', '300'), $table-color-darken, 50) !important;
+				}
+			}
+			td {
+				&:first-of-type {
+					border-left: none;
+				}
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+	}
+
+	@else {
+		thead {
+			th {
+				border-left: none;
+				border-right: none;
+			}
+		}
+		tbody {
+			th {
+				border-left: none;
+				border-right: none;
+			}
+			td {
+				border-left: none;
+				border-right: none;
+			}
+		}
+	}
+}
+
+@mixin table-color-wrap($mainColor: material-color('grey'), $wrap: false, $bg: null, $sticky: false) {
+	@include table;
+
+	$table-color: mix(#fff, $mainColor, 90);
+	$table-color-darken: darken($table-color, 10);
+	$table-color-wrap: darken($table-color-darken, 20);
+	$table-color-grey: mix(material-color('grey', '300'), $table-color, 50);
+	$table-text: mix(#000, $table-color-darken, 50);
+
+	thead {
+		th {
+			background: $table-color;
+			color: $table-text;
+			font-weight: 600;
+			border: 1px solid $table-color-darken;
+		}
+	}
+	tbody {
+		tr {
+			border-bottom: 1px solid $table-color-grey;
+		}
+		th {
+			border: 1px solid mix(material-color('grey', '300'), $table-color-darken, 50);
+			background: mix(mix(material-color('grey', '500'), $table-color-darken, 50), #fff, 10);
+			font-weight: 600;
+			color: $table-text;
+		}
+		td {
+			border: 1px solid $table-color-grey;
+		}
+	}
+
+	@if ($wrap == true) {
+		box-shadow: 0px 0px 0px 1px darken($table-color-darken, 20);
+		thead {
+			th {
+				&:first-of-type {
+					border-left: none;
+				}
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+		tbody {
+			th {
+				&:first-of-type {
+					border-left: none;
+				}
+				&:last-of-type {
+					//border-right: none;
+				}
+			}
+			td {
+				&:first-of-type {
+					border-left: none;
+				}
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+		tr {
+			&:first-of-type {
+				th {
+					border-top: none;
+				}
+				td {
+					border-top: none;
+				}
+			}
+		}
+		tbody {
+			tr {
+				&:last-of-type {
+					border-bottom: none;
+					th {
+						border-bottom: none;
+					}
+					td {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+	}
+
+	@else {
+		thead {
+			th {
+				border-left: none;
+				border-right: none;
+			}
+		}
+		tbody {
+			th {
+				border-left: none;
+				border-right: none;
+			}
+			td {
+				border-left: none;
+				border-right: none;
+			}
+		}
+	}
+
+	@if ($sticky == true) {
+		thead {
+			th {
+				box-shadow: inset 0px 1px 0 $table-color-darken, inset -1px -1px 0 $table-color-darken;
+				// box-shadow: inset -1px 1px 0 $table-color-darken, inset 0 -1px 0 $table-color-darken;
+				// &:first-of-type {
+				// 	box-shadow: inset 1px 1px 0 $table-color-darken, inset 0px -1px 0 $table-color-darken;
+				// }
+				&:last-of-type {
+					box-shadow: inset 0px 1px 0 $table-color-darken, inset 0px -1px 0 $table-color-darken;
+				}
+				// &:nth-of-type(2) {
+				// 	box-shadow: inset -1px 1px 0 $table-color-darken, inset 1px -1px 0 $table-color-darken;
+				// }
+				border: none;
+			}
+		}
+	}
+
+	@if ($bg == 'darken') {
+		tbody {
+			th {
+				$table-color: mix(#fff, $mainColor, 50);
+				$table-color-darken: darken($table-color, 10);
+				$table-color-grey: mix(material-color('grey', '300'), $table-color, 50);
+				$table-text: mix(#000, $table-color-darken, 50);
+				background: saturate(mix(mix(material-color('grey', '500'), $table-color-darken, 50), #fff, 15), 15);
+			}
+		}
+	}
+
+}
+
+@mixin grid-color($mainColor: material-color('grey'), $head: false) {
+	$grid-color: mix(#fff, $mainColor, 90);
+	$grid-color-darken: darken($grid-color, 10);
+	$grid-color-grey: mix(material-color('grey', '300'), $grid-color, 50);
+	$grid-text: mix(#000, $grid-color-darken, 50);
+
+	margin: {
+		right: -1px;
+		bottom: -1px;
+	};
+
+	@if ($head == true) {
+		border: 1px solid $grid-color-darken;
+		background: $grid-color;
+		color: $grid-text;
+	}
+	@else {
+		border: 1px solid $grid-color-grey;
+		background: #fff;
+	}
+}
