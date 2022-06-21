@@ -35,10 +35,6 @@
 				}
 			});
 			
-			if ($('#header .header-top-btn .cart span').text() == "" && $('#header .header-top-btn .cart span').text() == 0) {
-				$('#header .header-top-btn .cart span').fadeOut(0);
-			}
-
 			$('#header .searchs').each(function(){
 				var $this = $('#header .searchs');
 				$this.find('i').click(function(){
@@ -58,26 +54,33 @@
 				});
 			});
 
-			// var $clickLi = $('#header .header-top-btn .member');
+			$('.nav-main').hover(function(){
+				$('#header').addClass('hover');
+			}, function(){
+				$('#header').removeClass('hover');
+			});
 
-			// $clickLi.click(function(){
-			// 	$click($(this));
-			// });
+			var $clickLi = $('#header .header-top-btn .menu');
+			$clickLi.click(function(){
+				$click($(this));
+			});
 			
-			// var $click = function(obj){
-			// 	$(obj).toggleClass('active');
-			// 	$(obj).find('ol').fadeToggle();
-			// 	$('.active').not($(obj)).removeClass('active');
-			// 	if ($clickLi.hasClass('active')) {
-			// 		$(obj).find('ol').fadeIn();
-			// 		$('html').click(function(e){
-			// 			if(!$(e.target).is($(obj).find('*'))) {
-			// 				$(obj).removeClass('active');
-			// 				$(obj).find('ol').fadeOut();
-			// 			}
-			// 		});
-			// 	}
-			// };
+			var $click = function(obj){
+				$(obj).toggleClass('active');
+				$(obj).find('ol').fadeToggle();
+				$('.active').not($(obj)).removeClass('active');
+				event.stopPropagation();
+				// debugger;
+				if ($clickLi.hasClass('active')) {
+					$(obj).find('ol').fadeIn();
+					$('html').click(function(e){
+						if(!$(e.target).is($(obj).find('*'))) {
+							$(obj).removeClass('active');
+							$(obj).find('ol').fadeOut();
+						}
+					});
+				}
+			};
 		});
 	</script>
 	<!-- header S-->
@@ -109,10 +112,10 @@
 						<span></span>
 						<span></span>
 						<span></span>
+						<ol>
+							<%=TOP_BTN_SET%>
+						</ol>
 					</div>
-					<ul>
-						<%=TOP_BTN_SET%>
-					</ul>
 				</div>
 				<div class="search-wrap">
 					<!--#include virtual = "/_include/header_search.asp"-->

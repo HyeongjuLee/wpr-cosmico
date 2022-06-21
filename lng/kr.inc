@@ -1,5 +1,5 @@
 'COMMON
-	LNG_SITE_TITLE 								= "주식회사 메타씨이십일글로벌"
+	LNG_SITE_TITLE 								= "코즈미코코리아"
 	LNG_ALERT_WRONG_ACCESS						= "잘못된 접근입니다!"
 	LNG_ALERT_UNEXPECTED_ERROR					= "지정되지 않은 에러가 발생하였습니다. 오류 상황을 고객센터로 연락바랍니다."
 	LNG_ALERT_UPDATE_ERROR						= "자료를 등록하는 도중 에러가 발생하였습니다.\n\n관리자에게 문의하여 주십시오."

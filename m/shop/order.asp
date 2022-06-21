@@ -126,7 +126,7 @@
 
 <script src="/m/js/icheck/icheck.min.js"></script>
 <script type="text/javascript" src="/m/js/calendar.js"></script>
-<script type="text/javascript" src="/shop/orderCalc.js?v3"></script>
+<script type="text/javascript" src="/shop/orderCalc.js?v2"></script>
 <!--#include virtual = "/m/_include/calendar.asp"-->
 <%
 Select Case UCase(DK_MEMBER_NATIONCODE)
@@ -334,6 +334,10 @@ End Select
 							<td><input type="email" class="input_text width100" name="strEmail" value="<%=strEmail%>" maxlength="100" /></td>
 						</tr>
 						<%End IF%>
+						<tr class="directpickup">
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_23%></th>
+							<td><input type="text" name="orderMemo" maxlength="100" class="input_text width100" /></td>
+						</tr>
 					</table>
 				</div>
 			</div>
@@ -916,9 +920,9 @@ End Select
 								<%End If%>
 								<!-- <p id="txt_DeliveryFeeEach<%=i%>"><%=txt_DeliveryFeeEach%></p> -->
 
+								<input type="hidden" name="self_GoodsPrice" id="self_GoodsPrice_<%=attrShopID%>" value="<%=self_GoodsPrice%>" readonly="readonly" />
+								<input type="hidden" name="self_PV" id="self_PV_<%=attrShopID%>" value="<%=self_PV%>" readonly="readonly" />
 								<input type="hidden" name="ea" value="<%=arrList_orderEa%>" readonly="readonly" />
-								<input type="hidden" name="basePrice" value="<%=arrList_GoodsPrice%>" readonly="readonly" />
-								<input type="hidden" name="basePV" value="<%=arr_CS_price4%>" readonly="readonly" />
 								<input type="hidden" name="baseBV" value="<%=arr_CS_price5%>" readonly="readonly" />
 								<input type="hidden" name="DeliveryType" value="<%=arrList_GoodsDeliveryType%>" readonly="readonly" />
 								<input type="hidden" name="BASIC_DeliveryFeeLimit" value="<%=DKRS2_intDeliveryFeeLimit%>" readonly="readonly" />
@@ -937,14 +941,18 @@ End Select
 									<td class="title"><%=LNG_SHOP_ORDER_DIRECT_TABLE_04%></td>
 									<td class="tright"><span id="sumEachPrice_txt<%=sIDX%>"><%=num2cur(self_GoodsPrice)%></span><span class="pUnit"><%=Chg_CurrencyISO%></span></td>
 								</tr>
+								<%If PV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title"><%=CS_PV%></td>
 									<td class="tright"><span id="sumEachPV_txt<%=sIDX%>" class="pv"><%=num2curINT(self_PV)%></span><span class="pvUnit"><%=CS_PV%></span></td>
 								</tr>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title"><%=CS_PV2%></td>
 									<td class="tright"><span id="sumEachBV_txt<%=sIDX%>" class="bv"><%=num2curINT(self_GV)%></span><span class="bvUnit"><%=CS_PV2%></span></td>
 								</tr>
+								<%End If%>
 							</table>
 						</div>
 					</div>
@@ -997,16 +1005,20 @@ End Select
 									<td class="tright top_price"><span class="TOTorderPriceShopID_<%=attrShopIdTOT%>_txt">0</span><span class="pUnit"><%=Chg_CurrencyISO%></span></td>
 									<td class="tright"><span class="shopPrices-down"></span></td>
 								</tr>
+								<%If PV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title sub"><%=LNG_CS_ORDERS_TOTAL_PV%></td>
 									<td class="tright"><span class="TOTsumPvShopID_<%=attrShopIdTOT%>_txt pv">0</span><span class="pvUnit"><%=CS_PV%></span></td>
 									<td></td>
 								</tr>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title sub">총 BV</td>
 									<td class="tright"><span class="TOTsumBvShopID_<%=attrShopIdTOT%>_txt bv">0</span><span class="bvUnit"><%=CS_PV2%></span></td>
 									<td></td>
 								</tr>
+								<%End If%>
 							</table>
 						</div>
 					<%'Else%>
@@ -1201,16 +1213,11 @@ End Select
 							<!-- <option value=""><%=LNG_SHOP_ORDER_DIRECT_PAY_05%></option> -->
 							<%
 								'▣구매종류 선택
-								IF Sell_Mem_TF = "1" Then		'메타21
-									arr_CS_SELLCODE = "02"	' 소비자는 소비자매출만
-									arrParams = Array(_
-										Db.makeParam("@SELLCODE",adVarChar,adParamInput,10,arr_CS_SELLCODE) _
-									)
-									arrListB = Db.execRsList("DKP_SELLTYPE_LIST2",DB_PROC,arrParams,listLenB,DB3)
-								Else
-									'arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
-									arrListB = Db.execRsList("HJP_SELLTYPE_LIST_META",DB_PROC,Nothing,listLenB,DB3)		'판매원 오토쉽매출 제외 선택가능
-								End If
+								'arrParams = Array(_
+								'	Db.makeParam("@SELLCODE",adVarChar,adParamInput,10,arr_CS_SELLCODE) _
+								')
+								'arrListB = Db.execRsList("DKP_SELLTYPE_LIST2",DB_PROC,arrParams,listLenB,DB3)
+								arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
 								If IsArray(arrListB) Then
 									For i = 0 To listLenB
 										PRINT TABS(4)&"	<option value="""&arrListB(0,i)&""">"&arrListB(1,i)&"</option>"
@@ -2307,6 +2314,6 @@ End Select
 			Case "NOTORDER" : Call ALERTS(LNG_CS_ORDERS_ALERT07,"BACK","")
 		End Select
 %>
-<script type="text/javascript" src="order.bottom.js?v6"></script>
+<script type="text/javascript" src="order.bottom.js?v1"></script>
 <!--#include virtual="/m/_include/modal_config.asp" -->
 <!--#include virtual = "/m/_include/copyright.asp"-->

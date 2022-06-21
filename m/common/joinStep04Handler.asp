@@ -572,8 +572,7 @@ Set objError= Nothing
 		Db.makeParam("@THISMEMID2",adInteger,adParamOutput,0,0), _
 		Db.makeParam("@OUTPUT_VALUE",adVarChar,adParamOutput,11,"") _
 	)
-	'Call Db.exec("HJP_MEMBER_JOIN_CS_GLOBAL",DB_PROC,arrParams,DB3)
-	Call Db.exec("HJP_MEMBER_JOIN_CS_GLOBAL_META21",DB_PROC,arrParams,DB3)			'META21 특이사항(회원번호 생성)
+	Call Db.exec("HJP_MEMBER_JOIN_CS_GLOBAL",DB_PROC,arrParams,DB3)
 
 	THISMEMID1 = arrParams(UBound(arrParams)-2)(4)
 	THISMEMID2 = arrParams(UBound(arrParams)-1)(4)
@@ -581,14 +580,13 @@ Set objError= Nothing
 
 
 	If OUTPUT_VALUE = "FINISH" Then
-		'회원가입 이메일 발송(meta21)
-		'Call FnWelComeMail(Dec_strEmail, THISMEMID1&" - "&Right("000000000"&THISMEMID2,MBID2_LEN), "")
-		Call FnWelComeMail(Dec_strEmail, THISMEMID1, THISMEMID2, "join2", "")		'이메일 전용
+		'회원가입 이메일 발송( )
+		'Call FnWelComeMail(Dec_strEmail, THISMEMID1, THISMEMID2, "join2", "")		'이메일 전용
 
-		'회원가입 알림톡 발송(meta21)
-		Call FN_PPURIO_MESSAGE(THISMEMID1, THISMEMID2, "join", "at", "", "")
+		'회원가입 알림톡 발송( )
+		'Call FN_PPURIO_MESSAGE(THISMEMID1, THISMEMID2, "join", "at", "", "")
 
-		'회원가입 문자 발송(meta21)
+		'회원가입 문자 발송()
 		'Call Fn_MemMessage_Send(THISMEMID1, THISMEMID2, "join")
 	End If
 

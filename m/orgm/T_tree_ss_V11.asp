@@ -165,13 +165,21 @@ window.onpageshow = function(event) {
 				'N_CP = "⑧"
 			%>
 			<input type="checkbox" name="cCenter" id="cCenter" value="1" <%=isChecked(cCenter,"1")%>><label for="cCenter"><%=N_CT%><%=LNG_TEXT_CENTER%></label>
-			<input type="checkbox" name="cNomInfo" id="cNomInfo" value="1" <%=isChecked(cNomInfo,"1")%>><label for="cNomInfo"><%=N_NI%><%=LNG_TEXT_TREE_NOMIN_INFO%></label>
 			<%If NOM_MENU_USING Then%>
+			<input type="checkbox" name="cNomInfo" id="cNomInfo" value="1" <%=isChecked(cNomInfo,"1")%>><label for="cNomInfo"><%=N_NI%><%=LNG_TEXT_TREE_NOMIN_INFO%></label>
+			<%End If%>
+			<%If PV_VIEW_TF = "T" Then%>
 			<input type="checkbox" name="cPeriodPV" id="cPeriodPV" value="1" <%=isChecked(cPeriodPV,"1")%>><label for="cPeriodPV"><%=N_PV%><%=LNG_TEXT_PeriodPV%></label>
 			<%End If%>
-			<!-- <input type="checkbox" name="cPeriodCV" id="cPeriodCV" value="1" <%=isChecked(cPeriodCV,"1")%>><label for="cPeriodCV"><%=N_CV%><%=LNG_TEXT_PeriodCV%></label> -->
+			<%If BV_VIEW_TF = "T" Then%>
+			<input type="checkbox" name="cPeriodCV" id="cPeriodCV" value="1" <%=isChecked(cPeriodCV,"1")%>><label for="cPeriodCV"><%=N_CV%><%=LNG_TEXT_PeriodCV%></label>
+			<%End If%>
+			<%If PV_VIEW_TF = "T" Then%>
 			<input type="checkbox" name="cPeriodDownPV" id="cPeriodDownPV" value="1" <%=isChecked(cPeriodDownPV,"1")%>><label for="cPeriodDownPV"><%=N_DPV%><%=LNG_TEXT_PeriodDownPV%></label>
-			<!-- <input type="checkbox" name="cPeriodDownCV" id="cPeriodDownCV" value="1" <%=isChecked(cPeriodDownCV,"1")%>><label for="cPeriodDownCV"><%=N_DCV%><%=LNG_TEXT_PeriodDownCV%></label> -->
+			<%End If%>
+			<%If BV_VIEW_TF = "T" Then%>
+			<input type="checkbox" name="cPeriodDownCV" id="cPeriodDownCV" value="1" <%=isChecked(cPeriodDownCV,"1")%>><label for="cPeriodDownCV"><%=N_DCV%><%=LNG_TEXT_PeriodDownCV%></label>
+			<%End If%>
 			<input type="checkbox" name="cGrade" id="cGrade" value="1" <%=isChecked(cGrade,"1")%>><label for="cGrade"><%=N_GD%><%=LNG_TEXT_POSITION%></label>
 			<!-- <input type="checkbox" name="cCPoint" id="cCPoint" value="1" <%=isChecked(cCPoint,"1")%>><label for="cCPoint"><%=N_CP%><%=LNG_TEXT_GRADE%></label> -->
 

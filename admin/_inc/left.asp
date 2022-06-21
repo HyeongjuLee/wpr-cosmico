@@ -244,6 +244,7 @@
 		<ul>
 			<li class="sub">PC 홈페이지 : <%=viewAdminLang%></li>
 			<li class="ssub"><a href="shop_design_banner.asp?area=n01_a01"><%=LEFT_MENU_HIGHLIGHT("DESIGN_N01_A01",16,"인덱스 메인 배너")%></a></li>
+			<li class="ssub"><a href="shop_design_banner.asp?area=n02_a01"><%=LEFT_MENU_HIGHLIGHT("DESIGN_N02_A01",16,"인덱스 new product 배너")%></a></li>
 			<!-- <li class="ssub"><a href="shop_design_banner.asp?area=n03_a01"><%=LEFT_MENU_HIGHLIGHT("DESIGN_N03_A01",16,"인덱스 서브 배너")%></a></li> -->
 		</ul>
 		<ul>

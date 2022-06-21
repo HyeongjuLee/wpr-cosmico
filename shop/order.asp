@@ -198,7 +198,7 @@ End Select
 %>
 <!--#include virtual = "/_include/calendar.asp"-->
 <script type="text/javascript" src="/jscript/calendar.js"></script>
-<script type="text/javascript" src="/shop/orderCalc.js"></script>
+<script type="text/javascript" src="/shop/orderCalc.js?v2"></script>
 <%
 	If webproIP <> "T" Then
 		Call No_Refresh()
@@ -735,9 +735,9 @@ End Select
 				</td>
 				<td class="tcenter bor_l">
 					<%=arrList_orderEa%>
+					<input type="hidden" name="self_GoodsPrice" id="self_GoodsPrice_<%=attrShopID%>" value="<%=self_GoodsPrice%>" readonly="readonly" />
+					<input type="hidden" name="self_PV" id="self_PV_<%=attrShopID%>" value="<%=self_PV%>" readonly="readonly" />
 					<input type="hidden" name="ea" value="<%=arrList_orderEa%>" readonly="readonly"/>
-					<input type="hidden" name="basePrice" value="<%=arrList_GoodsPrice%>" readonly="readonly" />
-					<input type="hidden" name="basePV" value="<%=arr_CS_price4%>" readonly="readonly" />
 					<input type="hidden" name="DeliveryType" value="<%=arrList_GoodsDeliveryType%>" readonly="readonly" />
 					<input type="hidden" name="BASIC_DeliveryFeeLimit" value="<%=DKRS2_intDeliveryFeeLimit%>" readonly="readonly" />
 					<input type="hidden" name="BASIC_DeliveryFee" value="<%=DKRS2_intDeliveryFee%>" readonly="readonly" />
@@ -1252,16 +1252,11 @@ End Select
 					'PRINT TABS(4)&" <option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_05&"</option>"
 
 						'▣구매종류 선택
-						IF Sell_Mem_TF = "1" Then		'메타21
-							arr_CS_SELLCODE = "02"	' 소비자는 소비자매출만
-							arrParams = Array(_
-								Db.makeParam("@SELLCODE",adVarChar,adParamInput,10,arr_CS_SELLCODE) _
-							)
-							arrListB = Db.execRsList("DKP_SELLTYPE_LIST2",DB_PROC,arrParams,listLenB,DB3)
-						Else
-							'arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
-							arrListB = Db.execRsList("HJP_SELLTYPE_LIST_META",DB_PROC,Nothing,listLenB,DB3)		'판매원 오토쉽매출 제외 선택가능
-						End IF
+						'arrParams = Array(_
+						'	Db.makeParam("@SELLCODE",adVarChar,adParamInput,10,arr_CS_SELLCODE) _
+						')
+						'arrListB = Db.execRsList("DKP_SELLTYPE_LIST2",DB_PROC,arrParams,listLenB,DB3)
+						arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
 						If IsArray(arrListB) Then
 							For i = 0 To listLenB
 								PRINT TABS(4)&"	<option value="""&arrListB(0,i)&""">"&arrListB(1,i)&"</option>"

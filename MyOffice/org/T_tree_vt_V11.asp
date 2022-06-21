@@ -161,10 +161,18 @@
 			<%If SAVE_MENU_USING Then%>
 			<input type="checkbox" name="cSaveInfo" id="cSaveInfo" value="1" <%=isChecked(cSaveInfo,"1")%>><label for="cSaveInfo"><%=N_SI%><%=LNG_TEXT_TREE_SPON_INFO%></label>
 			<%End If%>
+			<%If PV_VIEW_TF = "T" Then%>
 			<input type="checkbox" name="cPeriodPV" id="cPeriodPV" value="1" <%=isChecked(cPeriodPV,"1")%>><label for="cPeriodPV"><%=N_PV%><%=LNG_TEXT_PeriodPV%></label>
+			<%End If%>
+			<%If BV_VIEW_TF = "T" Then%>
 			<!-- <input type="checkbox" name="cPeriodCV" id="cPeriodCV" value="1" <%=isChecked(cPeriodCV,"1")%>><label for="cPeriodCV"><%=N_CV%><%=LNG_TEXT_PeriodCV%></label> -->
+			<%End If%>
+			<%If PV_VIEW_TF = "T" Then%>
 			<input type="checkbox" name="cPeriodDownPV" id="cPeriodDownPV" value="1" <%=isChecked(cPeriodDownPV,"1")%>><label for="cPeriodDownPV"><%=N_DPV%><%=LNG_TEXT_PeriodDownPV%></label>
+			<%End If%>
+			<%If BV_VIEW_TF = "T" Then%>
 			<!-- <input type="checkbox" name="cPeriodDownCV" id="cPeriodDownCV" value="1" <%=isChecked(cPeriodDownCV,"1")%>><label for="cPeriodDownCV"><%=N_DCV%><%=LNG_TEXT_PeriodDownCV%></label> -->
+			<%End If%>
 			<input type="checkbox" name="cGrade" id="cGrade" value="1" <%=isChecked(cGrade,"1")%>><label for="cGrade"><%=N_GD%><%=LNG_TEXT_POSITION%></label>
 			<!-- <input type="checkbox" name="cCPoint" id="cCPoint" value="1" <%=isChecked(cCPoint,"1")%>><label for="cCPoint"><%=N_CP%><%=LNG_TEXT_GRADE%></label> -->
 			<input type="checkbox" name="cSellMemTF" id="cSellMemTF" value="1" <%=isChecked(cSellMemTF,"1")%>><label for="cSellMemTF" style="margin-left:14px;"><%=N_SM%><%=LNG_BUSINESS_CONSUMER%>/<%=LNG_MEMBER_IDPW_TEXT06%></label>
@@ -326,7 +334,7 @@
 
 			IF arrList_Grade_Name = "" Then arrList_Grade_Name = LNG_STRFUNCDATA_TEXT05 	'	직급 빈값이면 "회원" 표기
 
-			'소비자/판매원 (메타21)
+			'소비자/판매원
 			SQLMI = "SELECT [Sell_Mem_TF] FROM [tbl_memberinfo] WITH(NOLOCK) WHERE [MBID] = ? AND [MBID2] = ?"
 			arrParamsWI = Array(_
 				Db.makeParam("@MBID1",adVarChar,adParamInput,20,arrList_Mbid), _
@@ -638,9 +646,10 @@
 								<tr>
 									<!-- <th><%=LNG_TEXT_POSITION%></th>
 									<td class="view_Grade_Name"></td> -->
-
+									<%If PV_VIEW_TF = "T" Then%>
 									<th><%=LNG_TEXT_PeriodPV%></th>
 									<td colspan="3" class="view_meap"></td>
+									<%End If%>
 									<!-- <th><%=LNG_TEXT_PeriodCV%></th>
 									<td colspan="1" class="view_meac"></td> -->
 								</tr>

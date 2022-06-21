@@ -17,7 +17,7 @@
 	INFO_TEXT = DKRS_FA_strNationName
 
 	Select Case LCase(AREA)
-		Case "n01_a01","n03_a01"
+		Case "n01_a01","n02_a01","n03_a01"
 		Case "m01_a01"
 		Case "m02_a01"
 		'Case "s01_a01"
@@ -35,6 +35,12 @@
 			IMG_WIDTH	= "2000"
 			IMG_HEIGHT	= "900"
 			TOPCNT		= 3
+		Case "n02_a01" 	'홈페이지 인덱스 new
+			IMG_WIDTH  = "440"
+			IMG_HEIGHT = "440"
+			'TOPCNT	   = 10
+			viewTitle = "T"
+			viewDesc = "T"
 		Case "n03_a01" 	'홈페이지 인덱스 서브
 			IMG_WIDTH  = "300"
 			IMG_HEIGHT = "300"
@@ -90,6 +96,7 @@
 	strTitleMaxLength1	= 30
 	strTitleMaxLength2	= 40
 	strContentMaxLength = 80
+	strContentMaxLength2 = 150
 	strTitleMaxRow = 2
 
 %>
@@ -146,9 +153,9 @@
 						<th>타이틀</th>
 						<td>
 							<input type="text" name="strTitle" class="input_text fleft" style="width: 80%;" />
-							<div class="remainingTXT fleft">&nbsp;(<span class="count">0</span> / <span class="maxCount"><%=strTitleMaxLength1%></span> byte)
+							<div class="remainingTXT fleft">&nbsp;(<span class="count">0</span> / <span class="maxCount"><%=strTitleMaxLength2%></span> byte)
 						</td>
-						<td class="tweight red">최대 <%=strTitleMaxLength1%> byte 까지 작성 가능합니다.</td>
+						<td class="tweight red">최대 <%=strTitleMaxLength2%> byte 까지 작성 가능합니다.</td>
 					</tr>
 				<%End If%>
 				<%If viewSubTitle = "T" Then%>
@@ -166,9 +173,9 @@
 						<th>짧은 설명</th>
 						<td>
 							<textarea name="strScontent" class="input_area fleft" cols="50" rows="10" style="width:80%; height:80px;resize:none;"></textarea>
-							<div class="remainingTXT fleft">&nbsp;(<span class="count">0</span> / <span class="maxCount"><%=strContentMaxLength%></span>byte) / <span class="maxRow"><%=strTitleMaxRow%></span>줄</div>
+							<div class="remainingTXT fleft">&nbsp;(<span class="count">0</span> / <span class="maxCount"><%=strContentMaxLength2%></span>byte) / <span class="maxRow"><%=strTitleMaxRow%></span>줄</div>
 						</td>
-						<td class="tweight red">최대 <%=strContentMaxLength%> byte / <%=strTitleMaxRow%>줄 까지 작성 가능합니다.</td>
+						<td class="tweight red">최대 <%=strContentMaxLength2%> byte / <%=strTitleMaxRow%>줄 까지 작성 가능합니다.</td>
 					</tr>
 				<%End If%>
 				<tr>

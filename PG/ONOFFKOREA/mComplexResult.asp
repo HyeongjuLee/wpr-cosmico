@@ -1790,11 +1790,9 @@
 					<%
 					End if
 
-					'▣ 알림톡 전송 (메타21, 2022-05-09)
-					'requestInfos = "상품명|주문번호|주문일자|결제금액"
-					requestInfos = GoodsName &"|"& OUT_ORDERNUMBER &"|"& Date() &"|"& num2cur(totalPrice)
-
-					Call FN_PPURIO_MESSAGE(DK_MEMBER_ID1, DK_MEMBER_ID2, "order", "at", OUT_ORDERNUMBER, requestInfos)
+					'▣ 알림톡 전송
+					requestInfos = ""
+					'Call FN_PPURIO_MESSAGE(DK_MEMBER_ID1, DK_MEMBER_ID2, "order", "at", OUT_ORDERNUMBER, requestInfos)
 
 				End if
 

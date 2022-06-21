@@ -8,7 +8,7 @@
 '		End If
 '	End If
 
-'If webproIP <>"T" Then  Response.Redirect "/index.asp"
+If webproIP <>"T" Then  Response.Redirect "/index.asp"
 
 '	If Request.ServerVariables("HTTPS") = "off" Then
 '		Response.Redirect "https://www.starcomps.co.kr:4455/m"
@@ -22,16 +22,6 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<%'메타c Google Analytics: G-7GRV272JMF %>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7GRV272JMF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7GRV272JMF');
-</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 <title><%=LNG_SITE_TITLE%> Mobile Site</title>

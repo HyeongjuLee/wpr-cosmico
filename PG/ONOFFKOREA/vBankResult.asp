@@ -163,7 +163,7 @@
 
 								'알림톡 전송, (메타21, 가상계좌 입금시에만 2022-05-27)
 								requestInfos = ""
-								Call FN_PPURIO_MESSAGE(DK_MEMBER_ID1, DK_MEMBER_ID2, "order", "at", OUT_ORDERNUMBER, requestInfos)
+								'Call FN_PPURIO_MESSAGE(DK_MEMBER_ID1, DK_MEMBER_ID2, "order", "at", OUT_ORDERNUMBER, requestInfos)
 
 							'♠온오프코리아 현금영수증 발급(가상계좌 입금시)
 							Call PG_ONOFFKOREA_CASH_RECEIPT(TX_ONOFF_TID, vBankAmt, HJRS_CSORDERNUM)
