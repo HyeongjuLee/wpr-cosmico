@@ -68,7 +68,9 @@
 
 		DKRS_Reg_bankaccnt		= DKRS("Reg_bankaccnt")		'■계좌인증확인
 		If NICE_MOBILE_CONFIRM_TF = "T" Then
+			On Error Resume Next
 			DKRS_mobileAuth			= DKRS("mobileAuth")		'◆휴대폰인증확인		'테이블 컬럼추가 확인!!!!
+			On Error Goto 0
 		Else
 			DKRS_mobileAuth = ""
 		End If
