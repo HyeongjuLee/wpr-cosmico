@@ -93,8 +93,8 @@ $devices: (mobile: 576px, tablet: 768px, desktop: 1280px);
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	@include font-family('Pretendard');
-	padding: 1rem 1.5rem;
+	font-family: $parent-css;
+	padding: rem(5px) rem(10px);
 	@include rounded(0);
 
 	color: $color;

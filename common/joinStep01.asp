@@ -5,7 +5,7 @@
 		'Call ALERTS("준비중입니다.","back","")
 	End If
 
-	PAGE_SETTING = "MEMBERSHIP"
+	PAGE_SETTING = "COMMON"
 	NO_MEMBER_REDIRECT = "F"
 
 '	Response.Redirect "/common/joinStep_n02_g.asp"
@@ -15,7 +15,7 @@
 	ISSUBTOP = "T"
 	ISSUBVISUAL = "F"
 
-	view = 1
+	view = 4
 	'sview = 1
 
 	If DK_MEMBER_LEVEL > 0 Then
@@ -38,21 +38,21 @@
 
 %>
 <!--#include virtual="/_include/document.asp" -->
-<link rel="stylesheet" type="text/css" href="/css/common.css?v0" />
+<link rel="stylesheet" type="text/css" href="/css/joinstep.css?" />
 <script type="text/javascript">
 	$(function(){
 		<%Select Case LCase(DK_MEMBER_LNG_CODE)%>
 		<%Case "kr" %>
-		$('.sub-header').append('<div class="join-header-txt"><p><%=LNG_COPYRIGHT_COMPANY%><%=LNG_JOIN_TEXT_01%></p></div>');
+		$('.sub-header-txt').append('<div class="join-header-txt"><p><%=LNG_SITE_TITLE%><%=LNG_JOIN_TEXT_01%></p></div>');
 		<%Case "us" %>
-		$('.sub-header').append('<div class="join-header-txt"><p><%=LNG_JOIN_TEXT_01%></p></div>');
+		$('.sub-header-txt').append('<div class="join-header-txt"><p><%=LNG_JOIN_TEXT_01%></p></div>');
 		<%End Select%>
 	});
 </script>
 </head>
 <body>
 <!--#include virtual="/_include/header.asp" -->
-<div id="joinStep" class="common">
+<div id="join01" class="common joinstep">
 	<div class="wrap">
 		<h6><%=LNG_TEXT_JOIN_CONSUMER_MEMBER%></h6>
 		<!-- <p><%=LNG_JOIN_TEXT_03%></p> -->
@@ -65,7 +65,7 @@
 	</div>
 	<div class="wrap">
 		<h6><%=LNG_TEXT_JOIN_BUSINESS_MEMBER%></h6>
-		<p></p>
+		<!-- <p></p> -->
 		<ul>
 			<li><%=LNG_JOINSTEP01_TEXT02_1%></li>
 			<li><%=LNG_JOINSTEP01_TEXT02_2%></li>

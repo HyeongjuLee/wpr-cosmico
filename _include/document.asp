@@ -75,8 +75,9 @@
 <link href="/css/a_BtnCss.css?" rel="stylesheet">
 <link href="/css/fontawesome.5.12.1.css" rel="stylesheet"><!--load all styles -->
 <link rel="stylesheet" href="/fontello/css/icon-font.css?">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css?" />
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css?" />
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" /> -->
+<!-- <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" /> -->
+<link rel="stylesheet" href="/css/Pretendard.css">
 
 <%Select Case UCase(DK_MEMBER_NATIONCODE)%>
 <%Case Else%>

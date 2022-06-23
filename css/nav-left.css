@@ -1,49 +1,26 @@
-body { font-size: 1.5rem; line-height: 1.5; }
-
 #left i.line { display: none; }
 
 .nav-left { width: 100%; position: relative; font-size: 1.7rem; font-weight: 600; line-height: 1.5; letter-spacing: -0.05em; color: #737373; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-
-.nav-left ul { width: 120rem; margin: 0 auto; position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }
-
+.nav-left ul { width: 120rem; margin: 0 auto; position: relative; display: flex; flex-direction: row; }
 .nav-left ul > li { margin: 0 0.12rem; min-width: 15rem; }
-
-.nav-left ul > li > a { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 1.7rem; padding-right: 4.25rem; color: #737373; }
-
+.nav-left ul > li > a { display: flex; align-items: center; padding: 1.7rem; padding-right: 4.25rem; color: #737373; }
 .nav-left ul > li.home { min-width: initial; }
-
 .nav-left li { position: relative; white-space: nowrap; }
-
-.nav-left i.right { font-size: 1.2rem; position: absolute; top: 50%; right: 1.7rem; -webkit-transform: translateY(-50%); transform: translateY(-50%); -webkit-transition: all, 0.15s; transition: all, 0.15s; }
-
+.nav-left i.right { font-size: 1.2rem; position: absolute; top: 50%; right: 1.7rem; transform: translateY(-50%); -moz-transition: all, 0.15s; -webkit-transition: all, 0.15s; transition: all, 0.15s; }
 .nav-left a.depth { position: relative; }
-
-.nav-left ol { position: absolute; min-width: 100%; max-width: 100vh; overflow: hidden; background: #fff; -webkit-box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.15); box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.15); border-radius: 0.3rem; -webkit-transition: all, 0.5s; transition: all, 0.5s; }
-
+.nav-left ol { position: absolute; min-width: 100%; max-width: 100vh; overflow: hidden; background: #fff; box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.15); -moz-border-radius: 0.3rem; -webkit-border-radius: 0.3rem; border-radius: 0.3rem; -moz-transition: all, 0.5s; -webkit-transition: all, 0.5s; transition: all, 0.5s; }
 .nav-left ol li { margin: 0; }
-
-.nav-left ol a { cursor: pointer; text-decoration: none; width: 100%; height: 100%; display: block; padding: 0.96rem; padding-right: 2.4rem; z-index: 10; overflow: hidden; font-size: 1.6rem; color: #8d8d8d; -webkit-transition: all, 0.3s; transition: all, 0.3s; }
-
+.nav-left ol a { cursor: pointer; text-decoration: none; width: 100%; height: 100%; display: block; padding: 0.96rem; padding-right: 2.4rem; z-index: 10; overflow: hidden; font-size: 1.6rem; color: #8d8d8d; -moz-transition: all, 0.3s; -webkit-transition: all, 0.3s; transition: all, 0.3s; }
 .nav-left ol:hover a { color: rgba(115, 115, 115, 0.8); }
-
 .nav-left ol:hover a:hover { color: #000; }
-
-.nav-left ol .depth a { color: #da2027; font-weight: 700; }
-
-.nav-left .depth1.view > a, .nav-left .depth2.view > a { background: rgba(115, 115, 115, 0.05); -webkit-transition: all, 0.5s; transition: all, 0.5s; }
-
-.nav-left .depth1.view i.right, .nav-left .depth2.view i.right { -webkit-transform: translateY(-50%) rotate(90deg) scale(1.2); transform: translateY(-50%) rotate(90deg) scale(1.2); opacity: .7; }
-
+.nav-left ol .depth a { color: #1C287B; font-weight: 700; }
+.nav-left .depth1.view > a, .nav-left .depth2.view > a { background: rgba(115, 115, 115, 0.05); -moz-transition: all, 0.5s; -webkit-transition: all, 0.5s; transition: all, 0.5s; }
+.nav-left .depth1.view i.right, .nav-left .depth2.view i.right { transform: translateY(-50%) rotate(90deg) scale(1.2); opacity: .7; }
 .nav-left .depth1.view ol, .nav-left .depth2.view ol { z-index: 9; }
-
-.nav-left .depth2 > a { color: #da2027; }
-
+.nav-left .depth2 > a { color: #1C287B; }
 .nav-left .depth2 i.right { opacity: 0; }
-
 .nav-left .depth2:hover i.right, .nav-left .depth2.view i.right { opacity: 1; }
-
-.nav-left .depth2.view > a { background: rgba(218, 32, 39, 0.05); }
-
+.nav-left .depth2.view > a { background: rgba(28, 40, 123, 0.05); }
 .nav-left ol { max-height: 100vh; opacity: 0; padding: 1.2rem; top: 5.22rem; z-index: -1; }
-
 .nav-left .depth1.view ol, .nav-left .depth2.view ol { max-height: 100vh; opacity: 1; top: 6rem; }
+.nav-left .depth p + i { display: none; }

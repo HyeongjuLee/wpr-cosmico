@@ -1,0 +1,1635 @@
+@import 'mixin-custom';
+
+$contain: rem(1300px);
+$input-height: $input-height - rem(10px);
+
+html,
+body {
+	@include font-family('Pretendard');
+}
+
+#header {
+	display: none;
+}
+
+#language {
+	right: -6.5rem;
+	top: 50%;
+	@include transform(translateY(-50%));
+
+	&:before {
+		box-sizing: border-box;
+		box-shadow: 0 3px 10px rgba(#000, 0.3);
+	}
+}
+
+/*헤더 콘텐츠 영역 */
+
+#contain_wrap {
+	@include position;
+	overflow: hidden;
+	min-height: 100vh;
+	padding-bottom: 14rem;
+	background: #eceff1;
+}
+
+#contain_M {
+	width: $contain;
+	@include position;
+	padding: 0;
+}
+
+#content {
+	width: $contain - $nav - round($font-size * 3);
+
+	margin: {
+		top: round($font-size * 3);
+		left: round($font-size * 3);
+	}
+
+	;
+	padding: round($font-size * 3);
+	float: left;
+	background: #fff;
+}
+
+/*기타*/
+
+$sub_title-height: $font-size * 4;
+
+#sub-header {
+	@include position;
+	z-index: 10;
+	width: 100%;
+	height: $sub_title-height;
+	@include flex;
+	//flex-direction: column;
+	text-align: center;
+	background: #fff;
+	padding-top: 0;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+
+	.layout_inner {
+		@include position;
+		@include flex($bet);
+		width: $contain;
+	}
+
+	.sub-header-img {
+		width: 100%;
+		height: 100%;
+		@include position(absolute, $le: 50%, $top: 50%);
+		z-index: 0;
+		transform: translate(-50%, -50%);
+	}
+
+	.sub-header-txt {
+		@include position;
+		z-index: 1;
+		@include flex($bet, $st);
+		//flex-direction: column;
+		//width: $inner;
+
+		color: #222;
+		font-size: rem(26px);
+		font-weight: 400;
+
+		.maps_title {
+			margin-top: 0;
+			margin-left: $nav + rem(50px);
+			font-weight: 500;
+			line-height: 1;
+		}
+
+		&:after {
+			display: none;
+			z-index: 1;
+			width: $sub_title-height * 0.15;
+			height: 1px;
+			background: #fff;
+			margin-top: rem(15px);
+		}
+	}
+
+	.myoffice-top-btn {
+		@include inline-flex;
+		a {
+			@include inline-flex;
+			font-size: rem(14px);
+			line-height: 1.5;
+			font-weight: 500;
+			color: #fff;
+			border-radius: rem(4px);
+			min-width: rem(110px);
+			height: rem(34px);
+			margin-left: rem(5px);
+		}
+
+		.home {
+			background: $main-color;
+			&:hover {
+				background: lighten($main-color, 10);
+			}
+		}
+
+		.logout {
+			background: material-color('blue-grey', '200');
+		}
+	}
+}
+
+.sub-title {
+	color: saturate(lighten($nav-color, 10), 25);
+	font-size: rem(24px);
+	font-weight: 800;
+
+	margin: {
+		bottom: rem(30px);
+	}
+
+	.board-title {
+		font-weight: 400;
+		display: block;
+		width: 100%;
+		margin-top: rem(-35px);
+		text-align: center;
+	}
+}
+
+.input_text {
+	$input-height: rem(40px);
+
+	line-height: 1.2;
+	height: $input-height;
+	@include rounded($font-size / 3);
+	vertical-align: middle;
+	padding: 0px $font-size;
+	border: 1px solid $oc-gray-5;
+	background: #fff;
+
+	&:read-only {
+		background: $oc-gray-3;
+		// border-color: material-color('grey');
+	}
+}
+
+.button {
+	@include button($basic);
+	@include inline-flex;
+	margin: 0;
+	color: #fff;
+	min-width: rem(70px);
+	min-height: $input-height - rem(15px);
+	padding: 0 rem(10px);
+
+	&:link, &:active, &:visited, &:hover {
+		color: #fff;
+	}
+
+	&.red {
+		@include button($admin);
+	}
+
+	&.answer {
+		@include button($answer);
+	}
+
+	&.delete {
+		@include button($delete);
+	}
+
+	&.edit {
+		@include button($edit);
+	}
+
+	&.green {
+		@include button($save);
+	}
+}
+
+/*wallet 페이지*/
+
+$myoffice: rem(930px);
+
+.wallet {
+	font-size: rem(24px);
+
+	.all-asset {
+		width: 100%;
+		@include flex($bet);
+		padding: rem(10px) $font-size;
+		margin: rem(20px) 0;
+		//background: linear-gradient(90deg, $oc-gray-7, $main-color);
+		background: rgba($main-color, 5);
+		//color: #fff;
+		//background: saturate(rgba(#333645, 5%), 50%);
+		//border: 2px solid rgba($main-color, 100%);
+		color: $main-color;
+		//box-shadow: 2px 2px 0 $main-color;
+		//@include rounded($radius: rem(10px));
+
+		* {
+			padding: rem(10px) $font-size;
+		}
+
+		h4 {
+			font-size: rem(20px);
+			font-weight: 500;
+		}
+
+		.price {
+			font-size: rem(22px);
+			font-weight: 600;
+			text-align: right;
+		}
+
+		.unit {
+			font-size: rem(15rem);
+			padding-right: 0;
+		}
+	}
+
+	article {
+		width: 100%;
+		margin: rem(20px) 0;
+		display: inline-block;
+
+		.list {
+			@include flex($end);
+			flex-wrap: wrap;
+			width: 100%;
+			background: #fff;
+
+			padding: rem(20px) {
+				left: rem(10px);
+			}
+
+			;
+
+			border: {
+				top: 1px solid material-color('blue-grey', '100');
+				bottom: 1px solid material-color('blue-grey', '100');
+			}
+
+			margin-bottom: -1px;
+
+			.logo {
+				width: rem(100px);
+				height: rem(100px);
+				@include inline-flex;
+				flex-direction: column;
+				float: left;
+				vertical-align: middle;
+				margin: rem(20px);
+
+				img {
+					width: 100%;
+					height: 100%;
+				}
+
+				span {
+					width: 100%;
+					height: 100%;
+					border-radius: 100%;
+					display: block;
+				}
+			}
+
+			.con {
+				@include inline-flex($even, $st);
+				flex-direction: column;
+				width: calc(100% - 14rem);
+				height: rem(100px);
+
+				div {
+					@include flex($bet);
+					width: 100%;
+
+					padding: 0 {
+						left: $font-size
+					}
+
+					;
+
+					p {}
+
+					.name {
+						min-width: 20%;
+					}
+
+					.price {
+						margin: 0 $font-size;
+						@include position;
+						text-align: right;
+					}
+				}
+
+				.tit {
+					font-weight: 600;
+					color: material-color('blue-grey', '400');
+
+					p {}
+
+					.name {}
+
+					.price {}
+				}
+
+				.detail {
+					p {
+						color: #222;
+					}
+
+					.name {}
+
+					.price {
+						span {
+							@include position(absolute);
+							margin-left: rem(-10px);
+						}
+					}
+				}
+			}
+
+			.btn {
+				@include inline-flex($end);
+				width: calc(100% - 15rem);
+				height: 100%;
+				float: right;
+				vertical-align: middle;
+				display: none;
+
+				button {
+					@include default-0;
+					cursor: pointer;
+					padding: $font-size rem(20px);
+					margin: 0 rem(8px);
+					@include rounded;
+					width: 50%;
+					@include transition(all .1s);
+
+					&:hover {
+						background: $main-color;
+						color: #fff;
+					}
+
+					&.out {
+						&:hover {
+							background: saturate(invert($main-color, 50%), 70%);
+						}
+					}
+				}
+
+				.in {}
+
+				.out {}
+			}
+		}
+
+		.usdt {
+			.btn {
+				display: inline-flex;
+
+				.in {
+					display: none;
+				}
+			}
+		}
+
+		$chia-color: #3BAC5C;
+
+		.chia {
+			.logo {
+				span {
+					background: rgba($chia-color, 10%);
+					padding: rem(10px);
+				}
+
+				img {}
+			}
+		}
+	}
+}
+
+.titles {
+	clear: both;
+	font-size: 12pt;
+	padding-bottom: 10px;
+	padding-top: 40px;
+	font-weight: 500;
+	color: #333;
+
+	&:before {
+		content: "\2724";
+		font-size: 18px;
+		padding-right: 3px;
+	}
+}
+
+.inPrice {
+	text-align: right;
+}
+
+.detail_btn {
+	@include inline-flex;
+	//width: 100%;
+	height: $input-height / 2;
+	line-height: 1.5;
+	padding: rem(5px) rem(10px);
+	cursor: pointer;
+	z-index: 2;
+	color: grayscale($main-color);
+	font-size: $font-size - rem(2px);
+	font-weight: 500;
+	border: 1px solid lighten(grayscale($main-color), 10);
+	background: transparent;
+	@include rounded(rem(5px));
+
+	&.noline {
+		border: none;
+		background: material-color('grey', '500');
+		color: #fff;
+
+		&:hover {
+			background: darken($myoffice-color, 5);
+		}
+	}
+
+	&.width100 {
+		margin-top: $font-size;
+	}
+
+	&.qr {
+		width: 100%;
+	}
+
+	&.red {
+		background: material-color('pink');
+
+		&:hover {
+			background: material-color('pink', '700');
+		}
+	}
+
+	&.green {
+		background: material-color('green');
+
+		&:hover {
+			background: material-color('green', '700');
+		}
+	}
+
+	&.blue {
+		background: material-color('blue');
+		//background: $main-color;
+
+		&:hover {
+			background: material-color('blue', '700');
+			//background: darken($main-color, 10);
+		}
+	}
+
+	&.purple {
+		background: material-color('purple');
+
+		&:hover {
+			background: material-color('purple', '700');
+		}
+	}
+
+	&.gray {
+		background: material-color('grey', '500');
+
+		&:hover {
+			background: material-color('grey', '800');
+		}
+	}
+	&:not(.noline) {
+		background: transparent;
+		&:hover {
+			background: $main-color;
+			border-color: $main-color;
+			color: #fff;
+			box-shadow: none;
+		}
+		&.red {
+			border: 1px solid material-color('pink');
+			color: material-color('pink');
+
+			&:hover {
+				border: 1px solid material-color('pink', '700');
+				color: material-color('pink', '700');
+			}
+		}
+		&.gray {
+			border: 1px solid material-color('grey', '700');
+			color: material-color('grey', '700');
+
+			&:hover {
+				border: 1px solid material-color('blue-grey', '700');
+				color: #fff;
+				background: material-color('blue-grey', '700');
+			}
+		}
+	}
+}
+
+$input-height: $input-height - rem(10px);
+
+.search_form {
+	width: 100%;
+	font-size: $font-size;
+	line-height: 1.2;
+	display: grid;
+	//grid-template-columns: repeat(auto-fit, minmax(20%, auto));
+	grid-auto-columns: minmax(20%, auto);
+	grid-auto-rows: auto;
+	gap: $font-size;
+
+	padding: $font-size - rem(5px) {
+		left: $font-size;
+	}
+
+	border: 1px solid material-color('grey', '200');
+
+	h6 {
+		font-size: $font-size;
+		color: #222;
+		line-height: $parent-css;
+		width: auto;
+		word-break: keep-all;
+	}
+
+	input {
+		margin: 0;
+		padding: rem(10px);
+		height: $input-height;
+		//outline: none;
+		font-size: $font-size * 1.1;
+
+		&[type="text"] {
+			width: 100%;
+		}
+
+		&[type="button"] {}
+	}
+
+	select {
+		height: $input-height;
+		border-color: material-color('grey', '400');
+		cursor: pointer;
+		font-size: $font-size - rem(1px);
+		@include rounded(rem(5px));
+	}
+	.input_select {
+		width: 100%;
+	}
+
+	article {
+		width: 100%;
+		display: grid;
+		align-items: center;
+		grid-auto-rows: auto;
+		gap: 0 $font-size / 2;
+		grid-template-columns: repeat(12, 0.5fr);
+
+		> div {
+			//grid-template-columns: repeat(3, 0.5fr);
+			align-items: center;
+			margin-right: $font-size / 2;
+
+			> .input_text, > .input_select {
+				width: 100% ;
+			}
+
+			&.standard {
+				.input_text {
+					border: {
+						radius: 0;
+						top-left-radius: rem(5px);
+						bottom-left-radius: rem(5px);
+					};
+					width: 100%;
+				}
+
+				.button {
+					border: {
+						top-right-radius: rem(5px);
+						bottom-right-radius: rem(5px);
+					};
+					border-color: #828282;
+					color: #fff;
+					height: $input-height;
+					padding: 0 rem(10px);
+					@include inline-flex;
+				}
+				.input {
+					width: auto;
+					@include inline-flex;
+					grid-column: 2/3;
+				}
+			}
+			&.searchMem {
+			}
+			&.searchCate {
+				padding-right: 0;
+				select {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.date {
+		h6 {
+			grid-area: h6;
+			grid-column: 1;
+		}
+		.inputs {
+			grid-area: inputs;
+			grid-column: 2/6;
+		}
+		.search_btn {
+			grid-area: search_btn;
+			grid-column: 6/8;
+		}
+
+		.buttons {
+			padding-right: 0;
+			grid-area: buttons;
+			grid-column: 6/11;
+			+ .search_btn {
+				grid-column: 11 / 13;
+			}
+		}
+	}
+
+	.inputs {
+		@include flex($bet);
+		min-width: $inner / 4;
+		background: material-color('grey', '200');
+		@include rounded(rem(5px));
+		margin-right: 0;
+
+		input[type="text"] {
+			//width: calc(50% - 2rem);
+			width: 50%;
+			border: none;
+			cursor: pointer;
+			background: transparent;
+			text-align: center;
+			outline: none;
+		}
+
+		button {
+			width: calc((100% - 2rem) / 7);
+			height: $input-height;
+			line-height: 1.5;
+			padding: 0;
+			font-size: $font-size;
+			color: #555;
+			cursor: pointer;
+			font-family: $parent-css;
+			font-weight: 500;
+			outline: none;
+			@include rounded(rem(5px));
+		}
+
+		&~.buttons {
+			margin-right: 0;
+			@include inline-flex($bet);
+
+			button {
+				//width: calc((100% / 7) - #{rem(5px)});
+				width: auto;
+				min-width: $input-height;
+				height: $input-height;
+				margin-right: rem(5px);
+				outline: none;
+				cursor: pointer;
+				padding: 0 rem(2.5px);
+				//font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+				font-family: $parent-css;
+				font-size: $font-size - rem(1px);
+				border: 2px solid material-color('grey', '300');
+				background: material-color('grey', '300');
+				color: material-color('grey', '700');
+				@include rounded(rem(5px));
+				word-break: keep-all;
+				flex: 1;
+
+				&:last-of-type {
+					margin-right: 0;
+				}
+
+				&:focus {
+					// border-color: mix(material-color('teal'), material-color('light-blue'), 50);
+					// background: mix(material-color('teal'), material-color('light-blue'), 50);
+					background: adjust-hue($myoffice-color, -10deg);
+					border-color: adjust-hue($myoffice-color, -10deg);
+					color: #fff;
+				}
+			}
+
+			&+.search_btn {
+				margin: 0;
+			}
+		}
+	}
+
+	.search_btn {
+		@include default-0;
+		min-width: $input-height;
+		height: $input-height;
+		color: #fff;
+		background: $myoffice-color;
+		cursor: pointer;
+		padding: 0 $font-size;
+		@include rounded(rem(5px));
+		font-size: $parent-css;
+		line-height: 1.5;
+	}
+
+	.search_reset {
+		@include default-0;
+		min-width: $input-height;
+		height: $input-height;
+		color: #fff;
+		background: material-color('grey', '600');
+		cursor: pointer;
+		padding: 0 $font-size;
+		font-size: $font-size;
+		@include rounded(rem(5px));
+		line-height: 1.5;
+	}
+
+	.members {
+		h6 {
+		}
+
+		> div {
+			//grid-template-columns: repeat(3, 0.5fr);
+			align-items: center;
+			padding-right: $font-size / 2;
+
+			> .input_text, > .input_select {
+				width: 100% ;
+			}
+		}
+
+		.standard {
+			grid-column: 2/5;
+		}
+		.searchMem {
+			grid-column: 6/9;
+		}
+		.searchCate {
+			grid-column: 10/13;
+		}
+		
+	}
+
+	.searchs {
+		> div {
+			padding-right: $font-size / 2;
+		}
+		.rank {
+			grid-column: 2/5;
+		}
+		.level {
+			grid-column: 6/9;
+		}
+		.search_btn {
+			grid-column: 9 / 11;
+		}
+		.search_reset {
+			grid-column: 11 / 13;
+		}
+	}
+
+	.labels {
+		@include inline-flex($st);
+		label {
+			cursor: pointer;
+			color: $parent-css;
+			font-size: $font-size;
+			font-weight: 500;
+			@include position;
+			@include inline-flex;
+			height: $input-height;
+			vertical-align: middle;
+			margin-right: rem(10px);
+			&:last-of-type {
+				margin-right: 0;
+			}
+
+			i {
+				color: material-color('grey', '400');
+				font-size: $font-size - rem(3px);
+				margin-right: $font-size / 2;
+				// @include transition(all, .1s);
+			}
+
+			span {
+				@include flex;
+				@include position;
+				// @include transition(all, .1s);
+				width: 100%;
+				height: 100%;
+				padding: rem(5px) rem(10px);
+				background: material-color('grey', '200');
+				border: 1px solid material-color('grey', '200');
+				@include rounded(rem(5px));
+			}
+
+			input {
+				@include position(absolute);
+				visibility: hidden;
+				z-index: -1;
+
+				&:checked {
+					&~span {
+						//font-weight: 700;
+						color: #fff;
+						background: $myoffice-color;
+						border-color: $myoffice-color;
+
+						i {
+							color: $parent-css;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	a.search_reset {
+		text-decoration: none;
+		@include inline-flex;
+		//height: 100%;
+		&:hover {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+}
+
+.voter {
+	.searchs {
+		.standard {
+			grid-column: 2/5;
+		}
+		.type {
+			grid-column: 6/9
+		}
+	}
+}
+
+.myoffice_point {
+	.searchs {
+		.labels {
+			grid-column: 2/6;
+			margin-right: 0;
+			padding-right: 0;
+		}
+	}
+	&.pay03 {
+		.buttons {
+			grid-column: 6/13;
+		}
+	}
+}
+
+.member.mt {
+	.search_form {
+		article {
+			grid-template-columns: repeat(10, 0.5fr);
+		}
+		.members {
+			> div {
+				//margin-right: $font-size;
+				padding-right: 0;
+			}
+			.inputs {
+				grid-column: 2/6;
+				min-width: auto;
+				border: 1px solid material-color('grey', '400');
+				background: #fff;
+
+				.input_text {
+					cursor: text;
+					text-align: left;
+				}
+
+				+ h6 {
+					grid-column: 6;
+					text-align: right;
+				}
+			}
+			> .input_text {
+				grid-column: 7/9;
+				width: calc(100% - #{$font-size / 2});
+				border-color: #bdbdbd;
+				background: #fff;
+			}
+		}
+		.searchs {
+			.labels {
+				grid-column: 2/6;
+				margin-right: $font-size;
+
+				+ h6 {
+					text-align: right;
+				}
+			}
+			> .input_select {
+				grid-column: 7/8;
+			}
+			.search_btn {
+				grid-column: 8/10;
+			}
+			.search_reset {
+				grid-column: 10;
+			}
+		}
+		.orders {
+			.input_select {
+				grid-column: 2/6;
+
+				+ h6 {
+					grid-column: 6;
+					text-align: right;
+				}
+			}
+			.labels {
+				grid-column: 7/10;
+			}
+
+			~ .searchs {
+				> .input_select {
+					grid-column: 2/4;
+
+					+ h6 {
+						grid-column: 4;
+						text-align: right;
+					}
+				}
+				.labels {
+					grid-column: 5/8;
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+.total_sales_wrap {
+	@include flex($bet, $st);
+	margin: $font-size 0;
+
+	div {
+		@include inline-flex($st);
+
+		width: calc(50% - #{rem(5px)});
+		height: $input-height / 1.2;
+		padding: $font-size - rem(5px);
+		@include rounded(rem(5px));
+		color: #333645;
+		font-weight: 600;
+
+		p {
+			font-weight: 500;
+			margin-left: $font-size;
+		}
+
+		i {
+			width: 3px;
+			height: 3px;
+			background: #333645;
+			margin: 0 $font-size;
+			mix-blend-mode: color-burn;
+		}
+	}
+
+	.sales {
+		//background: material-color('light-blue', '50');
+		background: rgba($main-color, 10%);
+	}
+
+	.period {
+		//background: material-color('purple', '50');
+		background: rgba($oc-gray-7, 10%);
+	}
+}
+
+.goodsList {
+	font-family: $parent-css;
+
+	.list_select {
+		@include flex($st);
+		color: #222;
+		font-weight: 600;
+		margin-bottom: $font-size;
+
+		select {
+			width: 24rem;
+			height: 4rem;
+			padding: 0.375rem 0.75rem;
+			border-color: #bdbdbd;
+			cursor: pointer;
+			font-size: $font-size - rem(1px);
+			border-radius: 0.5rem;
+			margin-left: $font-size;
+		}
+	}
+
+	#goodsTable {
+		width: 100%;
+
+		th, td {
+			text-align: center;
+			padding: $font-size - rem(5px);
+			height: $input-height / 1.2;
+		}
+
+		thead {
+			tr {
+				td {
+					//padding: $font-size;
+					background: rgba($main-color, 7%);
+					border-bottom: 1px solid rgba(mix($main-color, material-color('grey', '300'), 50), 50%);
+					color: mix($main-color, #555, 50);
+
+					&.name {
+						//text-align: left;
+						//padding-left: $font-size * 2;
+					}
+
+					&.price {
+						//text-align: right;
+						//padding-right: $font-size * 3;
+					}
+				}
+			}
+		}
+
+		tbody {
+			tr {
+				//border-top: 1px solid material-color('grey', '300');
+				border-bottom: 1px solid material-color('grey', '300');
+
+				td {
+					input {
+						&[type="input"] {
+							width: $input-height;
+							height: $input-height / 2;
+							border-color: material-color('grey', '300');
+							padding: $font-size / 4 $font-size / 2;
+							cursor: pointer;
+							text-align: center;
+							font-size: $font-size - rem(1px);
+							@include rounded(rem(5px));
+							box-shadow: inset 0 2px 2px rgba(#000, 10%);
+						}
+					}
+
+					button {
+						min-width: $input-height;
+						height: $input-height / 2;
+						padding: $font-size / 4 $font-size / 2;
+						cursor: pointer;
+						font-size: $font-size - rem(1px);
+						border: none;
+						background: material-color('grey', '300');
+						@include rounded(rem(5px));
+
+						&:hover {
+							background: $main-color;
+							color: #fff;
+						}
+					}
+
+					&.name {
+						//text-align: left;
+						//padding-left: $font-size * 2;
+						font-weight: 600;
+						color: #222;
+					}
+
+					&.price {
+						//text-align: right;
+						//padding-right: $font-size * 3;
+					}
+
+					&.volume {
+						padding-right: 0;
+
+						.input_text {
+							width: $font-size * 4;
+							text-align: center;
+						}
+					}
+
+					&.price_all {
+						font-weight: 500;
+						font-size: $font-size * 1.5;
+						color: #555;
+					}
+
+					&.btn {
+						padding-left: $font-size / 2;
+					}
+
+					&.inPrice {}
+				}
+
+				&:hover {
+					background: rgba(mix($oc-gray-7, material-color('grey', '100'), 50), 7%);
+				}
+			}
+		}
+	}
+}
+
+$red: material-color('red');
+$amber: material-color('amber', '700');
+$purple: material-color('purple', '700');
+
+#cart {
+	#goodsTable {
+		tbody {
+			tr {
+				td {
+					input[type="input"] {
+						cursor: $default-css;
+					}
+				}
+			}
+		}
+
+		tfoot {
+			.detail_btn {
+				background: transparent;
+
+				&:nth-of-type(1) {
+					color: $red;
+					border-color: $red;
+
+					&:hover {
+						background: $red;
+						color: #fff;
+					}
+				}
+
+				&:nth-of-type(2) {
+					color: $amber;
+					border-color: $amber;
+
+					&:hover {
+						background: $amber;
+						color: #fff;
+					}
+				}
+
+				&:nth-of-type(3) {
+					color: $purple;
+					border-color: $purple;
+
+					&:hover {
+						background: $purple;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	.agreeArea {
+		margin: $font-size * 1.5 0;
+
+		label {
+			color: #222;
+			font-weight: 500;
+			font-size: $font-size + rem(5px);
+			display: flex;
+			//justify-content: flex-start;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+
+			input[type="checkbox"] {
+				margin-right: $font-size;
+			}
+		}
+	}
+
+	.agreeBox {
+		width: 100%;
+		height: $input-height * 5;
+		padding: $font-size * 1.2;
+		margin: $font-size * 1.5 0;
+		overflow-y: scroll;
+		border: 1px solid material-color('grey', '400');
+	}
+}
+
+#point {
+	table {
+		&.btc_table {
+			margin-bottom: $font-size;
+		}
+
+		td {
+			padding: 1rem;
+
+			input {
+				&:not([type="button"]) {
+					height: 4rem;
+					line-height: 1.5;
+					border-color: #bdbdbd;
+					font-size: $font-size - rem(1px);
+					padding: 0.75rem $font-size;
+					border-radius: 0.5rem;
+					vertical-align: initial;
+
+					&:-moz-read-only, &:read-only {
+						background: #eeeeee;
+						outline: none;
+					}
+				}
+
+				&[name="transPoint"] {
+					width: 100%;
+				}
+			}
+
+			&.transfer {
+				font-size: 0;
+
+				.input_text {
+					width: 60%;
+				}
+			}
+
+			.detail_btn {
+				width: calc(40% - 0.75rem);
+				height: 4rem;
+				margin-left: 0.75rem;
+				cursor: pointer;
+
+				input {
+					color: inherit;
+					background: initial;
+					border: initial;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	#googleAuth {
+		font-size: 0;
+
+		input {
+			&[type="password"] {
+				width: 60%;
+			}
+
+			&[type="button"] {
+				width: calc(40% - 0.75rem);
+				height: 4rem;
+				margin-left: 0.75rem;
+			}
+		}
+
+		#otpKeyOK {
+			display: block;
+			margin-top: 0.75rem;
+			font-size: 1.3rem;
+		}
+	}
+}
+
+/*board_search*/
+
+#bbs_search {
+	margin-bottom: $font-size;
+	float: initial;
+	width: 100%;
+
+	form {
+		@include inline-flex($st);
+		width: 40%;
+	}
+
+	.input_select, .input_text {
+		padding: 0 $font-size;
+		height: 4rem;
+		font-size: 1.3rem;
+		border-radius: 0.5rem;
+	}
+
+	.input_select {
+		cursor: pointer;
+		margin-right: 1rem;
+		border: 1px solid material-color('grey', '400');
+	}
+
+	.searchs {
+		flex: 1;
+		@include inline-flex($bet);
+		border: 1px solid material-color('grey', '400');
+		@include rounded(rem(8px));
+
+		input {
+			border: none;
+			width: calc(100% - 3rem);
+		}
+
+		button {
+			margin: 0;
+			padding: 0;
+			border: none;
+			outline: none;
+			background: transparent;
+			width: 3rem;
+			height: 3rem;
+			cursor: pointer;
+			font-size: 2.25rem;
+		}
+	}
+}
+
+$input-height: rem(50px);
+
+#faq {
+	margin-top: $font-size;
+
+	.menu {
+		@include flex($st, $st);
+		flex-wrap: wrap;
+
+		li {
+			flex: auto;
+			margin-bottom: -1px;
+			margin-right: -1px;
+
+			a {
+				@include default-a;
+				@include flex;
+				@include position;
+				z-index: 0;
+				padding: 0 $font-size / 2;
+				font-size: $parent-css;
+				background: #fff;
+				border: 1px solid material-color('grey', '400');
+				color: material-color('grey', '700');
+				height: $input-height;
+			}
+
+			&.on {
+				a {
+					background: #fff;
+					color: $main-color;
+					border-color: $main-color;
+					z-index: 1;
+					box-shadow: 0 0 0 1px $main-color;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+
+	.list {
+		margin-top: $font-size * 2;
+
+		li {
+			border-top: 1px solid material-color('grey', '400');
+			border-bottom: 1px solid material-color('grey', '400');
+			margin-bottom: -1px;
+			@include position;
+			z-index: 0;
+			background: #fff;
+
+			h3 {
+				@include flex($bet);
+				@include position;
+				cursor: pointer;
+				font-size: $font-size;
+				font-weight: 400;
+				line-height: 1.5;
+
+				padding: $font-size {
+					left: $font-size * 1.8;
+				}
+
+				;
+
+				&:before {
+					content: 'Q';
+					color: $main-color;
+					font-weight: 700;
+					@include position(absolute, $le: $font-size / 2);
+					text-align: center;
+					width: $font-size;
+				}
+
+				.icon-add {
+					color: material-color('grey', '400');
+				}
+
+				.icon-remove {
+					color: $main-color;
+				}
+			}
+
+			&.active {
+				border-color: material-color('grey', '600');
+				z-index: 1;
+
+				h3 {
+					color: $main-color;
+					font-weight: 500;
+				}
+			}
+		}
+
+
+		div {
+			@include position;
+			background: mix($main-color, #fff, 5);
+			font-size: $font-size;
+
+			padding: $font-size {
+				left: $font-size * 2;
+			}
+
+			;
+			border-top: 1px solid rgba(material-color('grey', '400'), 20%);
+
+			&:before {
+				content: 'A';
+				color: rgba(#000, 50%);
+				font-weight: 700;
+				@include position(absolute, $le: $font-size / 1.8);
+				text-align: center;
+				width: $font-size;
+			}
+
+			&.hide {
+				@include position(absolute, $top: 0, $le: -1000%);
+				width: 1px;
+				height: 1px;
+				font-size: 0;
+				line-height: 0;
+				overflow: hidden;
+			}
+
+			&.faqContent img {
+				max-width: 100%;
+				height: auto;
+			}
+		}
+	}
+
+	.notFAQ {
+		height: $input-height * 2;
+		@include flex;
+		font-size: $font-size;
+	}
+}
+
+.btnZone {
+	@include flex;
+
+	padding: {
+		top: $font-size * 2;
+	}
+
+	width: 100%;
+
+	a,
+	input {
+		@include inline-flex;
+		width: calc(#{$input-width} - 20px);
+		height: $input-height;
+		margin: rem(10px) 10px;
+		background: transparent;
+		font-size: $font-size * 1.2;
+		cursor: pointer;
+		font-family: $parent-css;
+		border: none;
+		@include rounded(rem(5px));
+
+		@include unify-parent('input') {
+			background: $main-color;
+			color: #fff;
+		}
+
+		@include unify-parent('a') {
+			background: $oc-gray-7;
+			//border: 1px solid $oc-gray-7;
+			color: #fff;
+
+			* {
+				background: none;
+				font-family: $parent-css;
+				font-size: $parent-css;
+				color: $parent-css;
+				left: $default-css;
+				height: $default-css;
+			}
+		}
+	}
+
+	a:hover {
+		color: $parent-css;
+	}
+
+	.cancel {
+		background: material-color('grey', '300');
+		color: #222;
+
+		&:hover {
+			background: darken(material-color('grey', '300'), 5);
+		}
+
+		//width: $input-width / 2;
+	}
+
+	.promise {
+		background: $myoffice-color;
+		color: #fff;
+
+		&:hover {
+			background: lighten($myoffice-color, 5);
+		}
+	}
+
+	.red {
+		background: material-color('red', 'a700');
+		color: #fff;
+
+		&:hover {
+			background: lighten(material-color('red', 'a700'), 5);
+		}
+	}
+}
+
+
+#loadings {
+	@include position(absolute);
+	z-index: 1;
+	width: 920px;
+	min-height: 218px;
+	background: #fff;
+	@include flex;
+}
+
+.innerTablePay {
+	@include table-color-wrap(material-color('orange'), $wrap: true);
+	@include table-color(material-color('orange'), true);
+}
+
+.innerTableBuy {
+	@include table-color-wrap(material-color('blue'), $wrap: true);
+	@include table-color(material-color('blue'), true);
+}
+
+.notData {
+	text-align: center;
+}
+
+/*카피라이터 영역 */
+footer {
+	background: transparent;
+	//@include position(absolute, $le: 0, $bot: 0);
+	width: $contain - $nav;
+	float: right;
+	//height: rem(140px);
+
+	margin: {
+		//top: rem(60px);
+	}
+
+	display: $default-css;
+
+	.layout_inner {
+		align-items: baseline;
+		width: 100%;
+		text-align: right;
+
+	}
+
+	.copyright {
+		flex: 1;
+		color: material-color('blue-grey', '300');
+		font-size: $font-size;
+		font-weight: 300;
+		padding: rem(60px) 0;
+		a {
+			color: $parent-css;
+			cursor: $parent-css;
+		}
+	}
+}

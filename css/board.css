@@ -1,162 +1,143 @@
 @charset "UTF-8";
-body { font-size: 1.5rem; line-height: 1.5; }
-
-.board { color: #222; }
-
-.board input::-webkit-input-placeholder, .board textarea::-webkit-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
-
-.board input:-ms-input-placeholder, .board textarea:-ms-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
-
-.board input::-ms-input-placeholder, .board textarea::-ms-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
-
 .board input::placeholder, .board textarea::placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
-
 .board input::-webkit-input-placeholder, .board textarea::-webkit-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
-
 .board input::-moz-input-placeholder, .board textarea::-moz-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
-
 .board input::-ms-input-placeholder, .board textarea::-ms-input-placeholder { color: #bdbdbd; font-size: 1.5rem; line-height: 1.5; white-space: normal; }
 
-.board .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; margin: 0; }
+#contain { color: #222; }
+#contain .board-title { font-size: 2.25rem; text-align: center; padding-bottom: 5rem; }
 
+.board .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; margin: 0; }
 .board .button:hover { color: #fff; text-decoration: none; background: #828282; }
-
 .board .button:active { color: whitesmoke; background: #686868; }
-
-.board .button.admin { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
-
+.board .button.admin { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
 .board .button.admin:hover { color: #fff; text-decoration: none; background: #e84f4c; }
-
 .board .button.admin:active { color: white; background: #e2231e; }
-
-.board .button.write { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #166dba; background: #1e88e5; }
-
+.board .button.write { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #166dba; background: #1e88e5; }
 .board .button.write:hover { color: #fff; text-decoration: none; background: #3594e8; }
-
 .board .button.write:active { color: white; background: #187bd1; }
-
-.board .button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
-
+.board .button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
 .board .button.answer:hover { color: #fff; text-decoration: none; background: #a028bf; }
-
 .board .button.answer:active { color: #f0d7f6; background: #7c2095; }
-
-.board .button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
-
+.board .button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
 .board .button.delete:hover { color: #fff; text-decoration: none; background: #e4286d; }
-
 .board .button.delete:active { color: #fef4f8; background: #c11856; }
-
-.board .button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
-
+.board .button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
 .board .button.edit:hover { color: #fff; text-decoration: none; background: #3f51be; }
-
 .board .button.edit:active { color: #ebedf8; background: #334198; }
-
-.board .button.save { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; -webkit-font-feature-settings: 'tnum'; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
-
+.board .button.save { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
 .board .button.save:hover { color: #fff; text-decoration: none; background: #4bb24f; }
-
 .board .button.save:active { color: #ebf7ec; background: #3b8e3f; }
 
 .board th, .board td { font-size: 1.5rem; font-weight: 400; height: 5rem; color: #333; padding: 0 1.5rem; }
-
 .board td { border: none; padding: 1.5rem; }
-
 .board td.contentTD2 { border-bottom: 1px solid #e0e0e0; padding: 3rem 1.5rem; }
-
 .board td.contentTD3 { padding-left: 0; padding-right: 0; }
-
 .board thead th { font-weight: 500; }
-
 .board tbody td a { color: #333; }
-
 .board tbody td a:hover { color: #1e2e71; text-decoration: underline; }
-
 .board tbody.no { color: #aaa; }
-
 .board tbody.subject { color: #444; }
-
 .board .nothing { height: 150px; text-align: center; }
-
 .board tfoot td { text-align: right; border: none; padding: 1.5rem; padding-right: 0; }
 
 .board .notice1 a, .board .notice2 a, .board .notice3 a, .board .notice4 a { color: #505050; }
-
 .board .notice1 a:hover, .board .notice2 a:hover, .board .notice3 a:hover, .board .notice4 a:hover { color: #528979; text-decoration: underline; }
-
 .board .table_for th, .board .table_for td { text-align: center; }
-
 .board .table_for th.subject, .board .table_for td.subject { text-align: left; }
-
 .board .cnt { font-size: 8pt; color: #ff3c00; font-weight: normal; }
-
 .board .cnt strong { font-weight: normal; font-family: verdana; }
-
-.board .contentTD { text-align: initial !important; border-color: #ebebeb; }
-
+.board .contentTD { text-align: initial !important; border-color: #ebebeb; line-height: 0; }
 .board.reply .title input[type="text"] { width: 100%; }
-
-.board td label { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-left: 10px; vertical-align: middle; }
-
+.board td label { display: inline-flex; justify-content: center; align-items: center; margin-left: 10px; vertical-align: middle; }
 .board td label .input_radio { margin-top: 0; margin-right: 5px; }
 
-.board { width: 100%; }
+#contain .board { width: 100%; }
+#contain .board table { border: none; }
+#contain .board tr { border: none; }
+#contain .board th, #contain .board td { border: none; padding: 0.5rem 1rem; }
+#contain .board thead th { background: whitesmoke; color: #6e6e6e; font-weight: 600; border: 1px solid gainsboro; }
+#contain .board tbody tr { border-bottom: 1px solid #ebebeb; }
+#contain .board tbody th { border: 1px solid #dedede; background: #f8f8f8; color: #6e6e6e; }
+#contain .board tbody td { border: 1px solid #ebebeb; }
+#contain .board thead th { border-left: none; border-right: none; }
+#contain .board tbody th { border-left: none; border-right: none; }
+#contain .board tbody td { border-left: none; border-right: none; }
+#contain .board.write { width: 100%; box-shadow: 0px 0px 0px 1px darkgray; }
+#contain .board.write table { border: none; }
+#contain .board.write tr { border: none; }
+#contain .board.write th, #contain .board.write td { border: none; padding: 0.5rem 1rem; }
+#contain .board.write thead th { background: whitesmoke; color: #6e6e6e; font-weight: 600; border: 1px solid gainsboro; }
+#contain .board.write tbody tr { border-bottom: 1px solid #ebebeb; }
+#contain .board.write tbody th { border: 1px solid #dedede; background: #f8f8f8; font-weight: 600; color: #6e6e6e; }
+#contain .board.write tbody td { border: 1px solid #ebebeb; }
+#contain .board.write thead th:first-of-type { border-left: none; }
+#contain .board.write thead th:last-of-type { border-right: none; }
+#contain .board.write tbody th:first-of-type { border-left: none; }
+#contain .board.write tbody td:first-of-type { border-left: none; }
+#contain .board.write tbody td:last-of-type { border-right: none; }
+#contain .board.write tr:first-of-type th { border-top: none; }
+#contain .board.write tr:first-of-type td { border-top: none; }
+#contain .board.write tbody tr:last-of-type { border-bottom: none; }
+#contain .board.write tbody tr:last-of-type th { border-bottom: none; }
+#contain .board.write tbody tr:last-of-type td { border-bottom: none; }
+#contain .board.write tbody th { background: #f5f5f5; }
+#contain .board.modify { width: 100%; box-shadow: 0px 0px 0px 1px darkgray; }
+#contain .board.modify table { border: none; }
+#contain .board.modify tr { border: none; }
+#contain .board.modify th, #contain .board.modify td { border: none; padding: 0.5rem 1rem; }
+#contain .board.modify thead th { background: whitesmoke; color: #6e6e6e; font-weight: 600; border: 1px solid gainsboro; }
+#contain .board.modify tbody tr { border-bottom: 1px solid #ebebeb; }
+#contain .board.modify tbody th { border: 1px solid #dedede; background: #f8f8f8; font-weight: 600; color: #6e6e6e; }
+#contain .board.modify tbody td { border: 1px solid #ebebeb; }
+#contain .board.modify thead th:first-of-type { border-left: none; }
+#contain .board.modify thead th:last-of-type { border-right: none; }
+#contain .board.modify tbody th:first-of-type { border-left: none; }
+#contain .board.modify tbody td:first-of-type { border-left: none; }
+#contain .board.modify tbody td:last-of-type { border-right: none; }
+#contain .board.modify tr:first-of-type th { border-top: none; }
+#contain .board.modify tr:first-of-type td { border-top: none; }
+#contain .board.modify tbody tr:last-of-type { border-bottom: none; }
+#contain .board.modify tbody tr:last-of-type th { border-bottom: none; }
+#contain .board.modify tbody tr:last-of-type td { border-bottom: none; }
+#contain .board.modify tbody th { background: #f5f5f5; }
 
-.board tr { border: 1px solid transparent; }
-
-.board th, .board td { border: 1px solid transparent; padding: 10px; }
-
-.board thead th { background: whitesmoke; color: #6e6e6e; font-weight: 500; border: 1px solid gainsboro; height: 5rem; }
-
-.board tbody tr { border-bottom: 1px solid #ebebeb; }
-
-.board tbody th { border: 1px solid #dedede; background: #f8f8f8; color: #6e6e6e; height: 5rem; }
-
-.board tbody td { border: 1px solid #ebebeb; height: 5rem; }
-
-.board a { color: inherit; }
-
-.board a:hover { text-decoration: underline; color: #0cf8ef; }
-
-.board thead th { border-left: none; border-right: none; }
-
-.board tbody th { border-left: none; border-right: none; }
-
-.board tbody td { border-left: none; border-right: none; }
-
-#forum.board { width: 100%; }
-
-#forum.board tr { border: 1px solid transparent; }
-
-#forum.board th, #forum.board td { border: 1px solid transparent; padding: 10px; }
-
-#forum.board thead th { background: whitesmoke; color: #6e6e6e; font-weight: 500; border: 1px solid gainsboro; height: 5rem; }
-
-#forum.board tbody tr { border-bottom: 1px solid #ebebeb; }
-
-#forum.board tbody th { border: 1px solid #dedede; background: #f8f8f8; color: #6e6e6e; height: 5rem; }
-
-#forum.board tbody td { border: 1px solid #ebebeb; height: 5rem; }
-
-#forum.board a { color: inherit; }
-
-#forum.board a:hover { text-decoration: underline; color: #0cf8ef; }
-
-#forum.board thead th { border-left: none; border-right: none; }
-
-#forum.board tbody th { border-left: none; border-right: none; }
-
-#forum.board tbody td { border-left: none; border-right: none; }
-
-#forum.board.view td:not(.contentTD) { border: none; }
-
-#forum.board.view .contentTD { border-color: #ebebeb; }
-
-#forum.board.view tr { border-top-color: #ccc; border-bottom-color: #ccc; }
-
-#forum.board.write .contentTD { font-size: 0; padding: 1.5rem 0; }
+#contain #forum.board.view td:not(.contentTD) { border: none; }
+#contain #forum.board.view .contentTD { border-color: #ebebeb; }
+#contain #forum.board.view tr { border-top-color: #ccc; border-bottom-color: #ccc; }
+#contain #forum.board.write .contentTD { font-size: 0; }
 
 .prenext td { height: 4.5rem; }
+.prenext td a { color: #333; }
+.prenext td a:hover { color: #222; text-decoration: underline; }
+.prenext .tit { background-color: transparent; color: #1C287B; font-weight: 500; }
+.prenext .subject { color: #999; }
 
-.prenext .tit { background-color: transparent; color: #da2027; font-weight: 500; }
+/*마이오피스*/
+#contain_M .board { width: 100%; }
+#contain_M .board table { border: none; }
+#contain_M .board tr { border: none; }
+#contain_M .board th, #contain_M .board td { border: none; padding: 0.5rem 1rem; }
+#contain_M .board thead th { background: whitesmoke; color: #6e6e6e; font-weight: 600; border: 1px solid gainsboro; }
+#contain_M .board tbody tr { border-bottom: 1px solid #ebebeb; }
+#contain_M .board tbody th { border: 1px solid #dedede; background: #f8f8f8; color: #6e6e6e; }
+#contain_M .board tbody td { border: 1px solid #ebebeb; }
+#contain_M .board thead th { border-left: none; border-right: none; }
+#contain_M .board tbody th { border-left: none; border-right: none; }
+#contain_M .board tbody td { border-left: none; border-right: none; }
+
+#contain_M #forum.board { width: 100%; }
+#contain_M #forum.board table { border: none; }
+#contain_M #forum.board tr { border: none; }
+#contain_M #forum.board th, #contain_M #forum.board td { border: none; padding: 0.5rem 1rem; }
+#contain_M #forum.board thead th { background: whitesmoke; color: #6e6e6e; font-weight: 600; border: 1px solid gainsboro; }
+#contain_M #forum.board tbody tr { border-bottom: 1px solid #ebebeb; }
+#contain_M #forum.board tbody th { border: 1px solid #dedede; background: #f8f8f8; color: #6e6e6e; }
+#contain_M #forum.board tbody td { border: 1px solid #ebebeb; }
+#contain_M #forum.board thead th { border-left: none; border-right: none; }
+#contain_M #forum.board tbody th { border-left: none; border-right: none; }
+#contain_M #forum.board tbody td { border-left: none; border-right: none; }
+#contain_M #forum.board.view td:not(.contentTD) { border: none; }
+#contain_M #forum.board.view .contentTD { border-color: #ebebeb; }
+#contain_M #forum.board.view tr { border-top-color: #ccc; border-bottom-color: #ccc; }
+#contain_M #forum.board.write .contentTD { font-size: 0; }

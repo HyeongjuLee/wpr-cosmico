@@ -375,8 +375,8 @@
 		<%'=============상품 category ajaxing E ===============%>
 	</div>
 
-	<div class="index-list layout_inner">
-		<div class="swiper-container">
+	<div class="index-list">
+		<div class="swiper-container layout_inner">
 			<div class="swiper-wrapper">
 				<%
 					arrParamsB = Array(_
@@ -419,14 +419,15 @@
 				%>
 				<div class="swiper-slide">
 					<div class="img">
-						<i></i>
-						<img src="<%=VIR_PATH("shop_design_Banner_T")%>/<%=arrListB_strImg%>" style="max-width:280px; max-height:400px;" alt="" />
+						<img src="<%=VIR_PATH("shop_design_Banner_T")%>/<%=arrListB_strImg%>" style="max-width:440px; max-height:440px;" alt="" />
 					</div>
 					<div class="txt">
+						<span>NEW PRODUCT</span>
 						<div><%=arrListB_strTitle%></div>
+						<i></i>
 						<p><%=arrListB_strScontent%></p>
+						<%=linkF%><%=linkL%>
 					</div>
-					<%=linkF%><%=linkL%>
 				</div>
 				<%
 						Next
@@ -436,7 +437,7 @@
 			<div class="swiper-inner">
 				<div class="swiper-button prev" data-ripplet><i class="icon-left"></i></div>
 				<div class="swiper-button next" data-ripplet><i class="icon-right"></i></div>
-				<!-- <div class="swiper-pagination"></div> -->
+				<div class="swiper-pagination"></div>
 			</div>
 
 			<script type="text/javascript">
@@ -457,29 +458,70 @@
 					},
 
 					pagination: {
-						//el: '.swiper-pagination',
+						el: '.swiper-pagination',
 						//type: 'bullets',
-						// type: 'fraction',
+						type: 'fraction',
 						// type: 'progressbar',
 						// type: 'custom',
+
+						//숫자 두자리수
+						formatFractionCurrent: function (number) {
+							return ('0' + number).slice(-2);
+						},
+						formatFractionTotal: function (number) {
+							return ('0' + number).slice(-2);
+						},
+						renderFraction: function (currentClass, totalClass) {
+							return '<span class="' + currentClass + '"></span>' + ' / ' + '<span class="' + totalClass + '"></span>';
+						}
 					},
 
 					// scrollbar: {
 					// 	el: '.swiper-scrollbar',
 					// },
 
-					// autoplay: {
-					// 	delay: 5000,
-					// },
-
-					on: {
-						slideChange: function(){
-							//$('.swiper-slide-active').width(400);
-						}
+					autoplay: {
+						delay: 3000,
+						disableOnInteraction: false,
 					}
+
+					// on: {
+					// 	slideChange: function(){
+					// 		//$('.swiper-slide-active').width(400);
+					// 	}
+					// }
 				});
 			</script>
 		</div>
+	</div>
+
+	<div class="index-bn">
+		<div class="bg"></div>
+		<div class="layout_inner">
+			<div class="dn-logo"><img src="/images/share/dn8_logo.svg?"></div>
+			<i></i>
+			<p><b>과학</b>이 주는 <b>최고</b>의 <b>선물</b></p>
+		</div>
+	</div>
+
+	<div class="index-skills layout_inner">
+		<div class="title"><b>Dn.8</b> Technical Skills</div>
+		<ul>
+			<li>
+				<div class="img"><img src="/images/index/index-btn01.jpg" alt=""></div>
+				<div class="txt">
+					<div>EWG 100% All Green Grade</div>
+					<p>미국 환경 연구단체 EWG에서 유해성을 기준으로 분류한 화장품 원료 등급으로서, ‘그린’ 등급이 가장 안전한 단계 입니다.</p>
+				</div>
+			</li>
+			<li>
+				<div class="img"><img src="/images/index/index-btn02.jpg" alt=""></div>
+				<div class="txt">
+					<div>Remedy Of ROS-Material</div>
+					<p>Remedy Of ROS-Material 물질이 들어있는 화장품은 강력한 항산화 화장품으로 피부 노화를 억제 시키는 효과로 인해 안티에이징을 실현할 수 있습니다.</p>
+				</div>
+			</li>
+		</ul>
 	</div>
 </div>
 

@@ -22,7 +22,7 @@
 	FOO_MENU_COMPANY 	= "<li><a href=""/page/company.asp?view=1&sview=1"">"&LNG_BOTTOM_COMPANY&"</a></li>" & VbCrLf
 	FOO_MENU_POLICY1 	= "<li><a href=""/page/policy.asp?view=1"">"&LNG_BOTTOM_POLICY1&"</a></li>" & VbCrLf
 	FOO_MENU_POLICY2 	= "<li class=""policy2""><a href=""/page/policy.asp?view=2"">"&LNG_BOTTOM_POLICY2&"</a></li>" & VbCrLf
-	FOO_MENU_SALESMAN 	= "<li><a href=""/salesman/salesman.asp"">"&LNG_SALESMAN_SEARCH&"</a></li>" & VbCrLf
+	'FOO_MENU_SALESMAN 	= "<li><a href=""/salesman/salesman.asp"">"&LNG_SALESMAN_SEARCH&"</a></li>" & VbCrLf
 	FOO_MENU_LOCATION 	= "<li><a href=""/page/location.asp"">"&LNG_BOTTOM_LOCATION&"</a></li>" & VbCrLf
 	FOO_MENU_CUSTOMER 	= "<li><a href=""/cboard/board_list.asp?bname=notice"">"&LNG_CUSTOMER&"</a></li>" & VbCrLf
 	FOO_MENU_GOODS 		= "<li><a href= ""javascript: popWindow('/common/pop_admission.asp','admission','500','600');"">"&LNG_BOTTOM_GOODS&"</a></li>" & VbCrLf
@@ -31,7 +31,7 @@
 
 	If PG_EXAM_MODE = "T" Then FOO_MENU_SALESMAN = ""
 
-	FOO_MENU_SET = FOO_MENU_POLICY1 & FOO_MENU_POLICY2 & FOO_MENU_SALESMAN & FOO_MENU_DEDUCTION & FOO_MENU_GOODS
+	FOO_MENU_SET = FOO_MENU_COMPANY & FOO_MENU_POLICY2 & FOO_MENU_POLICY1 & FOO_MENU_LOCATION
 
 
 	'footer-info
@@ -47,11 +47,11 @@
 	FOO_INFO_INFO_RMANAGER 	= "<span>"&LNG_COPYRIGHT_TITLE_INFO_RMANAGER	&" : "&LNG_COPYRIGHT_INFO_RMANAGER&"</span>" & VbCrLf
 
 
-	FOO_INFO_SET1 = 	"<p>" & "<span>"& LNG_COPYRIGHT_COMPANY &"</span>" & FOO_INFO_CEO & FOO_INFO_BUSINESS_NUM & "</p>"
-	FOO_INFO_SET2 =		"<p>" & FOO_INFO_TEL & FOO_INFO_FAX & FOO_INFO_EMAIL & "</p>"
-	FOO_INFO_SET3 =		"<p>" & FOO_INFO_ADDRESS & "</p>"
+	FOO_INFO_SET1 = 	"<p>" & FOO_INFO_COMPANY & FOO_INFO_BUSINESS_NUM & FOO_INFO_CEO & FOO_INFO_ADDRESS & "</p>"
+	FOO_INFO_SET2 =		"<p>" & FOO_INFO_TEL & FOO_INFO_INFO_RMANAGER & FOO_INFO_EMAIL & "</p>"
 %>
 	<%If PAGE_SETTING <> "MYOFFICE" Then%>
+	<link rel="stylesheet" href="/css/footer.css?">
 	<footer>
 		<div id="footer" class="footer">
 			<div class="footer-menu">
@@ -59,34 +59,26 @@
 					<ul>
 						<%=FOO_MENU_SET%>
 					</ul>
-					<i></i>
-					<ul class="cscenter">
-						<li class="tit">CUSTOMER CENTER</li>
-						<li class="tel"><%=LNG_COPYRIGHT_CSTEL%></li>
-						<li>Mon-Fri. 09:00 ~ 18:00 / Close. Sat-Sun, Holiday</li>
-					</ul>
 				</div>
 			</div>
 			<div class="layout_inner">
-				<div class="footer-logo">
-					<img src="/images/share/logo(1).svg" alt="">
-				</div>
-				<article class="footer-right">
-					<div class="footer-icon">
-						<ul>
-							<li class="naver"><a href="https://blog.naver.com/metac21g" target="_blank" title="<%=LNG_NAVER%>"><i class="icon-naver"></i></a></li>
-							<li class="youtube"><a href="https://www.youtube.com/channel/UCkgCXAv0-Y4HGHxJVbEIWcg" target="_blank" title="<%=LNG_YOUTUBE%>"><i class="icon-youtube"></i></a></li>
-							<li class="facebook"><a href="https://www.facebook.com/Meta-C21-Global-101342629170938" target="_blank" title="<%=LNG_FACEBOOK%>"><i class="icon-facebook-1"></i></a></li>
-							<li class="insta"><a href="https://www.instagram.com/metac21global/" target="_blank" title="<%=LNG_INSTAGRAM%>"><i class="icon-instagram"></i></a></li>
-							<li class="kakao"><a href="https://story.kakao.com/metac21g" target="_blank" title="<%=LNG_KAKAOSTORY%>"><i class="icon-kakao-story"></i></a></li>
-						</ul>
-					</div>
+				<article class="footer-left">
 					<div class="footer-info">
 						<%=FOO_INFO_SET1%>
-						<%=FOO_INFO_SET3%>
 						<%=FOO_INFO_SET2%>
 					</div>
-					<%If webproIP = "T" Then%>
+					<div class="copyright">Copyright (c) <%=LNG_COPYRIGHT_COMPANY_INC%> co., ltd All rights reserv<a href="/common/admin_login.asp">ed.</a></div>
+				</article>
+				<article class="footer-right">
+					<ul class="cscenter">
+						<li class="tit">Customer Center</li>
+						<li class="tel"><%=LNG_COPYRIGHT_CSTEL%></li>
+						<li>
+							<p>평일 : 오전 09시 ~ 오후 06시</p>
+							<p>점심시간 : 오후 12시 ~ 오후 01시</p>
+						</li>
+					</ul>
+					<%If false Then%>
 					<%If PG_EXAM_MODE <> "T" Then%>
 					<div class="banners">
 						<a class="kossa" href="http://www.mlmunion.or.kr/index.do" target="_blank"><img src="/images/share/footer-kossa.gif" alt="특판공제조합"></a>
@@ -94,9 +86,8 @@
 					</div>
 					<%End If%>
 					<%End If%>
-					<div class="copyright">Copyright (c) <%=LNG_COPYRIGHT_COMPANY_INC%> co., ltd All rights reserv<a href="/common/admin_login.asp">ed.</a></div>
 					<!-- <button class="site-top"></button> -->
-					<a href="#1st" class="site-top"></a>
+					<!-- <a href="#1st" class="site-top"></a> -->
 				</article>
 			</div>
 		</div>
@@ -104,7 +95,7 @@
 	<%Else%>
 	<footer>
 		<div class="layout_inner">
-			<div class="copyright">COPYRIGHT (C) <%=LNG_COPYRIGHT_COMPANY_INC%> CO., LTD ALL RIGHTS RESERV<a href="/common/admin_login.asp">ED</a></div>
+			<div class="copyright">COPYRIGHT (C) <%=LNG_COPYRIGHT_COMPANY_INC%> CO., LTD ALL RIGHTS RESERVED</div>
 		</div>
 	</footer>
 	<%End If%>

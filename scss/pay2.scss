@@ -1,0 +1,317 @@
+@import 'mixin-custom';
+
+$input-height: rem(40px);
+
+.myoffice_pay {
+	.searchs {
+		.labels {
+			grid-column: 2/6;
+			margin-right: 0;
+			padding-right: 0;
+		}
+	}
+	&.pay03 {
+		.buttons {
+			grid-column: 6/13;
+		}
+	}
+}
+
+.total {
+	@include table-color-wrap($oc-grape-5, true, 'darken');
+	text-align: center;
+
+	th, td {
+		height: rem(50px);
+	}
+
+	td {
+		&:hover {
+			background: rgba($oc-grape-0, 0.5);
+		}
+	}
+}
+
+.table {
+	@include table-color($myoffice-color, true);
+
+	th, td {
+		height: rem(50px);
+	}
+
+	.remarks {
+		width: 10%;
+	}
+}
+
+.totals_table {
+	@include table-color-wrap($sub-color, true);
+
+	th, td {
+		height: rem(50px);
+	}
+}
+
+.pay_totals {
+	width: 100%;
+	font-size: $parent-css;
+}
+
+.pay_detail_both {
+	@include flex($bet, $st);
+}
+
+.pay_detail {
+	&.left {
+		width: calc(45% - 50px);
+	}
+	&.right {
+		width: 55%;
+	}
+}
+
+.pay_detail_table {
+	@include table-color-wrap($nav-color, true, 'darken');
+	text-align: center;
+	th, td {
+		height: rem(45px);
+	}
+	.detail_btn {
+		&:not(.noline) {
+			&:hover {
+				background: mix($nav-color, #fff, 80);
+				border-color: mix($nav-color, #fff, 80);
+			}
+		}
+	}
+	.nodata {
+		border-color: mix($nav-color, #fff, 50);
+		p {
+			@include flex;
+		}
+	}
+	&.nodata {
+		box-shadow: 0px 0px 0px 1px mix($nav-color, #fff, 20);
+	}
+}
+
+$nav-table: (
+	'table-color': mix(#fff, $nav-color, 90),
+	'table-color-darken': darken(mix(#fff, $nav-color, 90), 10),
+	'table-color-wrap': darken(darken(mix(#fff, $nav-color, 90), 10), 20),
+	'table-color-grey': mix(material-color('grey', '300'), mix(#fff, $nav-color, 90), 50),
+	'table-text': mix(#000, darken(mix(#fff, $nav-color, 90), 10), 50),
+	)
+;
+
+.sticky-wrap {
+	width: 100%;
+	height: auto;
+	margin: auto;
+	overflow: hidden;
+	@include position;
+	&:before {
+		@include presudo($top: 0, $le: 0, $w: 1px);
+		z-index: 5;
+		background: map-get($nav-table, 'table-color-wrap');
+	}
+	&:after {
+		@include presudo($bot: 0, $ri: 0, $w: 1px);
+		z-index: 5;
+		background: map-get($nav-table, 'table-color-wrap');
+	}
+
+	> .line {
+		&:before {
+			@include presudo($top: 0, $le: 0, $h: 1px);
+			z-index: 5;
+			background: map-get($nav-table, 'table-color-wrap');
+		}
+		&:after {
+			@include presudo($bot: 0, $ri: 0, $h: 1px);
+			z-index: 5;
+			background: map-get($nav-table, 'table-color-wrap');
+		}
+	}
+}
+
+.sticky {
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	max-height: 350px;
+
+	&::-webkit-scrollbar {
+		@include position;
+		width: rem(14px);
+		z-index: 2;
+	}
+	&::-webkit-scrollbar-thumb {
+		// background: mix($main-color, material-color('grey', '400'), 0%);
+		background: map-get($nav-table, 'table-color-wrap');
+		background-clip: padding-box;
+		border: rem(3px) solid transparent;
+		@include rounded($radius: rem(14px));
+		cursor: pointer;
+	}
+	&::-webkit-scrollbar-track {
+		background: material-color('grey', '100');
+		box-shadow: inset 1px 0 0 #aaa;
+		// @include rounded;
+		// @include position;
+		// background: map-get($nav-table, 'table-color-wrap');
+		z-index: 1;
+	}
+}
+
+.pay_sticky_table {
+	text-align: center;
+	@include table-color-wrap($nav-color, true, 'darken', true);
+	th, td {
+		height: rem(45px);
+	}
+	thead {
+		th {
+			@include position(sticky, $top: 0);
+			white-space: nowrap;
+		}
+	}
+
+}
+// .sticky-wrap thead th {
+// 	@include position(sticky, $top: -1px);
+// 	border-top: none !important;
+// 	border-bottom: none !important;
+// 	box-shadow: inset 0 1px 0 #ddd, inset 0 -1px 0 #ddd;
+// 	border-bottom: 2px solid #000000;
+// 	white-space: nowrap;
+// }
+
+.plus {
+	// $plus-color: mix(#fff, material-color('blue'), 90);
+	$plus-color-darken: darken($plus-color, 10);
+	$plus-color-grey: mix(material-color('grey', '300'), $plus-color, 60);
+	$plus-text: mix(#000, $plus-color-darken, 50);
+
+	th {
+		background: $plus-color !important;
+		border-color: $plus-color-darken !important;
+		color: $plus-text !important;
+	}
+	td {
+		background: mix(#fff, $plus-color, 50) !important;
+		border-color: $plus-color-grey !important;
+	}
+}
+.minus {
+	// $minus-color: mix(#fff, material-color('red'), 90);
+	$minus-color-darken: darken($minus-color, 5);
+	$minus-color-grey: mix(material-color('grey', '300'), $minus-color, 60);
+	$minus-text: mix(#000, $minus-color-darken, 50);
+
+	th {
+		background: $minus-color !important;
+		border-color: $minus-color-darken !important;
+		color: $minus-text !important;
+	}
+	td {
+		background: mix(#fff, $minus-color, 50) !important;
+		border-color: $minus-color-grey !important;
+	}
+}
+
+.pay_paging {
+	$nav-color: mix($nav-color, #fff, 80);
+	font-size: 0;
+	//font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+	padding-top: $font-size * 2;
+	text-align: center;
+	@include flex;
+	width: 100%;
+
+	span {
+		@include default-0;
+		@include inline-flex;
+		@include position;
+		width: $font-size * 2;
+		height: $font-size * 2;
+		border: 1px solid mix($nav-color, #fff, 25);
+		// border-radius: 100%;
+		color: $nav-color;
+		font-size: $font-size;
+		font-weight: 500;
+		margin: 0 -0.5px;
+
+		a {
+			@include default-0;
+			@include default-a;
+			height: 100%;
+			font-weight: 300;
+			color: #6a6a6a;
+			@include flex;
+
+			&:hover {
+				color: $nav-color;
+				text-decoration: none;
+				border: none;
+				background: mix($nav-color, #fff, 5);
+			}
+		}
+
+		&.currentPage {
+			border-color: $nav-color;
+			// border-color: lighten($nav-color, 40);
+			background: $nav-color;
+			color: #fff;
+			font-weight: 500;
+			z-index: 1;
+
+			// &:after {
+			// 	@include presudo($le: 50%, $bot: $font-size / 4);
+			// 	width: $font-size - rem(4);
+			// 	height: 1px;
+			// 	background: $nav-color;
+			// 	@include transform(translateX(-50%));
+			// }
+		}
+		
+		&.arrow {
+			border: 1px solid mix($nav-color, #fff, 35);
+			// border-radius: 100%;
+			// margin: 0 rem(2.5px);
+
+			i {
+				font-size: $font-size + rem(2px);
+				color: $oc-gray-5;
+			}
+
+			&.left {
+				i {
+					@include transform(translateX(-5%));
+				}
+			}
+			&.right {
+				i {
+					@include transform(translateX(5%));
+				}
+			}
+			&.margin {
+				&.left {
+					margin-right: $font-size;
+				}
+				&.right {
+					margin-left: $font-size;
+				}
+			}
+
+			&:hover {
+				border-color: $oc-gray-5;
+				z-index: 1;
+
+				i {
+					color: $oc-gray-7;
+				}
+			}
+		}
+	}
+}

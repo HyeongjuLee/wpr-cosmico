@@ -85,7 +85,7 @@
 
 %>
 <!--#include virtual="/_include/document.asp" -->
-<link rel="stylesheet" type="text/css" href="/css/common.css?v0" />
+<link rel="stylesheet" type="text/css" href="/css/joinstep.css?" />
 <script type="text/javascript">
 
 
@@ -341,7 +341,7 @@
 <body>
 <!--#include virtual="/_include/header.asp" -->
 <iframe src="/hiddens.asp" name="hidden" frameborder="0" border="0" width="0" height="0" style="display:none;"></iframe>
-<div id="joinStep" class="common joinStep2">
+<div id="join02" class="common joinstep">
 	<form name="agreeFrm" id="agreeFrm" method="post" action="joinStep_n03_g.asp" onsubmit="return chkAgree(this);">
 		<input type="hidden" name="S_SellMemTF" value="<%=S_SellMemTF%>" readonly />
 
@@ -358,8 +358,7 @@
 		<section class="all">
 			<label>
 				<input type="checkbox" id="allAgree" onclick="allCheckAgree()" name="allAgree" value="T" />
-				<i class="icon-ok"></i>
-				<span><%=LNG_JOINSTEP02_U_TEXT07%></span>
+				<span><i class="icon-ok"></i><%=LNG_JOINSTEP02_U_TEXT07%></span>
 			</label>
 		</section>
 		<section>
@@ -367,8 +366,7 @@
 				<h3><%=LNG_POLICY_01%></h3>
 				<label>
 					<input type="checkbox" id="agree01Chk" name="agreement" value="T" />
-					<i class="icon-ok"></i>
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">
@@ -380,8 +378,7 @@
 				<h3><%=LNG_POLICY_02%></h3>
 				<label>
 					<input type="checkbox" id="agree02Chk" name="gather" value="T" />
-					<i class="icon-ok"></i>
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">
@@ -394,8 +391,7 @@
 				<h3><%=LNG_POLICY_03%></h3>
 				<label>
 					<input type="checkbox" id="agree03Chk" name="company" value="T" />
-					<i class="icon-ok"></i>
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">

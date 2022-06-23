@@ -24,9 +24,8 @@
 
 %>
 <!--#include virtual = "/_include/document.asp"-->
-<link rel="stylesheet" href="/myoffice/css/layout_cs.css" />
-<link rel="stylesheet" href="/css/style_cs.css" />
-<link rel="stylesheet" href="/css/pay.css?v2" />
+<link rel="stylesheet" href="/css/pay.css?" />
+<link rel="stylesheet" href="/css/pay2.css?" />
 <script type="text/javascript" src="/jscript/calendar.js"></script>
 <script>
 </script>
@@ -80,7 +79,7 @@
 	<%End If%>
 
 	<p class="titles"><%=LNG_TEXT_LIST%></p>
-	<table <%=tableatt%> class="width100 table2 tablesorter" id="sortTable">
+	<table <%=tableatt%> class="width100 table tablesorter" id="sortTable">
 		<col width="50" />
 		<col width="" />
 		<col width="" />
@@ -223,6 +222,7 @@
 	</table>
 	<div class="pagingArea pagingNew3 userCWidth"><% Call pageListNew3(PAGE,PAGECOUNT)%></div>
 
+</div>
 </div>
 <form name="frm" method="post" action="">
 	<input type="hidden" name="PAGE" value="<%=PAGE%>" />

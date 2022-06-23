@@ -1,8 +1,8 @@
 @import 'mixin-custom';
 
-body {
-	font-size: $parent-css;
-}
+// body {
+// 	font-size: $parent-css;
+// }
 
 .ui-dialog {
 	@include font-family('Pretendard');

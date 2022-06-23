@@ -24,73 +24,95 @@
 					offset > 80 ? $('#header').addClass('fixed') : $('#header').removeClass('fixed');
 				}
 			});
-			// if ($('.header-all ul').css('display') !== '') {
-			// 	$('html').click(function(e){
-			// 		if(!$(e.target).is($('.header-all ul'))) {
-			// 			$('.header-all ul').fadeOut();
-			// 		}
-			// 	});
-			// }
+			
+			$('#header .searchs').each(function(){
+				var $this = $('#header .searchs');
+				$this.find('i').click(function(){
+					$this.toggleClass('active');
+
+					if ($this.hasClass('active')) {
+						// $this.find('.searchWrap').css({visibility:"visible",opacity:1}).fadeIn(0);
+						$('.search-wrap').addClass('active').fadeIn(0);
+					}else{
+						$('.search-wrap').removeClass('active').fadeOut(0);
+					}
+				});
+
+				$('.search').find('.close').click(function(){
+					$('.search-wrap').removeClass('active').fadeOut(0);
+					$this.removeClass('active');
+				});
+			});
+
+			$('.nav-main').hover(function(){
+				$('#header').addClass('hover');
+			}, function(){
+				$('#header').removeClass('hover');
+			});
+
+			var $clickLi = $('#header .header-top-btn .menu');
+			$clickLi.click(function(){
+				$click($(this));
+			});
+			
+			var $click = function(obj){
+				$(obj).toggleClass('active');
+				$(obj).find('ol').fadeToggle();
+				$('.active').not($(obj)).removeClass('active');
+				event.stopPropagation();
+				// debugger;
+				if ($clickLi.hasClass('active')) {
+					$(obj).find('ol').fadeIn();
+					$('html').click(function(e){
+						if(!$(e.target).is($(obj).find('*'))) {
+							$(obj).removeClass('active');
+							$(obj).find('ol').fadeOut();
+						}
+					});
+				}
+			};
 		});
 	</script>
 	<!-- header S-->
-	<header>
+	<header class="shop">
 		<div id="header" class="header">
 			<article>
-				<div id="logo"><a href="/index.asp"><img src="/images/share/logo(1).svg?v0" alt="" /></a></div>
+				<div id="logo"><a href="/index.asp"><img src="/images/share/logo.svg?" alt="" /></a></div>
 				<nav id="nav" class="nav">
 					<ul class="nav-main">
 						<!--#include virtual = "/navi/company.asp"-->
-						<!--#include virtual = "/navi/business.asp"-->
 						<!--#include virtual = "/navi/brand.asp"-->
+						<!--#include virtual = "/navi/product.asp"-->
+						<!--#include virtual = "/navi/business.asp"-->
+						<!--#include virtual = "/navi/guide.asp"-->
 						<!--#include virtual = "/navi/shop.asp"-->
+						<!--#include virtual = "/navi/community.asp"-->
 						<!--#include virtual = "/navi/customer.asp"-->
+						<!--#include virtual = "/navi/sns.asp"-->
 					</ul>
 				</nav>
-				<div class="header-all">
-					<div class="icon-menu">
-						<span></span>
-						<span></span>
-						<span></span>
+				<div class="header-top-btn">
+					<div class="member">
+						<a href="/myoffice/buy/order_list.asp" title="<%=LNG_HEADER_MYOFFICE%>"><i class="icon-member-1"></i></a>
 					</div>
-					<ul>
-						<%=TOP_BTN_SET%>
-					</ul>
+					<div class="searchs">
+						<i class="icon-search-1"></i>
+					</div>
+					<div class="menu">
+						<span></span>
+						<span></span>
+						<span></span>
+						<ol>
+							<%=TOP_BTN_SET%>
+						</ol>
+					</div>
 				</div>
-				<!--#include virtual = "/_include/header_Lang.asp"-->
-				<!--include virtual = "/_include/header_search.asp"-->
+				<div class="search-wrap">
+					<!--#include virtual = "/_include/header_search.asp"-->
+				</div>
+				<!--include virtual = "/_include/header_Lang.asp"-->
 			</article>
 			<span class="nav-bg"></span>
-
-			<script type="text/javascript">
-				$(document).ready(function() {
-
-					// .nav-sub 중 가장 높은 높이값과 전체 높이값 동일하게 조절
-					var maxHeight 	= -1,
-						$header		= $('#header'),
-						$main		= $('.nav-main'),
-						$sub		= $('.nav-sub'),
-						$bg			= $('.nav-bg');
-
-					$main.find('li.main .icon-right-open-big')
-					.remove();					
-					
-					//hover시 smenu보임
-					$main.hover(function(){
-						setTimeout(function() {
-							//return false;
-							maxHeight = maxHeight > $sub.outerHeight() ? maxHeight : $sub.outerHeight();
-							//$bg.height(maxHeight + 100);
-							$bg.animate({height: maxHeight + 100});
-						}, 300);
-					},
-					function(){
-						$('.nav-main, .nav-sub, .nav-bg').removeClass('hover');
-						$bg.animate({height: 0});
-						//$bg.height('auto');
-					});
-				});
-			</script>
 		</div>
 	</header>
 

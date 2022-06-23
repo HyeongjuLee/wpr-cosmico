@@ -13,7 +13,7 @@
 					Case "4"
 						sub_title_d3 = LNG_COMPANY_04
 					Case "5"
-						sub_title_d3 = LNG_COMPANY_05
+						sub_title_d3 = LNG_LOCATION
 				End Select
 			Case "BUSINESS"
 				sub_title_d2 = LNG_BUSINESS&""
@@ -35,7 +35,7 @@
 								sub_title_d4 = LNG_BUSINESS_05_03
 						End Select
 					Case "5"
-						sub_title_d3 = LNG_MEMBERSHIP_SALESMAN_SEARCH
+						sub_title_d3 = LNG_BUSINESS_05
 					Case "6"
 						sub_title_d3 = LNG_MEMBERSHIP_SALESMAN_SEARCH
 				End Select
@@ -74,6 +74,30 @@
 						sub_title_d3 = LNG_BRAND_03
 					Case "4"
 						sub_title_d3 = LNG_BRAND_04
+				End Select
+			Case "GUIDE"
+				sub_title_d2 = LNG_GUIDE& ""
+				Select Case view
+					Case "1"
+						sub_title_d3 = LNG_GUIDE_01
+					Case "2"
+						sub_title_d3 = LNG_GUIDE_02
+					Case "3"
+						sub_title_d3 = LNG_GUIDE_03
+					Case "4"
+						sub_title_d3 = LNG_GUIDE_04
+				End Select
+			Case "SNS"
+				sub_title_d2 = LNG_SNS& ""
+				Select Case view
+					Case "1"
+						sub_title_d3 = LNG_SNS_01
+					Case "2"
+						sub_title_d3 = LNG_SNS_02
+					Case "3"
+						sub_title_d3 = LNG_SNS_03
+					Case "4"
+						sub_title_d3 = LNG_SNS_04
 				End Select
 			Case "CUSTOMER"
 				sub_title_d2 = LNG_CUSTOMER&""

@@ -62,14 +62,14 @@ End If
 <%End If%>
 
 <!--#include virtual="/_include/document.asp" -->
-<link rel="stylesheet" type="text/css" href="/css/common.css?v0" />
+<link rel="stylesheet" type="text/css" href="/css/joinstep.css?" />
 <script type="text/javascript" src="joinStep.js?v1"></script>
 </head>
 <body>
 <!--#include virtual="/_include/header.asp" -->
 <iframe src="/hiddens.asp" name="hidden" frameborder="0" border="0" width="0" height="0" style="display:none;"></iframe>
 
-<div id="joinStep" class="common joinStep2">
+<div id="join02" class="common joinstep">
 	<!-- <form name="jfrm" method="post" action="joinStep03.asp" onsubmit="return chkAgree(this);"> -->
 	<form name="agreeFrm" method="post" action="joinStep03.asp" onsubmit="return chkAgree(this);">
 		<%If NICE_BANK_WITH_MOBILE_USE = "T" Then%>
@@ -78,8 +78,7 @@ End If
 		<section class="all">
 			<label>
 				<input type="checkbox" id="allAgree" onclick="allCheckAgree()" name="allAgree" value="T" />
-				<i class="icon-ok"></i>
-				<span><%=LNG_JOINSTEP02_U_TEXT07%></span>
+				<span><i class="icon-ok"></i><%=LNG_JOINSTEP02_U_TEXT07%></span>
 			</label>
 		</section>
 		<section>
@@ -87,8 +86,7 @@ End If
 				<h3><%=LNG_POLICY_01%></h3>
 				<label>
 					<input type="checkbox" id="agree01Chk" name="agree01" value="T" />
-					<i class="icon-ok"></i>
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">
@@ -100,8 +98,7 @@ End If
 				<h3><%=LNG_POLICY_02%></h3>
 				<label>
 					<input type="checkbox" id="agree02Chk" name="agree02" value="T" />
-					<i class="icon-ok"></i>
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">
@@ -114,8 +111,7 @@ End If
 				<h3><%=LNG_TEXT_BUSINESS_MEMBER%>&nbsp;<%=LNG_JOINSTEP02_U_TEXT09%></h3>
 				<label>
 					<input type="checkbox" id="agree03Chk" name="agree03" value="T" />
-					<i class="icon-ok"></i>
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">

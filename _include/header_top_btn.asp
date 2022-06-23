@@ -14,7 +14,7 @@
 	TOP_BTN_CSCENTER	= TOP_BTN_LINE & "<li><a href=""/cboard/board_list.asp?bname=notice"">"&LNG_HEADER_CSCENTER&"</a></li>" & VbCrLf
 	TOP_BTN_NOTICE		= TOP_BTN_LINE & "<li><a href=""/cboard/board_list.asp?bname=notice"">"&LNG_HEADER_NOTICE&"</a></li>" & VbCrLf
 	TOP_BTN_CART		= TOP_BTN_LINE & "<li><a href=""/shop/cart.asp"">"&LNG_HEADER_CART&"</a></li>" & VbCrLf
-	TOP_BTN_MYOFFICE	= TOP_BTN_LINE & "<li><a href=""/myoffice/buy/order_list.asp"">"&LNG_HEADER_MYOFFICE&"</a></li>" & VbCrLf
+	'TOP_BTN_MYOFFICE	= TOP_BTN_LINE & "<li><a href=""/myoffice/buy/order_list.asp"">"&LNG_HEADER_MYOFFICE&"</a></li>" & VbCrLf
 	TOP_BTN_SHOP		= TOP_BTN_LINE & "<li><a href=""/shop"">"&LNG_SHOP_HEADER_TXT_01&"</a></li>" & VbCrLf
 
 	If PG_EXAM_MODE = "T" Then TOP_BTN_MYOFFICE = "" 'PG�ɻ��� ����

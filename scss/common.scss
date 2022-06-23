@@ -3,7 +3,8 @@
 $common-font-color: #212121;
 $input-width: rem(1200px) / 2.5;
 $input-height: rem(60px);
-$common-button-color: mix($sub-color, $main-color, 70);
+$common-button-color: $main-color;
+$sub-color: $oc-gray-3;
 
 select {
 	// @each $vendor in $vendors {
@@ -18,42 +19,11 @@ select {
 		}
 }
 
-#header {
-	.nav {
-		&-main {
-			&:hover {
-				max-height: 100vh;
-			}
-			& > li {
-				& > a {
-					color: #222;
-					font-weight: 400;
-
-					&:hover {
-						color: $main-color;
-					}
-				}
-			} 
-		}
-	}
-	#language {
-		color: #222;
-	}
-	.header-all {
-		.icon-menu {
-			span {
-				background: #222;
-			}
-		}
-	}
-}
-
 #sub-header {
-	height: rem(300px);
 	.sub-header-txt {
 		color: $common-font-color;
 		font-weight: 600;
-		margin-top: rem(50px);
+		// margin-top: $top-height;
 
 		.maps_title {
 			margin: 0;
@@ -68,15 +38,14 @@ select {
 		font-size: $font-size * 1.5;
 		font-weight: 300;
 		width: $input-width * 2;
-		height: calc(50% - (3.6rem / 2));
-		@include position(absolute, $le: 50%, $bot: 0);
-		transform: translate(-50%, 0);
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		// height: calc(50% - #{($top-height / 2) + rem(10px)});
+		// @include position(absolute, $le: 50%, $bot: 0);
+		// transform: translate(-50%, -50%);
+		@include flex;
+		margin-top: $font-size;
 
 		p {
-			margin-right: $font-size;
+			// margin-right: $font-size;
 		}
 	}
 }
@@ -122,7 +91,7 @@ select {
 	}
 
 	.input-wrap {
-		display: flex;
+		@include flex;
 		flex-direction: column;
 		width: $input-width;
 		margin: 0 auto;
@@ -132,9 +101,7 @@ select {
 		label {
 			@include position;
 			z-index: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			@include flex;
 			//width: calc(100% + 2px);
 			width: 100%;
 			height: $input-height + rem(5px);
@@ -145,26 +112,22 @@ select {
 			//margin: -1px;
 
 			i {
-				//@include position(absolute, $le: rem(15px));
+				@include position(absolute, $le: 0);
+				z-index: 1;
 				font-size: $font-size * 1.2;
 				width: $input-height;
-			}
-
-			span {
-				@include position(absolute, $le: $input-height, $top: auto);
-				z-index: 1;
-				opacity: 1;
-				color: rgba($common-font-color, 50%);
+				color: rgba(#222, 0.4);
 			}
 
 			input {
 				@include default-0;
 				@include position;
-				width: $input-width - $input-height;
+				padding: 0 $input-height / 2;
+				width: 100%;
 				height: 100%;
 				//background: transparent;
 				font-size: $font-size * 1.2;
-				float: right;
+				float: left;
 
 			}
 
@@ -199,7 +162,7 @@ select {
 				//box-shadow: 0 5px 50px rgba(0, 0, 0, 0.05), 0 5px 20px rgba(0, 0, 0, 0.05);
 
 				i {
-					//color: $main-color;
+					color: #222;
 				}
 
 				span {
@@ -227,9 +190,7 @@ select {
 	}
 
 	.button {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include flex;
 		//width: $input-width / 1.5;
 		width: 100%;
 		height: $input-height;
@@ -246,901 +207,25 @@ select {
 
 		@include unify-parent('a') {
 			background: $sub-color;
-			//border: 1px solid $sub-color;
+			border: 1px solid darken($sub-color, 5);
 			//color: invert($sub-color);
-
-			color: invert-color($sub-color);
+			// color: invert-color($sub-color);
+			color: darken($sub-color, 50);
 		}
 
 	}
 
 	.btnZone {
-		display: flex;
-		//flex-direction: column;
-		justify-content: center;
-		padding: {
-			top: $font-size * 2;
-		}
-		width: 100%;
-
-		a, input {
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-			width: $input-width / 1.5;
-			height: $input-height;
-			margin: $font-size / 2 auto;
-			background: transparent;
-			font-size: $font-size * 1.2;
-			cursor: pointer;
-			font-family: $parent-css;
-			border: none;
-			@include rounded(rem(5px));
-
-			@include unify-parent('input') {
-				background: $main-color;
-				color: #fff;
-			}
-
-			@include unify-parent('a') {
-				background: $sub-color;
-				//border: 1px solid $sub-color;
-				color: #fff;
-
-				* {
-					background: none;
-					font-family: $parent-css;
-					font-size: $parent-css;
-					color: $parent-css;
-					left: $default-css;
-					height: $default-css;
-				}
-			}
-		}
-
-		a:hover {
-			color: $parent-css;
-		}
-
-		.cancel {
-			background: material-color('grey', '300');
-			color: #222;
-			&:hover {
-				background: darken(material-color('grey', '300'),5);
-			}
-			//width: $input-width / 2;
-		}
-		.promise {
-			background: mix($sub-color, $main-color, 70);
-			color: #fff;
-			&:hover {
-				background: lighten(mix($sub-color, $main-color, 70),10);
-			}
-		}
-	}
-
-
-}
-
-.sns-login {
-	$sns-width: $input-width / 1.5;
-	$sns-height: $input-height - rem(5px);
-
-	width: $input-width;
-	margin: rem(50px) auto {
-		bottom: 0;
-	};
-	padding: 0 ($input-width - $sns-width) / 2;
-
-	h6 {
-		@include position;
-		z-index: 1;
-		color: #555;
-		font-weight: 700;
-		margin: 0 auto {
-			bottom: rem(40px);
-		};
-		text-align: center;
-
-		&:before {
-			content: '';
-			@include position(absolute, $le: 50%, $top: 50%);
-			z-index: 0;
-			width: $input-width;
-			height: 1px;
-			background: #ddd;
-			transform: translate(-50%, 0);
-		}
-
-		span {
-			@include position;
-			z-index: 1;
-			display: inline-block;
-			background: #fff;
-			padding: 0 rem(15px);
-			font-size: $font-size * 1.2;
-		}
-	}
-
-	div {
-		width: 100%;
-		height: $sns-height;
-		cursor: pointer;
-		font-weight: 400;
-		text-align: center;
-		border: 1px solid rgba(0, 0, 0, 0.2);
-		margin-top: rem(15px);
-		overflow: hidden;
-	}
-
-	a {
-		color: inherit;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		i {
-			width: $sns-height;
-			height: $sns-height;
-			border-right: 1px solid rgba(0, 0, 0, 0.15);
-			font-size: $sns-height * 0.8;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
-		span {
-			width: $sns-width - $sns-height;
-			display: block;
-			font-size: $font-size * 1.1;
-		}
-
-	}
-
-	.kakao {
-		background: $kakao-yellow;
-		color: $kakao-label;
-	}
-
-	.naver {
-		background: $naver-green;
-		color: #fff;
-	}
-
-	.google {
-		background: #fff;
-
-		i {
-			@include position;
-			color: transparent;
-			background: url('/images/login/google.svg') no-repeat center / 60%;
-		}
-	}
-
-	.facebook {
-		background: $facebook-old;
-		color: #fff;
-	}
-}
-
-.admin {
-	$paddingLR: ($input-width - $input-height) / 20;
-	.input-wrap {
-		label {
-			input {
-				width: 100%;
-				padding: 0 $paddingLR;
-			}
-		}
-	}
-}
-
-#idpw {
-	flex-direction: column;
-
-	h2, h2 + p {
-		text-align: left;
-	}
-
-	.wrap {
-		//width: $input-width - rem(120px);
-		padding: rem(30px) 0;
-	}
-
-	.input-wrap {
-		width: 100%;
-
-		label {
-			span {
-				left: $input-height / 2;
-			}
-			input {
-				width: calc(100% - 6rem);
-			}
-		}
-
-		.button {
-			width: 100%;
-		}
-
-		p.text-box {
-			width: 100%;
-			height: ($input-height + rem(7px)) * 2;
-			border: 2px solid $sub-color;
-			//padding: $input-height / 2;
-			margin-top: $input-height / 1.6;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-size: $font-size * 1.1;
-			color: #222;
-		}
-	}
-}
-
-
-/*배경색 있음*/
-#contain_wrap {
-	background: material-color('grey', '100');
-	overflow: hidden;
-}
-.common {
-	width: $input-width * 2;
-	background: #fff;
-	display: flex;
-	margin: 0 auto {
-		bottom: 5%;
-	};
-	padding: $input-height 0;
-
-}
-
-//회원가입
-#joinStep {
-	padding: 0;
-
-	$join-color-1: $main-color;
-	//$join-color-2: material-color('blue-grey', '400');
-	$join-color-2: material-color('blue-grey');
-
-	display: flex;
-	justify-content: center;
-
-	.wrap {
-		width: ($input-width / 1.5) + rem(100px);
-		padding: rem(50px) {
-			top: rem(40px)
-		};
-		border: 1px solid material-color('grey', '200');
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
-		margin: rem(60px) 0;
-
-		h6 {
-			display: inline-block;
-			//width: $input-width / 2;
-			width: 100%;
-			//height: $input-height / 2;
-			//padding: rem(15px);
-			font-size: $font-size * 2;
-			line-height: 1.2;
-			font-weight: 600;
-
-			& + p {
-				margin: rem(10px) 0;
-			}
-		}
-
-		&:nth-child(1) {
-			border-right: none;
-			h6 {
-				color: $join-color-1;
-			}
-			p {
-				//color: $join-color-1;
-				font-weight: 400;	
-			}
-			li {
-				background: rgba($join-color-1, 0.1);
-				color: mix($common-font-color, $join-color-1, 30%);
-			}
-			.button {
-				background: $join-color-1;
-			}
-		}
-		&:nth-child(2) {
-			h6 {
-				color: $join-color-2;
-			}
-			li {
-				background: rgba($join-color-2, 0.1);
-				color: mix($common-font-color, $join-color-2, 30%);
-			}
-			.button {
-				background: $join-color-2;
-				
-				&.account {
-					background: saturate(adjust-hue($join-color-2, -25deg), 15);
-				}
-			}
-		}
-
-		p.stit {
-			padding-bottom: rem(20px);
-			word-break: keep-all;
-		}
-
-		ul {
-			margin: rem(10px) 0;
-		}
-		li {
-			text-align: left;
-			padding: rem(10px);
-			margin: rem(5px) 0;
-		}
-
-		.button {
-			width: 100%;
-			margin: 0 {
-				top: rem(20px)
-			};
-			color: #fff;
-		}
-	}	
-}
-
-.joinStep2 {
-	flex-direction: column;
-	text-align: left;
-
-	section {
-		width: $input-width * 1.5;
-		margin: $font-size * 3 auto;
-	}
-
-	.title {
-		@include flex(space-between);
-	}
-
-	label {
-		cursor: pointer;
-		color: #212121;
-		font-weight: 500;
-		@include position;
-		@include inline-flex;
-
-
-		i {
-			color: material-color('grey', '400');
-			font-size: $font-size - rem(3px);
-			margin-right: $font-size / 2;
-			@include transition(all, .1s);
-		}
-
-		span {
-			@include position;
-			@include transition(all, .1s);
-			&:before {
-				@include presudo($ri: 0, $bot: $font-size * -0.2, $w: calc(100% + 3px), $h: 1px);
-				//background: rgba($main-color, 10%);
-				background: material-color('grey', '900');
-				opacity: 1;
-				@include transition(all, .1s);
-			}
-		}
-
-		input {
-			&[type="checkbox"] {
-				@include position(absolute);
-				visibility: hidden;
-				z-index: -1;
-
-				&:checked {
-					& ~ i {
-						color: material-color('grey', '900');
-						color: material-color('blue-grey', '700');
-					}
-					& ~ span {
-						//font-weight: 700;
-						color: material-color('blue-grey', '700');
-
-						&:before {
-							//width: calc(100% + #{$font-size * 2});
-							color: material-color('blue-grey', '700');
-							opacity: 0;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	.all {
-		border-bottom: 1px solid;
-		margin: 0 auto;
-		padding: $font-size * 2.5 0;
-		font-size: $font-size + rem(2px);
-		text-align: right;
-
-		label {
-			i {
-				font-size: $font-size;
-			}
-			// input {
-			// 	&:checked {
-			// 		& ~ span {
-			// 			&:before {
-			// 				width: calc(100% + #{$font-size * 2.5});
-
-			// 			}
-			// 		}
-			// 	}
-			// }
-		}
-	}
-
-	.agree_box {
-		@include position;
-		z-index: 1;
-		border: 1px solid material-color('grey', '400');
-		width: 100%;
-		height: $input-width / 2;
-		//padding: rem(50px);
-		margin: rem(20px) auto;
-		// overflow-x: hidden;
-		// overflow-y: scroll;
-		scroll-behavior: smooth;
-		//@include rounded;
-		@include transition(all, .3s);
-
-		&:before, &:after {
-			//content: '';
-			@include position(absolute, $le: 0);
-			z-index: 2;
-			width: $input-width * 2 - rem(100px) - rem(15px);
-			height: 5%;
-		}
-		&:before {
-			top: 0;
-			background: linear-gradient(180deg, #fff, transparent);
-		}
-		&:after {
-			bottom: 0;
-			background: linear-gradient(0deg, #fff, transparent);
-		}
-
-	}
-
-	.agree_content {
-		@include position;
-		z-index: 1;
-		width: 100%;
-		height: 100%;
-		padding: rem(30px);
-		overflow-x: hidden;
-		overflow-y: scroll;
-		font-size: $font-size - rem(1px);
-		color: #222;
-
-		b {
-			//color: mix($main-color, #000, 50%);
-			//color: saturate(invert($main-color), 50%);
-			font-size: $font-size + rem(1px);
-			font-weight: 500;
-			overflow: hidden;
-		}
-		
-		&::-webkit-scrollbar {
-			@include position;
-			width: rem(15px);
-			z-index: 2;
-		}
-		&::-webkit-scrollbar-thumb {
-			background: mix($main-color, material-color('grey', '400'), 0%);
-			background-clip: padding-box;
-			border: rem(0px) solid transparent;
-			//@include rounded($radius: 10rem);
-		}
-		&::-webkit-scrollbar-track {
-			background: material-color('grey', '100');
-			//@include rounded;
-			//@include position;
-			z-index: 1;
-		}
-	}
-
-	.privacy {
-		$paddingLR: ($input-width - ($input-width * 1.5) / 2);
-		width: 100%;
-		padding: $font-size * 3 $paddingLR;
-		border-top: 1px solid material-color('grey', '300');
-
-		.info {
-			width: 100%;
-			margin: $font-size * 2 auto;
-			.box {
-				border-top: 1px solid material-color('grey', '300');
-				padding: $font-size 0;
-				@include flex(flex-start);
-
-				h6 {
-					flex: 0.3;
-					padding-right: $font-size;
-					text-align: right;
-				}
-			}
-			.con {
-				flex: 0.5;
-				@include flex(flex-start);
-				input {
-					font-size: $font-size + rem(2px);
-					font-weight: 500;
-					&[type="text"] {
-						flex: 1;
-						@include default-0;
-						width: 100%;
-						height: $input-height / 2;
-					}
-				}
-
-				select {
-					border-radius: 0;
-					height: $input-height / 1.5;
-					margin-right: $font-size;
-					font-size: $font-size + rem(2px);
-					font-weight: 500;
-					cursor: pointer;
-					flex: 1;
-					font-family: $parent-css;
-				}
-			}
-		}
-
-	}
-}
-
-#joinStep.joinStep3 {
-	@include position;
-	.wrap {
-		width: $inner / 1.5;
-		border: none;
-		padding: 0;
-	}
-	h6 {
-		text-align: left;
-		padding: $font-size 0;
-		margin-bottom: $font-size;
-		border-bottom: 1px solid material-color('grey', '500');
-	}
-	article {
-		padding: $font-size + rem(5px) 0;
-		width: 70%;
-		> div {
-			padding: $font-size 0;
-			@include flex(space-between, $st);
-			flex-wrap: wrap;
-			width: 100%;
-			h5 {
-				text-align: right;
-				font-size: $font-size;
-				flex: 0.2;
-				padding-right: $font-size * 2;
-				word-break: keep-all;
-				margin-top: $font-size;
-			}
-			.con {
-				text-align: left;
-				flex: 0.8;
-				margin-bottom: $font-size;
-				.summary {
-					font-size: $font-size - rem(1px);
-					font-weight: 400;
-					color: material-color('grey', '500');
-					margin-top: $font-size - rem(10px);
-					text-align: left;
-
-					&.blue2 {
-						color: blue;
-						font-weight: 700;
-					}
-				}
-				.input_select, .input_text {
-					border: 1px solid material-color('grey', '400');
-					padding: $font-size;
-					//width: $input-width;
-					width: 100%;
-					height: $input-height - rem(10px);
-					font-size: $font-size;
-					@include rounded(rem(5px));
-				}
-				.input_select {
-					cursor: pointer;
-				}
-				.input_text {
-					background: #fff;
-					&:read-only {
-						background: material-color('grey', '200');
-						outline: none;
-					}
-				}
-				.button {
-					display: inline-flex;
-					margin: 0;
-					width: calc(25% - #{$font-size - rem(10px)});
-					height: $input-height - rem(10px);
-					font-size: $font-size;
-					background: material-color('blue-grey', '700');
-					@include rounded(rem(5px));
-				}
-			}
-		}
-		.name {
-			.con {
-				//font-size: 0;
-				text-align: left;
-				@include inline-flex(flex-start);
-				margin-bottom: 0;
-				width: 100%;
-				height: $input-height - rem(10px);
-
-				.inputs {
-					@include inline-flex($bet);
-				}
-
-				.input_text {
-					width: calc(50% - #{$font-size - rem(10px)});
-					&:first-child {
-						margin-right: $font-size - rem(5px);
-					}
-				}
-				b {
-					font-size: $font-size + rem(2px);
-					font-weight: 500;
-					@include transform(translateY(-15%));
-					line-height: 0;
-				}
-			}
-		}
-		.dwrap {
-			display: block;
-			> div {
-				padding: 0;
-				@include flex(space-between, flex-start);
-				flex-wrap: wrap;
-				width: 100%;
-			}
-		}
-		.id, .voter, .sponsor, .address, .mobile {
-			.con {
-				font-size: 0;
-				.input_text {
-					width: calc(75% - #{$font-size - rem(10px)});
-					&:first-child {
-						margin-right: $font-size - rem(5px);
-					}
-				}
-				.button {
-				}
-				#txtEmailAble {
-					color: material-color('blue', '600');
-					font-weight: 500;
-					font-size: $font-size;
-				}
-			}
-		}
-
-		.address {
-			.con {
-				font-size: 0;
-				input {
-					&[type="text"] {
-
-					}
-					&[type="button"] {
-						margin: {
-							//left: rem(3px);
-							//right: rem(10px);
-						}
-					}
-
-					&#strZipDaum {}
-					&#strADDR1Daum {
-						width: 100%;
-						margin-top: $font-size;
-					}
-				}
-			}
-		}
-		.address2 {
-			input[type="text"] {
-				width: 100%;
-			}
-		}
-
-		.radio {
-			label {
-				@include inline-flex;
-				vertical-align: $parent-css;
-				margin-right: rem(10px);
-				line-height: 1.5;
-
-				input {
-					margin: 0;
-					margin-right: rem(5px);
-					width: rem(15px);
-					height: rem(15px);
-					cursor: pointer;
-					line-height: 1.5;
-				}
-			}
-		}
-
-		.bank {
-			h5 {
-				margin-top: 0;
-			}
-			.con {
-				@include inline-flex($st);
-				select {
-					width: auto;
-					margin-right: rem(10px);
-				}
-				font-weight: 600;
-			}
-		}
-
-		.radio {
-			.con {
-				@include inline-flex(flex-start);
-				width: 100%;
-				height: $input-height - rem(10px);
-			}
-			label {
-				@include inline-flex;
-				vertical-align: $parent-css;
-				cursor: pointer;
-				margin-right: $font-size * 1.5;
-				color: material-color('grey', '400');
-				font-size: $font-size + rem(2px);
-
-				input {
-					margin: 0;
-					visibility: hidden;
-					@include position(absolute);
-				}
-				i {
-					margin-right: $font-size / 2.5;
-				}
-			}
-			&.birth {
-				.con {
-					align-items: center;
-					div {
-						//flex: auto;
-						display: inline-block;
-						//margin-bottom: $font-size / 2;
-						margin-right: $font-size * 3;
-						p {
-							//padding: $font-size / 2 $font-size;
-							//background: material-color('grey', '100');
-							font-size: $font-size + rem(2px);
-							font-weight: 500;
-						}
-					}
-					.inputs {
-						margin-right: 0;
-						margin-bottom: $font-size / 2;
-						@include flex;
-						width: 100%;
-					}
-				}
-			}
-			input:checked {
-				& ~ * {
-					color: material-color('blue-grey', '700');
-					font-weight: 500;
-				}
-			}
-		}
-		.selects {
-			@include inline-flex($bet);
-			width: 100%;
-			& > div {
-				@include inline-flex;
-				width: 33%;
-				margin-right: rem(20px);
-
-				&:last-child {
-					margin-right: 0;
-				}
-
-				p {
-					margin-left: rem(10px);
-				}
-			}
-		}
-		
-	}
-
-	.agreement {
-		flex-direction: row;
-		justify-content: flex-start;
-		margin: $font-size 0;
-
-		section {
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-
-			label {
-				@include default-a;
-				font-weight: 500;
-			}
-		}
-		.all {
-			margin-top: $font-size * 2;
-			label {
-				color: #000;
-				padding: rem(5px) 0;
-				font-size: rem(20px);
-				input {
-					width: rem(15px);
-					height: rem(15px);
-				}
-				span {}
-			}
-		}
-		.policy {
-			flex-direction: column;
-			width: 100%;
-			label {
-				display: inline-flex;
-				justify-content: center;
-				align-items: center;
-				width: 100%;
-				height: $input-height;
-				padding: rem(10px);
-				margin: rem(5px) 0;
-				background: material-color('blue-grey', '50');
-				color: material-color('blue-grey', '600');
-				@include rounded(rem(5px));
-			}
-			i {
-			}
-		}
-	}
-
-	.button.small {
-		@include button(material-color('blue'));
-		width: 50%;
-		margin: 0 auto;
-		margin-top: rem(20px);
-	}
-
-	#result_text {
 		@include flex;
-		color: material-color('blue', '800');
-		font-size: $font-size + rem(2px);
-	}
-
-	.btnZone {
-		display: flex;
 		//flex-direction: column;
-		justify-content: center;
 		padding: {
 			top: $font-size * 2;
 		}
-		width: calc(#{$inner / 2} + 5%);
+		width: 100%;
 
 		a, input {
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-			width: 45%;
+			@include inline-flex;
+			width: $input-width / 1.5;
 			height: $input-height;
 			margin: $font-size / 2 auto;
 			background: transparent;
@@ -1187,29 +272,184 @@ select {
 			background: $common-button-color;
 			color: #fff;
 			&:hover {
-				background: lighten($common-button-color,10);
+				background: lighten($common-button-color, 10);
+			}
+		}
+	}
+
+
+}
+
+// .sns-login {
+// 	$sns-width: $input-width / 1.5;
+// 	$sns-height: $input-height - rem(5px);
+
+// 	width: $input-width;
+// 	margin: rem(50px) auto {
+// 		bottom: 0;
+// 	};
+// 	padding: 0 ($input-width - $sns-width) / 2;
+
+// 	h6 {
+// 		@include position;
+// 		z-index: 1;
+// 		color: #555;
+// 		font-weight: 700;
+// 		margin: 0 auto {
+// 			bottom: rem(40px);
+// 		};
+// 		text-align: center;
+
+// 		&:before {
+// 			content: '';
+// 			@include position(absolute, $le: 50%, $top: 50%);
+// 			z-index: 0;
+// 			width: $input-width;
+// 			height: 1px;
+// 			background: #ddd;
+// 			transform: translate(-50%, 0);
+// 		}
+
+// 		span {
+// 			@include position;
+// 			z-index: 1;
+// 			display: inline-block;
+// 			background: #fff;
+// 			padding: 0 rem(15px);
+// 			font-size: $font-size * 1.2;
+// 		}
+// 	}
+
+// 	div {
+// 		width: 100%;
+// 		height: $sns-height;
+// 		cursor: pointer;
+// 		font-weight: 400;
+// 		text-align: center;
+// 		border: 1px solid rgba(0, 0, 0, 0.2);
+// 		margin-top: rem(15px);
+// 		overflow: hidden;
+// 	}
+
+// 	a {
+// 		color: inherit;
+// 		width: 100%;
+// 		height: 100%;
+// 		@includd flex;
+
+// 		i {
+// 			width: $sns-height;
+// 			height: $sns-height;
+// 			border-right: 1px solid rgba(0, 0, 0, 0.15);
+// 			font-size: $sns-height * 0.8;
+// 			@includd flex;
+// 		}
+
+// 		span {
+// 			width: $sns-width - $sns-height;
+// 			display: block;
+// 			font-size: $font-size * 1.1;
+// 		}
+
+// 	}
+
+// 	.kakao {
+// 		background: $kakao-yellow;
+// 		color: $kakao-label;
+// 	}
+
+// 	.naver {
+// 		background: $naver-green;
+// 		color: #fff;
+// 	}
+
+// 	.google {
+// 		background: #fff;
+
+// 		i {
+// 			@include position;
+// 			color: transparent;
+// 			background: url('/images/login/google.svg') no-repeat center / 60%;
+// 		}
+// 	}
+
+// 	.facebook {
+// 		background: $facebook-old;
+// 		color: #fff;
+// 	}
+// }
+
+.admin {
+	$paddingLR: ($input-width - $input-height) / 20;
+	.input-wrap {
+		label {
+			input {
+				width: 100%;
+				padding: 0 $paddingLR;
 			}
 		}
 	}
 }
 
-#joinStep.joinStep4 {
-	.birth {
-		.con {
-			flex-wrap: wrap;
-		}
-		.inputs {
-			justify-content: space-between;
-			margin-bottom: $font-size;
-			& > div {
-				width: 33%;
-				@include inline-flex;
-				display: inline-flex !important;
-				margin-right: $font-size !important;
-			}
-			p {
-				margin-left: $font-size / 2;
+#login {
+	.input-wrap {
+		label {
+			input {
+				padding-left: $input-height;
 			}
 		}
 	}
+}
+
+#idpw {
+	flex-direction: column;
+
+	h2, h2 + p {
+		text-align: left;
+	}
+
+	.wrap {
+		//width: $input-width - rem(120px);
+		padding: rem(30px) 0;
+	}
+
+	.input-wrap {
+		width: 100%;
+
+		.button {
+			width: 100%;
+		}
+
+		p.text-box {
+			width: 100%;
+			height: ($input-height + rem(7px)) * 2;
+			border: 2px solid $sub-color;
+			//padding: $input-height / 2;
+			margin-top: $input-height / 1.6;
+			@include flex;
+			font-size: $font-size * 1.1;
+			color: #222;
+		}
+	}
+}
+
+
+/*배경색 있음*/
+#contain_wrap {
+	background: material-color('grey', '100');
+	overflow: hidden;
+}
+.common {
+	width: $input-width * 2;
+	background: #fff;
+	@include flex;
+	margin: 0 auto {
+		bottom: 5%;
+	};
+	padding: $input-height 0;
+
+}
+
+.footer {
+	border-top: 1px solid darken(#f3f3f3, 5);
 }

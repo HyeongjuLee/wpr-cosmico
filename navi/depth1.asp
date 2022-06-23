@@ -1,14 +1,18 @@
 
 <!--#include virtual = "/navi/company.asp"-->
-<!--#include virtual = "/navi/business.asp"-->
 <!--#include virtual = "/navi/brand.asp"-->
+<!--#include virtual = "/navi/product.asp"-->
+<!--#include virtual = "/navi/business.asp"-->
+<!--#include virtual = "/navi/guide.asp"-->
 <!--#include virtual = "/navi/shop.asp"-->
+<!--#include virtual = "/navi/community.asp"-->
 <!--#include virtual = "/navi/customer.asp"-->
+<!--#include virtual = "/navi/sns.asp"-->
 <!--#include virtual = "/navi/mypage.asp"-->
 <!--#include virtual = "/navi/policy.asp"-->
 <%Select Case NAVI_P_NUM%>
 <%Case "8"%>
-<!--#include virtual = "/navi/gallery.asp"-->
+<!--include virtual = "/navi/gallery.asp"-->
 <%End Select%>
 
 <script type="text/javascript">

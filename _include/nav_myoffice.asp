@@ -29,7 +29,7 @@
 <div class="nav-myoffice">
 	<article class="nav-left">
 		<div class="nav-top">
-			<div class="logo"><img src="/images/share/logo(1).svg" alt="" height="42"></div>
+			<div class="logo"><img src="/images/share/logo.svg" alt="" height="50%"></div>
 			<%If DK_MEMBER_TYPE = "ADMIN" Then%>
 			<div class="info admin">
 					<div class="name">ADMIN</div>

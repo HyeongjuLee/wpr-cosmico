@@ -40,11 +40,11 @@
 
 
 	''PCONF_TOPCNT = 4 '페이지 사이즈에 맞춘 상품 나열 갯수 하단의 PCONF_LINECNT 의 제곱으로 나가야함
-	PCONF_LINECNT = 4 '페이지 사이즈에 맞춘 상품 나열 갯수 (베스트, 추천, 새상품)
+	PCONF_LINECNT = 3 '페이지 사이즈에 맞춘 상품 나열 갯수 (베스트, 추천, 새상품)
 
 	' 총 WIDTH 값에서 상품갯수에 맞춰 LEFT-MARGIN 값 설정
 	' 상품 넓이는 border 를 포함하여 2를 더해준다
-	GoodsLeftMargin = Int((1200 - (285*PCONF_LINECNT)) / (PCONF_LINECNT-1))		'1200 - (35 * 2)
+	GoodsLeftMargin = Int((1200 - (380*PCONF_LINECNT)) / (PCONF_LINECNT-1))		'1200 - (35 * 2)
 	'print GoodsLeftMargin
 
 
@@ -579,8 +579,10 @@
 						<p class="line"><span><%=num2cur(arrList_GoodsCustomer)%></span><%=Chg_CurrencyISO%></p>
 						<div><span><%=num2cur(notPrice)%></span><%=Chg_CurrencyISO%></div>
 						<%If RS_price4 <> "" And DK_MEMBER_LEVEL > 0 And DK_MEMBER_STYPE <> "1" Then %>
-						<p class="pv"><span><%=num2cur(RS_price4)%></span><%=CS_PV%></p>
-						<p class="bv"><span><%=num2cur(RS_price5)%></span><%=CS_PV2%></p>
+						<div class="pvs">
+							<p class="pv"><span><%=num2cur(RS_price4)%></span><%=CS_PV%></p>
+							<p class="bv"><span><%=num2cur(RS_price5)%></span><%=CS_PV2%></p>
+						</div>
 						<%End If%>
 					<%End If%>
 					</div>

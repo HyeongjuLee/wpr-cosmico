@@ -1,6 +1,6 @@
 <!--#include virtual="/_lib/strFunc.asp" -->
 <%
-	PAGE_SETTING = "MEMBERSHIP"
+	PAGE_SETTING = "COMMON"
 	NO_MEMBER_REDIRECT = "F"
 
 	mbids1 = gRequestTF("m1",True)
@@ -49,7 +49,8 @@
 	Call closeRs(HJRSWI)
 %>
 <!--#include virtual="/_include/document.asp" -->
-<link rel="stylesheet" type="text/css" href="/css/common.css?v1" />
+<link rel="stylesheet" type="text/css" href="/css/common.css?" />
+<link rel="stylesheet" type="text/css" href="/css/joinstep.css?" />
 <script type="text/javascript">
 	$(function(){
 		$('.sub-header .sub-header-txt').html('<p class="joinStepF"><i class="icon-ok"></i><%=LNG_JOINFINISH_U_ALERT_OUTPUT07%></p>');
@@ -58,21 +59,19 @@
 </head>
 <body>
 <!--#include virtual="/_include/header.asp" -->
-<div id="joinStepF" class="common">
-	<div class="wrap">
-		<ul>
-			<li>
-				<div><%=LNG_TEXT_MEMID%></div>
-				<p><%=mbids1%>-<%=mbids2%></p>
-			</li>
-			<%If CS_AUTO_WEBID_TF = "T" Then%>
-			<li>
-				<div><%=LNG_TEXT_ID%></div>
-				<p><%=Webid%></p>
-			</li>
-			<%End If%>
-		</ul>
-	</div>
+<div id="joinStepF" class="common joinstep">
+	<ul>
+		<li>
+			<div><%=LNG_TEXT_MEMID%></div>
+			<p><%=mbids1%>-<%=mbids2%></p>
+		</li>
+		<%If CS_AUTO_WEBID_TF = "T" Then%>
+		<li>
+			<div><%=LNG_TEXT_ID%></div>
+			<p><%=Webid%></p>
+		</li>
+		<%End If%>
+	</ul>
 	<div class="btnZone">
 		<a class="button" href="/index.asp" data-ripplet>MAIN</a>
 		<a class="button promise" href="/common/member_login.asp?backURL=/index.asp"><%=LNG_TEXT_LOGIN%></a>

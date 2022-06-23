@@ -13,7 +13,7 @@
 <!--#include virtual = "/_include/document.asp"-->
 <%End If%>
 <link rel="stylesheet" href="css_common.css" />
-<link rel="stylesheet" href="/css/board.css?v0" />
+<link rel="stylesheet" href="/css/board.css?" />
 <link rel="stylesheet" href="a_btnCss.css" />
 <%
 
@@ -473,8 +473,7 @@
 <!--#include virtual = "/_include/header.asp"-->
 <%End If%>
 <!--#include file = "_inc_board_top.asp" -->
-<!--'include virtual = "/_include/sub_title.asp"-->
-<p><%=ViewTopImg%></p>
+<div class="board-title"><%=LNG_BOARD_BTN_MODIFY%></div>
 <div id="forum" class="board write">
 	<form name="frm" action="boardHandler.asp" method="post" enctype="multipart/form-data" onsubmit="return frmCheck(this)">
 		<input type="hidden" name="mode" value="UPDATE" />
@@ -549,6 +548,7 @@
 			</tr>
 		</table>
 	</form>
+</div>
 </div>
 <%IF CONST_MOBILE_ONLY = "T" Then%>
 <!--#include virtual = "/admin/_inc/copyright.asp"-->

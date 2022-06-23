@@ -53,11 +53,6 @@ header {
 	&:hover {
 		// $color: #222;
 		color: $color;
-
-		&:after {
-			background: rgba(#000, 0.1);
-			z-index: 1;
-		}
 	}
 }
 
@@ -95,6 +90,7 @@ header {
 		img {
 			width: $top-logo-width;
 			height: $top-logo-height;
+			filter: brightness(10) contrast(10);
 		}
 
 	}
@@ -132,62 +128,62 @@ header {
 		}
 	}
 
-	.member {
-		@include position;
-		ol {
-			// @include position(absolute, $le: calc(50% + #{rem(8px) * 4}), $top: $font-size * 4);
-			@include position(absolute, $le: 50%, $top: rem(50px));
-			z-index: 10;
-			color: $parent-css;
-			width: auto;
-			max-width: 100vw;
-			padding: rem(10px);
-			background: #fff;
-			white-space: nowrap;
-			transform: translateX(-50%);
-			display: none;
-			flex-direction: column;
-			border-radius: rem(5px);
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	// .member {
+	// 	@include position;
+	// 	ol {
+	// 		// @include position(absolute, $le: calc(50% + #{rem(8px) * 4}), $top: $font-size * 4);
+	// 		@include position(absolute, $le: 50%, $top: rem(50px));
+	// 		z-index: 10;
+	// 		color: $parent-css;
+	// 		width: auto;
+	// 		max-width: 100vw;
+	// 		padding: rem(10px);
+	// 		background: #fff;
+	// 		white-space: nowrap;
+	// 		transform: translateX(-50%);
+	// 		display: none;
+	// 		flex-direction: column;
+	// 		border-radius: rem(5px);
+	// 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 			
-			li {
-				@include inline-flex;
-				margin: rem(2px) rem(5px);
-				color: $parent-css;
+	// 		li {
+	// 			@include inline-flex;
+	// 			margin: rem(2px) rem(5px);
+	// 			color: $parent-css;
 
-				a {
-					@include default-a;
-					font-size: $font-size - rem(2px);
-					color: $parent-css;
-					line-height: 1.5;
+	// 			a {
+	// 				@include default-a;
+	// 				font-size: $font-size - rem(2px);
+	// 				color: $parent-css;
+	// 				line-height: 1.5;
 
-					&:hover {
-						color: $sub-color;
-						text-decoration: underline;
-					}
-				}
-			}
+	// 				&:hover {
+	// 					color: $sub-color;
+	// 					text-decoration: underline;
+	// 				}
+	// 			}
+	// 		}
 
-			.admin {
-				a {
-					color: adjust-hue(invert($main-color), -30deg);
-				}
+	// 		.admin {
+	// 			a {
+	// 				color: adjust-hue(invert($main-color), -30deg);
+	// 			}
 
-				&:hover {
-					a {
-						color: darken(adjust-hue(invert($main-color), -30deg), 10);
-					}
-				}
-			}
-		}
+	// 			&:hover {
+	// 				a {
+	// 					color: darken(adjust-hue(invert($main-color), -30deg), 10);
+	// 				}
+	// 			}
+	// 		}
+	// 	}
 
-		&:hover {
-			ol {
-				display: flex !important;
-				color: #222;
-			}
-		}
-	}
+	// 	&:hover {
+	// 		ol {
+	// 			display: flex !important;
+	// 			color: #222;
+	// 		}
+	// 	}
+	// }
 
 	.searchs {
 		font-size: rem(19px);
@@ -231,6 +227,70 @@ header {
 
 			&:nth-of-type(3) {
 				top: $w + 6px * 2;
+			}
+		}
+	}
+}
+
+#header {
+	.header-top-btn {
+		.menu {
+			ol {
+				@include position(absolute, $le: 50%, $top: rem(50px));
+				z-index: 10;
+				color: $parent-css;
+				width: auto;
+				max-width: 100vw;
+				padding: 5px 15px;
+				background: #fff;
+				white-space: nowrap;
+				transform: translateX(-50%);
+				display: none;
+				flex-direction: column;
+				border-radius: rem(8px);
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+				font-size: $font-size - rem(2px);
+
+				li {
+					font-size: $parent-css;
+					margin: 10px 0;
+				}
+				a {
+					font-size: $parent-css;
+					color: #222;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+				.admin {
+					a {
+						color: adjust-hue(invert($main-color), -30deg);
+					}
+
+					&:hover {
+						a {
+							color: darken(adjust-hue(invert($main-color), -30deg), 20);
+						}
+					}
+				}
+			}
+		}
+		.menu.active {
+			$deg: 45;
+			span {
+				top: 45%;
+				width: 22px;
+				left: 14px;
+				&:first-of-type {
+					@include transform(rotate(#{$deg * 5}deg));
+				}
+				&:nth-of-type(2) {
+					@include transform(rotate(#{$deg * 3}deg));
+					opacity: 0;
+				}
+				&:last-of-type {
+					@include transform(rotate(#{$deg * -5}deg));
+				}
 			}
 		}
 	}
@@ -435,46 +495,8 @@ $top-menu-height: ($top-menu-font-size * (150 / 100)) + ($padding * 2);
 
 }
 
-.nav {
-
-	&:not(:hover) {
-		&~.header-top-btn {
-			> div {
-				color: $color;
-			}
-			.menu {
-				span {
-					background: $color;
-				}
-			}
-		}
-
-		&~#language {
-			color: invert($color);
-			// color: material-color('grey', '800');
-		}
-
-	}
-	&:hover {
-		&~.header-top-btn {
-			> div {
-				color: invert($color);
-			}
-			.menu {
-				span {
-					background: invert($color);
-				}
-			}
-		}
-
-		&~#language {
-			color: $color;
-			// color: material-color('grey', '800');
-		}
-	}
-}
-
 $fixed: rem(80px);
+$color: $oc-gray-9;
 
 #header.fixed {
 	@include position(fixed, $le: 0, $top: 0);
@@ -486,10 +508,12 @@ $fixed: rem(80px);
 
 	#logo {
 		width: $top-logo-width;
+		margin-top: 0;
 		img {
 			width: $top-logo-width * 0.8;
 			height: auto;
 			margin-right: $top-logo-width - ($top-logo-width * 0.8);
+			filter: $default-css;
 		}
 	}
 
@@ -509,7 +533,7 @@ $fixed: rem(80px);
 				&>a {
 					height: $fixed;
 					font-weight: 400;
-					// padding-top: $font-size;
+					padding-top: 0;
 
 					&:hover {
 						color: $main-color;
@@ -524,8 +548,14 @@ $fixed: rem(80px);
 	}
 
 	.header-top-btn {
+		margin-top: 0;
 		> div {
 			color: $color;
+		}
+		.menu {
+			span {
+				background: $color;
+			}
 		}
 	}
 	.search-wrap {
@@ -533,14 +563,41 @@ $fixed: rem(80px);
 	}
 }
 
+#header.hover {
+	&:after {
+		background: rgba(#000, 0.1);
+		z-index: 1;
+	}
+	#logo {
+		img {
+			filter: $default-css;
+		}
+	}
+	.header-top-btn {
+		> div {
+			color: $color;
+		}
+		.menu {
+			span {
+				background: $color;
+			}
+		}
+	}
+}
+
 header.shop {
 	margin-bottom: 0;
 	// background: $nav-bg;
-	$color: #222;
+	$color: $oc-gray-9;
 	#header {
 		color: $color;
 		&:after {
 			background: rgba(#000, 0.1);
+		}
+	}
+	#logo {
+		img {
+			filter: $default-css;
 		}
 	}
 	.nav {
@@ -572,12 +629,79 @@ header.shop {
 		> div {
 			color: $color !important;
 		}
+		.menu {
+			span {
+				background: $color;
+			}
+		}
+	}
+}
+
+/*header.shop 와 거의 동일*/
+header.commons {
+	// background: $nav-bg;
+	$color: $oc-gray-9;
+	#header {
+		color: $color;
+		&:after {
+			background: rgba(#000, 0.1);
+		}
+	}
+	#logo {
+		img {
+			filter: $default-css;
+		}
+	}
+	.nav {
+		&-main {
+			&:hover {
+				max-height: 100vh;
+			}
+			& > li {
+				& > a {
+					color: $color;
+
+					&:hover {
+						color: $main-color;
+					}
+				}
+			} 
+		}
+	}
+	#language {
+		color: $color !important;
+		&.view {
+			&:before {
+				background: #fff;
+				box-shadow: 0 1px 10px rgba(#000, 0.12);
+			}
+		}
+	}
+	.header-top-btn {
+		> div {
+			color: $color !important;
+		}
+		.menu {
+			span {
+				background: $color;
+			}
+		}
+	}
+
+	~ #contain_wrap {
+		#sub-header {
+			padding-top: $top-height;
+
+			.sub-header-txt {
+				margin-top: 0;
+			}
+		}
 	}
 }
 
 /*서브타이틀*/
 
-$sub_title-height: rem(280px);
+$sub_title-height: rem(320px);
 
 #sub-header {
 	@include position;
@@ -587,6 +711,7 @@ $sub_title-height: rem(280px);
 	flex-direction: column;
 	text-align: center;
 	overflow: hidden;
+	padding-top: $top-height;
 
 	.sub-header-img {
 		width: 100%;
@@ -608,10 +733,14 @@ $sub_title-height: rem(280px);
 		z-index: 1;
 		@include flex($bet);
 		flex-direction: column;
+		width: $inner;
+		// height: 100%;
 
 		color: #fff;
-		font-size: rem(36px);
-		font-weight: 300;
+		font-size: $font-size * 3;
+		font-weight: 700;
+		opacity: 0.8;
+		// mix-blend-mode: soft-light;
 
 		.maps_title {
 			// margin-top: rem(40px);

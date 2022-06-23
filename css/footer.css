@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/*카피라이터 영역 */
+.footer { width: 100%; min-height: 30rem; background: #fafafa; font-size: 1.5rem; font-weight: 400; color: #797979; border-top: 1px solid #dbdbdb; }
+.footer::after { content: ''; display: block; clear: both; }
+.footer .layout_inner { position: relative; display: flex; justify-content: space-between; align-items: flex-start; }
+
+.footer { font-feature-settings: initial; }
+.footer-left { display: inline-flex; justify-content: flex-start; align-items: flex-start; flex-direction: column; }
+.footer-info { margin-top: 2.3rem; font-size: inherit; color: inherit; }
+.footer-info p { margin-bottom: 0.2rem; }
+.footer-info span { margin-right: 1.4rem; color: inherit; letter-spacing: -0.01em; }
+.footer-menu { width: 100%; height: 7rem; color: #717171; margin-bottom: 4rem; font-size: 1.6rem; font-weight: 500; border-bottom: 1px solid #ebebeb; }
+.footer-menu .layout_inner { display: flex; justify-content: center; align-items: center; height: 100%; margin: 0 auto; }
+.footer-menu ul { display: inline-flex; justify-content: center; align-items: center; height: 100%; margin-right: auto; color: inherit; }
+.footer-menu ul li { height: 100%; display: inline-flex; justify-content: center; align-items: center; margin-right: 2.8rem; font-weight: 400; color: inherit; }
+.footer-menu ul li:first-child { margin-left: 0; }
+.footer-menu ul li a { position: relative; display: block; color: inherit; letter-spacing: 0.01em; }
+.footer-menu ul .policy2 a { color: #424242; font-weight: 700; }
+.footer-menu ul .policy2 a::after { position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: #6c6c6c; }
+
+.footer-right { display: inline-flex; justify-content: flex-start; align-items: flex-start; flex-direction: column; }
+.footer .cscenter { width: 20rem; }
+.footer .cscenter .tit { color: #696969; font-size: 1.6rem; font-weight: 600; margin-bottom: 0.2rem; }
+.footer .cscenter .tel { color: #275390; font-size: 3rem; font-weight: 600; letter-spacing: -0.05em; line-height: 1; margin-bottom: 2.4rem; }
+.footer .cscenter p { color: #a1a1a1; font-size: 1.4rem; line-height: 1.2; margin-bottom: 0.7rem; }
+
+.footer .copyright { color: #acacac; font-size: 1.2rem; font-weight: 400; letter-spacing: 0.12em; margin-top: 0.9rem; }
+.footer .copyright a { cursor: text; color: inherit; }

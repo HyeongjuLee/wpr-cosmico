@@ -1,0 +1,196 @@
+@import 'mixin-custom';
+
+/*카피라이터 영역 */
+$footer-color: #797979;
+.footer {
+	@include clear;
+	width: 100%;
+	min-height: rem(300px);
+	background: #fafafa;
+	font-size: $font-size;
+	font-weight: 400;
+	color: $footer-color;
+	// @include flex(center, $st);
+	// flex-wrap: wrap;
+	// letter-spacing: -0.01em;
+	border-top: 1px solid #dbdbdb;
+
+	.layout_inner {
+		@include position;
+		@include flex($bet, $st);
+		// padding-top: rem(60px);
+	}
+
+	article {
+	}
+}
+
+.footer {
+	font-feature-settings: $default-css;
+	&-left {
+		@include inline-flex($st, $st);
+		flex-direction: column;
+	}
+	// &-logo {
+	// 	width: rem(52px);
+	// 	margin-right: rem(50px);
+	// 	margin-bottom: rem(25px);
+	// 	img {
+	// 		width: 100%;
+	// 		mix-blend-mode: lighten;
+	// 	}
+	// }
+	&-info {
+		margin-top: rem(23px);
+		font-size: $parent-css;
+		color: $parent-css;
+		//line-height: 2;
+		p {
+			margin-bottom: rem(2px);
+		}
+		span {
+			margin-right: rem(14px);
+			color: $parent-css;
+			letter-spacing: -0.01em;
+		}
+	}
+
+	&-menu {
+		width: 100%;
+		height: rem(70px);
+		color: #717171;
+		margin-bottom: rem(40px);
+		font-size: $font-size + rem(1px);
+		font-weight: 500;
+		border-bottom: 1px solid #ebebeb;
+		.layout_inner {
+			@include flex;
+			//width: 100%;
+			height: 100%;
+			margin: 0 auto;
+		}
+
+		ul {
+			@include inline-flex;
+			height: 100%;
+			margin-right: auto;
+			color: $parent-css;
+
+			li {
+				height: 100%;
+				@include inline-flex;
+				margin-right: rem(28px);
+				font-weight: 400;
+				color: $parent-css;
+				&:first-child {
+					margin-left: 0;
+				}
+				a {
+					@include position;
+					display: block;
+					color: $parent-css;
+					letter-spacing: 0.01em;
+				}
+			}
+
+			.policy2 {
+				a {
+					color: #424242;
+					font-weight: 700;
+				}
+				a::after {
+					// content: '';
+					@include position(absolute, $le: 0, $bot: 0);
+					width: 100%;
+					height: 1px;
+					background: darken($footer-color, 5%);
+				}
+			}
+		}
+		// i {
+		// 	width: 1px;
+		// 	height: rem(13px);
+		// 	background: #fff;
+		// 	opacity: 0.08;
+		// 	margin: 0 rem(50px);
+		// }
+	}
+	// .banners {
+	// 	margin-bottom: rem(40px);
+	// 	@include inline-flex(flex-end);
+	// 	flex-direction: $default-css;
+	// 	width: (rem(160px) * 2) + rem(10px);
+
+	// 	a {
+	// 		margin: 0;
+	// 		margin-right: rem(5px);
+	// 	}
+
+	// 	.macco {}
+
+	// 	.kossa {
+	// 	}
+
+	// 	.ftc {}
+	// }
+
+}
+
+.footer{
+	&-right {
+		@include inline-flex($st, $st);
+		flex-direction: column;
+		// width: calc(100% - (#{rem(190) + rem(160px) + rem(50px)}));
+
+	}
+
+	// .site-top {
+	// 	@include position(absolute, $ri: rem(-55px), $bot: 0);
+	// 	@include default-0;
+	// 	@include default-a;
+	// 	width: rem(55px);
+	// 	height: rem(55px);
+	// 	background: url('/images/share/top_btn-arrow.gif') no-repeat center;
+	// }
+
+	.cscenter {
+		width: rem(200px);
+		.tit {
+			color: #696969;
+			font-size: $font-size + rem(1px);
+			font-weight: 600;
+			margin-bottom: rem(2px);
+		}
+		.tel {
+			color: #275390;
+			font-size: $font-size * 2;
+			font-weight: 600;
+			letter-spacing: -0.05em;
+			line-height: 1;
+			margin-bottom: rem(24px);
+		}
+		p {
+			color: #a1a1a1;
+			font-size: $font-size - rem(1px);
+			// letter-spacing: -0.05em;
+			line-height: 1.2;
+			margin-bottom: rem(7px);
+		}
+	}
+
+}
+
+.footer {
+	.copyright {
+		color: #acacac;
+		font-size: $font-size - rem(3px);
+		font-weight: 400;
+		letter-spacing: 0.12em;
+		margin-top: rem(9px);
+
+		a {
+			cursor: text;
+			color: $parent-css;
+		}
+	}
+}

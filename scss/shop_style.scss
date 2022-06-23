@@ -1,59 +1,55 @@
-@import 'header';
-//@import 'popupLayer';
-@import 'language';
-//@import 'search';
-//@import 'click-ripple';
+@import 'mixin-custom';
 
-input,
-select,
-button,
-textarea {
-	font-family: $parent-css;
-	&::placeholder,
-	&::-webkit-input-placeholder {
-		font-family: $parent-css;
-		color: rgba(material-color('grey', '900'), 50%);
-		font-size: $parent-css;
-		line-height: 1.5;
-		font-weight: 500;
-		white-space: normal;
-	}
-}
+// input,
+// select,
+// button,
+// textarea {
+// 	font-family: $parent-css;
+// 	&::placeholder,
+// 	&::-webkit-input-placeholder {
+// 		font-family: $parent-css;
+// 		color: rgba(material-color('grey', '900'), 50%);
+// 		font-size: $parent-css;
+// 		line-height: 1.5;
+// 		font-weight: 500;
+// 		white-space: normal;
+// 	}
+// }
 
-#header {
-    margin-bottom: 0 !important;
-    .nav {
-		&-main {
-			&:hover {
-				max-height: 100vh;
-			}
-			& > li {
-				& > a {
-					color: #222;
-					font-weight: 400;
+// #header {
+//     margin-bottom: 0 !important;
+//     .nav {
+// 		&-main {
+// 			&:hover {
+// 				max-height: 100vh;
+// 			}
+// 			& > li {
+// 				& > a {
+// 					color: #222;
+// 					font-weight: 400;
 
-					&:hover {
-						color: $main-color;
-					}
-				}
-			} 
-		}
-	}
-	#language {
-		color: #222;
-	}
-	.header-all {
-		.icon-menu {
-			span {
-				background: #222;
-			}
-		}
-	}
-    &:after {
-        background: rgba(#000, 0.1) !important;
-        z-index: 1;
-    }
-}
+// 					&:hover {
+// 						color: $main-color;
+// 					}
+// 				}
+// 			} 
+// 		}
+// 	}
+// 	#language {
+// 		color: #222;
+// 	}
+// 	.header-all {
+// 		.icon-menu {
+// 			span {
+// 				background: #222;
+// 			}
+// 		}
+// 	}
+//     &:after {
+//         background: rgba(#000, 0.1) !important;
+//         z-index: 1;
+//     }
+// }
 
 /* ALL STYLE */
 #all {
@@ -106,9 +102,9 @@ textarea {
 
 /*GOODS*/
 
-$color: #515151;
-$size: $font-size + rem(3px);
-$goods: rem(270px);
+$color: #797979;
+$size: $font-size + rem(2px);
+$goods: rem(380px);
 
 #index {
 	padding: 0 rem(30px);
@@ -134,11 +130,11 @@ $goods: rem(270px);
 	display: inline-block;
 	font-size: $font-size;
 	vertical-align: top;
-	margin: 0;
-	margin-right: ($inner - ($goods * 4)) / 3;
-	margin-bottom: $font-size * 3;
+	// margin: rem(20px) 0;
+	margin-right: ($inner - ($goods * 3)) / 2;
+	margin-bottom: rem(20px);
 
-	&:nth-of-type(4n) {
+	&:nth-of-type(3n) {
 		margin-right: 0;
 	}
 
@@ -156,11 +152,9 @@ $goods: rem(270px);
 		font-size: $font-size * 1.2;
 		width: $size * 3;
 		height: $size * 3;
-		background: darken(invert($main-color), 10);
+		background: darken(invert($main-color), 20);
 		color: #fff;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include flex;
 		font-weight: 200;
 		border-radius: 100%;
 	}
@@ -195,53 +189,90 @@ $goods: rem(270px);
 				opacity: 1;
 			}
 			img {
-				transform: scale(1.2);
+				transform: scale(1.05);
 			}
 		}
 	}
 
 	.txt {
-		letter-spacing: -0.05em;
+		letter-spacing: 0;
 		line-height: 1.2;
 		text-align: left;
-		margin-top: rem(30px);
+		padding-top: rem(20px);
+		@include flex($st, $st);
+		flex-direction: column;
+		min-height: rem(170px);
 		.name {
-			font-size: $size;
-			color: #454545;
-			@include ellipsis(2);
+			// font-family: 'Noto Sans KR', 'Pretendard', 'Roboto', sans-serif;
+			font-size: $size + rem(3px);
+			color: #111;
+			@include ellipsis(1);
+			letter-spacing: -0.01em;
+			font-weight: 600;
 		}
 		.comment {
-			margin-top: rem(5px);
-			font-size: rem(16px);
-			color: #868686;
+			font-size: $size;
+			color: #737373;
+			margin-top: rem(7px);
+			letter-spacing: 0.01em;
 			@include ellipsis(2);
 		}
-		.price {
-			margin-top: $font-size * 2;
-			font-size: $font-size;
-			.line {
-				color: mix($color, #fff, 50);
-				text-decoration: line-through;
-			}
-			div {
-				font-size: $parent-css;
-				line-height: 1;
-				font-weight: 400;
-				letter-spacing: -0.05em;
-				//color: material-color('blue', '700');
-				span {
-					font-size: rem(21px);
-					font-weight: 600;
-					margin-right: rem(5px);
-				}
-			}
-			.pv {
-				margin-top: $size / 2;
-				color: $main-color;
-				font-size: $parent-css;
-				font-weight: 600;
+	}
+	.price {
+		margin-top: auto;
+		padding-top: rem(15px);
+		border-top: 1px solid #e5e5e5;
+		width: 100%;
+		letter-spacing: -0.01em;
+		line-height: 1.2;
+		text-align: left;
+		@include flex($st, baseline);
+		flex-wrap: wrap;
+		
+		.line {
+			color: mix($color, #fff, 50);
+			text-decoration: line-through;
+			font-size: $size - rem(2px);
+			font-weight: 400;
+			margin-right: rem(10px);
+			// margin-top: rem(5px);
 
+			span {
+				color: $parent-css;
+				font-size: $parent-css;
+				font-weight: $parent-css;
 			}
+		}
+
+		div {
+			font-weight: 500;
+			line-height: 1;
+			letter-spacing: -0.05em;
+			color: #515151;
+			font-size: $size;
+			span {
+				// font-size: rem(21px);
+				font-size: $size + rem(3px);
+				color: #323232;
+				// margin-right: rem(5px);
+			}
+		}
+		.pvs {
+			margin-top: rem(5px);
+			font-size: $parent-css;
+			width: 100%;
+			color: adjust-hue($main-color, -100deg);
+			@include flex($st);
+			span {
+				font-size: $size;
+				color: $parent-css;
+			}
+		}
+		.pv {
+			margin-right: rem(10px);
+			// color: invert($main-color);
+			color: darken(invert($main-color), 20);
+			font-size: $parent-css;
 		}
 	}
 }
@@ -321,5 +352,3 @@ $goods: rem(270px);
 		}
 	}
 }
-
-@import 'footer';

@@ -59,7 +59,6 @@
 
 	a.depth {
 		@include position;
-
 	}
 
 	ol {
@@ -182,6 +181,12 @@
 
 				top: ($nav-size + $nav-right) * 2 + rem(2px);
 			}
+		}
+	}
+
+	.depth {
+		p + i {
+			display: none;
 		}
 	}
 }

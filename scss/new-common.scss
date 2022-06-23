@@ -1,0 +1,391 @@
+@import 'mixin-custom';
+
+input,
+textarea {
+	font-family: $parent-css;
+
+	&::placeholder,
+	&::-webkit-input-placeholder {
+		font-family: $parent-css;
+		color: rgba(#000, 0.4);
+		font-size: $parent-css;
+		line-height: 1.5;
+		font-weight: 500;
+		white-space: normal;
+		letter-spacing: -0.04em;
+	}
+}
+
+#header {
+	margin-bottom: 0;
+	color: #171717;
+
+	&:after {
+		background: rgba(#000, 0.1);
+	}
+
+	#logo {
+		.logo-w {
+			opacity: 0;
+		}
+		.logo {
+			opacity: 1;
+		}
+	}
+
+	.nav-main {
+		> li {
+			color: #171717;
+			> a {
+				font-weight: 500;
+
+				&:hover {
+					color: $sub-color;
+				}
+			}
+		}
+	}
+}
+
+#header.hover {
+	.nav-main {
+		.nav-sub {
+			a:hover {
+				color: $sub-color;
+				// color: #000;
+			}
+		}
+
+		&>li {
+			&>a {
+				&:hover {
+					color: $sub-color;
+				}
+			}
+		}
+	}
+}
+
+#login {
+	article {
+		width: 100%;
+		@include flex;
+	}
+	.visual {
+		@include position;
+		flex: 1;
+		width: 100%;
+		height: rem(600px);
+		.txts {
+			text-align: left;
+			div {
+				color: #404040;
+				font-family: 'KOHIBaeum', 'Preparend', 'Noto Sans KR', sans-serif;
+				line-height: 1.2;
+				letter-spacing: -0.07em;
+				font-size: rem(48px);
+				margin-top: rem(116px);
+			}
+			p {
+				color: #646363;
+				font-size: rem(38px);
+				line-height: 1.2;
+				letter-spacing: -0.04em;
+				font-weight: 300;
+				margin-top: rem(18px);
+			}
+		}
+		.imgs {
+			> div {
+				@include position(absolute);
+			}
+			img {
+				opacity: 0;
+			}
+			.graph {
+				background: url('/images/login/graph.png') no-repeat center / cover;
+				left: rem(64px);
+				bottom: rem(45px);
+			}
+			.robot {
+				background: url('/images/login/robot.png') no-repeat center / cover;
+				left: rem(313px);
+				bottom: rem(52px);
+			}
+			.people {
+				background: url('/images/login/people.png') no-repeat center / cover;
+				right: rem(106px);
+				bottom: rem(36px);
+			}
+		}
+	}
+}
+
+$input-height: rem(56px);
+
+#login {
+	font-size: rem(16px);
+	.inputs {
+		width: rem(380px);
+
+		.input-wrap {
+			margin-top: rem(80px);
+			@include inline-flex;
+			flex-direction: column;
+			width: 100%;
+		}
+
+		label {
+			font-size: rem(16px);
+			display: block;
+			width: 100%;
+			height: $input-height - rem(6px);
+			@include position;
+			margin: rem(10px) 0;
+			input {
+				@include default-0;
+				width: 100%;
+				height: 100%;
+				text-align: left;
+				font-size: $parent-css;
+				border-bottom: 1px solid #bfbfbf;
+			}
+
+			&:after {
+				@include presudo($ri: 0, $bot: 0, $h: 1px);
+				z-index: 1;
+				background: $sub-color;
+				// opacity: 0;
+				width: 0;
+				@include transition(all .3s);
+			}
+			&.focus {
+				&:after {
+					width: 100%;
+					opacity: 1;
+					right: auto;
+					left: 0;
+				}
+			}
+		}
+
+		.find {
+			text-align: right;
+			margin-top: rem(6px);
+			a {
+				color: #767676;
+				letter-spacing: -0.05em;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.button {
+			font-size: $parent-css;
+			font-family: $parent-css;
+			line-height: $parent-css;
+			@include inline-flex;
+			width: 100%;
+			height: $input-height;
+			vertical-align: $default-css;
+			background: $default-css;
+			margin: 0;
+			cursor: pointer;
+
+			&.login {
+				background: $sub-color;
+				color: #fff;
+				margin: rem(40px) 0;
+			}
+			&.join {
+				background: #fff;
+				color: #767676;
+				border: 1px solid #dbdbdb;
+				margin: rem(30px) 0;
+
+				&:hover {
+					color: #555;
+					border-color: #aaa;
+				}
+			}
+		}
+	}
+}
+
+#login {
+	.sns-login {
+		width: 100%;
+		text-align: center;
+		h6 {
+			color: #767676;
+			font-size: rem(16px);
+			font-weight: 400;
+			letter-spacing: -0.03em;
+			margin: rem(5px) 0;
+		}
+		ul {
+			width: 100%;
+			font-size: 0;
+			margin: rem(10px) 0;
+		}
+		li {
+			width: rem(48px);
+			height: rem(48px);
+			@include inline-flex;
+			vertical-align: middle;
+			margin: 0 rem(10px);
+			a {
+				width: 100%;
+				height: 100%;
+				@include flex;
+				@include rounded(100%);
+				border: 1px solid #e6e6e6;
+				font-size: rem(35px);
+
+			}
+		}
+		.naver {
+			$color: $naver-green;
+			a {
+				color: $color;
+				&:hover {
+					background: rgba($color, 0.1);
+					border-color: mix(#ddd, rgba($color, 0.1));
+				}
+			}
+		}
+		.kakao {
+			$color: $kakao-yellow;
+			a {
+				color: $color;
+				&:hover {
+					background: rgba($color, 0.1);
+					border-color: mix(#ddd, rgba($color, 0.1));
+				}
+			}
+			img {
+				width: rem(22px);
+			}
+		}
+		.google {
+			$color: material-color('grey', '500');
+			a {
+				color: $color;
+				&:hover {
+					background: rgba($color, 0.1);
+					border-color: mix(#ddd, rgba($color, 0.1));
+				}
+			}
+		}
+		.facebook {
+			$color: $facebook-old;
+			a {
+				color: $color;
+				&:hover {
+					background: rgba($color, 0.1);
+					border-color: mix(#ddd, rgba($color, 0.1));
+				}
+			}
+		}
+	}
+}
+
+#login {
+	.links {
+		width: 100%;
+		margin-top: rem(110px);
+		margin-bottom: rem(90px);
+
+		ul {
+			@include flex;
+			width: 100%;
+			font-size: 0;
+		}
+		li {
+			@include position;
+			display: inline-block;
+			width: rem(380px);
+			height: rem(80px);
+			margin: 0 rem(15px);
+
+			a {
+				@include flex;
+				width: 100%;
+				height: 100%;
+				@include rounded(rem(6px));
+				font-size: rem(18px);
+				letter-spacing: -0.01em;
+				font-weight: 600;
+				border: 1px solid;
+				box-shadow: 0px 0px 27px rgba(#000, 0.07);
+
+				&:before {
+					@include presudo($le: 0, $top: 0);
+					z-index: 1;
+					@include rounded(rem(7.5px));
+					background: #000;
+					mix-blend-mode: overlay;
+					opacity: 0;
+					@include transition(opacity 0s);
+				}
+				
+				&:hover {
+					&:before {
+						opacity: 0.5;
+					}
+				}
+			}
+
+			i {
+				font-size: rem(17px);
+				@include position(absolute, $ri: rem(35px), $top: 50%);
+				z-index: 0;
+				@include transform(translateY(-50%));
+			}
+
+			&:nth-of-type(1) {
+				margin-left: 0;
+				a {
+					color: #c2746f;
+					background: #fcefee;
+					border-color: #f7d9d7;
+					i {
+						color: #e4b2af;
+					}
+					&:hover {
+						box-shadow: 0 0 0 5px rgba(#f7d9d7, 0.5);
+					}
+				}
+			}
+			&:nth-of-type(2) {
+				a {
+					color: #c19754;
+					background: #fcf4e0;
+					border-color: #efe1be;
+					i {
+						color: #dabb88;
+					}
+					&:hover {
+						box-shadow: 0 0 0 5px rgba(#efe1be, 0.5);
+					}
+				}
+			}
+			&:nth-of-type(3) {
+				margin-right: 0;
+				a {
+					color: #8aa598;
+					background: #e9f5f0;
+					border-color: #cbe3d8;
+					i {
+						color: #a6c9b9;
+					}
+					&:hover {
+						box-shadow: 0 0 0 5px rgba(#cbe3d8, 0.5);
+					}
+				}
+			}
+		}
+	}
+}

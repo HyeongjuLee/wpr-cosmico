@@ -18,3 +18,11 @@ $save: material-color('green', '600');
 $nav-color: #333645;
 $myoffice-color: invert($main-color);
 $myoffice-color2: darken(adjust-color(invert($main-color), $saturation: -20), 10);
+$myoffice-color3: $oc-orange-7;
+
+$join-color-1: $main-color;
+$join-color-2: $oc-gray-7;
+$common-button-color: $main-color;
+
+$plus-color: mix(#fff, $oc-blue-5, 90);
+$minus-color: mix(#fff, $oc-red-5, 90);

@@ -185,7 +185,7 @@
 
 %>
 <!--#include virtual="/_include/document.asp" -->
-<link rel="stylesheet" type="text/css" href="join.css" />
+<link rel="stylesheet" type="text/css" href="/css/joinstep.css?" />
 <script type="text/javascript">
 
 	$(document).ready(function(){
@@ -753,7 +753,7 @@
 </head>
 <body>
 <!--#include virtual="/_include/header.asp" -->
-<div id="joinStep" class="common joinStep3">
+<div id="join03" class="common joinstep">
 
 	<form name="cfrm" method="post" action="joinFinish_g.asp" onsubmit="return chkSubmit(this);">
 		<input type="hidden" name="S_SellMemTF" value="<%=S_SellMemTF%>" readonly />
@@ -998,8 +998,8 @@
 				<div class="radio">
 					<h5><%=LNG_TEXT_SEX%>&nbsp;<%=starText%></h5>
 					<div class="con">
-						<label><input type="radio" name="isSex" value="M" checked="checked"/><i class="icon-ok"></i><span><%=LNG_TEXT_MALE%></span></label>
-						<label><input type="radio" name="isSex" value="F" /><i class="icon-ok"></i><span><%=LNG_TEXT_FEMALE%></span></label>
+						<label><input type="radio" name="isSex" value="M" checked="checked"/><span><i class="icon-ok"></i><%=LNG_TEXT_MALE%></span></label>
+						<label><input type="radio" name="isSex" value="F" /><span><i class="icon-ok"></i><%=LNG_TEXT_FEMALE%></span></label>
 					</div>
 				</div>
 				<%Select Case UCase(DK_MEMBER_NATIONCODE)%>
@@ -1079,8 +1079,8 @@
 						<input type="hidden" name="birthMM" value="<%=birthMM%>" readonly="readonly" />
 						<input type="hidden" name="birthDD" value="<%=birthDD%>" readonly="readonly" />
 						<div><p><%=birthYYYY%>-<%=birthMM%>-<%=birthDD%></p></div>
-						<label><input type="radio" name="isSolar" value="S" checked="checked"/><i class="icon-ok"></i><span><%=LNG_TEXT_SOLAR%></span></label>
-						<label><input type="radio" name="isSolar" value="M" /><i class="icon-ok"></i><span><%=LNG_TEXT_LUNAR%></span></label>
+						<label><input type="radio" name="isSolar" value="S" checked="checked"/><span><i class="icon-ok"></i><%=LNG_TEXT_SOLAR%></span></label>
+						<label><input type="radio" name="isSolar" value="M" /><span><i class="icon-ok"></i><%=LNG_TEXT_LUNAR%></span></label>
 					</div>
 				</div>
 			</article>

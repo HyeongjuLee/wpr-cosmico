@@ -18,6 +18,7 @@
 <!--#include virtual = "/_include/document.asp"-->
 <%End If%>
 <link rel="stylesheet" href="css_common.css" />
+<link rel="stylesheet" href="/css/board.css?" />
 <%
 	Select Case DK_MEMBER_TYPE
 		Case "MEMBER","GUEST","COMPANY"
@@ -303,9 +304,8 @@
 <!--#include virtual = "/_include/header.asp"-->
 <%End If%>
 <!--#include file = "_inc_board_top.asp" -->
-<!--'include virtual = "/_include/sub_title.asp"-->
-<p><%=ViewTopImg%></p>
-<div id="forum">
+<div class="board-title"><%=LNG_BOARD_BTN_REPLY%></div>
+<div id="forum" class="board write">
 	<form name="frm" action="boardHandler.asp" method="post" enctype="multipart/form-data" onsubmit="return frmCheck(this)">
 		<input type="hidden" name="mode" value="REPLY" />
 		<input type="hidden" name="strUserID" value="<%=DK_MEMBER_ID%>" />
@@ -314,7 +314,7 @@
 		<input type="hidden" name="intList" value="<%=intList%>" />
 		<input type="hidden" name="intDepth" value="<%=intDepth%>" />
 		<input type="hidden" name="intRIDX" value="<%=intRIDX%>" />
-		<table <%=tableatt%> class="userCWidth2 write">
+		<table <%=tableatt%> class="width100">
 			<colgroup>
 				<col width="150" />
 				<col width="*" />
@@ -350,15 +350,15 @@
 			<%=printData2%>
 			<%=printData3%>
 			<tr>
-				<td colspan="2" class="btn_area">
-
-					<input type="submit" class="input_submit design1" value="<%=LNG_BOARD_BTN_SAVE%>" />
-					<input type="button" class="input_submit design3" value="<%=LNG_BOARD_BTN_LIST%>" onclick="history.back(-1);"/>
+				<td colspan="2" class="btn_area tcenter">
+					<input type="submit" class="button write" value="<%=LNG_BOARD_BTN_SAVE%>" />
+					<input type="button" class="button list" value="<%=LNG_BOARD_BTN_LIST%>" onclick="history.back(-1);"/>
 					<!-- <input name="image" type="image" src="./images/btn_bbs03.gif" style="width:59px; height:21px;" align="middle"  /> <img src="./images/btn_bbs02.gif" width="59" height="21" alt="" onclick="history.back(-1);"  <%=s_cursor%> align="middle" /> -->
 				</td>
 			</tr>
 		</table>
 	</form>
+</div>
 </div>
 <%IF CONST_MOBILE_ONLY = "T" Then%>
 <!--#include virtual = "/admin/_inc/copyright.asp"-->

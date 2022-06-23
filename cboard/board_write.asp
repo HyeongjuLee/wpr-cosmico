@@ -12,7 +12,7 @@
 <!--#include virtual = "/_include/document.asp"-->
 <%End If%>
 <link rel="stylesheet" href="css_common.css" />
-<link rel="stylesheet" href="/css/board.css?v0" />
+<link rel="stylesheet" href="/css/board.css?" />
 <script type="text/javascript" src="/jscript/daterangepicker/moment-with-locales.js"></script>
 
 <script type="text/javascript" src="/jscript/daterangepicker/daterangepicker.js"></script>
@@ -527,7 +527,7 @@
 <%End If%>
 <!--#include file = "_inc_board_top.asp" -->
 
-<p><%=ViewTopImg%></p>
+<div class="board-title"><%=LNG_BOARD_BTN_WRITE%></div>
 <div id="forum" class="board write">
 	<form name="frm" action="boardHandler.asp" method="post" enctype="multipart/form-data" onsubmit="return frmCheck(this)">
 		<input type="hidden" name="mode" value="INSERT" />
@@ -602,6 +602,7 @@
 			</tr>
 		</table>
 	</form>
+</div>
 </div>
 <%IF CONST_MOBILE_ONLY = "T" Then%>
 <!--#include virtual = "/admin/_inc/copyright.asp"-->

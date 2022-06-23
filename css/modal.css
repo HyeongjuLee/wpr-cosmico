@@ -1,21 +1,17 @@
 @charset "UTF-8";
-body { font-size: 1.5rem; line-height: 1.5; }
-
-body { font-size: 9pt; }
-
 .ui-dialog { font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ line-height: 1.5; }
 .ui-dialog .ui-dialog-titlebar { padding: 1.5rem 2.25rem; }
 .ui-dialog .ui-dialog-titlebar .ui-button-icon-only { text-indent: initial; }
 .ui-dialog .ui-dialog-titlebar-close { right: 1.5rem; top: 1.5rem; width: 3rem; height: 3rem; margin: 0; margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; }
 .ui-dialog .ui-dialog-titlebar-close i { font-size: 1.5rem; color: inherit; }
 .ui-dialog .ui-dialog-titlebar-close:active { color: inherit; }
-.ui-dialog .ui-dialog-title { margin: 0; font-size: 20px; font-weight: 700; position: relative; overflow: initial !important; }
+.ui-dialog .ui-dialog-title { margin: 0; font-size: 2rem; font-weight: 700; position: relative; overflow: initial !important; }
 .ui-dialog .ui-dialog-title i { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; position: relative; }
-.ui-dialog .ui-dialog-title i:before { content: ""; position: absolute; bottom: -5px; left: 0; width: 100%; height: 1.5rem; background: rgba(238, 107, 99, 0.2); z-index: -1; }
+.ui-dialog .ui-dialog-title i:before { content: ""; position: absolute; bottom: -5px; left: 0; width: 100%; height: 1.5rem; background: rgba(28, 40, 123, 0.2); z-index: -1; }
 .ui-dialog .ui-dialog-title .select_voter { width: 100%; margin-top: 1.5rem; line-height: 1.2; font-size: 1.7rem; position: absolute; left: 0; z-index: 1; }
 .ui-dialog .ui-dialog-buttonpane { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; text-align: center; margin: 2rem; }
 .ui-dialog .ui-dialog-buttonset { float: initial !important; width: 100%; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
-.ui-dialog .ui-dialog-buttonset button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #d5d5d5; background: #eeeeee; color: #111111; padding: 0 15px; flex: auto; height: 45px; font-size: 15px; }
+.ui-dialog .ui-dialog-buttonset button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #d5d5d5; background: #eeeeee; color: #111111; flex: auto; height: 4.5rem; font-size: 1.5rem; }
 .ui-dialog .ui-dialog-buttonset button:hover { color: #fff; text-decoration: none; background: #fbfbfb; }
 .ui-dialog .ui-dialog-buttonset button:active { color: white; background: #e1e1e1; }
 .ui-dialog .ui-dialog-buttonset button:hover { color: #111111; background: #e0e0e0; border-color: #bdbdbd; }
@@ -44,7 +40,7 @@ body { font-size: 9pt; }
 #pop_search .searchs .search i { color: #fff; font-size: 2rem; }
 #pop_search .tables { width: 100%; margin: 1.5rem 0; color: #222; font-size: 1.3rem; }
 #pop_search .tables table { border: none; margin: 1.5rem 0; }
-#pop_search .tables tr.cp:hover { background: rgba(83, 90, 171, 0.05); }
+#pop_search .tables tr.cp:hover { background: rgba(255, 255, 255, 0.05); }
 #pop_search .tables tr:nth-of-type(1) th { border-top-width: 2px; }
 #pop_search .tables th, #pop_search .tables td { padding: 1.25rem; border: none; height: 4.5rem; text-align: center; }
 #pop_search .tables th { border: 1px solid #212121; border-left: none; border-right: none; color: #212121; }

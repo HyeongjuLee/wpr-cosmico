@@ -15,7 +15,13 @@
 		});
 	</script> -->
 
-	<link rel="stylesheet" type="text/css" href="/css/myoffice.css?v0.3">
+	<script type="text/javascript">
+		$(function(){
+			$('.sub-title').append($('.board-title'));
+		})
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="/css/myoffice-basic.css?">
 
 	<div id="contain_wrap" class="layout_wrap">
 		<div id="sub-header" class="sub-header">
@@ -23,7 +29,7 @@
 				<article class="sub-header-txt">
 					<!--#include virtual = "/_include/sub_header_text.asp"-->
 				</article>
-				<article class="header-top-btn">
+				<article class="myoffice-top-btn">
 					<!-- <a class="home" href="/main/index.asp"><%=LNG_HEADER_HOME%></a> -->
 					<a class="home" href="/index.asp"><%=LNG_HEADER_HOME%></a>
 					<a class="logout" href="/common/member_logout.asp"><%=LNG_TEXT_LOGOUT%></a>
@@ -31,7 +37,7 @@
 			</div>
 		</div>
 
-		<div id="contain" class="layout_inner">
+		<div id="contain_M" class="layout_inner">
 			<!--#include virtual = "/_include/nav_myoffice.asp"-->
 			<div id="content">
 				<div class="sub-title"><%=MAP_DEPTH3%></div>

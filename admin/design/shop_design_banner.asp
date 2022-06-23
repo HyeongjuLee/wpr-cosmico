@@ -96,7 +96,7 @@
 	strTitleMaxLength1	= 30
 	strTitleMaxLength2	= 40
 	strContentMaxLength = 80
-	strContentMaxLength2 = 150
+	strContentMaxLength2 = 148
 	strTitleMaxRow = 2
 
 %>
@@ -421,9 +421,9 @@
 									<th>타이틀</th>
 									<td>
 										<input type="text" name="strTitle" class="input_text fleft" style="width: 80%;" />
-										<div class="remainingTXT fleft">&nbsp;(<span class="count">0</span> / <span class="maxCount"><%=strTitleMaxLength1%></span> byte)
+										<div class="remainingTXT fleft">&nbsp;(<span class="count">0</span> / <span class="maxCount"><%=strTitleMaxLength2%></span> byte)
 									</td>
-									<td class="tweight red">최대 <%=strTitleMaxLength1%> byte 까지 작성 가능합니다.</td>
+									<td class="tweight red">최대 <%=strTitleMaxLength2%> byte 까지 작성 가능합니다.</td>
 								</tr>
 							<%	End If%>
 
@@ -434,7 +434,7 @@
 										<input type="text" name="strSubTitle" class="input_text fleft" style="width: 80%;" />
 										<div class="remainingTXT fleft">&nbsp;(<span class="count">0</span> / <span class="maxCount"><%=strContentMaxLength%></span> byte)
 									</td>
-									<td class="tweight red">최대 <%=strTitleMaxLength2%> byte 까지 작성 가능합니다.</td>
+									<td class="tweight red">최대 <%=strTitleMaxLength%> byte 까지 작성 가능합니다.</td>
 								</tr>
 							<%End If%>
 							<%If viewDesc = "T" Then%>
@@ -442,9 +442,9 @@
 									<th>짧은 설명</th>
 									<td>
 										<textarea name="strScontent" class="input_area fleft" cols="50" rows="10" style="width:80%; height:80px;resize:none;"></textarea>
-										<div class="remainingTXT fleft">&nbsp;(<span class="count">0</span> / <span class="maxCount"><%=strContentMaxLength%></span>byte) / <span class="maxRow"><%=strTitleMaxRow%></span>줄</div>
+										<div class="remainingTXT fleft">&nbsp;(<span class="count">0</span> / <span class="maxCount"><%=strContentMaxLength2%></span>byte) / <span class="maxRow"><%=strTitleMaxRow%></span>줄</div>
 									</td>
-									<td class="tweight red">최대 <%=strContentMaxLength%> byte / <%=strTitleMaxRow%>줄 까지 작성 가능합니다.</td>
+									<td class="tweight red">최대 <%=strContentMaxLength2%> byte / <%=strTitleMaxRow%>줄 까지 작성 가능합니다.</td>
 								</tr>
 							<%End If%>
 							<tr>

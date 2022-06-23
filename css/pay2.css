@@ -1,0 +1,149 @@
+.myoffice_pay .searchs .labels { grid-column: 2/6; margin-right: 0; padding-right: 0; }
+.myoffice_pay.pay03 .buttons { grid-column: 6/13; }
+
+.total { width: 100%; box-shadow: 0px 0px 0px 1px #d067ec; text-align: center; }
+.total table { border: none; }
+.total tr { border: none; }
+.total th, .total td { border: none; padding: 0.5rem 1rem; }
+.total thead th { background: #faeffd; color: #76617c; font-weight: 600; border: 1px solid #ecc2f7; }
+.total tbody tr { border-bottom: 1px solid #ede8ef; }
+.total tbody th { border: 1px solid #e6d1ec; background: #f9f7fa; font-weight: 600; color: #76617c; }
+.total tbody td { border: 1px solid #ede8ef; }
+.total thead th:first-of-type { border-left: none; }
+.total thead th:last-of-type { border-right: none; }
+.total tbody th:first-of-type { border-left: none; }
+.total tbody td:first-of-type { border-left: none; }
+.total tbody td:last-of-type { border-right: none; }
+.total tr:first-of-type th { border-top: none; }
+.total tr:first-of-type td { border-top: none; }
+.total tbody tr:last-of-type { border-bottom: none; }
+.total tbody tr:last-of-type th { border-bottom: none; }
+.total tbody tr:last-of-type td { border-bottom: none; }
+.total tbody th { background: #f6ecf8; }
+.total th, .total td { height: 5rem; }
+.total td:hover { background: rgba(248, 240, 252, 0.5); }
+
+.table { width: 100%; }
+.table table { border: none; }
+.table tr { border: none; }
+.table th, .table td { border: none; padding: 0.5rem 1rem; }
+.table thead th { background: #fef0e6; color: #7e6a5b; font-weight: 600; border: 1px solid #fcd3b5; }
+.table tbody tr { border-bottom: 1px solid #efe8e3; }
+.table tbody th { border: 1px solid #eedacb; background: #faf8f7; color: #7e6a5b; }
+.table tbody td { border: 1px solid #efe8e3; }
+.table thead th:first-of-type { border-left: none; }
+.table thead th:last-of-type { border-right: none; }
+.table tbody th:first-of-type { border-left: none; }
+.table tbody th:last-of-type { border-right: none; }
+.table tbody th + td { border-left: 1px solid #eedacb !important; }
+.table tbody td:first-of-type { border-left: none; }
+.table tbody td:last-of-type { border-right: none; }
+.table th, .table td { height: 5rem; }
+.table .remarks { width: 10%; }
+
+.totals_table { width: 100%; box-shadow: 0px 0px 0px 1px #b3b3b3; }
+.totals_table table { border: none; }
+.totals_table tr { border: none; }
+.totals_table th, .totals_table td { border: none; padding: 0.5rem 1rem; }
+.totals_table thead th { background: white; color: #737373; font-weight: 600; border: 1px solid #e6e6e6; }
+.totals_table tbody tr { border-bottom: 1px solid #f0f0f0; }
+.totals_table tbody th { border: 1px solid #e3e3e3; background: #f9f9f9; font-weight: 600; color: #737373; }
+.totals_table tbody td { border: 1px solid #f0f0f0; }
+.totals_table thead th:first-of-type { border-left: none; }
+.totals_table thead th:last-of-type { border-right: none; }
+.totals_table tbody th:first-of-type { border-left: none; }
+.totals_table tbody td:first-of-type { border-left: none; }
+.totals_table tbody td:last-of-type { border-right: none; }
+.totals_table tr:first-of-type th { border-top: none; }
+.totals_table tr:first-of-type td { border-top: none; }
+.totals_table tbody tr:last-of-type { border-bottom: none; }
+.totals_table tbody tr:last-of-type th { border-bottom: none; }
+.totals_table tbody tr:last-of-type td { border-bottom: none; }
+.totals_table th, .totals_table td { height: 5rem; }
+
+.pay_totals { width: 100%; font-size: inherit; }
+
+.pay_detail_both { display: flex; justify-content: space-between; align-items: flex-start; }
+
+.pay_detail.left { width: calc(45% - 50px); }
+.pay_detail.right { width: 55%; }
+
+.pay_detail_table { width: 100%; box-shadow: 0px 0px 0px 1px #9d9da1; text-align: center; }
+.pay_detail_table table { border: none; }
+.pay_detail_table tr { border: none; }
+.pay_detail_table th, .pay_detail_table td { border: none; padding: 0.5rem 1rem; }
+.pay_detail_table thead th { background: #ebebec; color: #69696a; font-weight: 600; border: 1px solid #d1d1d3; }
+.pay_detail_table tbody tr { border-bottom: 1px solid #e6e6e6; }
+.pay_detail_table tbody th { border: 1px solid #d9d9da; background: #f8f8f8; font-weight: 600; color: #69696a; }
+.pay_detail_table tbody td { border: 1px solid #e6e6e6; }
+.pay_detail_table thead th:first-of-type { border-left: none; }
+.pay_detail_table thead th:last-of-type { border-right: none; }
+.pay_detail_table tbody th:first-of-type { border-left: none; }
+.pay_detail_table tbody td:first-of-type { border-left: none; }
+.pay_detail_table tbody td:last-of-type { border-right: none; }
+.pay_detail_table tr:first-of-type th { border-top: none; }
+.pay_detail_table tr:first-of-type td { border-top: none; }
+.pay_detail_table tbody tr:last-of-type { border-bottom: none; }
+.pay_detail_table tbody tr:last-of-type th { border-bottom: none; }
+.pay_detail_table tbody tr:last-of-type td { border-bottom: none; }
+.pay_detail_table tbody th { background: #ececf1; }
+.pay_detail_table th, .pay_detail_table td { height: 4.5rem; }
+.pay_detail_table .detail_btn:not(.noline):hover { background: #5c5e6a; border-color: #5c5e6a; }
+.pay_detail_table .nodata { border-color: #999ba2; }
+.pay_detail_table .nodata p { display: flex; justify-content: center; align-items: center; }
+.pay_detail_table.nodata { box-shadow: 0px 0px 0px 1px #d6d7da; }
+
+.sticky-wrap { width: 100%; height: auto; margin: auto; overflow: hidden; position: relative; }
+.sticky-wrap:before { content: ""; position: absolute; top: 0; left: 0; width: 1px; height: 100%; z-index: 5; background: #9d9da1; }
+.sticky-wrap:after { content: ""; position: absolute; bottom: 0; right: 0; width: 1px; height: 100%; z-index: 5; background: #9d9da1; }
+.sticky-wrap > .line:before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 1px; z-index: 5; background: #9d9da1; }
+.sticky-wrap > .line:after { content: ""; position: absolute; bottom: 0; right: 0; width: 100%; height: 1px; z-index: 5; background: #9d9da1; }
+
+.sticky { width: 100%; height: auto; overflow: auto; max-height: 350px; }
+.sticky::-webkit-scrollbar { position: relative; width: 1.4rem; z-index: 2; }
+.sticky::-webkit-scrollbar-thumb { background: #9d9da1; background-clip: padding-box; border: 0.3rem solid transparent; -moz-border-radius: 1.4rem; -webkit-border-radius: 1.4rem; border-radius: 1.4rem; cursor: pointer; }
+.sticky::-webkit-scrollbar-track { background: #f5f5f5; box-shadow: inset 1px 0 0 #aaa; z-index: 1; }
+
+.pay_sticky_table { text-align: center; width: 100%; box-shadow: 0px 0px 0px 1px #9d9da1; }
+.pay_sticky_table table { border: none; }
+.pay_sticky_table tr { border: none; }
+.pay_sticky_table th, .pay_sticky_table td { border: none; padding: 0.5rem 1rem; }
+.pay_sticky_table thead th { background: #ebebec; color: #69696a; font-weight: 600; border: 1px solid #d1d1d3; }
+.pay_sticky_table tbody tr { border-bottom: 1px solid #e6e6e6; }
+.pay_sticky_table tbody th { border: 1px solid #d9d9da; background: #f8f8f8; font-weight: 600; color: #69696a; }
+.pay_sticky_table tbody td { border: 1px solid #e6e6e6; }
+.pay_sticky_table thead th:first-of-type { border-left: none; }
+.pay_sticky_table thead th:last-of-type { border-right: none; }
+.pay_sticky_table tbody th:first-of-type { border-left: none; }
+.pay_sticky_table tbody td:first-of-type { border-left: none; }
+.pay_sticky_table tbody td:last-of-type { border-right: none; }
+.pay_sticky_table tr:first-of-type th { border-top: none; }
+.pay_sticky_table tr:first-of-type td { border-top: none; }
+.pay_sticky_table tbody tr:last-of-type { border-bottom: none; }
+.pay_sticky_table tbody tr:last-of-type th { border-bottom: none; }
+.pay_sticky_table tbody tr:last-of-type td { border-bottom: none; }
+.pay_sticky_table thead th { box-shadow: inset 0px 1px 0 #d1d1d3, inset -1px -1px 0 #d1d1d3; border: none; }
+.pay_sticky_table thead th:last-of-type { box-shadow: inset 0px 1px 0 #d1d1d3, inset 0px -1px 0 #d1d1d3; }
+.pay_sticky_table tbody th { background: #ececf1; }
+.pay_sticky_table th, .pay_sticky_table td { height: 4.5rem; }
+.pay_sticky_table thead th { position: sticky; top: 0; white-space: nowrap; }
+
+.plus th { background: #ebf5fe !important; border-color: #baddfc !important; color: #5d6f7e !important; }
+.plus td { background: #f5faff !important; border-color: #e4e8ec !important; }
+
+.minus th { background: #fff0f0 !important; border-color: #ffd7d7 !important; color: #806c6c !important; }
+.minus td { background: #fff8f8 !important; border-color: #ece6e6 !important; }
+
+.pay_paging { font-size: 0; padding-top: 3rem; text-align: center; display: flex; justify-content: center; align-items: center; width: 100%; }
+.pay_paging span { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; display: inline-flex; justify-content: center; align-items: center; position: relative; width: 3rem; height: 3rem; border: 1px solid #d6d7da; color: #5c5e6a; font-size: 1.5rem; font-weight: 500; margin: 0 -0.5px; }
+.pay_paging span a { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; cursor: pointer; text-decoration: none; width: 100%; height: 100%; height: 100%; font-weight: 300; color: #6a6a6a; display: flex; justify-content: center; align-items: center; }
+.pay_paging span a:hover { color: #5c5e6a; text-decoration: none; border: none; background: #f7f7f8; }
+.pay_paging span.currentPage { border-color: #5c5e6a; background: #5c5e6a; color: #fff; font-weight: 500; z-index: 1; }
+.pay_paging span.arrow { border: 1px solid #c6c7cb; }
+.pay_paging span.arrow i { font-size: 1.7rem; color: #adb5bd; }
+.pay_paging span.arrow.left i { -moz-transform: translateX(-5%); -webkit-transform: translateX(-5%); transform: translateX(-5%); }
+.pay_paging span.arrow.right i { -moz-transform: translateX(5%); -webkit-transform: translateX(5%); transform: translateX(5%); }
+.pay_paging span.arrow.margin.left { margin-right: 1.5rem; }
+.pay_paging span.arrow.margin.right { margin-left: 1.5rem; }
+.pay_paging span.arrow:hover { border-color: #adb5bd; z-index: 1; }
+.pay_paging span.arrow:hover i { color: #495057; }

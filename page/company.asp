@@ -17,7 +17,7 @@
 	<div id="pages">
 	<%Select Case view%>
 	<%Case "1"%>
-		<div id="company" class="company01">
+		<!-- <div id="company" class="company01">
 			<div class="txt">
 				<div class="tit"><%=LNG_COMPANY_01_1%></div>
 				<i></i>
@@ -28,14 +28,24 @@
 				<p><%=LNG_COMPANY_01_6%></p>
 			</div>
 			<div class="img"><img src="/images/content/company01_2.jpg" alt=""></div>
+		</div> -->
+		<div class="ready">
+			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
+			<p><%=LNG_READY_02_01%></p>
 		</div>
 	<%Case "2"%>
-		<div><img src="/images/content/company02(1).jpg" alt=""></div>
+		<div class="ready">
+			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
+			<p><%=LNG_READY_02_01%></p>
+		</div>
 	<%Case "3"%>
-		<div><img src="/images/content/company03_2.jpg" alt=""></div>
+		<div class="ready">
+			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
+			<p><%=LNG_READY_02_01%></p>
+		</div>
 	<%Case "4"%>
-		<div class="ready1">
-			<div><img src="/images/content/maintenance-line(1).svg" alt=""></div>
+		<div class="ready">
+			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
 			<p><%=LNG_READY_02_01%></p>
 		</div>
 

@@ -83,8 +83,16 @@
 			};
 		});
 	</script>
+
+
+
 	<!-- header S-->
-	<header>
+	<%Select Case PAGE_SETTING%>
+	<%Case "COMMON", "JOIN"%>
+		<header class="commons">
+	<%Case Else%>
+		<header>
+	<%End Select%>
 		<div id="header" class="header">
 			<article>
 				<div id="logo"><a href="/index.asp"><img src="/images/share/logo.svg?" alt="" /></a></div>
@@ -103,7 +111,7 @@
 				</nav>
 				<div class="header-top-btn">
 					<div class="member">
-						<i class="icon-member-1"></i>
+						<a href="/myoffice/buy/order_list.asp" title="<%=LNG_HEADER_MYOFFICE%>"><i class="icon-member-1"></i></a>
 					</div>
 					<div class="searchs">
 						<i class="icon-search-1"></i>
@@ -185,37 +193,36 @@
 			<article class="sub-header-img">
 				<%Select Case PAGE_SETTING%>
 				<%Case "COMPANY"%>
-					<img src="/images/index/sub01.jpg" alt="" />
-				<%Case "BUSINESS"%>
-					<img src="/images/index/sub02.jpg" alt="" />
+					<img src="/images/top/s01.jpg" alt="" />
 				<%Case "BRAND"%>
-					<img src="/images/index/sub04.jpg" alt="" />
+					<img src="/images/top/s02.jpg" alt="" />
+				<%Case "PRODUCT"%>
+					<img src="/images/top/s03.jpg" alt="" />
+				<%Case "BUSINESS"%>
+					<img src="/images/top/s04.jpg" alt="" />
+				<%Case "GUIDE"%>
+					<img src="/images/top/s05.jpg" alt="" />
+				<%Case "COMMUNITY"%>
+					<img src="/images/top/s06.jpg" alt="" />
 				<%Case "CUSTOMER"%>
-					<img src="/images/index/sub05.jpg" alt="" />
+					<img src="/images/top/s07.jpg" alt="" />
 				<%Case "MYOFFICE"%>
-					<img src="/images/index/sub03.jpg" alt="" />
 				<%Case "COMMON"%>
 				<%Case "MEMBERSHIP"%>
+				<%Case "SNS"%>
 				<%Case Else%>
-					<img src="/images/index/sub03.jpg" alt="" />
+					<img src="/images/top/s07.jpg" alt="" />
 				<%End Select%>
 			</article>
 			<article class="sub-header-txt">
 				<!--#include virtual = "/_include/sub_header_text.asp"-->
-				<%If PAGE_SETTING = "MYOFFICE" Then%>
-					<div class="myoffice-top-btn">
-						<a class="home" href="/index.asp"><%=LNG_SHOP_HEADER_TXT_05%></a>
-						<a class="logout" href="/common/member_logout.asp"><%=LNG_TEXT_LOGOUT%></a>
-					</div>
-				<%Else%>
-				<%End If%>
 			</article>
 		</div>
 
 	<%End If%>
 		<%	If ISLEFT = "T" Then%>
 		<%If PAGE_SETTING <> "MYOFFICE" Then%>
-		<!--#include virtual = "/_include/left2.asp"-->
+		<!--#include virtual = "/_include/left.asp"-->
 		<%Else%>
 		<%End If%>
 		<div id="contain" class="layout_inner">

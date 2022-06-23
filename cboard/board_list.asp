@@ -13,7 +13,7 @@
 <!--#include virtual = "/_include/document.asp"-->
 <%End If%>
 <link rel="stylesheet" href="css_common.css" />
-<link rel="stylesheet" href="/css/board.css?v0" />
+<link rel="stylesheet" href="/css/board.css?" />
 
 <%
 
@@ -141,7 +141,8 @@
 		<!--#include file = "Type_limitReply.asp" -->
 
 <%End Select%>
-
+</div>
+</div>
 <%IF CONST_MOBILE_ONLY = "T" Then%>
 <!--#include virtual = "/admin/_inc/copyright.asp"-->
 <%Else%>
