@@ -508,70 +508,67 @@
 									<!-- <td class="tright td"><span><%=num2cur(arr_price)%></span></td> -->
 									<td class="tright td"><span><%=num2cur(arr_ItemPrice)%></span></td>
 								</tr>
-								<%
-									'◆배송정보 1번만
-									If j = 0 Then
-										If arr_Receive_Method = 2 Then
-											DELIVERY_WAY = "<a href=""javascript:toggle_tbody_inner('tbodyIn"&i&j&"')"" id=""detail_tbodyIn"&i&j&""" class=""detail_btn"">"&LNG_SHOP_ORDER_BTN_DETAILVIEW&"</a>"
-										End If
-									Else
-										DELIVERY_WAY = ""
-									End If
-								%>
 								<tr>
 									<td class="tcenter td"><%=DELIVERY_WAY%></td>
 									<td class="tcenter td" style="height:14px;"><%=(arr_ItemCount)%> / <%=num2curINT(arr_ItemPV)%><%=CS_PV%></td>
 									<td class="tright td"><%=num2cur(arr_ItemTotalPrice)%></td>
 								</tr>
-							</tbody>
-						</table>
-						<table <%=tableatt%> class="innerTable width100" id="tbodyIn<%=i%><%=j%>" style="display:none; margin-top: 15px;">
-							<tbody>
-								<col width="80" />
-								<col width="*" />
-								<thead>
-									<tr>
-										<th colspan="2"><%=LNG_CS_ORDER_LIST_DETAIL_TEXT18%></th>
-									</tr>
-								</thead>
-								<tr>
-									<th><%=LNG_TEXT_RECIPIENT%></th>
-									<td class="td"><%=arr_Get_Name1%></td>
-								</tr><!-- <tr>
-									<th><%=LNG_CS_ORDER_LIST_DETAIL_TEXT20%></th>
-									<td class="td"><%=DELIVERY_WAY%></td>
-								</tr> --><tr>
-									<th><%=LNG_CS_ORDER_LIST_DETAIL_TEXT21%></th>
-									<td class="td"><%=DELIVERY_NO%></td>
-								</tr><tr>
-									<th><%=LNG_CS_ORDER_LIST_DETAIL_TEXT22%></th>
-									<td class="td"><%=arr_Get_Tel1%></td>
-								</tr><tr>
-									<th><%=LNG_CS_ORDER_LIST_DETAIL_TEXT23%></th>
-									<td class="td"><%=arr_Get_Tel2%></td>
-								</tr><tr>
-									<th><%=LNG_TEXT_ZIPCODE%></th>
-									<td class="td"><%=arr_Get_ZipCode%></td>
-								</tr><tr>
-									<th><%=LNG_TEXT_ADDRESS1%></th>
-									<td class="td"><%=arr_Get_Address1%>&nbsp;<%=arr_Get_Address2%></td>
-								</tr>
-							<%
-									Next
-								Set objEncrypter = Nothing
-								Else
-							%>
+								<%
+											'◆배송정보 1번만 New
+											If arr_Receive_Method = 2 Then DELIVERY_CNT = DELIVERY_CNT + 1 Else DELIVERY_CNT = 0
+
+										Next
+									Set objEncrypter = Nothing
+									Else
+								%>
 								<tr>
 									<td class="th tweight" colspan="4"><%=LNG_CS_ORDER_LIST_PURCHASE_PRODUCT%></td>
 								</tr><tr>
 									<td class="tcenter" colspan="4" style="height:14px;"><%=LNG_CS_ORDER_LIST_DETAIL_TEXT26%></td>
 								</tr>
-							<%
-								End If
-							%>
+								<%
+									End If
+								%>
+							</tbody>
 						</table>
-					</td>
-				</tr>
+
+						<%If DELIVERY_CNT > 0 Then '◆배송정보 1번만 New%>
+						<%
+							If arr_Get_Tel1	<> "" And arr_Get_Tel2 <> "" Then
+								arr_Get_Tel2 = " / "&arr_Get_Tel2
+							End If
+						%>
+						<table <%=tableatt%> class="innerTable width100" style="margin-top:15px;">
+							<col width="80" />
+							<col width="*" />
+							<thead>
+								<tr>
+									<th colspan="2"><%=LNG_CS_ORDER_LIST_DETAIL_TEXT18%></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th><%=LNG_CS_ORDER_LIST_DETAIL_TEXT21%></th>
+									<td class="td"><%=DELIVERY_NO%></td>
+								</tr>
+								<tr>
+									<th><%=LNG_TEXT_RECIPIENT%></th>
+									<td class="td"><%=arr_Get_Name1%></td>
+								</tr>
+								<tr>
+									<th><%=LNG_CS_ORDER_LIST_DETAIL_TEXT23%></th>
+									<td class="td"><%=arr_Get_Tel1%><%=arr_Get_Tel2%></td>
+								</tr>
+								<tr>
+									<th><%=LNG_TEXT_ADDRESS1%></th>
+									<td class="td">[<%=arr_Get_ZipCode%>] <%=arr_Get_Address1%>&nbsp;<%=arr_Get_Address2%></td>
+								</tr>
+							</tbody>
+						</table>
+						<%End If%>
+
+				</td>
+			</tr>
 			</tbody>
 		<%
 

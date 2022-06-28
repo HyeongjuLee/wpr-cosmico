@@ -19,7 +19,7 @@ $top-logo-width: rem(165px);
 $top-logo-height: rem(40px);
 $top-logo-margin: ($top-height / 2) - ($top-logo-height / 2); //top-height 에서 중앙정렬
 $top-nav-index: 1;
-$color: #fff;
+$color: #000;
 // $nav-bg: material-color('grey', '50');
 $nav-bg: #fff;
 
@@ -90,7 +90,7 @@ header {
 		img {
 			width: $top-logo-width;
 			height: $top-logo-height;
-			filter: brightness(10) contrast(10);
+			// filter: brightness(10) contrast(10);
 		}
 
 	}
@@ -351,9 +351,10 @@ $top-menu-height: ($top-menu-font-size * (150 / 100)) + ($padding * 2);
 				@include position;
 				@include default-a;
 				@include flex;
-				padding: 0 17.5px;
-				padding-top: rem(20px);
-				height: $top-height;
+				padding: 20px 17.5px;
+				height: $top-height / 2;
+				margin-top: ($top-height / 2) - rem(25px);
+				margin-bottom: rem(25px);
 				font-size: $top-menu-font-size;
 				//padding: $padding 0;
 				word-wrap: break-word;
@@ -458,119 +459,76 @@ $top-menu-height: ($top-menu-font-size * (150 / 100)) + ($padding * 2);
 	}
 }
 
-.nav-main:hover {
-	max-height: 100vh;
+// .nav:hover {
+// 	.nav-main {
+// 		max-height: 100vh;
 
-	&::after {
-		height: 100%;
-		box-shadow: 0 rem(5px) rem(10px) rgba(#000, 0.05);
-	}
+// 		&::after {
+// 			height: 100%;
+// 			box-shadow: 0 rem(5px) rem(10px) rgba(#000, 0.05);
+// 		}
 
-	.nav-sub {
-		max-height: 100vh;
-		opacity: 1;
-		//padding-bottom: 30px;
+// 		.nav-sub {
+// 			max-height: 100vh;
+// 			opacity: 1;
+// 			//padding-bottom: 30px;
 
-		&:hover {
-			a {
-				color: mix(material-color('grey', '800'), #fff, 60%);
-			}
-		}
+// 			&:hover {
+// 				a {
+// 					color: mix(material-color('grey', '800'), #fff, 60%);
+// 				}
+// 			}
 
-		a:hover {
-			//color: $main-color;
-			color: #000;
-		}
-	}
+// 			a:hover {
+// 				//color: $main-color;
+// 				color: #000;
+// 			}
+// 		}
 
-	&>li {
-		&>a {
-			color: material-color('grey', '800');
+// 		&>li {
+// 			&>a {
+// 				color: material-color('grey', '800');
 
-			&:hover {
-				color: $main-color;
-			}
-		}
-	}
+// 				&:hover {
+// 					color: $main-color;
+// 				}
+// 			}
+// 		}
+// 	}
 
-}
+// 	~ #logo {
+// 		img {
+// 			filter: $default-css;
+// 		}
+// 	}
+// 	~ .header-top-btn {
+// 		> div {
+// 			color: $color;
+// 		}
+// 		.menu {
+// 			span {
+// 				background: $color;
+// 			}
+// 		}
+// 	}
+// }
 
-$fixed: rem(80px);
-$color: $oc-gray-9;
-
-#header.fixed {
-	@include position(fixed, $le: 0, $top: 0);
-	width: 100%;
-	height: $fixed;
-	background: #fff;
-	box-shadow: 1px 0 5px rgba(#000, 0.1);
-	color: $color;
-
-	#logo {
-		width: $top-logo-width;
-		margin-top: 0;
-		img {
-			width: $top-logo-width * 0.8;
-			height: auto;
-			margin-right: $top-logo-width - ($top-logo-width * 0.8);
-			filter: $default-css;
-		}
-	}
-
-	.nav {
-		height: $fixed;
+header.index {
+	$color: #fff;
+	// &:after {
+	// 	background: rgba(#000, 0.1);
+	// 	z-index: 1;
+	// }
+	#header {
 		color: $color;
 
-		&-main {
-			max-height: $fixed;
-
-			&:hover {
-				max-height: 100vh;
-			}
-
-			&>li {
-				color: $color;
-				&>a {
-					height: $fixed;
-					font-weight: 400;
-					padding-top: 0;
-
-					&:hover {
-						color: $main-color;
-					}
-				}
-			}
-		}
-	}
-
-	#language {
-		color: $color;
-	}
-
-	.header-top-btn {
-		margin-top: 0;
-		> div {
+		.nav-main > li {
 			color: $color;
 		}
-		.menu {
-			span {
-				background: $color;
-			}
-		}
-	}
-	.search-wrap {
-		top: $fixed;
-	}
-}
-
-#header.hover {
-	&:after {
-		background: rgba(#000, 0.1);
-		z-index: 1;
 	}
 	#logo {
 		img {
-			filter: $default-css;
+			filter: brightness(10) contrast(10);
 		}
 	}
 	.header-top-btn {
@@ -581,6 +539,11 @@ $color: $oc-gray-9;
 			span {
 				background: $color;
 			}
+		}
+	}
+	#header:not(.fixed) {
+		.nav-main::after {
+			@include transition(all 0s);
 		}
 	}
 }
@@ -699,9 +662,264 @@ header.commons {
 	}
 }
 
+
+
+$fixed: rem(80px);
+$color: $oc-gray-9 !important;
+
+#header.fixed {
+	@include position(fixed, $le: 0, $top: 0);
+	width: 100%;
+	height: $fixed;
+	background: #fff;
+	box-shadow: 1px 0 5px rgba(#000, 0.1);
+	color: $color;
+
+	#logo {
+		width: $top-logo-width;
+		margin-top: 0;
+		img {
+			width: $top-logo-width * 0.8;
+			height: auto;
+			margin-right: $top-logo-width - ($top-logo-width * 0.8);
+			filter: $default-css;
+		}
+	}
+
+	.nav {
+		height: $fixed;
+		color: $color;
+
+		&-main {
+			max-height: $fixed;
+
+			&:hover {
+				max-height: 100vh;
+			}
+
+			&>li {
+				color: $color;
+				&>a {
+					height: $fixed;
+					font-weight: 400;
+					padding-top: 0;
+					padding-bottom: 0;
+					margin: 0;
+
+					&:hover {
+						color: $main-color;
+					}
+				}
+			}
+		}
+	}
+
+	#language {
+		color: $color;
+	}
+
+	.header-top-btn {
+		margin-top: 0;
+		> div {
+			color: $color;
+		}
+		.menu {
+			span {
+				background: $color;
+			}
+		}
+	}
+	.search-wrap {
+		top: $fixed;
+	}
+}
+
+
+#header.hover {
+	&:after {
+		background: rgba(#000, 0.1);
+		z-index: 1;
+	}
+	#logo {
+		img {
+			filter: $default-css;
+		}
+	}
+	.header-top-btn {
+		> div {
+			color: $color;
+		}
+		.menu {
+			span {
+				background: $color;
+			}
+		}
+	}
+	.nav-main {
+		max-height: 100vh;
+
+		&::after {
+			height: 100%;
+			box-shadow: 0 rem(5px) rem(10px) rgba(#000, 0.05);
+		}
+
+		.nav-sub {
+			max-height: 100vh;
+			opacity: 1;
+			//padding-bottom: 30px;
+
+			&:hover {
+				a {
+					color: mix(material-color('grey', '800'), #fff, 60%);
+				}
+			}
+
+			a:hover {
+				//color: $main-color;
+				color: #000;
+			}
+		}
+
+		&>li {
+			&>a {
+				color: material-color('grey', '800');
+
+				&:hover {
+					color: $main-color;
+				}
+			}
+		}
+	}
+}
+
+#header.searchs {
+	&:after {
+		background: rgba(#000, 0.1);
+		z-index: 1;
+	}
+	#logo {
+		img {
+			filter: $default-css;
+		}
+	}
+	.header-top-btn {
+		> div {
+			color: $color;
+		}
+		.menu {
+			span {
+				background: $color;
+			}
+		}
+	}
+
+	.nav-main {
+		max-height: $top-height;
+		@include transition(all 0s);
+
+		&::after {
+			height: 100%;
+			box-shadow: none;
+			@include transition(all 0s);
+		}
+
+		.nav-sub {
+			max-height: 0;
+			opacity: 0;
+			//padding-bottom: 30px;
+
+			&:hover {
+				a {
+					color: mix(material-color('grey', '800'), #fff, 60%);
+				}
+			}
+
+			a:hover {
+				//color: $main-color;
+				color: #000;
+			}
+		}
+
+		&>li {
+			&>a {
+				color: material-color('grey', '800');
+
+				&:hover {
+					color: $main-color;
+				}
+			}
+		}
+	}
+
+	.search-wrap {
+		// @include transition(top 0s);
+	}
+
+	&.fixed {
+		.nav-main {
+			max-height: $fixed;
+		}
+	}
+}
+
 /*서브타이틀*/
 
 $sub_title-height: rem(320px);
+
+// #sub-header {
+// 	@include position;
+// 	width: 100%;
+// 	height: $sub_title-height;
+// 	@include flex;
+// 	flex-direction: column;
+// 	text-align: center;
+// 	overflow: hidden;
+// 	padding-top: $top-height;
+
+// 	.sub-header-img {
+// 		width: 100%;
+// 		height: 100%;
+// 		@include position(absolute, $le: 50%, $top: 50%);
+// 		z-index: 0;
+// 		transform: translate(-50%, -50%);
+
+// 		// 이미지 중앙정렬
+// 		img {
+// 			@include position(absolute, $le: 50%, $top: 50%);
+// 			z-index: 0;
+// 			transform: translate(-50%, -50%);
+// 		}
+// 	}
+
+// 	.sub-header-txt {
+// 		@include position;
+// 		z-index: 1;
+// 		@include flex($bet);
+// 		flex-direction: column;
+// 		width: $inner;
+// 		// height: 100%;
+
+// 		color: #fff;
+// 		font-size: $font-size * 3;
+// 		font-weight: 700;
+// 		opacity: 0.8;
+// 		// mix-blend-mode: soft-light;
+
+// 		.maps_title {
+// 			// margin-top: rem(40px);
+// 		}
+
+// 		&:after {
+// 			// content: '';
+// 			display: inline-block;
+// 			z-index: 1;
+// 			width: rem(60px);
+// 			height: 2px;
+// 			background: #fff;
+// 			margin-top: rem(25px);
+// 		}
+// 	}
+// }
 
 #sub-header {
 	@include position;
@@ -711,7 +929,8 @@ $sub_title-height: rem(320px);
 	flex-direction: column;
 	text-align: center;
 	overflow: hidden;
-	padding-top: $top-height;
+	// padding-top: $top-height;
+	margin-top: $top-height;
 
 	.sub-header-img {
 		width: 100%;
@@ -737,9 +956,9 @@ $sub_title-height: rem(320px);
 		// height: 100%;
 
 		color: #fff;
-		font-size: $font-size * 3;
-		font-weight: 700;
-		opacity: 0.8;
+		font-size: $font-size * 2.5;
+		// font-weight: 700;
+		// opacity: 0.8;
 		// mix-blend-mode: soft-light;
 
 		.maps_title {

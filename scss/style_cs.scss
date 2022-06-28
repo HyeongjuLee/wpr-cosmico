@@ -1,5 +1,7 @@
 @import 'mixin-custom';
 
+$input-height: rem(50px);
+
 #contain {
 	//overflow: hidden;
 }
@@ -97,8 +99,8 @@ td {
 	}
 
 	.input_text {
-		border: 1px solid #ddd;
-		padding: 2px 2px 1px 2px;
+		// border: 1px solid #ddd;
+		// padding: 2px 2px 1px 2px;
 		vertical-align: middle;
 	}
 
@@ -1288,5 +1290,9 @@ a:hover {
 	padding-top: 0;
 	.board {
 		@include table-color($myoffice-color, true);
+		text-align: center;
+		th, td {
+			height: $input-height;
+		}
 	}
 }

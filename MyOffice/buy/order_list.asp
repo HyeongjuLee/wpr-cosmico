@@ -24,7 +24,7 @@
 
 %>
 <!--#include virtual = "/_include/document.asp"-->
-<link rel="stylesheet" href="/css/pay.css?" />
+<!-- <link rel="stylesheet" href="/css/pay.css?" /> -->
 <link rel="stylesheet" href="/css/pay2.css?" />
 <script type="text/javascript" src="/jscript/calendar.js"></script>
 <script>
@@ -79,7 +79,7 @@
 	<%End If%>
 
 	<p class="titles"><%=LNG_TEXT_LIST%></p>
-	<table <%=tableatt%> class="width100 table tablesorter" id="sortTable">
+	<table <%=tableatt%> class="width100 table tablesorter tcenter" id="sortTable">
 		<col width="50" />
 		<col width="" />
 		<col width="" />
@@ -205,9 +205,9 @@
 					PRINT TABS(1) & "		<td>"&arrList_Approval&"</td>"
 					'PRINT TABS(1) & "		<td>"&CANCEL_STATUS&"</td>"
 					PRINT TABS(1) & "		<td class=""tcenter"">"
-					PRINT TABS(1) & "			<a name=""modal"" href=""order_list_detail.asp?ord="&arrList_OrderNumber&""" title="""&LNG_BTN_DETAIL&" ("&arrList_OrderNumber&")"">"
-					PRINT TABS(1) & "				<input type=""button"" class=""detail_btn noline"" value="""&LNG_BTN_DETAIL&""" />"
-					PRINT TABS(1) & "			</a>"
+					PRINT TABS(1) & "			<a name=""modal"" class=""detail_btn noline"" href=""order_list_detail.asp?ord="&arrList_OrderNumber&""" title="""&LNG_BTN_DETAIL&" ("&arrList_OrderNumber&")"">"&LNG_BTN_DETAIL&"</a>"
+					'PRINT TABS(1) & "				<input type=""button"" class=""detail_btn noline"" value="""&LNG_BTN_DETAIL&""" />"
+					'PRINT TABS(1) & "			</a>"
 					PRINT TABS(1) & "		</td>"
 
 				Next

@@ -35,24 +35,6 @@
 				}
 			});
 			
-			$('#header .searchs').each(function(){
-				var $this = $('#header .searchs');
-				$this.find('i').click(function(){
-					$this.toggleClass('active');
-
-					if ($this.hasClass('active')) {
-						// $this.find('.searchWrap').css({visibility:"visible",opacity:1}).fadeIn(0);
-						$('.search-wrap').addClass('active').fadeIn(0);
-					}else{
-						$('.search-wrap').removeClass('active').fadeOut(0);
-					}
-				});
-
-				$('.search').find('.close').click(function(){
-					$('.search-wrap').removeClass('active').fadeOut(0);
-					$this.removeClass('active');
-				});
-			});
 
 			$('.nav-main').hover(function(){
 				$('#header').addClass('hover');
@@ -84,10 +66,10 @@
 		});
 	</script>
 
-
-
 	<!-- header S-->
 	<%Select Case PAGE_SETTING%>
+	<%Case "INDEX"%>
+		<header class="index">
 	<%Case "COMMON", "JOIN"%>
 		<header class="commons">
 	<%Case Else%>

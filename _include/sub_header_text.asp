@@ -88,7 +88,8 @@
 						sub_title_d3 = LNG_GUIDE_04
 				End Select
 			Case "SNS"
-				sub_title_d2 = LNG_SNS& ""
+				' sub_title_d2 = LNG_SNS& ""
+				sub_title_d3 = "<div><b>SNS</b> "&LNG_COPYRIGHT_COMPANY_INC&"</div><p>Share your moment and meet the light of "&LNG_COPYRIGHT_COMPANY_INC&"</p>"
 				Select Case view
 					Case "1"
 						sub_title_d3 = LNG_SNS_01
@@ -107,11 +108,11 @@
 					Case "2"
 						sub_title_d3 = LNG_CUSTOMER_02
 					Case "3"
-						'sub_title_d3 = LNG_CUSTOMER_03
-						sub_title_d3 = LNG_CUSTOMER_04
+						sub_title_d3 = LNG_CUSTOMER_03
+						' sub_title_d3 = LNG_CUSTOMER_04
 					Case "4"
-						'sub_title_d3 = LNG_CUSTOMER_04
-						sub_title_d3 = LNG_CUSTOMER_05
+						sub_title_d3 = LNG_CUSTOMER_04
+						' sub_title_d3 = LNG_CUSTOMER_05
 					Case "5"
 						sub_title_d3 = LNG_CUSTOMER_05
 					Case "6"

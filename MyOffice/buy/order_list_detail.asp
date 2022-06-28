@@ -46,7 +46,8 @@
 <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
 <!--#include virtual = "/_include/document.asp"-->
 <link rel="stylesheet" href="/css/style_cs.css" />
-<link rel="stylesheet" href="/css/pay.css?v2" />
+<link rel="stylesheet" href="/css/modal.css?" />
+<link rel="stylesheet" href="/css/pay2.css?" />
 <link rel="stylesheet" href="/css/myoffice.css?v1" />
 
 <div style="padding: 0 15px;">

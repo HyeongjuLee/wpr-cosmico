@@ -104,10 +104,10 @@
 %>
 <!--#include virtual = "/_include/document.asp"-->
 <!--#include virtual = "/_include/calendar.asp"-->
-<link rel="stylesheet" href="/myoffice/css/style_cs.css" />
-<link rel="stylesheet" href="/myoffice/css/layout_cs.css" />
+<!-- <link rel="stylesheet" href="/myoffice/css/style_cs.css" /> -->
+<!-- <link rel="stylesheet" href="/myoffice/css/layout_cs.css" /> -->
 <link rel="stylesheet" href="/myoffice/autoship/order_list_CMS.css?v1" />
-<link rel="stylesheet" href="/css/order_list_CMS_mod.css?v0" />
+<link rel="stylesheet" href="/css/order_list_CMS_mod.css?" />
 
 <!--#include file = "order_list_CMS.js.asp"--><%'JS%>
 <script src="order_list_CMS_reg.js?v3"></script>
@@ -501,4 +501,5 @@
 	MODAL_BORDER_THICKNESS = 1
 %>
 <!--#include virtual="/_include/modal_config.asp" -->
+</div>
 <!--#include virtual = "/_include/copyright.asp"-->

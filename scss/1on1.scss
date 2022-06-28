@@ -1,0 +1,591 @@
+@import 'mixin-custom';
+$input-height: rem(50px);
+$sub-color: $myoffice-color;
+#counseling {
+	font-size: $font-size;
+	margin: 0 auto;
+	.input_text,
+	.input_area,
+	.input_select {
+		// border: 1px solid material-color('grey', '400');
+		border: none;
+		background: transparent;
+		@include rounded(0);
+		height: $input-height;
+		font-size: $parent-css;
+		line-height: 1.5;
+		padding: rem(10px);
+		padding-left: rem(20px);
+		width: 100%;
+	}
+	.input_select {
+	}
+	.notList {
+		@include flex;
+		height: rem(200px);
+		font-size: $font-size;
+		font-weight: 500;
+		background: material-color('grey', '50');
+		border: 1px solid material-color('grey', '200');
+		color: material-color('grey', '900');
+	}
+	&.cs_list {
+		.write {
+			overflow: hidden;
+			width: 100%;
+			text-align: center;
+			a {
+				@include default-a;
+				@include inline-flex;
+				width: 30%;
+				font-size: $font-size;
+				background: $sub-color;
+				height: $input-height;
+				color: #fff;
+
+				i {
+					margin-right: $font-size;
+				}
+
+				&:hover {
+					background: lighten($sub-color, 5);
+				}
+			}
+			margin-bottom: $font-size * 2;
+		}
+		ul {}
+		li {
+			margin-top: -1px;
+			a {
+				@include default-a;
+				display: block;
+				width: 100%;
+				padding: $font-size;
+				border-top: 1px solid material-color('grey', '400');
+				border-bottom: 1px solid material-color('grey', '400');
+			}
+			h6 {
+				@include position;
+				@include flex(space-between);
+				//flex-direction: column;
+				font-size: $font-size + rem(2px);
+				font-weight: 500;
+				div {
+					margin: 0;
+				}
+				p {
+					float: right;
+					color: material-color('grey');
+					font-size: $font-size;
+					@include flex(flex-end);
+
+					i {
+						width: 2px;
+						height: 2px;
+						//height: $font-size - rem(7px);
+						background: material-color('grey', '300');
+						margin: $font-size / 2;
+					}
+				}
+				span {
+					@include ellipsis;
+					//margin-right: $font-size;
+					color: #222;
+				}
+			}
+			div {
+				@include flex(flex-start);
+				color: material-color('grey');
+				margin-top: $font-size / 2;
+				.answer {
+					padding: 0 rem(5px);
+					border: 1px solid;
+					border-radius: $font-size * 4;
+					font-size: rem(12px);
+					font-weight: 600;
+					margin-left: $font-size;
+					&.done {
+						color: material-color('blue');
+						border-color: material-color('blue');
+
+						& + p {
+							span {
+								@include inline-flex;
+							}
+						}
+					}
+					&.not {
+						color: material-color('red');
+						border-color: material-color('red');
+
+						& + p {
+							span {
+								display: none;
+							}
+						}
+					}
+				}
+				p {
+					color: material-color('grey');
+					font-size: rem(14px);
+					@include inline-flex;
+
+					span {
+					}
+
+					i {
+						width: 2px;
+						height: 2px;
+						//height: $font-size - rem(7px);
+						background: material-color('grey', '300');
+						margin: 0 $font-size / 2;
+					}
+				}
+			}
+		}
+	}
+}
+#counseling {
+	&.cs_view {
+		div {
+			h6 {
+				@include position;
+				@include flex($st, $st);
+				flex-direction: column;
+				font-size: $font-size + rem(5px);
+				font-weight: 500;
+				color: material-color('grey', '900');
+				padding: $font-size;
+				border-top: 1px solid material-color('grey', '400');
+				border-bottom: 1px solid material-color('grey', '400');
+
+				p {
+					color: material-color('grey');
+					font-size: $font-size;
+					@include flex($st);
+
+				}
+				i {
+					width: 2px;
+					height: 2px;
+					//height: $font-size - rem(7px);
+					background: material-color('grey', '300');
+					margin: 0 $font-size / 2;
+				}
+				span {
+					margin-top: $font-size / 2;
+				}
+			}
+			.content {
+				padding: $font-size;
+				min-height: auto;
+				font-size: $font-size;
+			}
+			.file {
+				@include flex($st, $st);
+				flex-direction: column;
+				font-size: $font-size - rem(2px);
+				//margin-bottom: $font-size / 4;
+
+				a {
+					@include default-a;
+					@include flex($st, $st);
+					width: 100%;
+					padding: $font-size / 2 $font-size;
+					color: material-color('grey', '600');
+					background: material-color('grey', '200');
+				}
+				h6 {
+					color: $parent-css;
+					font-size: $parent-css;
+					border: none;
+					padding: 0;
+					line-height: 1.5;
+					flex-direction: row;
+					align-items: center;
+					white-space: nowrap;
+				}
+				p {
+					color: material-color('grey', '800');
+					font-weight: 600;
+					@include ellipsis;
+				}
+				span {
+					color: material-color('red');
+					font-size: $font-size - rem(3px);
+					margin-left: $font-size / 2;
+					white-space: nowrap;
+				}
+			}
+		}
+		.replyInfo {
+			@include flex;
+			//height: calc(var(--contain-height) - #{$input-height} * 6);
+			height: $input-height;
+			font-size: $font-size;
+			font-weight: 500;
+			background: material-color('grey', '50');
+			border: 1px solid material-color('grey', '200');
+			color: material-color('grey', '900');
+			margin-top: $font-size * 2;
+		}
+		.replyInfo2 {
+			@include position;
+			margin-top: $font-size * 2;
+			padding: $font-size;
+			border: 1px solid material-color('grey', '400');
+			// border-top: 1px solid material-color('grey', '400');
+			// border-bottom: 1px solid material-color('grey', '400');
+			background: material-color('grey', '50');
+
+			h6, .content {
+				padding: 0;
+			}
+
+			h6 {
+				border: none;
+			}
+			.content {
+				padding: $font-size 0;
+			}
+			.file {
+				//padding-top: $font-size / 2;
+			}
+		}
+	}
+}
+#counseling {
+	&.cs_write {
+		width: 900px;
+		overflow: hidden;
+		input, select, textarea {
+			width: 100%;
+			height: 100%;
+			&:disabled {
+				background: material-color('grey', '100');
+			}
+		}
+		input {
+			height: $input-height;
+		}
+		td {
+			display: table-cell;
+		}
+		.info {
+			border: 1px solid material-color('grey', '100');
+			background: material-color('grey', '50');
+			font-size: $font-size;
+			padding: $font-size;
+			margin-bottom: $font-size * 2;
+			// margin-left: 20%;
+
+			li {
+				text-indent: $font-size / -2;
+				margin-left: $font-size / 2;
+			}
+		}
+
+		.board {
+			@include table-color($line: true);
+			padding: 0;
+			th {
+				text-align: right;
+				font-size: $font-size;
+				font-weight: 400;
+				padding-right: $font-size * 2;
+			}
+			td {
+				//height: auto;
+				padding: 0;
+				font-size: $font-size;
+			}
+			.category {
+				td {
+					display: table-cell;
+				}
+				div {
+					@include flex;
+					width: 100%;
+					margin: rem(10px) 0;
+					.input_select {
+						margin-left: rem(10px);
+						background: #fff;
+						width: calc(50% - #{rem(10px)});
+						border: 1px solid material-color('grey', '400');
+						cursor: pointer;
+						padding-left: 10px;
+					}
+				}
+			}
+			.title {
+				td {
+					//height: $input-height + rem(10px);
+				}
+			}
+			.contents {
+				td {
+					// height: $input-height * 6;
+					font-size: 0;
+					textarea {
+						font-size: $font-size;
+					}
+				}
+			}
+			.file {
+				td {
+					padding: $font-size / 2 0;
+					font-size: $parent-css;
+					div {
+						height: 100%;
+					}
+					input.active {
+						&::placeholder {
+							color: material-color('grey', '800');
+							font-weight: 500;
+						}
+
+						&::-webkit-input-placeholder {
+							color: material-color('grey', '800');
+							font-weight: 500;
+						}
+
+						&::-moz-input-placeholder {
+							color: material-color('grey', '800');
+							font-weight: 500;
+						}
+
+						&::-ms-input-placeholder {
+							color: material-color('grey', '800');
+							font-weight: 500;
+						}
+					}
+				}
+				.upload-name {
+					width: 100%;
+					height: $input-height / 1.2;
+				}
+			}
+			.member {
+				td {
+					font-size: 0;
+
+					div {
+						@include inline-flex;
+						width: 50%;
+						height: 100%;
+						font-size: $font-size;
+						&:first-of-type {
+							border-right: 1px solid material-color('grey', '200')
+						}
+					}
+
+					label {
+						border: none;
+						width: 100%;
+						justify-content: $st;
+						margin: $font-size / 2 0;
+						cursor: $default-css;
+					}
+
+					input {
+						padding-left: rem(20px);
+						&[type="checkbox"] {
+							@include position(absolute);
+							visibility: hidden;
+							z-index: -1;
+							color: material-color('grey', '500');
+
+							& ~ i {
+								color: material-color('grey', '600');
+								background: material-color('grey', '100');
+								@include rounded(100%);
+								width: $font-size;
+								height: $font-size;
+								@include flex;
+							}
+							& ~ span {
+								//font-weight: 700;
+
+								&:before {
+									content: none;
+								}
+							}
+
+							&:checked {
+								& ~ i {
+									color: $main-color;
+									background: none;
+								}
+								& ~ span {
+									//font-weight: 700;
+									color: $main-color;
+								}
+							}
+						}
+					}
+				}
+			}
+			.mypage {
+				border-bottom: none;
+				td {
+					text-align: center;
+					font-size: $font-size;
+					padding: $font-size 0;
+
+					div {
+						padding: $font-size / 2;
+						background: material-color('blue-grey', '50');
+						height: $input-height;
+						@include flex;
+					}
+
+					a {
+						color: material-color('indigo', '600');
+					}
+				}
+			}
+		}
+
+		// article {
+		// 	width: 100%;
+
+		// 	& > div {
+		// 		width: 100%;
+		// 		padding: $font-size;
+		// 		@include flex($st);
+		// 		border-top: 1px solid material-color('grey', '400');
+		// 		border-bottom: 1px solid material-color('grey', '400');
+		// 		margin-bottom: -1px;
+
+		// 		h6 {
+		// 			width: 50%;
+		// 			font-size: $font-size;
+		// 			font-weight: 500;
+		// 			color: material-color('grey', '500');
+		// 			text-align: right;
+		// 			padding: $font-size;
+		// 		}
+
+		// 		.con {
+		// 			width: 100%;
+		// 			//padding: $font-size;
+		// 		}
+		// 	}
+		// }
+
+		.btnArea {
+			width: 100%;
+			text-align: center;
+			margin-top: 22px;
+			padding-top: 28px;
+			padding-bottom: 45px;
+			border-top: 1px dashed #d7d7d7;
+
+			.a_submit {
+				display: inline-block;
+				padding: 0px 15px;
+				vertical-align: middle;
+				cursor: pointer;
+				text-align: center;
+				font-size: 14px;
+			}
+
+			.design1 {
+				background-color: #337ab7;
+				border: 1px solid #2e6da4;
+				border-radius: 3px;
+				color: #fff !important;
+				font-weight: normal;
+				line-height: 48px;
+				width: 150px;
+				height: 50px;
+			}
+
+			.design2 {
+				background-color: #f9f9f9;
+				border: 1px solid #cccccc;
+				border-radius: 3px;
+				color: #666 !important;
+				font-weight: normal;
+				line-height: 48px;
+				width: 150px;
+				height: 50px;
+			}
+		}
+	}
+
+	.btnZone {
+		display: flex;
+		justify-content: center;
+		padding: {
+			top: rem(50px);
+		}
+		width: 100%;
+
+		a, input {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			@include default-0;
+			@include rounded;
+			width: rem(210px);
+			height: $input-height;
+			margin: 0 rem(10px);
+			cursor: pointer;
+			font-size: $font-size + rem(2px);
+			line-height: 1.5;
+			text-align: center;
+			@include transition(all .3s);
+			text-decoration: none;
+			
+			&.button {
+				@include button($basic);
+				margin: 0;
+				width: $default-css;
+				height: $default-css;
+				font-size: 12px;
+
+				&.admin {
+					@include button($admin);
+				}
+
+				&.answer {
+					@include button($answer);
+				}
+
+				&.delete {
+					@include button($delete);
+				}
+
+				&.edit {
+					@include button($edit);
+				}
+
+				&.save {
+					@include button($save);
+				}
+			}
+		}
+
+		a:hover {
+			//color: $parent-css;
+		}
+
+		.cancel {
+			background: material-color('grey', '300');
+			color: #222;
+			&:hover {
+				background: darken(material-color('grey', '300'),5);
+			}
+		}
+		.promise {
+			background: $main-color;
+			color: #fff;
+			&:hover {
+				background: lighten($main-color,10);
+				color: #fff;
+			}
+		}
+
+	}
+}

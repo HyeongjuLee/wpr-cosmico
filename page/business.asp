@@ -214,6 +214,9 @@
 			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
 			<p><%=LNG_READY_02_01%></p>
 		</div>
+	<%Case "6"%>
+		<link rel="stylesheet" href="/css/marketing_plan.css?">
+		<!--#include virtual = "/page/marketing_plan.asp"-->
 	<%Case Else Call ALERTS(LNG_PAGE_ALERT01,"BACK","")%>
 <%End Select%>
 </div>

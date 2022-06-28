@@ -4,6 +4,10 @@
 // 	font-size: $parent-css;
 // }
 
+html {
+	overflow-y: auto !important;
+}
+
 .ui-dialog {
 	@include font-family('Pretendard');
 	line-height: 1.5;
@@ -183,6 +187,7 @@
 		margin: $font-size 0;
 		color: #222;
 		font-size: $font-size - rem(2px);
+		overflow-y: auto;
 
 		table {
 			border: none;

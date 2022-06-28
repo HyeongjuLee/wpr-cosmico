@@ -550,6 +550,7 @@
 <%	Case Else%>
 <%End Select%>
 
+</div>
 <!--#include virtual = "/_include/copyright.asp"-->
 
 

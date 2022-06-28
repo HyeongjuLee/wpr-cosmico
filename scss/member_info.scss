@@ -1,11 +1,7 @@
 @import 'mixin-custom';
 //@import 'language';
 
-$common-font-color: #212121;
-$input-width: $inner / 2.5;
-$input-height: rem(60px);
-$input-height-50: rem(50px);
-$common-button-color: adjust-hue(invert($main-color), 20deg);
+$input-height: rem(45px);
 
 .nonDisplay {
 	display: none;
@@ -35,11 +31,9 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 		border-bottom: 1px solid material-color('grey', '500');
 	}
 	.detail_btn {
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
+		@include inline-flex;
 		//width: 100%;
-		height: $input-height-50;
+		height: $input-height;
 		line-height: 1.5;
 		padding: rem(5px) rem(10px);
 		cursor: pointer;
@@ -67,7 +61,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 			color: #fff;
 
 			&:hover {
-				background: material-color('deep-orange', '700');
+				background: $oc-indigo-5;
 			}
 		}
 		&.width100 {
@@ -90,20 +84,71 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 			}
 		}
 		&.blue {
-			//background: material-color('blue');
-			background: $main-color;
+			background: material-color('blue');
 			&:hover {
-				//background: material-color('blue', '700');
-				background: darken($main-color, 10);
+				background: material-color('blue', '700');
 			}
 		}
 		&.purple {
-			background: $sub-color;
+			background: material-color('purple');
 			&:hover {
-				background: darken($sub-color, 10);
+				background: material-color('purple', '700');
 			}
 		}
 	}
+}
+
+#mypage {
+	label.checkbox {
+		cursor: pointer;
+		color: $parent-css;
+		font-size: $font-size;
+		font-weight: 500;
+		@include position;
+		@include inline-flex;
+		height: $input-height;
+		vertical-align: middle;
+
+		i {
+			color: material-color('grey', '400');
+			font-size: $font-size - rem(3px);
+			margin-right: $font-size / 2;
+			// @include transition(all, .1s);
+		}
+
+		span {
+			@include flex;
+			@include position;
+			// @include transition(all, .1s);
+			width: 100%;
+			height: 100%;
+			padding: rem(5px) rem(15px);
+			background: material-color('grey', '100');
+			border: 1px solid material-color('grey', '300');
+			@include rounded(0);
+		}
+
+		input {
+			@include position(absolute);
+			visibility: hidden;
+			z-index: -1;
+
+			&:checked {
+				$common-button-color: $oc-blue-7;
+				&~span {
+					//font-weight: 700;
+					color: #fff;
+					background: $common-button-color;
+					border-color: darken($common-button-color, 10);
+
+					i {
+						color: $parent-css;
+					}
+				}
+			}
+		}
+	}
+
 	article {
 		padding: $font-size + rem(5px) 0;
 		&:first-of-type {
@@ -114,12 +159,12 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 			}
 		}
 		> div {
-			// display: flex;
+			// @include flex;
 			// justify-content: space-between;
 			// align-items: center;
 			border-bottom: 1px solid material-color('grey', '200');
 
-			@include flex(flex-start);
+			@include flex($st);
 			padding: 0 $font-size;
 
 			&:first-child {
@@ -136,9 +181,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				padding: $default-css;
 
 				> div {
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
+					@include flex($bet);
 					border-bottom: 1px solid material-color('grey', '200');
 					.con {
 						flex: 1;
@@ -181,16 +224,16 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				//margin: 0;
 				text-align: left;
 				font-weight: 500;
-				font-size: $font-size + rem(3px);
-				min-height: $input-height-50;
-				padding: $font-size 0;
+				font-size: $font-size + rem(1px);
+				min-height: $input-height;
+				padding: $font-size - rem(5px) 0;
 				.summary {
-					font-size: $font-size - rem(1px);
+					font-size: $font-size - rem(2px);
 					font-weight: 400;
 					color: material-color('grey', '500');
-					margin-top: $font-size;
 					text-align: left;
 					width: 100%;
+					line-height: 2;
 
 					&.red {
 						color: material-color('red');
@@ -202,12 +245,12 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 
 				.input_select, .input_text {
 					border: 1px solid material-color('grey', '400');
-					padding: $font-size;
+					padding: 0 rem(10px);
 					//width: $input-width;
 					width: 100%;
-					height: $input-height-50;
+					height: $input-height;
 					font-size: $font-size;
-					@include rounded(rem(5px));
+					@include rounded(rem(0px));
 					background: #fff;
 				}
 				.input_select {
@@ -220,21 +263,21 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 					}
 				}
 				.button {
-					@include button(material-color('deep-orange'));
+					@include button($oc-indigo-9);
                     justify-content: center;
 					margin: 0;
+					min-width: rem(100px);
 					width: calc(25% - #{$font-size - rem(10px)});
-					height: $input-height-50;
-					font-size: $font-size - rem(2px);
-					@include rounded(rem(5px));
+					height: $input-height;
+					font-size: $font-size;
+					@include rounded(0);
 					word-break: keep-all;
 					white-space: $default-css;
 					padding: 0 rem(10px);
 				}
 
 				.inputs {
-					display: inline-flex;
-					align-items: center;
+					@include inline-flex;
 					width: calc(75% - #{$font-size - rem(10px)});
 
 					span {
@@ -250,7 +293,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 					}
 				}
 				.selects {
-					display: inline-flex;
+					@include inline-flex;
 					width: 100%;
 					//margin-right: $font-size / 2;
 					flex: 1;
@@ -295,26 +338,18 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				}
 			}
 			label {
-				display: inline-flex;
-				justify-content: flex-start;
-				align-items: center;
-				cursor: pointer;
-				font-size: $font-size;
-				//margin-top: $font-size;
-				margin-left: $font-size;
-				width: auto;
-
-				input {
-					margin-right: $font-size / 2;
-				}
+				margin-left: rem(5px);
 			}
+		}
+
+		#bodyPass {
+			background: material-color('grey', '50');
 		}
 
 		.number {
 			.con {
-				display: flex;
+				@include flex($bet);
 				flex-wrap: wrap;
-				justify-content: space-between;
 
 
 			}
@@ -363,87 +398,24 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				width: 100%;
 				height: $input-height - rem(10px);
 			}
-			label {
-				cursor: pointer;
-				color: #212121;
-				font-weight: 500;
-				@include position;
-				@include inline-flex;
-				font-size: $font-size;
-				//margin-right: 10px;
-				flex: auto;
-				width: auto;
-
-
-				i {
-					color: material-color('grey', '600');
-					font-size: $font-size - rem(3px);
-					margin-right: $font-size / 2;
-					@include transition(all, .1s);
-					@include position;
-					z-index: 2;
-				}
-
-				span {
-					@include position;
-					@include transition(all, .1s);
-					z-index: 1;
-					&:before {
-						@include presudo($ri: -10px, $bot: -5px, $w: calc(100% + 10px + #{$font-size * 2}), $h: calc(100% + 10px));
-						//background: rgba($main-color, 10%);
-						background: material-color('grey', '100');
-						@include transition(all, .1s);
-						z-index: -1;
-						@include rounded($font-size / 3);
-					}
-				}
-
-				input {
-					&[type="radio"] {
-						@include position(absolute);
-						visibility: hidden;
-						z-index: -1;
-
-						&:checked {
-							& ~ i {
-								color: #fff;
-							}
-							& ~ span {
-								//font-weight: 700;
-								color: #fff;
-								//background: $main-color;
-
-								&:before {
-									//width: calc(100% + #{$font-size * 2});
-									color: #fff;
-									background: $common-button-color;
-									//opacity: 0;
-								}
-							}
-						}
-					}
-				}
-			}
 			&.birth {
 				padding-right: 0;
 				.con {
 					align-items: center;
-					flex-wrap: wrap;
+					// flex-wrap: wrap;
 					padding: 0;
 					p {
 						//width: 100%;
-						margin-right: $font-size;
+						margin-right: auto;
 					}
-					div {
+					.labels {
 						//flex: auto;
 						display: inline-block;
-						//margin-bottom: $font-size / 2;
-						margin-right: $font-size * 3;
-						p {
-							//padding: $font-size / 2 $font-size;
-							//background: material-color('grey', '100');
-							font-size: $font-size + rem(2px);
-							font-weight: 500;
+						margin-right: rem(15px);
+						label {
+							&:last-of-type {
+								margin-left: rem(5px);
+							}
 						}
 					}
 				}
@@ -458,9 +430,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 		
 		.pin {
 			.con {
-				display: inline-flex;
-				justify-content: space-between;
-				align-items: center;
+				@include inline-flex($bet);
 
 				input {
 					flex: 1;
@@ -473,10 +443,8 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 
 		#googleAuth {
 			width: 100%;
-			display: inline-flex;
+			@include inline-flex($bet, $st);
 			flex-wrap: wrap;
-			justify-content: space-between;
-			align-items: flex-start;
 			.qr {
 				margin-bottom: $font-size;
 			}
@@ -492,9 +460,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				}
 			}
 			.ok {
-				display: inline-flex;
-				justify-content: flex-start;
-				align-items: center;
+				@include inline-flex($st);
 				width: 100%;
 
 				p {
@@ -526,9 +492,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 			.con {
 				.selects {
 					width: 100%;
-					display: inline-flex;
-					justify-content: center;
-					align-items: center;
+					@include inline-flex;
 				}
 				.inputs {
 					width: calc(65% - #{rem(5px)});
@@ -541,29 +505,23 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 					width: calc(35% - #{rem(5px)});
 				}
 				#authStatus {
-					margin: rem(5px) 0;
 					text-align: center;
-					background: material-color('red', '50');
+					// background: material-color('red', '50');
 					//border: 2px solid material-color('red', '100');
-					padding: rem(5px);
 					font-size: $font-size;
 					font-weight: 700;
-				}
-				.summary {
-					margin-top: 0;
+					line-height: 1.2;
+					#emailCheckTXT {
+						margin: rem(5px) 0;
+						display: inline;
+					}
 				}
 			}
 		}
 
 		.email {
 			.con {
-				display: inline-flex;
-				justify-content: space-between;
-				align-items: center;
-
-				span {
-					margin: 0 $font-size / 2;
-				}
+				@include inline-flex($bet);
 
 				// input {
 				// 	width: 33%;
@@ -616,12 +574,12 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 
 
 			#bankReg {
-				@include flex(flex-start);
+				@include flex($st);
 				flex-direction: column;
 
 				.regInfo {
 					//padding: $font-size 0;
-					@include flex(flex-start);
+					@include flex($st);
 					width: 100%;
 
 					
@@ -693,71 +651,6 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 		.title {
 			@include flex(space-between);
 			width: 100%;
-			
-			label {
-				cursor: pointer;
-				color: #212121;
-				font-weight: 500;
-				@include position;
-				@include inline-flex;
-				font-size: $font-size;
-				margin-right: 10px;
-				width: auto;
-
-
-				i {
-					color: material-color('grey', '600');
-					font-size: $font-size - rem(3px);
-					margin-right: $font-size / 2;
-					@include transition(all, .1s);
-					@include position;
-					z-index: 2;
-					border: none;
-					width: auto;
-					height: auto;
-				}
-
-				span {
-					@include position;
-					@include transition(all, .1s);
-					z-index: 1;
-					&:before {
-						@include presudo($ri: -10px, $bot: -5px, $w: calc(100% + 10px + #{$font-size * 2}), $h: calc(100% + 10px));
-						//background: rgba($main-color, 10%);
-						background: material-color('grey', '100');
-						@include transition(all, .1s);
-						z-index: -1;
-						@include rounded($font-size / 3);
-					}
-				}
-
-				input {
-					&[type="checkbox"] {
-						@include position(absolute);
-						visibility: hidden;
-						z-index: -1;
-
-						&:checked {
-							& ~ i {
-								color: #fff;
-								background: none;
-							}
-							& ~ span {
-								//font-weight: 700;
-								color: #fff;
-								//background: $main-color;
-
-								&:before {
-									//width: calc(100% + #{$font-size * 2});
-									color: #fff;
-									background: $common-button-color;
-									//opacity: 0;
-								}
-							}
-						}
-					}
-				}
-			}
 		}
 	}
 		
@@ -793,63 +686,58 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 		}
 
 		.agree_content {
-		@include position;
-		z-index: 1;
-		width: 100%;
-		height: 100%;
-		padding: rem(30px);
-		overflow-x: hidden;
-		overflow-y: scroll;
-		font-size: $font-size - rem(1px);
-		color: material-color('grey', '800');
-
-		b {
-			//color: mix($main-color, #000, 50%);
-			//color: saturate(invert($main-color), 50%);
-			font-size: $font-size + rem(1px);
-			font-weight: 500;
-			overflow: hidden;
-		}
-		
-		&::-webkit-scrollbar {
 			@include position;
-			width: rem(15px);
-			z-index: 2;
-		}
-		&::-webkit-scrollbar-thumb {
-			background: mix($main-color, material-color('grey', '400'), 0%);
-			background-clip: padding-box;
-			border: rem(0px) solid transparent;
-			//@include rounded($radius: 10rem);
-		}
-		&::-webkit-scrollbar-track {
-			background: material-color('grey', '100');
-			//@include rounded;
-			//@include position;
 			z-index: 1;
+			width: 100%;
+			height: 100%;
+			padding: rem(30px);
+			overflow-x: hidden;
+			overflow-y: scroll;
+			font-size: $font-size - rem(1px);
+			color: material-color('grey', '800');
+
+			b {
+				//color: mix($main-color, #000, 50%);
+				//color: saturate(invert($main-color), 50%);
+				font-size: $font-size + rem(1px);
+				font-weight: 500;
+				overflow: hidden;
+			}
+			
+			&::-webkit-scrollbar {
+				@include position;
+				width: rem(15px);
+				z-index: 2;
+			}
+			&::-webkit-scrollbar-thumb {
+				background: mix($main-color, material-color('grey', '400'), 0%);
+				background-clip: padding-box;
+				border: rem(0px) solid transparent;
+				//@include rounded($radius: 10rem);
+			}
+			&::-webkit-scrollbar-track {
+				background: material-color('grey', '100');
+				//@include rounded;
+				//@include position;
+				z-index: 1;
+			}
 		}
-	}
 	}
 
 	.btnZone {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding: {
-			top: $font-size * 2;
-			bottom: $font-size * 2;
-		}
+		@include flex($bet);
 		width: 100%;
+		//flex-direction: column;
+		// width: calc(#{$inner / 2} + 5%);
 
 		a, input {
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-			width: $input-width / 1.5;
-			height: $input-height;
-			margin: $font-size / 2 auto;
+			@include inline-flex;
+			max-width: calc(50% - #{rem(20px)});
+			width: 30%;
+			height: $input-height + rem(15px);
+			margin: round($font-size / 2) auto;
 			background: transparent;
-			font-size: $font-size * 1.2;
+			font-size: round($font-size * 1.2);
 			cursor: pointer;
 			font-family: $parent-css;
 			border: none;
@@ -889,10 +777,10 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 			//width: $input-width / 2;
 		}
 		.promise {
-			background: $common-button-color;
+			background: $main-color;
 			color: #fff;
 			&:hover {
-				background: lighten($common-button-color,10);
+				background: lighten($main-color,5);
 			}
 		}
 	}
@@ -912,7 +800,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 		}
 
 		.btns {
-			display: flex;
+			@include flex;
 			justify-content: center;
 			align-items: center;
 
@@ -920,7 +808,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				box-sizing: border-box;
 				margin: rem(10px) $font-size;
 				min-width: $inner / 4;
-				height: $input-height-50;
+				height: $input-height;
 			}
 		}
 	}
@@ -951,11 +839,11 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 		//border-bottom: 1px solid material-color('grey', '500');
 	}
 	.detail_btn {
-		display: inline-flex;
+		@include inline-flex;
 		justify-content: center;
 		align-items: center;
 		//width: 100%;
-		height: $input-height-50;
+		height: $input-height;
 		line-height: 1.5;
 		padding: rem(5px) rem(10px);
 		cursor: pointer;
@@ -981,7 +869,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 			color: #fff;
 
 			&:hover {
-				background: material-color('deep-orange', '700');
+				background: $oc-indigo-5;
 			}
 		}
 		&.width100 {
@@ -1021,7 +909,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 	article {
 		padding: $font-size + rem(5px) 0;
 		> div {
-			display: flex;
+			@include flex;
 			justify-content: space-between;
 			align-items: center;
 			border-bottom: 1px solid material-color('grey', '200');
@@ -1049,15 +937,15 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				text-align: left;
 				font-weight: 500;
 				font-size: $font-size + rem(3px);
-				min-height: $input-height-50;
+				min-height: $input-height;
 				padding: $font-size 0;
 				.summary {
-					font-size: $font-size - rem(1px);
+					font-size: $font-size - rem(2px);
 					font-weight: 400;
 					color: material-color('grey', '500');
-					margin-top: $font-size;
 					text-align: left;
 					width: 100%;
+					line-height: 2;
 
 					&.red {
 						color: material-color('red');
@@ -1072,7 +960,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 					padding: $font-size;
 					//width: $input-width;
 					width: 100%;
-					height: $input-height-50;
+					height: $input-height;
 					font-size: $font-size;
 					@include rounded(rem(5px));
 				}
@@ -1083,11 +971,11 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 					}
 				}
 				.button {
-                    @include button(material-color('deep-orange', '700'));
-					display: inline-flex;
+                    @include button($oc-indigo-5);
+					@include inline-flex;
 					margin: 0;
 					width: calc(25% - #{$font-size - rem(10px)});
-					height: $input-height-50;
+					height: $input-height;
 					font-size: $font-size;
 					@include rounded(rem(5px));
 					padding: $font-size;
@@ -1096,7 +984,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				}
 
 				.inputs {
-					display: inline-flex;
+					@include inline-flex;
 					align-items: center;
 					width: calc(75% - #{$font-size - rem(10px)});
 
@@ -1123,7 +1011,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 	}
 
 	.btnZone {
-		display: flex;
+		@include flex;
 		flex-direction: column;
 		justify-content: center;
 		padding: {
@@ -1133,7 +1021,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 		width: 100%;
 
 		a, input {
-			display: inline-flex;
+			@include inline-flex;
 			justify-content: center;
 			align-items: center;
 			width: $input-width / 1.5;

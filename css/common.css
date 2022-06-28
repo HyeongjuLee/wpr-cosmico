@@ -2,6 +2,7 @@
 select[aria-hidden=true] { color: #9e9e9e; }
 select:invalid { color: #9e9e9e; }
 
+#sub-header { margin-top: 0; }
 #sub-header .sub-header-txt { color: #212121; font-weight: 600; }
 #sub-header .sub-header-txt .maps_title { margin: 0; }
 #sub-header .sub-header-txt:after { content: none; }

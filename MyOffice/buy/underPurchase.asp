@@ -51,8 +51,8 @@
 	If sLvl = "" Then sLvl = ""		'기본대수
 %>
 <!--#include virtual = "/_include/document.asp"-->
-<link rel="stylesheet" href="/css/style_cs.css?v4" />
-<link rel="stylesheet" href="/css/pay.css?v0" />
+<!-- <link rel="stylesheet" href="/css/style_cs.css?v4" /> -->
+<link rel="stylesheet" href="/css/pay2.css?" />
 <link rel="stylesheet" href="/myoffice/css/layout_cs.css" />
 <script type="text/javascript" src="/jscript/calendar.js"></script>
 <script type="text/javascript" src="underPurchase.js?v4"></script>
@@ -133,7 +133,7 @@
 
 	<div id="AjaxPurchaseContent" >
 		<p class="titles"><%=LNG_TEXT_LIST%></p>
-		<table <%=tableatt%> class="width100">
+		<table <%=tableatt%> class="table">
 			<colgroup>
 				<col width="18%" />
 				<col width="10%" />
@@ -158,7 +158,6 @@
 			</thead>
 		</table>
 	</div>
-
 </div>
 
 <%
@@ -167,4 +166,5 @@
 %>
 
 <!--#include virtual="/_include/modal_config.asp" -->
+</div>
 <!--#include virtual = "/_include/copyright.asp"-->

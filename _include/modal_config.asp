@@ -24,7 +24,7 @@
 <%End If%>
 
 <script type="text/javascript" src="/jscript/jquery-ui-1.12.1/jquery-ui.min.js?v0"></script>
-<link rel="stylesheet" type="text/css" href="/css/modal.css?v0">
+<link rel="stylesheet" type="text/css" href="/css/modal.css?">
 <script type="text/javascript">
 
 	$(document).ready(function() {

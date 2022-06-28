@@ -9,14 +9,16 @@ $nav-color-200-d: darken($nav-color-200, 10);
 $nav-color-600: saturate(lighten($nav-color, 10), 25);
 
 .orderList {
-	@include table-color($myoffice-color, true);
+	// @include table-color($myoffice-color, true);
 
 	.titles {
 		@include position;
 		line-height: 1;
 		a {
-			$myoffice-color: adjust-hue($myoffice-color, 50);
+			$myoffice-color: adjust-hue($myoffice-color, -50deg);
 			@include button(#fff);
+			@include inline-flex;
+			height: rem(40px);
 			font-size: $font-size - rem(1px);
 			float: right;
 			border-color: mix($myoffice-color, #fff, 30);
@@ -48,19 +50,35 @@ $nav-color-600: saturate(lighten($nav-color, 10), 25);
 			margin: $font-size 0;
 		}
 		.table1 {
-			@include table-color-wrap(material-color('amber', '900'), 'darken', true);
+			@include table-color(material-color('amber', '900'), true);
+			@include table-color-wrap(material-color('amber', '900'), true, 'darken');
+			th, td {
+				height: $input-height-50;
+			}
 		}
 		.table2 {
-			@include table-color-wrap(material-color('green', '900'), 'darken', true);
+			@include table-color(material-color('green', '900'), true);
+			@include table-color-wrap(material-color('green', '900'), true, 'darken');
+			th, td {
+				height: $input-height-50;
+			}
 		}
 		.table3 {
-			@include table-color-wrap(material-color('light-green', '900'), 'darken', true);
+			@include table-color(material-color('light-green', '900'), true);
+			@include table-color-wrap(material-color('light-green', '900'), true, 'darken');
+			th, td {
+				height: $input-height-50;
+			}
 			td {
 				text-align: left;
 			}
 		}
 		.table4 {
-			@include table-color-wrap(material-color('blue', '900'), 'darken', true);
+			@include table-color(material-color('blue', '900'), true);
+			@include table-color-wrap(material-color('blue', '900'), true, 'darken');
+			th, td {
+				height: $input-height-50;
+			}
 			.inPrice {
 				text-align: right;
 			}

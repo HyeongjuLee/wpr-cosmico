@@ -61,8 +61,8 @@
 					</div>
 					<ul>
 						<li><a href="/cboard/board_list.asp?bname=myoffice"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-1",LNG_MYOFFICE_NOTICE)%></a></li>
-						<!-- <li><a href="/faq/faq_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-2",LNG_CUSTOMER_02)%></a></li> -->
-						<li><a href="/counsel/1on1_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-3",LNG_CUSTOMER_05)%></a></li>
+						<!-- <li><a href="/faq/faq_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-2",LNG_FAQ)%></a></li> -->
+						<li><a href="/counsel/1on1_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-3",LNG_1ON1)%></a></li>
 					</ul>
 				</div>
 
@@ -103,8 +103,8 @@
 					</div>
 					<ul>
 						<li><a href="/cboard/board_list.asp?bname=myoffice"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-1",LNG_MYOFFICE_NOTICE)%></a></li>
-						<li><a href="/faq/faq_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-2",LNG_CUSTOMER_02)%></a></li>
-						<li><a href="/counsel/1on1_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-3",LNG_CUSTOMER_05)%></a></li>
+						<li><a href="/faq/faq_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-2",LNG_FAQ)%></a></li>
+						<li><a href="/counsel/1on1_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-3",LNG_1ON1)%></a></li>
 					</ul>
 				</div>
 
@@ -252,9 +252,17 @@
 					</ul>
 				</div>
 				<%End If%>
+
 			<%
 			End Select
 			%>
+			<%'마케팅%>
+			<div class="list">
+				<a href="/myoffice/business/marketing_plan.asp"><i class="icon-insert_chart_outlined"></i>
+					<%=Fnc_leftmenu_color(INFO_MODE,"BUSINESS",LNG_MARKETING_PLAN)%>
+					<span></span>
+				</a>
+			</div>
 		</div>
 	</article>
 </div>

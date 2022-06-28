@@ -1,10 +1,10 @@
 <li class="main"><a href="/cboard/board_list.asp?bname=notice"><p><%=LNG_CUSTOMER%></p><i><%=LNG_CUSTOMER_OVER%></i></a>
 	<ul class="nav-sub">
-		<li><a href="/cboard/board_list.asp?bname=notice"><span><%=LNG_CUSTOMER_01%></span></a></li>
-		<li><a href="/faq/faq_list.asp"><span><%=LNG_CUSTOMER_02%></span></a></li>
+		<li><a href="/cboard/board_list.asp?bname=notice"><span><%=LNG_NOTICE%></span></a></li>
+		<li><a href="/faq/faq_list.asp"><span><%=LNG_FAQ%></span></a></li>
 		<!-- <li><a href="/cboard/board_list.asp?bname=qna"><span><%=LNG_CUSTOMER_03%></span></a></li> -->
-		<li><a href="/counsel/1on1_list.asp"><span><%=LNG_CUSTOMER_04%></span></a></li>
-		<li><a href="/cboard/board_list.asp?bname=pds"><span><%=LNG_CUSTOMER_05%></span></a></li>
+		<li><a href="/counsel/1on1_list.asp"><span><%=LNG_1ON1%></span></a></li>
+		<li><a href="/cboard/board_list.asp?bname=pds"><span><%=LNG_PDS%></span></a></li>
 		<!-- <li><a href="/cboard/board_list.asp?bname=board"><span>게시판타입</span></a></li>
 		<li><a href="/cboard/board_list.asp?bname=board_vote"><span>게시판타입_추천노출</span></a></li>
 		<li><a href="/cboard/board_list.asp?bname=limitReply"><span>게시판타입_댓글일자제한</span></a></li>

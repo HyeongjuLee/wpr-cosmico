@@ -1367,8 +1367,8 @@
 		<colgroup>
 			<col width="100" />
 			<col width="*" />
-			<col width="90" />
-			<col width="80" />
+			<col width="100" />
+			<col width="100" />
 		</colgroup>
 		<tr>
 			<td class="tit"><%=LNG_BOARD_VIEW_TEXT34%></td>

@@ -308,7 +308,7 @@
 				<div class="con">
 					<input type="hidden" name="isWebIDUse" value="T">
 					<input type="password" name="strPass" class="input_text" maxlength="20" />
-					<label><input type="checkbox" name="isChgPass" value="T" class="vmiddle" onClick="checkChgPass(this)" /><%=LNG_TEXT_PASSWORD_CHANGE%></label>
+					<label class="checkbox"><input type="checkbox" name="isChgPass" value="T" class="vmiddle" onClick="checkChgPass(this)" /><span><i class="icon-ok"></i><%=LNG_TEXT_PASSWORD_CHANGE%></span></label>
 				</div>
 			</div>
 			<div id="bodyPass" style="display:none;" class="drow">
@@ -408,10 +408,9 @@
 				<div class="agreeArea">
 					<div class="title">
 						<h3><%=LNG_POLICY_02%></h3>
-						<label>
+						<label class="checkbox">
 							<input type="checkbox" id="agreement" name="agreement" value="T" onClick="toggle_flex('cpno')" />
-							<i class="icon-ok"></i>
-							<span><%=LNG_TEXT_I_AGREE%></span>
+							<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 						</label>
 					</div>
 					<div class="agreeBox">
@@ -508,12 +507,14 @@
 						<input type="hidden" name="birthDD" value="<%=DKRS_BirthDay_D%>" readonly="readonly" />
 						<p><%=DKRS_BirthDay%>-<%=DKRS_BirthDay_M%>-<%=DKRS_BirthDay_D%></p>
 
-						<%If UCase(DK_MEMBER_NATIONCODE) = "KR" Then%>
-							<label><input type="radio" name="isSolar" value="1" class="input_radio" <%=isChecked(DKRS_BirthDayTF,"1")%> /><i class="icon-ok"></i><span><%=LNG_TEXT_SOLAR%></span></label>
-							<label><input type="radio" name="isSolar" value="2" class="input_radio" <%=isChecked(DKRS_BirthDayTF,"2")%>  /><i class="icon-ok"></i><span><%=LNG_TEXT_LUNAR%></span></label>
-						<%Else%>
-							<input type="hidden" name="isSolar" value="<%=DKRS_BirthDayTF%>" />
-						<%End If%>
+						<div class="labels">
+							<%If UCase(DK_MEMBER_NATIONCODE) = "KR" Then%>
+								<label class="checkbox"><input type="radio" name="isSolar" value="1" class="input_radio" <%=isChecked(DKRS_BirthDayTF,"1")%> /><span><i class="icon-ok"></i><%=LNG_TEXT_SOLAR%></span></label>
+								<label class="checkbox"><input type="radio" name="isSolar" value="2" class="input_radio" <%=isChecked(DKRS_BirthDayTF,"2")%>  /><span><i class="icon-ok"></i><%=LNG_TEXT_LUNAR%></span></label>
+							<%Else%>
+								<input type="hidden" name="isSolar" value="<%=DKRS_BirthDayTF%>" />
+							<%End If%>
+						</div>
 					</div>
 				</div>
 			</div>

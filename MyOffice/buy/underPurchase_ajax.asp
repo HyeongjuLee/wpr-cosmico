@@ -77,7 +77,7 @@
 
 	<div>
 		<p class="titles"><%=LNG_TEXT_LIST%> <%=UnderMemberInfo%></p>
-		<table <%=tableatt%> class="width100">
+		<table <%=tableatt%> class="table">
 			<colgroup>
 				<col width="18%" />
 				<col width="20%" />

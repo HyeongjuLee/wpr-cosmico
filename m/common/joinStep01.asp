@@ -52,7 +52,7 @@
 		f.S_SellMemTF.value = value
 
 		if (value == 0)	{
-			f.action="joinStep02.asp";			//계좌인증 (or + 핸드폰인증)
+			//f.action="joinStep02.asp";			//계좌인증 (or + 핸드폰인증)
 			//f.action="joinStep_n01_m.asp";		//핸드폰인증 (or + 계좌인증)
 		}
 

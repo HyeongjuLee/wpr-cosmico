@@ -20,7 +20,10 @@ select {
 }
 
 #sub-header {
+	margin-top: 0;
 	.sub-header-txt {
+		font-size: $font-size * 3;
+		opacity: 0.8;
 		color: $common-font-color;
 		font-weight: 600;
 		// margin-top: $top-height;

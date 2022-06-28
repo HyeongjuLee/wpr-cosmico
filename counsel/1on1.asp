@@ -101,7 +101,7 @@
 
 %>
 <!--#include virtual = "/_include/document.asp"-->
-<link rel="stylesheet" href="1on1.css" />
+<link rel="stylesheet" href="/css/1on1.css?v0">
 <script type="text/javascript">
 
 	$(document).ready(function(){
@@ -238,7 +238,7 @@
 				,success: function(xhrData) {
 					jsonData = $.parseJSON(xhrData);
 					if (jsonData.result == 'SUCCESS') {
-						$("#strContent").attr({"disabled":false, "placeholder":"<%=LNG_1on1_ENTER_INQUIRY%>\n\n<%=LNG_1on1_ILLEGAL_CONTENT_MAYBE_DELETED%>" }).val(jsonData.resultMsg.replace('\<br \/>\gi', '\n'));
+						$("#strContent").attr({"disabled":false, "placeholder":"<%=LNG_1on1_ENTER_INQUIRY%>\n<%=LNG_1on1_ILLEGAL_CONTENT_MAYBE_DELETED%>" }).val(jsonData.resultMsg.replace('\<br \/>\gi', '\n'));
 						$("#strSubject").attr("disabled",false).attr("placeholder","<%=LNG_1on1_ENTER_TITLE%>").val('');
 					} else {
 						alert(jsonData.resultMsg);
@@ -270,7 +270,18 @@
 		f.submit();
 	}
 
+	var fileNameChange = function(){
+		var file = $('tr.file').find('input[type="file"]');
+		$('tr.file input[type="file"]').on('change', function(){
+			var place = $(this).parents('td').find('.upload-name').attr('placeholder');
+			var fileName = $(this).val();
+			$(this).parents('td').find('.upload-name').attr('placeholder', fileName).addClass('active');
+		});
+	};
 
+	$(function(){
+		fileNameChange();
+	});
 </script>
 </head>
 <body>
@@ -278,22 +289,20 @@
 <input type="hidden" name="fSelectTF" id="fSelectTF" value="F" />
 <input type="hidden" name="sSelectTF" id="sSelectTF" value="F" />
 <div id="counseling" class="cs_write">
-	<div class="counsel_info">
-		<ul>
-			<!-- <li><%=LNG_1on1_NOTICE01%></li> -->
-			<li><%=LNG_1on1_NOTICE02%></li>
-			<li><%=LNG_1on1_NOTICE03%></li>
-		</ul>
-	</div>
+	<ul class="info">
+		<!-- <li><%=LNG_1on1_NOTICE01%></li> -->
+		<li><%=LNG_1on1_NOTICE02%></li>
+		<li><%=LNG_1on1_NOTICE03%></li>
+	</ul>
 	<form name="cfrm" action="1on1_handler.asp" method="post" enctype="multipart/form-data">
-		<div class="counseling">
-			<table <%=tableatt%> class="width100">
-				<col width="13%" />
-				<col width="87%" />
-				<tr>
-					<th><%=LNG_TEXT_CATEGORY%></th>
-					<td>
-						<select id="Cate1" name="Cate1" class="select">
+		<table <%=tableatt%> class="board write">
+			<col width="20%" />
+			<col width="80%" />
+			<tr class="category">
+				<th><%=LNG_TEXT_CATEGORY%></th>
+				<td>
+					<div>
+						<select id="Cate1" name="Cate1" class="input_select">
 							<option value=""><%=LNG_CS_GETCATE2_TEXT01%></option>
 							<%
 								arrParams = Array(_
@@ -318,92 +327,99 @@
 							%>
 						</select>
 
-						<select id="Cate2" name="Cate2" class="select" disabled="disabled">
+						<select id="Cate2" name="Cate2" class="input_select" disabled="disabled">
 							<option value=""><%=LNG_CS_GOODSLIST_JS01%></option>
 						</select>
-					</td>
-				</tr><tr>
-					<th><%=LNG_TEXT_TITLE%></th>
-					<td><input type="text" name="strSubject" id="strSubject" class="input_text" style="width:100%" value="" disabled="disabled" placeholder="<%=LNG_CS_GETCATE2_TEXT01%>" /></td>
-				</tr><tr>
-					<th class="vtop"><%=LNG_TEXT_CONTENT%></th>
-					<td><textarea name="strContent" id="strContent" class="input_area" style="width:100%; height:340px;resize: none; " disabled="disabled" placeholder="<%=LNG_CS_GETCATE2_TEXT01%>"></textarea></td>
-				</tr>
-				<%If USE_DATA1 = "T" Then%>
-				<tr>
-					<th><%=LNG_TEXT_FILE1%></th>
-					<td>
-						<div class="filebox bs3-primary preview-image">
-							<input class="upload-name" value="<%=LNG_1on1_FILE_SELECT%> <%=LNG_1on1_FILE_LESS_THAN_00%>" disabled="disabled" style="wi dth:500px">
-							<label for="strData1" class="ser"><%=LNG_1on1_FILE_SEARCH%></label>
+					</div>
+				</td>
+			</tr>
+			<tr class="title">
+				<th><%=LNG_TEXT_TITLE%></th>
+				<td><input type="text" name="strSubject" id="strSubject" class="input_text" value="" disabled="disabled" placeholder="<%=LNG_CS_GETCATE2_TEXT01%>" /></td>
+			</tr>
+			<tr class="contents">
+				<th class="vtop"><%=LNG_TEXT_CONTENT%></th>
+				<td><textarea name="strContent" id="strContent" class="input_area" style="width:100%; height:340px;resize: none; " disabled="disabled" placeholder="<%=LNG_CS_GETCATE2_TEXT01%>"></textarea></td>
+			</tr>
+			<%If USE_DATA1 = "T" Then%>
+			<tr class="file">
+				<th><%=LNG_TEXT_FILE1%></th>
+				<td>
+					<div>
+						<input class="upload-name" readonly placeholder="<%=LNG_1on1_FILE_SELECT%> <%=LNG_1on1_FILE_LESS_THAN_00%>">
+						<label for="strData1" class="ser">
 							<input type="file" id="strData1" name="strData1" class="upload-hidden">
-						</div>
-					</td>
-				</tr>
-				<%End If%>
-				<%If USE_DATA2 = "T" Then%>
-				<tr>
-					<th><%=LNG_TEXT_FILE2%></th>
-					<td>
-						<div class="filebox bs3-primary preview-image">
-							<input class="upload-name" value="<%=LNG_1on1_FILE_SELECT%> <%=LNG_1on1_FILE_LESS_THAN_00%>" disabled="disabled" style="wi dth:500px">
-							<label for="strData2" class="ser"><%=LNG_1on1_FILE_SEARCH%></label>
+							<span><%=LNG_1on1_FILE_SEARCH%></span>
+						</label>
+					</div>
+				</td>
+			</tr>
+			<%End If%>
+			<%If USE_DATA2 = "T" Then%>
+			<tr class="file">
+				<th><%=LNG_TEXT_FILE2%></th>
+				<td>
+					<div>
+						<input class="upload-name" readonly placeholder="<%=LNG_1on1_FILE_SELECT%> <%=LNG_1on1_FILE_LESS_THAN_00%>">
+						<label for="strData2" class="ser">
 							<input type="file" id="strData2" name="strData2" class="upload-hidden">
-						</div>
-					</td>
-				</tr>
-				<%End If%>
-				<%If USE_DATA3 = "T" Then%>
-				<tr>
-					<th><%=LNG_TEXT_FILE3%></th>
-					<td>
-						<div class="filebox bs3-primary preview-image">
-							<input class="upload-name" value="<%=LNG_1on1_FILE_SELECT%>" disabled="disabled" style="wi dth:500px">
-							<label for="strData3" class="ser"><%=LNG_1on1_FILE_SEARCH%></label>
+							<span><%=LNG_1on1_FILE_SEARCH%></span>
+						</label>
+					</div>
+				</td>
+			</tr>
+			<%End If%>
+			<%If USE_DATA3 = "T" Then%>
+			<tr class="file">
+				<th><%=LNG_TEXT_FILE3%></th>
+				<td>
+					<div>
+						<input class="upload-name" readonly placeholder="<%=LNG_1on1_FILE_SELECT%>">
+						<label for="strData3" class="ser">
 							<input type="file" id="strData3" name="strData3" class="upload-hidden">
-						</div>
-					</td>
-				</tr>
-				<%End If%>
-				<tr>
-					<th><%=LNG_TEXT_CONTACT_NUMBER%>/<%=LNG_TEXT_EMAIL%></th>
-					<td>
-						<div class="width50 fleft">
-							<input type="text" name="AstrMobile" class="input_text width100 disabled" disabled="disabled" value="<%=DKRS_hptel%>" placeholder="" />
-							<input type="hidden" name="strMobile" value="<%=DKRS_hptel%>" readonly="readonly"  />
-							<%If USE_REPLY_MMS = "T" Then%>
-								<input type="checkbox" name="isSmsSend" id="isSmsSend"><label for="isSmsSend"><%=LNG_1on1_RESPONSE_TO_CONTACT_NUMBER%></label>
-							<%Else%>
-								<input type="hidden" name="isSmsSend" value="F">
-							<%End If%>
+							<span><%=LNG_1on1_FILE_SEARCH%></span>
+						</label>
+					</div>
+				</td>
+			</tr>
+			<%End If%>
+			<tr class="member">
+				<th><%=LNG_TEXT_CONTACT_NUMBER%>/<%=LNG_TEXT_EMAIL%></th>
+				<td>
+					<div>
+						<input type="text" name="AstrMobile" class="input_text" disabled="disabled" value="<%=DKRS_hptel%>" placeholder="" />
+						<input type="hidden" name="strMobile" value="<%=DKRS_hptel%>" readonly="readonly"  />
+						<%If USE_REPLY_MMS = "T" Then%>
+							<input type="checkbox" name="isSmsSend" id="isSmsSend"><label for="isSmsSend"><%=LNG_1on1_RESPONSE_TO_CONTACT_NUMBER%></label>
+						<%Else%>
+							<input type="hidden" name="isSmsSend" value="F">
+						<%End If%>
+					</div>
+					<div>
+						<input type="text" name="AstrEmail" class="input_text" disabled="disabled" value="<%=DKRS_Email%>" placeholder="" />
+						<input type="hidden" name="strEmail" value="<%=DKRS_Email%>" readonly="readonly"  />
+						<%If USE_REPLY_MMS = "T" Then%>
+							<input type="checkbox" name="isMailSend" id="isMailSend"><label for="isMailSend"><%=LNG_1on1_RESPONSE_TO_EMAIL%></label>
+						<%Else%>
+							<input type="hidden" name="isMailSend" value="F">
+						<%End If%>
+					</div>
+				</td>
+			</tr>
+			<tr class="mypage">
+				<td colspan="2">
+					<!-- <div class="fleft"><input type="checkbox" name="smsSend" id="input_smsSend" value="T" class="input_check" /> <label for="input_smsSend">답변이 등록되면 SMS 로 알림을 받고 싶습니다.</label></div> -->
+					<div><%=LNG_1on1_WRONG_MEMBER_INFORMATION%> - <a href="<%=MEMBER_INFO_LINK_URL%>" class="underline"><%=LNG_MYPAGE_01%></a></div>
+				</td>
 
-
-						</div>
-						<div class="width50 fleft">
-							<input type="text" name="AstrEmail" class="input_text width100 disabled" disabled="disabled" value="<%=DKRS_Email%>" placeholder="" />
-							<input type="hidden" name="strEmail" value="<%=DKRS_Email%>" readonly="readonly"  />
-							<%If USE_REPLY_MMS = "T" Then%>
-								<input type="checkbox" name="isMailSend" id="isMailSend"><label for="isMailSend"><%=LNG_1on1_RESPONSE_TO_EMAIL%></label>
-							<%Else%>
-								<input type="hidden" name="isMailSend" value="F">
-							<%End If%>
-						</div>
-						<div class="width100 cleft" style="padding-top:9px;">
-							<!-- <div class="fleft"><input type="checkbox" name="smsSend" id="input_smsSend" value="T" class="input_check" /> <label for="input_smsSend">답변이 등록되면 SMS 로 알림을 받고 싶습니다.</label></div> -->
-							<div class="fright"><%=LNG_1on1_WRONG_MEMBER_INFORMATION%> - <a href="<%=MEMBER_INFO_LINK_URL%>" class="underline"><%=LNG_MYPAGE_01%></a></div>
-						</div>
-					</td>
-				</tr>
-
-			</table>
-			<div class="btnArea">
-				<%If DKRS_hptel = "" Then %>
-				<a href="javascript:alert('<%=LNG_1on1_NO_MOBILE01%>');" class="a_submit design1"><%=LNG_1on1_REGISTER%></a>
-				<%Else%>
-				<a href="javascript:chkThisForm();" class="a_submit design1"><%=LNG_1on1_REGISTER%></a>
-				<%End If%>
-				<a href="javascript:history.back();" class="a_submit design2" style="margin-left:7px;"><%=LNG_1on1_CANCEL%></a>
-			</div>
+		</table>
+		<div class="btnZone">
+			<!-- <%If DKRS_hptel = "" Then %>
+			<a href="javascript:alert('<%=LNG_1on1_NO_MOBILE01%>');" class="a_submit design1"><%=LNG_1on1_REGISTER%></a>
+			<%Else%> -->
+			<a href="javascript:chkThisForm();" class="promise"><%=LNG_1on1_REGISTER%></a>
+			<!-- <%End If%> -->
+			<a href="javascript:history.back();" class="cancel"><%=LNG_1on1_CANCEL%></a>
 		</div>
 	</form>
 </div>

@@ -376,6 +376,8 @@
 	LNG_BUSINESS_03								= "VIP 관리"
 	LNG_BUSINESS_04								= "셀러(아이디)확인"
 	LNG_BUSINESS_05								= "본부소개"
+	
+	LNG_MARKETING_PLAN							= "마케팅플랜"
 
 	LNG_SALESMAN_SEARCH							= "판매원조회"
 	LNG_SALESMAN_SEARCH_01						= "판매원 번호"

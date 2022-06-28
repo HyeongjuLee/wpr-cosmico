@@ -1,6 +1,4 @@
 @charset "UTF-8";
-body { font-size: 1.5rem; line-height: 1.5; }
-
 .adminFullWidth, .adminFullWidthCS { width: 1200px; }
 
 .userCWidth, .userCWidth2 { width: 950px; }
@@ -33,7 +31,7 @@ td select { height: 28px; border: 1px solid #ccc; }
 
 #member { padding-top: 15px; }
 #member .line td, #member .line th { border-top: 2px solid #cbcbcb; }
-#member .input_text { border: 1px solid #ddd; padding: 2px 2px 1px 2px; vertical-align: middle; }
+#member .input_text { vertical-align: middle; }
 #member .summary { margin-left: 7px; color: #a2a2a2; font-size: 8pt; }
 #member .summary2 { margin-left: 7px; color: #a2a2a2; font-size: 8pt; line-height: 7px; }
 #member .btn_area { text-align: center; }
@@ -73,7 +71,7 @@ td select { height: 28px; border: 1px solid #ccc; }
 .orderList th, .orderList td { border: 1px solid #cacaca; }
 .orderList th { padding: 12px 0px; background: #e9e9e9; font-weight: 600; }
 .orderList td { padding: 12px 6px; }
-.orderList .bottomLine td.blines { border-bottom: 3px double #cacaca; background-color: #f2f8f8; text-align: right; padding-bottom: 15px; }
+.orderList .bottomLine td.blines { border-bottom: 3px double #cacaca; background-color: #fcf5f0; text-align: right; padding-bottom: 15px; }
 .orderList .table1 td { text-align: left; padding-left: 10px; }
 .orderList .table2 td { text-align: center; }
 .orderList .table2 td.inPrice { text-align: right; padding-right: 4px; }
@@ -116,7 +114,7 @@ td select { height: 28px; border: 1px solid #ccc; }
 #cart .meminfo td { padding: 10px 10px; }
 
 #buy { padding-top: 15px; }
-#buy tr.hovers:hover { background-color: rgba(48, 161, 157, 0.05); }
+#buy tr.hovers:hover { background-color: rgba(247, 103, 7, 0.05); }
 
 .DownPurchase .price { text-align: right !important; padding-right: 7px !important; }
 .DownPurchase th { border: 1px solid #cacaca; }
@@ -284,34 +282,33 @@ a:hover { color: green; }
 .board { width: 100%; }
 .board table { border: none; }
 .board tr { border: none; }
-.board th, .board td { border: none; padding: 10px; }
-.board thead th { background: #eaf6f5; color: #637472; font-weight: 500; border: 1px solid #c6e7e4; height: 5rem; }
-.board tbody tr { border-bottom: 1px solid #e5ebeb; }
-.board tbody th { border: 1px solid #d3e4e2; background: #f7f9f9; color: #637472; height: 5rem; }
-.board tbody td { border: 1px solid #e5ebeb; height: 5rem; }
-.board a { color: inherit; }
-.board a:hover { text-decoration: underline; color: #30a19d; }
+.board th, .board td { border: none; padding: 0.5rem 1rem; }
+.board thead th { background: #fef0e6; color: #7e6a5b; font-weight: 600; border: 1px solid #fcd3b5; }
+.board tbody tr { border-bottom: 1px solid #efe8e3; }
+.board tbody th { border: 1px solid #eedacb; background: #faf8f7; color: #7e6a5b; }
+.board tbody td { border: 1px solid #efe8e3; }
 .board thead th:first-of-type { border-left: none; }
 .board thead th:last-of-type { border-right: none; }
 .board tbody th:first-of-type { border-left: none; }
 .board tbody th:last-of-type { border-right: none; }
+.board tbody th + td { border-left: 1px solid #eedacb !important; }
 .board tbody td:first-of-type { border-left: none; }
 .board tbody td:last-of-type { border-right: none; }
 
 #member { padding-top: 0; }
-#member .board { width: 100%; }
+#member .board { width: 100%; text-align: center; }
 #member .board table { border: none; }
 #member .board tr { border: none; }
-#member .board th, #member .board td { border: none; padding: 10px; }
-#member .board thead th { background: #eaf6f5; color: #637472; font-weight: 500; border: 1px solid #c6e7e4; height: 5rem; }
-#member .board tbody tr { border-bottom: 1px solid #e5ebeb; }
-#member .board tbody th { border: 1px solid #d3e4e2; background: #f7f9f9; color: #637472; height: 5rem; }
-#member .board tbody td { border: 1px solid #e5ebeb; height: 5rem; }
-#member .board a { color: inherit; }
-#member .board a:hover { text-decoration: underline; color: #30a19d; }
+#member .board th, #member .board td { border: none; padding: 0.5rem 1rem; }
+#member .board thead th { background: #fef0e6; color: #7e6a5b; font-weight: 600; border: 1px solid #fcd3b5; }
+#member .board tbody tr { border-bottom: 1px solid #efe8e3; }
+#member .board tbody th { border: 1px solid #eedacb; background: #faf8f7; color: #7e6a5b; }
+#member .board tbody td { border: 1px solid #efe8e3; }
 #member .board thead th:first-of-type { border-left: none; }
 #member .board thead th:last-of-type { border-right: none; }
 #member .board tbody th:first-of-type { border-left: none; }
 #member .board tbody th:last-of-type { border-right: none; }
+#member .board tbody th + td { border-left: 1px solid #eedacb !important; }
 #member .board tbody td:first-of-type { border-left: none; }
 #member .board tbody td:last-of-type { border-right: none; }
+#member .board th, #member .board td { height: 5rem; }

@@ -35,7 +35,7 @@
 %>
 
 <!--#include virtual = "/_include/document.asp"-->
-<link rel="stylesheet" href="1on1.css" />
+<link rel="stylesheet" href="/css/1on1.css?" />
 <script type="text/javascript">
 <!--
 	$(document).ready(function() {
@@ -52,9 +52,9 @@
 <body>
 <!--#include virtual="/_include/header.asp" -->
 <div id="counseling" class="cs_list">
-	<div class="cleft width100 writeBtnZone"><a href="1on1.asp"><i class="fas fa-pencil-alt"></i> <%=LNG_BOARD_BTN_WRITE%></a></div>
+	<div class="write"><a href="1on1.asp"><i class="icon-pencil-2"></i><%=LNG_BOARD_BTN_WRITE%></a></div>
 
-	<table <%=tableatt%> class="width100">
+	<!-- <table <%=tableatt%> class="width100">
 		<col width="70" />
 		<col width="*" />
 		<col width="220" />
@@ -65,49 +65,68 @@
 			<th><%=LNG_TEXT_TITLE%></th>
 			<th><%=LNG_TEXT_WRITE_DATE%></th>
 			<th><%=LNG_1ON1_WHETHER_TO_ANSWER%><br /><%=LNG_1ON1_RESPONSE_MODIFY_TIME%></th>
-		</tr>
+		</tr> -->
 
 	<%
-
-
-
 		If IsArray(arrList) Then
-			For i = 0 To listLen
-				arrList_ROWNUM			= arrList(0,i)
-				arrList_intIDX			= arrList(1,i)
-				arrList_isDel			= arrList(2,i)
-				arrList_strUserID		= arrList(3,i)
-				arrList_strName			= arrList(4,i)
-				arrList_strEmail		= arrList(5,i)
-				arrList_strMobile		= arrList(6,i)
-				arrList_strSubject		= arrList(7,i)
-				arrList_regDate			= arrList(8,i)
-				arrList_isReply			= arrList(9,i)
-				arrList_repDate			= arrList(10,i)
-				NUMS = CDbl(All_Count) - CDbl(arrList_ROWNUM) + 1
+	%>
+	<ul>
+	<%
+		For i = 0 To listLen
+			arrList_ROWNUM			= arrList(0,i)
+			arrList_intIDX			= arrList(1,i)
+			arrList_isDel			= arrList(2,i)
+			arrList_strUserID		= arrList(3,i)
+			arrList_strName			= arrList(4,i)
+			arrList_strEmail		= arrList(5,i)
+			arrList_strMobile		= arrList(6,i)
+			arrList_strSubject		= arrList(7,i)
+			arrList_regDate			= arrList(8,i)
+			arrList_isReply			= arrList(9,i)
+			arrList_repDate			= arrList(10,i)
+			NUMS = CDbl(All_Count) - CDbl(arrList_ROWNUM) + 1
 
 
 
-				PRINT "<tr class=""link"" attrLink=""1on1_view.asp?page="&PAGE&"&idx="&arrList_intIDX&""">"
-				PRINT "	<td class=""tcenter"">"&NUMS&"</td>"
-				PRINT "	<td class=""subject"">"&BACKWORD(arrList_strSubject)&"</td>"
-				PRINT "	<td class=""tcenter"">"&dateFormat(arrList_regDate,"yyyy.mm.dd hh:nn:ss")&"</td>"
-				PRINT "	<td class=""tcenter"">"&TFVIEWER(arrList_isReply,"REPLY")&"<br />"&dateFormat(arrList_repDate,"yyyy.mm.dd hh:nn:ss")&"</td>"
-				PRINT "</tr>"
+			' PRINT "<tr class=""link"" attrLink=""1on1_view.asp?page="&PAGE&"&idx="&arrList_intIDX&""">"
+			' PRINT "	<td class=""tcenter"">"&NUMS&"</td>"
+			' PRINT "	<td class=""subject"">"&BACKWORD(arrList_strSubject)&"</td>"
+			' PRINT "	<td class=""tcenter"">"&dateFormat(arrList_regDate,"yyyy.mm.dd hh:nn:ss")&"</td>"
+			' PRINT "	<td class=""tcenter"">"&TFVIEWER(arrList_isReply,"REPLY")&"<br />"&dateFormat(arrList_repDate,"yyyy.mm.dd hh:nn:ss")&"</td>"
+			' PRINT "</tr>"
 
-			Next
-		Else
-			PRINT "<tr>"
-			PRINT "	<td colspan=""4"" class=""notData"">"&LNG_1ON1_NO_INQUIRY_WRITTEN_BY_ME&"</td>"
-			PRINT "</tr>"
+		%>
+
+			<li>
+				<a href="1on1_view.asp?page=<%=PAGE%>&idx=<%=arrList_intIDX%>">
+					<h6>
+						<div>
+							<span><%=BACKWORD(arrList_strSubject)%></span>
+							<%=TFVIEWER(arrList_isReply,"REPLY")%>
+						</div>
+						<p><%=LNG_TEXT_WRITE_DATE%><i></i><%=dateFormat(arrList_regDate,"yyyy.mm.dd hh:nn:ss")%></p>
+					</h6>
+					<div>
+						<p><%=LNG_1ON1_ANSWER%><i></i><%=dateFormat(arrList_repDate,"yyyy.mm.dd hh:nn:ss")%></p>
+					</div>
+				</a>
+			</li>
+			<%
+
+				Next
+			%>
+		</ul>
+		<%Else%>
+			<p class="notList"><%=LNG_1ON1_NO_INQUIRY_WRITTEN_BY_ME%></p>
+		<%
+			' PRINT "<tr>"
+			' PRINT "	<td colspan=""4"" class=""notData"">"&LNG_1ON1_NO_INQUIRY_WRITTEN_BY_ME&"</td>"
+			' PRINT "</tr>"
+
 		End If
 	%>
-	</table>
 
-	<div class="cleft width100" style="margin-top:15px;text-align:center; padding-bottom:40px;">
-		<!-- <div class="pageArea2"><%Call pageList(PAGE,PAGECOUNT)%></div> -->
-		<div class="pagingArea pagingNew3"><% Call pageListNew3(PAGE,PAGECOUNT)%></div>
-	</div>
+	<div class="pagingArea pagingNew3"><% Call pageListNew3(PAGE,PAGECOUNT)%></div>
 
 	<form name="frm" method="get" action="">
 		<input type="hidden" name="PAGE" value="<%=PAGE%>" />

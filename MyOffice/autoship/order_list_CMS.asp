@@ -42,9 +42,10 @@
 %>
 <!--#include virtual = "/_include/document.asp"-->
 <!-- <link rel="stylesheet" href="/myoffice/css/style_cs.css" /> -->
-<link rel="stylesheet" href="/myoffice/css/layout_cs.css" />
+<!-- <link rel="stylesheet" href="/myoffice/css/layout_cs.css" /> -->
 <!-- <link rel="stylesheet" href="/myoffice/autoship/order_list_CMS_mod.css" /> -->
-<link rel="stylesheet" href="/css/order_list_CMS_mod.css?v0" />
+<link rel="stylesheet" href="/css/pay2.css?" />
+<link rel="stylesheet" href="/css/order_list_CMS_mod.css?" />
 <script type="text/javascript" src="/jscript/calendar.js"></script>
 <script type="text/javascript">
 <!--
@@ -100,7 +101,7 @@ function chgDate(sdate,nDate) {
 			<a href="order_list_CMS_reg.asp"><i class="icon-plus-1"></i><%=LNG_MYOFFICE_AUTOSHIP_02%></a>
 		<%End If%>
 	</p>
-	<table <%=tableatt%> class="userCWidth table2">
+	<table <%=tableatt%> class="table">
 		<col width="70" />
 		<col width="140" />
 		<col width="140" />
@@ -194,6 +195,7 @@ function chgDate(sdate,nDate) {
 		%>
 	</table>
 	<div class="pagingArea pagingNew3 userCWidth"><% Call pageListNew3(PAGE,PAGECOUNT)%></div>
+</div>
 </div>
 <form name="frm" method="post" action="">
 	<input type="hidden" name="PAGE" value="<%=PAGE%>" />

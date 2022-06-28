@@ -63,7 +63,7 @@
 %>
 
 <!--#include virtual = "/_include/document.asp"-->
-<link rel="stylesheet" href="1on1.css" />
+<link rel="stylesheet" href="/css/1on1.css?" />
 <!-- <script type="text/javascript" src="member_info.js"></script> -->
 <script type="text/javascript">
 <!--
@@ -81,55 +81,52 @@
 <body>
 <!--#include virtual="/_include/header.asp" -->
 <div id="counseling" class="cs_view">
-	<table <%=tableatt%> class="width100 view">
-		<col width="60" />
-		<col width="*" />
+	<div class="question">
+		<h6>
+			<p><%=LNG_TEXT_WRITE_DATE%><i></i><%=DKRS_regDate%></p>
+			<span><%=BACKWORD(DKRS_strSubject)%></span>
+		</h6>
+		<div class="content"><%=DKRS_strContent%></div>
 
-		<tr class="subject">
-			<td class="tcenter">Q</td>
-			<td><%=BACKWORD(DKRS_strSubject)%></td>
-		</tr><tr>
-			<td colspan="2" class="counselContent"><%=DKRS_strContent%></td>
-		</tr>
 		<%
 			If DKRS_strData1 <> "" Then
 				strDataSize1 = num2cur(ChkFileSize(REAL_PATH2("/uploadData/counselData1")&"\"&DKRS_strData1) / 1024)
 		%>
-		<tr>
-			<td colspan="2"><span style="color:#949494;;"><%=LNG_TEXT_FILE1%> : </span><span style="color:#333;"><a href="javascript:fTrans('<%=FN_HR_ENC(DKRS_strData1)%>','<%=FN_HR_ENC("counsel1")%>');"><%=BACKWORD(DKRS_strData1)%></a></span> <span style="font-size:0.8em; color:#f32000">(<%=num2cur(strDataSize1)%>KB)</span></td>
-		</tr>
+		<div class="file">
+			<a href="javascript:fTrans('<%=FN_HR_ENC(DKRS_strData1)%>','<%=FN_HR_ENC("counsel1")%>');">
+				<h6><%=LNG_TEXT_FILE1%><i></i></h6>
+				<p><%=BACKWORD(DKRS_strData1)%></p>
+				<span>(<%=num2cur(strDataSize1)%>KB)</span>
+			</a>
+		</div>
 		<%End If%>
-		<tr class="last">
-			<!-- <td colspan="2" class="tright"><%=DKRS_strName%>님이 <%=DKRS_regDate%> 에 작성하신 문의입니다.</td> -->
-			<td colspan="2" class="tright">[<%=LNG_1ON1_INQUIRY_TIME%>]  <%=DKRS_regDate%></td>
-		</tr>
-	</table>
 
 	<%If DKRS_isReply = "F" Then%>
 		<p class="replyInfo"><span style="color:#ee0000"><%=LNG_1ON1_WAITING_FOR_REPLY%></span></p>
 	<%Else%>
 		<!-- <p class="replyInfo"><span class="color:#0000cc"><%=DKRS_repDate%> 에 최종답변이 등록되었습니다.</span></p> -->
-		<p class="replyInfo"><span class="color:#0000cc"><%=LNG_1ON1_FINAL_ANSWER_REGISTRATION%> - <%=DKRS_repDate%></span></p>
-		<div class="reply">
-			<%=DKRS_strReply%>
-		</div>
+		<div class="replyInfo2">
+			<h6><p><%=LNG_1ON1_FINAL_ANSWER_REGISTRATION%><i></i><%=DKRS_repDate%></p></h6>
+			<div class="content">
+				<%=DKRS_strReply%>
+			</div>
 		<%
 			If DKRS_strReplyData1 <> "" Then
 				strReplyDataSize1 = num2cur(ChkFileSize(REAL_PATH2("/uploadData/counselReply")&"\"&DKRS_strReplyData1) / 1024)
 		%>
-		<div class="replyData">
-			<div class="DataS"><%=LNG_TEXT_FILE1%></div>
-			<div class="DataD">
-				<span style="color:#333;" class="tweight"><%=BACKWORD(DKRS_strReplyData1)%></span> <span style="color:#f32000">(<%=num2cur(strReplyDataSize1)%>KB)</span>
-				| <a href="javascript:fTrans('<%=FN_HR_ENC(DKRS_strReplyData1)%>','<%=FN_HR_ENC("counselR")%>');">[<%=LNG_1ON1_DOWNLOAD%>]</a>
-				<!-- | <a href="<%=VIR_PATH("data/reply")%>/<%=DKRS_strReplyData1%>" target="_blank">[<%=LNG_1ON1_RIGHT_VIEW%>]</a> -->
-			</div>
+		<div class="file">
+			<a href="javascript:fTrans('<%=FN_HR_ENC(DKRS_strReplyData1)%>','<%=FN_HR_ENC("counselR")%>');">
+				<h6><%=LNG_TEXT_FILE1%><i></i></h6>
+				<p><%=BACKWORD(DKRS_strReplyData1)%></p>
+				<span>(<%=num2cur(strReplyDataSize1)%>KB)</span>
+			</a>
 		</div>
 		<%End If%>
+	</div>
 	<%End If%>
 
-	<div class="btnArea">
-		<a href="1on1_list.asp?page=<%=PAGE%>" class="a_submit design2"><%=LNG_BOARD_BTN_LIST%></a>
+	<div class="btnZone">
+		<a href="1on1_list.asp?page=<%=PAGE%>" class="button"><%=LNG_BOARD_BTN_LIST%></a>
 	</div>
 
 </div>

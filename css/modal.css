@@ -1,4 +1,6 @@
 @charset "UTF-8";
+html { overflow-y: auto !important; }
+
 .ui-dialog { font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ line-height: 1.5; }
 .ui-dialog .ui-dialog-titlebar { padding: 1.5rem 2.25rem; }
 .ui-dialog .ui-dialog-titlebar .ui-button-icon-only { text-indent: initial; }
@@ -11,13 +13,13 @@
 .ui-dialog .ui-dialog-title .select_voter { width: 100%; margin-top: 1.5rem; line-height: 1.2; font-size: 1.7rem; position: absolute; left: 0; z-index: 1; }
 .ui-dialog .ui-dialog-buttonpane { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; text-align: center; margin: 2rem; }
 .ui-dialog .ui-dialog-buttonset { float: initial !important; width: 100%; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
-.ui-dialog .ui-dialog-buttonset button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #d5d5d5; background: #eeeeee; color: #111111; flex: auto; height: 4.5rem; font-size: 1.5rem; }
+.ui-dialog .ui-dialog-buttonset button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #d5d5d5; background: #eeeeee; color: #111111; flex: auto; height: 4.5rem; font-size: 1.5rem; }
 .ui-dialog .ui-dialog-buttonset button:hover { color: #fff; text-decoration: none; background: #fbfbfb; }
 .ui-dialog .ui-dialog-buttonset button:active { color: white; background: #e1e1e1; }
 .ui-dialog .ui-dialog-buttonset button:hover { color: #111111; background: #e0e0e0; border-color: #bdbdbd; }
 .ui-dialog .ui-dialog-buttonset button:active { color: #111111; }
 .ui-dialog .ui-dialog-buttonset button:only-child { width: 100%; flex: initial; }
-.ui-dialog .ui-dialog-buttonset button.confirm { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ee3900; background: #ff5722; }
+.ui-dialog .ui-dialog-buttonset button.confirm { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ee3900; background: #ff5722; }
 .ui-dialog .ui-dialog-buttonset button.confirm:hover { color: #fff; text-decoration: none; background: #ff6a3c; }
 .ui-dialog .ui-dialog-buttonset button.confirm:active { color: white; background: #ff4409; }
 
@@ -38,7 +40,7 @@
 #pop_search .searchs .search { width: 4.5rem; height: 4.5rem; border: 1px solid #424242; background: #757575; display: inline-flex; justify-content: center; align-items: center; }
 #pop_search .searchs .search input { visibility: hidden; position: absolute; }
 #pop_search .searchs .search i { color: #fff; font-size: 2rem; }
-#pop_search .tables { width: 100%; margin: 1.5rem 0; color: #222; font-size: 1.3rem; }
+#pop_search .tables { width: 100%; margin: 1.5rem 0; color: #222; font-size: 1.3rem; overflow-y: auto; }
 #pop_search .tables table { border: none; margin: 1.5rem 0; }
 #pop_search .tables tr.cp:hover { background: rgba(255, 255, 255, 0.05); }
 #pop_search .tables tr:nth-of-type(1) th { border-top-width: 2px; }

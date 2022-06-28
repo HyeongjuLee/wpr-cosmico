@@ -411,6 +411,12 @@ $main-visual-h: 900px;
 			font-weight: 700;
 			margin-top: auto;
 			margin-bottom: rem(120px);
+
+			&:hover {
+				color: #fff;
+				background: $main-color;
+				border-color: $main-color;
+			}
 		}
 	}
 

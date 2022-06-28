@@ -67,6 +67,7 @@ $sub_title-height: $font-size * 4;
 	text-align: center;
 	background: #fff;
 	padding-top: 0;
+	margin-top: 0;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 
 	.layout_inner {
@@ -164,11 +165,11 @@ $sub_title-height: $font-size * 4;
 	@include rounded($font-size / 3);
 	vertical-align: middle;
 	padding: 0px $font-size;
-	border: 1px solid $oc-gray-5;
+	border: 1px solid material-color('grey', '400');
 	background: #fff;
 
 	&:read-only {
-		background: $oc-gray-3;
+		background: material-color('grey', '200');
 		// border-color: material-color('grey');
 	}
 }
@@ -433,7 +434,7 @@ $myoffice: rem(930px);
 .detail_btn {
 	@include inline-flex;
 	//width: 100%;
-	height: $input-height / 2;
+	min-height: $input-height / 2;
 	line-height: 1.5;
 	padding: rem(5px) rem(10px);
 	cursor: pointer;
@@ -608,6 +609,7 @@ $input-height: $input-height - rem(10px);
 						radius: 0;
 						top-left-radius: rem(5px);
 						bottom-left-radius: rem(5px);
+						color: $oc-gray-2;
 					};
 					width: 100%;
 				}
@@ -617,7 +619,7 @@ $input-height: $input-height - rem(10px);
 						top-right-radius: rem(5px);
 						bottom-right-radius: rem(5px);
 					};
-					border-color: #828282;
+					// border-color: #828282;
 					color: #fff;
 					height: $input-height;
 					padding: 0 rem(10px);
