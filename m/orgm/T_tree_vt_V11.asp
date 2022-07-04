@@ -1,6 +1,6 @@
 <!--#include virtual = "/_lib/strFunc.asp"-->
 <%
-	v = "12.3"
+	v = "12.4"
 %>
 <!DOCTYPE html>
 <html lang="ko">

@@ -86,8 +86,8 @@
 	.jOrgChart .line {height:20px; width:2px;}
 	.jOrgChart .down {box-shadow: inset 1px 0px #777; margin:0px auto;}
 	.jOrgChart .top {border-top:1px solid #777;}
-	.jOrgChart .left {/* border-right:1px solid #777; */}
-	.jOrgChart .right {box-shadow: inset 1px 0px #777;}
+	.jOrgChart .left {border-right:1px solid #777;}
+	.jOrgChart .right {/* box-shadow: inset 1px 0px #777; */}
 	.jOrgChart .node {
 		font-size: 12px;background-color:#fff; border: 1px solid #777;color:#000;display:inline-block;  z-index:10;margin:0px 6px;
 		box-shadow: 5px 6px 10px -5px rgba(0,0,0,0.63);

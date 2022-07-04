@@ -177,10 +177,13 @@
 						<span></span>
 					</div>
 					<ul>
+						<li><a href="/myoffice/pay/pay01.asp"><%=Fnc_leftmenu_color(INFO_MODE,"BONUS1-3",LNG_MYOFFICE_BONUS_01)%></a></li>
+						<li><a href="/myoffice/pay/pay02.asp"><%=Fnc_leftmenu_color(INFO_MODE,"BONUS1-2",LNG_MYOFFICE_BONUS_02)%></a></li>
 						<li><a href="/myoffice/pay/pay03.asp"><%=Fnc_leftmenu_color(INFO_MODE,"BONUS1-3",LNG_MYOFFICE_BONUS_03)%></a></li>
 					</ul>
 				</div>
 
+				<%If false Then%>
 				<%'오토쉽 내역%>
 				<div class="list">
 					<div class="menu">
@@ -193,6 +196,7 @@
 						<li><a href="/myoffice/autoship/order_list_CMS_reg.asp"><%=Fnc_leftmenu_color(INFO_MODE,"AUTOSHIP1-2",LNG_MYOFFICE_AUTOSHIP_02)%></a></li>
 					</ul>
 				</div>
+				<%End If%>
 
 				<%'포인트%>
 				<%If isSHOP_POINTUSE = "T" And 1=1 Then%>

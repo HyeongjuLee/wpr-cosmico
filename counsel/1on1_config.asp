@@ -29,13 +29,13 @@
 
 
 		USE_WYSIWIG = "F"
-	'	USE_DATA1 = "T"
-		USE_DATA1 = "F"
+
+		USE_DATA1 = "T"
 		USE_DATA2 = "F"
 		USE_DATA3 = "F"
 
-		'MEMBER_INFO_LINK_URL = "/mypage/member_info.asp"
-		'M_MEMBER_INFO_LINK_URL = "/m/mypage/member_info.asp"
+		MEMBER_INFO_LINK_URL = "/mypage/member_info.asp"
+		M_MEMBER_INFO_LINK_URL = "/m/mypage/member_info.asp"
 
 	'▣ 설정 구역 E
 

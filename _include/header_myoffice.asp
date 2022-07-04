@@ -32,7 +32,9 @@
 				<article class="myoffice-top-btn">
 					<!-- <a class="home" href="/main/index.asp"><%=LNG_HEADER_HOME%></a> -->
 					<a class="home" href="/index.asp"><%=LNG_HEADER_HOME%></a>
+					<%If DK_MEMBER_LEVEL > 0 Then%>
 					<a class="logout" href="/common/member_logout.asp"><%=LNG_TEXT_LOGOUT%></a>
+					<%End If%>
 				</article>
 			</div>
 		</div>

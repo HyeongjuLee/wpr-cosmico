@@ -180,7 +180,7 @@
 				<li class="ssub"><a href="member_list444.asp"><%=LEFT_MENU_HIGHLIGHT("MEMBER1-3",9,"탈퇴승인회원")%></a></li> -->
 				<!-- <li class="ssub"><a href="member_list445.asp"><%=LEFT_MENU_HIGHLIGHT("MEMBER1-4",9,"강제탈퇴회원")%></a></li> -->
 			</ul>
-			<%If webproIP="T" Then%>
+			<%If webproIP="T" and 1=2 Then%>
 			<ul>
 				<li class="sub" style="background: #000;">메세지 관리(w-pro only)</li>
 				<li class="ssub"><a href="sms_list.asp?cate=join"><%=LEFT_MENU_HIGHLIGHT("MEMBER1-5",9,"회원가입 메세지(알림톡)")%></a></li>

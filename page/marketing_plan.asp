@@ -6,9 +6,12 @@
 	GENERAL = "<img src=""/images/content/plan_general.svg"" alt="""">"
 	DIRECTOR = "<img src=""/images/content/plan_director.svg"" alt="""">"
 %>
-<link rel="stylesheet" href="/css/marketing_plan.css?">
 <div class="plan">
+	<%If ISLEFT="T" Then%>
 	<div class="img"><img src="/images/content/marketing_plan01.jpg" alt=""></div>
+	<%Else%>
+	<div class="img"><img src="/m/images/content/marketing_plan01_m.jpg" alt=""></div>
+	<%End If%>
 	<article class="article01">
 		<section>
 			<h2>용어</h2>
@@ -334,66 +337,132 @@
 	</article>
 	<article class="article08">
 		<section class="section_last">
-			<table>
-				<thead>
-					<tr>
-						<th></th>
-						<th></th>
-						<th>무료가입 (소비자회원)</th>
-						<th>VIP (우수 소비자회원)</th>
-						<th>셀러 (판매원)</th>
-						<th>매니저 (판매원)</th>
-						<th>지점장 (판매원)</th>
-						<th>본부장 (판매원)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th>1<br>주급</th>
-						<td>판권구매 (재구매)</td>
-						<td rowspan="6"><div><p>수당 없음</p></div></td>
-						<td rowspan="6"><div><p>수당 없음<br>-우수 고객 할인</p><p>40만 PV<br>-10% 할인</p></div></td>
-						<td>300만PV</td>
-						<td>650만PV</td>
-						<td>300만PV<br>담당매니저 8명</td>
-						<td>300만PV<br>지점장 3명<br>(또는)<br>매니저33명</td>
-					</tr>
-					<tr>
-						<th>2<br>주급</th>
-						<td>소개수당 (첫구매)</td>
-						<td>40%</td>
-						<td>45%</td>
-						<td>50%</td>
-						<td>55%</td>
-					</tr>
-					<tr>
-						<th><span class="red">3</span><br>월급</th>
-						<td>책임교육 (담당판매원)</td>
-						<td colspan="4">담당 판매원 <span class="red">주급</span>의 20%</td>
-					</tr>
-					<tr>
-						<th>4<br>월급</th>
-						<td>장려금</td>
-						<td>-</td>
-						<td>3%</td>
-						<td>2%</td>
-						<td>2%</td>
-					</tr>
-					<tr>
-						<th>5<br>월급</th>
-						<td>아카데미 인센티브</td>
-						<td colspan="4">아카데미 전체 매출 3%<br>샵(사업자등록증) + 미용자격증 업로드</td>
-					</tr>
-					<tr>
-						<th>6<br>월급</th>
-						<td>본부장 보너스 (센터)</td>
-						<td>-</td>
-						<td>-</td>
-						<td>-</td>
-						<td>본부장 그룹 전체 매출4%</td>
-					</tr>
-				</tbody>
-			</table>
+			
+			<%If ISLEFT="T" Then%>
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th></th>
+							<th>무료가입 (소비자회원)</th>
+							<th>VIP (우수 소비자회원)</th>
+							<th>셀러 (판매원)</th>
+							<th>매니저 (판매원)</th>
+							<th>지점장 (판매원)</th>
+							<th>본부장 (판매원)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>1<br>주급</th>
+							<td>판권 구매 (재구매)</td>
+							<td rowspan="6"><div><p>수당 없음</p></div></td>
+							<td rowspan="6"><div><p>수당 없음<br>-우수 고객 할인</p><p>40만 PV<br>-10% 할인</p></div></td>
+							<td>300만 PV</td>
+							<td>650만 PV</td>
+							<td>300만 PV<br>담당 매니저 8명</td>
+							<td>300만 PV<br>지점장 3명<br>(또는)<br>매니저 33명</td>
+						</tr>
+						<tr>
+							<th>2<br>주급</th>
+							<td>소개수당 (첫구매)</td>
+							<td>40%</td>
+							<td>45%</td>
+							<td>50%</td>
+							<td>55%</td>
+						</tr>
+						<tr>
+							<th><span class="red">3</span><br>월급</th>
+							<td>책임교육 (담당판매원)</td>
+							<td colspan="4">담당 판매원 <span class="red">주급</span>의 20%</td>
+						</tr>
+						<tr>
+							<th>4<br>월급</th>
+							<td>장려금</td>
+							<td>-</td>
+							<td>3%</td>
+							<td>2%</td>
+							<td>2%</td>
+						</tr>
+						<tr>
+							<th>5<br>월급</th>
+							<td>아카데미 인센티브</td>
+							<td colspan="4">아카데미 전체 매출 3%<br>샵(사업자등록증) + 미용자격증 업로드</td>
+						</tr>
+						<tr>
+							<th>6<br>월급</th>
+							<td>본부장 보너스 (센터)</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>본부장 그룹 전체 매출4%</td>
+						</tr>
+					</tbody>
+				</table>
+			<%Else%>
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>1<br>주급</th>
+							<th>2<br>주급</th>
+							<th><span class="red">3</span><br>월급</th>
+							<th>4<br>월급</th>
+							<th>5<br>월급</th>
+							<th>6<br>월급</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th></th>
+							<td>판권 구매 (재구매)</td>
+							<td>소개 수당 (첫구매)</td>
+							<td>책임 교육 (담당 판매원)</td>
+							<td>장려금</td>
+							<td>아카데미 인센티브</td>
+							<td>본부장 보너스 (센터)</td>
+						</tr>
+						<tr>
+							<th>무료 가입 (소비자 회원)</th>
+							<td colspan="6"><div><p>수당 없음</p></div></td>
+						</tr>
+						<tr>
+							<th>VIP (우수 소비자 회원)</th>
+							<td colspan="6"><div><p>수당 없음<br>-우수 고객 할인</p><p>40만 PV<br>-10% 할인</p></div></td>
+						</tr>
+						<tr>
+							<th>셀러 (판매원)</th>
+							<td>300만 PV</td>
+							<td>40%</td>
+							<td rowspan="4">담당 판매원 <span class="red">주급</span>의 20%</td>
+							<td>-</td>
+							<td rowspan="4">아카데미 전체 매출 3%<br>샵 (사업자 등록증) + 미용 자격증 업로드</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<th>매니저 (판매원)</th>
+							<td>650만 PV</td>
+							<td>45%</td>
+							<td>3%</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<th>지점장 (판매원)</th>
+							<td>300 만PV<br>담당 매니저 8명</td>
+							<td>50%</td>
+							<td>2%</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<th>본부장 (판매원)</th>
+							<td>300만 PV<br>지점장 3명<br>(또는)<br>매니저 33명</td>
+							<td>55%</td>
+							<td>2%</td>
+							<td>본부장 그룹 전체 매출4%</td>
+						</tr>
+					</tbody>
+				</table>
+			<%End If%>
 			<div class="txt">
 				<p>주급과 월급 수령</p>
 				<p>3번 수당을 제외한 모든 수당은 PV 기준</p>

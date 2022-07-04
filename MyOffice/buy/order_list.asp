@@ -93,7 +93,7 @@
 			<tr>
 				<th><%=LNG_TEXT_NUMBER%></th>
 				<th><%=LNG_TEXT_ORDER_DATE%></th>
-				<th><%=LNG_TEXT_ORDER_NUMBER%><br /><span class="insuranceNumberTxt">공제번호</span> </th>
+				<th><%=LNG_TEXT_ORDER_NUMBER%><!-- <br /><span class="insuranceNumberTxt">공제번호</span> --> </th>
 				<th><%=LNG_TEXT_ORDER_AMOUNT%></th>
 				<th><%=CS_PV%></th>
 

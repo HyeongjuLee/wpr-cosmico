@@ -94,7 +94,6 @@
 		<!--#include file = "Type_gallery2.asp" -->
 
 <%End Select%>
-</div>
 
 <!--#include virtual = "/m/_include/copyright.asp"-->
 

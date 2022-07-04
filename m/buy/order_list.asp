@@ -159,7 +159,7 @@
 			<tr>
 				<th rowspan="2"><%=LNG_TEXT_NUMBER%></th>
 				<th><%=LNG_TEXT_ORDER_DATE%></th>
-				<th colspan="2"><%=LNG_TEXT_ORDER_NUMBER%><br /><span class="insuranceNumberTxt">공제번호</span></th>
+				<th colspan="2"><%=LNG_TEXT_ORDER_NUMBER%><!-- <br /><span class="insuranceNumberTxt">공제번호</span> --></th>
 			</tr><tr>
 				<th><%=LNG_TEXT_SALES_TYPE%></th>
 				<th><%=LNG_TEXT_ORDER_AMOUNT%><br /><%=CS_PV%></th>
@@ -232,8 +232,8 @@
 					PRINT TABS(1) & "			<td class=""tcenter "" colspan=""2"">"&arrList_OrderNumber&" "&insNums&" </td>"
 					PRINT TABS(1) & "		</tr><tr>"
 					PRINT TABS(1) & "			<td class=""tcenter"" >"&arrList_SellTypeName&"</td>"
-					PRINT TABS(1) & "			<td class=""tright"">"&num2cur(arrList_TotalPrice)&" "&CS_CURC&""
-					PRINT TABS(1) & "							<br />"&num2curINT(arrList_TotalPV)&" "&CS_PV&""
+					PRINT TABS(1) & "			<td class=""tright"">"&num2cur(arrList_TotalPrice)'&" "&CS_CURC&""
+					PRINT TABS(1) & "							<br />"&num2curINT(arrList_TotalPV)'&" "&CS_PV&""
 					PRINT TABS(1) & "			</td>"
 
 					PRINT TABS(1) & "			<td class=""tcenter"">"
@@ -510,7 +510,7 @@
 								</tr>
 								<tr>
 									<td class="tcenter td"><%=DELIVERY_WAY%></td>
-									<td class="tcenter td" style="height:14px;"><%=(arr_ItemCount)%> / <%=num2curINT(arr_ItemPV)%><%=CS_PV%></td>
+									<td class="tcenter td" style="height:14px;"><%=(arr_ItemCount)%> / <%=num2curINT(arr_ItemPV)%><!-- <%=CS_PV%> --></td>
 									<td class="tright td"><%=num2cur(arr_ItemTotalPrice)%></td>
 								</tr>
 								<%

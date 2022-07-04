@@ -282,7 +282,7 @@ form {
 				&.nothing {
 					text-align: center;
 					padding: $font-size;
-					height: calc(#{$contain-height} - #{($input-height + rem(10px)) + ($font-size * 4) + (rem(30px) * 4)});
+					height: calc(#{$contain-height} - #{(($input-height + rem(10px)) + ($font-size * 4) + (rem(30px) * 4)) * 2});
 				}
 			}
 		}
