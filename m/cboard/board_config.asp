@@ -298,3 +298,5 @@
 
 
 %>
+
+<link rel="stylesheet" href="/m/css/board.css?" />

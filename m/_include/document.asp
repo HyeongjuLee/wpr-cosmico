@@ -35,9 +35,8 @@ If webproIP <>"T" Then  Response.Redirect "/index.asp"
 <link href="/css/a_BtnCss.css" rel="stylesheet">
 <link href="/css/fontawesome.5.12.1.css" rel="stylesheet"><!--load all styles -->
 
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
-<!-- <link rel="stylesheet" type="text/css" href="/css/pretendard.css" /> -->
-<link rel="stylesheet" type="text/css" href="/m/css/default.css?v4" />
+<link rel="stylesheet" type="text/css" href="/m/css/default.css" />
+<link rel="stylesheet" type="text/css" href="/m/css/header.css?" />
 <!-- <link rel="stylesheet" type="text/css" href="/m/css/style_<%=LANG%>.css?v2" /> -->
 <!-- <link rel="stylesheet" type="text/css" href="/m/css/style_<%=LCase(DK_MEMBER_LNG_CODE)%>.css?v2" /><%'언어선택%> -->
 
@@ -46,12 +45,14 @@ If webproIP <>"T" Then  Response.Redirect "/index.asp"
 <link rel="stylesheet" type="text/css" href="/m/css/shop_style.css?6" />
 <link rel="stylesheet" href="/m/css/shop_style_<%=LCase(DK_MEMBER_LNG_CODE)%>.css?v1" /><%'언어선택%>
 <%Else%>
-<link rel="stylesheet" type="text/css" href="/m/css/style.css?v4.4" />
+<link rel="stylesheet" type="text/css" href="/m/css/style.css?v0" />
 <link rel="stylesheet" href="/m/css/style_<%=LCase(DK_MEMBER_LNG_CODE)%>.css?v1" /><%'언어선택%>
 <%End if%>
 <link rel="stylesheet" type="text/css" href="/css/NotoSansKR.css" />
 <!-- <link rel="stylesheet" type="text/css" href="/css/Roboto.css" /> -->
 <link rel="stylesheet" href="/fontello/css/icon-font.css?v0">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/css/pretendard.css" /> -->
 
 <%If ISSCROLL = "T" Then%>
 <%Else%>

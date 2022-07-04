@@ -1,15 +1,8 @@
-@import 'header';
-@import 'language';
-
-$common-font-color: #212121;
-$nav-color: #333645;
-$nav-color-200: saturate(lighten($nav-color, 65), 5);
-$nav-color-200-d: darken($nav-color-200, 10);
-$nav-color-600: saturate(lighten($nav-color, 10), 25);
+@import 'mixin-custom';
 
 /*서브타이틀*/
 
-$sub_title-height: rem(420px);
+$sub_title-height: rem(250px);
 
 #contain_wrap {
 	max-width: 640px;
@@ -42,17 +35,18 @@ $sub_title-height: rem(420px);
 		@include flex(space-between);
 		flex-direction: column;
 		color: #fff;
-		font-size: $sub_title-height * 0.1;
+		// font-size: $sub_title-height * 0.1;
+		font-size: $sub_title-height * 0.2;
 		font-weight: 400;
 
 		.maps_title {
-			margin-top: rem(15px);
+			// margin-top: $top-height / 2;
 		}
 
 		&:after {
 			content: '';
 			z-index: 1;
-			width: $sub_title-height * 0.1;
+			width: $sub_title-height * 0.2;
 			height: 1px;
 			background: #fff;
 			margin-top: rem(15px);
@@ -61,7 +55,7 @@ $sub_title-height: rem(420px);
 }
 
 .content {
-	padding: 0 rem(30px);
+	padding: rem(30px);
 	* {
 		box-sizing: border-box;
 	}
@@ -70,7 +64,7 @@ $sub_title-height: rem(420px);
 	@include position;
 	//overflow: hidden;
 	//min-height: 100vh;
-	padding-bottom: rem(100px);
+	// padding-bottom: rem(100px);
 	//background: saturate(lighten($nav-color, 70), 10);
 	//background: material-color('blue-grey', '50');
 
@@ -84,13 +78,13 @@ $sub_title-height: rem(420px);
 	}
 }
 
-td, th {
-	border: 1px solid #ccc;
-	padding: $font-size / 5 0;
-	word-break: keep-all;
-	font-size: $font-size;
-	//background: #fff;
-}
+// td, th {
+// 	border: 1px solid #ccc;
+// 	padding: $font-size / 5 0;
+// 	word-break: keep-all;
+// 	font-size: $font-size;
+// 	//background: #fff;
+// }
 
 th {
 	color: #555;
@@ -367,553 +361,505 @@ a:hover {
 }
 
 #index {
-	font-size: 6px;
-	.main-visual {
-		$height: rem(870px);
+	@include clear;
+	width: 100%;
+	// overflow: hidden;
+	.title {
+		text-align: center;
+		font-size: rem(36px);
+		font-weight: 300;
+		color: #000;
+		letter-spacing: -0.02em;
+		b {
+			font-weight: 700;
+		}
+	}
+
+	.nodata {
+		@include flex;
+		text-align: center;
+		font-size: $font-size + rem(3px);
+		font-weight: 600;
 		width: 100%;
-		height: $height;
-		
-		.swiper-slide {
-			a {
-				@include default-a;
-				display: block;
-			}
+		height: 0;
+		margin: 0 auto;
+		padding: 50% rem(30px);
+		// min-height: rem(200px);
+		background: $oc-gray-0;
+	}
+}
+
+#index {
+	.main-visual {
+		$color: #fff;
+
+		@include clear;
+		// max-width: 1980px;
+		width: 100%;
+		// height: rem(740px);
+		margin: 0 auto;
+		@include position;
+		color: #fff;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	$bullet: rem(14px);
+	.swiper-inner {
+		@include position(absolute, $le: 50%, $bot: 0);
+		width: calc(100% - #{rem(60px)});
+		height: 0;
+		transform: translateX(-50%);
+		z-index: 1;
+	}
+	.swiper-pagination-bullets {
+		bottom: rem(50px);
+		right: auto;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 2;
+		height: $bullet;
+		line-height: 0;
+	}
+	.swiper-pagination-bullet {
+		width: $bullet;
+		height: $bullet;
+		margin: 0 rem(8px);
+		background: #fff;
+		box-shadow: 0px 0px 10px rgba(#fff, 0.5);
+		opacity: 0.6;
+		&-active {
+			opacity: 1;
+		}
+	}
+}
+
+
+/*GOODS*/
+.index-best {
+	$color: #797979;
+	$size: $font-size - rem(1px);
+	$goods: rem(380px);
+	margin-bottom: rem(60px);
+
+	.title {
+		margin-top: rem(137px);
+	}
+	
+	.layout_inner {
+		text-align: center;
+	}
+	.wrap {
+		font-size: 0;
+		// width: calc(100% + #{rem(20px)});
+		// margin: rem(20px) rem(-10px);
+		width: 100%;
+		margin: rem(20px) 0;
+		text-align: left;
+		display: inline-block;
+		padding: 0 rem(20px);
+
+		div {
+			font-size: $font-size;
+		}
+
+		.nodata {
+			text-align: center;
+			font-size: $font-size + rem(3px);
+			font-weight: 600;
+			width: 100%;
+			padding: rem(30px) 0;
+		}
+	}
+
+	.goods {
+		@include position;
+		width: 50%;
+		display: inline-block;
+		font-size: $font-size;
+		vertical-align: top;
+		min-height: rem(490px);
+		// margin: rem(20px) 0;
+		// margin-right: ($inner - ($goods * 4)) / 3;
+		// margin-bottom: rem(20px);
+
+		&:nth-of-type(2n) {
+			margin-right: 0;
+		}
+
+		a {
+			@include default-a;
+			padding: rem(10px);
+			display: block;
+			color: $color;
+		}
+
+		.sale {
+			@include position(absolute, $top: $font-size * 1.2, $le: $font-size * 1.2);
+			z-index: 1;
+			font-size: $font-size * 1.2;
+			width: $size * 3;
+			height: $size * 3;
+			background: darken(invert($main-color), 10);
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: 200;
+			border-radius: 100%;
+		}
+
+		.img {
+			width: 100%;
+			height: 0;
+			padding-bottom: 100%;
+			overflow: hidden;
+			@include position;
+
+			//border: 1px solid;
+			background: #fafafa;
+
 			img {
 				width: 100%;
-				@include position;
-				z-index: -1;
-				transition: all 5s;
-			}
-			.txt {
-				@include flex(center, $end);
-				flex-direction: column;
-				@include position(absolute, $le:0, $top:0);
-				z-index: 1;
-				width: 100%;
-				height: $height - $top-height * 2;
-				margin-top: $top-height * 2;
-				padding: 0 rem(60px);
-				color: #fff;
-				text-align: right;
-
-				span {
-					font-size: rem(52px);
-					font-weight: 500;
-					letter-spacing: -0.01em;
-				}
-				.more {
-					margin-top: rem(35px);
-					p {
-						@include position;
-						display: inline-block;
-						color: $parent-css;
-						font-size: rem(20px);
-						&:after {
-							@include presudo($le: 0, $bot: 0, $h: 1px);
-							background: #fff;
-						}
-					}
-				}
-			}
-
-			&-active {
-				img {
-					transform: scale(1.2);
-				}
+				height: 100%;
+				object-fit: cover;
+				margin: {
+					top: 50%;
+					left: 50%;
+				};
+				transform: translate(-50%, -50%);
+				@include transition(all .3s);
+				@include position(absolute);
 			}
 		}
-		.swiper-pagination-bullets {
-			bottom: rem(70px) !important;
-			left: 50% !important;
-			transform: translateX(-50%);
 
-			.swiper-pagination-bullet {
-				background: #fff !important;
-				opacity: 0.6;
-				&-active {
+		&:hover {
+			.img {
+				&:before {
 					opacity: 1;
 				}
-			}
-		}
-	}
-	.index-bn {
-		@keyframes arrow {
-			0% {
-				margin-left: rem(10px);
-			}
-			100% {
-				margin-left: rem(20px);
-			}
-		}
-		@include position;
-		video {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			@include position(absolute, $le: 50%, $top: 50%);
-			z-index: -2;
-			transform: translate(-50%, -50%);
-			// opacity: 0.5;
-			opacity: 0.15;
-		}
-		ul {
-			@include position;
-			z-index: 1;
-			@include flex;
-			flex-direction: column;
-			width: 100%;
-			margin: 0 auto;
-			padding: rem(50px) rem(30px);
-			overflow: hidden;
-		}
-		li {
-			width: 100%;
-			text-align: left;
-			margin: rem(50px) 0;
-	
-			a {
-				@include position;
-				@include inline-flex($bet);
-				flex-direction: column;
-				cursor: pointer;
-				color: $parent-css;
-				width: 100%;
-	
-				.txt {
-					width: 100%;
-					font-weight: 500;
-	
-					p {
-						color: #5c5c5c;
-						font-size: rem(26px);
-					}
+				&:after {
+					opacity: 1;
 				}
-				.tit {
-					@include position;
-					color: #101010;
-					font-weight: 600;
-					letter-spacing: -0.05em;
-					@include flex($bet);
-					transition: all .3s;
-					width: 100%;
-	
-					p {
-						@include position;
-						color: $parent-css;
-						font-size: rem(44px);
-						text-align: left;
-						margin-top: 0;
-						transition: all .3s;
-						// &::before {
-						// 	@include presudo($le: -5%, $bot: 5%, $w: 0, $h: 90%);
-						// 	background: $main-color;
-						// 	opacity: 0;
-						// 	z-index: -1;
-						// 	transition: all .3s;
-						// }
-					}
-					i {
-						@include position(absolute, $ri: 0, $bot: 0);
-						font-size: rem(35px);
-						color: $parent-css;
-						width: rem(40px);
-						height: rem(40px);
-						line-height: 0;
-						&:before {
-							margin: 0;
-							width: 100%;
-							height: 100%;
-							@include flex;
-						}
-						transition: all .7s;
-					}
-	
-				}
-	
-				.img {
-					width: 100%;
-					height: rem(420px);
-					margin: rem(20px) 0;
-					object-fit: cover;
-					@include position;
-					overflow: hidden;
-					transition: all .3s;
-					img {
-						transition: all 1s;
-						width: 100%;
-						height: 100%;
-						object-fit: cover;
-					}
-					&:before {
-						@include presudo;
-						z-index: 0;
-						background: #000;
-						opacity: 0;
-						transition: all .3s;
-					}
-					
-					.tit {
-						justify-content: center;
-						@include position(absolute, $le: 50%, $top: 50%);
-						z-index: 5;
-						transform: translate(-50%, -50%);
-						width: 100%;
-						font-size: rem(25px);
-						color: #fff;
-						opacity: 0;
-						transition: all .3s;
-						p {
-							font-size: $parent-css;
-							color: $parent-css;
-						}
-						i {
-							@include position;
-							font-size: rem(25px);
-							font-weight: 200;
-							color: $parent-css;
-							margin-left: rem(-40px);
-							opacity: 0;
-							transition: all .3s;
-						}
-					}
-				}
-	
-				&:hover {
-					.img {
-						&:before {
-							opacity: .4;
-							z-index: 1;
-						}
-						img {
-							transform: scale(1.1);
-						}
-						.tit {
-							opacity: 1;
-							i {
-								margin-left: rem(10px);
-								opacity: 1;
-								animation: arrow infinite .5s alternate;
-								color: #fff;
-							}
-						}
-					}
-					.tit {
-						p {
-							//color: $main-color;
-							// &::before {
-								// width: 110%;
-								// opacity: 0.2;
-							// }
-						}
-						i {
-							right: rem(-40px);
-							color: $main-color;
-							opacity: 0;
-						}
-					}
-					.txt {
-						
-					}
-				}
-			}
-		}
-	}
-	.index-goods {
-		width: 100%;
-		//min-height: 1080px;
-		margin: 0 auto;
-		text-align: center;
-		padding: rem(100px) rem(30px);
-		.tit {
-			width: 100%;
-			color: #101010;
-			font-size: rem(44px);
-			font-weight: 600;
-			letter-spacing: -0.05em;
-			text-align: left;
-			padding-bottom: rem(25px);
-			p {
-				color: #5c5c5c;
-				font-size: rem(26px);
-				word-break: keep-all;
-			}
-		}
-	
-		.tab_wrap {
-			margin: rem(40px) 0;
-			ul {
-				@include inline-flex($st);
-				margin: 0 auto;
-				width: 100%;
-			}
-			li {
-				@include inline-flex;
-				@include position;
-			}
-			a {
-				@include flex;
-				width: 100%;
-				height: 100%;
-				min-height: rem(60px);
-				padding: 0 rem(15px);
-				color: #a5a5a5;
-				font-weight: 600;
-				font-size: rem(24px);
-				letter-spacing: -0.025em;
-
-				span {
-					@include position;
-					&::before {
-						@include presudo($le: 0, $bot: 0, $h: 1px);
-						z-index: 0;
-						//background: #cdcdcd;
-					}
-				}
-			}
-	
-			li.on {
-				a {
-					color: $main-color;
-					font-weight: 700;
-					span {
-						&::before {
-							height: 2px;
-							z-index: 1;
-							background: $main-color;
-						}
-					}
-				}
-			}
-		}
-	
-		$color: #111;
-		$size: $font-size + rem(1px);
-
-		#index {
-			padding: 0 rem(30px);
-		}
-
-		.goods_wrap {
-			font-size: 0;
-			width: calc(100% + 20px);
-			margin: 0 -10px;
-			text-align: left;
-		}
-		.goods {
-			@include position;
-			width: 50%;
-			display: inline-block;
-			font-size: $font-size;
-			vertical-align: top;
-			margin-bottom: 5%;
-
-			a {
-				@include default-a;
-				display: block;
-				height: auto;
-				padding: rem(20px);
-			}
-
-			.sale {
-				@include position(absolute, $top: $font-size * 1.2, $le: $font-size * 1.2);
-				z-index: 1;
-				font-size: $font-size * 1.2;
-				width: $size * 3;
-				height: $size * 3;
-				background: darken(invert($main-color), 10);
-				color: #fff;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				font-weight: 200;
-				border-radius: 100%;
-			}
-
-			.img {
-				width: 100%;
-				height: 0;
-				padding-bottom: 100%;
-				overflow: hidden;
-				@include position;
-
-				//border: 1px solid;
-				background: #fafafa;
-
 				img {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-					margin: {
-						top: 50%;
-						left: 50%;
-					};
-					transform: translate(-50%, -50%);
-					@include position(absolute);
+					transform: translate(-50%, -50%) scale(1.05);
 				}
 			}
+		}
 
-			.txt {
-				letter-spacing: -0.025em;
+		.txt {
+			letter-spacing: 0;
+			line-height: 1.2;
+			text-align: left;
+			padding-top: rem(20px);
+			@include flex($st, $st);
+			flex-direction: column;
+			min-height: rem(200px);
+			.name {
+				font-size: $size;
+				color: #111;
+				@include ellipsis(1);
+				letter-spacing: -0.01em;
+				font-weight: 600;
+				// height: 40px;
+			}
+			.comment {
+				font-size: $size - rem(4px);
+				color: #737373;
+				margin-top: rem(7px);
+				letter-spacing: 0.01em;
+				@include ellipsis(2);
+			}
+			.price {
+				margin-top: auto;
+				padding-top: rem(15px);
+				border-top: 1px solid #e5e5e5;
+				width: 100%;
+				letter-spacing: -0.01em;
 				line-height: 1.2;
 				text-align: left;
-				margin-top: rem(20px);
-				.name {
-					font-size: $size;
-					color: #454545;
+				@include flex($st, baseline);
+				flex-wrap: wrap;
+				font-size: $size;
+				
+				.line {
+					color: mix($color, #fff, 50);
+					text-decoration: line-through;
+					font-size: $size - rem(3px);
+					font-weight: 400;
+					margin-right: rem(10px);
+					// margin-top: rem(5px);
+
+					span {
+						color: $parent-css;
+						font-size: $parent-css;
+						font-weight: $parent-css;
+					}
+				}
+
+				div {
 					font-weight: 500;
-					@include ellipsis(2);
+					line-height: 1;
+					letter-spacing: -0.05em;
+					color: #515151;
+					font-size: $size - rem(1px);
+					span {
+						// font-size: rem(21px);
+						font-size: $size + rem(2px);
+						color: #323232;
+						// margin-right: rem(5px);
+					}
 				}
-				.comment {
+				.pv {
+					width: 100%;
 					margin-top: rem(5px);
-					font-size: rem(24px);
-					color: #868686;
-					@include ellipsis(2);
-				}
-				.price {
-					margin-top: $font-size;
-					font-size: $font-size;
-					.line {
-						color: mix($color, #fff, 50);
-						text-decoration: line-through;
-					}
-					div {
-						font-size: $parent-css;
-						line-height: 1;
-						font-weight: 400;
-						letter-spacing: -0.05em;
-						margin-top: rem(5px);
-						//color: material-color('blue', '700');
-						span {
-							font-size: rem(28px);
-							font-weight: 600;
-							margin-right: rem(5px);
-						}
-					}
-					.pv {
-						margin-top: $size / 2;
-						color: $main-color;
-						font-size: $parent-css;
-						font-weight: 600;
-		
-					}
+					// color: invert($main-color);
+					color: adjust-hue($main-color, 20deg);
+					font-size: $parent-css;
 				}
 			}
 		}
 	}
-	
-	.index-btn {
+
+}
+
+.index-list {
+	$w: rem(440px);
+	$button: rem(60px);
+	// min-height: rem(980px);
+	background: #fcfcfd;
+	border: 1px solid #efefef;
+	padding: rem(70px);
+	width: calc(100% - #{rem(60px)});
+	margin: 0 auto;
+	.swiper-slide {
 		@include position;
-		height: rem(820px);
-		padding: rem(100px) rem(30px);
-		.swiper {
-			@include position;
-			@include flex($st);
-			text-align: left;
-			height: 100%;
-		}
-		.bg {
-			@include position(absolute, $top: 0, $le: 50%);
+		@include flex;
+		flex-direction: column;
+	}
+	.img {
+		// width: $w;
+		// height: $w;
+		// width: calc(100% - #{rem(140px)});
+		width: 100%;
+		height: 0;
+		padding-bottom: 100%;
+		@include inline-flex;
+		overflow: hidden;
+		@include position;
+		img {
+			@include position(absolute, $top: 50%, $le: 50%);
+			@include transform(translate(-50%, -50%));
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			transform: translateX(-50%);
-			z-index: -1;
 		}
-		.tit {
-			@include position;
-			z-index: 1;
+	}
+	.txt {
+		// width: calc(100% - #{rem(140px)});
+		width: 100%;
+		min-height: rem(390px);
+		// min-height: rem(440px);
+		// margin: 0 auto;
+		// height: $w;
+		// padding-right: rem(60px);
+		@include inline-flex($st, $st);
+		flex-direction: column;
+		font-size: $font-size - rem(1px);
+		line-height: 1.2;
+		text-align: left;
+
+		span {
+			color: #57708E;
+			font-weight: 800;
+			margin-top: rem(50px);
+			margin-bottom: rem(13px);
+			font-size: rem(17px);
+		}
+		div {
+			color: #111;
+			font-size: $font-size + rem(7px);
+			font-weight: 700;
 			width: 100%;
-			color: #fff;
-			font-size: rem(44px);
-			font-weight: 400;
+			letter-spacing: -0.005em;
+			@include ellipsis(1);
+		}
+		i {
+			// width: calc(100% - #{rem(80px)});
+			width: 100%;
+			height: 1px;
+			background: #d8d8d8;
+			margin: rem(30px) 0;
+		}
+		p {
+			color: #848484;
+			margin-bottom: rem(10px);
 			letter-spacing: -0.05em;
-			text-align: left;
-			margin-top: rem(40px);
-			text-transform: uppercase;
-			p {
-				text-decoration: $default-css;
-				padding-top: rem(25px);
-				color: $parent-css;
-				font-size: rem(26px);
-				letter-spacing: -0.025em;
-				word-break: keep-all;
-				width: 70%;
-			}
+			line-height: 1.4;
+			@include ellipsis(3);
 		}
-		.swiper-pagination {
-			margin-top: rem(120px);
-			text-align: $default-css;
-			left: 0;
-			bottom: rem(80px);
-			width: 100%;
-		}
-		ul {
-			@include flex;
-			opacity: 1;
-		}
-		li {
-			width: rem(170px);
-			height: rem(165px);
-			@include position;
+		.btn {
+			width: rem(220px);
+			height: rem(60px);
+			font-size: $font-size - rem(4px);
 			@include inline-flex;
-			margin-right: rem(35px);
-			&:last-of-type {
-				margin-right: 0;
-			}
-			border-radius: 0 !important;
-			background: none;
-			opacity: 1;
-			transition: all .3s;
-			
-			a {
-				width: 100%;
-				height: 100%;
-				@include inline-flex;
+			color: #6b6b6b;
+			border: 1px solid #747474;
+			cursor: pointer;
+			font-weight: 700;
+			margin-top: auto;
+			margin-right: auto;
+			// margin-bottom: rem(120px);
+
+			&:hover {
 				color: #fff;
-				font-size: rem(30px);
-				font-weight: 300;
-				letter-spacing: -0.03em;
-				padding: rem(15px);
-				text-align: center;
-				word-break: keep-all;
-				transition: all .3s;
+				background: $main-color;
+				border-color: $main-color;
+			}
+		}
+	}
+
+	.swiper-inner {
+		width: 100% !important;
+	}
+
+	.swiper-button {
+		@include position(absolute);
+		@include flex;
+		width: $button;
+		height: $button;
+		border: 1px solid #ddd;
+		font-size: rem(15px);
+		color: #000;
+		padding: 0;
+		background: rgba(#fcfcfd, 0.8);
+		margin-top: -$button;
+		top: $default-css;
+		@include rounded(100%);
+
+		&.prev {
+			right: $button + rem(10px);
+			padding: 0;
+		}
+		&.next {
+			right: 0;
+			padding: 0;
+		}
+	}
+}
+
+.index-bn {
+	width: 100%;
+	height: rem(360px);
+	text-align: center;
+	@include position;
+	margin: rem(80px) auto;
+	display: inline-block;
+
+	.bg {
+		width: 100%;
+		height: 100%;
+		background: url('/images/index/index-bn-bg.jpg') no-repeat center right / 130%;
+		@include position(absolute);
+		z-index: -1;
+	}
+	.layout_inner {
+		overflow: hidden;
+		height: 100%;
+	}
+	.dn-logo {
+		background: url('/images/share/dn8_logo.svg') no-repeat center / cover;
+		width: rem(130px);
+		height: rem(53px);
+		margin: 0 auto;
+		margin-top: rem(105px);
+		img {
+			opacity: 0;
+		}
+	}
+	i {
+		width: rem(60px);
+		height: 1px;
+		background: #fff;
+		display: inline-block;
+		margin: rem(50px) auto rem(23px) auto;
+	}
+	p {
+		color: #fff;
+		font-weight: 200;
+		font-size: rem(32px);
+		letter-spacing: 0.4em;
+		text-indent: 0.4em;
+		b {
+			font-weight: 500;
+		}
+	}
+}
+
+@include media(430px) {
+	.index-bn {
+		.bg {
+			background: url("/images/index/index-bn-bg.jpg") no-repeat center right / cover;
+		}
+	}
+}
+
+.index-skills {
+	margin: rem(30px) auto;
+	ul {
+		width: 100%;
+		@include flex;
+		flex-direction: column;
+		margin: 0 auto;
+		margin-top: rem(38px);
+		padding: 0 rem(30px);
+	}
+	li {
+		// max-width: rem(580px);
+		// min-height: rem(380px);
+		margin-bottom: rem(60px);
+		width: 100%;
+
+		.img {
+			width: 100%;
+			// height: rem(240px);
+			overflow: hidden;
+			img {
+				opacity: 0;
+				width: 100%;
+			}
+		}
+		.txt {
+			text-align: left;
+			margin-top: rem(18px);
+			div {
+				color: #111;
+				font-size: $font-size + rem(3px);
+				font-weight: 700;
+				letter-spacing: -0.015em;
 			}
 			p {
+				color: #535252;
+				font-size: $font-size - rem(2px);
+				font-weight: 300;
 				word-break: keep-all;
-			}
-			span {
-				@include position(absolute, $le: 0, $bot: 0);
-				z-index: -1;
-				width: 100%;
-				height: 0;
-				background: transparent;
-				transition: background .3s, height .3s cubic-bezier(.47,1.64,.41,.8);
-			}
-			.arrow {
-				@include position(absolute, $le: 0, $bot: 0);
-				z-index: -2;
-				width: 100%;
-				height: 100%;
-				background: rgba(#000, 0.4);
-				border: 1px solid rgba(#fff, 0.07);
-				i {
-					display: none;
-				}
+				letter-spacing: -0.05em;
+				line-height: 1.4;
+				margin-top: rem(5px);
 			}
 		}
-	
-		li:hover {
-			span {
-				height: 100%;
-				background: $main-color;
-				transition: background .3s, height .3s cubic-bezier(.47,1.64,.41,.8) .1s;
+
+		&:first-of-type {
+			.img {
+				background: url('/images/index/index-btn01.jpg') no-repeat center / cover;
 			}
 		}
-		li.active {
-			span {
-				height: 100%;
-				background: $main-color;
-				transition: background .3s, height .3s cubic-bezier(.47,1.64,.41,.8);
+		&:nth-of-type(2) {
+			.img {
+				background: url('/images/index/index-btn02.jpg') no-repeat center / cover;
 			}
 		}
 	}
@@ -925,17 +871,16 @@ a:hover {
 	width: 100%;
 	//height: round($inner / 2.8);
 	@include position;
-	display: flex;
+	@include flex($bet);
 	flex-direction: column-reverse;
-	justify-content: space-between;
 	font-size: $font-size;
-	//dopadding: rem(60px) rem(30px);
+	padding: rem(30px) 0;
 	//margin: rem(40px) 0;
 	//margin-bottom: rem(60px);
 
 	$map-width: $inner / 1.6;
 	$map-color: $main-color;
-	$map-hover-color: mix($map-color, green, 90%);
+	$map-hover-color: mix($map-color, red, 90%);
 
 	.wrap_map {
 		height: 100% !important;
@@ -1036,10 +981,9 @@ a:hover {
 		}
 
 		a {
-			display: inline-flex;
-			align-items: center;
+			@include inline-flex($bet);
 			//@include default-a;
-			width: 40%;
+			width: 100%;
 			padding: rem(25px) rem(30px);
 			background: $map-color;
 			color: #fff !important;
@@ -1050,14 +994,14 @@ a:hover {
 
 			span {
 				color: #fff;
-				display: inline-flex;
-				align-items: center;
+				@include inline-flex;
 				@include position;
 				font-size: $font-size + rem(4px);
 				line-height: 0;
 				width: 25%;
 				height: 100%;
 				margin-left: 15%;
+				margin-right: 10%;
 				text-align: right;
 				vertical-align: middle;
 				text-decoration: none;
@@ -1069,7 +1013,7 @@ a:hover {
 					@include position;
 					//@include position(absolute, $le: 50%, $top: 50%);
 					width: 100%;
-					height: rem(2px);
+					height: 2px;
 					background: #fff;
 					@include rounded($radius: 5rem);
 					//transform: translate(-50%, -50%);
@@ -1094,12 +1038,13 @@ a:hover {
 				background: $map-hover-color;
 				//background: material-color('blue-grey', '500');
 				//color: $map-color;
-				box-shadow: rem(2.5px) rem(5px) rem(10px) opacify($map-hover-color, 0.1);
+				box-shadow: rem(2.5px) rem(10px) rem(20px) rgba($map-hover-color, 0.3);
 
 				span {
 					width: 35%;
 					opacity: 1;
 					//color: $map-color;
+					margin-right: 0;
 
 					&::before {
 						//background: $map-color;
@@ -1127,7 +1072,7 @@ a:hover {
 		width: $inner / 2;
 		height: $inner / 2;
 		@include position;
-		-webkit-mask: url('/images/content/maintenance-line(1).svg') no-repeat;
+		-webkit-mask: url('/images/content/maintenance-line.svg') no-repeat;
 		-webkit-mask-size: 99.8% 100%;
 		opacity: .7;
 
@@ -1162,6 +1107,7 @@ a:hover {
 .policy {
 	font-size: $font-size - rem(1px);
 	color: material-color('grey', '800');
+	padding: rem(60px) 0;
 
 	.agree_box {
 		@include position;
@@ -1246,55 +1192,93 @@ a:hover {
 
 .company01 {
 	@include position;
-	@include flex;
-	flex-direction: column;
 	width: 100%;
+	font-size: $font-size + rem(1px);
+	letter-spacing: -0.05em;
 	color: #525252;
-	font-size: $font-size;
-	margin: rem(50px) 0;
-
-	u {
-		text-decoration: none;
-		font-style: normal;
+	margin: rem(20px) 0;
+	font-family: 'Pretendard', 'Roboto', 'Noto Sans SC', sans-serif;
+	p {
+		word-break: keep-all;
 	}
 
-	.txt {
+	section {
 		width: 100%;
-		@include inline-flex(center, $st);
+		@include position;
+		@include flex;
 		flex-direction: column;
 
-		.tit {
-			width: 100%;
-			color: #1b1b1b;
+		> p {
 			font-size: rem(32px);
-			font-weight: 600;
 			letter-spacing: -0.05em;
-		}
-		i {
-			width: rem(150px);
-			height: 1px;
-			background: #000;
-			margin: rem(50px) 0;
-		}
-		p {
-			width: 100%;
-			color: $parent-css;
-			font-size: $parent-css;
 			font-weight: 500;
-			letter-spacing: -0.025em;
-			word-break: keep-all;
-		}
-	}
-	.img {
-		width: 100%;
-		margin: rem(60px) 0;
-		img {
+			color: #3d3d3d;
+			padding: rem(15px) 0 rem(45px) 0;
 			width: 100%;
+			b {
+				color: #222;
+				font-weight: 700;
+				display: block;
+			}
+		}
+		
+		.img {
 			@include position;
 			z-index: -1;
-			opacity: 0;
+			width: 100%;
+			img {
+				@include position;
+				z-index: -1;
+				opacity: 0;
+				width: 100%;
+			}
+			background: url('/images/content/com_01-min.jpg') no-repeat center / 120%;
 		}
-		background: url('/m/images/content/company01.jpg') no-repeat center / cover;
+		.txt {
+			width: 100%;
+			// margin-left: -80px;
+			@include inline-flex(center, $st);
+			flex-direction: column;
+			>p {
+				font-size: rem(24px);
+				letter-spacing: -0.05em;
+				font-weight: 500;
+				color: #3d3d3d;
+				padding: rem(45px);
+				width: 100%;
+				b {
+					color: #222;
+					font-weight: 700;
+				}
+			}
+			.box {
+				@include inline-flex($st);
+				flex-direction: column;
+				margin: 0 auto;
+				margin-top: rem(-85px);
+				padding: rem(40px);
+				font-size: rem(26px);
+				letter-spacing: -0.05em;
+				font-weight: 300;
+				color: #fff;
+				background: #835711;
+				width: calc(100% - #{rem(60px)});
+				word-break: keep-all;
+				// min-height: 260px;
+
+				div {
+					margin-bottom: rem(20px);
+					width: 100%;
+				}
+				span {
+					margin-right: rem(20px);
+				}
+			}
+		}
+		~p {
+			line-height: 1.5;
+			margin: rem(50px) 0;
+		}
 	}
 }
 
@@ -1325,11 +1309,8 @@ a:hover {
 		font-size: $font-size + rem(3px);
 		font-weight: 600;
 		color: #222;
-		line-height: 1.5;
 	}
-	section {
-		margin: $font-size 0;
-	}
+	section {}
 	p {
 		word-break: keep-all;
 	}
@@ -1337,10 +1318,9 @@ a:hover {
 		font-weight: 700;
 		font-size: $font-size + rem(1px);
 		margin: $font-size / 2 0;
-		line-height: 1.5;
 	}
 	ul {
-		margin: $font-size / 2 0;
+		margin: $font-size / 2 $font-size;
 		& > li {
 			padding-left: $font-size;
 			text-indent: $font-size / -1;
@@ -1348,7 +1328,7 @@ a:hover {
 		}
 	}
 	ol {
-		padding: $font-size / 2 0;
+		padding: $font-size / 2 $font-size;
 		li {
 			color: material-color('grey', '600');
 			word-break: keep-all;
@@ -1357,164 +1337,13 @@ a:hover {
 	table {
 		margin: $font-size 0;
 		@include table-color($line:true);
-		width: 100%;
+		width: 40%;
 		text-align: center;
 		tbody td:first-of-type {
 			border-left: 1px solid #ebebeb;
 		}
 		tbody th {
 			font-weight: 400;
-		}
-	}
-}
-
-.business01 {
-	@include flex;
-	flex-wrap: wrap;
-	width: 100%;
-	color: #525252;
-	font-size: $font-size + rem(3px);
-	letter-spacing: -0.025em;
-	h2 {
-		font-size: rem(40px);
-		color: #1b1b1b;
-		font-weight: 600;
-		letter-spacing: -0.05em;
-	}
-	ul {
-		margin: $default-css;
-		> li {
-			padding-left: $default-css;
-			text-indent: $default-css;
-			font-weight: 500;
-		}
-	}
-	article	{
-		@include position;
-		@include flex;
-		flex-direction: column;
-		margin: 0;
-		margin-bottom: rem(50px);
-	}
-	section {}
-	.image {
-		.img {
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-				opacity: 0;
-			}
-			background: url('/images/content/business01_img1.jpg') no-repeat center / cover;
-			width: 100%;
-			// height: rem(440px);
-		}
-	}
-	.text {
-		width: 100%;
-		// margin-left: rem(100px);
-		// margin-right: auto;
-		
-		i {
-			width: rem(50px);
-			height: 1px;
-			background: #000;
-			margin: rem(25px) 0;
-			display: inline-block;
-		}
-
-		li {
-			margin-bottom: rem(15px);
-		}
-	}
-
-	.dash {
-		ul {
-			@include flex(center, $st);
-			flex-wrap: wrap;
-			width: 100%;
-			margin: rem(30px) 0;
-		}
-		li {
-			@include position;
-			width: rem(450px);
-			height: rem(250px);
-			text-align: center;
-			@include inline-flex;
-			flex-direction: column;
-			margin: rem(30px);
-			padding: rem(15px);
-			@include rounded(rem(10px));
-
-			.icon {
-				width: rem(80px);
-				height: rem(80px);
-				@include rounded(100%);
-				font-size: rem(40px);
-				@include flex;
-				@include position(absolute, $top: rem(-40px));
-				color: $parent-css;
-				background: $parent-css;
-				box-shadow: 0 2px 5px 0px rgba(#000, 0.2);
-			}
-
-			.con {
-				@include flex;
-				flex-direction: column;
-				height: 100%;
-				p {
-					font-size: $font-size + rem(15px);
-					margin: rem(10px);
-					letter-spacing: -0.025em;
-				}
-				span {
-					display: inline-block;
-					padding: rem(3px) rem(10px);
-					background: #000;
-					color: #fff;
-					margin-top: rem(20px);
-					font-size: $font-size + rem(1px);
-				}
-			}
-		}
-		.company {
-			background: material-color('red', '800');
-			color: #fff;
-		}
-		.site {
-			background: material-color('grey', '700');
-			color: #fff;
-			.icon {
-				font-size: rem(55px);
-			}
-		}
-		.location {
-			margin: rem(30px);
-			padding-top: rem(40px);
-			background: #fff;
-			box-shadow: 0 2px 5px 1px rgba(#000, 0.2);
-			.con {
-				background: url('/images/content/location.png') no-repeat center / contain;
-				width: 70%;
-			}
-			img {
-				width: 100%;
-				opacity: 0;
-			}
-		}
-		.kossa {
-			margin: rem(30px);
-			padding-top: rem(40px);
-			background: #fff;
-			box-shadow: 0 2px 5px 1px rgba(#000, 0.2);
-			.con {
-				width: 50%;
-				background: url('/images/content/kossa_big.png') no-repeat center / contain;
-			}
-			img {
-				width: 100%;
-				opacity: 0;
-			}
 		}
 	}
 }
@@ -1533,621 +1362,6 @@ a:hover {
 		ol {
 			.salesman {
 				display: none !important;
-			}
-		}
-	}
-}
-
-
-/*고객센터 search form*/
-#bbs_search {
-	width: 100%;
-
-	form {
-		@include flex(space-between);
-	}
-
-	select,
-	input,
-	button {
-		@include default-0;
-		min-width: $input-height;
-		height: $input-height;
-		padding: $font-size / 2 $font-size;
-		border: 1px solid material-color('grey', '400');
-	}
-
-	select {
-		margin-right: $font-size / 2;
-		width: $input-height * 2;
-	}
-
-	.search {
-		@include inline-flex;
-		flex: 1;
-
-		input {
-			&[type="text"] {
-				flex: 1;
-				border-right: none;
-				width: 100%;
-			}
-		}
-
-		button {
-			@include button;
-			@include inline-flex;
-
-			i {
-				font-size: $font-size * 1.2;
-
-				&:before {
-					margin: 0;
-
-				}
-			}
-		}
-	}
-}
-
-/*고객센터 게시판 list*/
-.board.list {
-	&>table {
-		margin: $font-size 0;
-	}
-
-	tbody {
-		td {
-			padding: 0;
-		}
-	}
-}
-
-.board.list,
-.board.view {
-	&>table {
-		width: 100%;
-		font-size: $font-size;
-		border: none;
-	}
-
-	tbody {
-		tr {
-			&.notice {
-				//background: material-color();
-				background: rgba(desaturate($main-color, 50), 10%);
-
-				td {
-					border-color: mix(material-color('grey', '300'), desaturate($main-color, 50), 80);
-					font-weight: 500;
-				}
-
-				div {
-					font-weight: 700;
-
-					span {
-						color: material-color('red');
-					}
-				}
-
-				.info {
-					color: mix(material-color('grey'), desaturate($main-color, 50), 50);
-
-					i {
-						background: mix(material-color('grey', '300'), desaturate($main-color, 50), 80);
-					}
-				}
-			}
-		}
-
-		td {
-			width: 100%;
-
-			border: 1px solid material-color('grey', '300') {
-				left: none;
-				right: none;
-			}
-
-			;
-
-			a {
-				@include default-a;
-				padding: $font-size / 2 $font-size;
-				width: 100%;
-				display: block;
-
-				div {
-					color: #222;
-					font-weight: 500;
-					margin: $font-size / 5 0;
-				}
-
-				.info {
-					@include flex(flex-start);
-					color: material-color('grey');
-					font-size: $font-size - rem(2px);
-
-					span {}
-
-					i {
-						margin: 0 $font-size / 2;
-						background: material-color('grey', '300');
-						width: 1px;
-						height: $font-size / 1.5;
-					}
-				}
-			}
-		}
-	}
-
-	tfoot {}
-
-	div.title {
-		div {
-			color: #222;
-			font-size: $font-size * 1.5;
-			font-weight: 500;
-		}
-
-		.info {
-			@include flex(flex-start);
-			color: material-color('grey');
-			font-size: $font-size - rem(2px);
-
-			span {}
-
-			i {
-				margin: 0 $font-size / 2;
-				background: material-color('grey', '300');
-				width: 1px;
-				height: $font-size / 1.5;
-			}
-		}
-
-	}
-}
-
-.board {
-
-	input,
-	textarea {
-		&::placeholder {
-			color: material-color('grey', '400');
-			font-size: $font-size - rem(4px);
-			line-height: 1.5;
-			white-space: normal;
-		}
-
-		&::-webkit-input-placeholder {
-			color: material-color('grey', '400');
-			font-size: $font-size - rem(4px);
-			line-height: 1.5;
-			white-space: normal;
-		}
-
-		&::-moz-input-placeholder {
-			color: material-color('grey', '400');
-			font-size: $font-size - rem(4px);
-			line-height: 1.5;
-			white-space: normal;
-		}
-
-		&::-ms-input-placeholder {
-			color: material-color('grey', '400');
-			font-size: $font-size - rem(4px);
-			line-height: 1.5;
-			white-space: normal;
-		}
-	}
-
-	color: #222;
-	font-size: $font-size - rem(4px);
-
-	div.sub-title {
-		font-size: $font-size * 1.5;
-		text-align: center;
-		color: $default-css;
-		padding-bottom: $font-size;
-		margin-bottom: $font-size;
-	}
-
-	table {
-		margin-top: 0;
-	}
-
-	tr {
-		border: none;
-	}
-
-	td {
-		border: none;
-		padding: $font-size;
-
-		&.contentTD2 {
-			border-bottom: 1px solid material-color('grey', '300');
-			padding: $font-size * 2 $font-size;
-		}
-
-		&.contentTD3 {
-			padding: {
-				left: 0;
-				right: 0;
-			}
-		}
-
-	}
-
-	input {
-
-		&[type="text"],
-		&[type="password"] {
-			@include default-0;
-		}
-	}
-
-	label {
-		@include inline-flex;
-		vertical-align: $parent-css;
-		cursor: pointer;
-		margin-right: $font-size * 1.5;
-		color: material-color('grey', '400');
-
-		input {
-
-			&[type="checkbox"],
-			&[type="radio"] {
-				margin: 0;
-				visibility: hidden;
-				@include position(absolute);
-			}
-		}
-
-		i {
-			margin-right: $font-size / 2.5;
-		}
-
-		input:checked {
-			&~* {
-				color: $default-css;
-			}
-		}
-	}
-
-	tfoot {
-		td {
-			border: none;
-
-			padding: $font-size {
-				right: 0;
-			}
-
-			input {
-				&.button {
-					@include button($basic);
-					margin: 0;
-
-					&.admin {
-						@include button($admin);
-					}
-
-					&.answer {
-						@include button($answer);
-					}
-
-					&.delete {
-						@include button($delete);
-					}
-
-					&.edit {
-						@include button($edit);
-					}
-
-					&.save {
-						@include button($save);
-					}
-				}
-			}
-		}
-	}
-
-	&.view {
-		.title {
-			padding: $font-size {
-				top: 0;
-			}
-
-			;
-		}
-	}
-
-	&.write {
-		table {
-			table-layout: fixed;
-			width: 100%;
-		}
-
-		tr {
-			border-bottom: 1px solid material-color('grey', '300');
-
-			&:nth-of-type(1) {
-				border-top: 1px solid material-color('grey', '300');
-			}
-
-			&.readonly {
-				background: none;
-
-				td {
-					flex: 1;
-					font-size: $font-size + rem(1px);
-					line-height: 1.5;
-					width: 100%;
-				}
-			}
-
-			&.contents {
-				td {
-					display: table-cell;
-				}
-
-				padding: $font-size / 2;
-			}
-
-			&.title,
-			&.password.secret,
-			&.mobile {
-				td {
-					display: table-cell;
-					padding-left: $font-size;
-					border: none;
-
-					input {
-						width: calc(100% - #{$font-size * 6});
-						height: 100%;
-					}
-				}
-			}
-
-			&.file {
-				td {
-					flex-wrap: wrap;
-					height: auto;
-
-					div {
-						@include flex(space-between);
-						width: 100%;
-					}
-				}
-
-				.upload-name {
-					@include default-0;
-					@include inline-flex;
-					width: 50%;
-					height: round($input-height / 1.2);
-					padding: $font-size / 2;
-					border: 1px solid material-color('grey', '300');
-					flex: 1;
-				}
-
-				label {
-					@include button;
-					@include inline-flex;
-					height: round($input-height / 1.2);
-
-					input {
-						&[type="file"] {
-							@include position(absolute);
-							visibility: hidden;
-							width: 0;
-							height: 0;
-						}
-					}
-				}
-			}
-
-			&.movie {
-				th {
-					vertical-align: baseline;
-				}
-
-				td {
-					height: auto;
-					flex-wrap: wrap;
-
-					p {
-						margin-top: $font-size / 2;
-						color: material-color('blue');
-					}
-				}
-
-				label {
-					margin: 0;
-					margin-right: $font-size / 2;
-
-					input:checked {
-						&~* {
-							color: material-color('indigo', '600');
-							font-weight: 500;
-
-						}
-
-						~span {
-							&:before {
-								background: material-color('indigo', '50');
-								border-color: material-color('indigo', '50');
-							}
-						}
-					}
-				}
-
-				input[type="text"] {
-					@include default-0;
-					@include inline-flex;
-					height: $input-height / 1.2;
-					padding: $font-size / 2;
-					border: 1px solid material-color('grey', '300');
-					flex: 1;
-				}
-			}
-		}
-
-		th {
-			padding-left: $font-size;
-			white-space: nowrap;
-			text-align: left;
-			color: material-color('grey', '500');
-			font-weight: 700;
-		}
-
-		td {
-			padding: $font-size / 2;
-			height: $input-height;
-			@include flex(flex-start);
-
-			input {
-
-				&[type="text"],
-				&[type="password"] {
-					flex: 1;
-					font-size: $font-size + rem(1px);
-					line-height: 1.5;
-					width: 100%;
-				}
-			}
-
-			label {
-				@include position;
-				margin: 0;
-				margin-left: $font-size / 2;
-				padding: $font-size / 2;
-				float: right;
-
-				i {
-					font-size: $font-size / 2;
-				}
-
-				span {
-					line-height: 1;
-					white-space: nowrap;
-
-					&:before {
-						@include presudo($le: 0, $top: 0, $w: calc(100% - 2px), $h: calc(100% - 2px));
-						border: 1px solid material-color('grey', '300');
-						z-index: -1;
-					}
-				}
-
-				input:checked {
-					&~* {
-						color: material-color('pink', '600');
-						;
-
-					}
-
-					~span {
-						&:before {
-							//background: material-color('pink', '50');
-							border-color: material-color('pink', '500');
-						}
-					}
-				}
-			}
-
-			textarea {
-				@include default-0;
-				resize: none;
-				width: 100%;
-				min-height: 180px;
-				font-size: $font-size;
-				padding: $font-size / 2;
-			}
-		}
-
-		tfoot {
-			tr {
-				border: none;
-			}
-
-			td {
-				display: table-cell;
-				border: none;
-
-				padding: $font-size {
-					right: 0;
-				}
-
-				;
-				text-align: right;
-
-				input {
-					&.button {
-						@include button($basic);
-						margin: 0;
-
-						&.admin {
-							@include button($admin);
-						}
-
-						&.answer {
-							@include button($answer);
-						}
-
-						&.delete {
-							@include button($delete);
-						}
-
-						&.edit {
-							@include button($edit);
-						}
-
-						&.save {
-							@include button($save);
-						}
-					}
-				}
-			}
-		}
-	}
-
-	&.reply {
-		.title {
-			input {
-				&[type="text"] {
-					width: 100%;
-				}
-			}
-		}
-	}
-}
-
-.board.write {
-	th, td {
-		border: none;
-	}
-}
-
-.prenext {
-	width: 100%;
-
-	tr {}
-
-	td {
-		padding: $font-size / 1.5;
-		font-size: $font-size - rem(3px);
-
-		border: 1px solid material-color('grey', '300') {
-			left: none;
-			right: none;
-		}
-
-		;
-
-		&.tit {
-			color: material-color('grey', '500');
-		}
-
-		&.subject {
-			a {
-				@include default-a;
 			}
 		}
 	}
@@ -2872,5 +2086,3 @@ select {
 	font-size: 14px;
 	line-height: 160%;
 }
-
-@import 'footer';

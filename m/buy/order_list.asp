@@ -42,8 +42,8 @@
 %>
 <!--#include virtual = "/m/_include/document.asp"-->
 <!--#include virtual = "/m/_include/jqueryload.asp"-->
-<link rel="stylesheet" href="/m/css/order.css?v2" />
-<link rel="stylesheet" href="/m/css/style_cs.css?v0" />
+<link rel="stylesheet" href="/m/css/order.css?" />
+<link rel="stylesheet" href="/m/css/style_cs.css?" />
 
 <script type="text/javascript" src="/m/js/calendar.js"></script>
 
@@ -74,7 +74,7 @@
 	$(document).ready(function() {
 		//페이지 로딩 시 가로길이
 		var cw = $(window).width();
-		var tw = 50
+		var tw = 50;
 		$("#layerAlert").css({"width":cw-tw+"px", "margin-left":tw/2+"px"});  //.fixedTableWrap 가로길이 조정 window.width - 30px
 
 		//화면사이즈 조정시 가로길이 재 조정
@@ -150,7 +150,7 @@
 
 	<p class="titles"><%=LNG_TEXT_LIST%></p>
 
-	<table <%=tableatt%> class="width100 board">
+	<table <%=tableatt%> class="board">
 		<col width="40" />
 		<col width="30%" />
 		<col width="30%" />
@@ -538,7 +538,7 @@
 								arr_Get_Tel2 = " / "&arr_Get_Tel2
 							End If
 						%>
-						<table <%=tableatt%> class="innerTable width100" style="margin-top:15px;">
+						<table <%=tableatt%> class="innerTable width100" id="tbodyIn<%=i%><%=j%>" style="display:none; margin-top: 15px;">
 							<col width="80" />
 							<col width="*" />
 							<thead>
@@ -549,26 +549,26 @@
 							<tbody>
 								<tr>
 									<th><%=LNG_CS_ORDER_LIST_DETAIL_TEXT21%></th>
-									<td class="td"><%=DELIVERY_NO%></td>
+									<td><%=DELIVERY_NO%></td>
 								</tr>
 								<tr>
 									<th><%=LNG_TEXT_RECIPIENT%></th>
-									<td class="td"><%=arr_Get_Name1%></td>
+									<td><%=arr_Get_Name1%></td>
 								</tr>
 								<tr>
 									<th><%=LNG_CS_ORDER_LIST_DETAIL_TEXT23%></th>
-									<td class="td"><%=arr_Get_Tel1%><%=arr_Get_Tel2%></td>
+									<td><%=arr_Get_Tel1%><%=arr_Get_Tel2%></td>
 								</tr>
 								<tr>
 									<th><%=LNG_TEXT_ADDRESS1%></th>
-									<td class="td">[<%=arr_Get_ZipCode%>] <%=arr_Get_Address1%>&nbsp;<%=arr_Get_Address2%></td>
+									<td>[<%=arr_Get_ZipCode%>] <%=arr_Get_Address1%>&nbsp;<%=arr_Get_Address2%></td>
 								</tr>
 							</tbody>
 						</table>
 						<%End If%>
 
-				</td>
-			</tr>
+					</td>
+				</tr>
 			</tbody>
 		<%
 
@@ -590,8 +590,7 @@
 		<input type="hidden" name="EDATE" value="<%=EDATE%>" />
 	</form>
 
-
-</div>
 <!--#include virtual="/m/_include/modal_config.asp" -->
+</div>
 
 <!--#include virtual = "/m/_include/copyright.asp"-->

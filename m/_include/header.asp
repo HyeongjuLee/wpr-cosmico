@@ -10,6 +10,7 @@
 %>
 <div data-role="page" id="page">
 	<!-- 모바일 height 100vh -->
+	<!--#include virtual = "/m/_include/mobile-height.asp"-->
 
 	<!-- header S-->
 	<header>
@@ -23,15 +24,15 @@
 		<%End If%>
 		<%End If%>
 		<%End If%>
-			<article class="header-top">
-				<!--include virtual = "/_include/header_search.asp"-->
-			</article>
 			<article>
 				<div class="navi-left">
 					<a href="#menu"><i class="icon-menu"></i></a>
 				</div>
-				<div id="logo"><a href="/m/index.asp"><img src="/images/share/logo(1).svg" alt="" /></a></div>
-				<!--#include virtual = "/m/_include/header_Lang.asp"-->
+				<div id="logo"><a href="/m/index.asp"><img src="/images/share/logo.svg" alt="" /></a></div>
+				<!--include virtual = "/_include/header_Lang.asp"-->
+				<div class="member">
+					<a href="/m/buy/order_list.asp" title="<%=LNG_HEADER_MYOFFICE%>"><i class="icon-member-1"></i></a>
+				</div>
 				<div class="navi-right">
 					<a href="#menu-right"><i class="icon-menu"></i></a>
 				</div>
@@ -79,8 +80,8 @@
 						</script>
 					<%Else%>-->
 					<!--include virtual = "/navi/company.asp"-->
-					<!--include virtual = "/navi/business.asp"-->
-					<!--include virtual = "/navi/brand.asp"-->
+					<!--include virtual = "/navi/cosmetic.asp"-->
+					<!--include virtual = "/navi/enter.asp"-->
 					<!--include virtual = "/navi/shop.asp"-->
 					<!--include virtual = "/navi/customer.asp"-->
 					<!--<%End If%>
@@ -94,7 +95,19 @@
 						<li><a href="/m/page/company.asp?view=1"><%=LNG_COMPANY_01%></a></li>
 						<li><a href="/m/page/company.asp?view=2"><%=LNG_COMPANY_02%></a></li>
 						<li><a href="/m/page/company.asp?view=3"><%=LNG_COMPANY_03%></a></li>
+						<li><a href="/m/page/company.asp?view=4"><%=LNG_COMPANY_04%></a></li>
 						<li><a href="/m/page/location.asp"><%=LNG_LOCATION%></a></li>
+
+					<%' "BRAND"%>
+					<li class="Label"><a><%=LNG_BRAND%></a></li>
+						<li><a href="/m/page/brand.asp?view=1"><%=LNG_BRAND_01%></a></li>
+						<li><a href="/m/page/brand.asp?view=2"><%=LNG_BRAND_02%></a></li>
+						<li><a href="/m/page/brand.asp?view=3"><%=LNG_BRAND_03%></a></li>
+
+					<%' "PRODUCT"%>
+					<li class="Label"><a><%=LNG_PRODUCT%></a></li>
+						<li><a href="/m/page/product.asp?view=1"><%=LNG_PRODUCT_01%></a></li>
+						<li><a href="/m/page/product.asp?view=2"><%=LNG_PRODUCT_02%></a></li>
 
 					<%' "BUSINESS"%>
 					<li class="Label"><a><%=LNG_BUSINESS%></a></li>
@@ -102,16 +115,17 @@
 						<li><a href="/m/page/business.asp?view=2"><%=LNG_BUSINESS_02%></a></li>
 						<li><a href="/m/page/business.asp?view=3"><%=LNG_BUSINESS_03%></a></li>
 						<li><a href="/m/page/business.asp?view=4"><%=LNG_BUSINESS_04%></a></li>
-						<!-- <li><a href="/m/page/pyramid_law.asp"><%=LNG_PYRAMID%></a></li> -->
+						<li><a href="/m/page/business.asp?view=5"><%=LNG_BUSINESS_05%></a></li>
 
-					<%' "BRAND"%>
-					<li class="Label"><a><%=LNG_BRAND%></a></li>
-						<li><a href="/m/page/brand.asp?view=1"><%=LNG_BRAND_01%></a></li>
+					<%' "GUIDE"%>
+					<li class="Label"><a><%=LNG_GUIDE%></a></li>
+						<li><a href="/m/page/guide.asp?view=1"><%=LNG_GUIDE_01%></a></li>
+						<li><a href="/m/page/guide.asp?view=2"><%=LNG_GUIDE_02%></a></li>
 
 					<%' "SHOP"%>
 					<li class="Label"><a><%=LNG_SHOP%></a></li>
 						<li><a href="/m/shop/category.asp"><%=LNG_SHOP_COMMON_TXT_01%></a>
-						<%
+						<!-- <%
 							arrParams_S = Array(_
 								Db.makeParam("@strCateParent",adVarChar,adParamInput,20,"000") _
 							)
@@ -161,15 +175,19 @@
 								Next
 							End If
 						%>
-						<li><a href="/m/shop/cart.asp"><%=LNG_MYPAGE_03%></a></li>
+						<li><a href="/m/shop/cart.asp"><%=LNG_MYPAGE_03%></a></li> -->
+
+					<%' "COMMUNITY"%>
+					<li class="Label"><a><%=LNG_COMMUNITY%></a></li>
+						<li><a href="javascript:alert('준비중입니다');"><%=LNG_COMMUNITY_01%></a></li>
+						<li><a href="javascript:alert('준비중입니다');"><%=LNG_COMMUNITY_02%></a></li>
 
 					<%' "CUSTOMER"%>
 					<li class="Label"><a><%=LNG_CUSTOMER%></a></li>
-						<li><a href="/m/cboard/board_list.asp?bname=notice"><%=LNG_CUSTOMER_01%></a></li>
-						<li><a href="/m/faq/faq_list.asp"><%=LNG_CUSTOMER_02%></a></li>
-						<!-- <li><a href="/cboard/board_list.asp?bname=qna"><span><%=LNG_CUSTOMER_03%></span></a></li> -->
-						<li><a href="/m/counsel/1on1_list.asp"><%=LNG_CUSTOMER_04%></a></li>
-						<li><a href="/m/cboard/board_list.asp?bname=pds"><%=LNG_CUSTOMER_05%></a></li>
+						<li><a href="/m/cboard/board_list.asp?bname=notice"><%=LNG_NOTICE%></a></li>
+						<li><a href="/m/faq/faq_list.asp"><%=LNG_FAQ%></a></li>
+						<li><a href="/m/counsel/1on1_list.asp"><%=LNG_1ON1%></a></li>
+						<li><a href="/m/cboard/board_list.asp?bname=pds"><%=LNG_PDS%></a></li>
 				</ul>
 
 			</nav>
@@ -190,7 +208,7 @@
 								<li><a href="/m/common/member_logout.asp"><%=LNG_TEXT_LOGOUT%></a></li>
 							<li class="Label"><a><%=LNG_MYOFFICE_BOARD%></a></li>
 								<li><a href="/m/cboard/board_list.asp?bname=myoffice"><%=LNG_MYOFFICE_NOTICE%></a></li>
-							<li class="Label"><a><%=LNG_MYPAGE_01%></a></li>
+							<li class="Label"><a><%=LNG_MYPAGE%></a></li>
 								<li><a href="/m/mypage/member_info.asp"><%=LNG_MYPAGE_01%></a></li>
 								<!-- <li><a href="/m/counsel/1on1_list.asp"><%=LNG_MYPAGE_06%></a></li> -->
 							<li class="Label"><a><%=LNG_MYOFFICE_MEMBER%></a></li>
@@ -202,7 +220,8 @@
 								<%End If%>
 								<%If NOM_MENU_USING Then%><li><a href="/m/orgm/t_tree_vt_v10.asp" target="_blank"><%=LNG_MYOFFICE_CHART_02%></a></li><%End If%>
 								<%If SAVE_MENU_USING Then%><li><a href="/m/orgm/t_tree_ss_v10.asp" target="_blank"><%=LNG_MYOFFICE_CHART_01%></a></li><%End If%>
-								<%If false Then%>
+								<%If 1=2 Then%>
+								<li><a href="/m/member/member_UnderInfo.asp"><%=LNG_MYOFFICE_MEMBER_06%></a></li>
 								<%If SAVE_MENU_USING Then%><li><a href="/m/member/member_UnderSpon.asp"><%=LNG_MYOFFICE_MEMBER_07%></a></li><%End If%>
 								<%End If%>
 
@@ -218,10 +237,9 @@
 							<%End If%>
 
 							<li class="Label"><a><%=LNG_MYOFFICE_BONUS%></a></li>
-								<!-- <li><a href="/m/pay/pay01.asp"><%=LNG_MYOFFICE_BONUS_01%></a></li> -->
+								<li><a href="/m/pay/pay01.asp"><%=LNG_MYOFFICE_BONUS_01%></a></li>
 								<li><a href="/m/pay/pay03.asp"><%=LNG_MYOFFICE_BONUS_03%></a></li>
-
-							<%If 1=1 Then%>
+							<%If 1=222 Then%>
 							<li class="Label"><a><%=LNG_MYOFFICE_AUTOSHIP%></a></li>
 								<li><a href="/m/autoship/order_list_CMS.asp"><%=LNG_MYOFFICE_AUTOSHIP_01%></a></li>
 								<li><a href="/m/autoship/order_list_CMS_reg.asp"><%=LNG_MYOFFICE_AUTOSHIP_02%></a></li>
@@ -233,7 +251,6 @@
 								<li><a href="/m/point/point_transfer.asp?mn=1"><%=LNG_MYOFFICE_POINT_02%></a></li>
 								<li><a href="/m/point/point_withdraw.asp?mn=1"><%=LNG_MYOFFICE_POINT_03%></a></li>
 							<%End If%>
-
 							<%If DK_BUSINESS_CNT > 0 Then%>
 								<li class="Label"><a><%=LNG_MYOFFICE_BCENTER%></a></li>
 									<li><a href="/m/business/business_member.asp"><%=LNG_MYOFFICE_BCENTER_01%></a></li>
@@ -259,7 +276,12 @@
 								<li><a href="/m/autoship/order_list_CMS_reg.asp"><%=LNG_MYOFFICE_AUTOSHIP_02%></a></li> -->
 
 						<%End If%>
+						
+						<li class="Label" ><a><%=LNG_MARKETING_PLAN%></a></li>
+							<li><a href="/m/business/marketing_plan.asp"><%=LNG_MARKETING_PLAN%></a></li>
+							
 					<%Else%>
+
 						<li class="Label"><a><%=LNG_HEADER_LOGIN_M%></a></li>
 							<li><a href="/m/common/member_login.asp"><%=LNG_HEADER_LOGIN%></a></li>
 							<li><a href="/m/common/joinStep01.asp"><%=LNG_HEADER_JOIN%></a></li>
@@ -273,12 +295,16 @@
 	<%
 		Select Case PAGE_SETTING
 			Case "COMPANY" 		NAVI_P_NUM = 1
-			Case "BUSINESS" 	NAVI_P_NUM = 2
-			Case "BRAND"		NAVI_P_NUM = 3
-			Case "SHOP"			NAVI_P_NUM = 4
-			Case "CSCENTER","CUSTOMER"	NAVI_P_NUM = 5
+			Case "BRAND"		NAVI_P_NUM = 2
+			Case "PRODUCT"		NAVI_P_NUM = 3
+			Case "BUSINESS" 	NAVI_P_NUM = 4
+			Case "GUIDE"		NAVI_P_NUM = 5
+			Case "SHOP"			NAVI_P_NUM = 6
+			Case "COMMUNITY"	NAVI_P_NUM = 7
+			Case "CUSTOMER"		NAVI_P_NUM = 8
+			Case "SNS"			NAVI_P_NUM = 9
 			'Case "MYPAGE"		NAVI_P_NUM = 6
-			Case "MYOFFICE","MY_BUY","MY_MEMBER","PAY","MY_POINT" NAVI_P_NUM = 7
+			Case "MYOFFICE","MY_BUY","MY_MEMBER","PAY","MY_POINT" NAVI_P_NUM = 10
 			Case Else
 				NAVI_P_NUM = 0
 		End Select
@@ -365,13 +391,13 @@
 
 	<%Select Case PAGE_SETTING%>
 	<%Case "COMMON"%>
-		<link rel="stylesheet" type="text/css" href="/m/css/common.css?v5" />
+		<link rel="stylesheet" type="text/css" href="/m/css/common.css?" />
 	<%Case "JOIN"%>
-		<link rel="stylesheet" type="text/css" href="/m/css/joinstep.css?v2" />
+		<link rel="stylesheet" type="text/css" href="/m/css/join.css?" />
 	<%Case "SHOP"%>
-		<link rel="stylesheet" type="text/css" href="/m/css/shop_style.css">
+		<link rel="stylesheet" type="text/css" href="/m/css/shop_style.css?">
 	<%Case "MYOFFICE","MY_MEMBER","MY_BUY","PAY"%>
-		<link rel="stylesheet" type="text/css" href="/m/css/myoffice.css?v4">
+		<link rel="stylesheet" type="text/css" href="/m/css/myoffice.css?">
 	<%Case Else%>
 	<%End Select%>
 
@@ -383,17 +409,24 @@
 			<article class="sub-header-img">
 				<%Select Case PAGE_SETTING%>
 				<%Case "COMPANY"%>
-					<img src="/images/index/sub01.jpg" alt="" />
-				<%Case "BUSINESS"%>
-					<img src="/images/index/sub02.jpg" alt="" />
+					<img src="/images/top/s01.jpg" alt="" />
 				<%Case "BRAND"%>
-					<img src="/images/index/sub04.jpg" alt="" />
+					<img src="/images/top/s02.jpg" alt="" />
+				<%Case "PRODUCT"%>
+					<img src="/images/top/s03.jpg" alt="" />
+				<%Case "BUSINESS"%>
+					<img src="/images/top/s04.jpg" alt="" />
+				<%Case "GUIDE"%>
+					<img src="/images/top/s05.jpg" alt="" />
+				<%Case "COMMUNITY"%>
+					<img src="/images/top/s06.jpg" alt="" />
 				<%Case "CUSTOMER"%>
-					<img src="/images/index/sub05.jpg" alt="" />
+					<img src="/images/top/s07.jpg" alt="" />
 				<%Case "MYOFFICE"%>
 				<%Case "COMMON"%>
+				<%Case "SNS"%>
 				<%Case Else%>
-					<img src="/images/index/sub03.jpg" alt="" />
+					<img src="/images/top/s07.jpg" alt="" />
 				<%End Select%>
 			</article>
 			<article class="sub-header-txt">

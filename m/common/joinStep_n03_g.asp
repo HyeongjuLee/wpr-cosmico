@@ -814,7 +814,7 @@
 
 		<div class="wrap">
 			<h6><%=LNG_TEXT_MEMBER_BASIC_INFO%></h6>
-			<table <%=tableatt%> class="width100">
+			<table <%=tableatt%>>
 				<col width="80" />
 				<col width="*" />
 
@@ -898,8 +898,10 @@
 						<%If CS_AUTO_WEBID_TF = "T" Then%>
 							<b>아이디는 회원가입 후 발급됩니다.</b>
 						<%Else%>
-							<input type="text" name="strID" class="" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');" value="" />
-							<input type="button" name="" onclick="join_idcheck();" class="" value="<%=LNG_TEXT_DOUBLE_CHECK%>" />
+							<div class="inputs">
+								<input type="text" name="strID" class="" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');" value="" />
+								<input type="button" class="button" name="" onclick="join_idcheck();" class="" value="<%=LNG_TEXT_DOUBLE_CHECK%>" />
+							</div>
 							<p id="idCheck" class="summary"><%=LNG_JOINSTEP03_U_TEXT04%>
 								<input type="hidden" name="idcheck" value="F" readonly="readonly" />
 								<input type="hidden" name="chkID" value="" readonly="readonly" />
@@ -961,10 +963,12 @@
 					<th><%=CS_NOMIN%>&nbsp;<%=starText_NOMIN%></th>
 					<td>
 						<%'#modal dialog%>
-						<input type="text" name="voter" class="" value="<%=DKRSVI_MNAME%>" readonly="readonly" style="background-color:#efefef;" />
-						<%If DKRSVI_CHECK <> "T" Then%>
-						<a name="modal" id="popVoter" href="/m/common/pop_voter.asp" title="<%=CS_NOMIN%>&nbsp;<%=LNG_TEXT_SEARCH%>"><input type="button" value="<%=LNG_TEXT_SEARCH%>"/></a>
-						<%End If%>
+						<div class="inputs">
+							<input type="text" name="voter" class="" value="<%=DKRSVI_MNAME%>" readonly="readonly" style="background-color:#efefef;" />
+							<%If DKRSVI_CHECK <> "T" Then%>
+							<a name="modal" id="popVoter" class="button" href="/m/common/pop_voter.asp" title="<%=CS_NOMIN%>&nbsp;<%=LNG_TEXT_SEARCH%>"><%=LNG_TEXT_SEARCH%></a>
+							<%End If%>
+						</div>
 					</td>
 				</tr>
 				<%If S_SellMemTF = 0 Then%>
@@ -972,10 +976,10 @@
 					<th><%=CS_SPON%>&nbsp;<%=starText_SPON%></th>
 					<td>
 						<%'#modal dialog%>
-						<input type="text" name="sponsor" class="" value="" readonly="readonly" style="background-color:#efefef;" />
-						<a name="modal" id="popSponsor" href="/m/common/pop_sponsor.asp" title="<%=CS_SPON%>&nbsp;<%=LNG_TEXT_SEARCH%>">
-							<input type="button" class="input_btn width95a" value="<%=LNG_TEXT_SEARCH%>"/>
-						</a>
+						<div class="inputs">
+							<input type="text" name="sponsor" class="" value="" readonly="readonly" style="background-color:#efefef;" />
+							<a name="modal" id="popSponsor" class="button" href="/m/common/pop_sponsor.asp" title="<%=CS_SPON%>&nbsp;<%=LNG_TEXT_SEARCH%>"><%=LNG_TEXT_SEARCH%></a>
+						</div>
 						<!-- <div style="width:47%;"><input type="text" name="sponsor" class="input_text width95a" readonly="readonly" style="background-color:#efefef;" /></div><div class="tcenter" style="width:3%;"></div><div style="width:25%;"><input type="button" name="" class="input_btn width95a" value="<%=LNG_TEXT_SEARCH%>"  onclick="spon_idcheck();" /></div><div style="width:25%;"><input type="button" class="input_btn width95a" value="<%=LNG_STRFUNCDATA_TEXT06%>" onclick="spon_company();" /></div> -->
 						<input type="hidden" name="sponLine" value="" readonly="readonly" />
 					</td>
@@ -1021,8 +1025,10 @@
 				<tr class="radio">
 					<th><%=LNG_TEXT_SEX%>&nbsp;<%=starText%></th>
 					<td>
-						<label><input type="radio" name="isSex" value="M" checked="checked"/><i class="icon-ok"></i><span><%=LNG_TEXT_MALE%></span></label>
-						<label><input type="radio" name="isSex" value="F" /><i class="icon-ok"></i><span><%=LNG_TEXT_FEMALE%></span></label>
+						<div class="labels">
+							<label class="checkbox"><input type="radio" name="isSex" value="M" checked="checked"/><span><i class="icon-ok"></i><%=LNG_TEXT_MALE%></span></label>
+							<label class="checkbox"><input type="radio" name="isSex" value="F" /><span><i class="icon-ok"></i><%=LNG_TEXT_FEMALE%></span></label>
+						</div>
 					</td>
 				</tr>
 				<%Select Case UCase(DK_MEMBER_NATIONCODE)%>
@@ -1030,8 +1036,10 @@
 						<tr class="address">
 							<th><%=LNG_TEXT_ADDRESS1%>&nbsp;<%=starText_ADDRESS1%></th>
 							<td>
-								<input type="text" name="strZip" id="strZipDaum" class="readonly" readonly="readonly" style="background-color:#efefef;" maxlength="7" />
-								<a name="modal" href="/m/common/pop_postcode.asp" id="pop_postcode" title="<%=LNG_TEXT_ZIPCODE%>"><input type="button" value="<%=LNG_TEXT_ZIPCODE%>"/></a>
+								<div class="inputs">
+									<input type="text" name="strZip" id="strZipDaum" class="readonly" readonly="readonly" style="background-color:#efefef;" maxlength="7" />
+									<a name="modal" href="/m/common/pop_postcode.asp" id="pop_postcode" class="button" title="<%=LNG_TEXT_ZIPCODE%>"><%=LNG_TEXT_ZIPCODE%></a>
+								</div>
 								<input type="text" name="strADDR1" id="strADDR1Daum" class="" style="background-color:#efefef;" maxlength="500" readonly="readonly" />
 							</td>
 						</tr>
@@ -1043,8 +1051,10 @@
 						<tr class="address">
 							<th><%=LNG_TEXT_ADDRESS1%>&nbsp;<%=starText%></th>
 							<td>
-								<input type="text" name="strZip" class="" readonly="readonly" style="background-color:#efefef;" maxlength="7" />
-								<input type="button" name="" class="input_btn width95a" value="<%=LNG_TEXT_ZIPCODE%>"  onclick="openzip_jp;" />
+								<div class="inputs">
+									<input type="text" name="strZip" class="" readonly="readonly" style="background-color:#efefef;" maxlength="7" />
+									<input type="button" name="" class="button" value="<%=LNG_TEXT_ZIPCODE%>"  onclick="openzip_jp;" />
+								</div>
 								<input type="text" name="strADDR1" class="input_text width95a" style="background-color:#efefef;" maxlength="500" readonly="readonly" />
 							</td>
 						</tr>
@@ -1068,8 +1078,10 @@
 				<tr class="mobile">
 					<th><%=LNG_TEXT_MOBILE%>&nbsp;<%=starText_MOBILE%></th>
 					<td>
-						<input type="tel" name="strMobile" maxlength="15" class="" <%=onLyKeys%> oninput="maxLengthCheck(this)" />
-						<input type="button" name="" onclick="join_MobileCheck();" class="" value="<%=LNG_TEXT_DOUBLE_CHECK%>" /></div>
+						<div class="inputs">
+							<input type="tel" name="strMobile" maxlength="15" class="" <%=onLyKeys%> oninput="maxLengthCheck(this)" />
+							<input type="button" name="" onclick="join_MobileCheck();" class="button" value="<%=LNG_TEXT_DOUBLE_CHECK%>" />
+						</div>
 						<p class="summary" id="mobileCheckTXT"></p>
 						<input type="hidden" name="mobileCheck" value="F" readonly="readonly" />
 						<input type="hidden" name="chkMobile" value="" readonly="readonly" />
@@ -1085,8 +1097,10 @@
 				<tr>
 					<th><%=LNG_TEXT_EMAIL%>&nbsp;<%=starText%></th>
 					<td>
-						<input type="email" name="strEmail" value="" maxlength="200" />
-						<input type="button" name="" onclick="join_emailCheck();" class="" value="<%=LNG_TEXT_DOUBLE_CHECK%>" /></div>
+						<div class="inputs">
+							<input type="email" name="strEmail" value="" maxlength="200" />
+							<input type="button" name="" onclick="join_emailCheck();" class="button" value="<%=LNG_TEXT_DOUBLE_CHECK%>" /></div>
+						</div>
 						<p class="summary tweight" id="emailCheckTXT"></p>
 						<input type="hidden" name="emailCheck" value="F" readonly="readonly" />
 						<input type="hidden" name="chkEmail" value="" readonly="readonly" />
@@ -1100,8 +1114,12 @@
 						<input type="hidden" name="birthDD" value="<%=birthDD%>" readonly="readonly" />
 						<div><p><%=birthYYYY%>-<%=birthMM%>-<%=birthDD%></p></div>
 						<div class="labels">
-							<label><input type="radio" name="isSolar" value="S" checked="checked"/><i class="icon-ok"></i><span><%=LNG_TEXT_SOLAR%></span></label>
-							<label><input type="radio" name="isSolar" value="M" /><i class="icon-ok"></i><span><%=LNG_TEXT_LUNAR%></span></label>
+							<label class="checkbox">
+								<input type="radio" name="isSolar" value="S" checked="checked"/><span><i class="icon-ok"></i><%=LNG_TEXT_SOLAR%></span>
+							</label>
+							<label class="checkbox">
+								<input type="radio" name="isSolar" value="M" /><span><i class="icon-ok"></i><%=LNG_TEXT_LUNAR%></span>
+							</label>
 						</div>
 					</td>
 				</tr>

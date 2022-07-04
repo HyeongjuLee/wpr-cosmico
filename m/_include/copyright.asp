@@ -45,9 +45,9 @@
 	If PG_EXAM_MODE = "T" Then FOO_MENU_SALESMAN = ""
 
 	If DK_MEMBER_LEVEL > 0 Then
-	FOO_MENU_SET = FOO_MENU_LOGOUT & FOO_MENU_POLICY1 & FOO_MENU_POLICY2 & FOO_MENU_PC
+	FOO_MENU_SET = FOO_MENU_COMPANY & FOO_MENU_POLICY2 & FOO_MENU_POLICY1 & FOO_MENU_PC
 	Else
-	FOO_MENU_SET = FOO_MENU_LOGIN & FOO_MENU_POLICY1 & FOO_MENU_POLICY2 & FOO_MENU_PC
+	FOO_MENU_SET = FOO_MENU_COMPANY & FOO_MENU_POLICY2 & FOO_MENU_POLICY1 & FOO_MENU_PC
 	End If
 
 
@@ -68,36 +68,27 @@
 	FOO_INFO_INFO_RMANAGER 	= LNG_COPYRIGHT_TITLE_INFO_RMANAGER		&" : "&LNG_COPYRIGHT_INFO_RMANAGER & VbCrLf
 
 
-	FOO_INFO_SET1 = 	"<p>" & SSS & LNG_COPYRIGHT_COMPANY & EEE & "</p>"
-	FOO_INFO_SET2 = 	"<p>" & SSS & FOO_INFO_BUSINESS_NUM & EEE & FOO_INFO_LINE & SSS & FOO_INFO_CEO & EEE & "</p>"
-	FOO_INFO_SET3 = 	"<p>" & SSS & LNG_COPYRIGHT_ADDRESS & EEE & "</p>"
-	FOO_INFO_SET4 =		"<p>" & FOO_INFO_CSTEL & "</p>"
-	FOO_INFO_SET5 =		"<p>" & SSS & FOO_INFO_FAX & EEE & FOO_INFO_LINE & SSS & LNG_COPYRIGHT_EMAIL & EEE & "</p>"
+	FOO_INFO_SET1 = 	"<p class='tit'>" & SSS & LNG_COPYRIGHT_COMPANY & EEE & "</p>"
+	FOO_INFO_SET2 = 	"<p>" & SSS & FOO_INFO_ADDRESS & EEE & "</p>"
+	FOO_INFO_SET3 = 	"<p>" & SSS & FOO_INFO_BUSINESS_NUM & EEE & FOO_INFO_LINE & SSS & FOO_INFO_CEO & EEE & "</p>"
+	FOO_INFO_SET4 =		"<p>" & SSS & FOO_INFO_TEL & EEE & FOO_INFO_LINE & SSS & FOO_INFO_EMAIL & EEE & "</p>"
+	' FOO_INFO_SET4 =		"<p>" & FOO_INFO_CSTEL & "</p>"
 
 
 %>
 <%If PAGE_SETTING <> "MYOFFICE" Then%>
+<link rel="stylesheet" href="/m/css/footer.css?">
 <footer>
 	<div id="footer" class="footer">
 		<div class="layout_inner">
 			<ul class="footer-menu">
 				<%=FOO_MENU_SET%>
 			</ul>
-			<div class="footer-icon">
-				<ul>
-					<li class="naver"><a href="https://blog.naver.com/metac21g" target="_blank" title="<%=LNG_NAVER%>"><i class="icon-naver"></i></a></li>
-					<li class="youtube"><a href="https://www.youtube.com/channel/UCkgCXAv0-Y4HGHxJVbEIWcg" target="_blank" title="<%=LNG_YOUTUBE%>"><i class="icon-youtube"></i></a></li>
-					<li class="facebook"><a href="https://www.facebook.com/Meta-C21-Global-101342629170938" target="_blank" title="<%=LNG_FACEBOOK%>"><i class="icon-facebook-1"></i></a></li>
-					<li class="insta"><a href="https://www.instagram.com/metac21global/" target="_blank" title="<%=LNG_INSTAGRAM%>"><i class="icon-instagram"></i></a></li>
-					<li class="kakao"><a href="https://story.kakao.com/metac21g" target="_blank" title="<%=LNG_KAKAOSTORY%>"><i class="icon-kakao-story"></i></a></li>
-				</ul>
-			</div>
 			<div class="footer-info">
 				<%=FOO_INFO_SET1%>
 				<%=FOO_INFO_SET2%>
 				<%=FOO_INFO_SET3%>
 				<%=FOO_INFO_SET4%>
-				<%=FOO_INFO_SET5%>
 			</div>
 			<div class="copyright">Copyright (C) <%=LNG_COPYRIGHT_COMPANY_INC%> co., ltd All rights reserv<a href="/common/admin_login.asp">ed</a></div>
 			<button class="site-top"></button>

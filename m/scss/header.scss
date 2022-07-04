@@ -1,0 +1,226 @@
+@import 'mixin-custom';
+
+body,
+input,
+select,
+textarea {
+	@include font-family('Pretendard');
+}
+
+/* 전체 공통 */
+/* font-size: 62.5%; 62.5% = 10px */
+	/* 1rem = 10px, 1.6rem = 16px */
+
+html {
+	font-size: 6px;
+	line-height: 1.5;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* 상단 공통 */
+$top-nav-height: rem(130px);
+$top-logo-width: rem(209px);
+$top-logo-height: rem(52px);
+$top-logo-margin: ($top-height / 2) - ($top-logo-height / 2); //top-height 에서 중앙정렬
+$top-nav-index: 1;
+$color: #424242;
+
+#header {
+	@include position;
+	z-index: 100;
+	@include flex;
+	flex-direction: column;
+	text-align: center;
+	font-weight: 400;
+	height: $top-height;
+	max-width: 640px;
+	margin: 0 auto;
+	// margin-bottom: -$top-height;
+	//box-shadow: 0 1px 0 rgba(#000, 10%);
+	color: $color;
+	&::after {
+		/* content: ''; */
+		@include position(absolute, $le: 0, $bot: 0);
+		z-index: $top-nav-index;
+		width: 100%;
+		height: 1px;
+		background: rgba(#000, 0.1);
+	}
+}
+
+.header {
+	article {
+		width: 100%;
+		height: $top-height;
+		@include flex($bet);
+		color: $parent-css;
+
+		// &.header-top {
+		// 	//height: $top-height / 2;
+		// 	justify-content: flex-end;
+		// 	//margin-top: $top-height * 0.1;
+		// 	margin-top: rem(5px);
+		// 	display: none;
+		// }
+	}
+
+	.navi-left, .navi-right {
+		width: rem(50px);
+		height: rem(50px);
+		margin: rem(35px);
+		font-size: rem(40px);
+		color: $parent-css;
+
+		a {
+			@include default-a;
+			height: 100%;
+			color: $parent-css;
+		}
+
+		i {
+			width: 100%;
+			height: 100%;
+			@include flex;
+			color: $parent-css;
+			&::before {
+				margin: 0;
+				line-height: 1;
+			}
+		}
+	}
+
+	#logo {
+		margin-top: rem(20px);
+		a {
+			padding-top: rem(10px);
+			@include default-a;
+			display: block;
+		}
+		img {
+			width: $top-logo-width;
+		}
+	}
+}
+
+
+/*shop 상세 페이지*/
+#header.shop {
+	height: rem(100px);
+	&::after {
+		content: '';
+		@include position(absolute, $le: 50%, $bot: 0);
+		transform: translateX(-50%);
+		z-index: $top-nav-index;
+		width: 100%;
+		height: 1px;
+		background: rgba(#000, 10%);
+	}
+	article {
+		height: 100%;
+		> div {
+			margin: 0 rem(30px);
+		}
+	}
+	.navi-back {
+		width: rem(60px);
+		height: rem(60px);
+		font-size: rem(60px);
+
+		a {
+			@include default-a;
+			height: 100%;
+		}
+
+		i {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #333;
+			&::before {
+				margin: 0;
+				line-height: 1;
+			}
+		}
+	}
+	h1 {
+		color: #111;
+		font-weight: 500;
+		font-size: $font-size * 1.5;
+		line-height: 1;
+		word-break: keep-all;
+	}
+}
+
+/*join 상세 페이지*/
+#header.join {
+	height: rem(100px);
+	&::after {
+		content: '';
+		@include position(absolute, $le: 50%, $bot: 0);
+		transform: translateX(-50%);
+		z-index: $top-nav-index;
+		width: 100%;
+		height: 1px;
+		background: rgba(#000, 10%);
+	}
+	article {
+		height: 100%;
+		> div {
+			margin: 0 rem(30px);
+		}
+	}
+	.navi-back {
+		width: rem(60px);
+		height: rem(60px);
+		font-size: rem(50px);
+
+		a {
+			@include default-a;
+			height: 100%;
+		}
+
+		i {
+			width: 100%;
+			height: 100%;
+			@include flex;
+			color: #333;
+			&::before {
+				margin: 0;
+				line-height: 1;
+			}
+		}
+	}
+	.navi-close {
+		@extend .navi-back;
+		font-size: $font-size;
+	}
+	h1 {
+		color: #111;
+		font-weight: 500;
+		font-size: $font-size * 1.5;
+		line-height: 1;
+		word-break: keep-all;
+	}
+}
+
+#header {
+	.member {
+		$width: rem(50px);
+		color: $parent-css;
+		font-size: rem(30px);
+		width: $width;
+		height: $width;
+		@include position(absolute, $ri: rem(110px));
+
+		a {
+			@include default-a;
+			@include inline-flex;
+			color: $parent-css;
+		}
+	}
+}

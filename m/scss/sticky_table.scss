@@ -1,0 +1,42 @@
+@import 'mixin-custom';
+
+$input-height: $input-height - rem(10px);
+$myoffice-color: $myoffice-color3;
+
+.sticky-wrap {}
+.sticky-wrap {
+	@include table-color($myoffice-color, true);
+
+	$table-color: mix(#fff, $myoffice-color, 90);
+	$table-color-darken: darken($table-color, 10);
+	$table-color-grey: mix(material-color('grey', '300'), $table-color, 50);
+	$table-text: mix(#000, $table-color-darken, 50);
+	
+	th, td {
+		height: $input-height;
+		text-align: center;
+	}
+	#sortTable {
+		tr {
+			&:hover {
+				td {
+					background: mix($table-color, #fff, 25);
+				}
+			}
+		}
+		th:nth-child(2),
+		td:nth-child(2) {
+			border-right: none;
+		}
+		th:nth-child(3),
+		td:nth-child(3) {
+			border-left: none;
+		}
+		th:nth-child(2) {
+			box-shadow: inset -3px 0 0 -2px $table-color-darken;
+		}
+		td:nth-child(2) {
+			box-shadow: inset -3px 0 0 -2px $table-color-grey;
+		}
+	}
+}

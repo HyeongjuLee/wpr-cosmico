@@ -5,14 +5,7 @@ body {
 	@include font-family('Pretendard');
 }
 
-$common-font-color: #212121;
-$input-width: $inner / 2.5;
-$input-height: rem(80px);
-$nav-color: #333645;
-$nav-color-200: saturate(lighten($nav-color, 65), 5);
-$nav-color-200-d: darken($nav-color-200, 10);
-$nav-color-600: saturate(lighten($nav-color, 10), 25);
-$contain: rem(640px);
+$sub-color: $common-button-color;
 
 #header {
 	//display: none;
@@ -43,6 +36,7 @@ $contain: rem(640px);
 #contain_wrap {
     width: 100%;
 	max-width: 100%;
+	@include position;
     
     #sub-header {
         display: none !important;
@@ -158,24 +152,6 @@ footer {
 	background: #fff;
 	padding: rem(35px);
 	overflow: hidden;
-}
-
-.prenext {
-	background: #fff;
-	padding: rem(35px);
-	padding-top: 0;
-	margin: 0;
-
-	td {
-		height: rem(40px);
-		padding: 0 rem(10px);
-
-		a {
-			&:hover {
-				color: mix($sub-color, blue, 80);
-			}
-		}
-	}
 }
 
 
@@ -347,22 +323,22 @@ $sub_title-height: rem(100px);
 	}
 }
 
-th,
-td {
-	padding: $font-size / 2;
-	font-size: $font-size - rem(2px);
-}
+// th,
+// td {
+// 	padding: $font-size / 2;
+// 	font-size: $font-size - rem(2px);
+// }
 
-th {
-	background-color: #eee;
-	border: 1px solid #ccc;
-	//border-left: 0px none;
-	//border-right: 0px none;
-}
+// th {
+// 	background-color: #eee;
+// 	border: 1px solid #ccc;
+// 	//border-left: 0px none;
+// 	//border-right: 0px none;
+// }
 
-td {
-	border: 1px solid #ccc;
-}
+// td {
+// 	border: 1px solid #ccc;
+// }
 
 p.sub_title {
 	@include position;
@@ -935,15 +911,15 @@ $myoffice: rem(930px);
 
 
 .search_form {
+	$input-height: rem(70px);
 	width: 100%;
 	font-size: $font-size;
-	@include flex(flex-start);
+	@include flex($st);
 	flex-wrap: wrap;
 
-	padding: $font-size - rem(5px) {
-		left: $font-size;
-	};
-	border: 1px solid material-color('grey', '200');
+	padding-bottom: $font-size;
+	// margin-bottom: $font-size;
+	border-bottom: 1px solid material-color('grey', '200');
 
 	&.etc {
 		.inputs {
@@ -962,16 +938,17 @@ $myoffice: rem(930px);
 
 	h6 {
 		font-size: $font-size;
+		line-height: 1.2;
 		color: #222;
 		//margin: $font-size / 4 0;
-		margin-bottom: $font-size / 2;
+		margin-bottom: rem(10px);
 		word-break: keep-all;
 		width: 100%;
 	}
 
 	input {
 		margin: 0;
-		padding: rem(10px);
+		padding: 0 rem(10px);
 		height: $input-height;
 		//outline: none;
 		font-size: $font-size * 1.1;
@@ -984,7 +961,7 @@ $myoffice: rem(930px);
 	}
 
 	select {
-		height: $input-height / 1.5;
+		height: $input-height;
 		border-color: material-color('grey', '400');
 		cursor: pointer;
 		font-size: $font-size - rem(1px);
@@ -1010,6 +987,7 @@ $myoffice: rem(930px);
 
 	.input_select {
 		width: calc(25% - #{$font-size / 2});
+		background: #fff;
 	}
 
 	.selects {
@@ -1038,11 +1016,11 @@ $myoffice: rem(930px);
 		}
 
 		button {
-			width: calc((100% - 2rem) / 5);
+			width: calc((100% / 5) - #{rem(5px)});
 			height: $input-height;
 			line-height: 1.5;
 			padding: 0;
-			font-size: $font-size;
+			font-size: $font-size - rem(1px);
 			color: #555;
 			cursor: pointer;
 			font-family: $parent-css;
@@ -1059,22 +1037,23 @@ $myoffice: rem(930px);
 			//flex: 1.5;
 
 			button {
+				font-size: $font-size - rem(1px);
 				width: calc((100% / 5) - #{rem(5px)});
-				height: round($input-height / 1.5);
+				height: $input-height - rem(5px);
+				line-height: 1.5;
 				outline: none;
 				cursor: pointer;
 				font-family: $parent-css;
-				font-size: $font-size - rem(1px);
 				border: 2px solid material-color('grey', '300');
 				background: material-color('grey', '300');
 				color: material-color('grey', '700');
-				@include rounded(rem(5px));
 				word-break: keep-all;
+				@include rounded(rem(5px));
 				//flex: auto;
 
 				&:focus {
-					border-color: $sub-color;
-					background: $sub-color;
+					border-color: adjust-hue($myoffice-color, -10deg);
+					background: adjust-hue($myoffice-color, -10deg);
 					color: #fff;
 				}
 
@@ -1099,35 +1078,46 @@ $myoffice: rem(930px);
 		min-width: $input-height;
 		width: 100%;
 		color: #fff;
-		background: material-color('indigo', '900');
+		background: $sub-color;
 		cursor: pointer;
 		padding: 0 $font-size;
 		//margin: $font-size / 2 0;
 		@include rounded(rem(5px));
 		line-height: 1.5;
 	}
-
+	
 	.search_reset {
 		@include default-0;
+		@include inline-flex;
 		min-width: $input-height;
+		height: $input-height;
 		color: #fff;
-		background: material-color('grey', '600');
+		color: material-color('grey', '700');
+		background: rgba(material-color('grey', '600'), 0.3);
 		cursor: pointer;
 		padding: 0 $font-size;
-		font-size: $font-size;
+		font-size: $font-size + rem(10px);
 		@include rounded(rem(5px));
 		line-height: 1.5;
-		flex: 1;
+		// flex: 1;
+		&:active {
+			&:before {
+				animation: rotate .5s;
+			}
+		}
 	}
+
 	.search_filter {
 		@include default-0;
+		@include inline-flex;
 		min-width: $input-height;
-		color: #fff;
+		height: $input-height;
+		color: material-color('blue-grey', '700');
 		//border: 1px solid material-color('blue-grey', '600');
-		background: material-color('blue-grey', '600');
+		background: rgba(material-color('blue-grey', '600'), 0.3);
 		cursor: pointer;
 		padding: 0 $font-size;
-		font-size: $font-size;
+		font-size: $font-size + rem(10px);
 		@include rounded(rem(5px));
 		line-height: 1.5;
 	}
@@ -1137,86 +1127,74 @@ $myoffice: rem(930px);
 		width: 100%;
 		input {
 			margin-right: rem(10px);
-			&:last-of-type {
-				margin-right: 0;
-			}
+			// &:last-of-type {
+			// 	margin-right: 0;
+			// }
 		}
 
 		.search_btn {
 			flex: 1;
 		}
 		.search_reset {
-			flex: 0.5;
+			flex: 0.1;
+			margin-right: rem(10px);
 		}
 		.search_filter {
-			flex: 0.3;
+			flex: 0.1;
 		}
 	}
 	.labels {
-		width: 100%;
 		@include inline-flex($st);
+		width: 100%;
 		label {
 			cursor: pointer;
-			color: #212121;
+			color: $parent-css;
+			font-size: $font-size - rem(1px);
 			font-weight: 500;
 			@include position;
 			@include inline-flex;
-			font-size: $font-size - rem(3px);
+			width: 100%;
+			height: $input-height - rem(10px);
+			vertical-align: middle;
 			margin-right: rem(10px);
-			flex: auto;
-			width: auto;
-			height: round($input-height / 1.5);
-			padding: 5px rem(10px);
-			&:last-of-type {
+			&:last-child {
 				margin-right: 0;
 			}
 
 			i {
-				color: material-color('grey', '600');
+				color: material-color('grey', '400');
 				font-size: $font-size - rem(3px);
 				margin-right: $font-size / 2;
-				@include transition(all, .1s);
-				@include position;
-				z-index: 2;
+				// @include transition(all, .1s);
 			}
 
 			span {
-				//@include position;
-				@include transition(all, .1s);
-				z-index: 1;
-				&:before {
-					//@include presudo($ri: -10px, $bot: -5px, $w: calc(100% + 10px + #{$font-size * 2}), $h: calc(100% + 10px));
-					@include presudo($ri: 0, $bot: 0, $w: 100%, $h: 100%);
-					//background: rgba($main-color, 10%);
-					background: material-color('grey', '300');
-					@include transition(all, .1s);
-					z-index: -1;
-					@include rounded($font-size / 3);
-				}
+				@include flex;
+				@include position;
+				// @include transition(all, .1s);
+				width: 100%;
+				height: 100%;
+				padding: rem(5px) rem(10px);
+				background: material-color('grey', '200');
+				border: 1px solid material-color('grey', '200');
+				@include rounded(rem(5px));
 			}
 
 			input {
-				height: 100%;
-				&[type="radio"] {
-					@include position(absolute);
-					visibility: hidden;
-					z-index: -1;
+				@include position(absolute);
+				visibility: hidden;
+				z-index: -1;
+				height: 0;
 
-					&:checked {
-						& ~ i {
-							color: #fff;
-						}
-						& ~ span {
-							//font-weight: 700;
-							color: #fff;
-							//background: $main-color;
+				&:checked {
+					&~span {
+						//font-weight: 700;
+						color: #fff;
+						background: $myoffice-color;
+						border-color: $myoffice-color;
 
-							&:before {
-								//width: calc(100% + #{$font-size * 2});
-								color: #fff;
-								background: material-color('brown');
-								//opacity: 0;
-							}
+						i {
+							color: $parent-css;
 						}
 					}
 				}
@@ -1290,9 +1268,7 @@ $myoffice: rem(930px);
 
 		.leaveCheck {
 			@include position;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			@include flex;
 			z-index: 1;
 			width: auto;
 			height: $input-height / 1.5;
@@ -1439,6 +1415,11 @@ $myoffice: rem(930px);
 				width: 100%;
 				height: $input-height;
 				font-size: $parent-css;
+				background: #fff;
+
+				&:only-child {
+					margin-bottom: 0;
+				}
 			}
 
 			.input_text {
@@ -1472,6 +1453,12 @@ $myoffice: rem(930px);
 					flex-direction: column;
 					flex: $default-css;
 				}
+			}
+		}
+
+		&#filter {
+			>div {
+				padding-bottom: 0;
 			}
 		}
 
@@ -1721,76 +1708,6 @@ $myoffice: rem(930px);
 	}
 }
 
-/*고객센터 search form*/
-#bbs_search {
-	$input-height: $input-height - rem(10px);
-
-	width: 100%;
-
-	form {
-		@include flex(space-between);
-	}
-
-	select,
-	input,
-	button {
-		@include default-0;
-		min-width: $input-height;
-		height: $input-height;
-		padding: $font-size / 2 $font-size;
-		border: 1px solid material-color('grey', '400');
-	}
-
-	select {
-		margin-right: $font-size / 2;
-		width: $input-height * 2;
-	}
-
-	.search {
-		@include inline-flex;
-		flex: 1;
-
-		input {
-			&[type="text"] {
-				flex: 1;
-				border-right: none;
-				width: 100%;
-			}
-		}
-
-		button {
-			@include button;
-			@include inline-flex;
-
-			i {
-				font-size: $font-size * 1.2;
-
-				&:before {
-					margin: 0;
-
-				}
-			}
-		}
-	}
-}
-
-$input-height: rem(80px);
-
-.board {
-	@include table-color();
-	th,
-	td {
-		font-size: $font-size;
-		font-weight: 400;
-		text-align: center;
-		height: $input-height !important;
-		color: #333;
-		padding: rem(5px);
-		border: none;
-		line-height: 1.2;
-	}
-}
-
 #member {
 	margin: 0;
 	.board {
@@ -1809,572 +1726,6 @@ $input-height: rem(80px);
 	}
 	form {
 		padding: 0;
-	}
-}
-
-/*고객센터 게시판 list*/
-.board.list {
-	&>table {
-		margin: $font-size * 2 0;
-	}
-
-	tbody {
-		td {
-			padding: 0;
-
-			a {
-				text-align: left;
-			}
-		}
-	}
-}
-
-.board.list,
-.board.view {
-	&>table {
-		width: 100%;
-		font-size: $font-size;
-		border: none;
-	}
-
-	tbody {
-		tr {
-			&.notice {
-				//background: material-color();
-				background: rgba(desaturate($main-color, 50), 10%);
-
-				td {
-					border-color: mix(material-color('grey', '300'), desaturate($main-color, 50), 80);
-					font-weight: 500;
-				}
-
-				div {
-					font-weight: 700;
-
-					span {
-						color: material-color('red');
-					}
-				}
-
-				.info {
-					color: mix(material-color('grey'), desaturate($main-color, 50), 50);
-
-					i {
-						background: mix(material-color('grey', '300'), desaturate($main-color, 50), 80);
-					}
-				}
-			}
-		}
-
-		td {
-			width: 100%;
-
-			border: 1px solid material-color('grey', '300') {
-				left: none;
-				right: none;
-			}
-
-			;
-
-			a {
-				@include default-a;
-				padding: $font-size / 2 $font-size;
-
-				div {
-					color: #222;
-					font-weight: 500;
-					margin: $font-size / 5 0;
-				}
-
-				.info {
-					@include flex(flex-start);
-					color: material-color('grey');
-					font-size: $font-size - rem(2px);
-
-					span {}
-
-					i {
-						margin: 0 $font-size / 2;
-						background: material-color('grey', '300');
-						width: 1px;
-						height: $font-size / 1.5;
-					}
-				}
-			}
-		}
-	}
-
-	tfoot {}
-
-	div.title {
-		div {
-			color: #222;
-			font-size: $font-size * 1.5;
-			font-weight: 500;
-		}
-
-		.info {
-			@include flex(flex-start);
-			color: material-color('grey');
-			font-size: $font-size - rem(2px);
-
-			span {}
-
-			i {
-				margin: 0 $font-size / 2;
-				background: material-color('grey', '300');
-				width: 1px;
-				height: $font-size / 1.5;
-			}
-		}
-
-	}
-}
-
-$basic: material-color('grey', '600');
-$admin: material-color('red', '800');
-$answer: material-color('purple', '800');
-$delete: material-color('pink', '800');
-$edit: material-color('indigo', '800');
-$save: material-color('green', '600');
-
-.board {
-
-	input,
-	textarea {
-		&::placeholder {
-			color: material-color('grey', '400');
-			font-size: $font-size - rem(4px);
-			line-height: 1.5;
-			white-space: normal;
-		}
-
-		&::-webkit-input-placeholder {
-			color: material-color('grey', '400');
-			font-size: $font-size - rem(4px);
-			line-height: 1.5;
-			white-space: normal;
-		}
-
-		&::-moz-input-placeholder {
-			color: material-color('grey', '400');
-			font-size: $font-size - rem(4px);
-			line-height: 1.5;
-			white-space: normal;
-		}
-
-		&::-ms-input-placeholder {
-			color: material-color('grey', '400');
-			font-size: $font-size - rem(4px);
-			line-height: 1.5;
-			white-space: normal;
-		}
-	}
-
-	color: #222;
-	font-size: $font-size - rem(4px);
-
-	div.sub-title {
-		font-size: $font-size * 1.5;
-		text-align: center;
-		color: $default-css;
-		padding-bottom: $font-size;
-		margin-bottom: $font-size;
-	}
-
-	table {
-		margin-top: 0;
-	}
-
-	tr {
-		border: none;
-	}
-
-	td {
-		border: none;
-		padding: $font-size;
-
-		&.contentTD2 {
-			border-bottom: 1px solid material-color('grey', '300');
-			padding: $font-size * 2 $font-size;
-		}
-
-		&.contentTD3 {
-			padding: {
-				left: 0;
-				right: 0;
-			}
-		}
-
-		input {
-			&.button {
-				@include button($basic);
-				margin: 0;
-
-				&.admin {
-					@include button($admin);
-				}
-
-				&.answer {
-					@include button($answer);
-				}
-
-				&.delete {
-					@include button($delete);
-				}
-
-				&.edit {
-					@include button($edit);
-				}
-
-				&.save {
-					@include button($save);
-				}
-			}
-		}
-
-	}
-
-	input {
-
-		&[type="text"],
-		&[type="password"] {
-			@include default-0;
-		}
-	}
-
-	label {
-		@include inline-flex;
-		vertical-align: $parent-css;
-		cursor: pointer;
-		margin-right: $font-size * 1.5;
-		color: material-color('grey', '400');
-
-		input {
-
-			&[type="checkbox"],
-			&[type="radio"] {
-				margin: 0;
-				visibility: hidden;
-				@include position(absolute);
-			}
-		}
-
-		i {
-			margin-right: $font-size / 2.5;
-		}
-
-		input:checked {
-			&~* {
-				color: $default-css;
-			}
-		}
-	}
-
-	tfoot {
-		td {
-			border: none;
-
-			padding: $font-size {
-				right: 0;
-			};
-		}
-	}
-
-	&.view {
-		.title {
-			padding: $font-size {
-				top: 0;
-			}
-
-			;
-		}
-	}
-
-	&.write {
-		table {
-			table-layout: fixed;
-			width: 100%;
-		}
-
-		tr {
-			border-bottom: 1px solid material-color('grey', '300');
-
-			&:nth-of-type(1) {
-				border-top: 1px solid material-color('grey', '300');
-			}
-
-			&.readonly {
-				background: none;
-
-				td {
-					flex: 1;
-					font-size: $font-size + rem(1px);
-					line-height: 1.5;
-					width: 100%;
-				}
-			}
-
-			&.contents {
-				td {
-					display: table-cell;
-				}
-
-				padding: $font-size / 2;
-			}
-
-			&.title,
-			&.password.secret,
-			&.mobile {
-				td {
-					display: table-cell;
-					padding-left: $font-size;
-					border: none;
-
-					input {
-						width: calc(100% - #{$font-size * 6});
-						height: 100%;
-					}
-				}
-			}
-
-			&.file {
-				td {
-					flex-wrap: wrap;
-					height: auto;
-
-					div {
-						@include flex(space-between);
-						width: 100%;
-					}
-				}
-
-				.upload-name {
-					@include default-0;
-					@include inline-flex;
-					height: $input-height / 1.2;
-					padding: $font-size / 2;
-					border: 1px solid material-color('grey', '300');
-					flex: 1;
-				}
-
-				label {
-					@include button;
-					display: inline-flex;
-					height: $input-height / 1.2;
-
-					input {
-						&[type="file"] {
-							@include position(absolute);
-							visibility: hidden;
-							width: 0;
-							height: 0;
-						}
-					}
-				}
-			}
-
-			&.movie {
-				th {
-					vertical-align: baseline;
-				}
-
-				td {
-					height: auto;
-					flex-wrap: wrap;
-
-					p {
-						margin-top: $font-size / 2;
-						color: material-color('blue');
-					}
-				}
-
-				label {
-					margin: 0;
-					margin-right: $font-size / 2;
-
-					input:checked {
-						&~* {
-							color: material-color('indigo', '600');
-							font-weight: 500;
-
-						}
-
-						~span {
-							&:before {
-								background: material-color('indigo', '50');
-								border-color: material-color('indigo', '50');
-							}
-						}
-					}
-				}
-
-				input[type="text"] {
-					@include default-0;
-					@include inline-flex;
-					height: $input-height / 1.2;
-					padding: $font-size / 2;
-					border: 1px solid material-color('grey', '300');
-					flex: 1;
-				}
-			}
-		}
-
-		th {
-			padding-left: $font-size;
-			white-space: nowrap;
-			text-align: left;
-			color: material-color('grey', '500');
-			font-weight: 700;
-		}
-
-		td {
-			padding: $font-size / 2;
-			height: $input-height;
-			@include flex(flex-start);
-
-			input {
-
-				&[type="text"],
-				&[type="password"] {
-					flex: 1;
-					font-size: $font-size + rem(1px);
-					line-height: 1.5;
-					width: 100%;
-				}
-			}
-
-			label {
-				@include position;
-				margin: 0;
-				margin-left: $font-size / 2;
-				padding: $font-size / 2;
-				float: right;
-
-				i {
-					font-size: $font-size / 2;
-				}
-
-				span {
-					line-height: 1;
-					white-space: nowrap;
-
-					&:before {
-						@include presudo($le: 0, $top: 0, $w: calc(100% - 2px), $h: calc(100% - 2px));
-						border: 1px solid material-color('grey', '300');
-						z-index: -1;
-					}
-				}
-
-				input:checked {
-					&~* {
-						color: material-color('pink', '600');
-						;
-
-					}
-
-					~span {
-						&:before {
-							//background: material-color('pink', '50');
-							border-color: material-color('pink', '500');
-						}
-					}
-				}
-			}
-
-			textarea {
-				@include default-0;
-				resize: none;
-				width: 100%;
-				min-height: 180px;
-				font-size: $font-size;
-				padding: $font-size / 2;
-			}
-		}
-
-		tfoot {
-			tr {
-				border: none;
-			}
-
-			td {
-				display: table-cell;
-				border: none;
-
-				padding: $font-size {
-					right: 0;
-				}
-
-				;
-				text-align: right;
-
-				input {
-					&.button {
-						@include button($basic);
-						margin: 0;
-
-						&.admin {
-							@include button($admin);
-						}
-
-						&.answer {
-							@include button($answer);
-						}
-
-						&.delete {
-							@include button($delete);
-						}
-
-						&.edit {
-							@include button($edit);
-						}
-
-						&.save {
-							@include button($save);
-						}
-					}
-				}
-			}
-		}
-	}
-
-	&.reply {
-		.title {
-			input {
-				&[type="text"] {
-					width: 100%;
-				}
-			}
-		}
-	}
-}
-
-.prenext {
-	width: 100%;
-	padding: 0;
-
-	tr {}
-
-	td {
-		padding: $font-size / 1.5;
-		font-size: $font-size - rem(1px);
-
-		border: 1px solid material-color('grey', '300') {
-			left: none;
-			right: none;
-		}
-
-		;
-
-		&.tit {
-			color: material-color('grey', '500');
-		}
-
-		&.subject {
-			a {
-				@include default-a;
-			}
-		}
 	}
 }
 

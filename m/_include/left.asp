@@ -13,18 +13,26 @@
 					<%Select Case PAGE_SETTING%>
 					<%Case "COMPANY"%>
 					<!--#include virtual = "/navi/company.asp"-->
-					<%Case "BUSINESS"%>
-					<!--#include virtual = "/navi/business.asp"-->
 					<%Case "BRAND"%>
 					<!--#include virtual = "/navi/brand.asp"-->
+					<%Case "PRODUCT"%>
+					<!--#include virtual = "/navi/product.asp"-->
+					<%Case "BUSINESS"%>
+					<!--#include virtual = "/navi/business.asp"-->
+					<%Case "GUIDE"%>
+					<!--#include virtual = "/navi/guide.asp"-->
 					<%Case "SHOP"%>
 					<!--#include virtual = "/navi/shop.asp"-->
+					<%Case "COMMUNITY"%>
+					<!--#include virtual = "/navi/community.asp"-->
 					<%Case "CUSTOMER"%>
 					<!--#include virtual = "/navi/customer.asp"-->
 					<%Case "MYPAGE"%>
 					<!--#include virtual = "/navi/mypage.asp"-->
 					<%Case "POLICY"%>
 					<!--#include virtual = "/navi/policy.asp"-->
+					<%Case "SNS"%>
+					<!--#include virtual = "/navi/sns.asp"-->
 					<%End Select%>
 				</ol>
 			</li>

@@ -1,0 +1,775 @@
+@import 'mixin-custom';
+
+$border: 1px solid material-color('grey', '300');
+$sub-color: $common-button-color;
+
+input,
+textarea {
+	font-family: $parent-css;
+
+	&::placeholder,
+	&::-webkit-input-placeholder {
+		font-family: $parent-css;
+		color: rgba(#000, 0.4);
+		font-size: $parent-css;
+		line-height: 1.5;
+		font-weight: 500;
+		white-space: normal;
+		letter-spacing: -0.04em;
+	}
+}
+
+header {
+	height: rem(100px);
+}
+
+#header {
+	height: rem(100px);
+
+	&::after {
+		content: '';
+		@include position(absolute, $le: 50%, $bot: 0);
+		transform: translateX(-50%);
+		z-index: 2;
+		width: 100%;
+		height: 1px;
+		background: rgba(#000, 10%);
+	}
+
+	article {
+		height: 100%;
+
+		>div {
+			margin: 0 rem(30px);
+		}
+	}
+
+	.navi-back {
+		width: rem(60px);
+		height: rem(60px);
+		font-size: rem(50px);
+
+		a {
+			@include default-a;
+			height: 100%;
+		}
+
+		i {
+			width: 100%;
+			height: 100%;
+			@include flex;
+			color: $parent-css;
+
+			&::before {
+				margin: 0;
+				line-height: 1;
+			}
+		}
+	}
+
+	.navi-close {
+		@extend .navi-back;
+		font-size: $font-size;
+	}
+
+	h1 {
+		color: #111;
+		font-weight: 500;
+		font-size: $font-size * 1.5;
+		line-height: 1;
+	}
+}
+
+.content {
+	padding: 0;
+	min-height: $contain-height;
+}
+
+.maps_title,
+.sub_title {
+	display: none;
+}
+
+.joinstep {
+	margin: 0;
+	margin-bottom: 0 !important;
+	padding: 0 rem(30px);
+	width: 100%;
+	max-width: 640px;
+	height: 100%;
+
+	article {
+		width: 100%;
+		height: 100%;
+		@include flex($even);
+		flex-direction: column;
+	}
+}
+
+$input-height: rem(80px);
+
+.joinstep {
+	font-size: $font-size - rem(1px);
+
+	h6 {
+		font-size: $font-size + rem(10px);
+		margin-bottom: 1vh;
+		color: #222;
+		font-weight: 600;
+		width: 100%;
+
+		&:nth-of-type(2) {
+			margin-top: rem(70px);
+		}
+	}
+
+	.input-wrap {
+		// margin-top: rem(80px);
+		@include inline-flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: rem(580px);
+	}
+
+	label {
+		font-size: $parent-css;
+		display: block;
+		width: 100%;
+		height: $input-height - rem(6px);
+		@include position;
+		margin: rem(10px) 0;
+
+		input {
+			@include default-0;
+			width: 100%;
+			height: 100%;
+			text-align: left;
+			font-size: $parent-css;
+			border: 1px solid #bfbfbf;
+			padding: 0 rem(20px);
+		}
+
+		&:after {
+			// @include presudo($ri: 0, $bot: 0, $h: 1px);
+			z-index: 1;
+			background: $sub-color;
+			// opacity: 0;
+			width: 0;
+			@include transition(all .3s);
+		}
+
+		&.focus {
+			&:after {
+				// width: 100%;
+				opacity: 1;
+				right: auto;
+				left: 0;
+			}
+
+			input {
+				// border-color: $sub-color;
+				border-color: rgba($sub-color, 0.1);
+				background: rgba($sub-color, 0.1);
+			}
+		}
+	}
+
+	.button {
+		font-size: $parent-css;
+		font-family: $parent-css;
+		line-height: $parent-css;
+		@include inline-flex;
+		width: 100%;
+		max-width: rem(580px);
+		height: $input-height;
+		vertical-align: $default-css;
+		background: $default-css;
+		margin: 0;
+		margin-top: rem(10px);
+		cursor: pointer;
+		background: $sub-color;
+		color: #fff;
+		text-align: center;
+	}
+
+	.wrap {
+		background: #fff;
+		width: 100%;
+		max-width: rem(640px);
+		height: auto;
+		min-height: 40vh;
+		padding: rem(30px) rem(40px);
+		@include flex($even);
+		flex-direction: column;
+	}
+
+	select {
+		background: #fff;
+		option {
+			&[disabled] {
+				display: none;
+			}
+		}
+	}
+
+	label.checkbox {
+		cursor: pointer;
+		color: $parent-css;
+		font-weight: 500;
+		@include position;
+		@include inline-flex;
+
+
+		i {
+			color: material-color('grey', '400');
+			font-size: $font-size - rem(3px);
+			margin-right: $font-size / 2;
+			@include transition(all, .1s);
+		}
+
+		span {
+			@include flex;
+			@include position;
+			@include transition(all, .1s);
+			width: 100%;
+			height: 100%;
+			padding: rem(15px) rem(25px);
+		}
+
+		input {
+			@include position(absolute);
+			visibility: hidden;
+			z-index: -1;
+
+			&:checked {
+				&~span {
+					//font-weight: 700;
+					color: $common-button-color;
+					background: rgba($common-button-color, 0.1);
+					@include rounded(rem(5px));
+
+					i {
+						color: $parent-css;
+					}
+				}
+			}
+		}
+	}
+
+	.btnZone {
+		@include flex($bet);
+		width: 100%;
+		//flex-direction: column;
+		// width: calc(#{$inner / 2} + 5%);
+
+		a, input {
+			@include inline-flex;
+			width: calc(50% - #{rem(20px)});
+			height: $input-height;
+			margin: round($font-size / 2) auto;
+			background: transparent;
+			font-size: round($font-size * 1.2);
+			cursor: pointer;
+			font-family: $parent-css;
+			border: none;
+			@include rounded(rem(10px));
+
+			@include unify-parent('input') {
+				background: $main-color;
+				color: #fff;
+			}
+
+			@include unify-parent('a') {
+				background: $sub-color;
+				//border: 1px solid $sub-color;
+				color: #fff;
+
+				* {
+					background: none;
+					font-family: $parent-css;
+					font-size: $parent-css;
+					color: $parent-css;
+					left: $default-css;
+					height: $default-css;
+				}
+			}
+		}
+
+		a:hover {
+			color: $parent-css;
+		}
+
+		.cancel {
+			background: material-color('grey', '300');
+			color: #222;
+			&:hover {
+				background: darken(material-color('grey', '300'),5);
+			}
+			//width: $input-width / 2;
+		}
+		.promise {
+			background: $main-color;
+			color: #fff;
+			&:hover {
+				background: saturate($main-color,10);
+			}
+		}
+	}
+}
+
+#join01 {
+	min-height: $contain-height;
+	
+	article {
+		margin: rem(15px) 0;
+	}
+
+	.wrap {
+		margin: rem(15px) 0;
+		li {
+			font-size: $font-size - rem(2px);
+			line-height: 1.2;
+			letter-spacing: -0.01em;
+			margin: rem(10px) 0;
+		}
+
+		&:first-of-type {
+			background: rgba($join-color-1, 0.1);
+
+			h6 {
+				color: darken($join-color-1, 5);
+			}
+
+			ul {}
+
+			li {
+				color: mix($join-color-1, #222, 10);
+			}
+
+			.button {
+				background: $join-color-1;
+			}
+		}
+
+		&:nth-of-type(2) {
+			background: rgba($join-color-2, 0.1);
+
+			h6 {
+				color: darken($join-color-2, 5);
+			}
+
+			ul {}
+
+			li {
+				color: mix($join-color-2, #222, 10);
+			}
+
+			.button {
+				background: $join-color-2;
+			}
+		}
+	}
+}
+
+#join02 {
+	text-align: left;
+
+	section {
+		width: 100%;
+		margin: $font-size + rem(15px) auto;
+
+		.agree_tit {
+			@include flex($bet);
+		}
+
+		h6 {
+			font-size: $font-size + rem(5px);
+			font-weight: 600;
+			line-height: 1.5;
+			margin: 0;
+			width: auto;
+		}
+
+		label {
+			@include inline-flex;
+			cursor: pointer;
+			margin: 0;
+			width: auto;
+			height: auto;
+		}
+
+		input {
+			margin: rem(10px);
+		}
+	}
+	
+	.all {
+		border-bottom: 1px solid rgba(#000, 0.5);
+		margin: 0 auto;
+		padding: $font-size 0;
+		font-size: $font-size + rem(2px);
+		text-align: right;
+	}
+
+	.agree_box {
+		@include position;
+		z-index: 1;
+		// border: 1px solid material-color('grey', '400');
+		background: $oc-gray-1;
+		width: 100%;
+		height: $input-width;
+		//padding: rem(50px);
+		margin: rem(20px) auto;
+		// overflow-x: hidden;
+		// overflow-y: scroll;
+		scroll-behavior: smooth;
+		//@include rounded;
+		@include transition(all, .3s);
+
+		&:before,
+		&:after {
+			//content: '';
+			@include position(absolute, $le: 0);
+			z-index: 2;
+			width: $input-width * 2 - rem(100px) - rem(20px);
+			height: 5%;
+		}
+
+		&:before {
+			top: 0;
+			background: linear-gradient(180deg, #fff, transparent);
+		}
+
+		&:after {
+			bottom: 0;
+			background: linear-gradient(0deg, #fff, transparent);
+		}
+
+	}
+
+	.agree_content {
+		@include position;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		padding: $font-size;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		font-size: $font-size - rem(1px);
+		color: material-color('grey', '800');
+		font-weight: 400;
+
+		b {
+			//color: mix($main-color, #000, 50%);
+			//color: saturate(invert($main-color), 50%);
+			font-size: $font-size + rem(1px);
+			font-weight: 500;
+			overflow: hidden;
+		}
+
+		&::-webkit-scrollbar {
+			@include position;
+			width: rem(20px);
+			z-index: 2;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: mix($main-color, material-color('grey', '400'), 0%);
+			background-clip: padding-box;
+			border: rem(0px) solid transparent;
+			//@include rounded($radius: 10rem);
+		}
+
+		&::-webkit-scrollbar-track {
+			background: material-color('grey', '100');
+			//@include rounded;
+			//@include position;
+			z-index: 1;
+		}
+	}
+
+	$input-height: rem(70px);
+
+	.privacy {
+		//$paddingLR: ($input-width - ($input-width * 1.5) / 2);
+		// $paddingLR: $input-height / 2;
+		width: 100%;
+		padding: $font-size * 2 0;
+		border-top: 1px solid material-color('grey', '300');
+		text-align: center;
+
+		h6 {
+			font-weight: 600;
+			font-size: $font-size + rem(10px);
+			margin-bottom: rem(20px);
+			color: #000;
+		}
+		.info {
+			p {
+				word-break: keep-all;
+			}
+		}
+
+		table {
+			width: 100%;
+			margin-top: $font-size * 2;
+
+			tr {
+				border-top: 1px solid material-color('grey', '300');
+			}
+
+			th,
+			td {
+				padding: rem(15px);
+				border: none;
+			}
+
+			th {
+				text-align: right;
+			}
+
+			td {
+				font-size: 0;
+
+				input {
+					&[type="text"] {
+						@include default-0;
+						width: 100%;
+						height: $input-height;
+						border: 1px solid material-color('grey', '400');
+						//@include rounded(rem(3px));
+						padding: 0 rem(15px);
+						font-size: $font-size;
+					}
+				}
+
+				select {
+					@include default-a;
+					@include inline-flex;
+					width: calc(30% - #{$font-size / 2});
+					height: $input-height;
+					background: #fff;
+					border: 1px solid material-color('grey', '400');
+					padding: 0 $font-size / 2;
+					margin-left: $font-size / 2;
+					font-size: $font-size;
+					@include rounded(0);
+
+					&:first-child {
+						width: 40%;
+						margin: 0;
+					}
+				}
+			}
+		}
+
+		.button {
+			width: $input-width / 1.5;
+			height: $input-height * 1.1;
+			font-size: $font-size;
+			background: $common-button-color;
+			margin: $font-size * 1.5 auto;
+		}
+
+		label.checkbox {
+			font-size: $font-size;
+			width: auto;
+			height: $input-height;
+			color: #fff;
+
+			span {
+				color: $parent-css;
+				font-size: $parent-css;
+				background: $sub-color;
+				@include rounded(rem(5px));
+			}
+			i {
+				color: $parent-css;
+			}
+		}
+	}
+
+	.btnZone {
+		margin-bottom: rem(70px);
+	}
+}
+
+#join03 {
+	$input-height: rem(70px);
+	background: #fff;
+
+	.wrap {
+		width: 100%;
+		border: none;
+		text-align: center;
+		margin: 0 auto;
+		padding: 0;
+		padding-top: rem(60px);
+
+		h6 {
+			font-size: $font-size + rem(5px);
+			margin-bottom: $font-size;
+			text-align: left;
+		}
+
+		.tweight {
+			font-weight: 600 !important;
+		}
+
+		table {
+			width: 100%;
+			table-layout: fixed;
+			tr {
+				border-top: $border;
+				&:first-child {
+					border-top-color: $default-css;
+					border-top-width: 2px;
+				}
+				&:last-child {
+					border-bottom: $border;
+					border-bottom-color: $default-css;
+				}
+			}
+			th, td {
+				padding: rem(15px);
+				height: $input-height + rem(10px);
+				border: none;
+			}
+			th {
+				text-align: right;
+				word-break: keep-all;
+				padding-right: rem(25px);
+				.red {
+					margin-right: -10px;
+				}
+			}
+			td {
+				text-align: left;
+				font-size: $parent-css;
+
+				.inputs {
+					@include flex($st);
+					width: 100%;
+				}
+
+				input {
+					@include default-0;
+					width: 100%;
+
+					height: $input-height;
+					border: 1px solid material-color('grey', '400');
+					//@include rounded(rem(3px));
+					padding: 0 rem(15px);
+					font-size: $parent-css;
+					vertical-align: middle;
+					
+					// &:read-only {
+					// 	background: material-color('grey', '200');
+					// 	font-weight: 300;
+					// }
+					&[type="text"]:read-only {
+						background: material-color('grey', '200');
+						font-weight: 300;
+					}
+
+					&:only-of-type {
+						// width: 100%;
+					}
+
+					&[type="radio"] {
+						width: auto;
+						height: auto;
+					}
+				}
+				
+				.button {
+					min-width: rem(120px);
+					width: auto;
+					height: $input-height;
+					@include button($sub-color);
+					margin: 0;
+					margin-left: rem(10px);
+					padding: 0 rem(10px);
+					font-size: $font-size - rem(3px);
+				}
+
+				select {
+					@include default-a;
+					width: 100%;
+					height: $input-height;
+					border: 1px solid material-color('grey', '400');
+					padding: 0 rem(15px);
+					margin-left: rem(15px);
+					font-size: $font-size;
+					@include rounded(0);
+
+					&:first-child {
+						margin: 0;
+					}
+				}
+
+				.summary {
+					// line-height: 2;
+					margin-top: rem(10px);
+					font-size: $font-size - rem(5px);
+					// &.red2 {
+					// 	background: $oc-red-0;
+					// 	padding: 0 rem(10px);
+					// 	display: inline-block;
+					// 	@include position;
+					// }
+
+				}
+
+				.labels {
+					@include flex($st);
+					width: 100%;
+					label {
+						width: auto;
+						height: auto;
+						margin: 0;
+						margin-right: rem(15px);
+
+						&:last-of-type {
+							margin-right: 0;
+						}
+
+						span {
+							background: $oc-gray-0;
+							padding: rem(10px) rem(20px);
+						}
+						input:checked {
+							~ span {
+								background: rgba($sub-color, 0.2);
+							}
+						}
+					}
+				}
+			}
+
+			.address {
+				.inputs {
+					margin-bottom: rem(10px);
+				}
+			}
+
+			.birth {
+				p {
+					margin-bottom: rem(10px);
+					font-weight: 600;
+				}
+			}
+		}
+
+		.button {
+			width: $input-width / 2;
+			height: rem(50px);
+			font-size: $font-size;
+		}
+	}
+	.btnZone {
+		a, input {
+			margin: rem(50px) auto;
+		}
+	}
+}

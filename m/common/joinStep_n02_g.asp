@@ -340,18 +340,18 @@
 		<input type="hidden" name="sns_authID" value="<%=sns_authID%>" readonly="readonly" />
 
 		<section class="all">
-			<label>
+			<label class="checkbox">
 				<input type="checkbox" id="allAgree" onclick="allCheckAgree()" name="allAgree" value="T" />
-				<span><%=LNG_JOINSTEP02_U_TEXT07%></span>
+				<span><i class="icon-ok"></i><%=LNG_JOINSTEP02_U_TEXT07%></span>
 			</label>
 		</section>
 
 		<section>
 			<div class="agree_tit">
 				<h6><%=LNG_POLICY_01%></h6>
-				<label>
+				<label class="checkbox">
 					<input type="checkbox" id="agree01Chk" name="agreement" value="T" />
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">
@@ -361,9 +361,9 @@
 		<section>
 			<div class="agree_tit">
 				<h6><%=LNG_POLICY_02%></h6>
-				<label>
+				<label class="checkbox">
 					<input type="checkbox" id="agree02Chk" name="gather" value="T" />
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">
@@ -372,11 +372,13 @@
 		</section>
 		<%If S_SellMemTF = 0 Then%>
 		<section>
-			<h6><%=LNG_POLICY_03%></h6>
-			<label>
-				<input type="checkbox" id="agree03Chk" name="company" value="T" />
-				<span><%=LNG_TEXT_I_AGREE%></span>
-			</label>
+			<div class="agree_tit">
+				<h6><%=LNG_POLICY_03%></h6>
+				<label class="checkbox">
+					<input type="checkbox" id="agree03Chk" name="company" value="T" />
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
+				</label>
+			</div>
 			<div class="agree_box">
 				<div class="agree_content"><%=backword_tag(policyContent3)%></div>
 			</div>
@@ -391,7 +393,7 @@
 				If UCase(R_NationCode) = "KR" Then
 					IMES_MODE = " ime-mode:active;"
 			%>
-			<p><span class="e"><%=DKCONF_SITE_TITLE%></span>은 회원의 소중한 개인정보를 안전하게 보호하고 있으며 개인정보 보호 정책을 준수합니다.</p>
+			<p><span class="e"><%=DKCONF_SITE_TITLE%></span>는 회원의 소중한 개인정보를 안전하게 보호하고 있으며 개인정보 보호 정책을 준수합니다.</p>
 			<%
 				Else
 					IMES_MODE = " ime-mode:disabled;"
@@ -400,34 +402,34 @@
 
 			<form name="nfrm" method="post" action="joinCheck_nc2.asp" onSubmit="return nameChk2(this)"  />
 				<table <%=tableatt%>>
-					<col width="60" />
+					<col width="80" />
 					<col width="" />
 					<col width="60" />
 					<col width="" />
 					<tr>
 						<th><%=LNG_TEXT_FAMILY_NAME%>&nbsp;<%=starText%></th>
-						<td><input type="text" name="M_Name_Last" style="<%=IMES_MODE%>" placeholder="<%=LNG_TEXT_FAMILY_NAME%>"/></td>
+						<td><input type="text" name="M_Name_Last" style="<%=IMES_MODE%>"/></td>
 						<th><%=LNG_TEXT_GIVEN_NAME%>&nbsp;<%=starText%></th>
-						<td><input type="text" name="M_Name_First" style="<%=IMES_MODE%>" placeholder="<%=LNG_TEXT_GIVEN_NAME%>"/></td>
+						<td><input type="text" name="M_Name_First" style="<%=IMES_MODE%>"/></td>
 					</tr>
 					<tr>
 						<th><%=LNG_TEXT_BIRTH%> <%=starText%></th>
 						<td class="middleTD" colspan="4">
 							<select name = "birthYY">
-								<option value=""></option>
+								<option value="" selected disabled><%=LNG_TEXT_YEAR%></option>
 								<%For i = MIN_YEAR To MAX_YEAR%>
 									<option value="<%=i%>" ><%=i%></option>
 								<%Next%>
 							</select>
 							<select name = "birthMM">
-								<option value=""></option>
+								<option value="" selected disabled><%=LNG_TEXT_MONTH%></option>
 								<%For j = 1 To 12%>
 									<%jsmm = Right("0"&j,2)%>
 									<option value="<%=jsmm%>" ><%=jsmm%></option>
 								<%Next%>
 							</select>
 							<select name = "birthDD">
-								<option value=""></option>
+								<option value="" selected disabled><%=LNG_TEXT_DAY%></option>
 								<%For k = 1 To 31%>
 									<%ksdd = Right("0"&k,2)%>
 									<option value="<%=ksdd%>" ><%=ksdd%></option>

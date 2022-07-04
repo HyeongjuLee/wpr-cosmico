@@ -12,8 +12,8 @@
 #mypage { display: flex; justify-content: center; align-items: center; width: 100%; padding: 0; }
 #mypage .wrap { width: 100%; }
 #mypage h6 { text-align: left; padding: 2.5rem 0; font-size: 3rem; border-bottom: 1px solid #9e9e9e; }
-#mypage .detail_btn { display: inline-flex; justify-content: center; align-items: center; height: 5rem; line-height: 1.5; padding: 0.5rem 1rem; cursor: pointer; z-index: 2; color: #7d7d7d; font-size: 2.3rem; font-weight: 500; border: 1px solid #979797; background: transparent; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; vertical-align: top; }
-#mypage .detail_btn:hover { background: #da2027; border-color: #da2027; color: #fff; box-shadow: none; }
+#mypage .detail_btn { display: inline-flex; justify-content: center; align-items: center; height: 7rem; line-height: 1.5; padding: 0.5rem 1rem; cursor: pointer; z-index: 2; color: #4c4c4c; font-size: 2.3rem; font-weight: 500; border: 1px solid #656565; background: transparent; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; vertical-align: top; }
+#mypage .detail_btn:hover { background: #1C287B; border-color: #1C287B; color: #fff; box-shadow: none; }
 #mypage .detail_btn.noline { border: none; background: #757575; color: #fff; }
 #mypage .detail_btn.noline:hover { background: #455a64; }
 #mypage .detail_btn.width100 { margin-top: 2.5rem; }
@@ -22,10 +22,17 @@
 #mypage .detail_btn.red:hover { background: #c2185b; }
 #mypage .detail_btn.green { background: #4caf50; }
 #mypage .detail_btn.green:hover { background: #388e3c; }
-#mypage .detail_btn.blue { background: #da2027; }
-#mypage .detail_btn.blue:hover { background: #ae191f; }
-#mypage .detail_btn.purple { background: #2f2f2f; }
-#mypage .detail_btn.purple:hover { background: #161616; }
+#mypage .detail_btn.blue { background: #1C287B; }
+#mypage .detail_btn.blue:hover { background: #131a51; }
+#mypage .detail_btn.purple { background: #fff; }
+#mypage .detail_btn.purple:hover { background: #e6e6e6; }
+
+#mypage label.checkbox { cursor: pointer; color: inherit; font-size: 2.5rem; font-weight: 500; position: relative; display: inline-flex; justify-content: center; align-items: center; height: 7rem; vertical-align: middle; }
+#mypage label.checkbox i { color: #bdbdbd; font-size: 2.2rem; margin-right: 1.25rem; }
+#mypage label.checkbox span { display: flex; justify-content: center; align-items: center; position: relative; width: 100%; height: 100%; padding: 0.5rem 1.5rem; background: #f5f5f5; border: 1px solid #e0e0e0; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; }
+#mypage label.checkbox input { position: absolute; visibility: hidden; z-index: -1; }
+#mypage label.checkbox input:checked ~ span { color: #fff; background: #5c6bc0; border-color: #4150a8; }
+#mypage label.checkbox input:checked ~ span i { color: inherit; }
 #mypage article { padding: 3rem 0; }
 #mypage article input[type='checkbox'] { width: 2.5rem !important; height: 2.5rem !important; margin: 0; }
 #mypage article:first-of-type { padding-top: 0; }
@@ -35,14 +42,16 @@
 #mypage article > div.dwrap > div { display: flex; justify-content: space-between; align-items: center; width: 100%; border-bottom: 1px solid #eeeeee; padding: 0 1.25rem; }
 #mypage article > div.dwrap > div .con { flex: 1; }
 #mypage article > div h5 { font-weight: 500; color: #616161; text-align: left; padding-top: 2.5rem; word-break: keep-all; width: 100%; font-size: 2.5rem; }
-#mypage article > div .con { text-align: left; font-weight: 500; font-size: 2.5rem; min-height: 8rem; padding: 2.5rem 0; color: #222; width: 100%; }
+#mypage article > div .con { text-align: left; font-weight: 500; font-size: 2.5rem; min-height: 7rem; padding: 2.5rem 0; color: #222; width: 100%; }
 #mypage article > div .con .summary { font-size: 2rem; font-weight: 400; color: #9e9e9e; margin-top: 1.25rem; text-align: left; width: 100%; }
 #mypage article > div .con .summary.red { color: #f44336; }
 #mypage article > div .con .summary.blue { color: #2196f3; }
-#mypage article > div .con .input_select, #mypage article > div .con .input_text { border: 1px solid #bdbdbd; padding: 0 1.25rem; width: 100%; height: 8rem; font-size: 2.5rem; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; background: #fff; }
+#mypage article > div .con .input_select, #mypage article > div .con .input_text { border: 1px solid #bdbdbd; padding: 0 1.25rem; width: 100%; height: 7rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; background: #fff; }
 #mypage article > div .con .input_select { cursor: pointer; }
 #mypage article > div .con .input_text:read-only { background: #eeeeee; outline: none; }
-#mypage article > div .con .button { display: inline-flex; justify-content: center; align-items: center; margin: 0; width: 50%; height: 8rem; font-size: 2.5rem; background: #607d8b; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; text-align: center; color: #fff; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ cursor: pointer; }
+#mypage article > div .con .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #c55206; background: #f76707; display: inline-flex; justify-content: center; align-items: center; margin: 0; min-width: 5rem; width: calc(25% - 1.5rem); height: 7rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; word-break: keep-all; white-space: initial; padding: 0 1rem; vertical-align: initial; }
+#mypage article > div .con .button:hover { color: #fff; text-decoration: none; background: #f9761f; }
+#mypage article > div .con .button:active { color: #fffefe; background: #de5d06; }
 #mypage article > div .con .inputs { display: inline-flex; justify-content: center; align-items: center; width: calc(75% - 1.5rem); }
 #mypage article > div .con .inputs span { margin: 1.6666666667rem; }
 #mypage article > div .con .inputs input { width: 50%; }
@@ -56,10 +65,8 @@
 #mypage article > div.drow .con { display: inline-flex; justify-content: flex-start; align-items: center; }
 #mypage article .id .detail_btn { margin-left: 2.5rem; }
 #mypage article .password { display: flex; justify-content: flex-start; align-items: center; padding: 0 1.25rem; }
-#mypage article .password .con { flex: 1; }
-#mypage article .password input[type="password"] { width: 100%; }
-#mypage article .password label { display: inline-flex; justify-content: flex-start; align-items: center; cursor: pointer; font-size: 2rem; margin-top: 1.25rem; }
-#mypage article .password label input { margin-right: 1.25rem; }
+#mypage article .password .con { flex: 1; display: flex; justify-content: center; align-items: center; }
+#mypage article .password .con label { width: 100%; margin-left: 1rem; }
 #mypage article #bodyPass { flex-direction: column; padding: 0 2.5rem; background: #fafafa; }
 #mypage article #bodyPass > div { width: 100%; }
 #mypage article #bodyPass > div:first-of-type .con { border-bottom: 1px solid #eeeeee; }
@@ -80,19 +87,11 @@
   #mypage article #cpno .con .inputs { width: 100%; }
   #mypage article #cpno .con .button { width: 100%; margin: 0; margin-top: 1.6666666667rem; } }
 #mypage article .radio .con { display: inline-flex; justify-content: flex-start; align-items: center; }
-#mypage article .radio label { cursor: pointer; color: #212121; font-weight: 500; position: relative; display: inline-flex; justify-content: center; align-items: center; font-size: 2.3rem; padding: 5px; padding-right: 10px; margin: 0; margin-left: 1.25rem; }
-#mypage article .radio label i { color: #757575; font-size: 2.2rem; margin-right: 1.25rem; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; position: relative; z-index: 2; }
-#mypage article .radio label span { position: relative; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; z-index: 1; }
-#mypage article .radio label span:before { content: ""; position: absolute; bottom: -5px; right: -10px; width: calc(100% + 10px + 5rem); height: calc(100% + 10px); background: #f5f5f5; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; z-index: -1; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
-#mypage article .radio label input[type="radio"] { position: absolute; visibility: hidden; z-index: -1; }
-#mypage article .radio label input[type="radio"]:checked ~ i { color: #fff; }
-#mypage article .radio label input[type="radio"]:checked ~ span { color: #fff; }
-#mypage article .radio label input[type="radio"]:checked ~ span:before { color: #fff; background: #25a8df; }
 #mypage article .radio.birth .con { align-items: center; flex-wrap: wrap; }
 #mypage article .radio.birth .con p { margin-right: 1.25rem; flex: 1; }
-#mypage article .radio.birth .con div { display: inline-block; margin-right: 7.5rem; }
-#mypage article .radio.birth .con div p { font-size: 2.7rem; font-weight: 500; }
-#mypage article .radio.birth .con label { margin: 0; margin-right: 1.25rem; }
+#mypage article .radio.birth .con .labels { display: flex; justify-content: center; align-items: center; width: 100%; }
+#mypage article .radio.birth .con label { width: 50%; margin: 0; }
+#mypage article .radio.birth .con label:first-of-type { margin-right: 1rem; }
 #mypage article .pin .con { display: inline-flex; justify-content: space-between; align-items: center; }
 #mypage article .pin .con input { flex: 1; }
 #mypage article .pin .con span { margin: 0 1.25rem; }
@@ -136,14 +135,6 @@
 #mypage article .voter .con p { margin-bottom: 1rem; }
 #mypage .agreeArea { flex-direction: column; padding: 2.5rem 1.25rem; margin-top: 2.5rem; }
 #mypage .agreeArea .title { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-#mypage .agreeArea .title label { cursor: pointer; color: #212121; font-weight: 500; position: relative; display: inline-flex; justify-content: center; align-items: center; font-size: 2.3rem; margin-right: 0; padding: 5px; padding-right: 10px; }
-#mypage .agreeArea .title label i { color: #757575; font-size: 2rem; margin-right: 1.25rem; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; position: relative; z-index: 2; }
-#mypage .agreeArea .title label span { position: relative; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; z-index: 1; }
-#mypage .agreeArea .title label span:before { content: ""; position: absolute; bottom: -5px; right: -10px; width: calc(100% + 10px + 5rem); height: calc(100% + 10px); background: #f5f5f5; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; z-index: -1; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
-#mypage .agreeArea .title label input[type="checkbox"] { position: absolute; visibility: hidden; z-index: -1; }
-#mypage .agreeArea .title label input[type="checkbox"]:checked ~ i { color: #fff; }
-#mypage .agreeArea .title label input[type="checkbox"]:checked ~ span { color: #fff; }
-#mypage .agreeArea .title label input[type="checkbox"]:checked ~ span:before { color: #fff; background: #25a8df; }
 #mypage .agreeBox { position: relative; z-index: 1; border: 1px solid #bdbdbd; width: 100%; height: 25.6rem; margin: 2rem auto; scroll-behavior: smooth; -moz-transition: all, 0.3s; -webkit-transition: all, 0.3s; transition: all, 0.3s; text-align: left; }
 #mypage .agreeBox:before, #mypage .agreeBox:after { position: absolute; left: 0; z-index: 2; width: 39.7rem; height: 5%; }
 #mypage .agreeBox:before { top: 0; background: linear-gradient(180deg, #fff, transparent); }
@@ -153,26 +144,26 @@
 #mypage .agreeBox .agree_content::-webkit-scrollbar { position: relative; width: 1.5rem; z-index: 2; }
 #mypage .agreeBox .agree_content::-webkit-scrollbar-thumb { background: #bdbdbd; background-clip: padding-box; border: 0rem solid transparent; }
 #mypage .agreeBox .agree_content::-webkit-scrollbar-track { background: #f5f5f5; z-index: 1; }
-#mypage .btnZone { display: flex; flex-direction: column; justify-content: center; padding-bottom: 2.5rem; width: 100%; }
-#mypage .btnZone a, #mypage .btnZone input { display: inline-flex; justify-content: center; align-items: center; width: 100%; height: 9.6rem; margin: 1.25rem auto; background: transparent; font-size: 3rem; cursor: pointer; font-family: inherit; border: none; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
-#mypage .btnZone input { background: #da2027; color: #fff; }
-#mypage .btnZone a { background: #2f2f2f; color: #fff; }
+#mypage .btnZone { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+#mypage .btnZone a, #mypage .btnZone input { display: inline-flex; justify-content: center; align-items: center; width: calc(50% - 2rem); height: 8rem; margin: 1rem auto; background: transparent; font-size: 3rem; cursor: pointer; font-family: inherit; border: none; -moz-border-radius: 1rem; -webkit-border-radius: 1rem; border-radius: 1rem; }
+#mypage .btnZone input { background: #1C287B; color: #fff; }
+#mypage .btnZone a { background: #fff; color: #fff; }
 #mypage .btnZone a * { background: none; font-family: inherit; font-size: inherit; color: inherit; left: initial; height: initial; }
 #mypage .btnZone a:hover { color: inherit; }
 #mypage .btnZone .cancel { background: #e0e0e0; color: #222; }
 #mypage .btnZone .cancel:hover { background: lightgray; }
-#mypage .btnZone .promise { background: #25a8df; color: #fff; }
-#mypage .btnZone .promise:hover { background: #51bae6; }
+#mypage .btnZone .promise { background: #1C287B; color: #fff; }
+#mypage .btnZone .promise:hover { background: #142283; }
 #mypage .reset_wrap { width: 100%; margin: 0 auto; margin-top: 2rem; padding: 2.5rem; text-align: center; background: #f5f5f5; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
 #mypage .reset_wrap > p { padding: 1rem 0 2rem 0; }
 #mypage .reset_wrap .btns { display: flex; justify-content: center; align-items: center; }
-#mypage .reset_wrap .btns input { box-sizing: border-box; margin: 1rem 2.5rem; min-width: 16rem; height: 5rem; }
+#mypage .reset_wrap .btns input { box-sizing: border-box; margin: 1rem 2.5rem; min-width: 16rem; height: 7rem; }
 
 .modal * { word-wrap: break-word; word-break: keep-all; }
 .modal .close .icon-cancel { position: absolute; top: 0; right: 0; color: #222; font-size: 3.5rem; padding: 1rem; cursor: pointer; }
 .modal h6 { text-align: left; padding: 2.5rem 0; font-size: 5rem; color: #222; }
-.modal .detail_btn { display: inline-flex; justify-content: center; align-items: center; height: 5rem; line-height: 1.5; padding: 0.5rem 1rem; cursor: pointer; z-index: 2; vertical-align: middle; color: #7d7d7d; font-size: 2.3rem; font-weight: 500; border: 1px solid #979797; background: transparent; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
-.modal .detail_btn:hover { background: #da2027; border-color: #da2027; color: #fff; box-shadow: none; }
+.modal .detail_btn { display: inline-flex; justify-content: center; align-items: center; height: 7rem; line-height: 1.5; padding: 0.5rem 1rem; cursor: pointer; z-index: 2; vertical-align: middle; color: #4c4c4c; font-size: 2.3rem; font-weight: 500; border: 1px solid #656565; background: transparent; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
+.modal .detail_btn:hover { background: #1C287B; border-color: #1C287B; color: #fff; box-shadow: none; }
 .modal .detail_btn.noline { border: none; background: #757575; color: #fff; }
 .modal .detail_btn.noline:hover { background: #455a64; }
 .modal .detail_btn.width100 { margin-top: 2.5rem; }
@@ -181,35 +172,37 @@
 .modal .detail_btn.red:hover { background: #c2185b; }
 .modal .detail_btn.green { background: #4caf50; }
 .modal .detail_btn.green:hover { background: #388e3c; }
-.modal .detail_btn.blue { background: #da2027; }
-.modal .detail_btn.blue:hover { background: #ae191f; }
-.modal .detail_btn.purple { background: #2f2f2f; }
-.modal .detail_btn.purple:hover { background: #161616; }
+.modal .detail_btn.blue { background: #1C287B; }
+.modal .detail_btn.blue:hover { background: #131a51; }
+.modal .detail_btn.purple { background: #fff; }
+.modal .detail_btn.purple:hover { background: #e6e6e6; }
 .modal article { padding: 3rem 0; }
 .modal article > div { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eeeeee; }
 .modal article > div:first-child { border-top: 1px solid #9e9e9e; }
 .modal article > div h5 { font-weight: 500; color: #616161; text-align: right; font-size: 2.5rem; flex: 0.2; padding-right: 5rem; word-break: keep-all; }
-.modal article > div .con { flex: 0.8; text-align: left; font-weight: 500; font-size: 2.8rem; min-height: 5rem; padding: 2.5rem 0; }
+.modal article > div .con { flex: 0.8; text-align: left; font-weight: 500; font-size: 2.8rem; min-height: 7rem; padding: 2.5rem 0; }
 .modal article > div .con .summary { font-size: 2.4rem; font-weight: 400; color: #9e9e9e; margin-top: 2.5rem; text-align: left; width: 100%; }
 .modal article > div .con .summary.red { color: #f44336; }
 .modal article > div .con .summary.blue { color: #2196f3; }
-.modal article > div .con .input_text { border: 1px solid #bdbdbd; padding: 2.5rem; width: 100%; height: 5rem; font-size: 2.5rem; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
+.modal article > div .con .input_text { border: 1px solid #bdbdbd; padding: 2.5rem; width: 100%; height: 7rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; }
 .modal article > div .con .input_text:read-only { background: #eeeeee; outline: none; }
-.modal article > div .con .button { display: inline-flex; margin: 0; width: calc(25% - 1.5rem); height: 5rem; font-size: 2.5rem; background: #607d8b; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
+.modal article > div .con .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #c55206; background: #f76707; }
+.modal article > div .con .button:hover { color: #fff; text-decoration: none; background: #f9761f; }
+.modal article > div .con .button:active { color: #fffefe; background: #de5d06; }
 .modal article > div .con .inputs { display: inline-flex; align-items: center; width: calc(75% - 1.5rem); }
 .modal article > div .con .inputs span { margin: 1.6666666667rem; }
 .modal article > div .con .inputs ~ .detail_btn { width: 25%; }
 .modal article .id .detail_btn { margin-left: 2.5rem; }
 .modal .btnZone { display: flex; flex-direction: column; justify-content: center; padding-top: 5rem; padding-bottom: 5rem; width: 100%; }
-.modal .btnZone a, .modal .btnZone input { display: inline-flex; justify-content: center; align-items: center; width: 17.0666666667rem; height: 8rem; margin: 1.25rem auto; background: transparent; font-size: 3rem; cursor: pointer; font-family: inherit; border: none; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
-.modal .btnZone input { background: #da2027; color: #fff; }
-.modal .btnZone a { background: #2f2f2f; color: #fff; }
+.modal .btnZone a, .modal .btnZone input { display: inline-flex; justify-content: center; align-items: center; width: 17.0666666667rem; height: 7rem; margin: 1.25rem auto; background: transparent; font-size: 3rem; cursor: pointer; font-family: inherit; border: none; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
+.modal .btnZone input { background: #1C287B; color: #fff; }
+.modal .btnZone a { background: #fff; color: #fff; }
 .modal .btnZone a * { background: none; font-family: inherit; font-size: inherit; color: inherit; left: initial; height: initial; }
 .modal .btnZone a:hover { color: inherit; }
 .modal .btnZone .cancel { background: #e0e0e0; color: #222; }
 .modal .btnZone .cancel:hover { background: lightgray; }
-.modal .btnZone .promise { background: #25a8df; color: #fff; }
-.modal .btnZone .promise:hover { background: #51bae6; }
+.modal .btnZone .promise { background: #5c6bc0; color: #fff; }
+.modal .btnZone .promise:hover { background: #818cce; }
 
 #mypage .btn_area { padding: 30px 0px; }
 #mypage .c_s_title { font-size: 20px; font-weight: 600; padding: 5px 0px; color: #333333; }

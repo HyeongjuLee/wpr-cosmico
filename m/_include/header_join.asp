@@ -12,7 +12,7 @@
 		var $close = $('.navi-close'); //끄기
 		var $title = $('<h1>'+mapsTitle+'</h1>'); //회원가입 타이틀
 		var $stitle = $('<h2>'+subTitle+'</h2>'); //소제목
-		var $removeEl = $('.header-top, .top_menu, .navi-left, .navi-right, .navi-back, .navi-close, #logo'); //이 페이지에서 삭제할 요소들
+		var $removeEl = $('.header-top, .top_menu, .navi-left, .navi-right, .navi-back, .navi-close, #logo, .header .member'); //이 페이지에서 삭제할 요소들
 		$('#header').find($removeEl).remove() && $('.sub-header').remove() && $('#header').addClass('join');
 		$('#header article').prepend($close).prepend($title).prepend($back);
 		//$('.joinstep').prepend($stitle);

@@ -1,0 +1,130 @@
+input, textarea { font-family: inherit; }
+input::placeholder, input::-webkit-input-placeholder, textarea::placeholder, textarea::-webkit-input-placeholder { font-family: inherit; color: rgba(0, 0, 0, 0.4); font-size: inherit; line-height: 1.5; font-weight: 500; white-space: normal; letter-spacing: -0.04em; }
+
+header { height: 10rem; }
+
+#header { height: 10rem; }
+#header::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 2; width: 100%; height: 1px; background: rgba(0, 0, 0, 0.1); }
+#header article { height: 100%; }
+#header article > div { margin: 0 3rem; }
+#header .navi-back, #header .navi-close { width: 6rem; height: 6rem; font-size: 5rem; }
+#header .navi-back a, #header .navi-close a { cursor: pointer; text-decoration: none; width: 100%; height: 100%; height: 100%; }
+#header .navi-back i, #header .navi-close i { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: inherit; }
+#header .navi-back i::before, #header .navi-close i::before { margin: 0; line-height: 1; }
+#header .navi-close { font-size: 2.5rem; }
+#header h1 { color: #111; font-weight: 500; font-size: 3.75rem; line-height: 1; }
+
+.content { padding: 0; min-height: calc(var(--c-vh, 1vh) * 100); }
+
+.maps_title, .sub_title { display: none; }
+
+.joinstep { margin: 0; margin-bottom: 0 !important; padding: 0 3rem; width: 100%; max-width: 640px; height: 100%; }
+.joinstep article { width: 100%; height: 100%; display: flex; justify-content: space-evenly; align-items: center; flex-direction: column; }
+
+.joinstep { font-size: 2.4rem; }
+.joinstep h6 { font-size: 3.5rem; margin-bottom: 1vh; color: #222; font-weight: 600; width: 100%; }
+.joinstep h6:nth-of-type(2) { margin-top: 7rem; }
+.joinstep .input-wrap { display: inline-flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; max-width: 58rem; }
+.joinstep label { font-size: inherit; display: block; width: 100%; height: 7.4rem; position: relative; margin: 1rem 0; }
+.joinstep label input { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; width: 100%; height: 100%; text-align: left; font-size: inherit; border: 1px solid #bfbfbf; padding: 0 2rem; }
+.joinstep label:after { z-index: 1; background: #5c6bc0; width: 0; -moz-transition: all 0.3s; -webkit-transition: all 0.3s; transition: all 0.3s; }
+.joinstep label.focus:after { opacity: 1; right: auto; left: 0; }
+.joinstep label.focus input { border-color: rgba(92, 107, 192, 0.1); background: rgba(92, 107, 192, 0.1); }
+.joinstep .button { font-size: inherit; font-family: inherit; line-height: inherit; display: inline-flex; justify-content: center; align-items: center; width: 100%; max-width: 58rem; height: 8rem; vertical-align: initial; background: initial; margin: 0; margin-top: 1rem; cursor: pointer; background: #5c6bc0; color: #fff; text-align: center; }
+.joinstep .wrap { background: #fff; width: 100%; max-width: 64rem; height: auto; min-height: 40vh; padding: 3rem 4rem; display: flex; justify-content: space-evenly; align-items: center; flex-direction: column; }
+.joinstep select { background: #fff; }
+.joinstep select option[disabled] { display: none; }
+.joinstep label.checkbox { cursor: pointer; color: inherit; font-weight: 500; position: relative; display: inline-flex; justify-content: center; align-items: center; }
+.joinstep label.checkbox i { color: #bdbdbd; font-size: 2.2rem; margin-right: 1.25rem; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; }
+.joinstep label.checkbox span { display: flex; justify-content: center; align-items: center; position: relative; -moz-transition: all, 0.1s; -webkit-transition: all, 0.1s; transition: all, 0.1s; width: 100%; height: 100%; padding: 1.5rem 2.5rem; }
+.joinstep label.checkbox input { position: absolute; visibility: hidden; z-index: -1; }
+.joinstep label.checkbox input:checked ~ span { color: #5c6bc0; background: rgba(92, 107, 192, 0.1); -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
+.joinstep label.checkbox input:checked ~ span i { color: inherit; }
+.joinstep .btnZone { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.joinstep .btnZone a, .joinstep .btnZone input { display: inline-flex; justify-content: center; align-items: center; width: calc(50% - 2rem); height: 8rem; margin: 1rem auto; background: transparent; font-size: 3rem; cursor: pointer; font-family: inherit; border: none; -moz-border-radius: 1rem; -webkit-border-radius: 1rem; border-radius: 1rem; }
+.joinstep .btnZone input { background: #1C287B; color: #fff; }
+.joinstep .btnZone a { background: #5c6bc0; color: #fff; }
+.joinstep .btnZone a * { background: none; font-family: inherit; font-size: inherit; color: inherit; left: initial; height: initial; }
+.joinstep .btnZone a:hover { color: inherit; }
+.joinstep .btnZone .cancel { background: #e0e0e0; color: #222; }
+.joinstep .btnZone .cancel:hover { background: lightgray; }
+.joinstep .btnZone .promise { background: #1C287B; color: #fff; }
+.joinstep .btnZone .promise:hover { background: #142283; }
+
+#join01 { min-height: calc(var(--c-vh, 1vh) * 100); }
+#join01 article { margin: 1.5rem 0; }
+#join01 .wrap { margin: 1.5rem 0; }
+#join01 .wrap li { font-size: 2.3rem; line-height: 1.2; letter-spacing: -0.01em; margin: 1rem 0; }
+#join01 .wrap:first-of-type { background: rgba(28, 40, 123, 0.1); }
+#join01 .wrap:first-of-type h6 { color: #172166; }
+#join01 .wrap:first-of-type li { color: #21232b; }
+#join01 .wrap:first-of-type .button { background: #1C287B; }
+#join01 .wrap:nth-of-type(2) { background: rgba(73, 80, 87, 0.1); }
+#join01 .wrap:nth-of-type(2) h6 { color: #3d4349; }
+#join01 .wrap:nth-of-type(2) li { color: #262727; }
+#join01 .wrap:nth-of-type(2) .button { background: #495057; }
+
+#join02 { text-align: left; }
+#join02 section { width: 100%; margin: 4rem auto; }
+#join02 section .agree_tit { display: flex; justify-content: space-between; align-items: center; }
+#join02 section h6 { font-size: 3rem; font-weight: 600; line-height: 1.5; margin: 0; width: auto; }
+#join02 section label { display: inline-flex; justify-content: center; align-items: center; cursor: pointer; margin: 0; width: auto; height: auto; }
+#join02 section input { margin: 1rem; }
+#join02 .all { border-bottom: 1px solid rgba(0, 0, 0, 0.5); margin: 0 auto; padding: 2.5rem 0; font-size: 2.7rem; text-align: right; }
+#join02 .agree_box { position: relative; z-index: 1; background: #f1f3f5; width: 100%; height: 25.6rem; margin: 2rem auto; scroll-behavior: smooth; -moz-transition: all, 0.3s; -webkit-transition: all, 0.3s; transition: all, 0.3s; }
+#join02 .agree_box:before, #join02 .agree_box:after { position: absolute; left: 0; z-index: 2; width: 39.2rem; height: 5%; }
+#join02 .agree_box:before { top: 0; background: linear-gradient(180deg, #fff, transparent); }
+#join02 .agree_box:after { bottom: 0; background: linear-gradient(0deg, #fff, transparent); }
+#join02 .agree_content { position: relative; z-index: 1; width: 100%; height: 100%; padding: 2.5rem; overflow-x: hidden; overflow-y: scroll; font-size: 2.4rem; color: #424242; font-weight: 400; }
+#join02 .agree_content b { font-size: 2.6rem; font-weight: 500; overflow: hidden; }
+#join02 .agree_content::-webkit-scrollbar { position: relative; width: 2rem; z-index: 2; }
+#join02 .agree_content::-webkit-scrollbar-thumb { background: #bdbdbd; background-clip: padding-box; border: 0rem solid transparent; }
+#join02 .agree_content::-webkit-scrollbar-track { background: #f5f5f5; z-index: 1; }
+#join02 .privacy { width: 100%; padding: 5rem 0; border-top: 1px solid #e0e0e0; text-align: center; }
+#join02 .privacy h6 { font-weight: 600; font-size: 3.5rem; margin-bottom: 2rem; color: #000; }
+#join02 .privacy .info p { word-break: keep-all; }
+#join02 .privacy table { width: 100%; margin-top: 5rem; }
+#join02 .privacy table tr { border-top: 1px solid #e0e0e0; }
+#join02 .privacy table th, #join02 .privacy table td { padding: 1.5rem; border: none; }
+#join02 .privacy table th { text-align: right; }
+#join02 .privacy table td { font-size: 0; }
+#join02 .privacy table td input[type="text"] { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; width: 100%; height: 7rem; border: 1px solid #bdbdbd; padding: 0 1.5rem; font-size: 2.5rem; }
+#join02 .privacy table td select { cursor: pointer; text-decoration: none; width: 100%; height: 100%; display: inline-flex; justify-content: center; align-items: center; width: calc(30% - 1.25rem); height: 7rem; background: #fff; border: 1px solid #bdbdbd; padding: 0 1.25rem; margin-left: 1.25rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; }
+#join02 .privacy table td select:first-child { width: 40%; margin: 0; }
+#join02 .privacy .button { width: 17.0666666667rem; height: 7.7rem; font-size: 2.5rem; background: #5c6bc0; margin: 3.75rem auto; }
+#join02 .privacy label.checkbox { font-size: 2.5rem; width: auto; height: 7rem; color: #fff; }
+#join02 .privacy label.checkbox span { color: inherit; font-size: inherit; background: #5c6bc0; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
+#join02 .privacy label.checkbox i { color: inherit; }
+#join02 .btnZone { margin-bottom: 7rem; }
+
+#join03 { background: #fff; }
+#join03 .wrap { width: 100%; border: none; text-align: center; margin: 0 auto; padding: 0; padding-top: 6rem; }
+#join03 .wrap h6 { font-size: 3rem; margin-bottom: 2.5rem; text-align: left; }
+#join03 .wrap .tweight { font-weight: 600 !important; }
+#join03 .wrap table { width: 100%; table-layout: fixed; }
+#join03 .wrap table tr { border-top: 1px solid #e0e0e0; }
+#join03 .wrap table tr:first-child { border-top-color: initial; border-top-width: 2px; }
+#join03 .wrap table tr:last-child { border-bottom: 1px solid #e0e0e0; border-bottom-color: initial; }
+#join03 .wrap table th, #join03 .wrap table td { padding: 1.5rem; height: 8rem; border: none; }
+#join03 .wrap table th { text-align: right; word-break: keep-all; padding-right: 2.5rem; }
+#join03 .wrap table th .red { margin-right: -10px; }
+#join03 .wrap table td { text-align: left; font-size: inherit; }
+#join03 .wrap table td .inputs { display: flex; justify-content: flex-start; align-items: center; width: 100%; }
+#join03 .wrap table td input { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; width: 100%; height: 7rem; border: 1px solid #bdbdbd; padding: 0 1.5rem; font-size: inherit; vertical-align: middle; }
+#join03 .wrap table td input[type="text"]:read-only { background: #eeeeee; font-weight: 300; }
+#join03 .wrap table td input[type="radio"] { width: auto; height: auto; }
+#join03 .wrap table td .button { min-width: 12rem; width: auto; height: 7rem; outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #4150a8; background: #5c6bc0; margin: 0; margin-left: 1rem; padding: 0 1rem; font-size: 2.2rem; }
+#join03 .wrap table td .button:hover { color: #fff; text-decoration: none; background: #6e7cc7; }
+#join03 .wrap table td .button:active { color: white; background: #4a5ab9; }
+#join03 .wrap table td select { cursor: pointer; text-decoration: none; width: 100%; height: 100%; width: 100%; height: 7rem; border: 1px solid #bdbdbd; padding: 0 1.5rem; margin-left: 1.5rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; }
+#join03 .wrap table td select:first-child { margin: 0; }
+#join03 .wrap table td .summary { margin-top: 1rem; font-size: 2rem; }
+#join03 .wrap table td .labels { display: flex; justify-content: flex-start; align-items: center; width: 100%; }
+#join03 .wrap table td .labels label { width: auto; height: auto; margin: 0; margin-right: 1.5rem; }
+#join03 .wrap table td .labels label:last-of-type { margin-right: 0; }
+#join03 .wrap table td .labels label span { background: #f8f9fa; padding: 1rem 2rem; }
+#join03 .wrap table td .labels label input:checked ~ span { background: rgba(92, 107, 192, 0.2); }
+#join03 .wrap table .address .inputs { margin-bottom: 1rem; }
+#join03 .wrap table .birth p { margin-bottom: 1rem; font-weight: 600; }
+#join03 .wrap .button { width: 12.8rem; height: 5rem; font-size: 2.5rem; }
+#join03 .btnZone a, #join03 .btnZone input { margin: 5rem auto; }

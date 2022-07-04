@@ -1,0 +1,188 @@
+@import 'mixin-custom';
+
+/*카피라이터 영역 */
+$footer-color: #6a6a6a;
+.footer {
+	@include clear;
+	width: 100%;
+	min-height: rem(340px);
+	background: #f3f3f3;
+	font-size: $font-size - rem(3px);
+	font-weight: 400;
+	color: $footer-color;
+	max-width: 640px;
+	margin: 0 auto;
+	letter-spacing: -0.01em;
+
+	.layout_inner {
+		@include position;
+		width: 100%;
+		//height: 100%;
+		@include flex;
+		flex-direction: column;
+		padding: rem(40px);
+	}
+
+	article {
+		@include inline-flex;
+		padding: 0 rem(30px);
+		width: 100%;
+	}
+	&-left{
+		flex-direction: column;
+		//width: 80%;
+	}
+	&-menu{
+		// ul {
+			@include flex($even);
+			width: 100%;
+			li {
+				color: $footer-color;
+				a {
+					@include position;
+					@include default-a;
+					color: $parent-css;
+				}
+				&.foo-menu-line {
+					margin: 0;
+					margin-top: 1px;
+					width: 1px;
+					height: $font-size - rem(5px);
+					background: #fff;
+					opacity: 0.1;
+	
+				}
+			}
+			.policy2 {
+				a {
+					color: #444;
+				}
+				a::after {
+					content: '';
+					@include position(absolute, $le: 0, $bot: -15%);
+					width: 100%;
+					height: 1px;
+					background: darken($footer-color, 5%);
+				}
+			}
+		// }
+	}
+	&-info{
+		width: 100%;
+		text-align: center;
+		font-size: $parent-css;
+		color: $parent-css;
+		letter-spacing: -0.05em;
+		//line-height: 2;
+		margin-top: rem(30px);
+		
+		p {
+			padding: rem(4px) 0;
+			//white-space: nowrap;
+			@include flex;
+			word-wrap: break-word;
+			word-break: keep-all;
+		}
+		span {
+			margin: 0 1.5%;
+		}
+
+		$link: lighten($footer-color, 15);
+
+		a {
+			@include inline-flex;
+			color: $link;
+			//background: material-color('grey', '50');
+			padding: rem(10px) rem(20px);
+			border: 1px solid rgba($main-color, 0.5);
+			@include rounded(0);
+			cursor: pointer;
+			margin: rem(5px) 1.5%;
+		}
+		a:link, a:active, a:visited, a:hover {
+			color: $link;
+		}
+		.tit {
+			color: #000;
+			font-size: $font-size - rem(2px);
+		}
+	}
+	.copyright {
+		font-size: $font-size - rem(5px);
+		//letter-spacing: letter-spacing(40, $font-size - rem(4px));
+		color: #b9b9b9;
+		margin-top: rem(15px);
+		a {
+			cursor: text;
+			color: $parent-css;
+			text-decoration: none;
+		}
+	}
+
+	&-right {
+	}
+	// .footer-icon {
+	// 	@include position;
+	// 	margin-top: rem(20px);
+	// 	ul {
+	// 		@include flex;
+	// 	}
+	// 	li {
+	// 		width: rem(60px);
+	// 		height: rem(60px);
+	// 		margin: rem(10px);
+	// 		font-size: rem(60px);
+	// 		background: material-color('grey', '300');
+	// 		@include rounded(100%);
+	// 		color: #6a6a6a;
+	// 		a {
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			@include flex;
+	// 			cursor: pointer;
+	// 			color: $parent-css;
+	// 			font-size: $parent-css;
+	// 		}
+
+	// 		&:hover {
+	// 			color: #fff;
+	// 			&.naver {
+	// 				background: $naver-green;
+	// 			}
+	// 			&.youtube {
+	// 				background: $youtube-red;
+	// 			}
+	// 			&.facebook {
+	// 				background: $facebook-old;
+	// 			}
+	// 			&.insta {
+	// 				background: $instagram-magenta;
+	// 			}
+	// 			&.kakao {
+	// 				background: $kakao-yellow;
+	// 			}
+	// 		}
+	// 	}
+	// }
+	// .banners {
+	// 	display: flex;
+	// 	justify-content: flex-end;
+	// 	width: calc(16.5rem * 2);
+	// 	margin-top: rem(60px);
+	// 	a {
+	// 		margin-left: rem(5px);
+	// 	}
+	// 	.macco {}
+	// 	.kossa {display: none;}
+	// 	.ftc {}
+	// }
+	button {
+		@include position(fixed, $ri: rem(15px), $bot: rem(30px));
+		z-index: 10;
+		@include default-0;
+		@include default-a;
+		width: rem(70px);
+		height: rem(70px);
+		background: url('/m/images/shop_top.svg') no-repeat center / 100%;
+	}
+}

@@ -1,11 +1,13 @@
 <!--#include virtual = "/_lib/strFunc.asp"-->
 <%
-	PAGE_SETTING = "PRODUCT"
+	PAGE_SETTING = "GUIDE"
 	PAGE_SETTING2 = "SUBPAGE"
+	ISLEFT = "T"
+	ISSUBTOP = "T"
 
 	view = gRequestTF("view",True)
 	'sview = gRequestTF("sview",True)
-	mNum = 3
+	mNum = 5
 	sNum = view
 	sVar = sNum
 

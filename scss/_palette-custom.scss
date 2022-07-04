@@ -26,3 +26,15 @@ $common-button-color: $main-color;
 
 $plus-color: mix(#fff, $oc-blue-5, 90);
 $minus-color: mix(#fff, $oc-red-5, 90);
+
+$pay-color: mix(material-color('green', '50'), #fff, 50);
+$pay-color-darken: darken($pay-color, 10);
+$pay-color-grey: mix(material-color('grey', '300'), $pay-color, 50);
+
+$point-color: mix(material-color('blue', '50'), #fff, 50);
+$point-color-darken: darken($point-color, 10);
+$point-color-grey: mix(material-color('grey', '300'), $point-color, 50);
+
+$indigo-color: mix(material-color('red', '50'), #fff, 50);
+$indigo-color-darken: darken($indigo-color, 10);
+$indigo-color-grey: mix(material-color('grey', '300'), $indigo-color, 50);

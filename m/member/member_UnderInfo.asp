@@ -47,7 +47,8 @@
 %>
 <!--#include virtual = "/m/_include/document.asp"-->
 <!--#include virtual = "/m/_include/jqueryload.asp"-->
-<link rel="stylesheet" href="member.css?v2.1" />
+<link rel="stylesheet" href="member.css?" />
+<link rel="stylesheet" href="/m/css/sticky_table.css?" />
 <script type="text/javascript" src="/m/js/calendar.js?v1"></script>
 <script type="text/javascript">
 
@@ -154,8 +155,7 @@
 </head>
 <body  onunload="">
 <!--#include virtual = "/m/_include/header.asp"-->
-<!--#include virtual = "/m/_include/sub_header.asp"-->
-<div id="member" class="member_vote">
+<div id="" class="member_vote">
 	<div id="loadings" style="width:100%; height:100%;position:absolute;display:none;">
 		<div id="loading_bg">
 			<img id="loading-image" src="<%=IMG%>/159.gif" width="50"  alt="" />

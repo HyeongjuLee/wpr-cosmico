@@ -175,12 +175,10 @@
 
 		<div class="input-wrap">
 			<label>
-				<span><%=LNG_TEXT_NAME%></span>
-				<input type="text" id="memberName" name="memberName" value />
+				<input type="text" id="memberName" name="memberName" value placeholder="<%=LNG_TEXT_NAME%>" />
 			</label>
 			<label>
-				<span><%=LNG_TEXT_EMAIL%></span>
-				<input type="text" id="memberMail" name="memberMail" value />
+				<input type="text" id="memberMail" name="memberMail" value placeholder="<%=LNG_TEXT_EMAIL%>" />
 			</label>
 		</div>
 
@@ -194,16 +192,13 @@
 
 		<div class="input-wrap">
 			<label>
-				<span><%=LNG_TEXT_ID%></span>
-				<input type="text" id="memberId" name="memberId" value />
+				<input type="text" id="memberId" name="memberId" value placeholder="<%=LNG_TEXT_ID%>" />
 			</label>
 			<label>
-				<span><%=LNG_TEXT_NAME%></span>
-				<input type="text" id="memberNameP" name="memberNameP" value />
+				<input type="text" id="memberNameP" name="memberNameP" value placeholder="<%=LNG_TEXT_NAME%>" />
 			</label>
 			<label>
-				<span><%=LNG_TEXT_EMAIL%></span>
-				<input type="text" id="memberMailP" name="memberMailP" value />
+				<input type="text" id="memberMailP" name="memberMailP" value placeholder="<%=LNG_TEXT_EMAIL%>" />
 			</label>
 		</div>
 		<input class="button" onclick="search_pwdcheck();" value="<%=LNG_TEXT_CONFIRM%>" />

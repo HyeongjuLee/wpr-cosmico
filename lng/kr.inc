@@ -554,7 +554,7 @@
 	LNG_BOTTOM_MAILORDER						= "통신판매사업자"
 	LNG_BOTTOM_SELLER							= "판매원조회"
 	LNG_BOTTOM_DEDUCTION						= "공제번호조회"
-	LNG_BOTTOM_PC								= "PC버전"
+	LNG_BOTTOM_PC								= "PC ver"
 	LNG_BOTTOM_LOCATION							= "찾아오시는 길"
 	LNG_BOTTOM_GOODS							= "상품입점신청"	'"입점 브랜드"
 

@@ -71,8 +71,8 @@
 <!--#include virtual = "/m/_include/document.asp"-->
 <!--#include virtual = "/m/_include/jqueryload.asp"-->
 
-<link rel="stylesheet" href="board.css?v1" />
-<script type="text/javascript" src="board.js?v1"></script>
+<!-- <link rel="stylesheet" href="/m/css/board.css?" /> -->
+<script type="text/javascript" src="board.js?"></script>
 </head>
 <body>
 <!--#include virtual = "/m/_include/header.asp"-->

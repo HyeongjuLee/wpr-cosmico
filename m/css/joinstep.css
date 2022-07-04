@@ -1,6 +1,4 @@
 @charset "UTF-8";
-input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active { -webkit-box-shadow: 0 0 0px 1000rem #e3f2fd inset !important; -webkit-text-fill-color: #111 !important; font-weight: 400; letter-spacing: 0; }
-
 #header.join { margin-bottom: 5rem; }
 
 #contain_wrap { color: #212121; font-size: 2.5rem; }
@@ -46,8 +44,8 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 .joinstep .find a:hover { text-decoration: underline; }
 .joinstep .find i { width: 0.1rem; height: 2rem; background: #e0e0e0; margin: 0 2rem; }
 .joinstep .button { display: flex; justify-content: center; align-items: center; width: 48rem; height: 7rem; margin: 1.5rem auto; background: transparent; font-size: 3rem; cursor: pointer; font-family: inherit; text-align: center; }
-.joinstep input.button { background: #da2027; color: #fff; }
-.joinstep a.button { background: #2f2f2f; color: #fff; }
+.joinstep input.button { background: #1C287B; color: #fff; }
+.joinstep a.button { background: #fff; color: #fff; }
 .joinstep .DaumPostcode { position: fixed; top: 50%; left: 50%; -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: calc(100% - 5rem); min-height: 300px; background: #fff; z-index: 9; border: 1px solid #222; }
 .joinstep .DaumPostcode .icon-close-outline { position: absolute; top: 1.4rem; right: 1.4rem; display: flex; justify-content: center; align-items: center; z-index: 9; font-size: 2.5rem; background: #616161; color: #fff; cursor: pointer; width: 5rem; height: 5rem; }
 
@@ -69,14 +67,14 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 .joinstep .btnZone a:hover { color: inherit; }
 .joinstep .btnZone .cancel { background: #e0e0e0; color: #222; }
 .joinstep .btnZone .cancel:hover { background: lightgray; }
-.joinstep .btnZone .promise { background: #1976d2; color: #fff; }
-.joinstep .btnZone .promise:hover { background: #378fe7; }
+.joinstep .btnZone .promise { background: #1C287B; color: #fff; }
+.joinstep .btnZone .promise:hover { background: #2536a5; }
 
 #join01 h2 { display: none; }
-#join01 .wrap:nth-of-type(1) h6 { color: #da2027; }
+#join01 .wrap:nth-of-type(1) h6 { color: #1C287B; }
 #join01 .wrap:nth-of-type(1) p { font-weight: 400; }
-#join01 .wrap:nth-of-type(1) li { background: rgba(218, 32, 39, 0.1); color: #99161b; }
-#join01 .wrap:nth-of-type(1) .button { background: #da2027; }
+#join01 .wrap:nth-of-type(1) li { background: rgba(28, 40, 123, 0.1); color: #141c56; }
+#join01 .wrap:nth-of-type(1) .button { background: #1C287B; }
 #join01 .wrap:nth-of-type(2) h6 { color: #607d8b; }
 #join01 .wrap:nth-of-type(2) li { background: rgba(96, 125, 139, 0.1); color: #435861; }
 #join01 .wrap:nth-of-type(2) .button { background: #607d8b; }
@@ -109,7 +107,7 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 #join02 .privacy table td input[type="text"] { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; width: 100%; height: 7rem; border: 1px solid #bdbdbd; padding: 0 1.25rem; font-size: 2.5rem; }
 #join02 .privacy table td select { cursor: pointer; text-decoration: none; width: 100%; height: 100%; display: inline-flex; justify-content: center; align-items: center; width: calc(30% - 1.25rem); height: 7rem; background: #fff; border: 1px solid #bdbdbd; padding: 0 1.25rem; margin-left: 1.25rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; }
 #join02 .privacy table td select:first-child { width: 40%; margin: 0; }
-#join02 .privacy .button { width: 32rem; height: 7.7rem; font-size: 2.5rem; background: #da2027; margin: 3.75rem auto; }
+#join02 .privacy .button { width: 32rem; height: 7.7rem; font-size: 2.5rem; background: #1C287B; margin: 3.75rem auto; }
 #join02 .btnZone { padding-top: 0; }
 
 #join03 .wrap { width: 100%; border: none; text-align: center; margin: 0 auto; }
@@ -122,7 +120,7 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 #join03 .wrap table th { text-align: right; word-break: keep-all; }
 #join03 .wrap table td { text-align: left; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
 #join03 .wrap table td input[type="text"], #join03 .wrap table td input[type="password"], #join03 .wrap table td input[type="tel"], #join03 .wrap table td input[type="email"] { flex: 1; margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; width: 100%; height: 7rem; border: 1px solid #bdbdbd; padding: 0 2.5rem; font-size: 2.1rem; vertical-align: middle; }
-#join03 .wrap table td input[type="button"] { min-width: 10.5rem; height: 7rem; outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #303f46; background: #455a64; margin-left: 1.25rem; }
+#join03 .wrap table td input[type="button"] { min-width: 10.5rem; height: 7rem; outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #303f46; background: #455a64; margin-left: 1.25rem; }
 #join03 .wrap table td input[type="button"]:hover { color: #fff; text-decoration: none; background: #4f6873; }
 #join03 .wrap table td input[type="button"]:active { color: #ccd7dc; background: #3b4c55; }
 #join03 .wrap table td input.readonly { background: #eeeeee; font-weight: 300; }
@@ -162,7 +160,7 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 #join03 .wrap table #strZipDaum { width: calc(100% - 85px); }
 #join03 .wrap table #strADDR1Daum { width: 100%; margin-top: 1.25rem; flex: auto; }
 #join03 .wrap .button { width: 24rem; height: 5rem; font-size: 2.5rem; }
-#join03 .button.small { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #0c7cd5; background: #2196f3; width: 50%; height: 7rem; margin: 2rem auto; }
+#join03 .button.small { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #0c7cd5; background: #2196f3; width: 50%; height: 7rem; margin: 2rem auto; }
 #join03 .button.small:hover { color: #fff; text-decoration: none; background: #39a1f4; }
 #join03 .button.small:active { color: white; background: #0d8aee; }
 #join03 #result_text { display: flex; justify-content: center; align-items: center; color: #1565c0; font-size: 2.7rem; }
@@ -173,7 +171,7 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 
 #join03.joinstep4 .id .input_text, #join03.joinstep4 .voter .input_text { width: calc(75% - 1.5rem); }
 #join03.joinstep4 .id .input_text:first-child, #join03.joinstep4 .voter .input_text:first-child { margin-right: 2rem; }
-#join03.joinstep4 .button { width: 25%; margin-left: 0 !important; font-size: 2rem; height: 7rem; outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #303f46; background: #455a64; }
+#join03.joinstep4 .button { width: 25%; margin-left: 0 !important; font-size: 2rem; height: 7rem; outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #303f46; background: #455a64; }
 #join03.joinstep4 .button:hover { color: #fff; text-decoration: none; background: #4f6873; }
 #join03.joinstep4 .button:active { color: #ccd7dc; background: #3b4c55; }
 #join03.joinstep4 p.summary { margin-top: 2.5rem; }

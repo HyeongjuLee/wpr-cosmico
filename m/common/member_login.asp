@@ -91,9 +91,6 @@ $(document).ready(function() {
 // -->
 </script>
 <link rel="stylesheet" href="/m/css/common.css" />
-<link rel="stylesheet" href="/m/css/membership.css" />
-
-
 </head>
 <body>
 <!--#include virtual = "/m/_include/header.asp"-->
@@ -113,12 +110,10 @@ $(document).ready(function() {
 
 			<div class="input-wrap">
 				<label>
-					<span><%=LNG_TEXT_ID%></span>
-					<input type="text" name="memberIDS" value />
+					<input type="text" name="memberIDS" value placeholder="<%=LNG_TEXT_ID%>" />
 				</label>
 				<label>
-					<span><%=LNG_TEXT_PASSWORD%></span>
-					<input type="password" name="memberPWD" value />
+					<input type="password" name="memberPWD" value placeholder="<%=LNG_TEXT_PASSWORD%>" />
 				</label>
 			</div>
 			<div class="find"><a href="/m/common/member_idpw.asp"><%=LNG_TEXT_FIND_IDPASSWORD%></a></div>

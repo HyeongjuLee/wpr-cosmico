@@ -5,7 +5,9 @@
 }
 
 $sub_title-height: rem(84px);
-$main-color: desaturate(darken($main-color, 10), 10);
+// $main-color: desaturate(darken($main-color, 10), 10);
+$main-color: material-color('indigo', '700');
+// $main-color: $oc-indigo-9;
 
 .nav-left {
 	$nav-size: $font-size;
@@ -20,12 +22,13 @@ $main-color: desaturate(darken($main-color, 10), 10);
 	font-size: $nav-size;
 	line-height: 1.5;
 	color: $nav-color;
-	transform: translateY(-50%);
-	//box-shadow: 0 1px 0 0 rgba(0,0,0,0.2);
+	// transform: translateY(-50%);
+	box-shadow: 0 1px 0 0 rgba(0,0,0,0.2);
 	text-align: center;
 
 	ul {
-		width: calc(100% - #{rem(60px)});
+		// width: calc(100% - #{rem(60px)});
+		width: 100%;
 		margin: 0 auto;
 		@include position;
 		@include flex;
@@ -38,8 +41,7 @@ $main-color: desaturate(darken($main-color, 10), 10);
 			width: 50%;
 
 			&>a {
-				display: flex;
-				align-items: center;
+				@include flex;
 				padding: $nav-size;
 				padding-right: $nav-size * 2.5;
 				color: $nav-color;
@@ -50,6 +52,11 @@ $main-color: desaturate(darken($main-color, 10), 10);
 			}
 			&.depth1 {
 				border-right: 1px solid rgba(#fff, 0.1);
+				p {
+					+ i:not(.right) {
+						display: none;
+					}
+				}
 			}
 		}
 

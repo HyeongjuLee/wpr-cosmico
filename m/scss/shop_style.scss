@@ -1,4 +1,4 @@
-@import 'header';
+@import 'mixin-custom';
 $background: mix($main-color, #fff, 5);
 
 * {
@@ -71,11 +71,6 @@ $background: mix($main-color, #fff, 5);
 
 /*콘텐츠 영역 */
 
-$foo-height: rem(350px);
-
-:root {
-	--contain-height: calc((var(--vh, 1vh) * 100) - (#{remove-unit($top-height)}rem + #{remove-unit($foo-height)}rem));
-}
 #contain_wrap {
 	@include position;
 	max-width: 640px;
@@ -89,7 +84,6 @@ $foo-height: rem(350px);
 	@include position;
 	width: 100%;
 	padding: rem(60px) rem(30px);
-	min-height: calc(var(--contain-height) - #{remove-unit($top-nav-height)}rem);
 }
 
 
@@ -230,13 +224,20 @@ $size: $font-size + rem(1px);
 		display: inline-block;
 		font-size: $font-size;
 		vertical-align: top;
-		margin-bottom: 5%;
+		min-height: rem(490px);
+		// margin: rem(20px) 0;
+		// margin-right: ($inner - ($goods * 4)) / 3;
+		// margin-bottom: rem(20px);
+
+		&:nth-of-type(2n) {
+			margin-right: 0;
+		}
 
 		a {
 			@include default-a;
+			padding: rem(10px);
 			display: block;
-			height: auto;
-			padding: rem(20px);
+			color: $color;
 		}
 
 		.sale {
@@ -273,53 +274,94 @@ $size: $font-size + rem(1px);
 					left: 50%;
 				};
 				transform: translate(-50%, -50%);
+				@include transition(all .3s);
 				@include position(absolute);
 			}
 		}
 
+		&:hover {
+			.img {
+				&:before {
+					opacity: 1;
+				}
+				&:after {
+					opacity: 1;
+				}
+				img {
+					transform: translate(-50%, -50%) scale(1.05);
+				}
+			}
+		}
+
 		.txt {
-			letter-spacing: -0.025em;
+			letter-spacing: 0;
 			line-height: 1.2;
 			text-align: left;
-			margin-top: rem(20px);
+			padding-top: rem(20px);
+			@include flex($st, $st);
+			flex-direction: column;
+			min-height: rem(200px);
 			.name {
 				font-size: $size;
-				color: #454545;
-				font-weight: 500;
-				@include ellipsis(2);
+				color: #111;
+				@include ellipsis(1);
+				letter-spacing: -0.01em;
+				font-weight: 600;
+				// height: 40px;
 			}
 			.comment {
-				margin-top: rem(5px);
-				font-size: rem(24px);
-				color: #868686;
+				font-size: $size - rem(4px);
+				color: #737373;
+				margin-top: rem(7px);
+				letter-spacing: 0.01em;
 				@include ellipsis(2);
 			}
 			.price {
-				margin-top: $font-size;
-				font-size: $font-size;
+				margin-top: auto;
+				padding-top: rem(15px);
+				border-top: 1px solid #e5e5e5;
+				width: 100%;
+				letter-spacing: -0.01em;
+				line-height: 1.2;
+				text-align: left;
+				@include flex($st, baseline);
+				flex-wrap: wrap;
+				font-size: $size;
+				
 				.line {
 					color: mix($color, #fff, 50);
 					text-decoration: line-through;
-				}
-				div {
-					font-size: $parent-css;
-					line-height: 1;
+					font-size: $size - rem(3px);
 					font-weight: 400;
-					letter-spacing: -0.05em;
-					margin-top: rem(5px);
-					//color: material-color('blue', '700');
+					margin-right: rem(10px);
+					// margin-top: rem(5px);
+
 					span {
-						font-size: rem(28px);
-						font-weight: 600;
-						margin-right: rem(5px);
+						color: $parent-css;
+						font-size: $parent-css;
+						font-weight: $parent-css;
+					}
+				}
+
+				div {
+					font-weight: 500;
+					line-height: 1;
+					letter-spacing: -0.05em;
+					color: #515151;
+					font-size: $size - rem(1px);
+					span {
+						// font-size: rem(21px);
+						font-size: $size + rem(2px);
+						color: #323232;
+						// margin-right: rem(5px);
 					}
 				}
 				.pv {
-					margin-top: $size / 2;
-					color: $main-color;
+					width: 100%;
+					margin-top: rem(5px);
+					// color: invert($main-color);
+					color: adjust-hue($main-color, 20deg);
 					font-size: $parent-css;
-					font-weight: 600;
-	
 				}
 			}
 		}

@@ -1,0 +1,21 @@
+.sticky-wrap { width: 100%; }
+.sticky-wrap table { border: none; }
+.sticky-wrap tr { border: none; }
+.sticky-wrap th, .sticky-wrap td { border: none; padding: 0.5rem 1rem; }
+.sticky-wrap thead th { background: #fef0e6; color: #7e6a5b; font-weight: 600; border: 1px solid #fcd3b5; }
+.sticky-wrap tbody tr { border-bottom: 1px solid #efe8e3; }
+.sticky-wrap tbody th { border: 1px solid #eedacb; background: #faf8f7; color: #7e6a5b; }
+.sticky-wrap tbody td { border: 1px solid #efe8e3; }
+.sticky-wrap thead th:first-of-type { border-left: none; }
+.sticky-wrap thead th:last-of-type { border-right: none; }
+.sticky-wrap tbody th:first-of-type { border-left: none; }
+.sticky-wrap tbody th:last-of-type { border-right: none; }
+.sticky-wrap tbody th + td { border-left: 1px solid #eedacb !important; }
+.sticky-wrap tbody td:first-of-type { border-left: none; }
+.sticky-wrap tbody td:last-of-type { border-right: none; }
+.sticky-wrap th, .sticky-wrap td { height: 7rem; text-align: center; }
+.sticky-wrap #sortTable tr:hover td { background: #fffbf9; }
+.sticky-wrap #sortTable th:nth-child(2), .sticky-wrap #sortTable td:nth-child(2) { border-right: none; }
+.sticky-wrap #sortTable th:nth-child(3), .sticky-wrap #sortTable td:nth-child(3) { border-left: none; }
+.sticky-wrap #sortTable th:nth-child(2) { box-shadow: inset -3px 0 0 -2px #fcd3b5; }
+.sticky-wrap #sortTable td:nth-child(2) { box-shadow: inset -3px 0 0 -2px #efe8e3; }

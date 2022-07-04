@@ -1,6 +1,4 @@
 @charset "UTF-8";
-input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active { -webkit-box-shadow: 0 0 0px 1000rem #e3f2fd inset !important; -webkit-text-fill-color: #111 !important; font-size: 2.5rem; font-weight: 400; letter-spacing: 0; }
-
 #header { margin-bottom: 0; }
 #header::after { content: ''; }
 #header .navi-left i, #header .navi-right i { color: #424242; }
@@ -41,8 +39,8 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 .common .find a:hover { text-decoration: underline; }
 .common .find i { width: 0.1rem; height: 2rem; background: #e0e0e0; margin: 0 2rem; }
 .common .button { display: flex; justify-content: center; align-items: center; width: 48rem; height: 9rem; margin: 1.5rem auto; background: transparent; font-size: 3rem; cursor: pointer; font-family: inherit; text-align: center; }
-.common input.button { background: #da2027; color: #fff; }
-.common a.button { background: #2f2f2f; color: #fff; }
+.common input.button { background: #1C287B; color: #fff; }
+.common a.button { background: #adb5bd; color: #fff; }
 .common .sns-login { width: 48rem; margin: 5rem auto; margin-bottom: 0; padding: 0 8rem; }
 .common .sns-login h6 { position: relative; z-index: 1; color: #555; font-weight: 700; margin: 0 auto; margin-bottom: 4rem; text-align: center; }
 .common .sns-login h6:before { content: ''; position: absolute; top: 50%; left: 50%; z-index: 0; width: 48rem; height: 1px; background: #ddd; transform: translate(-50%, 0); }
@@ -61,11 +59,11 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 
 #idpw { flex-direction: column; }
 #idpw h6 { text-align: left; margin-bottom: 2.25rem; }
-#idpw .wrap { padding: 3rem 0 6rem 0; }
+#idpw .wrap:first-of-type { margin-bottom: 6rem; }
 #idpw .input-wrap { width: 100%; }
 #idpw .input-wrap label span { left: 3rem; }
 #idpw .input-wrap label input { width: 100%; }
-#idpw .input-wrap p.text-box { width: 100%; height: 19.4rem; border: 2px solid #2f2f2f; display: flex; justify-content: center; align-items: center; font-size: 2.75rem; color: #424242; }
+#idpw .input-wrap p.text-box { width: 100%; height: 19.4rem; border: 2px solid #adb5bd; display: flex; justify-content: center; align-items: center; font-size: 2.75rem; color: #424242; }
 #idpw .button { width: 100%; }
 
 .common.admin .input-wrap label input { width: 100%; }
@@ -74,19 +72,19 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 /*배경색 있음*/
 #contain_wrap { background: #f5f5f5; overflow: hidden; }
 
-.common { background: #fff; display: flex; margin: 0 auto; margin-bottom: 5%; padding: 9rem 0; }
+.common { background: #fff; display: flex; margin: 0 auto; margin-bottom: 15%; padding: 9rem 0; }
 
 #joinStep { padding: 0; display: flex; flex-direction: column; justify-content: center; }
 #joinStep .wrap { width: 58rem; padding: 6rem; padding-top: 5rem; border: 1px solid #eeeeee; display: flex; flex-direction: column; justify-content: space-between; align-items: center; margin: 0 auto; margin-bottom: 6rem; }
 #joinStep .wrap h6 { display: inline-block; width: 100%; font-size: 5rem; line-height: 1.2; font-weight: 600; }
 #joinStep .wrap h6 + p { margin: 1rem 0; }
-#joinStep .wrap:nth-child(1) h6 { color: #00d1c9; }
+#joinStep .wrap:nth-child(1) h6 { color: #ffe535; }
 #joinStep .wrap:nth-child(1) p { font-weight: 400; }
-#joinStep .wrap:nth-child(1) li { background: rgba(0, 209, 201, 0.1); color: #0a9c97; }
-#joinStep .wrap:nth-child(1) .button { background: #00d1c9; }
-#joinStep .wrap:nth-child(2) h6 { color: #e8b9b9; }
-#joinStep .wrap:nth-child(2) li { background: rgba(232, 185, 185, 0.1); color: #ac8b8b; }
-#joinStep .wrap:nth-child(2) .button { background: #e8b9b9; }
+#joinStep .wrap:nth-child(1) li { background: rgba(255, 229, 53, 0.1); color: #bcaa2f; }
+#joinStep .wrap:nth-child(1) .button { background: #ffe535; }
+#joinStep .wrap:nth-child(2) h6 { color: #774a1d; }
+#joinStep .wrap:nth-child(2) li { background: rgba(119, 74, 29, 0.1); color: #5d3e1e; }
+#joinStep .wrap:nth-child(2) .button { background: #774a1d; }
 #joinStep .wrap ul { margin: 1rem 0; }
 #joinStep .wrap li { text-align: left; padding: 1rem; margin: 0.5rem 0; }
 #joinStep .wrap .button { width: 100%; margin: 0; margin-top: 2rem; color: #fff; }
@@ -95,8 +93,8 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 #joinStep .btnZone a:hover { color: inherit; }
 #joinStep .btnZone .cancel { background: #e0e0e0; color: #222; }
 #joinStep .btnZone .cancel:hover { background: lightgray; }
-#joinStep .btnZone .promise { background: #d32f2f; color: #fff; }
-#joinStep .btnZone .promise:hover { background: #dc5959; }
+#joinStep .btnZone .promise { background: #1C287B; color: #fff; }
+#joinStep .btnZone .promise:hover { background: #2536a5; }
 
 #joinStep.joinStep2 { flex-direction: column; text-align: left; line-height: 1.5; }
 #joinStep.joinStep2 .wrap { height: auto; }
@@ -125,7 +123,7 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 #joinStep.joinStep2 .privacy table td input[type="text"] { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; width: 100%; height: 6rem; border: 1px solid #bdbdbd; padding: 0 1rem; font-size: 2.5rem; }
 #joinStep.joinStep2 .privacy table td select { cursor: pointer; text-decoration: none; width: 100%; height: 100%; width: calc(30% - 1rem); height: 6rem; background: #fff; border: 1px solid #bdbdbd; padding: 0 1rem; margin-left: 1rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; }
 #joinStep.joinStep2 .privacy table td select:first-child { width: 40%; margin: 0; }
-#joinStep.joinStep2 .privacy .button { width: 32rem; height: 9rem; font-size: 2.5rem; background: #da2027; margin: 3rem auto; }
+#joinStep.joinStep2 .privacy .button { width: 32rem; height: 9rem; font-size: 2.5rem; background: #1C287B; margin: 3rem auto; }
 
 #joinStep.joinStep3 .wrap { width: 100%; border: none; text-align: center; margin: 0 auto; }
 #joinStep.joinStep3 .wrap h6 { font-weight: 600; font-size: 3rem; margin-bottom: 4rem; }
@@ -161,20 +159,3 @@ input:-webkit-autofill, input:-webkit-autofill::first-line, input:-webkit-autofi
 #joinStep.joinStep3 .wrap table #strZipDaum { width: calc(100% - 85px); }
 #joinStep.joinStep3 .wrap table #strADDR1Daum { width: 100%; margin-top: 1rem; }
 #joinStep.joinStep3 .wrap .button { width: 24rem; height: 5rem; font-size: 2.5rem; }
-
-
-.sub-header-txt .joinStepF { font-weight: 500; }
-.sub-header-txt .joinStepF i { color: #ba9a59; opacity: .8; margin-right: 1.5rem; margin-left: -1.5rem; }
-.sub-header-txt .joinStepF b { color: #ba9a59; font-weight: 500; }
-
-#joinStepF { flex-direction: column; }
-#joinStepF h6 { color: #263238; }
-#joinStepF ul { width: 100%; padding: 3rem 3rem; margin: 5rem auto; border: 5px solid #eceff1; }
-#joinStepF li { display: flex; justify-content: center; align-items: center; width: 100%; text-align: left; font-size: 3rem; margin: 1rem 0; }
-#joinStepF li div { color: #78909c; font-weight: 400; flex: 1; }
-#joinStepF li p { flex: 1; }
-#joinStepF .btnZone { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; }
-#joinStepF .btnZone a, #joinStepF .btnZone input { display: inline-flex; justify-content: center; align-items: center; margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; margin: 1rem 0; cursor: pointer; line-height: 1.5; text-align: center; -moz-transition: all 0.3s; -webkit-transition: all 0.3s; transition: all 0.3s; }
-#joinStepF .btnZone a { background: #e0e0e0; color: #222; }
-#joinStepF .btnZone .cancel { background: #e0e0e0; color: #222; }
-#joinStepF .btnZone .promise { background: #ba9a59; color: #fff; }

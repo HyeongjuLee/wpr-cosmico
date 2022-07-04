@@ -1,10 +1,6 @@
 @import 'mixin-custom';
 
-$common-font-color: #212121;
-$input-width: $inner / 2.5;
-$input-height: rem(80px);
-$input-height-50: rem(50px);
-$common-button-color: adjust-hue(invert($main-color), 20deg);
+$input-height: rem(70px);
 
 .nonDisplay {
 	display: none;
@@ -51,7 +47,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 		justify-content: center;
 		align-items: center;
 		//width: 100%;
-		height: $input-height-50;
+		height: $input-height;
 		line-height: 1.5;
 		padding: rem(5px) rem(10px);
 		cursor: pointer;
@@ -114,6 +110,58 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 			}
 		}
 	}
+}
+
+#mypage {
+	label.checkbox {
+		cursor: pointer;
+		color: $parent-css;
+		font-size: $font-size;
+		font-weight: 500;
+		@include position;
+		@include inline-flex;
+		height: $input-height;
+		vertical-align: middle;
+
+		i {
+			color: material-color('grey', '400');
+			font-size: $font-size - rem(3px);
+			margin-right: $font-size / 2;
+			// @include transition(all, .1s);
+		}
+
+		span {
+			@include flex;
+			@include position;
+			// @include transition(all, .1s);
+			width: 100%;
+			height: 100%;
+			padding: rem(5px) rem(15px);
+			background: material-color('grey', '100');
+			border: 1px solid material-color('grey', '300');
+			@include rounded(0);
+		}
+
+		input {
+			@include position(absolute);
+			visibility: hidden;
+			z-index: -1;
+
+			&:checked {
+				&~span {
+					//font-weight: 700;
+					color: #fff;
+					background: $common-button-color;
+					border-color: darken($common-button-color, 10);
+
+					i {
+						color: $parent-css;
+					}
+				}
+			}
+		}
+	}
+
 	article {
 		padding: $font-size + rem(5px) 0;
 		input[type='checkbox'] {
@@ -206,7 +254,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 					width: 100%;
 					height: $input-height;
 					font-size: $font-size;
-					@include rounded(rem(5px));
+					@include rounded(0);
 					background: #fff;
 				}
 				.input_select {
@@ -219,18 +267,18 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 					}
 				}
 				.button {
-					@include inline-flex;
+					@include button($myoffice-color3);
+                    @include inline-flex;
 					margin: 0;
-					//width: calc(50% - #{$font-size - rem(10px)});
-					width: 50%;
+					min-width: rem(50px);
+					width: calc(25% - #{$font-size - rem(10px)});
 					height: $input-height;
 					font-size: $font-size;
-					background: material-color('blue-grey');
-					@include rounded(rem(5px));
-                    text-align: center;
-                    color: #fff;
-                    @include font-family('Pretendard');
-                    cursor: pointer;
+					@include rounded(0);
+					word-break: keep-all;
+					white-space: $default-css;
+					padding: 0 rem(10px);
+					vertical-align: $default-css;
 				}
 
 				.inputs {
@@ -304,25 +352,18 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 			.con {
 				//width: 50%;
 				flex: 1;
-			}
-			input {
-				&[type="password"] {
-					width: 100%;
-				}
-			}
-			label {
-				display: inline-flex;
-				justify-content: flex-start;
-				align-items: center;
-				cursor: pointer;
-				font-size: $font-size - rem(5px);
-				//margin-top: $font-size;
-				margin-top: $font-size / 2;
+				@include flex;
 
-				input {
-					margin-right: $font-size / 2;
+				label {
+					width: 100%;
+					margin-left: rem(10px);
 				}
 			}
+			// input {
+			// 	&[type="password"] {
+			// 		width: 100%;
+			// 	}
+			// }
 
 		}
 
@@ -426,67 +467,6 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				//width: 100%;
 				//height: $input-height - rem(10px);
 			}
-			label {
-				cursor: pointer;
-				color: #212121;
-				font-weight: 500;
-				@include position;
-				@include inline-flex;
-				font-size: $font-size - rem(2px);
-				padding: 5px;
-				padding-right: 10px;
-				margin: 0;
-				margin-left: $font-size / 2;
-
-				i {
-					color: material-color('grey', '600');
-					font-size: $font-size - rem(3px);
-					margin-right: $font-size / 2;
-					@include transition(all, .1s);
-					@include position;
-					z-index: 2;
-				}
-
-				span {
-					@include position;
-					@include transition(all, .1s);
-					z-index: 1;
-					&:before {
-						@include presudo($ri: -10px, $bot: -5px, $w: calc(100% + 10px + #{$font-size * 2}), $h: calc(100% + 10px));
-						//background: rgba($main-color, 10%);
-						background: material-color('grey', '100');
-						@include transition(all, .1s);
-						z-index: -1;
-						@include rounded(rem(5px));
-					}
-				}
-
-				input {
-					&[type="radio"] {
-						@include position(absolute);
-						visibility: hidden;
-						z-index: -1;
-
-						&:checked {
-							& ~ i {
-								color: #fff;
-							}
-							& ~ span {
-								//font-weight: 700;
-								color: #fff;
-								//background: $main-color;
-
-								&:before {
-									//width: calc(100% + #{$font-size * 2});
-									color: #fff;
-									background: $common-button-color;
-									//opacity: 0;
-								}
-							}
-						}
-					}
-				}
-			}
 			&.birth {
 				//padding-right: 0;
 				.con {
@@ -498,21 +478,17 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 						margin-right: $font-size / 2;
 						flex: 1;
 					}
-					div {
-						//flex: auto;
-						display: inline-block;
-						//margin-bottom: $font-size / 2;
-						margin-right: $font-size * 3;
-						p {
-							//padding: $font-size / 2 $font-size;
-							//background: material-color('grey', '100');
-							font-size: $font-size + rem(2px);
-							font-weight: 500;
-						}
+					.labels {
+						@include flex;
+						width: 100%;
 					}
                     label {
+                    	width: 50%;
                         margin: 0;
-                        margin-right: $font-size / 2;
+                        &:first-of-type {
+                        	margin-right: rem(10px);
+                        }
+                        
                     }
 				}
 			}
@@ -762,68 +738,6 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 		.title {
 			@include flex(space-between);
 			width: 100%;
-			
-			label {
-				cursor: pointer;
-				color: #212121;
-				font-weight: 500;
-				@include position;
-				@include inline-flex;
-				font-size: $font-size - rem(2px);
-				margin-right: 0;
-				padding: 5px;
-				padding-right: 10px;
-
-
-				i {
-					color: material-color('grey', '600');
-					font-size: $font-size - rem(5px);
-					margin-right: $font-size / 2;
-					@include transition(all, .1s);
-					@include position;
-					z-index: 2;
-				}
-
-				span {
-					@include position;
-					@include transition(all, .1s);
-					z-index: 1;
-					&:before {
-						@include presudo($ri: -10px, $bot: -5px, $w: calc(100% + 10px + #{$font-size * 2}), $h: calc(100% + 10px));
-						//background: rgba($main-color, 10%);
-						background: material-color('grey', '100');
-						@include transition(all, .1s);
-						z-index: -1;
-						@include rounded(rem(5px));
-					}
-				}
-
-				input {
-					&[type="checkbox"] {
-						@include position(absolute);
-						visibility: hidden;
-						z-index: -1;
-
-						&:checked {
-							& ~ i {
-								color: #fff;
-							}
-							& ~ span {
-								//font-weight: 700;
-								color: #fff;
-								//background: $main-color;
-
-								&:before {
-									//width: calc(100% + #{$font-size * 2});
-									color: #fff;
-									background: $common-button-color;
-									//opacity: 0;
-								}
-							}
-						}
-					}
-				}
-			}
 		}
 	}
 		
@@ -898,28 +812,22 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 	}
 
 	.btnZone {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding: {
-			//top: $font-size;
-			bottom: $font-size;
-		}
+		@include flex($bet);
 		width: 100%;
+		//flex-direction: column;
+		// width: calc(#{$inner / 2} + 5%);
 
 		a, input {
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			height: $input-height * 1.2;
-			margin: $font-size / 2 auto;
+			@include inline-flex;
+			width: calc(50% - #{rem(20px)});
+			height: $input-height + rem(10px);
+			margin: round($font-size / 2) auto;
 			background: transparent;
-			font-size: $font-size * 1.2;
+			font-size: round($font-size * 1.2);
 			cursor: pointer;
 			font-family: $parent-css;
 			border: none;
-			@include rounded(rem(5px));
+			@include rounded(rem(10px));
 
 			@include unify-parent('input') {
 				background: $main-color;
@@ -955,10 +863,10 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 			//width: $input-width / 2;
 		}
 		.promise {
-			background: $common-button-color;
+			background: $main-color;
 			color: #fff;
 			&:hover {
-				background: lighten($common-button-color,10);
+				background: saturate($main-color,10);
 			}
 		}
 	}
@@ -986,7 +894,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				box-sizing: border-box;
 				margin: rem(10px) $font-size;
 				min-width: $inner / 4;
-				height: $input-height-50;
+				height: $input-height;
 			}
 		}
 	}
@@ -1021,7 +929,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 		justify-content: center;
 		align-items: center;
 		//width: 100%;
-		height: $input-height-50;
+		height: $input-height;
 		line-height: 1.5;
 		padding: rem(5px) rem(10px);
 		cursor: pointer;
@@ -1115,7 +1023,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 				text-align: left;
 				font-weight: 500;
 				font-size: $font-size + rem(3px);
-				min-height: $input-height-50;
+				min-height: $input-height;
 				padding: $font-size 0;
 				.summary {
 					font-size: $font-size - rem(1px);
@@ -1138,9 +1046,9 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 					padding: $font-size;
 					//width: $input-width;
 					width: 100%;
-					height: $input-height-50;
+					height: $input-height;
 					font-size: $font-size;
-					@include rounded(rem(5px));
+					@include rounded(0);
 				}
 				.input_text {
 					&:read-only {
@@ -1149,13 +1057,7 @@ $common-button-color: adjust-hue(invert($main-color), 20deg);
 					}
 				}
 				.button {
-					display: inline-flex;
-					margin: 0;
-					width: calc(25% - #{$font-size - rem(10px)});
-					height: $input-height-50;
-					font-size: $font-size;
-					background: material-color('blue-grey');
-					@include rounded(rem(5px));
+					@include button($myoffice-color3);
 				}
 
 				.inputs {

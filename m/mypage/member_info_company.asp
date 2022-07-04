@@ -390,7 +390,7 @@
 				<div class="con">
 					<input type="hidden" name="isWebIDUse" value="T">
 					<input type="password" name="strPass" class="input_text" maxlength="20" />
-					<label><input type="checkbox" name="isChgPass" value="T" class="vmiddle" onClick="checkChgPass(this)" /> <%=LNG_TEXT_PASSWORD_CHANGE%></label>
+					<label class="checkbox"><input type="checkbox" name="isChgPass" value="T" class="vmiddle" onClick="checkChgPass(this)" /><span><i class="icon-ok"></i><%=LNG_TEXT_PASSWORD_CHANGE%></span></label>
 				</div>
 			</div>
 			<%Else%>
@@ -433,10 +433,9 @@
 			<div class="agreeArea">
 				<div class="title">
 					<h3><%=LNG_POLICY_02%></h3>
-					<label>
+					<label class="checkbox">
 						<input type="checkbox" id="agreement" name="agreement" value="T" onClick="toggle_flex('cpno')" />
-						<i class="icon-ok"></i>
-						<span><%=LNG_TEXT_I_AGREE%></span>
+						<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 					</label>
 				</div>
 				<div class="agreeBox">
@@ -455,8 +454,7 @@
 						<%Case "KR"%>
 							<input type="text" class="input_text" name="strZip" id="strZipDaum" maxlength="7" value="<%=DKRS_Addcode1%>" readonly="readonly" />
 							<!-- <input type="button" class="button" onclick="location.href='/m/common/pop_postcode.asp'" value="<%=LNG_TEXT_ZIPCODE%>" /> -->
-							<a name="modal" href="/m/common/pop_postcode.asp" id="pop_postcode" class="button" title="우편번호검색">
-							<input type="button" class="button" value="우편번호"/></a>
+							<a name="modal" href="/m/common/pop_postcode.asp" id="pop_postcode" class="button" title="우편번호검색">우편번호</a>
 							<input type="text" class="input_text" name="strADDR1" id="strADDR1Daum" maxlength="500" value="<%=DKRS_Address1%>" readonly="readonly" />
 						<%Case "JP"%>
 							<input type="text" class="input_text" name="strZip" id="strZipDaum" maxlength="7"  <%=onLyKeys%> value="<%=DKRS_Addcode1%>" readonly="readonly"/>
@@ -519,8 +517,10 @@
 					<p><%=DKRS_BirthDay%>-<%=DKRS_BirthDay_M%>-<%=DKRS_BirthDay_D%></p>
 
 					<%If UCase(DK_MEMBER_NATIONCODE) = "KR" Then%>
-						<label><input type="radio" name="isSolar" value="1" class="input_radio" <%=isChecked(DKRS_BirthDayTF,"1")%> /><i class="icon-ok"></i><span><%=LNG_TEXT_SOLAR%></span></label>
-						<label><input type="radio" name="isSolar" value="2" class="input_radio" <%=isChecked(DKRS_BirthDayTF,"2")%>  /><i class="icon-ok"></i><span><%=LNG_TEXT_LUNAR%></span></label>
+						<div class="labels">
+							<label class="checkbox"><input type="radio" name="isSolar" value="1" class="input_radio" <%=isChecked(DKRS_BirthDayTF,"1")%> /><span><i class="icon-ok"></i><%=LNG_TEXT_SOLAR%></span></label>
+							<label class="checkbox"><input type="radio" name="isSolar" value="2" class="input_radio" <%=isChecked(DKRS_BirthDayTF,"2")%>  /><span><i class="icon-ok"></i><%=LNG_TEXT_LUNAR%></span></label>
+						</div>
 					<%Else%>
 						<input type="hidden" name="isSolar" value="<%=DKRS_BirthDayTF%>" />
 					<%End If%>

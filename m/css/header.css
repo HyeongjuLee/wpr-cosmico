@@ -1,0 +1,48 @@
+@charset "UTF-8";
+body, input, select, textarea { font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ }
+
+/* 전체 공통 */
+/* font-size: 62.5%; 62.5% = 10px */
+/* 1rem = 10px, 1.6rem = 16px */
+html { font-size: 6px; line-height: 1.5; }
+
+* { box-sizing: border-box; }
+
+/* 상단 공통 */
+#header { position: relative; z-index: 100; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; font-weight: 400; height: 13rem; max-width: 640px; margin: 0 auto; color: #424242; }
+#header::after { /* content: ''; */ position: absolute; bottom: 0; left: 0; z-index: 1; width: 100%; height: 1px; background: rgba(0, 0, 0, 0.1); }
+
+.header article { width: 100%; height: 13rem; display: flex; justify-content: space-between; align-items: center; color: inherit; }
+.header .navi-left, .header .navi-right { width: 5rem; height: 5rem; margin: 3.5rem; font-size: 4rem; color: inherit; }
+.header .navi-left a, .header .navi-right a { cursor: pointer; text-decoration: none; width: 100%; height: 100%; height: 100%; color: inherit; }
+.header .navi-left i, .header .navi-right i { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: inherit; }
+.header .navi-left i::before, .header .navi-right i::before { margin: 0; line-height: 1; }
+.header #logo { margin-top: 2rem; }
+.header #logo a { padding-top: 1rem; cursor: pointer; text-decoration: none; width: 100%; height: 100%; display: block; }
+.header #logo img { width: 20.9rem; }
+
+/*shop 상세 페이지*/
+#header.shop { height: 10rem; }
+#header.shop::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 1; width: 100%; height: 1px; background: rgba(0, 0, 0, 0.1); }
+#header.shop article { height: 100%; }
+#header.shop article > div { margin: 0 3rem; }
+#header.shop .navi-back, #header.join.shop .navi-close { width: 6rem; height: 6rem; font-size: 6rem; }
+#header.shop .navi-back a, #header.join.shop .navi-close a { cursor: pointer; text-decoration: none; width: 100%; height: 100%; height: 100%; }
+#header.shop .navi-back i, #header.join.shop .navi-close i { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: #333; }
+#header.shop .navi-back i::before, #header.join.shop .navi-close i::before { margin: 0; line-height: 1; }
+#header.shop h1 { color: #111; font-weight: 500; font-size: 3.75rem; line-height: 1; word-break: keep-all; }
+
+/*join 상세 페이지*/
+#header.join { height: 10rem; }
+#header.join::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 1; width: 100%; height: 1px; background: rgba(0, 0, 0, 0.1); }
+#header.join article { height: 100%; }
+#header.join article > div { margin: 0 3rem; }
+#header.join .navi-back, #header.join .navi-close { width: 6rem; height: 6rem; font-size: 5rem; }
+#header.join .navi-back a, #header.join .navi-close a { cursor: pointer; text-decoration: none; width: 100%; height: 100%; height: 100%; }
+#header.join .navi-back i, #header.join .navi-close i { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: #333; }
+#header.join .navi-back i::before, #header.join .navi-close i::before { margin: 0; line-height: 1; }
+#header.join .navi-close { font-size: 2.5rem; }
+#header.join h1 { color: #111; font-weight: 500; font-size: 3.75rem; line-height: 1; word-break: keep-all; }
+
+#header .member { color: inherit; font-size: 3rem; width: 5rem; height: 5rem; position: absolute; right: 11rem; }
+#header .member a { cursor: pointer; text-decoration: none; width: 100%; height: 100%; display: inline-flex; justify-content: center; align-items: center; color: inherit; }

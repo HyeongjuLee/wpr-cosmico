@@ -1,24 +1,9 @@
 @import 'mixin-custom';
 
-$common-font-color: #212121;
 $input-width: $inner - rem(160px);
 $input-height: round($font-size * 3.5);
-$common-button-color: material-color('red','700');
-
-input:-webkit-autofill, {
-	//@include transition(background-color, 5000s, ease-in-out, 0s);
-	-webkit-box-shadow: 0 0 0px 1000rem material-color('blue', '50') inset !important;
-	-webkit-text-fill-color: #111 !important;
-	//background-color: material-color('light-blue', '50') !important;
-	font-size: $font-size;
-	font-weight: 400;
-	letter-spacing: 0;
-	&::first-line, &:hover, &:focus, &:active {
-		@extend input:-webkit-autofill;
-	}
-}
-
-@warn 12em + 1em;
+// $common-button-color: material-color('red','700');
+$sub-color: $oc-gray-5;
 
 #header {
 	&::after {
@@ -393,7 +378,10 @@ input:-webkit-autofill, {
 
 	.wrap {
 		//width: $input-width - rem(120px);
-		padding: rem(30px) 0 rem(60px) 0;
+		// padding: rem(30px) 0 rem(60px) 0;
+		&:first-of-type {
+			margin-bottom: rem(60px);
+		}
 	}
 
 	.input-wrap {
@@ -445,7 +433,7 @@ input:-webkit-autofill, {
 	background: #fff;
 	display: flex;
 	margin: 0 auto {
-		bottom: 5%;
+		bottom: 15%;
 	};
 	padding: $input-height 0;
 

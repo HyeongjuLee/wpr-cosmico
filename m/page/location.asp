@@ -7,7 +7,7 @@
 	ISLEFT = "T"
 	ISSUBTOP = "T"
 
-	view = 4
+	view = 5
 	mNum = 1
 
 %>
@@ -28,17 +28,17 @@
 				<h6><%=LNG_COPYRIGHT_TITLE_TEL%></h6>
 				<span><%=LNG_COPYRIGHT_TEL%></span>
 			</li>
-			<li>
+			<!-- <li>
 				<h6><%=LNG_COPYRIGHT_TITLE_FAX%></h6>
 				<span><%=LNG_COPYRIGHT_FAX%></span>
-			</li>
+			</li> -->
 		</ul>
-		<a href="http://kko.to/N9HFUymov" target="_blank"><%=LNG_LOCATION_SEARCH%><span><i class="icon-angle-right"></i></span></a>
+		<a href="http://kko.to/RH5xH2LrT" target="_blank"><%=LNG_LOCATION_SEARCH%><span><i class="icon-angle-right"></i></span></a>
 	</div>
-
+	
 	<!-- * 카카오맵 - 지도퍼가기 -->
 	<!-- 1. 지도 노드 -->
-	<div id="daumRoughmapContainer1647495153332" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+	<div id="daumRoughmapContainer1655801920796" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 
 	<!--
 		2. 설치 스크립트
@@ -49,8 +49,8 @@
 	<!-- 3. 실행 스크립트 -->
 	<script charset="UTF-8">
 		new daum.roughmap.Lander({
-			"timestamp" : "1647495153332",
-			"key" : "29hsf",
+			"timestamp" : "1655801920796",
+			"key" : "2aox6",
 			"mapWidth" : "",
 			"mapHeight" : ""
 		}).render();

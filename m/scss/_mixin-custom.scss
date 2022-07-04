@@ -18,6 +18,7 @@ $contain-height: calc(var(--c-vh, 1vh) * 100);
 $footer-height: calc(var(--f-vh, 1vh) * 100);
 
 $common-font-color: #212121;
+$common-button-color: material-color('indigo', '400');
 $input-width: $inner / 2.5;
 $input-height: rem(80px);
 $nav-color: #333645;
@@ -26,14 +27,8 @@ $nav-color-200-d: darken($nav-color-200, 10);
 $nav-color-600: saturate(lighten($nav-color, 10), 25);
 $contain: rem(640px);
 
-$pay-color: mix(material-color('green', '50'), #fff, 50);
-$pay-color-darken: darken($pay-color, 10);
-$pay-color-grey: mix(material-color('grey', '300'), $pay-color, 50);
+$join-color-1: $main-color;
+$join-color-2: $oc-gray-7;
 
-$point-color: mix(material-color('blue', '50'), #fff, 50);
-$point-color-darken: darken($point-color, 10);
-$point-color-grey: mix(material-color('grey', '300'), $point-color, 50);
-
-$indigo-color: mix(material-color('red', '50'), #fff, 50);
-$indigo-color-darken: darken($indigo-color, 10);
-$indigo-color-grey: mix(material-color('grey', '300'), $indigo-color, 50);
+$plus-color: mix(#fff, $oc-blue-5, 90);
+$minus-color: mix(#fff, $oc-red-5, 90);
