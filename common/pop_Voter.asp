@@ -8,9 +8,7 @@
 
 	'jQuery Modal Dialog방식변경
 	If Not (checkRef(houUrl &"/common/pop_voter.asp") _
-			Or checkRef(houUrl &"/common/joinStep_n03_g.asp") _
-			Or checkRef(houUrl &"/common/joinStep04.asp") _
-			Or checkRef(houUrl &"/common/joinStep_n03_m.asp")) Then
+			Or checkRef(houUrl &"/common/joinStep03.asp")) Then
 		Call alerts(LNG_ALERT_WRONG_ACCESS,"close_p_modal","")
 	End If
 
@@ -52,7 +50,8 @@
 %>
 <%
 
-	MEMBER_SEARCH_PROC = "DKP_MEMBER_SEARCH"
+	'MEMBER_SEARCH_PROC = "DKP_MEMBER_SEARCH"
+	MEMBER_SEARCH_PROC = "HJP_MEMBER_SEARCH_COSMMICO"			'COSMICO
 
 	strID = pRequestTF("user_id",False)
 	If strID <> "" Then

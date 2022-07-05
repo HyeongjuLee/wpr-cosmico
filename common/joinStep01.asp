@@ -23,19 +23,6 @@
 	End If
 
 
-
-'	Select Case UCase(Lang)
-'		Case "KR"
-'			'joinStep02_c = "joinStep02.asp?cnd="&Lang			'(계좌인증)
-'			joinStep02_c = "joinStep_n02c.asp?cnd="&Lang		'(New)
-'		Case Else
-'			joinStep02_c = "joinStep_n02_g.asp"
-'	End Select
-
-'일반판매원가입 전 국가 통합
-	joinStep02_c = "joinStep_n02_g.asp"
-	'joinStep02_c = "joinStep2.asp"
-
 %>
 <!--#include virtual="/_include/document.asp" -->
 <link rel="stylesheet" type="text/css" href="/css/joinstep.css?" />
@@ -72,54 +59,43 @@
 			<li><%=LNG_JOINSTEP01_TEXT02_3%></li>
 		</ul>
 		<a class="button" onclick="javascript: selectSellMemTF(0)" data-ripplet><%=LNG_TEXT_JOIN%></a>
-		<!-- <a class="button account" onclick="javascript: selectSellMemTF(8)" data-ripplet>계좌인증</a> -->
 	</div>
-
-
-			<!-- <div class="sns_join_area" style="">
-				<div class="joinStep_tit">
-					<span class="tit"><%=LNG_SNS_JOIN_TEXT%></span>
-				</div>
-
-				<div class="infoBox ">
-					<ul>
-						<li>- <%=LNG_SNS_KAKAO%><%=LNG_SNS_JOIN_INFO1%><%=LNG_SNS_JOIN_INFO2%></li>
-					</ul>
-				</div>
-				<div class="btnBox cleft">
-					<span class="snsJoinBtn sns_join1"><a onclick="javascript: selectSellMemTF_KaKao(1)"><%=LNG_SNS_KAKAO%>-<%=LNG_TEXT_JOIN%></a></span>
-					<span class="snsJoinBtn sns_join2"><a onclick="javascript: selectSellMemTF_KaKao(60)"><%=LNG_SNS_KAKAO%>-<%=LNG_TEXT_CLASS_P_60%></a></span>
-					<span class="snsJoinBtn sns_join3"><a onclick="javascript: selectSellMemTF_KaKao(70)"><%=LNG_SNS_KAKAO%>-<%=LNG_TEXT_CLASS_P_70%></a></span>
-				</div>
-			</div> -->
-
 </div>
-
-
 
 <script>
 	function selectSellMemTF(value) {
 		var f = document.mfrm;
-		f.S_SellMemTF.value = value
-
-		if (value == 0)	{
-			//f.action="joinStep02.asp";			//계좌인증 (or + 핸드폰인증)
-			//f.action="joinStep_n01_m.asp";		//핸드폰인증 (or + 계좌인증)
-		}
-
+		f.S_SellMemTF.value = value;
 		f.submit();
 	}
-
-	function selectSellMemTF_KaKao(value) {
-		//document.mfrm.S_SellMemTF.value = value;
-		openPopup('/sns/kakaoJoin.asp?mst='+value, 'pop_Join', 'top=100px,left=200px,width=600,height=500,resizable=no,status=no,toolbar=no,menubar=no,scrollbars=yes');
-	}
-
 </script>
-<form name="mfrm" method="post" action="joinStep_n02_g.asp">
-<!-- <form name="mfrm" method="post" action="joinStep02.asp"> -->
+<%
+	'SNS 가입
+	snsType = pRequestTF("snsType",False) : If snsType = "" Then snsType = ""
+	snsToken = pRequestTF("snsToken",False) : If snsToken = "" Then snsToken = ""
+	snsName = pRequestTF("snsName", False)	: If snsName = "" Then snsName = ""
+	snsEmail = pRequestTF("snsEmail", False)	: If snsEmail = "" Then snsEmail = ""
+	snsBirthday = pRequestTF("snsBirthday", False)	: If snsBirthday = "" Then snsBirthday = ""
+	snsBirthyear = pRequestTF("snsBirthyear", False)	: If snsBirthyear = "" Then snsBirthyear = ""
+	snsGender = pRequestTF("snsGender", False)	: If snsGender = "" Then snsGender = ""
+	snsMobile = pRequestTF("snsMobile", False)	: If snsMobile = "" Then snsMobile = ""
+	snsFamilyName = pRequestTF("snsFamilyName", False)	: If snsFamilyName = "" Then snsFamilyName = ""
+	snsGivenName = pRequestTF("snsGivenName", False)	: If snsGivenName = "" Then snsGivenName = ""
+%>
+<form name="mfrm" method="post" action="joinStep02.asp">
 	<input type="hidden" name="S_SellMemTF" value = "" readonly="readonly">
 	<input type="hidden" name="sns_auth" value = "" readonly="readonly">
+	<%'SNS 가입%>
+	<input type="hidden" name="snsType" value = "<%=snsType%>" readonly="readonly">
+	<input type="hidden" name="snsToken" value = "<%=snsToken%>" readonly="readonly">
+	<input type="hidden" name="snsName" value = "<%=snsName%>" readonly="readonly">
+	<input type="hidden" name="snsEmail" value = "<%=snsEmail%>" readonly="readonly">
+	<input type="hidden" name="snsBirthday" value = "<%=snsBirthday%>" readonly="readonly">
+	<input type="hidden" name="snsBirthyear" value = "<%=snsBirthyear%>" readonly="readonly">
+	<input type="hidden" name="snsGender" value = "<%=snsGender%>" readonly="readonly">
+	<input type="hidden" name="snsMobile" value = "<%=snsMobile%>" readonly="readonly">
+	<input type="hidden" name="snsFamilyName" value = "<%=snsFamilyName%>" readonly="readonly">
+	<input type="hidden" name="snsGivenName" value = "<%=snsGivenName%>" readonly="readonly">
 </form>
 
 <!--#include virtual="/_include/copyright.asp" -->

@@ -1,5 +1,6 @@
 <!--#include virtual = "/_lib/strFunc.asp" -->
 <!--#include virtual = "/_lib/strFuncJoin.asp"-->
+<!--#include virtual = "/_lib/KISA_SHA256.asp"-->
 <%
 	NO_MEMBER_REDIRECT = "F"
 %>
@@ -9,17 +10,25 @@
 <%
 	PAGE_SETTING = "MEMBERSHIP"
 
+	If DK_MEMBER_LEVEL > 0 Then Response.Redirect "/index.asp"
+
 	'▣글로벌, 판매원, 소비자 통합
 	S_SellMemTF = pRequestTF("S_SellMemTF",True)
 	Select Case S_SellMemTF
 		Case 0
-			If NICE_MOBILE_CONFIRM_TF = "T" OR NICE_BANK_CONFIRM_TF = "T" Then Call ALERTS(LNG_MEMBER_LOGINOK_ALERT02,"BACK","")
+
 		Case 1
+			'소지바 계좌인증 X
+			NICE_BANK_CONFIRM_TF = "F"
 		Case Else
 			Call ALERTS(LNG_MEMBER_LOGINOK_ALERT02,"BACK","")
 	End Select
 
-	If DK_MEMBER_LEVEL > 0 Then Response.Redirect "/index.asp"
+	'외국인 휴대전화F, 계좌인증F 초기화
+	If UCase(DK_MEMBER_NATIONCODE) <> "KR" Then
+		NICE_MOBILE_CONFIRM_TF = "F"
+		NICE_BANK_CONFIRM_TF = "F"
+	End If
 
 
 	'국가정보
@@ -44,22 +53,24 @@
 
 '	Select Case UCase(LANG)
 '		Case "KR","MN"
-			If Not checkRef(houUrl &"/common/joinStep_n03_g.asp") Then Call alerts(LNG_ALERT_WRONG_ACCESS,"go","/common/joinStep01.asp")
+			If Not checkRef(houUrl &"/common/joinStep03.asp") Then Call alerts(LNG_ALERT_WRONG_ACCESS,"go","/common/joinStep01.asp")
 '		Case Else
 '			Call alerts(LNG_ALERT_WRONG_ACCESS,"back","")
 '	End Select
 
 
-		gather			= pRequestTF("gather",False)
-		agreement		= pRequestTF("agreement",False)
-		company			= pRequestTF("company",False)
+		agree01 = pRequestTF("agree01",False)
+		agree02 = pRequestTF("agree02",False)
+		agree03 = pRequestTF("agree03",False)
 
+		If agree01 = "" Then agree01 = "F"
+		If agree02 = "" Then agree02 = "F"
+		If agree03 = "" Then agree03 = "F"
 
-		If agreement <> "T" Then Call ALERTS(LNG_JS_POLICY01,"go","/common/joinStep01.asp")
-		If gather <> "T" Then Call ALERTS(LNG_JS_POLICY02,"go","/common/joinStep01.asp")
-		'▣판매원/소비자
+		If agree01 <> "T" Then Call ALERTS(LNG_JS_POLICY01,"back","")
+		If agree02 <> "T" Then Call ALERTS(LNG_JS_POLICY02,"back","")
 		If S_SellMemTF = 0 Then
-			If company <> "T" Then Call ALERTS(LNG_JS_POLICY03,"go","/common/joinStep01.asp")
+			If agree03 <> "T" Then Call ALERTS(LNG_JS_POLICY03,"back","")
 		End If
 
 
@@ -72,9 +83,28 @@
 		E_name_Last		= pRequestTF("E_name_Last",False)	'영문성
 		For_Kind_TF		= pRequestTF("For_Kind_TF",True)	'외국인 체크(한국 0 그 외 국가 1)
 
-	'▣ 값 받아오기 특이사항 s
-			sns_authID		= pRequestTF("sns_authID",False)	: If sns_authID = "" Then sns_authID = ""		'SNS 회원가입
-	'▣ 값 받아오기 특이사항 e
+		'####################################################################
+		'########## ▣ SNS 관련 ▣
+		'####################################################################
+			'sns_authID		= pRequestTF("sns_authID",False)	: If sns_authID = "" Then sns_authID = ""
+			snsType		= pRequestTF("snsType", False)
+			snsToken	= pRequestTF("snsToken", False)
+			If snsToken <> "" Then
+				'snsToken = SHA256_Encrypt(snsToken)
+
+				'▣SNS 위변조 검증
+				arrParams = Array(_
+					Db.makeParam("@sessionIDX",adVarChar,adParamInput,50,DK_SES_MEMBER_IDX),_
+					Db.makeParam("@snsType",adVarChar,adParamInput,10,snsType),_
+					Db.makeParam("@snsToken",adVarWChar,adParamInput,100,snsToken),_
+					Db.makeParam("@hostIP",adVarChar,adParamInput,50,getUserIP) _
+				)
+				SNS_FAKE_CHECK_CNT = Db.execRsData("HJP_SNS_MODULATION_CHECK_CNT",DB_PROC,arrParams,DB3)
+				If Int(SNS_FAKE_CHECK_CNT) < 1 Then
+					Call ALERTS("Data modulation! (SNS)","go","/common/joinStep01.asp")
+				End If
+			End If
+
 
 		'▣한국외
 		If UCase(Lang) <> "KR" Then
@@ -127,28 +157,33 @@
 
 		'strName			= pRequestTF("strName",True)
 		If CS_AUTO_WEBID_TF <> "T" Then		'웹아이디 직접입력
-			strUserID		= pRequestTF("strID",True)
-			strUserID_OUT	= strUserID
-			idcheck			= pRequestTF("idcheck",True)
-			chkID			= pRequestTF("chkID",True)
+			If snsToken = "" Then
+				strUserID		= pRequestTF("strID",True)
+				strUserID_OUT	= strUserID
+				idcheck			= pRequestTF("idcheck",True)
+				chkID			= pRequestTF("chkID",True)
+			End IF
 		End IF
 
-		strPass			= pRequestTF("strPass",True)
-		strPass2		= pRequestTF("strPass2",True)
+		If snsToken <> "" Then
+			strPass			= pRequestTF("strPass",False)
+			strPass2		= pRequestTF("strPass2",False)
+		Else
+			strPass			= pRequestTF("strPass",True)
+			strPass2		= pRequestTF("strPass2",True)
+		End If
 
 		strZip			= pRequestTF("strZip",False)
 		strADDR1		= pRequestTF("strADDR1",False)
 		strADDR2		= pRequestTF("strADDR2",False)
 
 		strEmail		= pRequestTF("strEmail",False)
-		'strEmail1		= pRequestTF("mailh",True)
-		'strEmail2		= pRequestTF("mailt",True)
 
 		isSex			= pRequestTF("isSex",True)
 
 		strMobile		= pRequestTF("strMobile",False)
-			mobileCheck		= pRequestTF("mobileCheck",True)
-			chkMobile		= pRequestTF("chkMobile",True)
+			mobileCheck		= pRequestTF("mobileCheck",False)
+			chkMobile		= pRequestTF("chkMobile",False)
 
 		strTel			= pRequestTF("strTel",False)
 
@@ -212,8 +247,6 @@
 		End If
 	'추가 데이터 추천인 & 후원인  관련 E
 
-
-
 		arrParams = Array(_
 			Db.makeParam("@dataNum",adVarChar,adParamInput,50,dataNum) _
 		)
@@ -230,6 +263,171 @@
 		End If
 		Call closeRS(DKRS)
 
+
+%>
+<%
+	If NICE_MOBILE_CONFIRM_TF = "T" Then
+
+	'#####################################
+	'	NICE 본인인증(핸드폰)
+	'#####################################
+		SESSION_dataNum		= SESSION("dataNum")
+		sResponseNumber		= SESSION("sResponseNumber")
+		sRequestNumber		= SESSION("REQ_SEQ")
+
+		'Call ResRW(SESSION("dataNum"),"SESSION(dataNum)")
+		'Call ResRW(SESSION("sResponseNumber"),"SESSION(sResponseNumber)")
+		'Call ResRW(SESSION("REQ_SEQ"),"SESSION(REQ_SEQ)")
+
+		arrParamsM = Array(_
+			Db.makeParam("@TempDataNum",adVarChar,adParamInput,50,SESSION_dataNum), _
+			Db.makeParam("@sRequestNumber",adVarChar,adParamInput,30,sRequestNumber), _
+			Db.makeParam("@sResponseNumber",adVarChar,adParamInput,24,sResponseNumber) _
+		)
+		Set DKRSM = Db.execRs("DKSP_MEMBER_JOIN_TEMP_VIEW",DB_PROC,arrParamsM,Nothing)
+		If Not DKRSM.BOF And Not DKRSM.EOF Then
+			DKRSM_intIDX			= DKRSM("intIDX")
+			DKRSM_TempDataNum		= DKRSM("TempDataNum")
+			DKRSM_sType				= DKRSM("sType")
+			DKRSM_sCipherTime		= DKRSM("sCipherTime")
+			DKRSM_sRequestNumber	= DKRSM("sRequestNumber")
+			DKRSM_sResponseNumber	= DKRSM("sResponseNumber")
+			DKRSM_sAuthType			= DKRSM("sAuthType")
+			DKRSM_sName				= DKRSM("sName")
+			DKRSM_sGender			= DKRSM("sGender")				'0:여성 / 1:남성
+			DKRSM_sBirthDate		= DKRSM("sBirthDate")
+			DKRSM_sNationalInfo		= DKRSM("sNationalInfo")		'0:내국인 / 1:외국인
+			DKRSM_sDupInfo			= DKRSM("sDupInfo")				'중복가입 확인값 (DI_64 byte)
+			DKRSM_sConnInfo			= DKRSM("sConnInfo")
+			DKRSM_sMobileNo			= DKRSM("sMobileNo")
+			DKRSM_sMobileCo			= DKRSM("sMobileCo")
+			DKRSM_regTime			= DKRSM("regTime")
+		Else
+			Call ALERTS("인증데이터가 존재하지 않습니다. 인증을 다시 시도해주세요.","GO", MOB_PATH&"/common/joinStep01.asp")
+		End If
+		Call closeRs(DKRSM)
+
+		Set objEncrypter = Server.CreateObject("Hyeongryeol.StringEncrypter")
+			objEncrypter.Key = con_EncryptKey
+			objEncrypter.InitialVector = con_EncryptKeyIV
+			On Error Resume Next
+				If DKRSM_sMobileNo	<> "" Then Dec_DKRSM_sMobileNo	= objEncrypter.Decrypt(DKRSM_sMobileNo)
+			On Error GoTo 0
+		Set objEncrypter = Nothing
+
+		If Len(DKRSM_sBirthDate) = 8  Then
+			strBirthYY = Left(DKRSM_sBirthDate,4)
+			strBirthMM = Mid(DKRSM_sBirthDate,5,2)
+			strBirthDD = Right(DKRSM_sBirthDate,2)
+		Else
+			Call ALERTS("생년월일 데이터가 존재하지 않습니다. 본인인증을 다시 하셔야합니다.","GO", MOB_PATH&"/common/joinStep01.asp")
+		End If
+
+		If strName	<>	DKRSM_sName			Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요. - M01","gGO", MOB_PATH&"/common/joinStep01.asp")
+		If strBirth1	<>	strBirthYY			Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요. - M02","GO", MOB_PATH&"/common/joinStep01.asp")
+		If strBirth2	<>	strBirthMM			Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요. - M03","GO", MOB_PATH&"/common/joinStep01.asp")
+		If strBirth3	<>	strBirthDD			Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요. - M04","GO", MOB_PATH&"/common/joinStep01.asp")
+		If strMobile	<>	Dec_DKRSM_sMobileNo	Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요. - M05", "GO", MOB_PATH&"/common/joinStep01.asp")
+	End If
+
+%>
+<%
+	'#####################################
+	'	NICE 은행 계좌인증
+	'#####################################
+
+	If NICE_BANK_CONFIRM_TF = "T" Then
+
+		ajaxTF				= pRequestTF("ajaxTF",True)
+
+		strBankCodeCHK		= pRequestTF("strBankCodeCHK",True)
+		strBankNumCHK		= pRequestTF("strBankNumCHK",True)
+		strBankOwnerCHK		= pRequestTF("strBankOwnerCHK",True)
+		birthYYCHK			= pRequestTF("birthYYCHK",True)
+		birthMMCHK			= pRequestTF("birthMMCHK",True)
+		birthDDCHK			= pRequestTF("birthDDCHK",True)
+		TempDataNum			= pRequestTF("TempDataNum",True)
+
+
+		If strBankCodeCHK	<> bankCode			Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B01","go","joinStep01.asp")
+		If strBankNumCHK	<> bankNumber		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B02","go","joinStep01.asp")
+		If strBankOwnerCHK	<> bankOwner		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B03","go","joinStep01.asp")
+		If birthYYCHK		<> strBirth1		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B04","go","joinStep01.asp")
+		If birthMMCHK		<> strBirth2		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B05","go","joinStep01.asp")
+		If birthDDCHK		<> strBirth3		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B06","go","joinStep01.asp")
+
+		birthYYMMDD	= Right(strBirth1,2)&strBirth2&strBirth3
+
+		'▣암호화후 템프테이블데이터와 비교
+		Set objEncrypter = Server.CreateObject("Hyeongryeol.StringEncrypter")
+			objEncrypter.Key = con_EncryptKey
+			objEncrypter.InitialVector = con_EncryptKeyIV
+			If birthYYMMDD	<> "" Then Enc_birthYYMMDD		= objEncrypter.Encrypt(birthYYMMDD)			'생년월일 암호화(YYMMDD)
+		Set objEncrypter = Nothing
+
+
+		arrParams = Array(_
+			Db.makeParam("@TempDataNum",adVarChar,adParamInput,50,TempDataNum),_
+			Db.makeParam("@strSSH1",adChar,adParamInput,50,Enc_birthYYMMDD),_
+			Db.makeParam("@strSSH2",adChar,adParamInput,50,Enc_birthYYMMDD)_
+		)
+		Set DKRS = Db.execRs("DKP_MEMBER_JOIN_BANK_VIEW",DB_PROC,arrParams,DB3)
+
+		If Not DKRS.BOF And Not DKRS.EOF Then
+			DKRS_intIDX				= DKRS("intIDX")
+			DKRS_TempDataNum		= DKRS("TempDataNum")
+			DKRS_strName			= DKRS("strName")
+			DKRS_strSSH1			= DKRS("strSSH1")
+			DKRS_strSSH2			= DKRS("strSSH2")
+			DKRS_strCenterName		= DKRS("strCenterName")
+			DKRS_strCenterCode		= DKRS("strCenterCode")
+			DKRS_strBankCode		= DKRS("strBankCode")
+			DKRS_strBankNum			= DKRS("strBankNum")
+			DKRS_strBankOwner		= DKRS("strBankOwner")
+			DKRS_strOrderNum		= DKRS("strOrderNum")
+			DKRS_M_Name_First		= DKRS("M_Name_First")
+			DKRS_M_Name_Last		= DKRS("M_Name_Last")
+		Else
+			Call ALERTS("데이터베이스에 없는 데이터입니다. 다시 시도해주세요.","BACK","")
+		End If
+		Call CloseRS(DKRS)
+
+		'Call ResRW(birthYYMMDD,"birthYYMMDD")
+		'Call ResRW(Enc_birthYYMMDD,"Enc_birthYYMMDD")
+		'Call ResRW(strBirth1,"birthYY")
+		'Call ResRW(strBirth2,"birthMM")
+		'Call ResRW(strBirth3,"birthDD")
+		'Call ResRW(strBankCodeCHK,"strBankCodeCHK")
+		'Call ResRW(strBankNumCHK,"strBankNumCHK")
+		'Call ResRW(strBankOwnerCHK,"strBankOwnerCHK")
+		'Call ResRW(DKRS_strSSH1,"DKRS_strSSH1")
+		'Call ResRW(DKRS_strSSH2,"DKRS_strSSH2")
+		'Call ResRW(DKRS_strBankCode,"DKRS_strBankCode")
+		'Call ResRW(DKRS_strBankNum,"DKRS_strBankNum")
+		'Call ResRW(DKRS_strBankOwner,"DKRS_strBankOwner")
+
+		'▣템프테이블 데이터 복호화후 비교
+		Set objEncrypter = Server.CreateObject("Hyeongryeol.StringEncrypter")
+			objEncrypter.Key = con_EncryptKey
+			objEncrypter.InitialVector = con_EncryptKeyIV
+			If DKRS_strBankNum		<> "" Then DKRS_strBankNum	= objEncrypter.Decrypt(DKRS_strBankNum)
+			If DKRS_strSSH1			<> "" Then DKRS_strSSH1		= objEncrypter.Decrypt(DKRS_strSSH1)
+			If DKRS_strSSH2			<> "" Then DKRS_strSSH2		= objEncrypter.Decrypt(DKRS_strSSH2)
+		Set objEncrypter = Nothing
+
+		If DKRS_strBankCode		<>	bankCode		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B07","go","joinStep01.asp")
+		If DKRS_strBankNum		<>	bankNumber		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B08","go","joinStep01.asp")
+		If DKRS_strBankOwner	<>	bankOwner		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B09","go","joinStep01.asp")
+		If DKRS_TempDataNum		<>	TempDataNum		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B10","go","joinStep01.asp")
+		If DKRS_strSSH1			<>	birthYYMMDD		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B11","go","joinStep01.asp")
+		If DKRS_strSSH2			<>	birthYYMMDD		Then Call ALERTS("데이터에 변조가 있었습니다.다시 진행해주세요.B12","go","joinStep01.asp")
+
+	End If
+
+%>
+
+<%
+
 	' 후원라인체크(최상위 제외)
 		arrParams1 = Array(_
 			Db.makeParam("@MBID",adVarChar,adParamInput,20,SponID1), _
@@ -241,41 +439,33 @@
 		End If
 
 
-
 	' 값 처리
 		If strName = ""			Then Call ALERTS(LNG_JS_NAME,"back","")
 		If M_Name_First = ""	Then Call ALERTS(LNG_JS_NAME&"("&LNG_TEXT_GIVEN_NAME&")","back","")
 		If M_Name_Last = ""		Then Call ALERTS(LNG_JS_NAME&"("&LNG_TEXT_FAMILY_NAME&")","back","")
 
 		If CS_AUTO_WEBID_TF <> "T" Then		'웹아이디 직접입력
-			If strUserID = ""		Then Call ALERTS(LNG_JS_ID,"back","")
-			If idcheck <> "T"		Then Call ALERTS(LNG_JS_ID_DOUBLE_CHECK,"back","")
-			If Not checkID(strUserID, 4, 20)	Then Call ALERTS(LNG_JS_ID_FORM_CHECK,"back","")
-			If chkID <> strUserID				Then Call ALERTS(LNG_JS_ID_DOUBLE_CHECK,"back","")
-			If strUserID = strPass				Then Call ALERTS(LNG_JS_PASSWORD_FORM_CHECK2,"back","")
+			If snsToken = "" Then
+				If strUserID = ""		Then Call ALERTS(LNG_JS_ID,"back","")
+				If idcheck <> "T"		Then Call ALERTS(LNG_JS_ID_DOUBLE_CHECK,"back","")
+				If Not checkID(strUserID, 4, 20)	Then Call ALERTS(LNG_JS_ID_FORM_CHECK,"back","")
+				If chkID <> strUserID				Then Call ALERTS(LNG_JS_ID_DOUBLE_CHECK,"back","")
+				If strUserID = strPass				Then Call ALERTS(LNG_JS_PASSWORD_FORM_CHECK2,"back","")
+			End If
 		End If
 
-		If Not checkPass(strPass, 6, 20)	Then Call ALERTS(LNG_JS_PASSWORD_FORM_CHECK,"back","")
-		If strPass <> strPass2				Then Call ALERTS(LNG_JS_PASSWORD_CHECK,"back","")
+		If snsToken = "" Then
+			If Not checkPass(strPass, 6, 20)	Then Call ALERTS(LNG_JS_PASSWORD_FORM_CHECK,"back","")
+			If strPass <> strPass2				Then Call ALERTS(LNG_JS_PASSWORD_CHECK,"back","")
+		End If
 
-		If strEmail = "" Then Call ALERTS(LNG_JS_EMAIL,"back","")
+		If S_SellMemTF = "0" Then 'COSMICO
+			If strEmail = "" Then Call ALERTS(LNG_JS_EMAIL,"back","")
 
-		If strZip = "" Or strADDR1 = "" Or strADDR2 = "" Then Call ALERTS(LNG_JS_ADDRESS1,"back","")
-		If strMobile = "" Then Call ALERTS(LNG_JS_MOBILE,"back","")
-		If chkMobile <> strMobile	Then Call ALERTS(LNG_JS_MOBILE_DOUBLE_CHECK2,"back","")
-
-		'▣판매원/소비자
-		Select Case S_SellMemTF
-			Case 0
-				If NominChk	 = "" Or NominChk = "F"	Then Call ALERTS(LNG_JS_VOTER,"BACK","")
-				'If SponIDChk = "" Or SponIDChk = "F" Then Call ALERTS(LNG_JS_SPONSOR,"BACK","")
-			Case 1
-				'If NominChk	 = "" Or NominChk = "F"	Then Call ALERTS(LNG_JS_VOTER,"BACK","")
-			Case Else
-				Call ALERTS(LNG_MEMBER_LOGINOK_ALERT02,"BACK","")
-		End Select
-
-
+			If strZip = "" Or strADDR1 = "" Or strADDR2 = "" Then Call ALERTS(LNG_JS_ADDRESS1,"back","")
+			If strMobile = "" Then Call ALERTS(LNG_JS_MOBILE,"back","")
+			If chkMobile <> strMobile	Then Call ALERTS(LNG_JS_MOBILE_DOUBLE_CHECK2,"back","")
+		End If
 
 
 	' 값 병합
@@ -305,12 +495,26 @@
 			Set DKRS = Db.execRs("HJP_MEMBER_BUSINESSCODE",DB_PROC,arrParams,DB3)
 			If Not DKRS.BOF And Not DKRS.EOF Then
 				businessCode = DKRS("businesscode")
+				Roadcode = DKRS("Roadcode")							'COSMICO 총판
 			Else
 				businessCode = CONST_CS_MAIN_BUSINESSCODE
+				Roadcode = businessCode
 			End If
 			Call closeRS(DKRS)
 		End If
 
+
+		'▣판매원/소비자
+		Select Case S_SellMemTF
+			Case 0
+				If NominChk	 = "" Or NominChk = "F"	Then Call ALERTS(LNG_JS_VOTER,"BACK","")
+				'If SponIDChk = "" Or SponIDChk = "F" Then Call ALERTS(LNG_JS_SPONSOR,"BACK","")
+				If businessCode = "" Or Roadcode = "" Then Call ALERTS(LNG_JS_CENTER&"(총판)","BACK","")		'COSMICO
+			Case 1
+				'If NominChk	 = "" Or NominChk = "F"	Then Call ALERTS(LNG_JS_VOTER,"BACK","")
+			Case Else
+				Call ALERTS(LNG_MEMBER_LOGINOK_ALERT02,"BACK","")
+		End Select
 
 
 
@@ -344,11 +548,11 @@ Dim Sfile : Set  Sfile = Fso.OpenTextFile(LogPath,8,true)
 		'If NominID1 ="" Or NominID2 = "" Or NominWebID = "" Or NominChk = "F" Then
 
 		If NominCom = "F" Then
-			'If NominID1 ="" Or NominID2 = "" Or NominChk = "F" Then
-			'	NominID1 = "**"		'메타21
-			'	NominID2 = 0
-			'	NominWebID = ""
-			'End If
+			If NominID1 ="" Or NominID2 = "" Or NominChk = "F" Then
+				NominID1 = "**"		'메타21
+				NominID2 = 0
+				NominWebID = ""
+			End If
 
 		Else
 			If NominID1 ="" Or NominID2 = "" Or NominChk = "F" Then
@@ -426,6 +630,7 @@ Dim Sfile : Set  Sfile = Fso.OpenTextFile(LogPath,8,true)
 				If strTel			<> "" Then strTel		= objEncrypter.Encrypt(strTel)
 				If strMobile		<> "" Then strMobile	= objEncrypter.Encrypt(strMobile)
 				If bankNumber		<> "" Then bankNumber	= objEncrypter.Encrypt(BankNumber)
+				If DKRS_strBankNum	<> "" Then DKRS_strBankNum	= objEncrypter.Encrypt(DKRS_strBankNum)
 
 				If DKCONF_ISCSNEW = "T" Then	''▣CS신버전 암/복호화 추가
 					If strEmail			<> "" Then strEmail			= objEncrypter.Encrypt(LCase(strEmail))
@@ -518,6 +723,16 @@ Dim Sfile : Set  Sfile = Fso.OpenTextFile(LogPath,8,true)
 		If Email_CNT > 0 Then Call ALERTS(LNG_AJAX_EMAILCHECK_F,"back","")
 	End If
 
+	'▣ CS 계좌번호중복체크
+	If bankCode <> "" And bankNumber <> "" Then
+		SQL = "SELECT COUNT([mbid]) FROM [tbl_memberinfo] WITH(NOLOCK) WHERE [bankcode] = ? AND [bankaccnt] = ?"
+		arrParams = Array(_
+			Db.makeParam("@strBankCode",adVarChar,adParamInput,10,bankCode), _
+			Db.makeParam("@bankaccnt",adVarchar,adParamInput,100,bankNumber) _
+		)
+		BANKACCNT_COUNT = CInt(Db.execRsData(SQL,DB_TEXT,arrParams,DB3))
+		If BANKACCNT_COUNT > 0 Then Call alerts("이미 등록된 계좌정보가 존재합니다!","go","joinStep01.asp")
+	End If
 
 	'▣후원인 체크 : 추천인의 후원산하로만(형제라인 지정불가) pop_VoterSFV.asp / pop_SponsorSFV.asp
 	If (NominID1 <> "" And NominID2 > 0) And (SponID1 <> "" And SponID2 > 0) And 1=2 Then
@@ -639,6 +854,10 @@ On Error GoTo 0
 			strUserID = AUTO_WEBID_TYPE
 		End IF
 
+		'If snsToken <> "" Then
+		'	strUserID = ""
+		'End If
+
 			'Db.makeParam("@SponLine",adSmallInt,adParamInput,0,SponLine), _
 			'Db.makeParam("@SNSID",adVarWChar,adParamInput,100,sns_authID), _
 		arrParams = Array(_
@@ -688,6 +907,28 @@ On Error GoTo 0
 		THISMEMID2 = arrParams(UBound(arrParams)-1)(4)
 		OUTPUT_VALUE = arrParams(UBound(arrParams))(4)
 
+		'COSMICO 총판등록
+		If Roadcode <> "" Then
+			SQL_RC = "UPDATE [tbl_memberInfo] SET [Roadcode] = ? WHERE [mbid] = ? And [mbid2] = ? "
+			arrParams_RC = Array(_
+				Db.makeParam("@Roadcode",adVarChar,adParamInput,20,Roadcode), _
+				Db.makeParam("@mbid1",adVarChar,adParamInput,20,THISMEMID1), _
+				Db.makeParam("@mbid2",adInteger,adParamInput,0,THISMEMID2) _
+			)
+			Call Db.exec(SQL_RC,DB_TEXT,arrParams_RC,DB3)
+		End If
+
+		'SNS 정보입력
+		If snsToken <> "" Then
+			SQL12 = "UPDATE [tbl_memberInfo] SET [snsType] = ?, [snsToken] = ?  WHERE [mbid] = ? And [mbid2] = ? "
+			arrParams12 = Array(_
+				Db.makeParam("@snsType",adVarChar,adParamInput,10,snsType), _
+				Db.makeParam("@snsToken",adVarWChar,adParamInput,100,snsToken), _
+				Db.makeParam("@mbid1",adVarChar,adParamInput,20,THISMEMID1), _
+				Db.makeParam("@mbid2",adInteger,adParamInput,0,THISMEMID2) _
+			)
+			Call Db.exec(SQL12,DB_TEXT,arrParams12,DB3)
+		End If
 
 		'로그기록생성2
 		On Error Resume Next
@@ -713,8 +954,35 @@ On Error GoTo 0
 			'회원가입 알림톡 발송( )
 			'Call FN_PPURIO_MESSAGE(THISMEMID1, THISMEMID2, "join", "at", "", "")
 
-			'회원가입 문자 발송()
+			'회원가입 문자 발송( )
 			'Call Fn_MemMessage_Send(THISMEMID1, THISMEMID2, "join")
+
+			'핸드폰인증 중복가입 확인값 UPDATE
+			If NICE_MOBILE_CONFIRM_TF = "T" Then
+				If DKRSM_sDupInfo <> "" Then
+					SQLMU = "UPDATE [tbl_memberinfo] SET [mobileAuth] = ? WHERE [mbid] = ? AND [mbid2] = ? "
+					arrParamsMU = Array(_
+						Db.makeParam("@sDupInfo",adVarWChar,adParamInput,100,DKRSM_sDupInfo), _
+						Db.makeParam("@mbid",adVarChar,adParamInput,20,THISMEMID1), _
+						Db.makeParam("@mbid2",adInteger,adParamInput,0,THISMEMID2) _
+					)
+					Call Db.exec(SQLMU,DB_TEXT,arrParamsMU,DB3)
+				End If
+			End If
+
+			'계좌인증 확인값 UPDATE
+			If NICE_BANK_CONFIRM_TF = "T" Then
+				If DKRS_strBankNum <> "" Then
+					SQLBA = "UPDATE [tbl_memberinfo] SET [Reg_bankaccnt] = ? WHERE [mbid] = ? AND [mbid2] = ? "
+					arrParamsBA = Array(_
+						Db.makeParam("@bankNumber",adVarChar,adParamInput,200,DKRS_strBankNum), _
+						Db.makeParam("@mbid",adVarChar,adParamInput,20,THISMEMID1), _
+						Db.makeParam("@mbid2",adInteger,adParamInput,0,THISMEMID2) _
+					)
+					Call Db.exec(SQLBA,DB_TEXT,arrParamsBA,DB3)
+				End If
+			End If
+
 		End If
 
 

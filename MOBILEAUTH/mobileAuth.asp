@@ -36,10 +36,17 @@
 
 		'Call ResRW(sRequestNO,"sRequestNO")
 
+		'Mobile분기 추가
+		If MOB_PATH = "/m" Then
+			MO_CHECK = "ok"
+		Else
+			MO_CHECK = ""
+		End If
+
 		IF iRtn = 0 THEN
 			sRequestNO = clsCPClient.bstrRandomRequestNO
 			session("REQ_SEQ") = sRequestNO		'해킹등의 방지를 위하여 세션을 사용한다면, 세션에 요청번호를 넣는다.
-			session("MO_CHECK") = ""			'only Mobile(MOBILEAUTH 분기)
+			session("MO_CHECK") = MO_CHECK			'only Mobile(MOBILEAUTH 분기)
 		END IF
 		'Call ResRW(sRequestNO,"sRequestNO")
 		'Call ResRW(iRtn,"iRtn")
