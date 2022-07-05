@@ -2,6 +2,11 @@
 
 $input-height: rem(40px);
 
+th, td {
+	&.price {
+		text-align: right !important;
+	}
+}
 .myoffice_pay {
 	.searchs {
 		.labels {
@@ -10,6 +15,7 @@ $input-height: rem(40px);
 			padding-right: 0;
 		}
 	}
+
 	&.pay03 {
 		.buttons {
 			grid-column: 6/13;
@@ -21,7 +27,8 @@ $input-height: rem(40px);
 	@include table-color-wrap($oc-grape-5, true, 'darken');
 	text-align: center;
 
-	th, td {
+	th,
+	td {
 		height: rem(50px);
 	}
 
@@ -35,7 +42,18 @@ $input-height: rem(40px);
 .table {
 	@include table-color($myoffice-color, true);
 
-	th, td {
+	tr {
+		&:hover {
+			background: mix($myoffice-color, #fff, 3);
+
+			td {
+				background: none !important;
+			}
+		}
+	}
+
+	th,
+	td {
 		height: rem(50px);
 	}
 
@@ -47,7 +65,8 @@ $input-height: rem(40px);
 .totals_table {
 	@include table-color-wrap($sub-color, true);
 
-	th, td {
+	th,
+	td {
 		height: rem(50px);
 	}
 }
@@ -65,6 +84,7 @@ $input-height: rem(40px);
 	&.left {
 		width: calc(45% - 50px);
 	}
+
 	&.right {
 		width: 55%;
 	}
@@ -73,9 +93,12 @@ $input-height: rem(40px);
 .pay_detail_table {
 	@include table-color-wrap($nav-color, true, 'darken');
 	text-align: center;
-	th, td {
+
+	th,
+	td {
 		height: rem(45px);
 	}
+
 	.detail_btn {
 		&:not(.noline) {
 			&:hover {
@@ -84,25 +107,26 @@ $input-height: rem(40px);
 			}
 		}
 	}
+
 	.nodata {
 		border-color: mix($nav-color, #fff, 50);
+
 		p {
 			@include flex;
 		}
 	}
+
 	&.nodata {
 		box-shadow: 0px 0px 0px 1px mix($nav-color, #fff, 20);
 	}
 }
 
-$nav-table: (
-	'table-color': mix(#fff, $nav-color, 90),
-	'table-color-darken': darken(mix(#fff, $nav-color, 90), 10),
-	'table-color-wrap': darken(darken(mix(#fff, $nav-color, 90), 10), 20),
-	'table-color-grey': mix(material-color('grey', '300'), mix(#fff, $nav-color, 90), 50),
-	'table-text': mix(#000, darken(mix(#fff, $nav-color, 90), 10), 50),
-	)
-;
+$nav-table: ('table-color': mix(#fff, $nav-color, 90),
+'table-color-darken': darken(mix(#fff, $nav-color, 90), 10),
+'table-color-wrap': darken(darken(mix(#fff, $nav-color, 90), 10), 20),
+'table-color-grey': mix(material-color('grey', '300'), mix(#fff, $nav-color, 90), 50),
+'table-text': mix(#000, darken(mix(#fff, $nav-color, 90), 10), 50),
+);
 
 .sticky-wrap {
 	width: 100%;
@@ -110,23 +134,26 @@ $nav-table: (
 	margin: auto;
 	overflow: hidden;
 	@include position;
+
 	&:before {
 		@include presudo($top: 0, $le: 0, $w: 1px);
 		z-index: 5;
 		background: map-get($nav-table, 'table-color-wrap');
 	}
+
 	&:after {
 		@include presudo($bot: 0, $ri: 0, $w: 1px);
 		z-index: 5;
 		background: map-get($nav-table, 'table-color-wrap');
 	}
 
-	> .line {
+	>.line {
 		&:before {
 			@include presudo($top: 0, $le: 0, $h: 1px);
 			z-index: 5;
 			background: map-get($nav-table, 'table-color-wrap');
 		}
+
 		&:after {
 			@include presudo($bot: 0, $ri: 0, $h: 1px);
 			z-index: 5;
@@ -146,6 +173,7 @@ $nav-table: (
 		width: rem(14px);
 		z-index: 2;
 	}
+
 	&::-webkit-scrollbar-thumb {
 		// background: mix($main-color, material-color('grey', '400'), 0%);
 		background: map-get($nav-table, 'table-color-wrap');
@@ -154,6 +182,7 @@ $nav-table: (
 		@include rounded($radius: rem(14px));
 		cursor: pointer;
 	}
+
 	&::-webkit-scrollbar-track {
 		background: material-color('grey', '100');
 		box-shadow: inset 1px 0 0 #aaa;
@@ -167,9 +196,12 @@ $nav-table: (
 .pay_sticky_table {
 	text-align: center;
 	@include table-color-wrap($nav-color, true, 'darken', true);
-	th, td {
+
+	th,
+	td {
 		height: rem(45px);
 	}
+
 	thead {
 		th {
 			@include position(sticky, $top: 0);
@@ -178,6 +210,7 @@ $nav-table: (
 	}
 
 }
+
 // .sticky-wrap thead th {
 // 	@include position(sticky, $top: -1px);
 // 	border-top: none !important;
@@ -198,11 +231,13 @@ $nav-table: (
 		border-color: $plus-color-darken !important;
 		color: $plus-text !important;
 	}
+
 	td {
 		background: mix(#fff, $plus-color, 50) !important;
 		border-color: $plus-color-grey !important;
 	}
 }
+
 .minus {
 	// $minus-color: mix(#fff, material-color('red'), 90);
 	$minus-color-darken: darken($minus-color, 5);
@@ -214,6 +249,7 @@ $nav-table: (
 		border-color: $minus-color-darken !important;
 		color: $minus-text !important;
 	}
+
 	td {
 		background: mix(#fff, $minus-color, 50) !important;
 		border-color: $minus-color-grey !important;
@@ -274,7 +310,7 @@ $nav-table: (
 			// 	@include transform(translateX(-50%));
 			// }
 		}
-		
+
 		&.arrow {
 			border: 1px solid mix($nav-color, #fff, 35);
 			// border-radius: 100%;
@@ -290,15 +326,18 @@ $nav-table: (
 					@include transform(translateX(-5%));
 				}
 			}
+
 			&.right {
 				i {
 					@include transform(translateX(5%));
 				}
 			}
+
 			&.margin {
 				&.left {
 					margin-right: $font-size;
 				}
+
 				&.right {
 					margin-left: $font-size;
 				}
@@ -313,5 +352,91 @@ $nav-table: (
 				}
 			}
 		}
+	}
+}
+
+th.total {
+	$table-color: mix(#fff, material-color('cyan', '900'), 80);
+	$table-color-darken: darken($table-color, 10);
+	$table-color-grey: mix(material-color('grey', '300'), $table-color, 50);
+	$table-text: mix(#000, $table-color-darken, 50);
+	background: $table-color;
+	border-color: $table-color-darken;
+	color: $table-text;
+
+	&:nth-of-type(2) {
+		border-right: none;
+	}
+}
+
+.underPurchase_detail {
+	padding: 0 !important;
+}
+
+.innerTableVote {
+	$color: $oc-green-8;
+	background: mix(mix($myoffice-color, #fff, 3), material-color('grey', '50'), 50);
+	padding: rem(30px);
+	@include table-color($color, true);
+
+	table {
+		@include table-color-wrap($color, $wrap: true);
+		background: #fff;
+	}
+}
+
+.table {
+	tfoot {
+		$table-color: mix(#fff, $myoffice-color, 90);
+		$table-color: mix($oc-red-1, $table-color, 50);
+		$table-color-darken: darken($table-color, 10);
+		$table-color-grey: mix(material-color('grey', '300'), $table-color, 50);
+		$table-text: mix(#000, $table-color-darken, 50);
+		color: $table-text;
+		@include position;
+		&:before {
+			@include presudo($le: 0, $top: -1px, $h: 1px);
+			background: $table-color-darken;
+			z-index: 1;
+		}
+
+		th {
+			&:first-of-type {
+				border-left: none;
+			}
+
+			&:last-of-type {
+				border-right: none;
+			}
+		}
+
+		td {
+			&:first-of-type {
+				border-left: none;
+			}
+
+			&:last-of-type {
+				border-right: none;
+			}
+		}
+
+		th,
+		td {
+			background: $table-color;
+			font-weight: 500;
+			border: 1px solid $table-color-darken;
+			//border-bottom: none;
+			height: rem(50px);
+			border-top: 1px solid $table-color !important;
+
+		}
+
+		td {
+			text-align: right;
+		}
+	}
+
+	.nodata {
+		text-align: center;
 	}
 }

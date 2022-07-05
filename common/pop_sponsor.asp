@@ -6,9 +6,7 @@
 	'Response.Redirect "/common/pop_VoterSFV.asp"		'후원인은 추천인의 후원조직산하에 존재하는 회원 2021-08-17
 
 	If Not (checkRef(houUrl &"/common/pop_sponsor.asp") _
-			Or checkRef(houUrl &"/common/joinStep_n03_g.asp") _
-			Or checkRef(houUrl &"/common/joinStep04.asp") _
-			Or checkRef(houUrl &"/common/joinStep_n03_m.asp")) Then
+			Or checkRef(houUrl &"/common/joinStep03.asp")) Then
 		Call alerts(LNG_ALERT_WRONG_ACCESS,"close_p_modal","")
 	End If
 

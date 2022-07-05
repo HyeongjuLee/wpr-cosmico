@@ -6,8 +6,7 @@
 
 	'jQuery Modal Dialog방식변경
 	If Not (checkRef(houUrl &"/m/common/pop_voter.asp") _
-			Or checkRef(houUrl &"/m/common/joinStep_n03_g.asp") _
-			Or checkRef(houUrl &"/m/common/joinStep04.asp")) Then
+			Or checkRef(houUrl &"/m/common/joinStep03.asp")) Then
 		Call alerts(LNG_ALERT_WRONG_ACCESS,"close_p_modal","")
 	End If
 %>

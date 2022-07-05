@@ -188,6 +188,7 @@
 		$("#strSubject").attr("disabled",true).attr("placeholder","<%=LNG_CS_GETCATE2_TEXT01%>").val('');
 		$("#Cate2").attr("disabled",true);
 		$("#Cate2").html("<option value=''><%=LNG_CS_GOODSLIST_JS01%></option>");
+		$('tr.file').addClass('disabled');
 
 		if (cate.length == 0) {
 			$("#Cate2").attr("disabled",true);
@@ -226,6 +227,7 @@
 			$("#strContent").attr({"disabled":true, "placeholder":"<%=LNG_CS_GETCATE2_TEXT01%>" }).val('');
 			$("#strSubject").attr("disabled",true).attr("placeholder","<%=LNG_CS_GETCATE2_TEXT01%>").val('');
 			$("#sSelectTF").val('F');
+			$('tr.file').addClass('disabled');
 		} else {
 			$.ajax({
 				type: "POST"
@@ -240,6 +242,7 @@
 					if (jsonData.result == 'SUCCESS') {
 						$("#strContent").attr({"disabled":false, "placeholder":"<%=LNG_1on1_ENTER_INQUIRY%>\n<%=LNG_1on1_ILLEGAL_CONTENT_MAYBE_DELETED%>" }).val(jsonData.resultMsg.replace('\<br \/>\gi', '\n'));
 						$("#strSubject").attr("disabled",false).attr("placeholder","<%=LNG_1on1_ENTER_TITLE%>").val('');
+						$('tr.file').removeClass('disabled');
 					} else {
 						alert(jsonData.resultMsg);
 					}
@@ -280,6 +283,7 @@
 	};
 
 	$(function(){
+		$('tr.file').addClass('disabled');
 		fileNameChange();
 	});
 </script>
@@ -342,7 +346,7 @@
 				<td><textarea name="strContent" id="strContent" class="input_area" style="width:100%; height:340px;resize: none; " disabled="disabled" placeholder="<%=LNG_CS_GETCATE2_TEXT01%>"></textarea></td>
 			</tr>
 			<%If USE_DATA1 = "T" Then%>
-			<tr class="file">
+			<tr class="file disabled">
 				<th><%=LNG_TEXT_FILE1%></th>
 				<td>
 					<div>
@@ -356,7 +360,7 @@
 			</tr>
 			<%End If%>
 			<%If USE_DATA2 = "T" Then%>
-			<tr class="file">
+			<tr class="file disabled">
 				<th><%=LNG_TEXT_FILE2%></th>
 				<td>
 					<div>
@@ -370,7 +374,7 @@
 			</tr>
 			<%End If%>
 			<%If USE_DATA3 = "T" Then%>
-			<tr class="file">
+			<tr class="file disabled">
 				<th><%=LNG_TEXT_FILE3%></th>
 				<td>
 					<div>

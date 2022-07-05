@@ -2,6 +2,7 @@
 
 $contain: rem(1300px);
 $input-height: $input-height - rem(10px);
+$sub-color: $common-button-color;
 
 html,
 body {
@@ -744,7 +745,7 @@ $input-height: $input-height - rem(10px);
 		min-width: $input-height;
 		height: $input-height;
 		color: #fff;
-		background: $myoffice-color;
+		background: $sub-color;
 		cursor: pointer;
 		padding: 0 $font-size;
 		@include rounded(rem(5px));
@@ -891,6 +892,21 @@ $input-height: $input-height - rem(10px);
 	.searchs {
 		.labels {
 			grid-column: 2/6;
+			margin-right: 0;
+			padding-right: 0;
+		}
+	}
+	&.pay03 {
+		.buttons {
+			grid-column: 6/13;
+		}
+	}
+}
+
+#myoffice_pay {
+	.searchs {
+		.labels {
+			grid-column: 2/7;
 			margin-right: 0;
 			padding-right: 0;
 		}

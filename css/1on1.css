@@ -1,4 +1,4 @@
-#counseling { font-size: 1.5rem; margin: 0 auto; }
+#counseling { font-size: 1.5rem; margin: 0 auto; width: 900px; }
 #counseling .input_text, #counseling .input_area, #counseling .input_select { border: none; background: transparent; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; height: 5rem; font-size: inherit; line-height: 1.5; padding: 1rem; padding-left: 2rem; width: 100%; }
 #counseling .notList { display: flex; justify-content: center; align-items: center; height: 20rem; font-size: 1.5rem; font-weight: 500; background: #fafafa; border: 1px solid #eeeeee; color: #212121; }
 #counseling.cs_list .write { overflow: hidden; width: 100%; text-align: center; margin-bottom: 3rem; }
@@ -37,7 +37,6 @@
 #counseling.cs_view .replyInfo2 h6 { border: none; }
 #counseling.cs_view .replyInfo2 .content { padding: 1.5rem 0; }
 
-#counseling.cs_write { width: 900px; overflow: hidden; }
 #counseling.cs_write input, #counseling.cs_write select, #counseling.cs_write textarea { width: 100%; height: 100%; }
 #counseling.cs_write input:disabled, #counseling.cs_write select:disabled, #counseling.cs_write textarea:disabled { background: #f5f5f5; }
 #counseling.cs_write input { height: 5rem; }
@@ -61,18 +60,25 @@
 #counseling.cs_write .board tbody td:last-of-type { border-right: none; }
 #counseling.cs_write .board th { text-align: right; font-size: 1.5rem; font-weight: 400; padding-right: 3rem; }
 #counseling.cs_write .board td { padding: 0; font-size: 1.5rem; }
-#counseling.cs_write .board .category td { display: table-cell; }
 #counseling.cs_write .board .category div { display: flex; justify-content: center; align-items: center; width: 100%; margin: 1rem 0; }
 #counseling.cs_write .board .category div .input_select { margin-left: 1rem; background: #fff; width: calc(50% - 1rem); border: 1px solid #bdbdbd; cursor: pointer; padding-left: 10px; }
 #counseling.cs_write .board .contents td { font-size: 0; }
 #counseling.cs_write .board .contents td textarea { font-size: 1.5rem; }
-#counseling.cs_write .board .file td { padding: 0.75rem 0; font-size: inherit; }
-#counseling.cs_write .board .file td div { height: 100%; }
+#counseling.cs_write .board .file td { padding: 0 1rem; font-size: inherit; }
+#counseling.cs_write .board .file td div { display: flex; justify-content: flex-start; align-items: center; width: 100%; height: 100%; margin: 1rem 0; }
 #counseling.cs_write .board .file td input.active::placeholder { color: #424242; font-weight: 500; }
 #counseling.cs_write .board .file td input.active::-webkit-input-placeholder { color: #424242; font-weight: 500; }
 #counseling.cs_write .board .file td input.active::-moz-input-placeholder { color: #424242; font-weight: 500; }
 #counseling.cs_write .board .file td input.active::-ms-input-placeholder { color: #424242; font-weight: 500; }
-#counseling.cs_write .board .file .upload-name { width: 100%; height: 4.1666666667rem; }
+#counseling.cs_write .board .file .upload-name { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; display: inline-flex; justify-content: center; align-items: center; width: 38%; height: 4rem; padding: 0.75rem; border: 1px solid #e0e0e0; }
+#counseling.cs_write .board .file label { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #080808; background: #212121; display: inline-flex; justify-content: center; align-items: center; height: 4rem; margin-left: 1rem; }
+#counseling.cs_write .board .file label:hover { color: #fff; text-decoration: none; background: #2e2e2e; }
+#counseling.cs_write .board .file label:active { color: #a1a1a1; background: #141414; }
+#counseling.cs_write .board .file label input[type="file"] { position: absolute; visibility: hidden; width: 0; height: 0; }
+#counseling.cs_write .board .file.disabled { background: #f5f5f5; }
+#counseling.cs_write .board .file.disabled label { background: #8b8b8b; border-color: #7f7f7f; }
+#counseling.cs_write .board .file.disabled td { position: relative; }
+#counseling.cs_write .board .file.disabled td:after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 #counseling.cs_write .board .member td { font-size: 0; }
 #counseling.cs_write .board .member td div { display: inline-flex; justify-content: center; align-items: center; width: 50%; height: 100%; font-size: 1.5rem; }
 #counseling.cs_write .board .member td div:first-of-type { border-right: 1px solid #eeeeee; }

@@ -47,8 +47,9 @@
 
 <script type="text/javascript" src="/m/js/ajax.js"></script>
 <!-- <script type="text/javascript" src="joinStep_01.js"></script> -->
-<link rel="stylesheet" href="joinStep.css?v5" />
-<link rel="stylesheet" type="text/css" href="/m/css/common.css?v5" />
+<link rel="stylesheet" href="joinStep.css?" />
+<link rel="stylesheet" href="/m/css/join.css?" />
+<link rel="stylesheet" type="text/css" href="/m/css/common.css?" />
 <script type="text/javascript">
 	// $(function(){
 	// 	$('.sub-header .sub-header-txt').html('<p class="joinStepF"><i class="icon-ok"></i><%=LNG_JOINFINISH_U_ALERT_OUTPUT07%></p>');
@@ -58,8 +59,8 @@
 <body onunload="">
 <!--#include virtual = "/m/_include/header.asp"-->
 <div id="joinStepF" class="common">
+	<h6><i class="icon-ok"></i><%=LNG_JOINFINISH_U_ALERT_OUTPUT07%></h6>
 	<div class="wrap">
-		<h6><%=LNG_JOINFINISH_U_ALERT_OUTPUT07%></h6>
 		<ul>
 			<li>
 				<div><%=LNG_TEXT_MEMID%></div>
@@ -72,14 +73,13 @@
 			</li>
 			<%End If%>
 		</ul>
+		<div class="btnZone">
+			<a class="button" href="/m/shop/index.asp" data-ripplet>MAIN</a>
+			<a class="button promise" href="/m/common/member_login.asp?backURL=/m/index.asp"><%=LNG_TEXT_LOGIN%></a>
+		</div>
 	</div>
-	<div class="btnZone">
-		<a class="button" href="/m/shop/index.asp" data-ripplet>MAIN</a>
-		<a class="button promise" href="/m/common/member_login.asp?backURL=/m/index.asp"><%=LNG_TEXT_LOGIN%></a>
-	</div>
+	<!--#include virtual = "/m/_include/copyright.asp"-->
 </div>
-
-
 
 <script>
 	function selectSellMemTF(value) {
@@ -99,5 +99,3 @@
 	<input type="hidden" name="S_SellMemTF" value = "">
 	<input type="hidden" name="sns_auth" value = "">
 </form>
-
-<!--#include virtual = "/m/_include/copyright.asp"-->

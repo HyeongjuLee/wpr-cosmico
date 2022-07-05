@@ -22,7 +22,7 @@ $myoffice-color3: $oc-orange-7;
 
 $join-color-1: $main-color;
 $join-color-2: $oc-gray-7;
-$common-button-color: $main-color;
+$common-button-color: material-color('indigo', '400');
 
 $plus-color: mix(#fff, $oc-blue-5, 90);
 $minus-color: mix(#fff, $oc-red-5, 90);

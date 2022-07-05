@@ -1,10 +1,9 @@
 @import 'mixin-custom';
-$input-height: rem(50px);
 $sub-color: $myoffice-color;
 #counseling {
 	font-size: $font-size;
 	margin: 0 auto;
-	width: 900px;
+	width: 100%;
 	.input_text,
 	.input_area,
 	.input_select {
@@ -18,12 +17,13 @@ $sub-color: $myoffice-color;
 		padding: rem(10px);
 		padding-left: rem(20px);
 		width: 100%;
+		resize: none;
 	}
 	.input_select {
 	}
 	.notList {
 		@include flex;
-		height: rem(200px);
+		height: calc(#{$contain-height} / 5);
 		font-size: $font-size;
 		font-weight: 500;
 		background: material-color('grey', '50');
@@ -32,15 +32,14 @@ $sub-color: $myoffice-color;
 	}
 	&.cs_list {
 		.write {
-			overflow: hidden;
 			width: 100%;
 			text-align: center;
 			a {
 				@include default-a;
 				@include inline-flex;
-				width: 30%;
+				width: 100%;
 				font-size: $font-size;
-				background: $sub-color;
+				background: $main-color;
 				height: $input-height;
 				color: #fff;
 
@@ -49,10 +48,10 @@ $sub-color: $myoffice-color;
 				}
 
 				&:hover {
-					background: lighten($sub-color, 5);
+					background: lighten($main-color, 5);
 				}
 			}
-			margin-bottom: $font-size * 2;
+			margin-bottom: $font-size;
 		}
 		ul {}
 		li {
@@ -67,44 +66,40 @@ $sub-color: $myoffice-color;
 			}
 			h6 {
 				@include position;
-				@include flex(space-between);
-				//flex-direction: column;
-				font-size: $font-size + rem(2px);
+				@include flex($st, $st);
+				flex-direction: column;
+				font-size: $font-size;
 				font-weight: 500;
-				div {
-					margin: 0;
-				}
 				p {
-					float: right;
 					color: material-color('grey');
-					font-size: $font-size;
-					@include flex(flex-end);
+					font-size: $font-size - rem(5px);
+					@include flex($st);
 
 					i {
 						width: 2px;
 						height: 2px;
 						//height: $font-size - rem(7px);
 						background: material-color('grey', '300');
-						margin: $font-size / 2;
+						margin: 0 $font-size / 2;
 					}
 				}
 				span {
 					@include ellipsis;
-					//margin-right: $font-size;
+					margin: $font-size / 2 0;
 					color: #222;
 				}
 			}
 			div {
-				@include flex(flex-start);
+				@include flex($st);
 				color: material-color('grey');
 				margin-top: $font-size / 2;
 				.answer {
-					padding: 0 rem(5px);
+					padding: 0 round($font-size / 4);
 					border: 1px solid;
 					border-radius: $font-size * 4;
-					font-size: rem(12px);
+					font-size: $font-size - rem(5px);
 					font-weight: 600;
-					margin-left: $font-size;
+					margin-right: $font-size;
 					&.done {
 						color: material-color('blue');
 						border-color: material-color('blue');
@@ -128,7 +123,7 @@ $sub-color: $myoffice-color;
 				}
 				p {
 					color: material-color('grey');
-					font-size: rem(14px);
+					font-size: $font-size - rem(5px);
 					@include inline-flex;
 
 					span {
@@ -260,7 +255,7 @@ $sub-color: $myoffice-color;
 		// overflow: hidden;
 		input, select, textarea {
 			width: 100%;
-			height: 100%;
+			// height: 100%;
 			&:disabled {
 				background: material-color('grey', '100');
 			}
@@ -268,15 +263,13 @@ $sub-color: $myoffice-color;
 		input {
 			height: $input-height;
 		}
-		td {
-			display: table-cell;
-		}
 		.info {
 			border: 1px solid material-color('grey', '100');
 			background: material-color('grey', '50');
 			font-size: $font-size;
 			padding: $font-size;
 			margin-bottom: $font-size * 2;
+			margin-top: $font-size;
 			// margin-left: 20%;
 
 			li {
@@ -286,13 +279,19 @@ $sub-color: $myoffice-color;
 		}
 
 		.board {
-			@include table-color($line: true);
+			// @include table-color;
+			tr {
+				border-top: 1px solid material-color('grey', '300');
+				border-bottom: 1px solid material-color('grey', '300');
+			}
 			padding: 0;
 			th {
 				text-align: right;
-				font-size: $font-size;
-				font-weight: 400;
-				padding-right: $font-size * 2;
+				font-size: $font-size - rem(3px);
+				font-weight: 500;
+				padding-right: rem(10px);
+				background: none !important;
+				color: material-color('grey');
 			}
 			td {
 				//height: auto;
@@ -300,20 +299,20 @@ $sub-color: $myoffice-color;
 				font-size: $font-size;
 			}
 			.category {
-				// td {
-				// 	display: table-cell;
-				// }
 				div {
 					@include flex;
 					width: 100%;
 					margin: rem(10px) 0;
 					.input_select {
-						margin-left: rem(10px);
 						background: #fff;
-						width: calc(50% - #{rem(10px)});
+						width: calc(50% - #{rem(5px)});
+						height: $input-height - rem(5px);
 						border: 1px solid material-color('grey', '400');
 						cursor: pointer;
-						padding-left: 10px;
+						padding-left: rem(10px);
+						&:first-child {
+							margin-right: rem(10px);
+						}
 					}
 				}
 			}
@@ -324,10 +323,11 @@ $sub-color: $myoffice-color;
 			}
 			.contents {
 				td {
-					// height: $input-height * 6;
+					height: $input-height * 5;
 					font-size: 0;
 					textarea {
 						font-size: $font-size;
+						height: 100%;
 					}
 				}
 			}
@@ -367,7 +367,7 @@ $sub-color: $myoffice-color;
 					@include default-0;
 					@include inline-flex;
 					// width: 50%;
-					width: 38%;
+					width: calc(100% - #{rem(140px)});
 					height: round($input-height / 1.2);
 					padding: $font-size / 2;
 					border: 1px solid material-color('grey', '300');
@@ -377,6 +377,7 @@ $sub-color: $myoffice-color;
 					@include inline-flex;
 					height: round($input-height / 1.2);
 					margin-left: rem(10px);
+					width: rem(130px);
 
 					input {
 						&[type="file"] {
@@ -450,16 +451,17 @@ $sub-color: $myoffice-color;
 			// 	}
 			// }
 			.member {
+				&.disabled {
+					background: material-color('grey', '100');
+				}
 				td {
-					font-size: 0;
-
 					div {
 						@include inline-flex;
-						width: 50%;
+						width: 100%;
 						height: 100%;
 						font-size: $font-size;
 						&:first-of-type {
-							border-right: 1px solid material-color('grey', '200')
+							// border-right: 1px solid material-color('grey', '200')
 						}
 					}
 
@@ -572,34 +574,37 @@ $sub-color: $myoffice-color;
 	}
 
 	.btnZone {
-		display: flex;
-		justify-content: center;
+		@include flex;
 		padding: {
 			top: rem(50px);
+			bottom: rem(50px);
 		}
 		width: 100%;
 
 		a, input {
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
+			@include inline-flex;
 			@include default-0;
 			@include rounded;
-			width: rem(210px);
+			// width: rem(210px);
+			// width: calc(50% - #{rem(10px)});
+			width: 50%;
 			height: $input-height;
-			margin: 0 rem(10px);
+			// margin: 0 rem(10px);
 			cursor: pointer;
 			font-size: $font-size + rem(2px);
 			line-height: 1.5;
 			text-align: center;
 			@include transition(all .3s);
 			text-decoration: none;
+			&:first-child {
+				margin-right: rem(20px);
+			}
 			
 			&.button {
 				@include button($basic);
 				margin: 0;
-				width: $default-css;
-				height: $default-css;
+				width: rem(150px);
+				height: $input-height - rem(10px);
 				font-size: 12px;
 
 				&.admin {
@@ -645,4 +650,8 @@ $sub-color: $myoffice-color;
 		}
 
 	}
+}
+
+.pagingNew3 {
+	padding-bottom: rem(50px);
 }

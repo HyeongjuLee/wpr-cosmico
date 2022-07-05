@@ -46,7 +46,7 @@
 %>
 <!--#include virtual = "/m/_include/document.asp"-->
 <!--#include virtual = "/m/_include/jqueryload.asp"-->
-<!-- <link rel="stylesheet" href="1on1.css" /> -->
+<link rel="stylesheet" href="/m/css/1on1.css?" />
 <script type="text/javascript">
 <!--
 	$(document).ready(function() {
@@ -101,7 +101,7 @@
 		<p class="notList"><%=LNG_1ON1_NO_INQUIRY_WRITTEN_BY_ME%></p>
 	<%End If%>
 	<div class="width100">
-		<div class="pagingArea pagingMob5n"><% Call pageListMob5n(PAGE,PAGECOUNT)%></div>
+		<div class="pagingArea pagingNew3"><% Call pageListMob5n(PAGE,PAGECOUNT)%></div>
 	</div>
 
 	<form name="frm" method="get" action="">

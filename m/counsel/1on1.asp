@@ -112,7 +112,7 @@
 %>
 <!--#include virtual = "/m/_include/document.asp"-->
 <!--#include virtual = "/m/_include/jqueryload.asp"-->
-<!-- <link rel="stylesheet" href="1on1.css" /> -->
+<link rel="stylesheet" href="/m/css/1on1.css?" />
 <script type="text/javascript">
 <!--
 
@@ -200,6 +200,7 @@
 		$("#strSubject").attr("disabled",true).attr("placeholder","<%=LNG_CS_GETCATE2_TEXT01%>").val('');
 		$("#Cate2").attr("disabled",true);
 		$("#Cate2").html("<option value=''><%=LNG_CS_GOODSLIST_JS01%></option>");
+		$('tr.file, tr.member').addClass('disabled');
 
 		if (cate.length == 0) {
 			$("#Cate2").attr("disabled",true);
@@ -238,6 +239,7 @@
 			$("#strContent").attr({"disabled":true, "placeholder":"<%=LNG_CS_GETCATE2_TEXT01%>" }).val('');
 			$("#strSubject").attr("disabled",true).attr("placeholder","<%=LNG_CS_GETCATE2_TEXT01%>").val('');
 			$("#sSelectTF").val('F');
+			$('tr.file, tr.member').addClass('disabled');
 		} else {
 			$.ajax({
 				type: "POST"
@@ -250,8 +252,9 @@
 				,success: function(xhrData) {
 					jsonData = $.parseJSON(xhrData);
 					if (jsonData.result == 'SUCCESS') {
-						$("#strContent").attr({"disabled":false, "placeholder":"<%=LNG_1on1_ENTER_INQUIRY%>\n\n<%=LNG_1on1_ILLEGAL_CONTENT_MAYBE_DELETED%>" }).val(jsonData.resultMsg);
+						$("#strContent").attr({"disabled":false, "placeholder":"<%=LNG_1on1_ENTER_INQUIRY%>\n<%=LNG_1on1_ILLEGAL_CONTENT_MAYBE_DELETED%>" }).val(jsonData.resultMsg);
 						$("#strSubject").attr("disabled",false).attr("placeholder","<%=LNG_1on1_ENTER_TITLE%>").val('');
+						$('tr.file').removeClass('disabled');
 					} else {
 						alert(jsonData.resultMsg);
 					}
@@ -294,6 +297,7 @@
 	}
 
 	$(function(){
+		$('tr.file, tr.member').addClass('disabled');
 		fileNameChange();
 	});
 // -->
@@ -313,8 +317,8 @@
 		<table <%=tableatt%> class="board write">
 			<!-- <col width="100" />
 			<col width="*" /> -->
-			<col width="22%" />
-			<col width="78%" />
+			<col width="25%" />
+			<col width="75%" />
 			<tr class="category">
 				<!-- <th><%=LNG_TEXT_CATEGORY%></th> -->
 				<td colspan="2">
@@ -362,7 +366,7 @@
 				</td>
 			</tr>
 			<%If USE_DATA1 = "T" Then%>
-			<tr class="file">
+			<tr class="file disabled">
 				<th><%=LNG_TEXT_FILE1%></th>
 				<td>
 					<div>
@@ -376,7 +380,7 @@
 			</tr>
 			<%End If%>
 			<%If USE_DATA2 = "T" Then%>
-			<tr class="file">
+			<tr class="file disabled">
 				<th><%=LNG_TEXT_FILE2%></th>
 				<td>
 					<div>
@@ -390,7 +394,7 @@
 			</tr>
 			<%End If%>
 			<%If USE_DATA3 = "T" Then%>
-			<tr class="file">
+			<tr class="file disabled">
 				<th><%=LNG_TEXT_FILE3%></th>
 				<td>
 					<div>
@@ -403,7 +407,7 @@
 				</td>
 			</tr>
 			<%End If%>
-			<tr class="member">
+			<tr class="member disabled">
 				<th><%=LNG_TEXT_CONTACT_NUMBER%></th>
 				<td>
 					<div>
@@ -421,7 +425,7 @@
 					</div>
 				</td>
 			</tr>
-			<tr class="member">
+			<tr class="member disabled">
 				<th><%=LNG_TEXT_EMAIL%></th>
 				<td>
 					<div>
