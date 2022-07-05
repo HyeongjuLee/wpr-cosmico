@@ -36,14 +36,12 @@
   ' /api/cs/ppurio/order
 
 
-  '● 회원가입
-	' NICE 계좌인증 + 핸드폰인증
-  ' joinStep01.asp ~ joinStep04Handler.asp
-	'	NICE_BANK_WITH_MOBILE_USE = "T"
-
-	' NICE 계좌인증
-  ' joinStep01.asp ~ joinStep04Handler.asp
-	'	NICE_BANK_WITH_MOBILE_USE = "F"
+  '● 회원가입 전면 통합/개편
+  ' joinStep01.asp → joinStep02.asp → joinStep03.asp → joinStepOK.asp
+	' 기본 + 다국어 + NICE 계좌인증 + 핸드폰인증 + SNS
+  ' NICE_MOBILE_CONFIRM_TF
+  ' NICE_MOBILE_CONFIRM_SOBIJA
+  ' NICE_BANK_CONFIRM_TF
 
 
   '● 바이럴 추천 단축URL    ex) http://abc.com/v/T6Kn

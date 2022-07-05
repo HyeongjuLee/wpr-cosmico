@@ -150,18 +150,18 @@
 		var ids = document.cfrm.strID;
 		if (ids.value == '')
 		{
+			//alert("<%=LNG_JS_ID%>");
 			alert2("<%=LNG_JS_ID%>", "#idCheck", "F");
-			ids.focus();
 			return false;
 		}
 		/*
 		if (/(\w)\1\1/.test(ids.value)){
-			alert2("<%=LNG_JS_ID_FORM_CHECK_01%>", "#idCheck", "F");
+			alert("<%=LNG_JS_ID_FORM_CHECK_01%>");
 			//alert("동일 숫자나 영문은 3번이상 연속으로 사용할 수 없습니다.");
 			return false;
 		}
 		if (ids.value.search('te')>-1 || ids.value.search('TE')>-1) {
-			alert2("<%=LNG_JS_ID_FORM_CHECK_02%>", "#idCheck", "F");
+			alert("<%=LNG_JS_ID_FORM_CHECK_02%>");
 			//alert('아이디에 te는 포함할 수 없습니다.')
 			return false;
 		}
@@ -172,7 +172,7 @@
 			return false;
 		}
 		createRequest();
-		var url = 'ajax_idcheck.asp?ids='+ids.value;
+		var url = '/common/ajax_idcheck.asp?ids='+ids.value;			//PC공통
 		request.open("GET",url,true);
 		request.onreadystatechange = function ChgContent() {
 			if(request.readyState == 4){    // 요청응답상태가 4인지 확인해주고
@@ -190,17 +190,17 @@
 		var ids = document.cfrm.strSSH;
 		if (ids.value == '')
 		{
-			alert("Please enter SSN");
+			alert("<%=LNG_JOINSTEP03_U_JS30%>");
 			ids.focus();
 			return false;
 		}
 		if (ids.value.stripspace().length < 9) {
-			alert("Please enter SSN Number correctly!");
+			alert("<%=LNG_JOINSTEP03_U_JS29%>");
 			ids.focus();
 			return false;
 		}
 		createRequest();
-		var url = 'ajax_SSNcheck.asp?ids='+ids.value;
+		var url = '/common/ajax_SSNcheck.asp?ids='+ids.value;
 		request.open("GET",url,true);
 		request.onreadystatechange = function ChgContent() {
 			if(request.readyState == 4){    // 요청응답상태가 4인지 확인해주고
@@ -215,16 +215,16 @@
 
 
 	function openzip() {
-		openPopup("/common/pop_Zipcode.asp", "Zipcodes", 100, 100, "left=200, top=200");
-	}
-	function openzip_jp() {
-		openPopup("/common/pop_ZipCode_JP.asp", "Zipcodes", 100, 100, "left=200, top=200");		//일본주소
+		openPopup("/m/common/pop_Zipcode.asp", "Zipcodes");
 	}
 	function vote_idcheck() {
-		openPopup("/common/pop_voter.asp", "vote_idcheck", 100, 100, "left=200, top=200");
+		openPopup("/m/common/pop_voter.asp", "vote_idcheck");
 	}
 	function spon_idcheck() {
-		openPopup("/common/pop_Sponsor.asp", "spon_idcheck", 100, 100, "left=200, top=200");
+		openPopup("/m/common/pop_sponsor.asp", "spon_idcheck");
+	}
+	function family_idcheck() {
+		openPopup("/m/common/pop_family.asp", "pop_family");
 	}
 
 	function chkSubmit() {
@@ -251,11 +251,11 @@
 		}
 		<%If S_SellMemTF = 0 Then%>
 			if (f.agree03.value != 'T')
-				{
-					alert("<%=LNG_JS_POLICY03%>");
-					document.location.href = '/common/joinStep01.asp';
-					return false;
-				}
+			{
+				alert("<%=LNG_JS_POLICY03%>");
+				document.location.href = '/common/joinStep01.asp';
+				return false;
+			}
 		<%End If%>
 
 		<%If UCase(Lang) <> "KR" Then%>
@@ -352,12 +352,12 @@
 				} else {
 					/*
 					if (/(\w)\1\1/.test(f.strID.value)){
-						alert2("<%=LNG_JS_ID_FORM_CHECK_01%>", "#idCheck", "F");
+						alert("<%=LNG_JS_ID_FORM_CHECK_01%>");
 						//alert("동일 숫자나 영문은 3번이상 연속으로 사용할 수 없습니다.");
 						return false;
 					}
 					if (f.strID.value.search('te')>-1 || f.strID.value.search('TE')>-1) {
-						alert2("<%=LNG_JS_ID_FORM_CHECK_02%>", "#idCheck", "F");
+						alert("<%=LNG_JS_ID_FORM_CHECK_02%>");
 						//alert('아이디에 te는 포함할 수 없습니다.')
 						return false;
 					}
@@ -421,24 +421,24 @@
 		<%End IF%>
 
 		<%IF S_SellMemTF = 0 Then%>
-			if (f.NominCom.value == 'F') {
-				if (chkEmpty(f.voter) || chkEmpty(f.NominID1) || chkEmpty(f.NominID2) || f.NominChk.value == 'F') {
-					alert("<%=LNG_JS_VOTER%>");
-					$("#popVoter").click();
-					f.voter.focus();
-					return false;
-				}
+		if (f.NominCom.value == 'F') {
+			if (chkEmpty(f.voter) || chkEmpty(f.NominID1) || chkEmpty(f.NominID2) || f.NominChk.value == 'F') {
+				alert("<%=LNG_JS_VOTER%>");
+				$("#popVoter").click();
+				f.voter.focus();
+				return false;
 			}
+		}
 		<%End IF%>
 
 		<%if 1 = 2 then%>
-			if (chkEmpty(f.sponsor) || chkEmpty(f.SponID1) || chkEmpty(f.SponID2) || f.SponIDChk.value == 'F') {
-				alert("<%=LNG_JS_SPONSOR%>");
-				$("#popSponsor").click();
-				f.sponsor.focus();
-				return false;
-			}
-		<%End if%>
+		if (chkEmpty(f.sponsor) || chkEmpty(f.SponID1) || chkEmpty(f.SponID2) || f.SponIDChk.value == 'F') {
+			alert("<%=LNG_JS_SPONSOR%>");
+			$("#popSponsor").click();
+			f.sponsor.focus();
+			return false;
+		}
+		<%End IF%>
 
 		<%If S_SellMemTF = 0 Then 'COSMICO 판매원 계좌정보%>
 			//if (f.bankCode.value != "" || f.bankNumber.value != "" ) {
@@ -468,7 +468,7 @@
 				{
 					alert("본인인증시의 입력정보와 현재 입력된 정보가 틀립니다. 본인인증을 다시 해주세요.");
 					$("#result_text").text("본인인증시의 입력정보와 현재 입력된 정보가 틀립니다").addClass("red2").removeClass("blue2");
-						f.bankCode.focus();
+					f.bankCode.focus();
 					return false;
 				}
 			}
@@ -533,7 +533,7 @@
 			}
 		}
 
-		if (f.strEmail.value == "")	{
+		if (f.strEmail.value == "") {
 			<%IF S_SellMemTF = 0 Then		'COSMICO%>
 				alert2("<%=LNG_JS_EMAIL%>", "#emailCheckTXT", "F");
 				f.strEmail.focus();
@@ -591,7 +591,6 @@
 		document.cfrm.voter.value = '없음';
 		document.cfrm.NominChk.value = 'F';
 	}
-
 	function vote_cancel() {
 		document.cfrm.NominID1.value = '';
 		document.cfrm.NominID2.value = '';
@@ -599,14 +598,15 @@
 		document.cfrm.voter.value = '';
 		document.cfrm.NominChk.value = 'F';
 	}
-	function spon_company() {
+	function spon_company()	{
 		document.cfrm.SponID1.value = '**';
 		document.cfrm.SponID2.value = 0;
 		document.cfrm.SponIDWebID.value = 'admin';
 		document.cfrm.sponsor.value = '본사';
 		document.cfrm.SponIDChk.value = 'T';
 	}
-	function spon_cancel() {
+	function spon_cancel()
+	{
 		document.cfrm.SponID1.value = '';
 		document.cfrm.SponID2.value = '';
 		document.cfrm.SponIDWebID.value = '';
@@ -627,47 +627,43 @@
 		}
 		if (!checkMinorBirth(f.birthYY, f.birthMM , f.birthDD)) return;		// 미성년자체크(생년월일)
 
-    $.ajax({
-      type: "POST"
-      ,url: "/common/ajax_Bank_Confirm.asp"
-      ,data: {
-        "birthYY"		: f.birthYY.value
-        ,"birthMM"		: f.birthMM.value
-        ,"birthDD"		: f.birthDD.value
-        ,"strBankCode"	: f.bankCode.value
-        ,"strBankNum"	: f.bankNumber.value
-        ,"strBankOwner"	: f.M_Name_Last.value+f.M_Name_First.value
-        ,"M_Name_First"	: f.M_Name_First.value
-        ,"M_Name_Last"	: f.M_Name_Last.value
-      }
-      ,success: function(data) {
-        var obj = $.parseJSON(data);
-        alert(obj.message);
-        if (obj.statusCode == '0000')	{
-          $("#result_text").text(obj.message).addClass("blue2").removeClass("red2");
-          $("input[name=strBankCodeCHK").val(obj.strBankCodeCHK)
-          $("input[name=strBankNumCHK").val(obj.strBankNumCHK)
-          $("input[name=strBankOwnerCHK").val(obj.strBankOwnerCHK)
-          $("input[name=birthYYCHK").val(obj.birthYYCHK)
-          $("input[name=birthMMCHK").val(obj.birthMMCHK)
-          $("input[name=birthDDCHK").val(obj.birthDDCHK)
-          $("input[name=TempDataNum").val(obj.TempDataNum)
-          $("input[name=ajaxTF").val("T")
-        } else {
-          $("#result_text").text(obj.message).addClass("red2").removeClass("blue2");
-          $("input[name=ajaxTF").val("F")
-        }
-      }
-      ,error:function(data) {
-        var obj = $.parseJSON(data);
-        alert(obj.message);
-      }
-    });
+		$.ajax({
+			type: "POST"
+			,url: "/common/ajax_Bank_Confirm.asp"
+			,data: {
+				"birthYY"		: f.birthYY.value
+				,"birthMM"		: f.birthMM.value
+				,"birthDD"		: f.birthDD.value
+				,"strBankCode"	: f.bankCode.value
+				,"strBankNum"	: f.bankNumber.value
+				,"strBankOwner"	: f.M_Name_Last.value+f.M_Name_First.value
+				,"M_Name_First"	: f.M_Name_First.value
+				,"M_Name_Last"	: f.M_Name_Last.value
+			}
+			,success: function(data) {
+				var obj = $.parseJSON(data);
+				alert(obj.message);
+				if (obj.statusCode == '0000')	{
+					$("#result_text").text(obj.message).addClass("blue2").removeClass("red2");
+					$("input[name=strBankCodeCHK").val(obj.strBankCodeCHK)
+					$("input[name=strBankNumCHK").val(obj.strBankNumCHK)
+					$("input[name=strBankOwnerCHK").val(obj.strBankOwnerCHK)
+					$("input[name=birthYYCHK").val(obj.birthYYCHK)
+					$("input[name=birthMMCHK").val(obj.birthMMCHK)
+					$("input[name=birthDDCHK").val(obj.birthDDCHK)
+					$("input[name=TempDataNum").val(obj.TempDataNum)
+					$("input[name=ajaxTF").val("T")
+				} else {
+					$("#result_text").text(obj.message).addClass("red2").removeClass("blue2");
+					$("input[name=ajaxTF").val("F")
+				}
+			}
+			,error:function(data) {
+				var obj = $.parseJSON(data);
+				alert(obj.message);
+			}
+		});
 
 	}
-
-	$(function(){
-		$('.sub-header').append('<div class="join-header-txt"><p><%=LNG_JOINSTEP03_U_STITLE01%></p><span class="red"><%=LNG_JOINSTEP03_U_STITLE02%></span></div>');
-	});
 
 </script>

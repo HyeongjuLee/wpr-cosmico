@@ -112,9 +112,8 @@
 
 %>
 <script type="text/javascript">
-
-	function fnPopup(){
-
+	//smtf 구분추가
+	function fnPopup(smtf){
 		var f = document.agreeFrm;
 
     if (f.agree01.checked == false) {
@@ -124,16 +123,18 @@
     }
 
     if (f.agree02.checked == false) {
-      alert("개인정보 취급방침에 대한 동의가 필요합니다.");
+      alert("개인정보 처리방침에 대한 동의가 필요합니다.");
       f.agree02.focus();
       return false;
     }
 
-    if (f.agree03.checked == false) {
-      alert("사업자회원 가입약관에 대한 동의가 필요합니다.");
-      f.agree03.focus();
-      return false;
-    }
+		if (smtf == 0) {
+			if (f.agree03.checked == false) {
+				alert("회원 가입약관에 대한 동의가 필요합니다.");
+				f.agree03.focus();
+				return false;
+			}
+		}
 
 		window.open('', 'popupChk', 'width=500, height=550, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no');
 		document.form_chk.action = "https://nice.checkplus.co.kr/CheckPlusSafeModel/checkplus.cb";

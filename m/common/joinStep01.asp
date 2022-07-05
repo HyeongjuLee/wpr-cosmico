@@ -48,18 +48,23 @@
 	function selectSellMemTF(value) {
 		var f = document.mfrm;
 		f.S_SellMemTF.value = value
-
-		if (value == 0)	{
-			//f.action="joinStep02.asp";			//계좌인증 (or + 핸드폰인증)
-			//f.action="joinStep_n01_m.asp";		//핸드폰인증 (or + 계좌인증)
-		}
-
 		f.submit();
 	}
 </script>
-<form name="mfrm" method="post" action="joinStep_n02_g.asp">
+<form name="mfrm" method="post" action="joinStep02.asp">
 	<input type="hidden" name="S_SellMemTF" value = "">
 	<input type="hidden" name="sns_auth" value = "">
+	<%'SNS 가입%>
+	<input type="hidden" name="snsType" value = "<%=snsType%>" readonly="readonly">
+	<input type="hidden" name="snsToken" value = "<%=snsToken%>" readonly="readonly">
+	<input type="hidden" name="snsName" value = "<%=snsName%>" readonly="readonly">
+	<input type="hidden" name="snsEmail" value = "<%=snsEmail%>" readonly="readonly">
+	<input type="hidden" name="snsBirthday" value = "<%=snsBirthday%>" readonly="readonly">
+	<input type="hidden" name="snsBirthyear" value = "<%=snsBirthyear%>" readonly="readonly">
+	<input type="hidden" name="snsGender" value = "<%=snsGender%>" readonly="readonly">
+	<input type="hidden" name="snsMobile" value = "<%=snsMobile%>" readonly="readonly">
+	<input type="hidden" name="snsFamilyName" value = "<%=snsFamilyName%>" readonly="readonly">
+	<input type="hidden" name="snsGivenName" value = "<%=snsGivenName%>" readonly="readonly">
 </form>
 
 <!--#include virtual = "/m/_include/copyright.asp"-->

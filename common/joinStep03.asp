@@ -689,7 +689,6 @@
 										<input type="button" class="button" onclick="ajax_accountChk();" value="계좌 본인인증" />
 									</div>
 									<p class="summary" id="result_text"></p>
-
 								<%Else %>
 									<%If bankOwner <> "" Then%>
 										<b><%=bankOwner%></b><%'예금주 고정%>

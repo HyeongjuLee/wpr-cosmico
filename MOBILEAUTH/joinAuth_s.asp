@@ -281,6 +281,16 @@
 '▣ 회원중복확인 E
 'DKRS_WebID = "test"
 
+		'성/이름 분리
+		If sName <> "" Then
+			Call FnNameSeparation(sName, M_Name_Last, M_Name_First)
+		End If
+
+		If sBirthDate <> "" And Len(sBirthDate) = 8 Then
+			birthYY = Left(sBirthDate,4)
+			birthMM = Mid(sBirthDate,5,2)
+			birthDD = Right(sBirthDate,2)
+		End If
 
 %>
 <%' If LCase(dType) = "m" Then	%>
@@ -321,6 +331,14 @@
 		location.href = "<%=session("returnUrl")%>" +  "?sRequestNO=<%=sRequestNO%>&sResponseNumber=<%=sResponseNumber%>&sCheckKey=cordova";
 		self.close();
 		<% Else %>
+		//<%'joinStep_n02_g.asp%>
+		opener.document.agreeFrm.cnd.value = 'KR';
+		opener.document.agreeFrm.name.value = '<%=sName%>';
+		opener.document.agreeFrm.M_Name_Last.value = '<%=M_Name_Last%>';
+		opener.document.agreeFrm.M_Name_First.value = '<%=M_Name_First%>';
+		opener.document.agreeFrm.birthYY.value = '<%=birthYY%>';
+		opener.document.agreeFrm.birthMM.value = '<%=birthMM%>';
+		opener.document.agreeFrm.birthDD.value = '<%=birthDD%>';
 		opener.agreeFrm.submit();
 		self.close();
 		<% End If %>
