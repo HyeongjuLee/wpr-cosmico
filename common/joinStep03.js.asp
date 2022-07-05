@@ -525,13 +525,15 @@
 			<%End If%>
 		}
 
-		if (!chkEmpty(f.strTel)) {
-			if (!chkTel(f.strTel.value)) {
-				alert2("정확한 전화번호를 입력해 주세요", "#mobileCheckTXT", "F");
-				f.strTel.focus();
-				return false;
+		<%If snsToken = "" Then%>
+			if (!chkEmpty(f.strTel)) {
+				if (!chkTel(f.strTel.value)) {
+					alert2("정확한 전화번호를 입력해 주세요", "#mobileCheckTXT", "F");
+					f.strTel.focus();
+					return false;
+				}
 			}
-		}
+		<%End If%>
 
 		if (f.strEmail.value == "")	{
 			<%IF S_SellMemTF = 0 Then		'COSMICO%>

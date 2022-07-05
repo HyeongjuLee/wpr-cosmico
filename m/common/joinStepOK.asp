@@ -853,9 +853,11 @@ On Error GoTo 0
 			strUserID = AUTO_WEBID_TYPE
 		End IF
 
-		'If snsToken <> "" Then
-		'	strUserID = ""
-		'End If
+		If snsToken <> "" Then
+			strUserID = ""
+			'HJP_MEMBER_JOIN_CS_GLOBAL 수정!!
+			'USERIDCNT = .. WHERE [webID] = @WebID AND [webID] <> ''
+		End If
 
 			'Db.makeParam("@SponLine",adSmallInt,adParamInput,0,SponLine), _
 			'Db.makeParam("@SNSID",adVarWChar,adParamInput,100,sns_authID), _
@@ -985,8 +987,8 @@ On Error GoTo 0
 		End If
 
 
-'	PRINT OUTPUT_VALUE
-'	RESPONSE.End
+	'PRINT OUTPUT_VALUE
+	'RESPONSE.End
 		Select Case OUTPUT_VALUE
 			Case "BLOCKID1"		: Call ALERTS(LNG_JOINFINISH_U_ALERT_OUTPUT01,"BACK","")
 			Case "BLOCKID2"		: Call ALERTS(LNG_JOINFINISH_U_ALERT_OUTPUT02,"BACK","")

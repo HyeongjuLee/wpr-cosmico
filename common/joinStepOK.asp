@@ -100,6 +100,7 @@
 					Db.makeParam("@hostIP",adVarChar,adParamInput,50,getUserIP) _
 				)
 				SNS_FAKE_CHECK_CNT = Db.execRsData("HJP_SNS_MODULATION_CHECK_CNT",DB_PROC,arrParams,DB3)
+
 				If Int(SNS_FAKE_CHECK_CNT) < 1 Then
 					Call ALERTS("Data modulation! (SNS)","go","/common/joinStep01.asp")
 				End If
@@ -854,9 +855,11 @@ On Error GoTo 0
 			strUserID = AUTO_WEBID_TYPE
 		End IF
 
-		'If snsToken <> "" Then
-		'	strUserID = ""
-		'End If
+		If snsToken <> "" Then
+			strUserID = ""
+			'HJP_MEMBER_JOIN_CS_GLOBAL 수정!!
+			'USERIDCNT = .. WHERE [webID] = @WebID AND [webID] <> ''
+		End If
 
 			'Db.makeParam("@SponLine",adSmallInt,adParamInput,0,SponLine), _
 			'Db.makeParam("@SNSID",adVarWChar,adParamInput,100,sns_authID), _

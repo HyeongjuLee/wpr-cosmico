@@ -121,15 +121,35 @@ $(document).ready(function() {
 			<input class="button" type="submit" value="<%=LNG_TEXT_LOGIN%>" />
 			<a class="button" href="/m/common/joinStep01.asp"><%=LNG_TEXT_JOIN%></a>
 
-			<%If 1=2 Then%>
+			<%If webproIP="T" Then%>
+				<%If SNS_LOGIN_TF = "T" Then%>
 				<div class="sns_login_tit"><i></i><span>SNS 간편 로그인</span></div>
+				<%End If%>
 				<div class="sns_login">
-					<div class="kakao"><a href="#;"><i></i><span>카카오 아이디로 로그인</span></a></div>
-					<div class="naver"><a href="#;"><i></i><span>네이버 아이디로 로그인</span></a></div>
-					<div class="google"><a href="#;"><i></i><span>구글 아이디로 로그인</span></a></div>
-					<div class="facebook"><a href="#;"><i></i><span>페이스북 아이디로 로그인</span></a></div>
+					<%If NAVER_LOGIN_TF = "T" Then%>
+						<%'(1) 버튼 event 처리를 위하여 id를 지정%>
+						<!-- <div id="naverIdLogin"><a id="naverIdLogin_loginButton" href="#"><img src="https://static.nid.naver.com/oauth/big_g.PNG?version=js-2.0.1" height="60"></a></div> -->
+						<div id="naverIdLogin" style="display: none;"></div> <%'아래 커스텀 버튼 동작을 위해%>
+						<div class="naver"><a id="naverIdLogin_customButton" href="#" data-ripplet><i class="icon-naver"></i><span>네이버 아이디로 로그인</span></a></div>
+						<span id="gnbLoginArea" style="display: none;" ><a id="gnbLogin" href="" ></a></span>
+						<!--#include virtual = "/SNS/naver/naverLogin.asp"-->
+					<%End If%>
+					<%If KAKAO_LOGIN_TF = "T" Then%>
+						<div class="kakao"><a href="#" class="kakaoLogin" data-ripplet><i class="icon-kakao"></i><span>카카오 아이디로 로그인</span></a></div>
+						<!--#include virtual = "/SNS/kakao/kakaoLogin.asp"-->
+						<%If webproIP = "T" and 1=1 Then%>
+						<span class="kakaoLogout" style="color:#cdcdcd;">카카오 로그아웃</span>
+						<%End if%>
+					<%End If%>
+					<%If FACEBOOK_LOGIN_TF = "T" Then%>
+						<div class="facebook"><a href="#;" data-ripplet><i class="icon-facebook-1"></i><span>페이스북 아이디로 로그인</span></a></div>
+					<%End If%>
+					<%If GOOGLE_LOGIN_TF = "T" Then%>
+						<div class="google"><a href="#;" data-ripplet><i></i><span>구글 아이디로 로그인</span></a></div>
+					<%End If%>
 				</div>
 			<%End If%>
+
 		</form>
 	</div>
 </div>

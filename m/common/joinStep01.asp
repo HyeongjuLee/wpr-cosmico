@@ -51,6 +51,19 @@
 		f.submit();
 	}
 </script>
+<%
+	'SNS 가입
+	snsType = pRequestTF("snsType",False) : If snsType = "" Then snsType = ""
+	snsToken = pRequestTF("snsToken",False) : If snsToken = "" Then snsToken = ""
+	snsName = pRequestTF("snsName", False)	: If snsName = "" Then snsName = ""
+	snsEmail = pRequestTF("snsEmail", False)	: If snsEmail = "" Then snsEmail = ""
+	snsBirthday = pRequestTF("snsBirthday", False)	: If snsBirthday = "" Then snsBirthday = ""
+	snsBirthyear = pRequestTF("snsBirthyear", False)	: If snsBirthyear = "" Then snsBirthyear = ""
+	snsGender = pRequestTF("snsGender", False)	: If snsGender = "" Then snsGender = ""
+	snsMobile = pRequestTF("snsMobile", False)	: If snsMobile = "" Then snsMobile = ""
+	snsFamilyName = pRequestTF("snsFamilyName", False)	: If snsFamilyName = "" Then snsFamilyName = ""
+	snsGivenName = pRequestTF("snsGivenName", False)	: If snsGivenName = "" Then snsGivenName = ""
+%>
 <form name="mfrm" method="post" action="joinStep02.asp">
 	<input type="hidden" name="S_SellMemTF" value = "">
 	<input type="hidden" name="sns_auth" value = "">

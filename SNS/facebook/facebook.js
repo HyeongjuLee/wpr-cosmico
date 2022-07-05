@@ -1,13 +1,15 @@
+ //meta facebook 개발 중지요청 2022-06-28 10:22
+
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '441549700402549',
+      appId      : '',
       cookie     : true,
       xfbml      : true,
-      version    : 'v10.0'
+      version    : 'v14.0'
     });
-      
-    FB.AppEvents.logPageView();   
-      
+
+    FB.AppEvents.logPageView();
+
   };
 
   (function(d, s, id){
