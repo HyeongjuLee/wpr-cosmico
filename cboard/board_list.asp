@@ -12,7 +12,7 @@
 <%Else%>
 <!--#include virtual = "/_include/document.asp"-->
 <%End If%>
-<link rel="stylesheet" href="css_common.css" />
+<link rel="stylesheet" href="css_common.css?v5" />
 <link rel="stylesheet" href="/css/board.css?" />
 
 <%
@@ -51,7 +51,7 @@
 			FN_PROCEDURE_NAME = "DKP_NBOARD_BOARD_LIST_ORDER1"
 		Case "gallery","gallery2"
 			FN_PROCEDURE_NAME = "DKSP_NBOARD_GALLERY_LIST"
-		Case "movie","movie2"
+		Case "movie","movie2","video_pop"		'팝업동영상 추가
 			FN_PROCEDURE_NAME = "DKSP_NBOARD_MOVIE_LIST"
 	End Select
 
@@ -133,6 +133,8 @@
 		<!--#include file = "Type_gallery.asp" -->
 <%		Case "gallery2","movie2"%>
 		<!--#include file = "Type_gallery2.asp" -->
+<%		Case "video_pop"		'팝업동영상%>
+		<!--#include file = "type_video_popup.asp" -->
 <%		Case "liner"%>
 		<!--#include file = "Type_liner.asp" -->
 <%		Case "review"%>

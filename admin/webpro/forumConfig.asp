@@ -116,6 +116,7 @@
 						<option value="gallery2" <%=isSelect(DKRS_strBoardType,"gallery2")%>>갤러리타입(blog리스트)</option>
 						<option value="movie" <%=isSelect(DKRS_strBoardType,"movie")%>>동영상타입</option>
 						<option value="movie2" <%=isSelect(DKRS_strBoardType,"movie2")%>>동영상타입(blog리스트)</option>
+						<option value="video_pop" <%=isSelect(DKRS_strBoardType,"video_pop")%>>동영상타입(팝업)</option>
 						<option value="liner" <%=isSelect(DKRS_strBoardType,"liner")%>>한 줄 게시판 타입</option>
 						<option value="review" <%=isSelect(DKRS_strBoardType,"review")%>>리뷰게시판</option>
 						<option value="kin" <%=isSelect(DKRS_strBoardType,"kin")%>>지식인타입</option>

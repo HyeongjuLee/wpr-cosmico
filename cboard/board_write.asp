@@ -365,11 +365,12 @@
 			content = content.replace(/<span>/gi, "");
 			//console.log(content);
 
-			if (content == "<p></p>" || content == "" || content == "</span>")
-			{
-				alert("<%=LNG_JS_CONTENTS%>");
-				return false;
-			}
+			<%IF strBoardType <> "video_pop" Then	'팝업동영상X%>
+				if (content == "<p></p>" || content == "" || content == "</span>") {
+					alert("<%=LNG_JS_CONTENTS%>");
+					return false;
+				}
+			<%End If%>
 
 			if (checkDataImages(form.content1.value)) {
 				alert("문자형이미지(드래그 이미지)는 사용할 수 없습니다.");
@@ -541,7 +542,6 @@
 			</colgroup>
 			<%=printCategory%>
 			<%=printName%>
-
 			<tr>
 				<th><%=LNG_TEXT_TITLE%></th>
 				<td class="">
@@ -556,8 +556,15 @@
 			<%=printEmail%>
 			<%=printTel%>
 			<%=printMobile%>
+			<%
+				IF strBoardType = "video_pop" Then		'팝업동영상
+					contentTD_View = "display:none;"
+				Else
+					contentTD_View = ""
+				End If
+			%>
 			<tr>
-				<td colspan="2" class="contentTD" >
+				<td colspan="2" class="contentTD" style="<%=contentTD_View%>">
 					<%If (isEditor = "T" And DK_MEMBER_LEVEL >= intEditorLevel) Or (DK_MEMBER_TYPE = "ADMIN" or DK_MEMBER_TYPE = "OPERATOR") Then%>
 						<input type="hidden" id="WYG_MOD" name="WYG_MOD" value="T" />
 						<textarea name="content1" id="ir1" style="width:100%;height:450px;min-width:610px;display:none;" cols="50" rows="10"><%=defaultWord1%></textarea>

@@ -39,7 +39,7 @@
 		Case "gallery","gallery2"
 			'FN_PROCEDURE_NAME = "DKP_NBOARD_GALLERY_LIST2"
 			FN_PROCEDURE_NAME = "DKSP_NBOARD_GALLERY_LIST"
-		Case "movie","movie2"
+		Case "movie","movie2","video_pop"		'팝업동영상 추가
 			'FN_PROCEDURE_NAME = "DKP_NBOARD_MOVIE_LIST"
 			FN_PROCEDURE_NAME = "DKSP_NBOARD_MOVIE_LIST"
 	End Select
@@ -92,6 +92,9 @@
 
 <%		Case "gallery2","movie2"%>						<!-- 2개씩 -->
 		<!--#include file = "Type_gallery2.asp" -->
+
+<%		Case "video_pop"		'팝업동영상%>
+		<!--#include file = "type_video_popup.asp" -->
 
 <%End Select%>
 

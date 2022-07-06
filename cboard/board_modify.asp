@@ -377,25 +377,26 @@
 			content = content.replace(/<span>/gi, "");
 			console.log(content);
 
-			if (content == "<p></p>" || content == "" || content == "</span>")
-			{
-				alert("<%=LNG_JS_CONTENTS%>");
-				return false;
-			}
+			<%IF strBoardType <> "video_pop" Then	'팝업동영상X%>
+				if (content == "<p></p>" || content == "" || content == "</span>") {
+					alert("<%=LNG_JS_CONTENTS%>");
+					return false;
+				}
+			<%End If%>
 
 			if (checkDataImages(form.content1.value)) {
 				alert("문자형이미지(드래그 이미지)는 사용할 수 없습니다.");
 				return false;
 			}
 
-		 <%if isEmail = "T" And isEmailTF = "T" then%>	if(!chkNull(form.strEmail, "<%=LNG_JS_EMAIL%>")) return false;<%end if%>
-		 <%if isEmail = "T" And isEmailTF = "T" then%>	if(!chkMail(form.strEmail, "<%=LNG_JS_EMAIL_CONFIRM%>")) return false;<%end if%>
-		 <%if isTel = "T" And isTelTF = "T" then%>		if(!chkNull(form.strTel, "<%=LNG_JS_TEL%>")) return false;<%end if%>
-		 <%if isMobile = "T" And isMobileTF = "T" then%>if(!chkNull(form.strMobile, "<%=LNG_JS_MOBILE%>")) return false;<%end if%>
-		 <%if isLink1 = "T" And isLink1TF = "T" then%>	if(!chkNull(form.strLink1, "<%=LNG_JS_LINK1%>")) return false;<%end if%>
-		 <%if isData1 = "T" And isData1TF = "T" then%>	if(!chkNull(form.strData1, "<%=LNG_JS_FILE1%>")) return false;<%end if%>
-		 <%if isData2 = "T" And isData2TF = "T" then%>	if(!chkNull(form.strData2, "<%=LNG_JS_FILE2%>")) return false;<%end if%>
-		 <%if isData3 = "T" And isData3TF = "T" then%>	if(!chkNull(form.strData3, "<%=LNG_JS_FILE3%>")) return false;<%end if%>
+		<%if isEmail = "T" And isEmailTF = "T" then%>	if(!chkNull(form.strEmail, "<%=LNG_JS_EMAIL%>")) return false;<%end if%>
+		<%if isEmail = "T" And isEmailTF = "T" then%>	if(!chkMail(form.strEmail, "<%=LNG_JS_EMAIL_CONFIRM%>")) return false;<%end if%>
+		<%if isTel = "T" And isTelTF = "T" then%>		if(!chkNull(form.strTel, "<%=LNG_JS_TEL%>")) return false;<%end if%>
+		<%if isMobile = "T" And isMobileTF = "T" then%>if(!chkNull(form.strMobile, "<%=LNG_JS_MOBILE%>")) return false;<%end if%>
+		<%if isLink1 = "T" And isLink1TF = "T" then%>	if(!chkNull(form.strLink1, "<%=LNG_JS_LINK1%>")) return false;<%end if%>
+		<%if isData1 = "T" And isData1TF = "T" then%>	if(!chkNull(form.strData1, "<%=LNG_JS_FILE1%>")) return false;<%end if%>
+		<%if isData2 = "T" And isData2TF = "T" then%>	if(!chkNull(form.strData2, "<%=LNG_JS_FILE2%>")) return false;<%end if%>
+		<%if isData3 = "T" And isData3TF = "T" then%>	if(!chkNull(form.strData3, "<%=LNG_JS_FILE3%>")) return false;<%end if%>
 		// <%if isPic = "T" And isPicTF = "T" then%>		if(!chkNull(form.strPic, "<%=LNG_JS_THUMBNAIL%>")) return false;<%end if%>
 
 			<%IF isPic = "T" THEN%>
@@ -430,8 +431,6 @@
 			<%IF isMovie = "T" AND isMovieTF = "T" THEN%> //추가
 				if(!chkNull(form.movieURL, "<%=LNG_JS_MOVIE_ADDRESS%>")) return false;
 			<%END IF%>
-
-
 	}
 	function thisDeChk1() {
 		var f = document.frm;
@@ -441,14 +440,7 @@
 			f.firstChk.value = 'F';
 			f.content1.value = "";
 		}
-
-
-
-
 	}
-
-
-
 	function thisDeChk2() {
 		var f = document.frm;
 
@@ -495,7 +487,6 @@
 				<col width="*" />
 			</colgroup>
 			<%=printCategory%>
-
 			<tr>
 				<th><%=LNG_TEXT_TITLE%></th>
 				<td class="">
@@ -505,14 +496,20 @@
 					<%End If%>
 				</td>
 			</tr>
-
 			<%=printName%>
 			<%=printPass%>
 			<%=printEmail%>
 			<%=printTel%>
 			<%=printMobile%>
+			<%
+				IF strBoardType = "video_pop" Then		'팝업동영상
+					contentTD_View = "display:none;"
+				Else
+					contentTD_View = ""
+				End If
+			%>
 			<tr>
-				<td colspan="2" class="contentTD">
+				<td colspan="2" class="contentTD" style="<%=contentTD_View%>">
 					<%If (isEditor = "T" And DK_MEMBER_LEVEL >= intEditorLevel) Or (DK_MEMBER_TYPE = "ADMIN" or DK_MEMBER_TYPE = "OPERATOR") Then%>
 						<input type="hidden" id="WYG_MOD" name="WYG_MOD" value="T" />
 						<textarea name="content1" id="ir1" style="width:100%;height:450px;min-width:610px;display:none;" cols="50" rows="10"><%=backword(strContent)%></textarea>
@@ -543,6 +540,9 @@
 					<input type="submit" class="button write" value="<%=LNG_BOARD_BTN_SAVE%>" />
 					<input type="button" class="button" value="<%=LNG_BOARD_BTN_LIST%>" onclick="history.back(-1);"/>
 
+					<%IF DK_MEMBER_TYPE = "ADMIN" And strBoardType = "video_pop" Then	'팝업동영상%>
+					<input type="button" class="button delete" value="<%=LNG_BOARD_BTN_DELETE%>" onclick="javascript:delFrm('<%=intIDX%>');"/>
+					<%End If%>
 
 				</td>
 			</tr>
@@ -550,6 +550,26 @@
 	</form>
 </div>
 </div>
+<%IF strBoardType = "video_pop" Then	'팝업동영상X%>
+	<script>
+		function delFrm(idx) {
+			var f = document.w_form;
+			if (confirm("<%=LNG_JS_DELETE_POST%>")) {
+				f.action = 'board_delete.asp';
+				f.target = "_self";
+				f.submit();
+			}
+		}
+	</script>
+	<form name="w_form" method="post" action="">
+		<input type="hidden" name="strBoardName" value="<%=strBoardName%>" />
+		<input type="hidden" name="intIDX" value="<%=intIDX%>" />
+		<input type="hidden" name="list" value="<%=intList%>" />
+		<input type="hidden" name="depth" value="<%=intDepth%>" />
+		<input type="hidden" name="ridx" value="<%=intRIDX%>" />
+	</form>
+<%End If%>
+
 <%IF CONST_MOBILE_ONLY = "T" Then%>
 <!--#include virtual = "/admin/_inc/copyright.asp"-->
 <%Else%>

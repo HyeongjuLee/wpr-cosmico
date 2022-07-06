@@ -173,7 +173,10 @@
 				return false;
 			}
 		<%end if%>
-		if(!chkNull(form.content1, "<%=LNG_JS_CONTENTS%>")) return false;
+
+		<%IF strBoardType <> "video_pop" Then	'팝업동영상X%>
+			if(!chkNull(form.content1, "<%=LNG_JS_CONTENTS%>")) return false;
+		<%End If%>
 
 		if (checkDataImages(form.content1.value)) {
 			alert("문자형이미지(드래그 이미지)는 사용할 수 없습니다.");
@@ -335,7 +338,14 @@
 						</td>
 					</tr>
 				<%End If%>
-				<tr class="contents">
+				<%
+					IF strBoardType = "video_pop" Then		'팝업동영상
+						contentTD_View = "display:none;"
+					Else
+						contentTD_View = ""
+					End If
+				%>
+				<tr class="contents" style="<%=contentTD_View%>">
 					<td colspan="2">
 						<input type="hidden" name="firstChk" value="T" />
 						<textarea name="content1" cols="" rows="" onclick="thisDeChk1();" ><%=backword(strContent)%></textarea>
@@ -472,6 +482,10 @@
 						<td colspan="2">
 							<input type="submit" class="button save" value="<%=LNG_BOARD_BTN_SAVE%>" />
 							<input type="button" class="button" value="<%=LNG_BOARD_BTN_LIST%>" onclick="history.back(-1);"/>
+
+							<%IF DK_MEMBER_TYPE = "ADMIN" And strBoardType = "video_pop" Then	'팝업동영상%>
+								<input type="button" class="button delete" value="<%=LNG_BOARD_BTN_DELETE%>" onclick="javascript:delFrm('<%=intIDX%>');"/>
+							<%End If%>
 							<!-- <input type="submit" value="<%=LNG_BOARD_BTN_WRITE%>" style="padding:10px 20px;" />
 							<input type="button" value="<%=LNG_BOARD_BTN_LIST%>" onclick="history.back(-1);" style="padding:10px 20px;"  /> -->
 						</td>
@@ -485,6 +499,26 @@
 <!--include virtual="/_inc/menuWrapper_hair2.asp"-->
 <!--include virtual="/_inc/menuWrapper_hair.asp"-->
 <!--include virtual="/_inc/footer.asp"-->
+
+<%IF strBoardType = "video_pop" Then	'팝업동영상X%>
+	<script>
+		function delFrm(idx) {
+			var f = document.w_form;
+			if (confirm("<%=LNG_JS_DELETE_POST%>")) {
+				f.action = 'board_delete.asp';
+				f.target = "_self";
+				f.submit();
+			}
+		}
+	</script>
+	<form name="w_form" method="post" action="">
+		<input type="hidden" name="strBoardName" value="<%=strBoardName%>" />
+		<input type="hidden" name="intIDX" value="<%=intIDX%>" />
+		<input type="hidden" name="list" value="<%=intList%>" />
+		<input type="hidden" name="depth" value="<%=intDepth%>" />
+		<input type="hidden" name="ridx" value="<%=intRIDX%>" />
+	</form>
+<%End If%>
 
 <!--#include virtual = "/m/_include/copyright.asp"-->
 </body>

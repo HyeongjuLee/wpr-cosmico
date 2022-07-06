@@ -119,7 +119,10 @@
 				return false;
 			}
 		<%end if%>
-		if(!chkNull(form.content1, "<%=LNG_JS_CONTENTS%>")) return false;
+
+		<%IF strBoardType <> "video_pop" Then	'팝업동영상X%>
+			if(!chkNull(form.content1, "<%=LNG_JS_CONTENTS%>")) return false;
+		<%End If%>
 
 		if (checkDataImages(form.content1.value)) {
 			alert("문자형이미지(드래그 이미지)는 사용할 수 없습니다.");
@@ -338,7 +341,14 @@
 						</td>
 					</tr>
 				<%End If%>
-				<tr class="contents">
+				<%
+					IF strBoardType = "video_pop" Then		'팝업동영상
+						contentTD_View = "display:none;"
+					Else
+						contentTD_View = ""
+					End If
+				%>
+				<tr class="contents" style="<%=contentTD_View%>">
 					<td colspan="2">
 						<input type="hidden" name="firstChk" value="T" />
 						<!-- <textarea name="content1" cols="" rows="" style="width:98%; height:180px;resize:none;" onclick="thisDeChk1();" ><%=backword(defaultWord)%></textarea> -->

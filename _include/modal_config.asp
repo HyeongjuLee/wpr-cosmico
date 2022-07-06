@@ -69,8 +69,8 @@
 				$('.ui-dialog-title').wrapInner('<i></i>');
 
 				<%If MODAL_NO_CLOSE_BUTTON = "T" Then%>
-				$(".ui-dialog-titlebar-close").css({"visibility":"hidden"});
-				//$(".ui-dialog-buttonset ").css({"visibility":"hidden"});
+					//$(".ui-dialog-titlebar-close").css({"visibility":"hidden"});
+					$(".ui-dialog-buttonpane").css({"display":"none"});
 				<%End If%>
 			},300);
 			$("#modalIFrame").attr('src',url);
