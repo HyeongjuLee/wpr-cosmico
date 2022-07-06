@@ -8,6 +8,14 @@
 			INFO_MODE	 = "NOTICE1-3"
 		End If
 
+		If DK_MEMBER_TYPE = "ADMIN" Then
+			If MOB_PATH = "/m" Then
+				Call ALERTS(LNG_STRCHECK_TEXT02,"BACK","")
+			Else
+				Response.Redirect "/admin/manage/1on1_list.asp"
+			End If
+		End If
+
 		ISLEFT = "T"
 		ISSUBTOP = "T"
 		ISSUBVISUAL = "T"

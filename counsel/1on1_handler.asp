@@ -35,7 +35,7 @@
 	category1		= upfORM("Cate1",True)
 	category2		= upfORM("Cate2",True)
 	strEmail		= upfORM("strEmail",False)
-	strMobile		= upfORM("strMobile",True)
+	strMobile		= upfORM("strMobile",False)
 	strSubject		= upfORM("strSubject",True)
 	strContent		= upfORM("strContent",True)
 
@@ -48,6 +48,10 @@
 
 	If Left(category2,3) <> category1 Then Call ALERTS(LNG_ALERT_WRONG_ACCESS,"BACK","")
 
+	AstrEmail		= upfORM("AstrEmail",False)
+	AstrMobile		= upfORM("AstrMobile",False)
+	strEmail = AstrEmail
+	strMobile = AstrMobile
 
 '	strEmail = "dlkjsdklsjd@paran.com"
 	'If EmailCheck(strEmail) = False Then Call ALERTS(LNG_JS_EMAIL_CONFIRM&"1","BACK","")
@@ -60,12 +64,22 @@
 		If strMobile	<> "" Then strMobile	= objEncrypter.Encrypt(strMobile)
 
 	Set objEncrypter = Nothing
-	'strData1 = ""
-	'strData2 = ""
-	'strData3 = ""
-	strData1 = FN_FILEUPLOAD("strData1","F",MaxDataSize1,REAL_PATH2("/uploadData/counselData1"),"")
-	strData2 = FN_FILEUPLOAD("strData2","F",MaxDataSize2,REAL_PATH2("/uploadData/counselData2"),"")
-	strData3 = FN_FILEUPLOAD("strData3","F",MaxDataSize3,REAL_PATH2("/uploadData/counselData3"),"")
+
+	If USE_DATA1 = "T" Then
+		strData1 = FN_FILEUPLOAD("strData1","F",MaxDataSize1,REAL_PATH2("/uploadData/counselData1"),"")
+	Else
+		strData1 = ""
+	End If
+	If USE_DATA2 = "T" Then
+		strData2 = FN_FILEUPLOAD("strData2","F",MaxDataSize2,REAL_PATH2("/uploadData/counselData2"),"")
+	Else
+		strData2 = ""
+	End If
+	If USE_DATA3 = "T" Then
+		strData3 = FN_FILEUPLOAD("strData3","F",MaxDataSize3,REAL_PATH2("/uploadData/counselData3"),"")
+	Else
+		strData3 = ""
+	End If
 
 	arrParams = Array(_
 		Db.makeParam("@strCate",adVarChar,adParamInput,40,category2), _

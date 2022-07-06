@@ -104,10 +104,9 @@
 	End If
 	Call closeRS(DKRS)
 
-
-	If DKRS_hptel = "" Then
-		Call ALERTS(LNG_1on1_NO_MOBILE01&"\n"&LNG_1on1_GOTO_MYPAGE,"GO",M_MEMBER_INFO_LINK_URL)
-	End If
+	'If DKRS_hptel = "" Then
+	'	'Call ALERTS(LNG_1on1_NO_MOBILE01&"\n"&LNG_1on1_GOTO_MYPAGE,"GO",M_MEMBER_INFO_LINK_URL)
+	'End If
 
 %>
 <!--#include virtual = "/m/_include/document.asp"-->
@@ -255,6 +254,14 @@
 						$("#strContent").attr({"disabled":false, "placeholder":"<%=LNG_1on1_ENTER_INQUIRY%>\n<%=LNG_1on1_ILLEGAL_CONTENT_MAYBE_DELETED%>" }).val(jsonData.resultMsg);
 						$("#strSubject").attr("disabled",false).attr("placeholder","<%=LNG_1on1_ENTER_TITLE%>").val('');
 						$('tr.file').removeClass('disabled');
+
+						<%If DKRS_hptel = "" Then%>
+							$("input[name=AstrMobile]").attr("disabled",false).css("background","#fff");
+						<%End If %>
+						<%If DKRS_Email = "" Then%>
+							$("input[name=AstrEmail]").attr("disabled",false).css("background","#fff");
+						<%End If %>
+
 					} else {
 						alert(jsonData.resultMsg);
 					}
@@ -281,7 +288,33 @@
 		if (!chkNull(f.Cate2,"<%=LNG_CS_GETCATE2_TEXT02%>")) return false;
 		if (!chkNull(f.strSubject,"<%=LNG_COUNSEL_JS04%>")) return false;
 		if (!chkNull(f.strContent,"<%=LNG_COUNSEL_JS05%>")) return false;
-		if (!chkNull(f.strMobile,"<%=LNG_JS_MOBILE%>")) return false;
+		//if (!chkNull(f.strMobile,"<%=LNG_JS_MOBILE%>")) return false;
+
+		<%IF DKRS_hptel = "" Then%>
+			if (chkEmpty(f.AstrMobile)) {
+				alert("<%=LNG_JS_MOBILE%>");
+				f.AstrMobile.focus();
+				return false;
+			}
+			if (!chkMob(f.AstrMobile.value)) {
+				alert("<%=LNG_JS_MOBILE_FORM_CHECK%>");
+				f.AstrMobile.focus();
+				return false;
+			}
+		<%End If%>
+		<%IF DKRS_Email = "" Then%>
+			if (f.AstrEmail.value == '')
+			{
+				alert("<%=LNG_JS_EMAIL%>");
+				f.AstrEmail.focus();
+				return false;
+			}
+			if (!checkEmail(f.AstrEmail.value)) {
+				alert("<%=LNG_JS_EMAIL_CONFIRM%>");
+				f.AstrEmail.focus();
+				return false;
+			}
+		<%End If%>
 
 		f.submit();
 	}
@@ -307,7 +340,7 @@
 <!--#include virtual = "/m/_include/header.asp"-->
 <input type="hidden" name="fSelectTF" id="fSelectTF" value="F" />
 <input type="hidden" name="sSelectTF" id="sSelectTF" value="F" />
-<div id="counseling" class="cs_write">
+<div id="counseling" class="cs_write" style>
 	<ul class="info">
 		<!-- <li><%=LNG_1on1_NOTICE01%></li> -->
 		<li><%=LNG_1on1_NOTICE02%></li>
@@ -411,7 +444,7 @@
 				<th><%=LNG_TEXT_CONTACT_NUMBER%></th>
 				<td>
 					<div>
-						<input type="text" name="AstrMobile" class="input_text" disabled="disabled" value="<%=DKRS_hptel%>" placeholder="" />
+						<input type="text" name="AstrMobile" class="input_text" disabled="disabled" value="<%=DKRS_hptel%>" maxlength="15" <%=onLyKeys%> placeholder="" />
 						<input type="hidden" name="strMobile" value="<%=DKRS_hptel%>" readonly="readonly" />
 						<%If USE_REPLY_MMS = "T" Then%>
 							<label for="isSmsSend">
@@ -451,11 +484,12 @@
 			</tr>
 		</table>
 		<div class="btnZone">
-			<%If DKRS_hptel = "" Then %>
+			<!-- <%If DKRS_hptel = "" Then %>
 			<a href="javascript:alert('<%=LNG_1on1_NO_MOBILE01%>');" class="promise"><%=LNG_1on1_REGISTER%></a>
 			<%Else%>
 			<a href="javascript:chkThisForm();" class="promise"><%=LNG_1on1_REGISTER%></a>
-			<%End If%>
+			<%End If%> -->
+			<a href="javascript:chkThisForm();" class="promise"><%=LNG_1on1_REGISTER%></a>
 			<a href="javascript:history.back();" class="cancel"><%=LNG_1on1_CANCEL%></a>
 		</div>
 	</form>

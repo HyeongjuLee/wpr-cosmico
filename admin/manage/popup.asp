@@ -5,19 +5,21 @@
 	ADMIN_LEFT_MODE = "MANAGE"
 	'INFO_MODE = "MANAGE6-1"
 	W1200 = "T"
-	strNationCode = Request("nc")
+
+	'strNationCode = Request("nc")
+	strNationCode = viewAdminLangCode
 	strMobile	  = Request("mb")
 
 	If strMobile = "" Then strMobile = "F"
 
-	arrParams_FA = Array(Db.makeParam("@strNationCode",adVarChar,adParamInput,6,strNationCode))
-	Set DKRS_FA = Db.execRs("DKSP_SITE_NATION_VIEW",DB_PROC,arrParams_FA,Nothing)
-	If Not DKRS_FA.BOF And Not DKRS_FA.EOF Then
-		DKRS_FA_strNationName	= DKRS_FA("strNationName")
-		DKRS_FA_intSort			= DKRS_FA("intSort")
-	Else
-		Call ALERTS("설정되지 않은 국가입니다!","BACK","")
-	End If
+	'arrParams_FA = Array(Db.makeParam("@strNationCode",adVarChar,adParamInput,6,strNationCode))
+	'Set DKRS_FA = Db.execRs("DKSP_SITE_NATION_VIEW",DB_PROC,arrParams_FA,Nothing)
+	'If Not DKRS_FA.BOF And Not DKRS_FA.EOF Then
+	'	DKRS_FA_strNationName	= DKRS_FA("strNationName")
+	'	DKRS_FA_intSort			= DKRS_FA("intSort")
+	'Else
+	'	Call ALERTS("설정되지 않은 국가입니다!","BACK","")
+	'End If
 
 	'모바일 팝업
 	If strMobile = "T" Then
