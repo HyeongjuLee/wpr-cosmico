@@ -103,7 +103,7 @@
 					</div>
 					<ul>
 						<li><a href="/cboard/board_list.asp?bname=myoffice"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-1",LNG_MYOFFICE_NOTICE)%></a></li>
-						<li><a href="/faq/faq_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-2",LNG_FAQ)%></a></li>
+						<!-- <li><a href="/faq/faq_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-2",LNG_FAQ)%></a></li> -->
 						<li><a href="/counsel/1on1_list.asp"><%=Fnc_leftmenu_color(INFO_MODE,"NOTICE1-3",LNG_1ON1)%></a></li>
 					</ul>
 				</div>

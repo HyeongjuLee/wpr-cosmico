@@ -60,13 +60,12 @@
 		If strMobile	<> "" Then strMobile	= objEncrypter.Encrypt(strMobile)
 
 	Set objEncrypter = Nothing
-	strData1 = ""
-	strData2 = ""
-	strData3 = ""
-
-'	strData1 = FN_FILEUPLOAD("strData1","F",MaxDataSize1,REAL_PATH2("/uploadData/counselData1"),"")
-'	strData2 = FN_FILEUPLOAD("strData2","F",MaxDataSize2,REAL_PATH2("/uploadData/counselData2"),"")
-'	strData3 = FN_FILEUPLOAD("strData3","F",MaxDataSize3,REAL_PATH2("/uploadData/counselData3"),"")
+	'strData1 = ""
+	'strData2 = ""
+	'strData3 = ""
+	strData1 = FN_FILEUPLOAD("strData1","F",MaxDataSize1,REAL_PATH2("/uploadData/counselData1"),"")
+	strData2 = FN_FILEUPLOAD("strData2","F",MaxDataSize2,REAL_PATH2("/uploadData/counselData2"),"")
+	strData3 = FN_FILEUPLOAD("strData3","F",MaxDataSize3,REAL_PATH2("/uploadData/counselData3"),"")
 
 	arrParams = Array(_
 		Db.makeParam("@strCate",adVarChar,adParamInput,40,category2), _

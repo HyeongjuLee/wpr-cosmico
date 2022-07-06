@@ -3,10 +3,10 @@
 
 		PAGE_SETTING = "CUSTOMER"
 
-		' If MYOFFICE_MODE_TF = "T" Then
-		' 	PAGE_SETTING = "MYOFFICE"
-		' 	INFO_MODE	 = "NOTICE1-3"
-		' End If
+		If MYOFFICE_MODE_TF = "T" Then
+			PAGE_SETTING = "MYOFFICE"
+			INFO_MODE	 = "NOTICE1-3"
+		End If
 
 		ISLEFT = "T"
 		ISSUBTOP = "T"
