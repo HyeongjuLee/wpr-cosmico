@@ -1,14 +1,15 @@
 <%
 	'동영상 레이어 팝업 view
 
-	PCONF_LINECNT = 4
+	PCONF_LINECNT = 3
 
 	' 총 WIDTH 값에서 썸네일 갯수에 맞춰 LEFT-MARGIN 값 설정
 	' 이미지 넓이는 border 를 포함하여 2를 더해준다
 	ImgsLeftMargin = Int((1050 - (252*PCONF_LINECNT)) / (PCONF_LINECNT-1))
 	'print ImgsLeftMargin
 %>
-<link rel="stylesheet" type="text/css" href="/jscript/youtubepopup/youtubePopup.css">
+<!-- <link rel="stylesheet" type="text/css" href="/jscript/youtubepopup/youtubePopup.css"> -->
+<link rel="stylesheet" href="/css/type_video_popup.css?">
 <script type="text/javascript" src="/jscript/youtubepopup/youtubePopup.jquery.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -16,9 +17,8 @@
 	});
 </script>
 
-<div id="img_board" class="" >
-	<div id="thumb_image" class="cleft width100 img_board_Line">
-		<div class="thumb_image">
+<div id="img_board" class="video_popup">
+	<ul>
 		<%
 			If IsArray(arrList) Then
 				For i = 0 To listLen
@@ -60,7 +60,7 @@
 					newimgWidth = 0
 					newimgHeight = 0
 
-					NEW_LENGTH = 150
+					NEW_LENGTH = 230
 					Call imgInfoNew(imgPath,newimgWidth,newimgHeight,"",NEW_LENGTH)
 
 					imgPaddingW = (NEW_LENGTH - newimgWidth)/2
@@ -74,63 +74,53 @@
 
 					liMarginTop = (170 - newimgHeight) / 2
 
-					thumbImg = "<img src="""&imgPath&""" width="""&newimgWidth&""" height="""&newimgHeight&""" alt="""" style=""margin-top:"&liMarginTop&"px""/>"
+					thumbImg = "<img src="""&imgPath&""" width="""&newimgWidth&""" height="""&newimgHeight&""" alt="""" style=""mar gin-top:"&liMarginTop&"px""/>"
 
 					'NO IMAGE
 					If arrList_strPic = "" Then
-						thumbImg = "<img src=""/images/noimages.png"" width=""170"" hei ght=""75"" alt="""" style=""margin-top:30px""/>"
+						thumbImg = "<img src=""/images/noimages.png"" width=""170"" hei ght=""75"" alt="""" style=""mar gin-top:30px""/>"
 					End If
 
 					isFirst = ""
 
-					If (i) Mod PCONF_LINECNT = 0 Or i = 0 Then
-						PRINT "<div class=""cleft width100"">"
-					Else
-						isFirst = " style=""margin-left:"&ImgsLeftMargin&"px"" "
-					End If
+					' If (i) Mod PCONF_LINECNT = 0 Or i = 0 Then
+					' 	PRINT "<div class=""cleft width100"">"
+					' Else
+					' 	isFirst = " style=""margin-left:"&ImgsLeftMargin&"px"" "
+					' End If
 		%>
-			<div class="thumb_imageArea" <%=isFirst%>>
-				<%If DK_MEMBER_LEVEL < intLevelView Then%>
-					<a href="<%=MOB_PATH&"/common/member_login.asp?backURL="&ThisPageURL%>"><div class="images"><%=thumbImg%></div></a>
-				<%Else%>
-					<a href="<%=arrList_movieURL%>"><div class="images"><%=thumbImg%></div></a>
-				<%End If%>
-				<div class="txt_line">
-					<table <%=tableatt%> class="width100 thumb_Table">
-						<colgroup>
-							<col width="" />
-						</colgroup>
-						<tr class="">
-							<td class="th fleft">
-							<%
-								Select Case DK_MEMBER_TYPE
-									Case "ADMIN","OPERATOR"	'관리자 수정페이지 이동
-							%>
-								<a href="board_modify.asp?bname=<%=strBoardName%>&num=<%=arrList_intIDX%>"><%=backword_title(cutString(arrList_strSubject,15))%></a>
-							<%Case Else%>
-								<%=backword_title(cutString(arrList_strSubject,15))%>
-							<%End Select%>
-							</td>
-						</tr>
-					</table>
+		<li class="thumb_imageArea" <%=isFirst%>>
+			<%If DK_MEMBER_LEVEL < intLevelView Then%>
+				<a href="<%=MOB_PATH&"/common/member_login.asp?backURL="&ThisPageURL%>"><div class="img"><i class="icon-play"></i><%=thumbImg%></div>
+			<%Else%>
+				<a href="<%=arrList_movieURL%>"><div class="img"><i class="icon-play"></i><%=thumbImg%></div>
+			<%End If%>
+				<div class="txt">
+					<p><%=backword_title(cutString(arrList_strSubject,15))%></p>
 				</div>
-			</div>
+			</a>
 			<%
-						If (i + 1) Mod PCONF_LINECNT = 0 Or i = listLen Then
+				Select Case DK_MEMBER_TYPE
+					Case "ADMIN","OPERATOR"	'관리자 수정페이지 이동
 			%>
-			</div>
-			<%			End If
+				<a class="edit" href="board_modify.asp?bname=<%=strBoardName%>&num=<%=arrList_intIDX%>">수정하기</a>
+			<%Case Else%>
+			<%End Select%>
+		</li>
+		<%
+					If (i + 1) Mod PCONF_LINECNT = 0 Or i = listLen Then
+		%>
+		<%			End If
 
-					Next
-				Else
-			%>
-			<div class="cleft width100" style="text-align:center; padding:50px 0px;"><%=LNG_TEXT_NO_REGISTERED_POST%></div>
+				Next
+			Else
+		%>
+		<div class="cleft width100" style="text-align:center; padding:50px 0px;"><%=LNG_TEXT_NO_REGISTERED_POST%></div>
 
-			<%
-				End If
-			%>
-		</div>
-	</div>
+		<%
+			End If
+		%>
+	</ul>
 </div>
 
 <div class="gallery_wrap fleft" style="margin:120px 0px; 70px 0px">
@@ -141,19 +131,23 @@
 	</colgroup>
 		<tfoot>
 			<tr>
-				<td colspan="1" height="30" class="tleft"><%Call pageList(PAGE,PAGECOUNT)%></td>
-				<td colspan="1" height="30" class="tright">
+				<td colspan="2" height="30">
+					<div class="pageList"><%Call pageList(PAGE,PAGECOUNT)%></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" height="30" class="tright">
 				<%
 					Select Case DK_MEMBER_TYPE
 						Case "MEMBER","GUEST","COMPANY"
 							If DK_MEMBER_LEVEL >= intLevelWrite Then
-								PRINT TABS(3)& "	<input type=""button"" class=""txtBtn small2 pd7"" value=""작성하기"" onclick=""location.href='board_write.asp?bname="&strBoardName&"'"" />"
+								PRINT TABS(3)& "	<input type=""button"" class=""button write"" value=""작성하기"" onclick=""location.href='board_write.asp?bname="&strBoardName&"'"" />"
 							End If
 						Case "ADMIN","OPERATOR"
-							PRINT TABS(3)& "	<input type=""button"" class=""txtBtn small2 pd7"" value=""작성하기"" onclick=""location.href='board_write.asp?bname="&strBoardName&"'"" />"
+							PRINT TABS(3)& "	<input type=""button"" class=""button write"" value=""작성하기"" onclick=""location.href='board_write.asp?bname="&strBoardName&"'"" />"
 
 					End Select
-							PRINT TABS(3)& "	<input type=""button"" class=""txtBtn small2 pd7"" value=""목록보기"" onclick=""location.href='board_list.asp?bname="&strBoardName&"'"" />"
+							PRINT TABS(3)& "	<input type=""button"" class=""button basic"" value=""목록보기"" onclick=""location.href='board_list.asp?bname="&strBoardName&"'"" />"
 				%>
 				</td>
 			</tr>

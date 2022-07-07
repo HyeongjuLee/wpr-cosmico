@@ -32,38 +32,51 @@
 			white-space: normal;
 		}
 	}
+}
 
+#contain {
 	color: #222;
 
-    .button {
-        @include button($basic);
-        margin: 0;
+	.board-title {
+		font-size: $font-size * 1.5;
+		text-align: center;
+		padding-bottom: rem(50px);
+	}
+}
 
-        &.admin {
-            @include button($admin);
-        }
+.board {
+	.button {
+		@include button($basic);
+		margin: 0;
+		height: $input-height - rem(25px);
 
-        &.write {
-            @include button($write);
-        }
+		&.admin {
+			@include button($admin);
+		}
 
-        &.answer {
-            @include button($answer);
-        }
+		&.write {
+			@include button($write);
+		}
 
-        &.delete {
-            @include button($delete);
-        }
+		&.answer {
+			@include button($answer);
+		}
 
-        &.edit {
-            @include button($edit);
-        }
+		&.delete {
+			@include button($delete);
+		}
 
-        &.save {
-            @include button($save);
-        }
-    }
+		&.edit {
+			@include button($edit);
+		}
 
+		&.save {
+			@include button($save);
+		}
+	}
+}
+
+.board {
 	th,
 	td {
 		font-size: $font-size;
@@ -92,8 +105,7 @@
 	}
 
 	thead {
-		tr {
-		}
+		tr {}
 
 		th {
 			font-weight: 500;
@@ -101,8 +113,7 @@
 	}
 
 	tbody {
-		tr {
-		}
+		tr {}
 
 		td a {
 			color: #333;
@@ -133,8 +144,13 @@
 
 		padding: $font-size {
 			right: 0;
-		};
+		}
+
+		;
 	}
+}
+
+.board {
 
 	.notice1 a,
 	.notice2 a,
@@ -152,9 +168,11 @@
 	}
 
 	.table_for {
-		th, td {
-		text-align: center;
-		//height: 25px;
+
+		th,
+		td {
+			text-align: center;
+			//height: 25px;
 
 			&.subject {
 				text-align: left;
@@ -175,8 +193,10 @@
 
 	.contentTD {
 		text-align: $default-css !important;
-        border-color: #ebebeb;
+		border-color: #ebebeb;
+		line-height: 0;
 	}
+
 	&.reply {
 		.title {
 			input {
@@ -187,63 +207,149 @@
 		}
 	}
 
-    td {
-        label {
-            @include inline-flex;
-            margin-left: 10px;
-            vertical-align: middle;
-            .input_radio {
-                margin-top: 0;
-                margin-right: 5px;
-            }
-        }
-    }
-}
+	td {
+		label {
+			@include inline-flex;
+			margin-left: 10px;
+			vertical-align: middle;
 
-.board {
-    @include table-color(material-color('grey'));
-
-}
-
-#forum.board {
-    
-    @include table-color(material-color('grey'));
-    
-    &.view {
-        td:not(.contentTD) {
-            border: none;
-        }
-        .contentTD {
-            border-color: #ebebeb;
-        }
-        tr {
-            border-top-color: #ccc;
-            border-bottom-color: #ccc;
-        }
-    }
-
-    &.write {
-		.contentTD {
-            font-size: 0;
-            padding: rem(15px) 0;
-        }
+			.input_radio {
+				margin-top: 0;
+				margin-right: 5px;
+			}
+		}
 	}
+}
 
+#contain {
+	.board {
+		@include table-color(material-color('grey'));
+		// @include table-color-wrap($wrap: true);
+		margin: 0 auto;
+		text-align: left;
+		&.write {
+			@include table-color-wrap($wrap: true);
+			width: 900px;
+			tbody {
+				th {
+					background: material-color('grey', '100');
+				}
+			}
+		}
+		&.modify {
+			@include table-color-wrap($wrap: true);
+			width: 900px;
+			tbody {
+				th {
+					background: material-color('grey', '100');
+				}
+			}
+		}
+	}
+}
 
+#contain {
+	#forum.board {
+
+		// @include table-color(material-color('grey'));
+
+		&.view {
+			td:not(.contentTD) {
+				border: none;
+			}
+
+			.contentTD {
+				border-color: #ebebeb;
+			}
+
+			tr {
+				border-top-color: #ccc;
+				border-bottom-color: #ccc;
+			}
+		}
+
+		&.write {
+			.contentTD {
+				font-size: 0;
+				// padding: rem(15px) 0;
+			}
+		}
+	}
 }
 
 .prenext {
 	td {
 		height: $input-height - rem(15px);
+		a {
+			color: #333;
+			&:hover {
+				color: #222;
+				text-decoration: underline;
+			}
+		}
 	}
+
 	.tit {
 		background-color: transparent;
 		color: $main-color;
 		font-weight: 500;
 	}
-	.subject {}
+
+	.subject {
+		color: #999;
+	}
 }
 
-.button {
 
+/*마이오피스*/
+#contain_M {
+	.board {
+		@include table-color(material-color('grey'));
+		// @include table-color-wrap($wrap: true);
+		// &.write {
+		// 	@include table-color-wrap($wrap: true);
+		// 	tbody {
+		// 		th {
+		// 			background: material-color('grey', '100');
+		// 		}
+		// 	}
+		// }
+		// &.modify {
+		// 	@include table-color-wrap($wrap: true);
+		// 	tbody {
+		// 		th {
+		// 			background: material-color('grey', '100');
+		// 		}
+		// 	}
+		// }
+	}
+}
+
+#contain_M {
+	#forum.board {
+
+		@include table-color(material-color('grey'));
+
+		&.view {
+			td:not(.contentTD) {
+				border: none;
+			}
+
+			.contentTD {
+				border-color: #ebebeb;
+			}
+
+			tr {
+				border-top-color: #ccc;
+				border-bottom-color: #ccc;
+			}
+		}
+
+		&.write {
+			.contentTD {
+				font-size: 0;
+				// padding: rem(15px) 0;
+			}
+		}
+	}
 }

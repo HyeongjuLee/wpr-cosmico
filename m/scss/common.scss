@@ -233,9 +233,7 @@ $sub-color: $oc-gray-5;
 	}
 
 	.button {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include flex;
 		width: $input-width;
 		height: $input-height;
 		margin: rem(15px) auto;
@@ -258,45 +256,41 @@ $sub-color: $oc-gray-5;
 
 	}
 
-	.sns-login {
+	.sns_login_tit {
+		@include position;
+		z-index: 1;
+		color: #555;
+		font-weight: 700;
+		margin: rem(50px) auto rem(30px) auto;
+		text-align: center;
+
+		&:before {
+			content: '';
+			@include position(absolute, $le: 50%, $top: 50%);
+			z-index: 0;
+			width: $input-width;
+			height: 1px;
+			background: #ddd;
+			transform: translate(-50%, 0);
+		}
+
+		span {
+			@include position;
+			z-index: 1;
+			display: inline-block;
+			background: #fff;
+			padding: 0 rem(15px);
+			font-size: $font-size * 1.2;
+		}
+	}
+
+	.sns_login {
 		$sns-width: $input-width / 1.5;
 		$sns-height: $input-height - rem(5px);
 
-		width: $input-width;
-		margin: rem(50px) auto {
-			bottom: 0;
-		};
-		padding: 0 ($input-width - $sns-width) / 2;
-
-		h6 {
-			@include position;
-			z-index: 1;
-			color: #555;
-			font-weight: 700;
-			margin: 0 auto {
-				bottom: rem(40px);
-			};
-			text-align: center;
-
-			&:before {
-				content: '';
-				@include position(absolute, $le: 50%, $top: 50%);
-				z-index: 0;
-				width: $input-width;
-				height: 1px;
-				background: #ddd;
-				transform: translate(-50%, 0);
-			}
-
-			span {
-				@include position;
-				z-index: 1;
-				display: inline-block;
-				background: #fff;
-				padding: 0 rem(15px);
-				font-size: $font-size * 1.2;
-			}
-		}
+		width: 100%;
+		margin: rem(30px) auto;
+		// padding: 0 ($input-width - $sns-width) / 2;
 
 		div {
 			width: 100%;
@@ -328,7 +322,7 @@ $sub-color: $oc-gray-5;
 			}
 
 			span {
-				width: $sns-width - $sns-height;
+				width: calc(100% - #{$sns-height});
 				display: block;
 				font-size: $font-size * 1.1;
 			}

@@ -344,33 +344,6 @@ input {font-size:14px; color:#444; font-weight:500;}
 
 .img_board_Line {margin-top:0px;}
 .img_board_Line:first-child {margin-top:0px !important;}
-#thumb_image {margin-left:0px;}
-#img_board .thumb_image {}
-#img_board .thumb_image>div {margin-top:100px;}	/* Z1 90px : Z2�� �������� */
-#img_board .thumb_image>div:first-child {margin-top:5px;}
-#img_board .thumb_image .first {margin-left:7px;}
-#img_board .thumb_image .thumb_imageArea {float:left; width: 289x; height: 170px;}/*182*/
-#img_board .thumb_image .thumb_imageArea img{transition: 0.3s; -o-transition: 0.3s; -ms-transition: 0.3s; -moz-transition: 0.3s; -webkit-transition: 0.3s;} /* ie 9d�̻�*/
-#img_board .thumb_image .thumb_imageArea:hover img{transform: scale(1.1,1.1); -o-transform: scale(1.1,1.1); -ms-transform: scale(1.1,1.1); -moz-transform: scale(1.1,1.1); -webkit-transform: scale(1.1,1.1);}
-
-#img_board .thumb_image .images {border:1px solid #d9d9d9;width: 289px; height: 170px; overflow:hidden; text-align:center;}
-#img_board .thumb_image .images a {display:block; }
-#img_board .thumb_image .images	img{transition: 0.3s; -o-transition: 0.3s; -ms-transition: 0.3s; -moz-transition: 0.3s; -webkit-transition: 0.3s;} /* ie 9d�̻�*/
-#img_board .thumb_image .images:hover img{transform: scale(1.1,1.1); -o-transform: scale(1.1,1.1); -ms-transform: scale(1.1,1.1); -moz-transform: scale(1.1,1.1); -webkit-transform: scale(1.1,1.1);}
-
-#img_board .thumb_image .txt_line {margin-top:0px;background-color:#f5f5f5; text-align:center;padding:10px 14px; border:1px solid #d9d9d9;border-top:0px none;}
-#img_board .thumb_image .txt_line p {text-align:center;line-height:140%;}
-#img_board .thumb_image .txt_line .txt1 {color:#cc0d0d; font-weight:bold;}
-#img_board .thumb_image .txt_line .txt2 {color:#1249c9; font-weight:bold; font-size:24px;letter-spacing:-1px;}
-
-#img_board .thumb_image .thumb_Table {margin-top:0px;height:40px;}	/* Z2 50px Z1�� �������� */
-#img_board .thumb_image .thumb_Table td.th {font-size:15px; letter-spacing:-1px}
-#img_board .thumb_image .thumb_Table td.th a:hover {text-decoration:underline;}
-
-#img_board .thumb_image .thumb_Table td {padding:4px 0px;}
-#img_board .thumb_image .thumb_Table tr.trFirst td {border-top:1px dashed #efefef;}
-#img_board .thumb_image .thumb_Table tr.trLast td {border-bottom:1px dashed #efefef;}
-
 
 /*
 	type_movie.asp

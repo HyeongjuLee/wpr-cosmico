@@ -609,7 +609,7 @@
 			If next_part > total_page Then next_part = 0
 			strPageList = ""
 			strPageList = strPageList & "<div id="""&idname&""">"
-			If pre_part <> 0 Then strPageList = strPageList & "<span class='pagers2'><a href='javascript:pagegoto("&pre_part&")'>◀ 이전</a></span>"
+			If pre_part <> 0 Then strPageList = strPageList & "<span class=""arrow left margin""><a href='javascript:pagegoto("&pre_part&")'><i class=""icon-angle-left""></i></a></span>"
 
 			For i=1 To 10
 				If pre_page = "" Then
@@ -620,13 +620,13 @@
 
 				If total_page < page_num Then Exit For
 				If page_num = ccur(page) Then
-					strPageList = strPageList & "<span class='pagers tweight'>" &page_num& "</span>"
+					strPageList = strPageList & "<span class='currentPage'>" &page_num& "</span>"
 				Else
-					strPageList = strPageList & "<span class='pagers'><a href='javascript:pagegoto("&page_num&");'>" &page_num& "</a></span>"
+					strPageList = strPageList & "<span><a href='javascript:pagegoto("&page_num&");'>" &page_num& "</a></span>"
 				End If
 			Next
 
-			If next_part <> 0 Then strPageList = strPageList & "<span class='pagers2'><a href='javascript:pagegoto("&next_part&")'>다음 ▶</a></span>"
+			If next_part <> 0 Then strPageList = strPageList & "<span class=""arrow right margin""><a href='javascript:pagegoto("&next_part&")'><i class=""icon-angle-right""></i></a></span>"
 
 			strPageList = strPageList & "</div>"
 			If total_page <> 0 Then 	Response.Write strPageList
@@ -652,7 +652,7 @@
 			If next_part > total_page Then next_part = 0
 			strPageList = ""
 
-			If pre_part <> 0 Then strPageList = strPageList & "<span class='pagers2'><a href='javascript:pagegoto("&pre_part&")'>◀ 이전</a></span>"
+			If pre_part <> 0 Then strPageList = strPageList & "<span class='arrow left margin'><a href='javascript:pagegoto("&pre_part&")'><i class=""icon-angle-left""></i></a></span>"
 
 			For i=1 To 10
 				If pre_page = "" Then
@@ -663,13 +663,13 @@
 
 				If total_page < page_num Then Exit For
 				If page_num = ccur(page) Then
-					strPageList = strPageList & "<span class='pagers tweight'>" &page_num& "</span>"
+					strPageList = strPageList & "<span class='currentPage'>" &page_num& "</span>"
 				Else
-					strPageList = strPageList & "<span class='pagers'><a href='javascript:pagegoto("&page_num&");'>" &page_num& "</a></span>"
+					strPageList = strPageList & "<span><a href='javascript:pagegoto("&page_num&");'>" &page_num& "</a></span>"
 				End If
 			Next
 
-			If next_part <> 0 Then strPageList = strPageList & "<span class='pagers2'><a href='javascript:pagegoto("&next_part&")'>다음 ▶</a></span>"
+			If next_part <> 0 Then strPageList = strPageList & "<span class='arrow right margin'><a href='javascript:pagegoto("&next_part&")'><i class=""icon-angle-right""></i></a></span>"
 
 
 			If total_page <> 0 Then 	Response.Write strPageList

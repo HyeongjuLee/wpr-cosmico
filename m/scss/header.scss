@@ -42,7 +42,6 @@ $color: #424242;
 	//box-shadow: 0 1px 0 rgba(#000, 10%);
 	color: $color;
 	&::after {
-		/* content: ''; */
 		@include position(absolute, $le: 0, $bot: 0);
 		z-index: $top-nav-index;
 		width: 100%;
@@ -76,6 +75,7 @@ $color: #424242;
 
 		a {
 			@include default-a;
+			display: block;
 			height: 100%;
 			color: $parent-css;
 		}
@@ -147,7 +147,7 @@ $color: #424242;
 			}
 		}
 	}
-	h1 {
+	.maps_title {
 		color: #111;
 		font-weight: 500;
 		font-size: $font-size * 1.5;
@@ -199,7 +199,7 @@ $color: #424242;
 		@extend .navi-back;
 		font-size: $font-size;
 	}
-	h1 {
+	.maps_title {
 		color: #111;
 		font-weight: 500;
 		font-size: $font-size * 1.5;

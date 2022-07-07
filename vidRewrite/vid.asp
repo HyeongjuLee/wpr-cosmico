@@ -12,8 +12,8 @@
 
 	'확장자의 '.' 없는 형태만 OK
 	If InStr(ORIGINAL_URL,".") > 0 Then
-		Response.Status = "404 page not found"
-		Response.End
+'		Response.Status = "404 page not fdound"
+'		Response.End
 	End If
 
 	'▣바이럴 id decodeBase62(string to string) 복호화

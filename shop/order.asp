@@ -1076,40 +1076,6 @@ End Select
 		</table>
 	</div>
 
-	<%'COSMICO 구매종류%>
-	<div class="orderInfos">
-		<div class="order_title"><%=LNG_SHOP_ORDER_DIRECT_PAY_04%></div>
-		<div class="info" id="deliveryInfo">
-			<table <%=tableatt%> class="width100">
-				<col width="135" />
-				<col width="*" />
-				<tbody>
-					<tr>
-						<th><%=LNG_SHOP_ORDER_DIRECT_PAY_04%> <%=startext%></th>
-						<td>
-							<%
-								If DK_MEMBER_TYPE = "COMPANY" And CSGoodCnt > 0 And PG_EXAM_MODE <> "T" Then
-									PRINT TABS(4)&"<div class=""selects"">"
-									PRINT TABS(4)&" <select name=""v_SellCode"" class=""input_select"">"
-										arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
-										If IsArray(arrListB) Then
-											For i = 0 To listLenB
-												PRINT TABS(4)&"	<option value="""&arrListB(0,i)&""">"&arrListB(1,i)&"</option>"
-											Next
-										Else
-											PRINT TABS(4)&"	<option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_06&"</option>"
-										End If
-									PRINT TABS(4)&"	</select>"
-									PRINT TABS(4)&"</div>"
-								End If
-							%>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-
 	<div class="orderInfos">
 		<div class="info" id="orderInfo">
 			<div class="order_title"><%=LNG_SHOP_ORDER_DIRECT_TITLE_04%></div>
@@ -1309,27 +1275,26 @@ End Select
 				<%End If %>
 			<%
 				If DK_MEMBER_TYPE = "COMPANY" And CSGoodCnt > 0 And PG_EXAM_MODE <> "T" Then
-					If false  Then  'COSMICO 상단 이동
-						PRINT TABS(4)&"<div class=""selects"">"
-						PRINT TABS(4)&" <span class="""" style=""padding-left:60px;""> "&LNG_SHOP_ORDER_DIRECT_PAY_04&" : </span>"
-						PRINT TABS(4)&" <select name=""v_SellCode"" class=""input_select"">"
-						'PRINT TABS(4)&" <option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_05&"</option>"
-							'▣구매종류 선택
-							'arrParams = Array(_
-							'	Db.makeParam("@SELLCODE",adVarChar,adParamInput,10,arr_CS_SELLCODE) _
-							')
-							'arrListB = Db.execRsList("DKP_SELLTYPE_LIST2",DB_PROC,arrParams,listLenB,DB3)
-							arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
-							If IsArray(arrListB) Then
-								For i = 0 To listLenB
-									PRINT TABS(4)&"	<option value="""&arrListB(0,i)&""">"&arrListB(1,i)&"</option>"
-								Next
-							Else
-								PRINT TABS(4)&"	<option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_06&"</option>"
-							End If
-						PRINT TABS(4)&"	</select>"
-						PRINT TABS(4)&"</div>"
-					End If
+					PRINT TABS(4)&"<div class=""selects"">"
+					PRINT TABS(4)&" <span class="""" style=""padding-left:60px;""> "&LNG_SHOP_ORDER_DIRECT_PAY_04&" : </span>"
+					PRINT TABS(4)&" <select name=""v_SellCode"" class=""input_select"">"
+					'PRINT TABS(4)&" <option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_05&"</option>"
+
+						'▣구매종류 선택
+						'arrParams = Array(_
+						'	Db.makeParam("@SELLCODE",adVarChar,adParamInput,10,arr_CS_SELLCODE) _
+						')
+						'arrListB = Db.execRsList("DKP_SELLTYPE_LIST2",DB_PROC,arrParams,listLenB,DB3)
+						arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
+						If IsArray(arrListB) Then
+							For i = 0 To listLenB
+								PRINT TABS(4)&"	<option value="""&arrListB(0,i)&""">"&arrListB(1,i)&"</option>"
+							Next
+						Else
+							PRINT TABS(4)&"	<option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_06&"</option>"
+						End If
+					PRINT TABS(4)&"	</select>"
+					PRINT TABS(4)&"</div>"
 
 					If 1=2 Then '판매센터
 						PRINT TABS(4)&"<div class=""select"">"

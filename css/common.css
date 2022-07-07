@@ -3,7 +3,7 @@ select[aria-hidden=true] { color: #9e9e9e; }
 select:invalid { color: #9e9e9e; }
 
 #sub-header { margin-top: 0; }
-#sub-header .sub-header-txt { color: #212121; font-weight: 600; }
+#sub-header .sub-header-txt { font-size: 3.5rem; opacity: 0.8; color: #212121; font-weight: 600; }
 #sub-header .sub-header-txt .maps_title { margin: 0; }
 #sub-header .sub-header-txt:after { content: none; }
 #sub-header .join-header-txt { font-size: 2.25rem; font-weight: 300; width: 96rem; display: flex; justify-content: center; align-items: center; margin-top: 1.5rem; }
@@ -42,6 +42,20 @@ select:invalid { color: #9e9e9e; }
 .common .btnZone .cancel:hover { background: lightgray; }
 .common .btnZone .promise { background: #1C287B; color: #fff; }
 .common .btnZone .promise:hover { background: #2536a5; }
+
+.sns-login { width: 48rem; margin: 5rem auto; margin-bottom: 0; padding: 0 8rem; }
+.sns-login h6 { position: relative; z-index: 1; color: #555; font-weight: 700; margin: 0 auto; margin-bottom: 4rem; text-align: center; }
+.sns-login h6:before { content: ''; position: absolute; top: 50%; left: 50%; z-index: 0; width: 48rem; height: 1px; background: #ddd; transform: translate(-50%, 0); }
+.sns-login h6 span { position: relative; z-index: 1; display: inline-block; background: #fff; padding: 0 1.5rem; font-size: 1.8rem; }
+.sns-login div { width: 100%; height: 5.5rem; cursor: pointer; font-weight: 400; text-align: center; border: 1px solid rgba(0, 0, 0, 0.2); margin-top: 1.5rem; overflow: hidden; }
+.sns-login a { color: inherit; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+.sns-login a i { width: 5.5rem; height: 5.5rem; border-right: 1px solid rgba(0, 0, 0, 0.15); font-size: 4.4rem; display: flex; justify-content: center; align-items: center; }
+.sns-login a span { width: 26.5rem; display: block; font-size: 1.65rem; }
+.sns-login .kakao { background: #fee500; color: rgba(0, 0, 0, 0.85); }
+.sns-login .naver { background: #03c75a; color: #fff; }
+.sns-login .google { background: #fff; }
+.sns-login .google i { position: relative; color: transparent; background: url("/images/login/google.svg") no-repeat center/60%; }
+.sns-login .facebook { background: #3b5998; color: #fff; }
 
 .admin .input-wrap label input { width: 100%; padding: 0 2.1rem; }
 

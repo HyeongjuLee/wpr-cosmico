@@ -41,19 +41,19 @@
 .common .button { display: flex; justify-content: center; align-items: center; width: 48rem; height: 9rem; margin: 1.5rem auto; background: transparent; font-size: 3rem; cursor: pointer; font-family: inherit; text-align: center; }
 .common input.button { background: #1C287B; color: #fff; }
 .common a.button { background: #adb5bd; color: #fff; }
-.common .sns-login { width: 48rem; margin: 5rem auto; margin-bottom: 0; padding: 0 8rem; }
-.common .sns-login h6 { position: relative; z-index: 1; color: #555; font-weight: 700; margin: 0 auto; margin-bottom: 4rem; text-align: center; }
-.common .sns-login h6:before { content: ''; position: absolute; top: 50%; left: 50%; z-index: 0; width: 48rem; height: 1px; background: #ddd; transform: translate(-50%, 0); }
-.common .sns-login h6 span { position: relative; z-index: 1; display: inline-block; background: #fff; padding: 0 1.5rem; font-size: 3rem; }
-.common .sns-login div { width: 100%; height: 8.5rem; cursor: pointer; font-weight: 400; text-align: center; border: 1px solid rgba(0, 0, 0, 0.2); margin-top: 1.5rem; overflow: hidden; }
-.common .sns-login a { color: inherit; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
-.common .sns-login a i { width: 8.5rem; height: 8.5rem; border-right: 1px solid rgba(0, 0, 0, 0.15); font-size: 6.8rem; display: flex; justify-content: center; align-items: center; }
-.common .sns-login a span { width: 23.5rem; display: block; font-size: 2.75rem; }
-.common .sns-login .kakao { background: #fee500; color: rgba(0, 0, 0, 0.85); }
-.common .sns-login .naver { background: #03c75a; color: #fff; }
-.common .sns-login .google { background: #fff; }
-.common .sns-login .google i { position: relative; color: transparent; background: url("/images/login/google.svg") no-repeat center/60%; }
-.common .sns-login .facebook { background: #3b5998; color: #fff; }
+.common .sns_login_tit { position: relative; z-index: 1; color: #555; font-weight: 700; margin: 5rem auto 3rem auto; text-align: center; }
+.common .sns_login_tit:before { content: ''; position: absolute; top: 50%; left: 50%; z-index: 0; width: 48rem; height: 1px; background: #ddd; transform: translate(-50%, 0); }
+.common .sns_login_tit span { position: relative; z-index: 1; display: inline-block; background: #fff; padding: 0 1.5rem; font-size: 3rem; }
+.common .sns_login { width: 100%; margin: 3rem auto; }
+.common .sns_login div { width: 100%; height: 8.5rem; cursor: pointer; font-weight: 400; text-align: center; border: 1px solid rgba(0, 0, 0, 0.2); margin-top: 1.5rem; overflow: hidden; }
+.common .sns_login a { color: inherit; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+.common .sns_login a i { width: 8.5rem; height: 8.5rem; border-right: 1px solid rgba(0, 0, 0, 0.15); font-size: 6.8rem; display: flex; justify-content: center; align-items: center; }
+.common .sns_login a span { width: calc(100% - 8.5rem); display: block; font-size: 2.75rem; }
+.common .sns_login .kakao { background: #fee500; color: rgba(0, 0, 0, 0.85); }
+.common .sns_login .naver { background: #03c75a; color: #fff; }
+.common .sns_login .google { background: #fff; }
+.common .sns_login .google i { position: relative; color: transparent; background: url("/images/login/google.svg") no-repeat center/60%; }
+.common .sns_login .facebook { background: #3b5998; color: #fff; }
 
 #login { margin-bottom: 10rem; }
 
@@ -93,8 +93,8 @@
 #joinStep .btnZone a:hover { color: inherit; }
 #joinStep .btnZone .cancel { background: #e0e0e0; color: #222; }
 #joinStep .btnZone .cancel:hover { background: lightgray; }
-#joinStep .btnZone .promise { background: #1C287B; color: #fff; }
-#joinStep .btnZone .promise:hover { background: #2536a5; }
+#joinStep .btnZone .promise { background: #5c6bc0; color: #fff; }
+#joinStep .btnZone .promise:hover { background: #818cce; }
 
 #joinStep.joinStep2 { flex-direction: column; text-align: left; line-height: 1.5; }
 #joinStep.joinStep2 .wrap { height: auto; }

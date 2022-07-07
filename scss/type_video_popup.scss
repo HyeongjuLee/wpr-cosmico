@@ -1,0 +1,392 @@
+@import 'mixin-custom';
+
+/*
+	Name: YouTubePopUp
+	Description: jQuery plugin to display YouTube or Vimeo video in PopUp, responsive and retina, easy to use.
+	Version: 1.0.1
+	Plugin URL: http://wp-time.com/youtube-popup-jquery-plugin/
+	Written By: Qassim Hassan
+	Twitter: @QQQHZ
+	Websites: wp-time.com | qass.im | wp-plugins.in
+	Dual licensed under the MIT and GPL licenses:
+			http://www.opensource.org/licenses/mit-license.php
+			http://www.gnu.org/licenses/gpl.html
+	Copyright (c) 2016 - Qassim Hassan
+*/
+
+.YouTubePopUp-Wrap {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	background-color: rgba(#000, 0.8);
+	top: 0;
+	left: 0;
+	z-index: 9999999999999;
+}
+
+.YouTubePopUp-animation {
+	opacity: 0;
+	-webkit-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: YouTubePopUp;
+	animation-name: YouTubePopUp;
+}
+
+@-webkit-keyframes YouTubePopUp {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes YouTubePopUp {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+body.logged-in .YouTubePopUp-Wrap {
+	/* For WordPress */
+	top: 32px;
+	z-index: 99998;
+}
+
+.YouTubePopUp-Content {
+	max-width: 680px;
+	display: block;
+	margin: 0 auto;
+	height: 100%;
+	position: relative;
+
+	iframe {
+		max-width: 100% !important;
+		width: 100% !important;
+		display: block !important;
+		height: 480px !important;
+
+		/*border:none !important;*/
+		border: 4px solid #fff;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		margin: auto 0;
+		background: #fff;
+	}
+}
+
+.YouTubePopUp-Hide {
+	-webkit-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: YouTubePopUpHide;
+	animation-name: YouTubePopUpHide;
+}
+
+@-webkit-keyframes YouTubePopUpHide {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes YouTubePopUpHide {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+.YouTubePopUp-Close {
+	position: absolute;
+	top: 0;
+	cursor: pointer;
+	bottom: 528px;
+	right: 0px;
+	margin: auto 0;
+	width: 24px;
+	height: 24px;
+	background: url(close.png) no-repeat;
+	background-size: 24px 24px;
+	-webkit-background-size: 24px 24px;
+	-moz-background-size: 24px 24px;
+	-o-background-size: 24px 24px;
+
+	&:hover {
+		opacity: 0.5;
+	}
+
+	&.icon-close-outline {
+		font-size: 20px;
+		color: #fff;
+		@include flex;
+	}
+}
+
+
+@media all and (max-width: 768px) and (min-width: 10px) {
+	.YouTubePopUp-Content {
+		max-width: 90%;
+	}
+}
+
+@media all and (max-width: 600px) and (min-width: 10px) {
+	.YouTubePopUp-Content iframe {
+		height: 320px !important;
+	}
+
+	.YouTubePopUp-Close {
+		bottom: 362px;
+	}
+}
+
+@media all and (max-width: 480px) and (min-width: 10px) {
+	.YouTubePopUp-Content iframe {
+		height: 220px !important;
+	}
+
+	.YouTubePopUp-Close {
+		bottom: 262px;
+	}
+}
+
+$w: 360px;
+
+.video_popup {
+	ul {
+		@include flex($st, $st);
+		flex-wrap: wrap;
+		width: 100%;
+		padding: 20px;
+	}
+	li {
+		width: 360px;
+		margin-right: 40px;
+		margin-bottom: 40px;
+
+		&:nth-of-type(3n) {
+			margin-right: 0;
+		}
+
+		a {
+			@include default-a;
+			display: block;
+		}
+
+		.img {
+			width: 100%;
+			height: 0;
+			padding-bottom: 70%;
+			@include position;
+			overflow: hidden;
+
+			&:before {
+				@include presudo($le: 0, $top: 0);
+				z-index: 9;
+				box-sizing: border-box;
+				background: #000;
+				opacity: 0;
+				@include transition(all .1s);
+			}
+			.icon-play {
+				@include presudo($le: 50%, $top: 50%);
+				@include transform(translate(-50%, -50%));
+				z-index: 10;
+				box-sizing: border-box;
+				color: #fff;
+				font-size: $font-size * 4;
+				@include flex;
+				filter: drop-shadow(5px 5px 10px rgba(#000, 0.5));
+				opacity: 0;
+			}
+
+			img {
+				@include position(absolute, $top: 50%, $le: 50%);
+				@include transform(translate(-50%, -50%));
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.txt {
+			font-size: $font-size + rem(2px);
+			font-weight: 500;
+			color: #212121;
+			@include ellipsis(1);
+			padding: rem(10px) 0;
+		}
+	}
+	.thumb_imageArea {
+		.edit {
+			@include button(material-color('indigo', '800'));
+			@include inline-flex;
+			margin-top: 10px;
+			width: rem(80px);
+			// float: right;
+			font-size: $font-size - rem(2px);
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.video_popup {
+	li a:hover {
+		.img {
+			&:before {
+				opacity: .5;
+			}
+			.icon-play {
+				opacity: .9;
+			}
+		}
+		.txt {
+			text-decoration: underline;
+		}
+	}
+}
+
+.button {
+	@include button($basic);
+	@include inline-flex;
+	margin: 0;
+	color: #fff;
+	min-width: rem(70px);
+	min-height: $input-height - rem(25px);
+	padding: 0 rem(10px);
+
+	&:link, &:active, &:visited, &:hover {
+		color: #fff;
+	}
+
+	&.red {
+		@include button($admin);
+	}
+
+	&.answer {
+		@include button($answer);
+	}
+
+	&.delete {
+		@include button($delete);
+	}
+
+	&.edit {
+		@include button($edit);
+	}
+
+	&.green {
+		@include button($save);
+	}
+
+	&.write {
+		@include button($admin);
+	}
+}
+
+.pageList {
+	line-height: 0;
+	//font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+	text-align: center;
+
+
+	span {
+		@include default-0;
+		@include inline-flex;
+		@include position;
+		width: $font-size * 2 - rem(2px);
+		height: $font-size * 2 - rem(2px);
+		border: 1px solid transparent;
+		border-radius: 100%;
+		color: $main-color;
+		// background: $main-color;
+		font-size: $font-size + rem(2px);
+		font-weight: 500;
+
+		a {
+			@include default-0;
+			@include default-a;
+			height: 100%;
+			font-weight: 300;
+			color: #6a6a6a;
+			@include flex;
+
+			&:hover {
+				color: $main-color;
+				text-decoration: none;
+				border: none;
+			}
+		}
+
+		&.currentPage {
+			//border-color: $main-color;
+			//background: $main-color;
+			color: $main-color;
+			font-weight: 700;
+
+			&:after {
+				@include presudo($le: 50%, $bot: $font-size / 4);
+				width: $font-size - rem(4);
+				height: 1px;
+				background: $main-color;
+				@include transform(translateX(-50%));
+			}
+		}
+		
+		&.arrow {
+			border: 1px solid material-color('grey', '300');
+			border-radius: 100%;
+			margin: 0 rem(2.5px);
+
+			i {
+				font-size: $font-size + rem(2px);
+				color: material-color('grey', '300');
+			}
+
+			&.left {
+				i {
+					@include transform(translateX(-5%));
+				}
+			}
+			&.right {
+				i {
+					@include transform(translateX(5%));
+				}
+			}
+			&.margin {
+				&.left {
+					margin-right: $font-size;
+				}
+				&.right {
+					margin-left: $font-size;
+				}
+			}
+
+			&:hover {
+				border-color: material-color('grey', '400');
+
+				i {
+					color: material-color('grey', '500');
+				}
+			}
+		}
+	}
+}

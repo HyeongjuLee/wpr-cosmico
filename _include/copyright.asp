@@ -11,6 +11,7 @@
 	</div>
 	</div>
 		<%If PAGE_SETTING = "SHOP" Then 'shop에만 배경색%>
+		</div>
 		<%Else%>
 		<%End If%>
 <%Else%>
