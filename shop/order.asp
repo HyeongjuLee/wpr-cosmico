@@ -459,6 +459,7 @@ End Select
 					arr_CS_price4 = 0
 					arr_CS_SELLCODE		= ""
 					arr_CS_SellTypeName = ""
+					vipPrice = 0	'COSMICO
 
 					If arrList_isCSGoods = "T" Then
 						'▣CS상품정보 변동정보 통합
@@ -472,12 +473,28 @@ End Select
 							arr_CS_price2		= DKRS("price2")
 							arr_CS_price4		= DKRS("price4")
 							arr_CS_price5		= DKRS("price5")
-							arr_CS_price6		= DKRS("price6")
+							arr_CS_price6		= DKRS("price6")		'COSMICO VIP 가
+							arr_CS_price7		= DKRS("price7")		'COSMICO 셀러 가
+							arr_CS_price8		= DKRS("price8")		'COSMICO 매니저 가
+							arr_CS_price9		= DKRS("price9")		'COSMICO 지점장 가
+							arr_CS_price10		= DKRS("price10")	'COSMICO 본부장 가
+
 							arr_CS_SellCode		= DKRS("SellCode")
 							arr_CS_SellTypeName	= DKRS("SellTypeName")
 							If arr_CS_SellTypeName <> "" Then
 								arr_CS_SellTypeName = LNG_SHOP_ORDER_DIRECT_PAY_04&" : "&arr_CS_SellTypeName
 							End If
+
+							'COSMICO VIP 매출가
+							Select Case nowGradeCnt
+								Case "20"	vipPrice = arr_CS_price6
+								Case "30"	vipPrice = arr_CS_price7
+								Case "40"	vipPrice = arr_CS_price8
+								Case "50"	vipPrice = arr_CS_price9
+								Case "60"	vipPrice = arr_CS_price10
+								Case Else vipPrice = 0
+							End Select
+
 						End If
 						Call closeRs(DKRS)
 
@@ -726,10 +743,15 @@ End Select
 					<%End If%>
 					<p class="goodsOption"><%=printOPTIONS%></p>
 				</td>
-				<td class="tcenter bor_l">
+				<td class="tright bor_l">
 					<%=spans(num2cur(self_GoodsPrice/arrList_orderEa),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
+					<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
+						<br /><%=LNG_VIP%> :  <%=spans(num2cur(vipPrice),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
+					<%End If%>
 					<%If PV_VIEW_TF = "T" Then%>
 					<br /><%=spans(num2curINT(self_PV/arrList_orderEa),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#f2002e","10","400")%>
+					<%End If%>
+					<%If BV_VIEW_TF = "T" Then%>
 					<br /><%=spans(num2curINT(self_GV/arrList_orderEa),"green","11","400")%><%=spans(""&CS_PV2&"","green","10","400")%>
 					<%End If%>
 				</td>
@@ -742,10 +764,15 @@ End Select
 					<input type="hidden" name="BASIC_DeliveryFeeLimit" value="<%=DKRS2_intDeliveryFeeLimit%>" readonly="readonly" />
 					<input type="hidden" name="BASIC_DeliveryFee" value="<%=DKRS2_intDeliveryFee%>" readonly="readonly" />
 				</td>
-				<td class="tcenter bor_l">
+				<td class="tright bor_l">
 					<%=spans(num2cur(self_GoodsPrice),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
+					<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
+						<br /><%=LNG_VIP%> :  <%=spans(num2cur(vipPrice * arrList_orderEa),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
+					<%End If%>
 					<%If PV_VIEW_TF = "T" Then%>
 					<br /><%=spans(num2curINT(self_PV),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#f2002e","10","400")%>
+					<%End If%>
+					<%If BV_VIEW_TF = "T" Then%>
 					<br /><%=spans(num2curINT(self_GV),"green","11","400")%><%=spans(""&CS_PV2&"","green","10","400")%>
 					<%End If%>
 				</td>
@@ -971,6 +998,8 @@ End Select
 							<%End If%>
 							<%If PV_VIEW_TF = "T" Then%>
 							<li class="red2">· <%=CS_PV%> : <span><%=num2curINT(TOTAL_PV)%></span><%=CS_PV%></li>
+							<%End If%>
+							<%If BV_VIEW_TF = "T" Then%>
 							<li class="green">·<%=CS_PV2%>: <span><%=num2curINT(TOTAL_GV)%></s> <%=CS_PV2%></li>
 							<%End If%>
 						</ul>
@@ -1045,6 +1074,40 @@ End Select
 				<%End If %>
 			</tbody>
 		</table>
+	</div>
+
+	<%'COSMICO 구매종류%>
+	<div class="orderInfos">
+		<div class="order_title"><%=LNG_SHOP_ORDER_DIRECT_PAY_04%></div>
+		<div class="info" id="deliveryInfo">
+			<table <%=tableatt%> class="width100">
+				<col width="135" />
+				<col width="*" />
+				<tbody>
+					<tr>
+						<th><%=LNG_SHOP_ORDER_DIRECT_PAY_04%> <%=startext%></th>
+						<td>
+							<%
+								If DK_MEMBER_TYPE = "COMPANY" And CSGoodCnt > 0 And PG_EXAM_MODE <> "T" Then
+									PRINT TABS(4)&"<div class=""selects"">"
+									PRINT TABS(4)&" <select name=""v_SellCode"" class=""input_select"">"
+										arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
+										If IsArray(arrListB) Then
+											For i = 0 To listLenB
+												PRINT TABS(4)&"	<option value="""&arrListB(0,i)&""">"&arrListB(1,i)&"</option>"
+											Next
+										Else
+											PRINT TABS(4)&"	<option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_06&"</option>"
+										End If
+									PRINT TABS(4)&"	</select>"
+									PRINT TABS(4)&"</div>"
+								End If
+							%>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 
 	<div class="orderInfos">
@@ -1246,26 +1309,27 @@ End Select
 				<%End If %>
 			<%
 				If DK_MEMBER_TYPE = "COMPANY" And CSGoodCnt > 0 And PG_EXAM_MODE <> "T" Then
-					PRINT TABS(4)&"<div class=""selects"">"
-					PRINT TABS(4)&" <span class="""" style=""padding-left:60px;""> "&LNG_SHOP_ORDER_DIRECT_PAY_04&" : </span>"
-					PRINT TABS(4)&" <select name=""v_SellCode"" class=""input_select"">"
-					'PRINT TABS(4)&" <option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_05&"</option>"
-
-						'▣구매종류 선택
-						'arrParams = Array(_
-						'	Db.makeParam("@SELLCODE",adVarChar,adParamInput,10,arr_CS_SELLCODE) _
-						')
-						'arrListB = Db.execRsList("DKP_SELLTYPE_LIST2",DB_PROC,arrParams,listLenB,DB3)
-						arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
-						If IsArray(arrListB) Then
-							For i = 0 To listLenB
-								PRINT TABS(4)&"	<option value="""&arrListB(0,i)&""">"&arrListB(1,i)&"</option>"
-							Next
-						Else
-							PRINT TABS(4)&"	<option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_06&"</option>"
-						End If
-					PRINT TABS(4)&"	</select>"
-					PRINT TABS(4)&"</div>"
+					If false  Then  'COSMICO 상단 이동
+						PRINT TABS(4)&"<div class=""selects"">"
+						PRINT TABS(4)&" <span class="""" style=""padding-left:60px;""> "&LNG_SHOP_ORDER_DIRECT_PAY_04&" : </span>"
+						PRINT TABS(4)&" <select name=""v_SellCode"" class=""input_select"">"
+						'PRINT TABS(4)&" <option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_05&"</option>"
+							'▣구매종류 선택
+							'arrParams = Array(_
+							'	Db.makeParam("@SELLCODE",adVarChar,adParamInput,10,arr_CS_SELLCODE) _
+							')
+							'arrListB = Db.execRsList("DKP_SELLTYPE_LIST2",DB_PROC,arrParams,listLenB,DB3)
+							arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
+							If IsArray(arrListB) Then
+								For i = 0 To listLenB
+									PRINT TABS(4)&"	<option value="""&arrListB(0,i)&""">"&arrListB(1,i)&"</option>"
+								Next
+							Else
+								PRINT TABS(4)&"	<option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_06&"</option>"
+							End If
+						PRINT TABS(4)&"	</select>"
+						PRINT TABS(4)&"</div>"
+					End If
 
 					If 1=2 Then '판매센터
 						PRINT TABS(4)&"<div class=""select"">"

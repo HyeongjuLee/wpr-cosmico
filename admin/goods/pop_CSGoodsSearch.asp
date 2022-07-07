@@ -136,7 +136,7 @@
 				<col width="" />
 				<col width="" />
 				<col width="" />
-				<col width="" />
+				<!-- <col width="" /> -->
 				<thead>
 				<tr>
 					<th>상품코드</th>
@@ -145,7 +145,7 @@
 					<th>회원가</th>
 					<th>공급가</th>
 					<th><%=CS_PV%></th>
-					<th><%=CS_PV2%></th>
+					<!-- <th><%=CS_PV2%></th> -->
 					<!-- <th>구매종류</th> -->
 					<th>선택</th>
 				</tr>
@@ -205,7 +205,7 @@
 									PRINT TABS(3)&"		<td class=""tright"">"&num2curAdmin(arr_price2,strNationCode)&" "&Chg_CurrencyISO&"</td>"
 									PRINT TABS(3)&"		<td class=""tright"">"&num2curAdmin(arr_Except_Sell_VAT_Price,strNationCode)&" "&Chg_CurrencyISO&"</td>"
 									PRINT TABS(3)&"		<td class=""tright"">"&num2curINT(arr_price4)&" "&CS_PV&"</td>"
-									PRINT TABS(3)&"		<td class=""tright"">"&num2curINT(arr_price5)&" "&CS_PV2&"</td>"
+									'PRINT TABS(3)&"		<td class=""tright"">"&num2curINT(arr_price5)&" "&CS_PV2&"</td>"
 									'PRINT TABS(3)&"		<td>"&arr_SELLTYPE&"</td>"
 									If REG_GOODS_CNT  > 0 Then
 										PRINT TABS(3)&"		<td><a href=""javascript:alert('이미 쇼핑몰에 등록된 CS상품입니다.');""><span class=""red"">기등록</span></a></td>"
@@ -216,12 +216,12 @@
 								Next
 							Else
 								PRINT TABS(3)&"	<tr>"
-								PRINT TABS(3)&"		<td colspan=""8"" class=""notData"">"&NOTDATA_TXT&"</td>"
+								PRINT TABS(3)&"		<td colspan=""7"" class=""notData"">"&NOTDATA_TXT&"</td>"
 								PRINT TABS(3)&"	<tr>"
 							End If
 						Else
 							PRINT TABS(3)&"	<tr>"
-							PRINT TABS(3)&"		<td colspan=""8"" class=""notData"">"&NOTDATA_TXT&"</td>"
+							PRINT TABS(3)&"		<td colspan=""7"" class=""notData"">"&NOTDATA_TXT&"</td>"
 							PRINT TABS(3)&"	<tr>"
 						End If
 					%>

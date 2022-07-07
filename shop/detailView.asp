@@ -193,6 +193,7 @@
 	'##################################################################
 	' CS회원인 경우 PV값 / 상품판매가 확인
 	'################################################################## START
+	vipPrice = 0	'COSMICO
 	If DKRS_isCSGoods = "T" Then
 	'▣CS상품정보
 		arrParams = Array(_
@@ -205,9 +206,25 @@
 			RS_price2		= DKRS("price2")
 			RS_price4		= DKRS("price4")
 			RS_price5		= DKRS("price5")
-			RS_price6		= DKRS("price6")
+			RS_price6		= DKRS("price6")		'COSMICO VIP 가
+			RS_price7		= DKRS("price7")		'COSMICO 셀러 가
+			RS_price8		= DKRS("price8")		'COSMICO 매니저 가
+			RS_price9		= DKRS("price9")		'COSMICO 지점장 가
+			RS_price10		= DKRS("price10")	'COSMICO 본부장 가
+
 			RS_SellCode		= DKRS("SellCode")
 			RS_SellTypeName	= DKRS("SellTypeName")
+
+			'COSMICO VIP 매출가
+			Select Case nowGradeCnt
+				Case "20"	vipPrice = RS_price6
+				Case "30"	vipPrice = RS_price7
+				Case "40"	vipPrice = RS_price8
+				Case "50"	vipPrice = RS_price9
+				Case "60"	vipPrice = RS_price10
+				Case Else vipPrice = 0
+			End Select
+
 		End If
 		Call closeRs(DKRS)
 
@@ -680,6 +697,10 @@
 					<div class="GoodsCustomer"><%=LNG_SHOP_DETAILVIEW_15%> : <span class="GoodsNumber"><%=num2cur(DKRS_GoodsCustomer)%></span> <%=Chg_CurrencyISO%></div>
 					<div class="GoodsPrice"><%=LNG_SHOP_DETAILVIEW_16%> : <span class="GoodsNumber"><%=num2cur(DKRS_GoodsPrice)%></span> <%=Chg_CurrencyISO%></div>
 				<%End If%>
+				<%If nowGradeCnt >= 20  Then	'COSMICO%>
+					<div class="GoodsPrice"><%=LNG_VIP_PRICE%> : <span class="GoodsNumber"><%=num2cur(vipPrice)%></span> <%=Chg_CurrencyISO%></div>
+				<%End If%>
+
 
 				<table <%=tableatt%> class="width100">
 					<col width="135" />

@@ -692,6 +692,6 @@
 	BV_VIEW_TF = ""
 	If (DK_MEMBER_TYPE = "COMPANY" And DK_MEMBER_STYPE = "0") Or DK_MEMBER_TYPE = "ADMIN" Then
 		PV_VIEW_TF = "T"
-		BV_VIEW_TF = "T"
+		BV_VIEW_TF = "F"
 	End IF
 %>

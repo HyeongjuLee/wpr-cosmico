@@ -521,7 +521,7 @@
 
 <%
 	'cs상품검색 modal
-	MODAL_CONTENT_WIDTH = 870
+	MODAL_CONTENT_WIDTH = 920
 	MODAL_CSS_TYPE = "BLUE"
 %>
 <!--#include virtual="/_include/modal_config.asp" -->

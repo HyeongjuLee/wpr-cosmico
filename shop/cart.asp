@@ -243,6 +243,7 @@
 							arr_CS_price4 = 0
 							arr_CS_SELLCODE		= ""
 							arr_CS_SellTypeName = ""
+							vipPrice = 0	'COSMICO
 
 							If arrList_isCSGoods = "T" Then
 								'▣CS상품정보 변동정보 통합
@@ -258,12 +259,28 @@
 									arr_CS_price2		= DKRS("price2")
 									arr_CS_price4		= DKRS("price4")
 									arr_CS_price5		= DKRS("price5")
-									arr_CS_price6		= DKRS("price6")
+									arr_CS_price6		= DKRS("price6")		'COSMICO VIP 가
+									arr_CS_price7		= DKRS("price7")		'COSMICO 셀러 가
+									arr_CS_price8		= DKRS("price8")		'COSMICO 매니저 가
+									arr_CS_price9		= DKRS("price9")		'COSMICO 지점장 가
+									arr_CS_price10		= DKRS("price10")	'COSMICO 본부장 가
+
 									arr_CS_SellCode		= DKRS("SellCode")
 									arr_CS_SellTypeName	= DKRS("SellTypeName")
 									If arr_CS_SellTypeName <> "" Then
 										arr_CS_SellTypeName = LNG_SHOP_ORDER_DIRECT_PAY_04&" : "&arr_CS_SellTypeName
 									End If
+
+									'COSMICO VIP 매출가
+									Select Case nowGradeCnt
+										Case "20"	vipPrice = arr_CS_price6
+										Case "30"	vipPrice = arr_CS_price7
+										Case "40"	vipPrice = arr_CS_price8
+										Case "50"	vipPrice = arr_CS_price9
+										Case "60"	vipPrice = arr_CS_price10
+										Case Else vipPrice = 0
+									End Select
+
 								End If
 								Call closeRs(DKRS)
 
@@ -499,8 +516,11 @@
 						<td class="tcenter vtop">
 							<a href="javascript: cartDelThis('<%=arrList_intIDX%>','<%=LNG_SHOP_CART_JS_DELETE%>');">&#x2715;</a>
 						</td>
-						<td class="tcenter bor_l"><%'상품금액%>
+						<td class="tright bor_l"><%'상품금액%>
 							<%=spans(num2cur(self_GoodsPrice/arrList_orderEa),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
+							<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
+								<br /><%=LNG_VIP%> :  <%=spans(num2cur(vipPrice),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
+							<%End If%>
 							<%If PV_VIEW_TF = "T" Then%>
 							<br /> <%=spans(num2curINT(self_PV/arrList_orderEa),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#ff3300","10","400")%>
 							<%End If%>
@@ -531,9 +551,12 @@
 								<p><a class="cp" onclick="javascript: alert('<%=intMinimumAlert%>');"><%=intMinimumText%></a></p>
 							<%End If%>
 						</td>
-						<td class="tcenter bor_l"><%'총 상품금액%>
+						<td class="tright bor_l"><%'총 상품금액%>
 							<div style="<%=EA_Display%>">
 								<%=spans(num2cur(self_GoodsPrice),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
+								<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
+									<br /><%=LNG_VIP%> :  <%=spans(num2cur(vipPrice * arrList_orderEa),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
+								<%End If%>
 								<%If PV_VIEW_TF = "T" Then%>
 								<br /><%=spans(num2curINT(self_PV),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#ff3300","10","400")%>
 								<%End If%>

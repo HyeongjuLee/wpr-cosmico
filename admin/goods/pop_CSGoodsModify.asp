@@ -66,7 +66,7 @@
 				<col width="" />
 				<col width="" />
 				<col width="" />
-				<col width="" />
+				<!-- <col width="" /> -->
 				<col width="" />
 			<thead>
 				<tr>
@@ -76,7 +76,7 @@
 					<th>회원가</th>
 					<th>공급가</th>
 					<th><%=CS_PV%></th>
-					<th><%=CS_PV2%></th>
+					<!-- <th><%=CS_PV2%></th> -->
 					<!-- <th>구매종류</th> -->
 					<th>선택</th>
 				</tr>
@@ -129,14 +129,14 @@
 							PRINT TABS(3)&"		<td class=""tright"">"&num2CurAdmin(arr_price2,strNationCode)&" "&Chg_CurrencyISO&"</td>"
 							PRINT TABS(3)&"		<td class=""tright"">"&num2CurAdmin(arr_Except_Sell_VAT_Price,strNationCode)&" "&Chg_CurrencyISO&"</td>"
 							PRINT TABS(3)&"		<td class=""tright"">"&num2curINT(arr_price4)&" "&CS_PV&"</span></td>"
-							PRINT TABS(3)&"		<td class=""tright"">"&num2curINT(arr_price5)&" "&CS_PV2&"</span></td>"
+							'PRINT TABS(3)&"		<td class=""tright"">"&num2curINT(arr_price5)&" "&CS_PV2&"</span></td>"
 							'PRINT TABS(3)&"		<td>"&arr_SELLTYPE&"</td>"
 							PRINT TABS(3)&"		<td><a class=""a_submit design1"" onclick=""selectValue('"&arr_ncode&"','"&arr_name&"','"&arr_price&"','"&arr_price2&"','"&arr_SELLTYPE&"','"&arr_Except_Sell_VAT_Price&"','"&arr_price6&"');"" >선택</a></td>"
 							PRINT TABS(3)&"	<tr>"
 						Next
 					Else
 						PRINT TABS(3)&"	<tr>"
-						PRINT TABS(3)&"		<td colspan=""8"" class=""notData"">일치하는 CS상품이 존재하지 않거나 판매중지된 상품입니다.</td>"
+						PRINT TABS(3)&"		<td colspan=""7"" class=""notData"">일치하는 CS상품이 존재하지 않거나 판매중지된 상품입니다.</td>"
 						PRINT TABS(3)&"	<tr>"
 					End If
 

@@ -376,7 +376,7 @@
 	LNG_BUSINESS_03								= "VIP 관리"
 	LNG_BUSINESS_04								= "셀러(아이디)확인"
 	LNG_BUSINESS_05								= "본부소개"
-	
+
 	LNG_MARKETING_PLAN							= "마케팅플랜"
 
 	LNG_SALESMAN_SEARCH							= "판매원조회"
@@ -2585,7 +2585,7 @@
 
 	LNG_TOTAL									= "총"
 	LNG_SHOP_CART_01							= "건수"
-	LNG_SHOP_CART_02							= "1건"
+	LNG_SHOP_CART_02							= "건"
 
 	LNG_UNCERT									= "미인증"
 	LNG_MONTHS									= "개월"
@@ -2733,3 +2733,8 @@
 	LNG_JS_MONEY_OUTPUT_DATE_LIMIT = "출금신청은 매주 화요일에만 가능합니다."
 	LNG_MINIMUM_WITHDRAW_POINT		= "최소출금 금액"
 	LNG_JS_ALREADY_WITHDRAWAL = "이미 출금신청을 하셨습니다."
+
+	'COSMICO 매출관련
+	LNG_VIP_PRICE = "VIP 매출가"
+	LNG_VIP = "VIP"
+
