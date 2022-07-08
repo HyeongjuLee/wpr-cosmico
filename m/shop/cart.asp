@@ -549,6 +549,7 @@
 						arr_CS_price4 = 0
 						arr_CS_SELLCODE		= ""
 						arr_CS_SellTypeName = ""
+						vipPrice = 0	'COSMICO
 
 						If arrList_isCSGoods = "T" Then
 							'▣CS상품정보 변동정보 통합
@@ -564,12 +565,28 @@
 								arr_CS_price2		= DKRS("price2")
 								arr_CS_price4		= DKRS("price4")
 								arr_CS_price5		= DKRS("price5")
-								arr_CS_price6		= DKRS("price6")
+								arr_CS_price6		= DKRS("price6")		'COSMICO VIP 가
+								arr_CS_price7		= DKRS("price7")		'COSMICO 셀러 가
+								arr_CS_price8		= DKRS("price8")		'COSMICO 매니저 가
+								arr_CS_price9		= DKRS("price9")		'COSMICO 지점장 가
+								arr_CS_price10		= DKRS("price10")	'COSMICO 본부장 가
+
 								arr_CS_SellCode		= DKRS("SellCode")
 								arr_CS_SellTypeName	= DKRS("SellTypeName")
 								If arr_CS_SellTypeName <> "" Then
 									arr_CS_SellTypeName = LNG_SHOP_ORDER_DIRECT_PAY_04&" : "&arr_CS_SellTypeName
 								End If
+
+								'COSMICO VIP 매출가
+								Select Case nowGradeCnt
+									Case "20"	vipPrice = arr_CS_price6
+									Case "30"	vipPrice = arr_CS_price7
+									Case "40"	vipPrice = arr_CS_price8
+									Case "50"	vipPrice = arr_CS_price9
+									Case "60"	vipPrice = arr_CS_price10
+									Case Else vipPrice = 0
+								End Select
+
 							End If
 							Call closeRs(DKRS)
 
@@ -834,6 +851,9 @@
 
 								<%'상품금액%>
 								<p><span class="price"><%=num2cur(self_GoodsPrice/arrList_orderEa)%></span><span class="pUnit"><%=Chg_currencyISO%></span></p>
+								<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
+									<p><span class="blue2 tweight"><%=LNG_VIP%></span> :  <span class="price"><%=num2cur(vipPrice)%></span><span class="pUnit"><%=Chg_currencyISO%></span></p>
+								<%End If%>
 								<%If PV_VIEW_TF = "T" Then%>
 								<p><span class="pv"><%=num2curINT(self_PV/arrList_orderEa)%></span><span class="pvUnit"><%=CS_PV%></span></p>
 								<%End If%>
@@ -864,7 +884,7 @@
 								<%End If%>
 							</div>
 						</div>
-						<div class="eachPriceInfo" >
+						<div class="eachPriceInfo" style="display: none;" >
 							<table <%=tableatt%> class="width100">
 								<col width="" />
 								<col width="" />
@@ -872,14 +892,18 @@
 									<td class="title"><%=LNG_SHOP_ORDER_DIRECT_TABLE_04%></td>
 									<td class="tright"><span id="sumEachPrice_txt<%=sIDX%>"><%=num2cur(self_GoodsPrice)%></span><span class="pUnit"><%=Chg_CurrencyISO%></span></td>
 								</tr>
+								<%If PV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title"><%=CS_PV%></td>
 									<td class="tright"><span id="sumEachPV_txt<%=sIDX%>" class="pv"><%=num2curINT(self_PV)%></span><span class="pvUnit"><%=CS_PV%></span></td>
 								</tr>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title"><%=CS_BV%></td>
 									<td class="tright"><span id="sumEachBV_txt<%=sIDX%>" class="bv"><%=num2curINT(self_GV)%></span><span class="bvUnit"><%=CS_PV2%></span></td>
 								</tr>
+								<%End If%>
 							</table>
 						</div>
 					</div>
@@ -900,7 +924,7 @@
 						<!-- <div class="txt_DeliveryFee">
 							<div class="inner"><span class="blue2"><%=BUNDLE_DELIVERY_TXT%></span><%=txt_DeliveryFee%></div>
 						</div> -->
-						<div class="txt_DeliveryFee">
+						<div class="txt_DeliveryFee" >
 							<div class="inner">
 								<%=LNG_CS_ORDERS_DELIVERY_PRICE%> : <span class="blue2"><%=BUNDLE_DELIVERY_TXT%></span>
 								<span class="tweight"><span class="deliveryFeeShopClass_<%=attrShopID%>"><%=txt_DeliveryFee%></span></span> <%=txt_DeliveryCondition%>
@@ -921,7 +945,7 @@
 						End If
 					%>
 					<%If shopAmountResultView = "T" Then	'업체별 주문합계%>
-						<div class="eachPriceInfo total" >
+						<div class="eachPriceInfo total" style="display: none;" >
 							<table <%=tableatt%> class="width100">
 								<col width="" />
 								<col width="" />
@@ -943,16 +967,20 @@
 									<td class="tright top_price"><span class="TOTorderPriceShopID_<%=attrShopIdTOT%>_txt">0</span><span class="pUnit"><%=Chg_CurrencyISO%></span></td>
 									<td class="tright"><span class="shopPrices-down"></span></td>
 								</tr>
+								<%If PV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title sub"><%=LNG_CS_ORDERS_TOTAL_PV%></td>
 									<td class="tright"><span class="TOTsumPvShopID_<%=attrShopIdTOT%>_txt pv">0</span><span class="pvUnit"><%=CS_PV%></span></td>
 									<td></td>
 								</tr>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title sub">총 BV</td>
 									<td class="tright"><span class="TOTsumBvShopID_<%=attrShopIdTOT%>_txt bv">0</span><span class="bvUnit"><%=CS_PV2%></span></td>
 									<td></td>
 								</tr>
+								<%End If%>
 							</table>
 						</div>
 					<%End If%>
@@ -978,7 +1006,7 @@
 			<a class="buys" onclick="selectOrder(); return false;"><%=LNG_SHOP_CART_TXT_06%></a>
 		</div>
 
-		<%If DK_MEMBER_LEVEL > 0 Then%>
+		<%If DK_MEMBER_LEVEL > 0 and 1=2 Then%>
 			<div id="fix_menu" class="display-none">
 				<div class="inner">
 					<!-- <div class="all">

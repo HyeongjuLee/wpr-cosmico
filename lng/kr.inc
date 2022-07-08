@@ -222,7 +222,7 @@
 	LNG_TEXT_PROCESSING_DATA					= "데이터 처리중입니다. 잠시만 기다려주세요."
 	LNG_TEXT_I_AGREE							= "동의합니다."
 	LNG_TEXT_ACTIVE_CNT							= "액티브 회원수"
-	LNG_TOTAL_PAY_PRICE							= "총 상품금액"
+	LNG_TOTAL_PAY_PRICE							= "총 금액"
 	LNG_VIRAL_VOTER								= "바이럴 추천인"
 
 	LNG_JS_ID									= "아이디를 입력하셔야 합니다."

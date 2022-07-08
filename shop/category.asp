@@ -528,7 +528,7 @@
 					End If
 
 					'If DK_MEMBER_STYPE = "0" And arrList_isCSGoods = "T" Then
-					vipPrice = 0
+					vipPrice = 0		'COSMICO
 					If arrList_isCSGoods = "T" Then
 						'▣CS상품정보 변동정보 통합
 						arrParams = Array(_

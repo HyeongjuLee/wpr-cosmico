@@ -90,6 +90,35 @@
 	If inUidx = "" Then Call ALERTS(LNG_SHOP_ORDER_DIRECT_01_01,"GO","/m/shop/cart.asp")
 	arrUidx = Split(inUidx,",")
 
+%>
+
+<script type="text/javascript">
+	//매출구분 선택
+	function chgSellCode(value) {
+		var f = document.oFrm;
+		f.v_SellCode.value = value;
+		f.submit();
+	}
+</script>
+<%'매출구분 reload COSMICO%>
+<form action="" id="oFrm" name="oFrm" method="post">
+	<input type="hidden" name="cuidx" value="<%=inUidx%>" readonly="readonly">
+	<input type="hidden" name="v_SellCode" value="" readonly="readonly">
+</form>
+<%
+	'COSMICO 매출구분
+	'- 본인 직급 VIP 이하인 판매원의 매출의 경우 회원매출이며, VIP 달성 이후 회원매출, VIP매출를 선택하여 등록할 수 있다.
+	'- 판매등록시 VIP매출의 경우 본인의 현직급에 따른 판매금액을 적용하여 구매가 가능하다.
+	'- 최종 구매 페이지에서 매출구분을 선택할 수 있으며, 해당 매출 구분의 선택에 따라 구매 및 결제하여야 하는 금액이 변경된다.
+	'- 소비자의 경우 VIP 달성 이후 VIP 매출만 등록이 가능하며, 자동으로 VIP 매출로 처리한다. (매출선택 없음)
+
+	v_SellCode = Trim(pRequestTF("v_SellCode",False))
+	IF v_SellCode = "" Then v_SellCode = "01"
+	If nowGradeCnt >= 20 Then
+		If Sell_Mem_TF = 1 Then v_SellCode = "02"
+	End If
+%>
+<%
 
 	Call Db.beginTrans(Nothing)
 
@@ -193,8 +222,14 @@ Select Case UCase(DK_MEMBER_NATIONCODE)
 End Select
 %>
 </head>
+<script>
+	$(document).ready(function() {
+		baseDeliveryInfo();
+	});
+</script>
 <!-- <body onload="calcSettlePrice(); checkpayType(); ordererDeliveryInfo(); <%=BODYLOAD%> "> -->
-<body onload="calcSettlePrice(); checkpayType(); baseDeliveryInfo(); <%=BODYLOAD%> ">
+<body onLoad="calcSettlePrice(); checkpayType();  ">
+
 <!--#include virtual = "/m/_include/header.asp"-->
 <!--#include virtual = "/m/_include/sub_header.asp"-->
 <%
@@ -232,196 +267,27 @@ End Select
 			<input type="hidden" name="ori_strADDR2" value="<%=strADDR2%>" readonly="readonly"/>
 			<input type="hidden" name="DIRECT_PICKUP_USE_TF" value="<%=DIRECT_PICKUP_USE_TF%>" readonly="readonly"/>
 			<input type="hidden" name="SHOP_ORDERINFO_VIEW_TF" value="<%=SHOP_ORDERINFO_VIEW_TF%>" readonly="readonly"/>
-			<%
-				'##################################################################
-				' 배송지정보 입력
-				'################################################################## START
-			%>
-			<%If DIRECT_PICKUP_USE_TF = "T" Then 'strText %>
-			<div class="order_title_m"><%=LNG_SHOP_ORDER_DIRECT_PAY_10%></div>
-			<div class="user_info2 clear">
-				<div class="width100">
-					<%If DK_MEMBER_TYPE = "COMPANY" Or DK_MEMBER_TYPE ="ADMIN" Then%>
-						<span class="tweight"><%=startext%>&nbsp;&nbsp;<%=LNG_SHOP_ORDER_DIRECT_PAY_10%> : </span>
-						<select name="DtoD" id="DtoD" class="input_text" onchange="chgDelivery(this.value);">
-							<option value="T" selected="selected"><%=LNG_SHOP_ORDER_DIRECT_PAY_11%></option>
-							<option value="F"><%=LNG_SHOP_ORDER_DIRECT_PAY_12%></option>
-						</select>
-					<%Else%>
-						<input type="hidden" name="DtoD" value="T" />
-					<%End If%>
-				</div>
-			</div>
-			<%Else %>
-				<input type="hidden" name="DtoD" value="T" />
-			<%End If%>
-			<%
-			'	'▣주문자 정보 입력 VIEW TF
-			'	IF SHOP_ORDERINFO_VIEW_TF = "T" Then
-			'		orderInfo = ""
-			'		readonly = ""
-			'	Else
-			'		orderInfo = "display-none"
-			'		readonly = "readonly=""readonly"""
-'
-			'		If strName = "" Then strName = "strName"
-			'		If strzip = "" Then strzip = "strzip"
-			'		If strADDR1 = "" Then strADDR1 = "strADDR1"
-			'		If strADDR2 = "" Then strADDR2 = "strADDR2"
-			'	End If
-			%>
-			<input type="hidden" name="SHOP_ORDERINFO_VIEW_TF" value="<%=SHOP_ORDERINFO_VIEW_TF%>" readonly="readonly"/>
-			<div id="orderInfo">
-				<div class="order_title_m" ><%=LNG_SHOP_ORDER_DIRECT_TITLE_04%></div>
-				<div class="user_info1 clear">
-					<table <%=tableatt%> class="width100">
-						<col width="120" />
-						<col width="*" />
-						<tr>
-							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_17%> <%=startext%></th>
-							<td><input type="text" name="strName" class="input_text width100" value="<%=strName%>" maxlength="100" <%=readonly%> /></td>
-						</tr><tr>
-							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_18%></th>
-							<td><input type="tel" name="strTel" class="input_text width100" <%=onLyKeys%> value="<%=strTel%>" maxlength="15" oninput="maxLengthCheck(this)" /></td>
-						</tr><tr>
-							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_19%> <%=startext%></th>
-							<td><input type="tel" name="strMobile" class="input_text width100" <%=onLyKeys%> value="<%=strMobile%>" maxlength="15" oninput="maxLengthCheck(this)"/></td>
-						</tr>
-						<%Select Case UCase(DK_MEMBER_NATIONCODE)%>
-							<%Case "KR"%>
-							<tr class="address"><%'현장수령용 jquery class%>
-								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%> <%=startext%></th>
-								<td>
-									<div style="width:57%;"><input type="text" class="input_text width100 readonly" name="strZip" id="strZipDaum" class="input_text width100 readonly" readonly="readonly" value="<%=strzip%>" maxlength="6" /></div><div class="tcenter" style="width:3%;"></div><div style="width:40%;"><input type="button" name="" onclick="execDaumPostcode_oris();" class="input_btn width100" value="우편번호" /></div>
-								</td>
-							</tr><tr class="address">
-								<td><input type="text" name="strADDR1" id="strADDR1Daum" class="input_text width100 readonly" value="<%=strADDR1%>" maxlength="500" readonly="readonly"  /></td>
-							</tr>
-							<%Case "JP"%>
-							<tr class="address">
-								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%></th>
-								<td>
-									<div style="width:57%;"><input type="text" class="input_text width100 readonly" name="strZip" id="strZip" class="input_text width100 readonly" readonly="readonly" value="<%=strzip%>" maxlength="7" /></div><div class="tcenter" style="width:3%;"></div><div style="width:40%;"><input type="button" name="" onclick="openzip_mjp2EN('strZip');" class="input_btn width100" value="<%=LNG_TEXT_ZIPCODE%>" /></div>
-								</td>
-							</tr><tr class="address">
-								<td><input type="text" name="strADDR1" id="strADDR1" class="input_text width100 readonly" value="<%=strADDR1%>" maxlength="500" readonly="readonly"  /></td>
-							</tr>
-							<%Case Else%>
-							<tr class="address">
-								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%></th>
-								<td>
-									<div style="width:57%;"><input type="text" class="input_text width100" name="strZip" class="input_text width100" value="<%=strzip%>" maxlength="6" <%=onLyKeys3%>  /></div><div style="width:40%;">&nbsp;(ZipCode)</div>
-								</td>
-							</tr><tr class="address">
-								<td><input type="text" name="strADDR1" class="input_text width100" value="<%=strADDR1%>" maxlength="500" /></td>
-							</tr>
-						<%End Select%>
-						<tr class="address">
-							<td><input type="text" name="strADDR2" id="strADDR2Daum" class="input_text width100" value="<%=strADDR2%>" maxlength="500" <%=readonly%> /></td>
-						</tr>
-						<%'execDaumPostcode_oris 페이지 끼워넣기%>
-						<tr id="DaumPostcode" class="tcenter display-none">
-							<td colspan="2">
-								<div id="wrap" class="DaumPostcodeWrap">
-									<img src="/images_kr/close.png" class="cp close" onclick="foldDaumPostcode()" alt="접기 버튼">
-								</div>
-								<script src="/jscript/daumPostCode_oris.js"></script>
-							</td>
-						</tr>
-						<%If SHOP_ORDERINFO_VIEW_TF = "T" Then%>
-						<tr>
-							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_20%> <%=startext%></th>
-							<td><input type="email" class="input_text width100" name="strEmail" value="<%=strEmail%>" maxlength="100" /></td>
-						</tr>
-						<%End IF%>
-						<tr class="directpickup">
-							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_23%></th>
-							<td><input type="text" name="orderMemo" maxlength="100" class="input_text width100" /></td>
-						</tr>
-					</table>
-				</div>
-			</div>
 
-			<div id="deliveryInfo">
-				<div id="order_title_m" class="order_title_m" >
-					<%If DIRECT_PICKUP_USE_TF = "T" Then 'strText %>
-					<span class="directpickupTitle" style="display: none;"><%=LNG_SHOP_ORDER_DIRECT_TITLE_04%></span>
-					<%End If%>
-					<span class="directpickup"><%=LNG_SHOP_ORDER_DIRECT_TITLE_05%></span>
+			<%If DK_MEMBER_TYPE = "COMPANY" Then%>
+				<div class="order_title_m"><%=LNG_TEXT_SALES_TYPE%></div>
+				<div class="width100 porel csinfos">
+					<!-- <div class="poabs title"><span class="tweight"><%=LNG_TEXT_SALES_TYPE%></span></div> -->
+					<div class="porel">
+						<div class="width95">
+							<%If nowGradeCnt >= 20 Then 'COSMICO 20(VIP) %>
+								<%If Sell_Mem_TF = 1 Then%>
+									<label class="tweight"><input type="radio" name="v_SellCode" value="02" class="input_radio" onclick="chgSellCode(this.value);" <%=isChecked(v_SellCode,"02")%> checked="checked" /> VIP매출</label>
+								<%Else%>
+									<label class="tweight"><input type="radio" name="v_SellCode" value="01" class="input_radio" onclick="chgSellCode(this.value);" <%=isChecked(v_SellCode,"01")%> /> 회원매출</label>
+									<label class="tweight" style="padding-left: 10px;"><input type="radio" name="v_SellCode" value="02" class="input_radio" onclick="chgSellCode(this.value);" <%=isChecked(v_SellCode,"02")%> /> VIP매출</label>
+								<%End If%>
+							<%Else%>
+								<label class="tweight"><input type="radio" name="v_SellCode" value="01" class="input_radio" onclick="chgSellCode(this.value);" <%=isChecked(v_SellCode,"01")%> checked="checked"/> 회원매출</label>
+							<%End If%>
+						</div>
+					</div>
 				</div>
-				<div class="deliveryInfoArea directpickup">
-					<!-- <label><input type="radio" name="dInfoType" class="input_radio" value="" onClick="ordererDeliveryInfo(this.form);" checked="checked" /><%=LNG_TEXT_ORDERER_DELIVERYINFO%></label> -->
-					<label><input type="radio" name="dInfoType" class="input_radio" value="" onClick="baseDeliveryInfo(this.form);" checked="checked"  /><%=LNG_TEXT_BASE_DELIVERYINFO%></label>
-					<label><input type="radio" name="dInfoType" class="input_radio" value="" onClick="openDeliveryInfo();" /><%=LNG_TEXT_LATEST_DELIVERYINFO%></label>
-					<a name="modal" href="pop_deliveryInfo.asp" id="deliveryInfoModal" title="<%=LNG_TEXT_LATEST_DELIVERYINFO%>" ></a>
-					<label><input type="radio" name="dInfoType" class="input_radio" value="" onClick="emptyDeliveryInfo(this.form);" /><%=LNG_TEXT_DIRECT_INPUT%></label>
-				</div>
-				<!-- <div id="orderSame"><label><input type="checkbox" name="infoCopys" onClick="infoCopy(this);" class="input_chk2" > <%=LNG_SHOP_ORDER_DIRECT_TABLE_22%></label></div> -->
-				<div class="user_info1 clear">
-					<table <%=tableatt%> class="width100">
-						<col width="120" />
-						<col width="*" />
-						<tr>
-							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_17%> <%=startext%></th>
-							<td><input type="text" name="takeName" class="input_text width100" maxlength="100" /></td>
-						</tr><tr>
-							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_18%></th>
-							<td><input type="tel" name="takeTel" class="input_text width100" maxlength="15" <%=onLyKeys%> value="" oninput="maxLengthCheck(this)" /></td>
-						</tr><tr>
-							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_19%> <%=startext%></th>
-							<td><input type="tel" name="takeMobile" class="input_text width100" maxlength="11" <%=onLyKeys%> value="" oninput="maxLengthCheck(this)" /></td>
-						</tr>
-						<%Select Case UCase(DK_MEMBER_NATIONCODE)%>
-							<%Case "KR"%>
-							<tr class="directpickup">
-								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%> <%=startext%></th>
-								<td>
-									<div style="width:57%;"><input type="text" name="takeZip" id="takeZipDaum" class="input_text width100 readonly" readonly="readonly" maxlength="6" /></div><div class="tcenter" style="width:3%;"></div><div style="width:40%;" id="takeZipBtn"><a name="modal" href="/m/common/pop_postcode.asp?z=takes" id="pop_postcode" title="<%=LNG_TEXT_ZIPCODE%>"><input type="button" class="input_btn width100" value="<%=LNG_TEXT_ZIPCODE%>"/></a></div>
-								</td>
-							</tr><tr class="directpickup">
-								<td><input type="text" name="takeADDR1" id="takeADDR1Daum" class="input_text width100 readonly" maxlength="500" readonly="readonly"  /></td>
-							</tr>
-							<%Case "JP"%>
-							<tr class="directpickup">
-								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%></th>
-								<td>
-									<div style="width:57%;"><input type="text" class="input_text width100 readonly" name="takeZip" id="takeZip" class="input_text width100 readonly" readonly="readonly" value="<%=strzip%>" maxlength="6" /></div><div class="tcenter" style="width:3%;"></div><div style="width:40%;"><input type="button" name="" onclick="openzip_mjp2EN('takeZip');" class="input_btn width100" value="<%=LNG_TEXT_ZIPCODE%>" /></div>
-								</td>
-							</tr><tr class="directpickup">
-								<td><input type="text" name="takeADDR1" id="takeADDR1" class="input_text width100 readonly" value="" maxlength="500"  readonly="readonly"  /></td>
-							</tr>
-							<%Case Else%>
-							<tr class="directpickup">
-								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%></th>
-								<td>
-									<div style="width:57%;"><input type="text" class="input_text width100" name="takeZip" class="input_text width100" value="" maxlength="6" <%=onLyKeys3%> /></div><div style="width:40%;">&nbsp;(ZipCode)</div>
-								</td>
-							</tr><tr class="directpickup">
-								<td><input type="text" name="takeADDR1" class="input_text width100" value="" maxlength="500" /></td>
-							</tr>
-						<%End Select %>
-						<tr class="directpickup">
-							<td><input type="text" name="takeADDR2" id="takeADDR2Daum" class="input_text width100" maxlength="500" /></td>
-						</tr>
-						<%'execDaumPostcode_takes 페이지 끼워넣기%>
-						<tr id="DaumPostcode2" class="tcenter display-none">
-							<td colspan="2">
-								<div id="wrap2" class="DaumPostcodeWrap">
-									<img src="/images_kr/close.png" class="cp close" onclick="foldDaumPostcode2()" alt="접기 버튼2">
-								</div>
-								<script src="/jscript/daumPostCode_takes.js"></script>
-							</td>
-						</tr>
-						<%If SHOP_ORDERINFO_VIEW_TF <> "T" Then%>
-						<tr class="directpickup">
-							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_20%> <%=startext%></th>
-							<td><input type="email" class="input_text width100" name="strEmail" value="<%=strEmail%>" maxlength="100" /></td>
-						</tr>
-						<%End IF%>
-					</table>
-				</div>
-			</div>
-			<%'################################################################## END%>
+			<%End If%>
 
 			<!-- <div class="order_title_m"><%=LNG_SHOP_ORDER_DIRECT_TITLE_03%></div> -->
 			<%
@@ -620,6 +486,7 @@ End Select
 						arr_CS_price4 = 0
 						arr_CS_SELLCODE		= ""
 						arr_CS_SellTypeName = ""
+						vipPrice = 0	'COSMICO
 
 						If arrList_isCSGoods = "T" Then
 							'▣CS상품정보 변동정보 통합
@@ -633,12 +500,28 @@ End Select
 								arr_CS_price2		= DKRS("price2")
 								arr_CS_price4		= DKRS("price4")
 								arr_CS_price5		= DKRS("price5")
-								arr_CS_price6		= DKRS("price6")
+								arr_CS_price6		= DKRS("price6")		'COSMICO VIP 가
+								arr_CS_price7		= DKRS("price7")		'COSMICO 셀러 가
+								arr_CS_price8		= DKRS("price8")		'COSMICO 매니저 가
+								arr_CS_price9		= DKRS("price9")		'COSMICO 지점장 가
+								arr_CS_price10		= DKRS("price10")	'COSMICO 본부장 가
+
 								arr_CS_SellCode		= DKRS("SellCode")
 								arr_CS_SellTypeName	= DKRS("SellTypeName")
 								If arr_CS_SellTypeName <> "" Then
 									arr_CS_SellTypeName = LNG_SHOP_ORDER_DIRECT_PAY_04&" : "&arr_CS_SellTypeName
 								End If
+
+								'COSMICO VIP 매출가
+								Select Case nowGradeCnt
+									Case "20"	vipPrice = arr_CS_price6
+									Case "30"	vipPrice = arr_CS_price7
+									Case "40"	vipPrice = arr_CS_price8
+									Case "50"	vipPrice = arr_CS_price9
+									Case "60"	vipPrice = arr_CS_price10
+									Case Else vipPrice = 0
+								End Select
+
 							End If
 							Call closeRs(DKRS)
 
@@ -658,6 +541,11 @@ End Select
 								'If arr_CS_SellCode = "" Then arr_CS_SellCode = "NONE"
 								LAST_CS_SellCode = CStr(arr_CS_SellCode)
 								ALL_CS_SellCode  = ALL_CS_SellCode & arr_CS_SellCode &","
+
+							'COSMICO VIP 매출가
+							IF v_SellCode = "02" Then
+								arrList_GoodsPrice = vipPrice
+							End If
 
 						End If
 						'################################################################## END
@@ -820,6 +708,11 @@ End Select
 
 			%>
 			<%
+					'COSMICO VIP
+					Item_Discount = "GradeCnt : "&nowGradeCnt
+					Item_SellCode = v_SellCode
+					IF Item_SellCode <> "02" Then Item_Discount = "No Discount"
+
 					'◆ #2. SHOP 주문 임시테이블 정보 입력 SHOP 상품 임시테이블 정보 입력
 					arrParamsGI = Array(_
 						Db.makeParam("@OrderIDX",adInteger,adParamInput,0,orderTempIDX),_
@@ -832,9 +725,12 @@ End Select
 						Db.makeParam("@strOption",adVarWChar,adParamInput,800,arrList_strOption),_
 						Db.makeParam("@isShopType",adChar,adParamInput,1,arrList_isShopType),_
 						Db.makeParam("@strShopID",adVarChar,adParamInput,20,arrList_strShopID),_
+							Db.makeParam("@Item_Discount",adVarChar,adParamInput,30,Item_Discount),_
+							Db.makeParam("@Item_SellCode",adVarChar,adParamInput,30,Item_SellCode),_
 						Db.makeParam("@OUTPUT_VALUE",adVarChar,adParamOutput,10,"ERROR")_
 					)
-					Call Db.exec("HJP_ORDER_TEMP_GOODS_SHOP_INSERT",DB_PROC,arrParamsGI,Nothing)
+					Call Db.exec("HJP_ORDER_TEMP_GOODS_SHOP_INSERT_COSMICO",DB_PROC,arrParamsGI,Nothing)		'COSMICO
+					'Call Db.exec("HJP_ORDER_TEMP_GOODS_SHOP_INSERT",DB_PROC,arrParamsGI,Nothing)
 					OUTPUT_VALUE = arrParams(UBound(arrParams))(4)
 
 					If OUTPUT_VALUE = "ERROR" Then
@@ -909,9 +805,11 @@ End Select
 								<%If DK_MEMBER_TYPE = "COMPANY" Then %>
 									<!-- <p><span class="selltypeName"><%=arr_CS_SellTypeName%></span></p> -->
 								<%End If%>
-
 								<%'상품금액 합계%>
-								<p><span class="price f15px"><%=num2cur(self_GoodsPrice)%></span><span class="pUnit f13px"><%=Chg_currencyISO%></span></p>
+								<p>
+									<%If v_SellCode = "02" Then%><span class="blue2 tweight"><%=LNG_VIP%></span> :	<%End If%>
+									<span class="price f15px"><%=num2cur(self_GoodsPrice)%></span><span class="pUnit f13px"><%=Chg_currencyISO%></span>
+								</p>
 								<%If PV_VIEW_TF = "T" Then%>
 								<p><span class="pv f14px"><%=num2curINT(self_PV)%></span><span class="pvUnit f12px"><%=CS_PV%></span></p>
 								<%End If%>
@@ -983,7 +881,7 @@ End Select
 					%>
 					<%'If shopAmountResultView = "T" And Int(arrList_TOTAL_SHOPCNT) > 1 Then	'업체별 주문합계%>
 					<%If shopAmountResultView = "T" And Int(arrList_TOTAL_SHOPCNT) > 0 Then	'업체별 주문합계%>
-						<div class="eachPriceInfo total">
+						<div class="eachPriceInfo total" style="display: none;">
 							<table <%=tableatt%> class="width100">
 								<col width="" />
 								<col width="" />
@@ -1186,6 +1084,196 @@ End Select
 					<input type="hidden" name="useCmoneyTF" value="F" readonly="readonly"/>
 				</div>
 			</div>
+			<%
+				'##################################################################
+				' 배송지정보 입력
+				'################################################################## START
+			%>
+			<%If DIRECT_PICKUP_USE_TF = "T" Then 'strText %>
+			<div class="order_title_m"><%=LNG_SHOP_ORDER_DIRECT_PAY_10%></div>
+			<div class="user_info2 clear">
+				<div class="width100">
+					<%If DK_MEMBER_TYPE = "COMPANY" Or DK_MEMBER_TYPE ="ADMIN" Then%>
+						<span class="tweight"><%=startext%>&nbsp;&nbsp;<%=LNG_SHOP_ORDER_DIRECT_PAY_10%> : </span>
+						<select name="DtoD" id="DtoD" class="input_text" onchange="chgDelivery(this.value);">
+							<option value="T" selected="selected"><%=LNG_SHOP_ORDER_DIRECT_PAY_11%></option>
+							<option value="F"><%=LNG_SHOP_ORDER_DIRECT_PAY_12%></option>
+						</select>
+					<%Else%>
+						<input type="hidden" name="DtoD" value="T" />
+					<%End If%>
+				</div>
+			</div>
+			<%Else %>
+				<input type="hidden" name="DtoD" value="T" />
+			<%End If%>
+			<%
+			'	'▣주문자 정보 입력 VIEW TF
+			'	IF SHOP_ORDERINFO_VIEW_TF = "T" Then
+			'		orderInfo = ""
+			'		readonly = ""
+			'	Else
+			'		orderInfo = "display-none"
+			'		readonly = "readonly=""readonly"""
+'
+			'		If strName = "" Then strName = "strName"
+			'		If strzip = "" Then strzip = "strzip"
+			'		If strADDR1 = "" Then strADDR1 = "strADDR1"
+			'		If strADDR2 = "" Then strADDR2 = "strADDR2"
+			'	End If
+			%>
+			<input type="hidden" name="SHOP_ORDERINFO_VIEW_TF" value="<%=SHOP_ORDERINFO_VIEW_TF%>" readonly="readonly"/>
+			<div id="orderInfo">
+				<div class="order_title_m" ><%=LNG_SHOP_ORDER_DIRECT_TITLE_04%></div>
+				<div class="user_info1 clear">
+					<table <%=tableatt%> class="width100">
+						<col width="120" />
+						<col width="*" />
+						<tr>
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_17%> <%=startext%></th>
+							<td><input type="text" name="strName" class="input_text width100" value="<%=strName%>" maxlength="100" <%=readonly%> /></td>
+						</tr><tr>
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_18%></th>
+							<td><input type="tel" name="strTel" class="input_text width100" <%=onLyKeys%> value="<%=strTel%>" maxlength="15" oninput="maxLengthCheck(this)" /></td>
+						</tr><tr>
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_19%> <%=startext%></th>
+							<td><input type="tel" name="strMobile" class="input_text width100" <%=onLyKeys%> value="<%=strMobile%>" maxlength="15" oninput="maxLengthCheck(this)"/></td>
+						</tr>
+						<%Select Case UCase(DK_MEMBER_NATIONCODE)%>
+							<%Case "KR"%>
+							<tr class="address"><%'현장수령용 jquery class%>
+								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%> <%=startext%></th>
+								<td>
+									<div style="width:57%;"><input type="text" class="input_text width100 readonly" name="strZip" id="strZipDaum" class="input_text width100 readonly" readonly="readonly" value="<%=strzip%>" maxlength="6" /></div><div class="tcenter" style="width:3%;"></div><div style="width:40%;"><input type="button" name="" onclick="execDaumPostcode_oris();" class="input_btn width100" value="우편번호" /></div>
+								</td>
+							</tr><tr class="address">
+								<td><input type="text" name="strADDR1" id="strADDR1Daum" class="input_text width100 readonly" value="<%=strADDR1%>" maxlength="500" readonly="readonly"  /></td>
+							</tr>
+							<%Case "JP"%>
+							<tr class="address">
+								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%></th>
+								<td>
+									<div style="width:57%;"><input type="text" class="input_text width100 readonly" name="strZip" id="strZip" class="input_text width100 readonly" readonly="readonly" value="<%=strzip%>" maxlength="7" /></div><div class="tcenter" style="width:3%;"></div><div style="width:40%;"><input type="button" name="" onclick="openzip_mjp2EN('strZip');" class="input_btn width100" value="<%=LNG_TEXT_ZIPCODE%>" /></div>
+								</td>
+							</tr><tr class="address">
+								<td><input type="text" name="strADDR1" id="strADDR1" class="input_text width100 readonly" value="<%=strADDR1%>" maxlength="500" readonly="readonly"  /></td>
+							</tr>
+							<%Case Else%>
+							<tr class="address">
+								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%></th>
+								<td>
+									<div style="width:57%;"><input type="text" class="input_text width100" name="strZip" class="input_text width100" value="<%=strzip%>" maxlength="6" <%=onLyKeys3%>  /></div><div style="width:40%;">&nbsp;(ZipCode)</div>
+								</td>
+							</tr><tr class="address">
+								<td><input type="text" name="strADDR1" class="input_text width100" value="<%=strADDR1%>" maxlength="500" /></td>
+							</tr>
+						<%End Select%>
+						<tr class="address">
+							<td><input type="text" name="strADDR2" id="strADDR2Daum" class="input_text width100" value="<%=strADDR2%>" maxlength="500" <%=readonly%> /></td>
+						</tr>
+						<%'execDaumPostcode_oris 페이지 끼워넣기%>
+						<tr id="DaumPostcode" class="tcenter display-none">
+							<td colspan="2">
+								<div id="wrap" class="DaumPostcodeWrap">
+									<img src="/images_kr/close.png" class="cp close" onclick="foldDaumPostcode()" alt="접기 버튼">
+								</div>
+								<script src="/jscript/daumPostCode_oris.js"></script>
+							</td>
+						</tr>
+						<%If SHOP_ORDERINFO_VIEW_TF = "T" Then%>
+						<tr>
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_20%> <%=startext%></th>
+							<td><input type="email" class="input_text width100" name="strEmail" value="<%=strEmail%>" maxlength="100" /></td>
+						</tr>
+						<%End IF%>
+						<tr class="directpickup">
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_23%></th>
+							<td><input type="text" name="orderMemo" maxlength="100" class="input_text width100" /></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div id="deliveryInfo">
+				<div id="order_title_m" class="order_title_m" >
+					<%If DIRECT_PICKUP_USE_TF = "T" Then 'strText %>
+					<span class="directpickupTitle" style="display: none;"><%=LNG_SHOP_ORDER_DIRECT_TITLE_04%></span>
+					<%End If%>
+					<span class="directpickup"><%=LNG_SHOP_ORDER_DIRECT_TITLE_05%></span>
+				</div>
+				<div class="deliveryInfoArea directpickup">
+					<!-- <label><input type="radio" name="dInfoType" class="input_radio" value="" onClick="ordererDeliveryInfo(this.form);" checked="checked" /><%=LNG_TEXT_ORDERER_DELIVERYINFO%></label> -->
+					<label><input type="radio" name="dInfoType" class="input_radio" value="" onClick="baseDeliveryInfo(this.form);" checked="checked"  /><%=LNG_TEXT_BASE_DELIVERYINFO%></label>
+					<label><input type="radio" name="dInfoType" class="input_radio" value="" onClick="openDeliveryInfo();" /><%=LNG_TEXT_LATEST_DELIVERYINFO%></label>
+					<a name="modal" href="pop_deliveryInfo.asp" id="deliveryInfoModal" title="<%=LNG_TEXT_LATEST_DELIVERYINFO%>" ></a>
+					<label><input type="radio" name="dInfoType" class="input_radio" value="" onClick="emptyDeliveryInfo(this.form);" /><%=LNG_TEXT_DIRECT_INPUT%></label>
+				</div>
+				<!-- <div id="orderSame"><label><input type="checkbox" name="infoCopys" onClick="infoCopy(this);" class="input_chk2" > <%=LNG_SHOP_ORDER_DIRECT_TABLE_22%></label></div> -->
+				<div class="user_info1 clear">
+					<table <%=tableatt%> class="width100">
+						<col width="120" />
+						<col width="*" />
+						<tr>
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_17%> <%=startext%></th>
+							<td><input type="text" name="takeName" class="input_text width100" maxlength="100" /></td>
+						</tr><tr>
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_18%></th>
+							<td><input type="tel" name="takeTel" class="input_text width100" maxlength="15" <%=onLyKeys%> value="" oninput="maxLengthCheck(this)" /></td>
+						</tr><tr>
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_19%> <%=startext%></th>
+							<td><input type="tel" name="takeMobile" class="input_text width100" maxlength="11" <%=onLyKeys%> value="" oninput="maxLengthCheck(this)" /></td>
+						</tr>
+						<%Select Case UCase(DK_MEMBER_NATIONCODE)%>
+							<%Case "KR"%>
+							<tr class="directpickup">
+								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%> <%=startext%></th>
+								<td>
+									<div style="width:57%;"><input type="text" name="takeZip" id="takeZipDaum" class="input_text width100 readonly" readonly="readonly" maxlength="6" /></div><div class="tcenter" style="width:3%;"></div><div style="width:40%;" id="takeZipBtn"><a name="modal" href="/m/common/pop_postcode.asp?z=takes" id="pop_postcode" title="<%=LNG_TEXT_ZIPCODE%>"><input type="button" class="input_btn width100" value="<%=LNG_TEXT_ZIPCODE%>"/></a></div>
+								</td>
+							</tr><tr class="directpickup">
+								<td><input type="text" name="takeADDR1" id="takeADDR1Daum" class="input_text width100 readonly" maxlength="500" readonly="readonly"  /></td>
+							</tr>
+							<%Case "JP"%>
+							<tr class="directpickup">
+								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%></th>
+								<td>
+									<div style="width:57%;"><input type="text" class="input_text width100 readonly" name="takeZip" id="takeZip" class="input_text width100 readonly" readonly="readonly" value="<%=strzip%>" maxlength="6" /></div><div class="tcenter" style="width:3%;"></div><div style="width:40%;"><input type="button" name="" onclick="openzip_mjp2EN('takeZip');" class="input_btn width100" value="<%=LNG_TEXT_ZIPCODE%>" /></div>
+								</td>
+							</tr><tr class="directpickup">
+								<td><input type="text" name="takeADDR1" id="takeADDR1" class="input_text width100 readonly" value="" maxlength="500"  readonly="readonly"  /></td>
+							</tr>
+							<%Case Else%>
+							<tr class="directpickup">
+								<th class="vtop" rowspan="3"><%=LNG_SHOP_ORDER_DIRECT_TABLE_21%></th>
+								<td>
+									<div style="width:57%;"><input type="text" class="input_text width100" name="takeZip" class="input_text width100" value="" maxlength="6" <%=onLyKeys3%> /></div><div style="width:40%;">&nbsp;(ZipCode)</div>
+								</td>
+							</tr><tr class="directpickup">
+								<td><input type="text" name="takeADDR1" class="input_text width100" value="" maxlength="500" /></td>
+							</tr>
+						<%End Select %>
+						<tr class="directpickup">
+							<td><input type="text" name="takeADDR2" id="takeADDR2Daum" class="input_text width100" maxlength="500" /></td>
+						</tr>
+						<%'execDaumPostcode_takes 페이지 끼워넣기%>
+						<tr id="DaumPostcode2" class="tcenter display-none">
+							<td colspan="2">
+								<div id="wrap2" class="DaumPostcodeWrap">
+									<img src="/images_kr/close.png" class="cp close" onclick="foldDaumPostcode2()" alt="접기 버튼2">
+								</div>
+								<script src="/jscript/daumPostCode_takes.js"></script>
+							</td>
+						</tr>
+						<%If SHOP_ORDERINFO_VIEW_TF <> "T" Then%>
+						<tr class="directpickup">
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_20%> <%=startext%></th>
+							<td><input type="email" class="input_text width100" name="strEmail" value="<%=strEmail%>" maxlength="100" /></td>
+						</tr>
+						<%End IF%>
+					</table>
+				</div>
+			</div>
+			<%'################################################################## END%>
 
 			<%If 1=2 Then '수령방식, 주문자정보, 배송지정보 상단이동%>
 			<!-- <%If DIRECT_PICKUP_USE_TF = "T" Then 'strText %>
@@ -1204,6 +1292,7 @@ End Select
 			<!-- </div> -->
 
 			<%If DK_MEMBER_TYPE = "COMPANY" And CSGoodCnt > 0 Then%>
+				<%If false Then%>
 				<div class="order_title_m"><%=LNG_SHOP_COMMON_BUSINESS_MEM_INFO%></div>
 				<div class="width100 porel csinfos">
 					<div class="poabs title"><span class="tweight"><%=LNG_SHOP_ORDER_DIRECT_PAY_04%></span></div>
@@ -1230,6 +1319,7 @@ End Select
 						</div>
 					</div>
 				</div>
+				<%End If%>
 				<%If 1=2 Then ''판매센터%>
 				<div class="width100 porel csinfos">
 					<div class="poabs title"><span class="tweight"><%=LNG_SHOP_ORDER_DIRECT_PAY_07%></span></div>
@@ -1279,7 +1369,7 @@ End Select
 			<div class="width100 porel">
 				<!-- <div class="porel payBtnWrap cleft width100"> -->
 				<div class="porel payBtnWrap fleft width100">
-					<%If webproIP ="T" and 1=222 Then%>
+					<%If 1=1 Then%>
 					<div class="selectPayBtn">
 						<%If IsArray(arrList_B) Then%>
 							<div class="skin-blue"><input type="radio" name="paykind" value="inBank" class="input_radio" /><label><%=LNG_SHOP_ORDER_DIRECT_PAY_02%></label></div>
@@ -1290,16 +1380,16 @@ End Select
 
 						MCOMPLEX_USE_TF = "T"
 					%>
+					<%If 1=2 Then %>
 					<div class="selectPayBtn">
 						<div class="skin-blue"><input type="radio" name="paykind" value="Card" /><label><%=LNG_SHOP_ORDER_DIRECT_PAY_01%></label></div>
 					</div>
 					<div class="selectPayBtn">
-						<div class="skin-blue"><input type="radio" name="paykind" value="vBank" /><label><%=LNG_TEXT_VIRTUAL_ACCOUNT%></label></div>
-					</div>
-					<div class="selectPayBtn">
 						<div class="skin-blue"><input type="radio" name="paykind" value="mComplex" /><label>다카드 결제</label></div>
 					</div>
-					<%If 1=2 Then %>
+					<div class="selectPayBtn">
+						<div class="skin-blue"><input type="radio" name="paykind" value="vBank" /><label><%=LNG_TEXT_VIRTUAL_ACCOUNT%></label></div>
+					</div>
 					<div class="selectPayBtn">
 						<div class="skin-blue"><input type="radio" name="paykind" value="CardAPI" /><label><%=LNG_SHOP_ORDER_DIRECT_PAY_01%> - 수기</label></div>
 					</div>

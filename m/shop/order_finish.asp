@@ -617,6 +617,8 @@
 								<p><%=spans(num2cur(self_GoodsPrice/arrList_orderEa),"#222222","10","400")%><%=spans(""&Chg_currencyISO&"","#222222","9","400")%></p>
 								<%If PV_VIEW_TF = "T" Then%>
 								<p><%=spans(num2curINT(self_PV/arrList_orderEa),"#f2002e","9","400")%><%=spans(""&CS_PV&"","#ff3300","8","400")%></p>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
 								<p><%=spans(num2curINT(self_GV/arrList_orderEa),"green","9","400")%><%=spans(""&CS_PV2&"","green","8","400")%></p>
 								<%End If%>
 								<!-- <p id="txt_DeliveryFeeEach<%=i%>"><%=txt_DeliveryFeeEach%></p> -->
@@ -641,14 +643,18 @@
 									<td class="title"><%=LNG_SHOP_ORDER_DIRECT_TABLE_04%></td>
 									<td class="tright"><span id="sumEachPrice_txt<%=sIDX%>"><%=num2cur(self_GoodsPrice)%></span><span class="pUnit"><%=Chg_CurrencyISO%></span></td>
 								</tr>
+								<%If PV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title"><%=CS_PV%></td>
 									<td class="tright"><span id="sumEachPV_txt<%=sIDX%>" class="pv"><%=num2curINT(self_PV)%></span><span class="pvUnit"><%=CS_PV%></span></td>
 								</tr>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title"><%=CS_PV2%></td>
 									<td class="tright"><span id="sumEachPV_txt<%=sIDX%>" class="bv"><%=num2curINT(self_GV)%></span><span class="pvUnit"><%=CS_PV2%></span></td>
 								</tr>
+								<%End If%>
 							</table>
 						</div>
 					</div>
@@ -701,16 +707,20 @@
 									<td class="tright top_price"><span class="TOTorderPriceShopID_<%=attrShopIdTOT%>_txt">0</span><span class="pUnit"><%=Chg_CurrencyISO%></span></td>
 									<td class="tright"><span class="shopPrices-down"></span></td>
 								</tr>
+								<%If PV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title sub"><%=LNG_CS_ORDERS_TOTAL_PV%></td>
 									<td class="tright"><span class="TOTsumPvShopID_<%=attrShopIdTOT%>_txt pv">0</span><span class="pvUnit"><%=CS_PV%></span></td>
 									<td></td>
 								</tr>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
 								<tr>
 									<td class="title sub">총 BV</td>
 									<td class="tright"><span class="TOTsumBvShopID_<%=attrShopIdTOT%>_txt bv">0</span><span class="bvUnit"><%=CS_PV2%></span></td>
 									<td></td>
 								</tr>
+								<%End If%>
 							</table>
 						</div>
 					<%'Else%>
@@ -789,6 +799,8 @@
 								<span class="orderPrice_tit"><%=CS_PV%></span>
 								<span class="orderPrice_Res"><span class="strong"><%=num2curINT(TOTAL_PV)%></span><%=CS_PV%></span>
 							</div>
+						<%End If%>
+						<%If BV_VIEW_TF = "T" Then%>
 							<div>
 								<span class="orderPrice_tit"><%=CS_PV2%></span>
 								<span class="orderPrice_Res"><span class="strong"><%=num2curINT(TOTAL_GV)%></span><%=CS_PV2%></span>

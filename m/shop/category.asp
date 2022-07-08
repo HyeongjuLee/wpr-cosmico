@@ -490,6 +490,7 @@
 							Soldoutflag = ""
 						End If
 
+						vipPrice = 0		'COSMICO
 						If arrList_isCSGoods = "T" Then
 							'▣CS상품정보 변동정보 통합
 							arrParams = Array(_
@@ -501,9 +502,24 @@
 								RS_price2		= DKRS("price2")
 								RS_price4		= DKRS("price4")
 								RS_price5		= DKRS("price5")
-								RS_price6		= DKRS("price6")
+								RS_price6		= DKRS("price6")		'COSMICO VIP 가
+								RS_price7		= DKRS("price7")		'COSMICO 셀러 가
+								RS_price8		= DKRS("price8")		'COSMICO 매니저 가
+								RS_price9		= DKRS("price9")		'COSMICO 지점장 가
+								RS_price10		= DKRS("price10")	'COSMICO 본부장 가
 								RS_SellCode		= DKRS("SellCode")
 								RS_SellTypeName	= DKRS("SellTypeName")
+
+								'COSMICO VIP 매출가
+								Select Case nowGradeCnt
+									Case "20"	vipPrice = RS_price6
+									Case "30"	vipPrice = RS_price7
+									Case "40"	vipPrice = RS_price8
+									Case "50"	vipPrice = RS_price9
+									Case "60"	vipPrice = RS_price10
+									Case Else vipPrice = 0
+								End Select
+
 							End If
 							Call closeRs(DKRS)
 						End If
@@ -545,9 +561,18 @@
 							<%Else%>
 							<p class="line"><span><%=num2cur(arrList_GoodsCustomer)%></span><%=Chg_CurrencyISO%></p>
 							<div><span><%=num2cur(notPrice)%></span><%=Chg_CurrencyISO%></div>
+
+							<%If nowGradeCnt >= 20 And vipPrice > 0 Then	'COSMICO%>
+								<p class="pv green"><span><%=LNG_VIP_PRICE%> : <%=num2cur(vipPrice)%></span><%=Chg_CurrencyISO%></p>
+							<%End If%>
+
 							<%If RS_price4 <> "" And DK_MEMBER_LEVEL > 0 And DK_MEMBER_STYPE <> "1" Then %>
-							<p class="pv"><span><%=num2cur(RS_price4)%></span><%=CS_PV%></p>
-							<p class="bv"><span><%=num2cur(RS_price5)%></span><%=CS_PV2%></p>
+								<%If PV_VIEW_TF = "T" Then%>
+									<p class="pv"><span><%=num2cur(RS_price4)%></span><%=CS_PV%></p>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
+									<p class="bv"><span><%=num2cur(RS_price5)%></span><%=CS_PV2%></p>
+								<%End If%>
 							<%End If%>
 						<%End If%>
 						</div>

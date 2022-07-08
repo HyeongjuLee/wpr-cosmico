@@ -18,15 +18,39 @@
 	'If webproIP <> "T" Then  Call ALERTS("쇼핑몰 구매 테스트중입니다.","back","")
 
 	inUidx = Trim(pRequestTF("cuidx",True))
-
 	If inUidx = "" Then Call ALERTS(LNG_SHOP_ORDER_DIRECT_01_01,"GO","/shop/cart.asp")
 
 	arrUidx = Split(inUidx,",")
 
+%>
 
-'	print inUidx
+<script type="text/javascript">
+	//매출구분 선택
+	function chgSellCode(value) {
+		var f = document.oFrm;
+		f.v_SellCode.value = value;
+		f.submit();
+	}
+</script>
+<%'매출구분 reload COSMICO%>
+<form action="" id="oFrm" name="oFrm" method="post">
+	<input type="hidden" name="cuidx" value="<%=inUidx%>" readonly="readonly">
+	<input type="hidden" name="v_SellCode" value="" readonly="readonly">
+</form>
+<%
+	'COSMICO 매출구분
+	'- 본인 직급 VIP 이하인 판매원의 매출의 경우 회원매출이며, VIP 달성 이후 회원매출, VIP매출를 선택하여 등록할 수 있다.
+	'- 판매등록시 VIP매출의 경우 본인의 현직급에 따른 판매금액을 적용하여 구매가 가능하다.
+	'- 최종 구매 페이지에서 매출구분을 선택할 수 있으며, 해당 매출 구분의 선택에 따라 구매 및 결제하여야 하는 금액이 변경된다.
+	'- 소비자의 경우 VIP 달성 이후 VIP 매출만 등록이 가능하며, 자동으로 VIP 매출로 처리한다. (매출선택 없음)
 
-
+	v_SellCode = Trim(pRequestTF("v_SellCode",False))
+	IF v_SellCode = "" Then v_SellCode = "01"
+	If nowGradeCnt >= 20 Then
+		If Sell_Mem_TF = 1 Then v_SellCode = "02"
+	End If
+%>
+<%
 
 	'회원 구분 후 회원정보 받아오기
 	Select Case DK_MEMBER_TYPE
@@ -241,7 +265,6 @@ End Select
 <input type="hidden" name="ori_strADDR2" value="<%=strADDR2%>" readonly="readonly"/>
 <input type="hidden" name="DIRECT_PICKUP_USE_TF" value="<%=DIRECT_PICKUP_USE_TF%>" readonly="readonly"/>
 <input type="hidden" name="SHOP_ORDERINFO_VIEW_TF" value="<%=SHOP_ORDERINFO_VIEW_TF%>" readonly="readonly"/>
-
 
 <div id="order">
 	<div class="order_title"><%=LNG_SHOP_ORDER_DIRECT_TITLE_03%></div>
@@ -515,6 +538,11 @@ End Select
 							LAST_CS_SellCode = CStr(arr_CS_SellCode)
 							ALL_CS_SellCode  = ALL_CS_SellCode & arr_CS_SellCode &","
 
+						'COSMICO VIP 매출가
+						IF v_SellCode = "02" Then
+							arrList_GoodsPrice = vipPrice
+						End If
+
 					End If
 					'################################################################## END
 
@@ -543,7 +571,7 @@ End Select
 					'##################################################################
 					' 상품별 금액/적립금 확인
 					'################################################################## START
-					self_GoodsPrice = Int(arrList_orderEa) * CDbl(arrList_GoodsPrice)
+					self_GoodsPrice = Int(arrList_orderEa) * CDbl(arrList_GoodsPrice)						'@@@@@@@@@@@@@@@@@@@@@@@@@
 					self_GoodsPoint = Int(arrList_orderEa) * Int(arrList_GoodsPoint)
 					self_GoodsOptionPrice = Int(arrList_orderEa) * CDbl(sum_optionPrice)
 					self_GoodsOptionPrice2 = Int(arrList_orderEa) * CDbl(sum_optionPrice2)
@@ -684,6 +712,11 @@ End Select
 
 		%>
 		<%
+				'COSMICO VIP
+				Item_Discount = "GradeCnt : "&nowGradeCnt
+				Item_SellCode = v_SellCode
+				IF Item_SellCode <> "02" Then Item_Discount = "No Discount"
+
 				'◆ #2. SHOP 주문 임시테이블 정보 입력
 					arrParamsGI = Array(_
 						Db.makeParam("@OrderIDX",adInteger,adParamInput,4,orderTempIDX),_
@@ -696,9 +729,12 @@ End Select
 						Db.makeParam("@strOption",adVarWChar,adParamInput,800,arrList_strOption),_
 						Db.makeParam("@isShopType",adChar,adParamInput,1,arrList_isShopType),_
 						Db.makeParam("@strShopID",adVarChar,adParamInput,20,arrList_strShopID),_
+							Db.makeParam("@Item_Discount",adVarChar,adParamInput,30,Item_Discount),_
+							Db.makeParam("@Item_SellCode",adVarChar,adParamInput,30,Item_SellCode),_
 						Db.makeParam("@OUTPUT_VALUE",adVarChar,adParamOutput,10,"ERROR")_
 					)
-					Call Db.exec("HJP_ORDER_TEMP_GOODS_SHOP_INSERT",DB_PROC,arrParamsGI,Nothing)
+					Call Db.exec("HJP_ORDER_TEMP_GOODS_SHOP_INSERT_COSMICO",DB_PROC,arrParamsGI,Nothing)		'COSMICO
+					'Call Db.exec("HJP_ORDER_TEMP_GOODS_SHOP_INSERT",DB_PROC,arrParamsGI,Nothing)
 					OUTPUT_VALUE = arrParams(UBound(arrParams))(4)
 
 					If OUTPUT_VALUE = "ERROR" Then
@@ -744,10 +780,11 @@ End Select
 					<p class="goodsOption"><%=printOPTIONS%></p>
 				</td>
 				<td class="tright bor_l">
+					<%If v_SellCode = "02" Then%><span class="blue2 tweight"><%=LNG_VIP%></span> :	<%End If%>
 					<%=spans(num2cur(self_GoodsPrice/arrList_orderEa),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
-					<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
+					<!-- <%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
 						<br /><%=LNG_VIP%> :  <%=spans(num2cur(vipPrice),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
-					<%End If%>
+					<%End If%> -->
 					<%If PV_VIEW_TF = "T" Then%>
 					<br /><%=spans(num2curINT(self_PV/arrList_orderEa),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#f2002e","10","400")%>
 					<%End If%>
@@ -765,10 +802,11 @@ End Select
 					<input type="hidden" name="BASIC_DeliveryFee" value="<%=DKRS2_intDeliveryFee%>" readonly="readonly" />
 				</td>
 				<td class="tright bor_l">
+					<%If v_SellCode = "02" Then%><span class="blue2 tweight"><%=LNG_VIP%></span> :	<%End If%>
 					<%=spans(num2cur(self_GoodsPrice),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
-					<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
+					<!-- <%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
 						<br /><%=LNG_VIP%> :  <%=spans(num2cur(vipPrice * arrList_orderEa),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
-					<%End If%>
+					<%End If%> -->
 					<%If PV_VIEW_TF = "T" Then%>
 					<br /><%=spans(num2curINT(self_PV),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#f2002e","10","400")%>
 					<%End If%>
@@ -880,7 +918,6 @@ End Select
 
 		%>
 	</table>
-
 	<%
 		'If webproIP="T" Then TOTAL_DeliveryFee = 2
 
@@ -1076,6 +1113,54 @@ End Select
 		</table>
 	</div>
 
+	<%'COSMICO 매출구분%>
+	<%If DK_MEMBER_TYPE = "COMPANY" And CSGoodCnt > 0 Then%>
+	<div class="orderInfos">
+		<div class="order_title"><%=LNG_TEXT_SALES_TYPE%></div>
+		<div class="info" id="deliveryInfo">
+			<table <%=tableatt%> class="width100">
+				<col width="135" />
+				<col width="*" />
+				<tbody>
+					<tr>
+						<th><%=LNG_TEXT_SALES_TYPE%> <%=startext%></th>
+						<td>
+							<div class="selects">
+								<%If nowGradeCnt >= 20 Then 'COSMICO 20(VIP) %>
+									<%If Sell_Mem_TF = 1 Then%>
+										<label><input type="radio" name="v_SellCode" value="02" class="input_radio" onclick="chgSellCode(this.value);" <%=isChecked(v_SellCode,"02")%> checked="checked" /> VIP매출</label>
+									<%Else%>
+										<label><input type="radio" name="v_SellCode" value="01" class="input_radio" onclick="chgSellCode(this.value);" <%=isChecked(v_SellCode,"01")%> /> 회원매출</label>
+										<label style="padding-left: 10px;"><input type="radio" name="v_SellCode" value="02" class="input_radio" onclick="chgSellCode(this.value);" <%=isChecked(v_SellCode,"02")%> /> VIP매출</label>
+									<%End If%>
+								<%Else%>
+									<label><input type="radio" name="v_SellCode" value="01" class="input_radio" onclick="chgSellCode(this.value);" <%=isChecked(v_SellCode,"01")%> checked="checked"/> 회원매출</label>
+								<%End If%>
+							</div>
+							<%If false Then	'select 형식%>
+							<!-- <div class="selects">
+								<select name="v_SellCode" class="input_select" onchange="chgSellCode(this.value);">
+									<%If nowGradeCnt >= 20 Then 'COSMICO 20(VIP) %>
+										<%If Sell_Mem_TF = 1 Then%>
+											<option value="02" <%=isSelect(v_SellCode,"02")%> >VIP매출</option>
+										<%Else%>
+											<option value="01" <%=isSelect(v_SellCode,"01")%> selected="selected">회원매출</option>
+											<option value="02" <%=isSelect(v_SellCode,"02")%> >VIP매출</option>
+										<%End If%>
+									<%Else%>
+										<option value="01" <%=isSelect(v_SellCode,"01")%> selected="selected">회원매출</option>
+									<%End If%>
+								</select>
+							</div> -->
+							<%End If%>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<%End If%>
+
 	<div class="orderInfos">
 		<div class="info" id="orderInfo">
 			<div class="order_title"><%=LNG_SHOP_ORDER_DIRECT_TITLE_04%></div>
@@ -1238,7 +1323,7 @@ End Select
 	<div class="cleft width100 payment">
 		<div class="order_title"><%=LNG_SHOP_ORDER_DIRECT_TITLE_06%></div>
 		<div class="width100 selectPay labels label_wrap">
-			<%If webproIP="T" and 1=222 Then%>
+			<%If 1=1 Then%>
 				<%If IsArray(arrList_B) Then%>
 					<label><input type="radio" name="paykind" value="inBank" onclick="chgPay(this.value)" class="input_radio" />
 						<i class="icon-ok"></i><span><%=LNG_SHOP_ORDER_DIRECT_PAY_02%></span>
@@ -1253,14 +1338,14 @@ End Select
 
 				MCOMPLEX_USE_TF = "T"		'♠
 			%>
+				<%If 1=2 Then%>
 				<label><input type="radio" name="paykind" value="Card" onclick="chgPay(this.value)" class="input_radio" /><i class="icon-ok"></i><span><%=LNG_SHOP_ORDER_DIRECT_PAY_01%></span></label>
 				<label><input type="radio" name="paykind" value="mComplex" onclick="chgPay(this.value)" class="input_radio" /><i class="icon-ok"></i><span>다카드결제</span></label>
-				<%If 1=2 Then%>
 				<label><input type="radio" name="paykind" value="CardAPI" onclick="chgPay(this.value)" class="input_radio" /><i class="icon-ok"></i><span><%=LNG_SHOP_ORDER_DIRECT_PAY_01%> - 수기</span></label>
-				<%End If%>
 				<!-- <label><input type="radio" name="paykind" value="CardAPI" onclick="chgPay(this.value)" class="input_radio" /> <%=LNG_SHOP_ORDER_DIRECT_PAY_01%>API</label> -->
 				<!-- <label><input type="radio" name="paykind" value="Bank" onclick="chgPay(this.value)" class="input_radio" /> 실시간계좌이체(TEST)</label> -->
 				<label><input type="radio" name="paykind" value="vBank" onclick="chgPay(this.value)" class="input_radio" /><i class="icon-ok"></i><span><%=LNG_TEXT_VIRTUAL_ACCOUNT%></span></label>
+				<%End If%>
 			<%End If%>
 
 			<%'▣포인트 단독결제%>
@@ -1275,26 +1360,27 @@ End Select
 				<%End If %>
 			<%
 				If DK_MEMBER_TYPE = "COMPANY" And CSGoodCnt > 0 And PG_EXAM_MODE <> "T" Then
-					PRINT TABS(4)&"<div class=""selects"">"
-					PRINT TABS(4)&" <span class="""" style=""padding-left:60px;""> "&LNG_SHOP_ORDER_DIRECT_PAY_04&" : </span>"
-					PRINT TABS(4)&" <select name=""v_SellCode"" class=""input_select"">"
-					'PRINT TABS(4)&" <option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_05&"</option>"
-
-						'▣구매종류 선택
-						'arrParams = Array(_
-						'	Db.makeParam("@SELLCODE",adVarChar,adParamInput,10,arr_CS_SELLCODE) _
-						')
-						'arrListB = Db.execRsList("DKP_SELLTYPE_LIST2",DB_PROC,arrParams,listLenB,DB3)
-						arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
-						If IsArray(arrListB) Then
-							For i = 0 To listLenB
-								PRINT TABS(4)&"	<option value="""&arrListB(0,i)&""">"&arrListB(1,i)&"</option>"
-							Next
-						Else
-							PRINT TABS(4)&"	<option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_06&"</option>"
-						End If
-					PRINT TABS(4)&"	</select>"
-					PRINT TABS(4)&"</div>"
+					If false  Then  'COSMICO 상단 이동
+						PRINT TABS(4)&"<div class=""selects"">"
+						PRINT TABS(4)&" <span class="""" style=""padding-left:60px;""> "&LNG_SHOP_ORDER_DIRECT_PAY_04&" : </span>"
+						PRINT TABS(4)&" <select name=""v_SellCode"" class=""input_select"">"
+						'PRINT TABS(4)&" <option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_05&"</option>"
+							'▣구매종류 선택
+							'arrParams = Array(_
+							'	Db.makeParam("@SELLCODE",adVarChar,adParamInput,10,arr_CS_SELLCODE) _
+							')
+							'arrListB = Db.execRsList("DKP_SELLTYPE_LIST2",DB_PROC,arrParams,listLenB,DB3)
+							arrListB = Db.execRsList("DKP_SELLTYPE_LIST",DB_PROC,Nothing,listLenB,DB3)
+							If IsArray(arrListB) Then
+								For i = 0 To listLenB
+									PRINT TABS(4)&"	<option value="""&arrListB(0,i)&""">"&arrListB(1,i)&"</option>"
+								Next
+							Else
+								PRINT TABS(4)&"	<option value="""">"&LNG_SHOP_ORDER_DIRECT_PAY_06&"</option>"
+							End If
+						PRINT TABS(4)&"	</select>"
+						PRINT TABS(4)&"</div>"
+					End If
 
 					If 1=2 Then '판매센터
 						PRINT TABS(4)&"<div class=""select"">"
@@ -2149,7 +2235,6 @@ End Select
 <%End Select%>
 
 </form>
-
 <%
 	'◆ #3. SHOP 주문 임시테이블 정보 가격정보 UPDATE
 		arrParams = Array(_

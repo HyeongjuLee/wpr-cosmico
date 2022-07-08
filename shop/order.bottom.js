@@ -92,6 +92,13 @@
 	let strADDR1 = $("input[name=strADDR1]");
 	let strADDR2 = $("input[name=strADDR2]");
 
+	let ori_strName = $("input[name=ori_strName]");
+	let ori_strTel = $("input[name=ori_strTel]");
+	let ori_strMobile = $("input[name=ori_strMobile]");
+	let ori_strZip = $("input[name=ori_strZip]");
+	let ori_strADDR1 = $("input[name=ori_strADDR1]");
+	let ori_strADDR2 = $("input[name=ori_strADDR2]");
+
 	//빈값처리
 	function fillEmptyOrdererInfo() {
 		if (strName.val() == "") strName.val('strName');
@@ -102,18 +109,15 @@
 		if (strADDR2.val() == "") strADDR2.val('strADDR2');
 	}
 
-	function oriOrdererInfo(f) {
+	function oriOrdererInfo() {
 		emptyDeliveryInfo();
-		if (typeof f == "undefined"){
-			f=window.document.forms[0];
-			f.dInfoType[0].checked = true;
-		}
-		strName.val(f.ori_strName.value);
-		strTel.val(f.ori_strTel.value);
-		strMobile.val(f.ori_strMobile.value);
-		strZip.val(f.ori_strZip.value);
-		strADDR1.val(f.ori_strADDR1.value);
-		strADDR2.val(f.ori_strADDR2.value);
+		$('input:radio[name=dInfoType]').eq(0).attr("checked", true);
+		strName.val(ori_strName.val());
+		strTel.val(ori_strTel.val());
+		strMobile.val(ori_strMobile.val());
+		strZip.val(ori_strZip.val());
+		strADDR1.val(ori_strADDR1.val());
+		strADDR2.val(ori_strADDR2.val());
 	}
 
 	function insertThisAddress(v1,v2,v3,v4,v5,v6) {
@@ -126,32 +130,26 @@
 		$("#takeZipBtn").hide();
 	}
 
-	function ordererDeliveryInfo(f) {		//shop order
+	function ordererDeliveryInfo() {		//shop order
 		emptyDeliveryInfo();
-		if (typeof f == "undefined"){
-			f=window.document.forms[0];
-			f.dInfoType[0].checked = true;
-		}
-		takeName.val(f.strName.value);
-		takeTel.val(f.strTel.value);
-		takeMobile.val(f.strMobile.value);
-		takeZip.val(f.strZip.value);
-		takeADDR1.val(f.strADDR1.value);
-		takeADDR2.val(f.strADDR2.value);
+		$('input:radio[name=dInfoType]').eq(0).attr("checked", true);
+		takeName.val(strName.val());
+		takeTel.val(strTel.val());
+		takeMobile.val(strMobile.val());
+		takeZip.val(strZip.val());
+		takeADDR1.val(strADDR1.val());
+		takeADDR2.val(strADDR2.val());
 	}
 
-	function baseDeliveryInfo(f) {		//myoffice order
+	function baseDeliveryInfo() {		//myoffice order
 		emptyDeliveryInfo();
-		if (typeof f == "undefined"){
-			f=window.document.forms[0];
-			f.dInfoType[0].checked = true;
-		}
-		takeName.val(f.ori_strName.value);
-		takeTel.val(f.ori_strTel.value);
-		takeMobile.val(f.ori_strMobile.value);
-		takeZip.val(f.ori_strZip.value);
-		takeADDR1.val(f.ori_strADDR1.value);
-		takeADDR2.val(f.ori_strADDR2.value);
+		$('input:radio[name=dInfoType]').eq(0).attr("checked", true);
+		takeName.val(ori_strName.val());
+		takeTel.val(ori_strTel.val());
+		takeMobile.val(ori_strMobile.val());
+		takeZip.val(ori_strZip.val());
+		takeADDR1.val(ori_strADDR1.val());
+		takeADDR2.val(ori_strADDR2.val());
 	}
 
 	function emptyDeliveryInfo() {

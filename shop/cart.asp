@@ -519,7 +519,7 @@
 						<td class="tright bor_l"><%'상품금액%>
 							<%=spans(num2cur(self_GoodsPrice/arrList_orderEa),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
 							<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
-								<br /><%=LNG_VIP%> :  <%=spans(num2cur(vipPrice),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
+								<br /><span class="blue2 tweight"><%=LNG_VIP%></span> :  <%=spans(num2cur(vipPrice),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
 							<%End If%>
 							<%If PV_VIEW_TF = "T" Then%>
 							<br /> <%=spans(num2curINT(self_PV/arrList_orderEa),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#ff3300","10","400")%>
@@ -555,7 +555,7 @@
 							<div style="<%=EA_Display%>">
 								<%=spans(num2cur(self_GoodsPrice),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
 								<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
-									<br /><%=LNG_VIP%> :  <%=spans(num2cur(vipPrice * arrList_orderEa),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
+									<br /><span class="blue2 tweight"><%=LNG_VIP%></span> :  <%=spans(num2cur(vipPrice * arrList_orderEa),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
 								<%End If%>
 								<%If PV_VIEW_TF = "T" Then%>
 								<br /><%=spans(num2curINT(self_PV),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#ff3300","10","400")%>
@@ -670,7 +670,67 @@
 				</tfoot>
 			</table>
 
-		<%If DK_MEMBER_LEVEL > 0 Then%>
+
+	<%If DK_MEMBER_LEVEL > 0 and 1=2 Then%>
+	<div id="fix_menu" style="display: none;">
+		<div class="layout_inner">
+			<ul class="sumCart01 black count">
+				<li>
+					<div class="tit"><%=LNG_SHOP_CART_01%></div>
+					<div class="num">
+						<span class="pISO" id="sumAllCase_txt">0</span>
+						<span class="pUnit"><%=LNG_SHOP_CART_02%></span>
+					</div>
+				</li>
+			</ul>
+			<ul class="sumCart02 red">
+				<li>
+					<div class="tit"><%=LNG_SHOP_ORDER_FINISH_09%></div>
+					<div class="num">
+						<span class="pISO" id="sumAllPrice_txt">0</span>
+						<span class="pUnit"><%=Chg_CurrencyISO%></span>
+					</div>
+				</li>
+				<li>
+					<div class="tit"><%=LNG_CS_ORDERS_DELIVERY_PRICE%></div>
+					<div class="num">
+						<span class="pISO" id="sumAlldeliveryFee_txt">0</span>
+						<span class="pUnit"><%=Chg_CurrencyISO%></span>
+					</div>
+				</li>
+			</ul>
+			<ul class="sumCart03 green">
+				<li>
+					<div class="tit"><%=LNG_TOTAL_PAY_PRICE%></div>
+					<div class="num">
+						<span class="pISO" id="sumAllorderPrice_txt">0</span>
+						<span class="pUnit"><%=Chg_CurrencyISO%></span>
+					</div>
+				</li>
+				<%If PV_VIEW_TF = "T" Then%>
+				<li>
+					<div class="tit"><%=LNG_CS_ORDERS_TOTAL_PV%></div>
+					<div class="num">
+						<span class="pISO" id="sumAllPV_txt">0</span>
+						<span class="pUnit"><%=CS_PV%></span>
+					</div>
+				</li>
+				<%End If%>
+				<%If BV_VIEW_TF = "T" Then%>
+				<li>
+					<div class="tit"><%=LNG_TOTAL%>&nbsp;BV</div>
+					<div class="num">
+						<span class="pISO" id="sumAllBV_txt">0</span>
+						<span class="pUnit"><%=CS_PV2%></span>
+					</div>
+				</li>
+				<%End If%>
+			</ul>
+		</div>
+	</div>
+	<%End If%>
+
+		<%If False Then%>
 		<div id="fix_menu" class="layout_wrap" style="display: none;">
 			<div class="layout_inner">
 				<div class="sumCart">
@@ -723,17 +783,17 @@
 		</div>
 		<%End If%>
 
-		<div class="btnZone">
-			<input type="button" class="cancel" onclick="location.href='/shop/index.asp';" value="<%=LNG_SHOP_CART_TXT_07%>"/>
-			<input type="button" class="order" onclick="javascript:selectOrder('<%=LNG_SHOP_CART_JS_01%>','<%=LNG_SHOP_CART_JS_02%>','<%=LNG_SHOP_CART_JS_03%>','<%=LNG_CS_CART_JS04%>');" value="<%=LNG_SHOP_CART_TXT_06%>"/>
-		</div>
+	<div class="btnZone">
+		<input type="button" class="cancel" onclick="location.href='/shop/index.asp';" value="<%=LNG_SHOP_CART_TXT_07%>"/>
+		<input type="button" class="order" onclick="javascript:selectOrder('<%=LNG_SHOP_CART_JS_01%>','<%=LNG_SHOP_CART_JS_02%>','<%=LNG_SHOP_CART_JS_03%>','<%=LNG_CS_CART_JS04%>');" value="<%=LNG_SHOP_CART_TXT_06%>"/>
+	</div>
 
-		</form>
+	</form>
 
-		<form name="dFrm" method="post" action="cart_handler.asp">
-			<input type="hidden" name="mode" value="" />
-			<input type="hidden" name="cartIDX" value="" />
-		</form>
+	<form name="dFrm" method="post" action="cart_handler.asp">
+		<input type="hidden" name="mode" value="" />
+		<input type="hidden" name="cartIDX" value="" />
+	</form>
 
 </div>
 

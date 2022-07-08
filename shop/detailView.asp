@@ -697,10 +697,9 @@
 					<div class="GoodsCustomer"><%=LNG_SHOP_DETAILVIEW_15%> : <span class="GoodsNumber"><%=num2cur(DKRS_GoodsCustomer)%></span> <%=Chg_CurrencyISO%></div>
 					<div class="GoodsPrice"><%=LNG_SHOP_DETAILVIEW_16%> : <span class="GoodsNumber"><%=num2cur(DKRS_GoodsPrice)%></span> <%=Chg_CurrencyISO%></div>
 				<%End If%>
-				<%If nowGradeCnt >= 20  Then	'COSMICO%>
+				<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
 					<div class="GoodsPrice"><%=LNG_VIP_PRICE%> : <span class="GoodsNumber"><%=num2cur(vipPrice)%></span> <%=Chg_CurrencyISO%></div>
 				<%End If%>
-
 
 				<table <%=tableatt%> class="width100">
 					<col width="135" />
