@@ -479,10 +479,6 @@ $sub_title-height: $font-size * 4;
 .pay_totals_td {
 	position: relative;
 
-	td {
-		height: 40px;
-	}
-
 	&.position {
 		border: 1px solid #ccc;
 		background: #fff;
@@ -549,7 +545,6 @@ $sub_title-height: $font-size * 4;
 		td {
 			text-align: center;
 			position: relative;
-			height: 4rem;
 			padding: 0.5rem;
 
 			p {
@@ -557,15 +552,7 @@ $sub_title-height: $font-size * 4;
 			}
 
 			a {
-				display: -webkit-inline-box;
-				display: -ms-inline-flexbox;
-				display: inline-flex;
-				-webkit-box-pack: center;
-				-ms-flex-pack: center;
-				justify-content: center;
-				-webkit-box-align: center;
-				-ms-flex-align: center;
-				align-items: center;
+				@include inline-flex;
 				height: 3rem;
 				line-height: 1;
 				padding: 0.5rem 1rem;
@@ -2182,11 +2169,24 @@ html.payment_bg body {
 .innerTablePay {
 	@include table-color-wrap(material-color('orange'), $wrap: true);
 	@include table-color(material-color('orange'), true);
+	th, td {
+		height: $input-height - rem(10px);
+	}
 }
 
 .innerTableBuy {
 	@include table-color-wrap(material-color('blue'), $wrap: true);
 	@include table-color(material-color('blue'), true);
+	th, td {
+		height: $input-height - rem(10px);
+	}
+}
+.innerTable {
+	@include table-color-wrap(material-color('green'), $wrap: true);
+	@include table-color(material-color('green'), true);
+	th, td {
+		height: $input-height - rem(10px);
+	}
 }
 
 /*카피라이터 영역 */

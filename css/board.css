@@ -7,25 +7,25 @@
 #contain { color: #222; }
 #contain .board-title { font-size: 2.25rem; text-align: center; padding-bottom: 5rem; }
 
-.board .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; margin: 0; height: 3.5rem; }
+.board .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; margin: 0; height: 3.5rem; }
 .board .button:hover { color: #fff; text-decoration: none; background: #828282; }
 .board .button:active { color: whitesmoke; background: #686868; }
-.board .button.admin { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
+.board .button.admin { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
 .board .button.admin:hover { color: #fff; text-decoration: none; background: #e84f4c; }
 .board .button.admin:active { color: white; background: #e2231e; }
-.board .button.write { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #166dba; background: #1e88e5; }
+.board .button.write { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #166dba; background: #1e88e5; }
 .board .button.write:hover { color: #fff; text-decoration: none; background: #3594e8; }
 .board .button.write:active { color: white; background: #187bd1; }
-.board .button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
+.board .button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
 .board .button.answer:hover { color: #fff; text-decoration: none; background: #a028bf; }
 .board .button.answer:active { color: #f0d7f6; background: #7c2095; }
-.board .button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
+.board .button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
 .board .button.delete:hover { color: #fff; text-decoration: none; background: #e4286d; }
 .board .button.delete:active { color: #fef4f8; background: #c11856; }
-.board .button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
+.board .button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
 .board .button.edit:hover { color: #fff; text-decoration: none; background: #3f51be; }
 .board .button.edit:active { color: #ebedf8; background: #334198; }
-.board .button.save { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
+.board .button.save { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
 .board .button.save:hover { color: #fff; text-decoration: none; background: #4bb24f; }
 .board .button.save:active { color: #ebf7ec; background: #3b8e3f; }
 

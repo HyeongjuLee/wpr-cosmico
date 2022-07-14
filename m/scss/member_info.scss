@@ -355,7 +355,7 @@ $input-height: rem(70px);
 				@include flex;
 
 				label {
-					width: 100%;
+					width: 50%;
 					margin-left: rem(10px);
 				}
 			}
@@ -410,7 +410,7 @@ $input-height: rem(70px);
 				.input_text {
 					//margin-bottom: $font-size;
 					&:first-of-type {
-						width: calc(50% - #{$font-size - rem(5px)});
+						width: calc(70% - #{$font-size - rem(5px)});
 					}
 					&:last-of-type {
 						margin-top: $font-size / 2;
@@ -418,7 +418,7 @@ $input-height: rem(70px);
 				}
 				.button {
 					margin-left: round($font-size / 2);
-					width: calc(50% + #{round($font-size / 2)});
+					width: calc(30% + #{round($font-size / 2)});
 				}
 				input.button {
 					margin-left: 0;
@@ -1303,6 +1303,34 @@ table {
 					#authStatus {
 						width: 100%;
 						float: left;
+					}
+				}
+			}
+
+			.password {
+				.con {
+					flex-wrap: wrap;
+					.input_text {
+						width: 100% !important;
+						margin: 0;
+						margin-bottom: rem(10px);
+					}
+					label {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include media($max: 482px) {
+	#mypage {
+		article {
+			.password {
+				.con {
+					label {
+						width: 100%;
 					}
 				}
 			}

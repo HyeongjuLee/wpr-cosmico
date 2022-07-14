@@ -9,6 +9,10 @@ $myoffice-color: material-color('teal', 'a700');
 $input-color: mix(#fff, material-color('blue-grey', '50'), 50);
 $input-border: mix(#fff, material-color('blue-grey', '100'), 25);
 
+.inPrice {
+	text-align: right !important;
+}
+
 .orderList {
 	.board {
 		@include table-color($myoffice-color, true);

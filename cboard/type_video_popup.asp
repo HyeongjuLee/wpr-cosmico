@@ -103,7 +103,7 @@
 				Select Case DK_MEMBER_TYPE
 					Case "ADMIN","OPERATOR"	'관리자 수정페이지 이동
 			%>
-				<a class="edit" href="board_modify.asp?bname=<%=strBoardName%>&num=<%=arrList_intIDX%>">수정하기</a>
+				<a class="edit" href="board_modify.asp?bname=<%=strBoardName%>&num=<%=arrList_intIDX%>"><%=LNG_BOARD_BTN_MODIFY%></a>
 			<%Case Else%>
 			<%End Select%>
 		</li>
@@ -123,7 +123,7 @@
 	</ul>
 </div>
 
-<div class="gallery_wrap fleft" style="margin:120px 0px; 70px 0px">
+<div class="gallery_wrap fleft" style="margin:70px 0px;">
 	<table <%=tableatt%> id="board1" class="gallery userCWidth2" style="width: 1200px;">
 	<colgroup>
 		<col width="60%" />

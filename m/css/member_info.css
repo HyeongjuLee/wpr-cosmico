@@ -49,7 +49,7 @@
 #mypage article > div .con .input_select, #mypage article > div .con .input_text { border: 1px solid #bdbdbd; padding: 0 1.25rem; width: 100%; height: 7rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; background: #fff; }
 #mypage article > div .con .input_select { cursor: pointer; }
 #mypage article > div .con .input_text:read-only { background: #eeeeee; outline: none; }
-#mypage article > div .con .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #c55206; background: #f76707; display: inline-flex; justify-content: center; align-items: center; margin: 0; min-width: 5rem; width: calc(25% - 1.5rem); height: 7rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; word-break: keep-all; white-space: initial; padding: 0 1rem; vertical-align: initial; }
+#mypage article > div .con .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #c55206; background: #f76707; display: inline-flex; justify-content: center; align-items: center; margin: 0; min-width: 5rem; width: calc(25% - 1.5rem); height: 7rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; word-break: keep-all; white-space: initial; padding: 0 1rem; vertical-align: initial; }
 #mypage article > div .con .button:hover { color: #fff; text-decoration: none; background: #f9761f; }
 #mypage article > div .con .button:active { color: #fffefe; background: #de5d06; }
 #mypage article > div .con .inputs { display: inline-flex; justify-content: center; align-items: center; width: calc(75% - 1.5rem); }
@@ -66,7 +66,7 @@
 #mypage article .id .detail_btn { margin-left: 2.5rem; }
 #mypage article .password { display: flex; justify-content: flex-start; align-items: center; padding: 0 1.25rem; }
 #mypage article .password .con { flex: 1; display: flex; justify-content: center; align-items: center; }
-#mypage article .password .con label { width: 100%; margin-left: 1rem; }
+#mypage article .password .con label { width: 50%; margin-left: 1rem; }
 #mypage article #bodyPass { flex-direction: column; padding: 0 2.5rem; background: #fafafa; }
 #mypage article #bodyPass > div { width: 100%; }
 #mypage article #bodyPass > div:first-of-type .con { border-bottom: 1px solid #eeeeee; }
@@ -75,9 +75,9 @@
 #mypage article .name .con .input_text { width: calc(50% - 1.5rem); }
 #mypage article .name .con .input_text:first-child { margin-right: 2rem; }
 #mypage article .address .con { font-size: 0; display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap; }
-#mypage article .address .con .input_text:first-of-type { width: calc(50% - 2rem); }
+#mypage article .address .con .input_text:first-of-type { width: calc(70% - 2rem); }
 #mypage article .address .con .input_text:last-of-type { margin-top: 1.25rem; }
-#mypage article .address .con .button { margin-left: 1rem; width: calc(50% + 1rem); }
+#mypage article .address .con .button { margin-left: 1rem; width: calc(30% + 1rem); }
 #mypage article .address .con input.button { margin-left: 0; }
 #mypage article #cpno .inputs { width: calc(75% - 2.5rem); }
 #mypage article #cpno .inputs span { margin: 1rem; font-size: 2.5rem; }
@@ -186,7 +186,7 @@
 .modal article > div .con .summary.blue { color: #2196f3; }
 .modal article > div .con .input_text { border: 1px solid #bdbdbd; padding: 2.5rem; width: 100%; height: 7rem; font-size: 2.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; }
 .modal article > div .con .input_text:read-only { background: #eeeeee; outline: none; }
-.modal article > div .con .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #c55206; background: #f76707; }
+.modal article > div .con .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #c55206; background: #f76707; }
 .modal article > div .con .button:hover { color: #fff; text-decoration: none; background: #f9761f; }
 .modal article > div .con .button:active { color: #fffefe; background: #de5d06; }
 .modal article > div .con .inputs { display: inline-flex; align-items: center; width: calc(75% - 1.5rem); }
@@ -225,4 +225,8 @@ table { font-size: 10pt; }
   #mypage article .agreeArea .title label span:before { width: 100%; height: 100%; top: 0; left: 0; }
   #mypage article .mobile .con .input_text { width: 100% !important; margin: 0; margin-bottom: 1rem; }
   #mypage article .mobile .con .button { width: 100%; }
-  #mypage article .mobile .con #authStatus { width: 100%; float: left; } }
+  #mypage article .mobile .con #authStatus { width: 100%; float: left; }
+  #mypage article .password .con { flex-wrap: wrap; }
+  #mypage article .password .con .input_text { width: 100% !important; margin: 0; margin-bottom: 1rem; }
+  #mypage article .password .con label { margin-left: 0; } }
+@media (max-width: 482px) { #mypage article .password .con label { width: 100%; } }

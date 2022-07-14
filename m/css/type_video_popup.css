@@ -1,0 +1,94 @@
+/*
+	Name: YouTubePopUp
+	Description: jQuery plugin to display YouTube or Vimeo video in PopUp, responsive and retina, easy to use.
+	Version: 1.0.1
+	Plugin URL: http://wp-time.com/youtube-popup-jquery-plugin/
+	Written By: Qassim Hassan
+	Twitter: @QQQHZ
+	Websites: wp-time.com | qass.im | wp-plugins.in
+	Dual licensed under the MIT and GPL licenses:
+			http://www.opensource.org/licenses/mit-license.php
+			http://www.gnu.org/licenses/gpl.html
+	Copyright (c) 2016 - Qassim Hassan
+*/
+.YouTubePopUp-Wrap { position: fixed; width: 100%; height: 100%; background-color: #000; background-color: rgba(0, 0, 0, 0.8); top: 0; left: 0; z-index: 9999999999999; }
+
+.YouTubePopUp-animation { opacity: 0; -webkit-animation-duration: 0.5s; animation-duration: 0.5s; -webkit-animation-fill-mode: both; animation-fill-mode: both; -webkit-animation-name: YouTubePopUp; animation-name: YouTubePopUp; }
+
+@-webkit-keyframes YouTubePopUp { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+@keyframes YouTubePopUp { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+body.logged-in .YouTubePopUp-Wrap { /* For WordPress */ top: 32px; z-index: 99998; }
+
+.YouTubePopUp-Content { max-width: 680px; display: block; margin: 0 auto; height: 100%; position: relative; }
+.YouTubePopUp-Content iframe { max-width: 100% !important; width: 100% !important; display: block !important; height: 480px !important; /*border:none !important;*/ border: 4px solid #fff; position: absolute; top: 0; bottom: 0; margin: auto 0; background: #fff; }
+
+.YouTubePopUp-Hide { -webkit-animation-duration: 0.5s; animation-duration: 0.5s; -webkit-animation-fill-mode: both; animation-fill-mode: both; -webkit-animation-name: YouTubePopUpHide; animation-name: YouTubePopUpHide; }
+
+@-webkit-keyframes YouTubePopUpHide { 0% { opacity: 1; }
+  100% { opacity: 0; } }
+@keyframes YouTubePopUpHide { 0% { opacity: 1; }
+  100% { opacity: 0; } }
+.YouTubePopUp-Close { position: absolute; top: 0; cursor: pointer; bottom: 528px; right: 0px; margin: auto 0; width: 24px; height: 24px; background: url(close.png) no-repeat; background-size: 24px 24px; -webkit-background-size: 24px 24px; -moz-background-size: 24px 24px; -o-background-size: 24px 24px; }
+.YouTubePopUp-Close:hover { opacity: 0.5; }
+.YouTubePopUp-Close.icon-close-outline { font-size: 20px; color: #fff; display: flex; justify-content: center; align-items: center; }
+
+@media all and (max-width: 768px) and (min-width: 10px) { .YouTubePopUp-Content { max-width: 90%; } }
+@media all and (max-width: 600px) and (min-width: 10px) { .YouTubePopUp-Content iframe { height: 320px !important; }
+  .YouTubePopUp-Close { bottom: 362px; } }
+@media all and (max-width: 480px) and (min-width: 10px) { .YouTubePopUp-Content iframe { height: 220px !important; }
+  .YouTubePopUp-Close { bottom: 262px; } }
+.video_popup ul { display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap; width: calc(100% + 3rem); margin: 0 -1.5rem; padding: 2rem 0; }
+.video_popup li { width: 50%; margin-bottom: 5rem; position: relative; }
+.video_popup li a { cursor: pointer; text-decoration: none; width: 100%; height: 100%; display: block; padding: 1.5rem; }
+.video_popup li .img { width: 100%; height: 0; padding-bottom: 70%; position: relative; overflow: hidden; }
+.video_popup li .img:before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9; box-sizing: border-box; background: #000; opacity: 0; -moz-transition: all 0.1s; -webkit-transition: all 0.1s; transition: all 0.1s; }
+.video_popup li .img .icon-play { content: ""; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); z-index: 10; box-sizing: border-box; color: #fff; font-size: 10rem; display: flex; justify-content: center; align-items: center; filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5)); opacity: 0; }
+.video_popup li .img img { position: absolute; top: 50%; left: 50%; -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 100%; height: 100%; object-fit: cover; }
+.video_popup li .txt { font-size: 2.3rem; font-weight: 500; color: #212121; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 1; margin: 1rem 0; letter-spacing: -0.05em; }
+.video_popup .thumb_imageArea .edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #1d276b; background: #283593; display: flex; justify-content: center; align-items: center; margin: 1rem auto; width: calc(100% - 3rem); height: 5rem; font-size: 2.3rem; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
+.video_popup .thumb_imageArea .edit:hover { color: #fff; text-decoration: none; background: #2d3ca7; }
+.video_popup .thumb_imageArea .edit:active { color: #cacef0; background: #232e7f; }
+.video_popup .thumb_imageArea .edit:before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #eeeeee; opacity: 0; }
+.video_popup .thumb_imageArea .edit:hover:before { opacity: 1; }
+
+.button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; display: inline-flex; justify-content: center; align-items: center; margin: 0; color: #fff; min-width: 12rem; min-height: 6rem; padding: 0 1rem; }
+.button:hover { color: #fff; text-decoration: none; background: #828282; }
+.button:active { color: whitesmoke; background: #686868; }
+.button:link, .button:active, .button:visited, .button:hover { color: #fff; }
+.button.red { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
+.button.red:hover { color: #fff; text-decoration: none; background: #e84f4c; }
+.button.red:active { color: white; background: #e2231e; }
+.button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
+.button.answer:hover { color: #fff; text-decoration: none; background: #a028bf; }
+.button.answer:active { color: #f0d7f6; background: #7c2095; }
+.button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
+.button.delete:hover { color: #fff; text-decoration: none; background: #e4286d; }
+.button.delete:active { color: #fef4f8; background: #c11856; }
+.button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
+.button.edit:hover { color: #fff; text-decoration: none; background: #3f51be; }
+.button.edit:active { color: #ebedf8; background: #334198; }
+.button.green { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
+.button.green:hover { color: #fff; text-decoration: none; background: #4bb24f; }
+.button.green:active { color: #ebf7ec; background: #3b8e3f; }
+.button.write { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
+.button.write:hover { color: #fff; text-decoration: none; background: #e84f4c; }
+.button.write:active { color: white; background: #e2231e; }
+
+.boardBtnArea { margin-bottom: 5rem; }
+
+.pageList { line-height: 0; text-align: center; }
+.pageList span { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; display: inline-flex; justify-content: center; align-items: center; position: relative; width: 4.8rem; height: 4.8rem; border: 1px solid transparent; border-radius: 100%; color: #1C287B; font-size: 2.7rem; font-weight: 500; }
+.pageList span a { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; cursor: pointer; text-decoration: none; width: 100%; height: 100%; height: 100%; font-weight: 300; color: #6a6a6a; display: flex; justify-content: center; align-items: center; }
+.pageList span a:hover { color: #1C287B; text-decoration: none; border: none; }
+.pageList span.currentPage { color: #1C287B; font-weight: 700; }
+.pageList span.currentPage:after { content: ""; position: absolute; bottom: 0.625rem; left: 50%; width: 100%; height: 100%; width: 2.1rem; height: 1px; background: #1C287B; -moz-transform: translateX(-50%); -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+.pageList span.arrow { border: 1px solid #e0e0e0; border-radius: 100%; margin: 0 0.25rem; }
+.pageList span.arrow i { font-size: 2.7rem; color: #e0e0e0; }
+.pageList span.arrow.left i { -moz-transform: translateX(-5%); -webkit-transform: translateX(-5%); transform: translateX(-5%); }
+.pageList span.arrow.right i { -moz-transform: translateX(5%); -webkit-transform: translateX(5%); transform: translateX(5%); }
+.pageList span.arrow.margin.left { margin-right: 2.5rem; }
+.pageList span.arrow.margin.right { margin-left: 2.5rem; }
+.pageList span.arrow:hover { border-color: #bdbdbd; }
+.pageList span.arrow:hover i { color: #9e9e9e; }

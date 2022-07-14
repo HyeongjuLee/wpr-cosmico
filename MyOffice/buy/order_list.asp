@@ -25,7 +25,7 @@
 %>
 <!--#include virtual = "/_include/document.asp"-->
 <!-- <link rel="stylesheet" href="/css/pay.css?" /> -->
-<link rel="stylesheet" href="/css/pay2.css?" />
+<link rel="stylesheet" href="/css/pay2.css?v2" />
 <script type="text/javascript" src="/jscript/calendar.js"></script>
 <script>
 </script>

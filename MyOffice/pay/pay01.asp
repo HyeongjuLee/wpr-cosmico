@@ -28,7 +28,7 @@
 
 	'1(보임), 0(안보임)
 	If webproIP="T" Then
-		My_OF_View_TF = 0
+		My_OF_View_TF = 1
 	Else
 		My_OF_View_TF = 1
 	End if
@@ -63,9 +63,9 @@
 %>
 
 <!--#include virtual = "/_include/document.asp"-->
-<link rel="stylesheet" type="text/css" href="/myoffice/css/style_cs.css" />
-<link rel="stylesheet" type="text/css" href="/myoffice/css/layout_cs.css" />
-<link rel="stylesheet" type="text/css" href="/css/pay.css?v1.3" />
+<!-- <link rel="stylesheet" type="text/css" href="/myoffice/css/style_cs.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="/myoffice/css/layout_cs.css" /> -->
+<link rel="stylesheet" type="text/css" href="/css/pay2.css?" />
 <script type="text/javascript" src="/jscript/calendar.js"></script>
 <script type="text/javascript" src="pay.js?v1"></script>
 <%'sortTable%>
@@ -151,7 +151,7 @@
 	%>
 	<p class="titles"><%=LNG_TEXT_TOTAL%></p>
 	<div class="sum_totalWrap ">
-		<table <%=tableatt%> class="width100 sum_total table2">
+		<table <%=tableatt%> class="table">
 			<col span="5" width="20%" />
 			<thead>
 				<tr>
@@ -177,7 +177,7 @@
 
 	<p class="titles"><%=LNG_TEXT_DETAIL_LIST%></p>
 	<div class="">
-		<table id="sortTable" <%=tableatt%> class="width100">
+		<table id="sortTable" <%=tableatt%> class="table">
 			<thead>
 				<tr class="fixedTR">
 					<th><%=LNG_TEXT_NUMBER%></th>
@@ -484,4 +484,5 @@
 	MODAL_NO_CLOSE_BUTTON = "T"
 %>
 <!--#include virtual="/_include/modal_config.asp" -->
+</div>
 <!--#include virtual = "/_include/copyright.asp"-->

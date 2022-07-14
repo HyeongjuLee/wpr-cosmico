@@ -1,14 +1,14 @@
 @charset "UTF-8";
+.inPrice { text-align: right !important; }
+
 .orderList .board { width: 100%; }
 .orderList .board table { border: none; }
 .orderList .board tr { border: none; }
-.orderList .board th, .orderList .board td { border: none; padding: 10px; }
-.orderList .board thead th { background: #e6f9f6; color: #5f7874; font-weight: 500; border: 1px solid #bdefe7; height: 5rem; }
+.orderList .board th, .orderList .board td { border: none; padding: 0.5rem 1rem; }
+.orderList .board thead th { background: #e6f9f6; color: #5f7874; font-weight: 600; border: 1px solid #bdefe7; }
 .orderList .board tbody tr { border-bottom: 1px solid #e3edeb; }
-.orderList .board tbody th { border: 1px solid #cfe8e4; background: #f7f9f9; color: #5f7874; height: 5rem; }
-.orderList .board tbody td { border: 1px solid #e3edeb; height: 5rem; }
-.orderList .board a { color: inherit; }
-.orderList .board a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .board tbody th { border: 1px solid #cfe8e4; background: #f7f9f9; color: #5f7874; }
+.orderList .board tbody td { border: 1px solid #e3edeb; }
 .orderList .board thead th:first-of-type { border-left: none; }
 .orderList .board thead th:last-of-type { border-right: none; }
 .orderList .board tbody th:first-of-type { border-left: none; }
@@ -21,20 +21,19 @@
 .orderList .board .detail_btn { color: #fff; font-size: inherit; }
 .orderList .board .detail_btn:hover { color: #fff; text-decoration: none; }
 .orderList .htbody .titles { text-align: left; padding-top: 0; }
-.orderList .htbody table { margin: 1.5rem 0; }
+.orderList .htbody table { margin: 2.5rem 0; }
 .orderList .htbody .table { background: #fff; width: 100%; box-shadow: 0px 0px 0px 1px #7c8acf; width: 100%; }
 .orderList .htbody .table table { border: none; }
 .orderList .htbody .table tr { border: none; }
-.orderList .htbody .table th, .orderList .htbody .table td { border: none; padding: 10px; }
-.orderList .htbody .table thead th { background: #eceef8; color: #646775; font-weight: 500; border: 1px solid #c7cdea; height: 5rem; }
+.orderList .htbody .table th, .orderList .htbody .table td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .table thead th { background: #eceef8; color: #646775; font-weight: 600; border: 1px solid #c7cdea; }
 .orderList .htbody .table tbody tr { border-bottom: 1px solid #e6e7ec; }
-.orderList .htbody .table tbody th { border: 1px solid #d4d7e5; background: #f7f8f9; color: #646775; height: 5rem; }
-.orderList .htbody .table tbody td { border: 1px solid #e6e7ec; height: 5rem; }
-.orderList .htbody .table a { color: inherit; }
-.orderList .htbody .table a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .table tbody th { border: 1px solid #d4d7e5; background: #f7f8f9; font-weight: 600; color: #646775; }
+.orderList .htbody .table tbody td { border: 1px solid #e6e7ec; }
 .orderList .htbody .table thead th:first-of-type { border-left: none; }
 .orderList .htbody .table thead th:last-of-type { border-right: none; }
 .orderList .htbody .table tbody th:first-of-type { border-left: none; }
+.orderList .htbody .table tbody th:last-of-type { border-right: none; }
 .orderList .htbody .table tbody td:first-of-type { border-left: none; }
 .orderList .htbody .table tbody td:last-of-type { border-right: none; }
 .orderList .htbody .table tr:first-of-type th { border-top: none; }
@@ -42,16 +41,13 @@
 .orderList .htbody .table tbody tr:last-of-type { border-bottom: none; }
 .orderList .htbody .table tbody tr:last-of-type th { border-bottom: none; }
 .orderList .htbody .table tbody tr:last-of-type td { border-bottom: none; }
-.orderList .htbody .table tbody th { background: #eceef6; }
 .orderList .htbody .table table { border: none; }
 .orderList .htbody .table tr { border: none; }
-.orderList .htbody .table th, .orderList .htbody .table td { border: none; padding: 10px; }
-.orderList .htbody .table thead th { background: #eceef8; color: #646775; font-weight: 500; border: 1px solid #c7cdea; height: 5rem; }
+.orderList .htbody .table th, .orderList .htbody .table td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .table thead th { background: #eceef8; color: #646775; font-weight: 600; border: 1px solid #c7cdea; }
 .orderList .htbody .table tbody tr { border-bottom: 1px solid #e6e7ec; }
-.orderList .htbody .table tbody th { border: 1px solid #d4d7e5; background: #f7f8f9; color: #646775; height: 5rem; }
-.orderList .htbody .table tbody td { border: 1px solid #e6e7ec; height: 5rem; }
-.orderList .htbody .table a { color: inherit; }
-.orderList .htbody .table a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .table tbody th { border: 1px solid #d4d7e5; background: #f7f8f9; color: #646775; }
+.orderList .htbody .table tbody td { border: 1px solid #e6e7ec; }
 .orderList .htbody .table thead th:first-of-type { border-left: none; }
 .orderList .htbody .table thead th:last-of-type { border-right: none; }
 .orderList .htbody .table tbody th:first-of-type { border-left: none; }
@@ -62,16 +58,15 @@
 .orderList .htbody .table1 { background: #fff; width: 100%; box-shadow: 0px 0px 0px 1px #99a2a2; width: 100%; }
 .orderList .htbody .table1 table { border: none; }
 .orderList .htbody .table1 tr { border: none; }
-.orderList .htbody .table1 th, .orderList .htbody .table1 td { border: none; padding: 10px; }
-.orderList .htbody .table1 thead th { background: #e9ebeb; color: #676a6a; font-weight: 500; border: 1px solid #ced3d3; height: 5rem; }
+.orderList .htbody .table1 th, .orderList .htbody .table1 td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .table1 thead th { background: #e9ebeb; color: #676a6a; font-weight: 600; border: 1px solid #ced3d3; }
 .orderList .htbody .table1 tbody tr { border-bottom: 1px solid #e5e6e6; }
-.orderList .htbody .table1 tbody th { border: 1px solid #d7dada; background: #f8f8f8; color: #676a6a; height: 5rem; }
-.orderList .htbody .table1 tbody td { border: 1px solid #e5e6e6; height: 5rem; }
-.orderList .htbody .table1 a { color: inherit; }
-.orderList .htbody .table1 a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .table1 tbody th { border: 1px solid #d7dada; background: #f8f8f8; font-weight: 600; color: #676a6a; }
+.orderList .htbody .table1 tbody td { border: 1px solid #e5e6e6; }
 .orderList .htbody .table1 thead th:first-of-type { border-left: none; }
 .orderList .htbody .table1 thead th:last-of-type { border-right: none; }
 .orderList .htbody .table1 tbody th:first-of-type { border-left: none; }
+.orderList .htbody .table1 tbody th:last-of-type { border-right: none; }
 .orderList .htbody .table1 tbody td:first-of-type { border-left: none; }
 .orderList .htbody .table1 tbody td:last-of-type { border-right: none; }
 .orderList .htbody .table1 tr:first-of-type th { border-top: none; }
@@ -79,16 +74,13 @@
 .orderList .htbody .table1 tbody tr:last-of-type { border-bottom: none; }
 .orderList .htbody .table1 tbody tr:last-of-type th { border-bottom: none; }
 .orderList .htbody .table1 tbody tr:last-of-type td { border-bottom: none; }
-.orderList .htbody .table1 tbody th { background: #ececf1; }
 .orderList .htbody .table1 table { border: none; }
 .orderList .htbody .table1 tr { border: none; }
-.orderList .htbody .table1 th, .orderList .htbody .table1 td { border: none; padding: 10px; }
-.orderList .htbody .table1 thead th { background: #e9ebeb; color: #676a6a; font-weight: 500; border: 1px solid #ced3d3; height: 5rem; }
+.orderList .htbody .table1 th, .orderList .htbody .table1 td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .table1 thead th { background: #e9ebeb; color: #676a6a; font-weight: 600; border: 1px solid #ced3d3; }
 .orderList .htbody .table1 tbody tr { border-bottom: 1px solid #e5e6e6; }
-.orderList .htbody .table1 tbody th { border: 1px solid #d7dada; background: #f8f8f8; color: #676a6a; height: 5rem; }
-.orderList .htbody .table1 tbody td { border: 1px solid #e5e6e6; height: 5rem; }
-.orderList .htbody .table1 a { color: inherit; }
-.orderList .htbody .table1 a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .table1 tbody th { border: 1px solid #d7dada; background: #f8f8f8; color: #676a6a; }
+.orderList .htbody .table1 tbody td { border: 1px solid #e5e6e6; }
 .orderList .htbody .table1 thead th:first-of-type { border-left: none; }
 .orderList .htbody .table1 thead th:last-of-type { border-right: none; }
 .orderList .htbody .table1 tbody th:first-of-type { border-left: none; }
@@ -107,16 +99,15 @@
 .orderList .htbody .innerTable { width: 100%; box-shadow: 0px 0px 0px 1px #83c88a; width: 100%; }
 .orderList .htbody .innerTable table { border: none; }
 .orderList .htbody .innerTable tr { border: none; }
-.orderList .htbody .innerTable th, .orderList .htbody .innerTable td { border: none; padding: 10px; }
-.orderList .htbody .innerTable thead th { background: #edf7ee; color: #657467; font-weight: 500; border: 1px solid #cae7cd; height: 5rem; }
+.orderList .htbody .innerTable th, .orderList .htbody .innerTable td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .innerTable thead th { background: #edf7ee; color: #657467; font-weight: 600; border: 1px solid #cae7cd; }
 .orderList .htbody .innerTable tbody tr { border-bottom: 1px solid #e7ece7; }
-.orderList .htbody .innerTable tbody th { border: 1px solid #d5e4d7; background: #f8f9f8; color: #657467; height: 5rem; }
-.orderList .htbody .innerTable tbody td { border: 1px solid #e7ece7; height: 5rem; }
-.orderList .htbody .innerTable a { color: inherit; }
-.orderList .htbody .innerTable a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .innerTable tbody th { border: 1px solid #d5e4d7; background: #f8f9f8; font-weight: 600; color: #657467; }
+.orderList .htbody .innerTable tbody td { border: 1px solid #e7ece7; }
 .orderList .htbody .innerTable thead th:first-of-type { border-left: none; }
 .orderList .htbody .innerTable thead th:last-of-type { border-right: none; }
 .orderList .htbody .innerTable tbody th:first-of-type { border-left: none; }
+.orderList .htbody .innerTable tbody th:last-of-type { border-right: none; }
 .orderList .htbody .innerTable tbody td:first-of-type { border-left: none; }
 .orderList .htbody .innerTable tbody td:last-of-type { border-right: none; }
 .orderList .htbody .innerTable tr:first-of-type th { border-top: none; }
@@ -124,16 +115,13 @@
 .orderList .htbody .innerTable tbody tr:last-of-type { border-bottom: none; }
 .orderList .htbody .innerTable tbody tr:last-of-type th { border-bottom: none; }
 .orderList .htbody .innerTable tbody tr:last-of-type td { border-bottom: none; }
-.orderList .htbody .innerTable tbody th { background: #edf6ed; }
 .orderList .htbody .innerTable table { border: none; }
 .orderList .htbody .innerTable tr { border: none; }
-.orderList .htbody .innerTable th, .orderList .htbody .innerTable td { border: none; padding: 10px; }
-.orderList .htbody .innerTable thead th { background: #edf7ee; color: #657467; font-weight: 500; border: 1px solid #cae7cd; height: 5rem; }
+.orderList .htbody .innerTable th, .orderList .htbody .innerTable td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .innerTable thead th { background: #edf7ee; color: #657467; font-weight: 600; border: 1px solid #cae7cd; }
 .orderList .htbody .innerTable tbody tr { border-bottom: 1px solid #e7ece7; }
-.orderList .htbody .innerTable tbody th { border: 1px solid #d5e4d7; background: #f8f9f8; color: #657467; height: 5rem; }
-.orderList .htbody .innerTable tbody td { border: 1px solid #e7ece7; height: 5rem; }
-.orderList .htbody .innerTable a { color: inherit; }
-.orderList .htbody .innerTable a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .innerTable tbody th { border: 1px solid #d5e4d7; background: #f8f9f8; color: #657467; }
+.orderList .htbody .innerTable tbody td { border: 1px solid #e7ece7; }
 .orderList .htbody .innerTable thead th:first-of-type { border-left: none; }
 .orderList .htbody .innerTable thead th:last-of-type { border-right: none; }
 .orderList .htbody .innerTable tbody th:first-of-type { border-left: none; }
@@ -145,16 +133,15 @@
 .orderList .htbody .innerTableVote { background: #fff; width: 100%; box-shadow: 0px 0px 0px 1px #f76259; width: 100%; }
 .orderList .htbody .innerTableVote table { border: none; }
 .orderList .htbody .innerTableVote tr { border: none; }
-.orderList .htbody .innerTableVote th, .orderList .htbody .innerTableVote td { border: none; padding: 10px; }
-.orderList .htbody .innerTableVote thead th { background: #feeceb; color: #7e5f5d; font-weight: 500; border: 1px solid #fcbeba; height: 5rem; }
+.orderList .htbody .innerTableVote th, .orderList .htbody .innerTableVote td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .innerTableVote thead th { background: #feeceb; color: #7e5f5d; font-weight: 600; border: 1px solid #fcbeba; }
 .orderList .htbody .innerTableVote tbody tr { border-bottom: 1px solid #efe6e6; }
-.orderList .htbody .innerTableVote tbody th { border: 1px solid #eecfcd; background: #faf7f7; color: #7e5f5d; height: 5rem; }
-.orderList .htbody .innerTableVote tbody td { border: 1px solid #efe6e6; height: 5rem; }
-.orderList .htbody .innerTableVote a { color: inherit; }
-.orderList .htbody .innerTableVote a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .innerTableVote tbody th { border: 1px solid #eecfcd; background: #faf7f7; font-weight: 600; color: #7e5f5d; }
+.orderList .htbody .innerTableVote tbody td { border: 1px solid #efe6e6; }
 .orderList .htbody .innerTableVote thead th:first-of-type { border-left: none; }
 .orderList .htbody .innerTableVote thead th:last-of-type { border-right: none; }
 .orderList .htbody .innerTableVote tbody th:first-of-type { border-left: none; }
+.orderList .htbody .innerTableVote tbody th:last-of-type { border-right: none; }
 .orderList .htbody .innerTableVote tbody td:first-of-type { border-left: none; }
 .orderList .htbody .innerTableVote tbody td:last-of-type { border-right: none; }
 .orderList .htbody .innerTableVote tr:first-of-type th { border-top: none; }
@@ -162,16 +149,13 @@
 .orderList .htbody .innerTableVote tbody tr:last-of-type { border-bottom: none; }
 .orderList .htbody .innerTableVote tbody tr:last-of-type th { border-bottom: none; }
 .orderList .htbody .innerTableVote tbody tr:last-of-type td { border-bottom: none; }
-.orderList .htbody .innerTableVote tbody th { background: #f9ebeb; }
 .orderList .htbody .innerTableVote table { border: none; }
 .orderList .htbody .innerTableVote tr { border: none; }
-.orderList .htbody .innerTableVote th, .orderList .htbody .innerTableVote td { border: none; padding: 10px; }
-.orderList .htbody .innerTableVote thead th { background: #feeceb; color: #7e5f5d; font-weight: 500; border: 1px solid #fcbeba; height: 5rem; }
+.orderList .htbody .innerTableVote th, .orderList .htbody .innerTableVote td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .innerTableVote thead th { background: #feeceb; color: #7e5f5d; font-weight: 600; border: 1px solid #fcbeba; }
 .orderList .htbody .innerTableVote tbody tr { border-bottom: 1px solid #efe6e6; }
-.orderList .htbody .innerTableVote tbody th { border: 1px solid #eecfcd; background: #faf7f7; color: #7e5f5d; height: 5rem; }
-.orderList .htbody .innerTableVote tbody td { border: 1px solid #efe6e6; height: 5rem; }
-.orderList .htbody .innerTableVote a { color: inherit; }
-.orderList .htbody .innerTableVote a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .innerTableVote tbody th { border: 1px solid #eecfcd; background: #faf7f7; color: #7e5f5d; }
+.orderList .htbody .innerTableVote tbody td { border: 1px solid #efe6e6; }
 .orderList .htbody .innerTableVote thead th:first-of-type { border-left: none; }
 .orderList .htbody .innerTableVote thead th:last-of-type { border-right: none; }
 .orderList .htbody .innerTableVote tbody th:first-of-type { border-left: none; }
@@ -188,16 +172,15 @@
 .orderList .htbody .innerTablePay { width: 100%; box-shadow: 0px 0px 0px 1px #f76259; width: 100%; }
 .orderList .htbody .innerTablePay table { border: none; }
 .orderList .htbody .innerTablePay tr { border: none; }
-.orderList .htbody .innerTablePay th, .orderList .htbody .innerTablePay td { border: none; padding: 10px; }
-.orderList .htbody .innerTablePay thead th { background: #feeceb; color: #7e5f5d; font-weight: 500; border: 1px solid #fcbeba; height: 5rem; }
+.orderList .htbody .innerTablePay th, .orderList .htbody .innerTablePay td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .innerTablePay thead th { background: #feeceb; color: #7e5f5d; font-weight: 600; border: 1px solid #fcbeba; }
 .orderList .htbody .innerTablePay tbody tr { border-bottom: 1px solid #efe6e6; }
-.orderList .htbody .innerTablePay tbody th { border: 1px solid #eecfcd; background: #faf7f7; color: #7e5f5d; height: 5rem; }
-.orderList .htbody .innerTablePay tbody td { border: 1px solid #efe6e6; height: 5rem; }
-.orderList .htbody .innerTablePay a { color: inherit; }
-.orderList .htbody .innerTablePay a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .innerTablePay tbody th { border: 1px solid #eecfcd; background: #faf7f7; font-weight: 600; color: #7e5f5d; }
+.orderList .htbody .innerTablePay tbody td { border: 1px solid #efe6e6; }
 .orderList .htbody .innerTablePay thead th:first-of-type { border-left: none; }
 .orderList .htbody .innerTablePay thead th:last-of-type { border-right: none; }
 .orderList .htbody .innerTablePay tbody th:first-of-type { border-left: none; }
+.orderList .htbody .innerTablePay tbody th:last-of-type { border-right: none; }
 .orderList .htbody .innerTablePay tbody td:first-of-type { border-left: none; }
 .orderList .htbody .innerTablePay tbody td:last-of-type { border-right: none; }
 .orderList .htbody .innerTablePay tr:first-of-type th { border-top: none; }
@@ -205,16 +188,13 @@
 .orderList .htbody .innerTablePay tbody tr:last-of-type { border-bottom: none; }
 .orderList .htbody .innerTablePay tbody tr:last-of-type th { border-bottom: none; }
 .orderList .htbody .innerTablePay tbody tr:last-of-type td { border-bottom: none; }
-.orderList .htbody .innerTablePay tbody th { background: #f9ebeb; }
 .orderList .htbody .innerTablePay table { border: none; }
 .orderList .htbody .innerTablePay tr { border: none; }
-.orderList .htbody .innerTablePay th, .orderList .htbody .innerTablePay td { border: none; padding: 10px; }
-.orderList .htbody .innerTablePay thead th { background: #feeceb; color: #7e5f5d; font-weight: 500; border: 1px solid #fcbeba; height: 5rem; }
+.orderList .htbody .innerTablePay th, .orderList .htbody .innerTablePay td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .innerTablePay thead th { background: #feeceb; color: #7e5f5d; font-weight: 600; border: 1px solid #fcbeba; }
 .orderList .htbody .innerTablePay tbody tr { border-bottom: 1px solid #efe6e6; }
-.orderList .htbody .innerTablePay tbody th { border: 1px solid #eecfcd; background: #faf7f7; color: #7e5f5d; height: 5rem; }
-.orderList .htbody .innerTablePay tbody td { border: 1px solid #efe6e6; height: 5rem; }
-.orderList .htbody .innerTablePay a { color: inherit; }
-.orderList .htbody .innerTablePay a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .innerTablePay tbody th { border: 1px solid #eecfcd; background: #faf7f7; color: #7e5f5d; }
+.orderList .htbody .innerTablePay tbody td { border: 1px solid #efe6e6; }
 .orderList .htbody .innerTablePay thead th:first-of-type { border-left: none; }
 .orderList .htbody .innerTablePay thead th:last-of-type { border-right: none; }
 .orderList .htbody .innerTablePay tbody th:first-of-type { border-left: none; }
@@ -226,16 +206,15 @@
 .orderList .htbody .innerTableBuy { width: 100%; box-shadow: 0px 0px 0px 1px #c279ce; width: 100%; }
 .orderList .htbody .innerTableBuy table { border: none; }
 .orderList .htbody .innerTableBuy tr { border: none; }
-.orderList .htbody .innerTableBuy th, .orderList .htbody .innerTableBuy td { border: none; padding: 10px; }
-.orderList .htbody .innerTableBuy thead th { background: #f5e9f7; color: #726275; font-weight: 500; border: 1px solid #e4c4e9; height: 5rem; }
+.orderList .htbody .innerTableBuy th, .orderList .htbody .innerTableBuy td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .innerTableBuy thead th { background: #f5e9f7; color: #726275; font-weight: 600; border: 1px solid #e4c4e9; }
 .orderList .htbody .innerTableBuy tbody tr { border-bottom: 1px solid #ebe5ec; }
-.orderList .htbody .innerTableBuy tbody th { border: 1px solid #e2d2e5; background: #f9f7f9; color: #726275; height: 5rem; }
-.orderList .htbody .innerTableBuy tbody td { border: 1px solid #ebe5ec; height: 5rem; }
-.orderList .htbody .innerTableBuy a { color: inherit; }
-.orderList .htbody .innerTableBuy a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .innerTableBuy tbody th { border: 1px solid #e2d2e5; background: #f9f7f9; font-weight: 600; color: #726275; }
+.orderList .htbody .innerTableBuy tbody td { border: 1px solid #ebe5ec; }
 .orderList .htbody .innerTableBuy thead th:first-of-type { border-left: none; }
 .orderList .htbody .innerTableBuy thead th:last-of-type { border-right: none; }
 .orderList .htbody .innerTableBuy tbody th:first-of-type { border-left: none; }
+.orderList .htbody .innerTableBuy tbody th:last-of-type { border-right: none; }
 .orderList .htbody .innerTableBuy tbody td:first-of-type { border-left: none; }
 .orderList .htbody .innerTableBuy tbody td:last-of-type { border-right: none; }
 .orderList .htbody .innerTableBuy tr:first-of-type th { border-top: none; }
@@ -243,16 +222,13 @@
 .orderList .htbody .innerTableBuy tbody tr:last-of-type { border-bottom: none; }
 .orderList .htbody .innerTableBuy tbody tr:last-of-type th { border-bottom: none; }
 .orderList .htbody .innerTableBuy tbody tr:last-of-type td { border-bottom: none; }
-.orderList .htbody .innerTableBuy tbody th { background: #f5ebf6; }
 .orderList .htbody .innerTableBuy table { border: none; }
 .orderList .htbody .innerTableBuy tr { border: none; }
-.orderList .htbody .innerTableBuy th, .orderList .htbody .innerTableBuy td { border: none; padding: 10px; }
-.orderList .htbody .innerTableBuy thead th { background: #f5e9f7; color: #726275; font-weight: 500; border: 1px solid #e4c4e9; height: 5rem; }
+.orderList .htbody .innerTableBuy th, .orderList .htbody .innerTableBuy td { border: none; padding: 0.5rem 1rem; }
+.orderList .htbody .innerTableBuy thead th { background: #f5e9f7; color: #726275; font-weight: 600; border: 1px solid #e4c4e9; }
 .orderList .htbody .innerTableBuy tbody tr { border-bottom: 1px solid #ebe5ec; }
-.orderList .htbody .innerTableBuy tbody th { border: 1px solid #e2d2e5; background: #f9f7f9; color: #726275; height: 5rem; }
-.orderList .htbody .innerTableBuy tbody td { border: 1px solid #ebe5ec; height: 5rem; }
-.orderList .htbody .innerTableBuy a { color: inherit; }
-.orderList .htbody .innerTableBuy a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .htbody .innerTableBuy tbody th { border: 1px solid #e2d2e5; background: #f9f7f9; color: #726275; }
+.orderList .htbody .innerTableBuy tbody td { border: 1px solid #ebe5ec; }
 .orderList .htbody .innerTableBuy thead th:first-of-type { border-left: none; }
 .orderList .htbody .innerTableBuy thead th:last-of-type { border-right: none; }
 .orderList .htbody .innerTableBuy tbody th:first-of-type { border-left: none; }
@@ -261,35 +237,38 @@
 .orderList .htbody .innerTableBuy tbody td:first-of-type { border-left: none; }
 .orderList .htbody .innerTableBuy tbody td:last-of-type { border-right: none; }
 .orderList .htbody .innerTableBuy th, .orderList .htbody .innerTableBuy td { padding: 0.5rem; font-size: 2.1rem; }
-.orderList .htbody .innerTableBuy .detail_btn { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; font-feature-settings: 'tnum'; /* 고정폭 숫자 */ padding: 1rem 1.5rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #e4c4e9; background: #f5e9f7; color: #9c27b0; text-decoration: none; }
+.orderList .htbody .innerTableBuy .detail_btn { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #e4c4e9; background: #f5e9f7; color: #9c27b0; text-decoration: none; }
 .orderList .htbody .innerTableBuy .detail_btn:hover { color: #fff; text-decoration: none; background: #fefcfe; }
 .orderList .htbody .innerTableBuy .detail_btn:active { color: white; background: #edd6f0; }
 .orderList .htbody .innerTableBuy .detail_btn:hover { text-decoration: none; color: #9c27b0; }
 .orderList .htbody .innerTableBuy .detail_btn.active { color: #fff; background: #963ca5; border-color: #301335; }
 .orderList .htbody .innerTableRece td.th { background-color: #feecd8; font-weight: bold; text-align: center; font-size: 13px; }
-.orderList .total { width: 100%; width: 100%; }
+.orderList .total { width: 100%; box-shadow: 0px 0px 0px 1px #86b2b7; width: 100%; }
 .orderList .total table { border: none; }
 .orderList .total tr { border: none; }
-.orderList .total th, .orderList .total td { border: none; padding: 10px; }
-.orderList .total thead th { background: #e6eff0; color: #636e6f; font-weight: 500; border: 1px solid #c6dbdd; height: 5rem; }
+.orderList .total th, .orderList .total td { border: none; padding: 0.5rem 1rem; }
+.orderList .total thead th { background: #e6eff0; color: #636e6f; font-weight: 600; border: 1px solid #c6dbdd; }
 .orderList .total tbody tr { border-bottom: 1px solid #e3e8e8; }
-.orderList .total tbody th { border: 1px solid #d3dedf; background: #f7f8f9; color: #636e6f; height: 5rem; }
-.orderList .total tbody td { border: 1px solid #e3e8e8; height: 5rem; }
-.orderList .total a { color: inherit; }
-.orderList .total a:hover { text-decoration: underline; color: #00bfa5; }
-.orderList .total thead th { border-left: none; border-right: none; }
-.orderList .total tbody th { border-left: none; border-right: none; }
-.orderList .total tbody td { border-left: none; border-right: none; }
-.orderList .total tbody th { background: #eaf1f3; }
+.orderList .total tbody th { border: 1px solid #d3dedf; background: #f7f8f9; font-weight: 600; color: #636e6f; }
+.orderList .total tbody td { border: 1px solid #e3e8e8; }
+.orderList .total thead th:first-of-type { border-left: none; }
+.orderList .total thead th:last-of-type { border-right: none; }
+.orderList .total tbody th:first-of-type { border-left: none; }
+.orderList .total tbody th:last-of-type { border-right: none; }
+.orderList .total tbody td:first-of-type { border-left: none; }
+.orderList .total tbody td:last-of-type { border-right: none; }
+.orderList .total tr:first-of-type th { border-top: none; }
+.orderList .total tr:first-of-type td { border-top: none; }
+.orderList .total tbody tr:last-of-type { border-bottom: none; }
+.orderList .total tbody tr:last-of-type th { border-bottom: none; }
+.orderList .total tbody tr:last-of-type td { border-bottom: none; }
 .orderList .total table { border: none; }
 .orderList .total tr { border: none; }
-.orderList .total th, .orderList .total td { border: none; padding: 10px; }
-.orderList .total thead th { background: #e6eff0; color: #636e6f; font-weight: 500; border: 1px solid #c6dbdd; height: 5rem; }
+.orderList .total th, .orderList .total td { border: none; padding: 0.5rem 1rem; }
+.orderList .total thead th { background: #e6eff0; color: #636e6f; font-weight: 600; border: 1px solid #c6dbdd; }
 .orderList .total tbody tr { border-bottom: 1px solid #e3e8e8; }
-.orderList .total tbody th { border: 1px solid #d3dedf; background: #f7f8f9; color: #636e6f; height: 5rem; }
-.orderList .total tbody td { border: 1px solid #e3e8e8; height: 5rem; }
-.orderList .total a { color: inherit; }
-.orderList .total a:hover { text-decoration: underline; color: #00bfa5; }
+.orderList .total tbody th { border: 1px solid #d3dedf; background: #f7f8f9; color: #636e6f; }
+.orderList .total tbody td { border: 1px solid #e3e8e8; }
 .orderList .total thead th:first-of-type { border-left: none; }
 .orderList .total thead th:last-of-type { border-right: none; }
 .orderList .total tbody th:first-of-type { border-left: none; }
@@ -332,14 +311,14 @@
 
 .f12 { font-size: 12px; }
 
-
+/* 惑技郴开 */
 #under_search .search_content { width: 980px; height: 150px; margin: 0px; border: 0px solid #c7c7c7; overflow-y: scroll; background: #fff; padding: 0px; }
 #under_search .search_content1 { width: 455px; height: 150px; margin: 0px; border: 1px solid #c7c7c7; overflow-y: scroll; background: #fff; padding-bottom: 0px; }
 
 .btnZone { display: flex; justify-content: center; align-items: center; padding-top: 5rem; width: calc(32rem + 5%); margin: 0 auto; }
 .btnZone a, .btnZone input { display: inline-flex; justify-content: center; align-items: center; width: 100%; height: 10rem; margin: 1.25rem auto; background: transparent; font-size: 3rem; cursor: pointer; font-family: inherit; border: none; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
-.btnZone input { background: #da2027; color: #fff; }
-.btnZone a { background: #2f2f2f; color: #fff; }
+.btnZone input { background: #1C287B; color: #fff; }
+.btnZone a { background: #fff; color: #fff; }
 .btnZone a * { background: none; font-family: inherit; font-size: inherit; color: inherit; left: initial; height: initial; }
 .btnZone a:hover { color: inherit; }
 .btnZone .cancel { background: #e0e0e0; color: #222; }
@@ -428,27 +407,3 @@ table ~ .titles { margin-top: 5rem; }
 .pay_totals .innerTable3 tbody td:last-of-type { border-right: none; }
 
 .pay_inDivWrap .nodata { border: none !important; text-align: center; }
-
-.orderList .board1 { width: 100%; }
-.orderList .board1 table { border: none; }
-.orderList .board1 tr { border: none; }
-.orderList .board1 th, .orderList .board1 td { border: none; padding: 10px; }
-.orderList .board1 thead th { background: #eeeff7; color: #666774; font-weight: 500; border: 1px solid #cbcee7; height: 5rem; }
-.orderList .board1 tbody tr { border-bottom: 1px solid #e7e8ec; }
-.orderList .board1 tbody th { border: 1px solid #d6d7e4; background: #f8f8f9; color: #666774; height: 5rem; }
-.orderList .board1 tbody td { border: 1px solid #e7e8ec; height: 5rem; }
-.orderList .board1 tbody td.inPrice { text-align: right; }
-.orderList .board1 thead th:first-of-type { border-left: none; }
-.orderList .board1 thead th:last-of-type { border-right: none; }
-.orderList .board1 tbody th:first-of-type { border-left: none; }
-.orderList .board1 tbody th:last-of-type { border-right: none; }
-.orderList .board1 tbody th + td { border-left: 1px solid #d6d7e4 !important; }
-.orderList .board1 tbody td:first-of-type { border-left: none; }
-.orderList .board1 tbody td:last-of-type { border-right: none; }
-.orderList .board1 table { background: #fff; }
-.orderList .board1 th, .orderList .board1 td { padding: 1rem !important; font-size: 2.1rem; height: 7rem !important; }
-.orderList .board1 .detail_btn { color: #fff; font-size: inherit; }
-.orderList .board1 .detail_btn:hover { color: #fff; text-decoration: none; }
-
-.dialog-layer th { padding: 0.5rem !important; font-size: 2.1rem; height: 7rem !important;}
-.dialog-layer td { padding: 1.5rem 0.5rem !important; }

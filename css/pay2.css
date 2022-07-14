@@ -29,7 +29,7 @@ th.price, td.price { text-align: right !important; }
 .table { width: 100%; }
 .table table { border: none; }
 .table tr { border: none; }
-.table th, .table td { border: none; padding: 0.5rem 1rem; }
+.table th, .table td { border: none; padding: 0.5rem 1rem; white-space: nowrap;}
 .table thead th { background: #fef0e6; color: #7e6a5b; font-weight: 600; border: 1px solid #fcd3b5; }
 .table tbody tr { border-bottom: 1px solid #efe8e3; }
 .table tbody th { border: 1px solid #eedacb; background: #faf8f7; color: #7e6a5b; }

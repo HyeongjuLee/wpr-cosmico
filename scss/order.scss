@@ -225,9 +225,7 @@ $goods: rem(390px);
 }
 
 .detail_btn {
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
+	@include inline-flex;
 	//width: 100%;
 	height: $font-size * 3;
 	line-height: 1.5;
@@ -1369,8 +1367,10 @@ $goods: rem(390px);
 /* 카드, 무통장, 복합결제 */
 /* 복합결제 구분선 */
 
+
 /* #order .payment .payinfoWrap tr.lastTD th {border-bottom:1px solid #777;}
 #order .payment .payinfoWrap tr.lastTD td {border-bottom:1px solid #777;} */
+
 
 /*주문완료 */
 /* cart_infos -> order_infos */
@@ -1834,13 +1834,6 @@ $goods: rem(390px);
 	}
 }
 
-/*270*/
-/*250*/
-/*250*/
-/*58*/
-/*252*/
-/*4*/
-
 #detailInfo {
 	float: left;
 	margin-left: $font-size;
@@ -2207,162 +2200,161 @@ $goods: rem(390px);
 	}
 }
 
-#fix_menu {
-	@include position;
-	background: material-color('grey', '50');
-	padding: $font-size * 2;
-	margin: $font-size 0;
-	margin-top: $font-size * 2;
-	font-size: $font-size;
-	color: #2b2b2b;
-	line-height: 1.5;
-	font-weight: 500;
+// #fix_menu {
+// 	@include position;
+// 	background: material-color('grey', '50');
+// 	padding: $font-size * 2;
+// 	margin: $font-size 0;
+// 	margin-top: $font-size * 2;
+// 	font-size: $font-size;
+// 	color: #2b2b2b;
+// 	line-height: 1.5;
+// 	font-weight: 500;
 
-	border: 1px solid material-color('grey', '300');
+// 	border: 1px solid material-color('grey', '300');
 
-	.layout_inner {
-		width: 100%;
-		@include flex;
-	}
+// 	.layout_inner {
+// 		@include flex;
+// 	}
 
-	.all {
+// 	.all {
 
-		label {
-			//width: 115px;
-			//height: 40px;
-			@include rounded($font-size / 3);
-			@include flex;
-			padding: $font-size / 2 $font-size;
-			background: material-color('grey', '200');
-			border: 1px solid material-color('grey', '300');
-			font-size: $parent-css;
-			color: material-color('grey', '800');
-			font-weight: 500;
-			cursor: pointer;
-			@include transition(all 0s);
+// 		label {
+// 			//width: 115px;
+// 			//height: 40px;
+// 			@include rounded($font-size / 3);
+// 			@include flex;
+// 			padding: $font-size / 2 $font-size;
+// 			background: material-color('grey', '200');
+// 			border: 1px solid material-color('grey', '300');
+// 			font-size: $parent-css;
+// 			color: material-color('grey', '800');
+// 			font-weight: 500;
+// 			cursor: pointer;
+// 			@include transition(all 0s);
 
-			input {
-				margin-right: $font-size / 3;
-			}
-		}
-	}
+// 			input {
+// 				margin-right: $font-size / 3;
+// 			}
+// 		}
+// 	}
 
-	.sumCart {
-		@include flex;
-		flex: 1;
-		justify-content: space-around;
-		//padding: 0 $font-size;
+// 	.sumCart {
+// 		@include flex;
+// 		flex: 1;
+// 		justify-content: space-around;
+// 		//padding: 0 $font-size;
 
-		.flexColumn {
-			@include position;
-			@include flex;
-			flex-direction: column;
-			//flex: auto;
-			//padding: 0 $font-size * 2;
+// 		.flexColumn {
+// 			@include position;
+// 			@include flex;
+// 			flex-direction: column;
+// 			//flex: auto;
+// 			//padding: 0 $font-size * 2;
 			
-			& > div {
-				@include flex;
-				width: 100%;
-				min-height: $font-size * 2.5;
+// 			& > div {
+// 				@include flex;
+// 				width: 100%;
+// 				min-height: $font-size * 2.5;
 
-				&.sumCart03 {
-					color: #329900;
-					padding-right: 0;
-					justify-content: space-between;
-					width: 100%;
+// 				&.sumCart03 {
+// 					color: #329900;
+// 					padding-right: 0;
+// 					justify-content: space-between;
+// 					width: 100%;
 
-					p {
-						&:first-of-type {
-							margin-right: $font-size;
-						}
-					}
-				}
-			}
+// 					p {
+// 						&:first-of-type {
+// 							margin-right: $font-size;
+// 						}
+// 					}
+// 				}
+// 			}
 
-			& ~ i {
-				width: 1px;
-				height: $font-size * 2;
-				background: material-color('grey', '300');
-				margin: 0 $font-size;
-				//@include transform(translateY(-50%));
-			}
-		}
+// 			& ~ i {
+// 				width: 1px;
+// 				height: $font-size * 2;
+// 				background: material-color('grey', '300');
+// 				margin: 0 $font-size;
+// 				//@include transform(translateY(-50%));
+// 			}
+// 		}
 
-		.priceArea {
-			//@include flex;
+// 		.priceArea {
+// 			//@include flex;
 
-		}
+// 		}
 
-		.pStitle {
-			margin-left: $font-size;
-			margin-right: $font-size * 2;
-			color: #2b2b2b;
-			//flex: 0.5;
-			//text-align: right;
-		}
+// 		.pStitle {
+// 			margin-left: $font-size;
+// 			margin-right: $font-size * 2;
+// 			color: #2b2b2b;
+// 			//flex: 0.5;
+// 			//text-align: right;
+// 		}
 
-		.pISO {
-			font-size: round($font-size * 2 - $font-size / 4);
-			font-weight: 700;
-			letter-spacing: -1px;
-			margin-right: $font-size / 3;
-			flex: 1;
-			text-align: right;
-			line-height: 1;
-		}
+// 		.pISO {
+// 			font-size: round($font-size * 2 - $font-size / 4);
+// 			font-weight: 700;
+// 			letter-spacing: -1px;
+// 			margin-right: $font-size / 3;
+// 			flex: 1;
+// 			text-align: right;
+// 			line-height: 1;
+// 		}
 
-		.pPriceT {
-			font-size: round($font-size * 2 - $font-size / 4);
-			font-weight: 700;
-			letter-spacing: -1px;
-			margin-right: $font-size / 3;
-			flex: 1;
-			text-align: right;
-		}
+// 		.pPriceT {
+// 			font-size: round($font-size * 2 - $font-size / 4);
+// 			font-weight: 700;
+// 			letter-spacing: -1px;
+// 			margin-right: $font-size / 3;
+// 			flex: 1;
+// 			text-align: right;
+// 		}
 
-		.pUnit {
-		}
-	}
+// 		.pUnit {
+// 		}
+// 	}
 
-	.sumCart02 {
-		color: #f2002e;
-	}
+// 	.sumCart02 {
+// 		color: #f2002e;
+// 	}
 
-	div {
-		&.sumCart03 {
-			color: #329900;
-			padding-right: 0;
-			justify-content: space-between;
-			width: 100%;
-		}
+// 	div {
+// 		&.sumCart03 {
+// 			color: #329900;
+// 			padding-right: 0;
+// 			justify-content: space-between;
+// 			width: 100%;
+// 		}
 
-		&.addCart {
-			float: right;
-		}
-	}
+// 		&.addCart {
+// 			float: right;
+// 		}
+// 	}
 
-	.addCart input {
-		width: 200px;
-		height: 54px;
-		border-radius: 3px;
-		background: #A576B1;
-		font-size: 20px;
-		color: #fff;
-		font-weight: 500;
-		line-height: 50px;
-		border: none;
-		outline: none;
-		cursor: pointer;
-		transition: all .2s ease;
-		-webkit-transition: all .2s ease;
-		-moz-transition: all .2s ease;
-		-o-transition: all .2s ease;
+// 	.addCart input {
+// 		width: 200px;
+// 		height: 54px;
+// 		border-radius: 3px;
+// 		background: #A576B1;
+// 		font-size: 20px;
+// 		color: #fff;
+// 		font-weight: 500;
+// 		line-height: 50px;
+// 		border: none;
+// 		outline: none;
+// 		cursor: pointer;
+// 		transition: all .2s ease;
+// 		-webkit-transition: all .2s ease;
+// 		-moz-transition: all .2s ease;
+// 		-o-transition: all .2s ease;
 
-		&:hover {
-			background: #D6224C;
-		}
-	}
-}
+// 		&:hover {
+// 			background: #D6224C;
+// 		}
+// 	}
+// }
 
 .cart {
 	$purple: material-color('purple', '700');
@@ -2438,4 +2430,125 @@ $goods: rem(390px);
 	padding: rem(2px) rem(10px);
 	@include font-family('Pretendard');
 	font-size: $font-size;
+}
+
+
+
+/*cart.asp fix_menu 리뉴얼*/
+#fix_menu {
+	width: 100%;
+	font-size: $parent-css;
+	color: #222;
+	line-height: 1;
+	font-weight: 500;
+	margin: 30px 0;
+
+	.layout_inner {
+		@include position;
+		padding: 30px;
+
+		border: 1px solid material-color('grey', '300');
+		background: material-color('grey', '50');
+		@include flex($aro);
+	}
+
+	ul {
+		@include position;
+		@include inline-flex;
+		flex-direction: column;
+		// width: calc(100% / 3);
+		// flex: auto;
+		width: 100%;
+		padding: 0 50px;
+
+		&:before {
+			@include presudo($ri: 0, $top: 50%, $w: 1px, $h: 30px);
+			z-index: 1;
+			@include transform(translateY(-50%));
+			background: material-color('grey', '300');
+		}
+
+		&:first-of-type {
+			// padding-left: 0;
+		}
+
+		&:last-of-type {
+			// padding-right: 0;
+			&:before {
+				content: none;
+			}
+		}
+
+	}
+
+	li {
+		@include flex($st);
+		width: 100%;
+		margin: 2px 0;
+		.tit {
+			text-align: left;
+			color: #222;
+		}
+		.num {
+			margin-left: auto;
+			color: $parent-css;
+			@include flex;
+
+			.pISO {
+				font-size: $font-size * 1.8;
+				font-weight: 700;
+				margin: 0 5px;
+				text-align: right;
+			}
+			.pUnit {
+				width: 20px;
+			}
+		}
+	}
+	
+	.count {
+		width: 35%;
+	}
+}
+
+#fix_menu {
+	.black {
+		color: $oc-gray-9;
+	}
+	.red {
+		color: $oc-red-7;
+	}
+	.pink {
+		color: $oc-pink-6;
+	}
+	.grape {
+		color: $oc-grape-7;
+	}
+	.violet {
+		color: $oc-violet-7;
+	}
+	.indigo {
+		color: $oc-indigo-7;
+	}
+	.blue {
+		color: $oc-blue-7;
+	}
+	.cyan {
+		color: $oc-cyan-7;
+	}
+	.teal {
+		color: $oc-teal-7;
+	}
+	.green {
+		color: $oc-green-7;
+	}
+	.lime {
+		color: $oc-lime-7;
+	}
+	.yellow {
+		color: $oc-yellow-7;
+	}
+	.orange {
+		color: $oc-orange-7;
+	}
 }
