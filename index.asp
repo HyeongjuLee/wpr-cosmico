@@ -523,6 +523,75 @@
 			</li>
 		</ul>
 	</div>
+
+	<%If webproIP="T" Then%>
+	<link rel="stylesheet" href="/css/type_video_popup.css?">
+	<div class="index-video layout_inner">
+		<div class="title"><b>COSMICOKOREA</b> in Videos</div>
+		<div class="video-visual swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<a href="https://youtu.be/IAVQhpxwZE4"><div class="img"><i class="icon-play"></i><img src="/upload/board/thum/m2.png" width="365.079365079365" height="230" alt="" style="mar gin-top:-30px"></div>
+						<div class="txt">
+							<p>거울셀카 찍는 루피 만들기</p>
+						</div>
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="https://youtu.be/PsZw7c5RlYM"><div class="img"><i class="icon-play"></i><img src="/upload/board/thum/m1.png" width="423.312883435583" height="230" alt="" style="mar gin-top:-30px"></div>
+						<div class="txt">
+							<p>태어난 새끼를 가족으로 받아줄까?</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="swiper-inner">
+			<div class="swiper-button prev" data-ripplet><i class="icon-angle-left"></i></div>
+			<div class="swiper-button next" data-ripplet><i class="icon-angle-right"></i></div>
+			<!-- <div class="swiper-pagination"></div> -->
+		</div>
+
+		<script type="text/javascript">
+			var swiper = new Swiper('.video-visual', {
+				// centeredSlides: true,
+				effect: 'slide',
+				loop: true,
+				simulateTouch: false,
+				//slidesPerGroup: 1,
+				slidesPerView: 2,
+				//spaceBetween: 0;
+				speed: 1000,
+
+				navigation: {
+					nextEl: '.swiper-button.next',
+					prevEl: '.swiper-button.prev',
+				},
+
+				pagination: {
+					el: '.swiper-pagination',
+					// type: 'bullets',
+					// type: 'fraction',
+					// type: 'progressbar',
+					// type: 'custom',
+				},
+
+				// scrollbar: {
+				// 	el: '.swiper-scrollbar',
+				// },
+
+				autoplay: {
+					delay: 3000,
+					disableOnInteraction: false,
+				}
+			});
+		</script>
+
+		<div class="more">
+			<a href="/cboard/board_list.asp?bname=movie" class="link" target="_blank">MORE<i class="icon-visual-right"></i></a>
+		</div>
+	</div>
+	<%End If%>
 </div>
 
 <!--#include virtual="/_include/copyright.asp" -->

@@ -93,14 +93,16 @@ $color: #424242;
 	}
 
 	#logo {
-		margin-top: rem(20px);
+		// margin-top: rem(20px);
+		width: $top-logo-width;
+		height: $top-logo-height;
 		a {
 			padding-top: rem(10px);
 			@include default-a;
 			display: block;
 		}
 		img {
-			width: $top-logo-width;
+			width: 100%;
 		}
 	}
 }

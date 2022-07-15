@@ -48,7 +48,7 @@ body.logged-in .YouTubePopUp-Wrap { /* For WordPress */ top: 32px; z-index: 9999
 .video_popup li .img .icon-play { content: ""; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); z-index: 10; box-sizing: border-box; color: #fff; font-size: 6rem; display: flex; justify-content: center; align-items: center; filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5)); opacity: 0; }
 .video_popup li .img img { position: absolute; top: 50%; left: 50%; -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 100%; height: 100%; object-fit: cover; }
 .video_popup li .txt { font-size: 1.7rem; font-weight: 500; color: #212121; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 1; padding: 1rem 0; }
-.video_popup .thumb_imageArea .edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #1d276b; background: #283593; display: inline-flex; justify-content: center; align-items: center; margin-top: 10px; width: 8rem; font-size: 1.3rem; }
+.video_popup .thumb_imageArea .edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #1d276b; background: #283593; display: inline-flex; justify-content: center; align-items: center; margin-top: 10px; width: 8rem; font-size: 1.3rem; }
 .video_popup .thumb_imageArea .edit:hover { color: #fff; text-decoration: none; background: #2d3ca7; }
 .video_popup .thumb_imageArea .edit:active { color: #cacef0; background: #232e7f; }
 .video_popup .thumb_imageArea .edit:hover { text-decoration: underline; }
@@ -57,26 +57,26 @@ body.logged-in .YouTubePopUp-Wrap { /* For WordPress */ top: 32px; z-index: 9999
 .video_popup li a:hover .img .icon-play { opacity: .9; }
 .video_popup li a:hover .txt { text-decoration: underline; }
 
-.button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; display: inline-flex; justify-content: center; align-items: center; margin: 0; color: #fff; min-width: 7rem; min-height: 3.5rem; padding: 0 1rem; }
+.button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; display: inline-flex; justify-content: center; align-items: center; margin: 0; color: #fff; min-width: 7rem; min-height: 3.5rem; padding: 0 1rem; }
 .button:hover { color: #fff; text-decoration: none; background: #828282; }
 .button:active { color: whitesmoke; background: #686868; }
 .button:link, .button:active, .button:visited, .button:hover { color: #fff; }
-.button.red { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
+.button.red { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
 .button.red:hover { color: #fff; text-decoration: none; background: #e84f4c; }
 .button.red:active { color: white; background: #e2231e; }
-.button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
+.button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
 .button.answer:hover { color: #fff; text-decoration: none; background: #a028bf; }
 .button.answer:active { color: #f0d7f6; background: #7c2095; }
-.button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
+.button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
 .button.delete:hover { color: #fff; text-decoration: none; background: #e4286d; }
 .button.delete:active { color: #fef4f8; background: #c11856; }
-.button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
+.button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
 .button.edit:hover { color: #fff; text-decoration: none; background: #3f51be; }
 .button.edit:active { color: #ebedf8; background: #334198; }
-.button.green { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
+.button.green { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
 .button.green:hover { color: #fff; text-decoration: none; background: #4bb24f; }
 .button.green:active { color: #ebf7ec; background: #3b8e3f; }
-.button.write { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
+.button.write { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
 .button.write:hover { color: #fff; text-decoration: none; background: #e84f4c; }
 .button.write:active { color: white; background: #e2231e; }
 

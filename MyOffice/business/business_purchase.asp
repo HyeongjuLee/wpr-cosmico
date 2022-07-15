@@ -78,8 +78,9 @@
 %>
 <!--#include virtual = "/_include/document.asp"-->
 <link rel="stylesheet" href="default.css" />
-<link rel="stylesheet" href="/myoffice/css/style_cs.css" />
-<link rel="stylesheet" href="/myoffice/css/layout_cs.css" />
+<!-- <link rel="stylesheet" href="/myoffice/css/style_cs.css" /> -->
+<!-- <link rel="stylesheet" href="/myoffice/css/layout_cs.css" /> -->
+<link rel="stylesheet" href="/css/myoffice-business.css?" />
 <script type="text/javascript" src="/jscript/calendar.js"></script>
 <script type="text/javascript">
 	function pageSizeChange(val){
@@ -90,46 +91,43 @@
 </head>
 <body>
 <!--#include virtual = "/_include/header.asp"-->
-<div id="business" class="member mt">
+<div id="myoffice_business" class="purchase">
 	<form name="dateFrm" action="business_purchase.asp" method="post">
-		<table <%=tableatt%> class="userCWidth table1">
-			<col width="15%" />
-			<col width="35%" />
-			<col width="15%" />
-			<col width="35%" />
-			<tr>
-				<th rowspan="2"><%=LNG_TEXT_SALES_DATE%></th>
-				<td colspan="3">
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=DateAdd("m",-1,ThisM_1stDate)%>','<%=DateAdd("d",-1,ThisM_1stDate)%>');"><%=LNG_TEXT_LASTMONTH%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=ThisM_1stDate%>','<%=nowDate%>');"><%=LNG_TEXT_THISMONTH%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=DateAdd("m",-3,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_3MONTH%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=nowDate%>','<%=nowDate%>');"><%=LNG_TEXT_TODAY%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=DateAdd("m",-6,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_6MONTH%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=DateAdd("yyyy",-1,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_1YEAR%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('','');"><%=LNG_TEXT_ALL%></button>
-				</td>
-			</tr><tr>
-				<td colspan="3">
-					<input type="text" id="SDATE" name="SDATE" class="input_text tcenter" style="width:140px;" value="<%=SDATE%>" readonly="readonly" onclick="openCalendar(event, this, 'YYYY-MM-DD');" /> ~
-					<input type="text" id="EDATE" name="EDATE" class="input_text tcenter" style="width:140px;" value="<%=EDATE%>" readonly="readonly" onclick="openCalendar(event, this, 'YYYY-MM-DD');" />
-				</td>
-			</tr>
-			<tr>
-				<th><%=LNG_TEXT_MEMID%></th>
-				<td>
-					<input type="text" name="MBID1" class="input_text tcenter" style="width:70px;" value="<%=MBID1%>" maxlength="2" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');"/> ~
-					<input type="text" name="MBID2" class="input_text" style="width:120px;" value="<%=MBID2%>" maxlength="<%=MBID2_LEN%>" <%=onlyKeys%> />
-				</td>
-				<th><%=LNG_TEXT_NAME%></th>
-				<td>
-					<input type="text" name="M_NAME" class="input_text tcenter" style="width:140px;" value="<%=M_NAME%>" maxlength="10" />
-				</td>
-			</tr>
-			<tr>
-				<th><%=LNG_TEXT_SALES_TYPE%></th>
-				<td>
+		<div class="search_form">
+			<article class="date">
+				<h6><%=LNG_TEXT_SALES_DATE%></h6>
+				<div class="inputs">
+					<input type="text" id="SDATE" name="SDATE" value="<%=SDATE%>" readonly="readonly" onclick="openCalendar(event, this, 'YYYY-MM-DD');" />
+					<span>~</span>
+					<input type="text" id="EDATE" name="EDATE" value="<%=EDATE%>" readonly="readonly" onclick="openCalendar(event, this, 'YYYY-MM-DD');" />
+				</div>
+				<div class="buttons">
+					<button type="button" onclick="chgDate('<%=DateAdd("m",-1,ThisM_1stDate)%>','<%=DateAdd("d",-1,ThisM_1stDate)%>');"><%=LNG_TEXT_LASTMONTH%></button>
+					<button type="button" onclick="chgDate('<%=ThisM_1stDate%>','<%=nowDate%>');"><%=LNG_TEXT_THISMONTH%></button>
+					<button type="button" onclick="chgDate('<%=DateAdd("m",-3,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_3MONTH%></button>
+					<button type="button" onclick="chgDate('<%=nowDate%>','<%=nowDate%>');"><%=LNG_TEXT_TODAY%></button>
+					<button type="button" onclick="chgDate('<%=DateAdd("m",-6,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_6MONTH%></button>
+					<button type="button" onclick="chgDate('<%=DateAdd("yyyy",-1,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_1YEAR%></button>
+					<button type="button" onclick="chgDate('','');"><%=LNG_TEXT_ALL%></button>
+				</div>
+			</article>
+			<article class="members">
+				<h6><%=LNG_TEXT_MEMID%></h6>
+				<div class="memberNum">
+					<div class="inputs">
+						<input type="text" name="MBID1" class="input_text" value="<%=MBID1%>" maxlength="2" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');"/>
+						<span>-</span>
+						<input type="text" name="MBID2" class="input_text" value="<%=MBID2%>" maxlength="<%=MBID2_LEN%>" <%=onlyKeys%> />
+					</div>
+				</div>
+				<h6><%=LNG_TEXT_NAME%></h6>
+				<div class="name">
+					<input type="text" name="M_NAME" class="input_text" value="<%=M_NAME%>" maxlength="10" />
+				</div>
+				<h6><%=LNG_TEXT_SALES_TYPE%></h6>
+				<div class="rank">
 					<select name="SellCode" class="input_select">
-						<option value=""><%=LNG_TEXT_ALL%></option>
+						<option value="" selected disabled><%=LNG_TEXT_POSITION%></option>
 						<%
 							SQL_SC = "SELECT [SellCode],[SellTypeName] FROM [tbl_SellType] WITH(NOLOCK) ORDER BY [SellCode] ASC"
 							arrList_SC = Db.execRsList(SQL_SC,DB_TEXT,Nothing,listLenBC,DB3)
@@ -144,17 +142,9 @@
 							End If
 						%>
 					</select>
-				</td>
-				<th><%=LNG_TEXT_ORDER_APPROVAL_TF%></th>
-				<td>
-					<label><input type="radio" name="SellTF" value="" <%=isChecked(SellTF,"")%> checked="checked"><%=LNG_TEXT_ALL%></label>
-					<label><input type="radio" name="SellTF" value="1" <%=isChecked(SellTF,"1")%> ><%=LNG_TEXT_ORDER_APPROVAL%></label>
-					<label><input type="radio" name="SellTF" value="0" <%=isChecked(SellTF,"0")%> ><%=LNG_TEXT_ORDER_DISAPPROVAL%></label>
-				</td>
-			</tr>
-			<tr>
-				<th><%=LNG_TEXT_PAY_CATEGORY%></th>
-				<td colspan="1">
+				</div>
+				<h6><%=LNG_TEXT_PAY_CATEGORY%></h6>
+				<div class="level">
 					<select name="ReturnTF" class="input_select">
 						<option value="" <%=isSelect(ReturnTF,"")%> ><%=LNG_TEXT_ALL%></option>
 						<option value="1" <%=isSelect(ReturnTF,"1")%> ><%=LNG_TEXT_NORMAL%></option>
@@ -163,24 +153,28 @@
 						<option value="4" <%=isSelect(ReturnTF,"4")%> ><%=LNG_TEXT_PARTIAL_RETURN%></option>
 						<option value="5" <%=isSelect(ReturnTF,"5")%> ><%=LNG_TEXT_POINT_CANCEL%></option>
 					</select>
-				</td>
-				<th>조회구분</th>
-				<td>
-					<label><input type="radio" name="ClassCenter" value="M" <%=isChecked(ClassCenter,"M")%> checked="checked" >회원센터별</label>
-					<label><input type="radio" name="ClassCenter" value="S" <%=isChecked(ClassCenter,"S")%> >판매센터별</label>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4" class="tcenter" style="padding: 12px;">
-					<input type="submit" value="<%=LNG_TEXT_SEARCH%>" class="input_submit design3" />
-					<a href="<%=Request.ServerVariables("SCRIPT_NAME")%>" class="a_submit design8"><%=LNG_TEXT_INITIALIZATION%></a>
-				</td>
-			</tr>
-		</table>
+				</div>
+			</article>
+			<article class="searchs label-wrap">
+				<h6><%=LNG_TEXT_ORDER_APPROVAL_TF%></h6>
+				<div class="labels rank">
+					<label><input type="radio" name="SellTF" value="" <%=isChecked(SellTF,"")%> checked="checked"><span><i class="icon-ok"></i><%=LNG_TEXT_ALL%></span></label>
+					<label><input type="radio" name="SellTF" value="1" <%=isChecked(SellTF,"1")%> ><span><i class="icon-ok"></i><%=LNG_TEXT_ORDER_APPROVAL%></span></label>
+					<label><input type="radio" name="SellTF" value="0" <%=isChecked(SellTF,"0")%> ><span><i class="icon-ok"></i><%=LNG_TEXT_ORDER_DISAPPROVAL%></span></label>
+				</div>
+				<h6><%=LNG_SEARCH_CATEGORY%></h6>
+				<div class="labels">
+					<label><input type="radio" name="ClassCenter" value="M" <%=isChecked(ClassCenter,"M")%> checked="checked" ><span><i class="icon-ok"></i>회원센터별</span></label>
+					<label><input type="radio" name="ClassCenter" value="S" <%=isChecked(ClassCenter,"S")%> ><span><i class="icon-ok"></i>판매센터별</span></label>
+				</div>
+				<input type="submit" value="<%=LNG_TEXT_SEARCH%>" class="search_btn" />
+				<a href="<%=Request.ServerVariables("SCRIPT_NAME")%>" class="search_reset"><%=LNG_TEXT_INITIALIZATION%></a>
+			</article>
+		</div>
 	</form>
 
 	<p class="titles"><%=LNG_TEXT_POINT_SEARCH_TOTAL%></p>
-	<table <%=tableatt%> class="userCWidth total">
+	<table <%=tableatt%> class="total">
 		<colgroup>
 			<col width="25%" />
 			<col width="25%" />
@@ -188,26 +182,29 @@
 			<col width="25%" />
 		</colgroup>
 		<thead>
-		<tr>
-			<th class="total"><%=LNG_TEXT_TOTAL_SALES_PRICE%></th>
-			<th class="total"><%=LNG_CS_BUSINESS_PURCHASE_TEXT03%><%=CS_PV%></th>
-			<th><%=LNG_CS_BUSINESS_PURCHASE_TEXT04%></th>
-			<th><%=LNG_CS_BUSINESS_PURCHASE_TEXT04%><%=CS_PV%></th>
-		</tr>
-		<tr>
-			<td class="total"><%=num2cur(SUMPRICE)%></td>
-			<td class="total"><%=num2cur(SUMPV)%></td>
-			<td><%=num2cur(SEARCHPRICE)%></td>
-			<td><%=num2cur(SEARCHPV)%></td>
-		</tr>
+			<tr>
+				<th><%=LNG_TEXT_TOTAL_SALES_PRICE%></th>
+				<th><%=LNG_CS_BUSINESS_PURCHASE_TEXT03%><%=CS_PV%></th>
+				<th><%=LNG_CS_BUSINESS_PURCHASE_TEXT04%></th>
+				<th><%=LNG_CS_BUSINESS_PURCHASE_TEXT04%><%=CS_PV%></th>
+			</tr>
 		</thead>
+		<tbody>
+			<tr>
+				<td><%=num2cur(SUMPRICE)%></td>
+				<td><%=num2cur(SUMPV)%></td>
+				<td><%=num2cur(SEARCHPRICE)%></td>
+				<td><%=num2cur(SEARCHPV)%></td>
+			</tr>
+		</tbody>
 	</table>
 
 	<%
 		'table sorter
 		'<thead></thead> 필수!
 	%>
-	<link rel="stylesheet" href="/jscript/tablesorter/jquery.wprTablesorter.css">
+	<!-- <link rel="stylesheet" href="/jscript/tablesorter/jquery.wprTablesorter.css"> -->
+	<link rel="stylesheet" href="/css/sortTable.css?">
 	<script type="text/javascript" src="/jscript/tablesorter/jquery.wprTablesorter.js"></script>
 	<script type="text/javascript">
 		//table sorter
@@ -229,7 +226,7 @@
 			<option value="100" <%=isSelect(PAGESIZE,"100")%>>100 개</option>
 		</select>
 	</p>
-	<table <%=tableatt%> class="userCWidth list" id="sortTable">
+	<table id="sortTable" <%=tableatt%> class="sortTable tcenter">
 		<colgroup>
 			<col width="70" />
 			<col width="" />
@@ -315,7 +312,7 @@
 			print TOTAL_PV
 		%>
 	</table>
-	<div class="pagingArea pagingNew3 userCWidth"><% Call pageListNew3(PAGE,PAGECOUNT)%></div>
+	<div class="pagingArea pagingNew3"><% Call pageListNew3(PAGE,PAGECOUNT)%></div>
 </div>
 <form name="frm" method="post" action="">
 	<input type="hidden" name="PAGE" value="<%=PAGE%>" />

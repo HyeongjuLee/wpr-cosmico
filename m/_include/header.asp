@@ -31,7 +31,7 @@
 	<%Case Else%>
 
 		<!--#include virtual = "/m/_include/header_shop.asp"-->
-		
+
 		<%If SHOP_ORDER_PAGE_TYPE <> "" Then%> <%'shop page 에서 header 코드 중복 방지%>
 		<%Else%>
 
@@ -202,6 +202,7 @@
 							<li><a href="/m/faq/faq_list.asp"><%=LNG_FAQ%></a></li>
 							<li><a href="/m/counsel/1on1_list.asp"><%=LNG_1ON1%></a></li>
 							<li><a href="/m/cboard/board_list.asp?bname=pds"><%=LNG_PDS%></a></li>
+							<li><a href="/m/cboard/board_list.asp?bname=movie">동영상게시판</a></li>
 					</ul>
 
 				</nav>
@@ -209,7 +210,7 @@
 			</div>
 		</header>
 		<%' 원본 header 코드 E %>
-		
+
 		<%End If%>
 	<%End Select%>
 

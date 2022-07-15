@@ -1,0 +1,82 @@
+@import 'mixin-custom';
+
+$input-height: rem(45px);
+
+$color: $myoffice-color;
+$sort-table: (
+	'table-color': mix(#fff, $color, 90),
+	'table-color-darken': darken(mix(#fff, $color, 90), 10),
+	'table-color-wrap': darken(darken(mix(#fff, $color, 90), 10), 20),
+	'table-color-grey': mix(material-color('grey', '300'), mix(#fff, $color, 90), 50),
+	'table-text': mix(#000, darken(mix(#fff, $color, 90), 10), 50),
+	)
+;
+
+#sortTable {
+	@include table-color($color, true);
+	th, td {
+		height: $input-height;
+	}
+}
+
+#sortTable {
+	.dirs {
+		@include position(absolute);
+		width: $font-size;
+		height: $font-size;
+		margin-left: 0.5%;
+		color: mix($color, map-get($sort-table, 'table-color'), 40);
+
+		$font-size-i: $font-size - rem(1px);
+
+		i {
+			@include position(absolute, $le: 0);
+			width: 100%;
+			height: 100%;
+			font-size: $font-size-i;
+			@include flex;
+		}
+
+		.icon-up-dir {
+			top: $font-size-i / -4;
+		}
+
+		.icon-down-dir {
+			bottom: $font-size-i / -4;
+		}
+	}
+}
+
+#sortTable {
+	thead th {
+		&.headerAsc {
+			box-shadow: 0px -3px $color inset;
+			background: mix($color, map-get($sort-table, 'table-color'), 80);
+			color: #fff;
+		}
+
+		&.headerDesc {
+			box-shadow: 0px 3px $color inset;
+			background: mix($color, map-get($sort-table, 'table-color'), 80);
+			color: #fff;
+		}
+
+		&.headerAsc:after {
+			content: " ↑";
+		}
+
+		&.headerDesc:after {
+			content: " ↓";
+		}
+	}
+
+	tbody {
+		td.highlightCol {
+			background-color: mix(map-get($sort-table, 'table-color'), $oc-gray-0, 10);
+		}
+
+		tr:hover {
+			background-color: #f7f7f7;
+		}
+	}
+}

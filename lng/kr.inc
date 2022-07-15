@@ -418,6 +418,7 @@
 	LNG_CUSTOMER_02								= LNG_FAQ
 	LNG_CUSTOMER_03								= LNG_1ON1
 	LNG_CUSTOMER_04								= LNG_PDS
+	LNG_CUSTOMER_05								= "동영상게시판"
 
 	LNG_SNS										= "SNS"
 	LNG_SNS_OVER								= "SNS"

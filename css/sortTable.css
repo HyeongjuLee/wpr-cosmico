@@ -1,0 +1,29 @@
+@charset "UTF-8";
+#sortTable { width: 100%; }
+#sortTable table { border: none; }
+#sortTable tr { border: none; }
+#sortTable th, #sortTable td { border: none; padding: 0.5rem 1rem; }
+#sortTable thead th { background: #fef0e6; color: #7e6a5b; font-weight: 600; border: 1px solid #fcd3b5; }
+#sortTable tbody tr { border-bottom: 1px solid #efe8e3; }
+#sortTable tbody th { border: 1px solid #eedacb; background: #faf8f7; color: #7e6a5b; }
+#sortTable tbody td { border: 1px solid #efe8e3; }
+#sortTable thead th:first-of-type { border-left: none; }
+#sortTable thead th:last-of-type { border-right: none; }
+#sortTable tbody th:first-of-type { border-left: none; }
+#sortTable tbody th:last-of-type { border-right: none; }
+#sortTable tbody th + td { border-left: 1px solid #eedacb !important; }
+#sortTable tbody td:first-of-type { border-left: none; }
+#sortTable tbody td:last-of-type { border-right: none; }
+#sortTable th, #sortTable td { height: 4.5rem; }
+
+#sortTable .dirs { position: absolute; width: 1.5rem; height: 1.5rem; margin-left: 0.5%; color: #fbb98d; }
+#sortTable .dirs i { position: absolute; left: 0; width: 100%; height: 100%; font-size: 1.4rem; display: flex; justify-content: center; align-items: center; }
+#sortTable .dirs .icon-up-dir { top: -0.35rem; }
+#sortTable .dirs .icon-down-dir { bottom: -0.35rem; }
+
+#sortTable thead th.headerAsc { box-shadow: 0px -3px #f76707 inset; background: #f88234; color: #fff; }
+#sortTable thead th.headerDesc { box-shadow: 0px 3px #f76707 inset; background: #f88234; color: #fff; }
+#sortTable thead th.headerAsc:after { content: " ↑"; }
+#sortTable thead th.headerDesc:after { content: " ↓"; }
+#sortTable tbody td.highlightCol { background-color: #f9f8f8; }
+#sortTable tbody tr:hover { background-color: #f7f7f7; }

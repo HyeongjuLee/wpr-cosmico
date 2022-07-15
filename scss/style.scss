@@ -558,6 +558,123 @@ $main-visual-h: 900px;
 	}
 }
 
+.index-video {
+	@include position;
+	padding-bottom: rem(100px);
+	.title {
+		margin-bottom: rem(40px);
+	}
+	.swiper-slide {
+		@include position;
+		width: rem(600px) - rem(40px) !important;
+		margin: 0 rem(20px);
+
+		a {
+			@include default-a;
+			display: block;
+		}
+
+		.img {
+			width: 100%;
+			height: 0;
+			padding-bottom: 60%;
+			@include position;
+			overflow: hidden;
+
+			&:before {
+				@include presudo($le: 0, $top: 0);
+				z-index: 9;
+				box-sizing: border-box;
+				background: #000;
+				opacity: 0;
+				@include transition(all .1s);
+			}
+			.icon-play {
+				@include presudo($le: 50%, $top: 50%);
+				@include transform(translate(-50%, -50%));
+				z-index: 10;
+				box-sizing: border-box;
+				color: #fff;
+				font-size: $font-size * 4;
+				@include flex;
+				filter: drop-shadow(5px 5px 10px rgba(#000, 0.5));
+				opacity: 0.9;
+			}
+
+			img {
+				@include position(absolute, $top: 50%, $le: 50%);
+				@include transform(translate(-50%, -50%));
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.txt {
+			font-size: $font-size + rem(2px);
+			font-weight: 500;
+			color: #212121;
+			@include ellipsis(1);
+			padding: rem(10px) 0;
+		}
+
+		a:hover {
+			.img {
+				&:before {
+					opacity: .5;
+				}
+				.icon-play {
+					opacity: .9;
+				}
+			}
+			.txt {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.swiper-button {
+		$w: rem(50px);
+		width: $w;
+		height: $w;
+		margin-top: calc(calc(850px / -2) - (#{$w} / 2));
+		font-size: $w - rem(10px);
+
+		&.prev {
+			left: calc(#{$w} * -1.2);
+			padding-right: 5px;
+		}
+		&.next {
+			right: calc(#{$w} * -1.2);
+			padding-left: 5px;
+		}
+	}
+
+	.more {
+		margin: rem(30px) auto;
+		text-align: center;
+		width: 100%;
+		a {
+			@include default-a;
+			@include inline-flex;
+			width: auto;
+			height: $input-height - rem(10px);
+			border: 1px solid $oc-gray-3;
+			padding: 0 $font-size * 2;
+			padding-right: $font-size;
+
+			i {
+				margin-left: $font-size;
+			}
+
+			&:hover {
+				color: #fff;
+				background: $main-color;
+				border-color: $main-color;
+			}
+		}
+	}
+}
+
 
 /* 레프트 영역 & 서브타이틀 */
 
