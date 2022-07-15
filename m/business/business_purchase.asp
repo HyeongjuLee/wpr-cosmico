@@ -78,7 +78,34 @@
 <!--#include virtual = "/m/_include/document.asp"-->
 <!--#include virtual = "/m/_include/jqueryload.asp"-->
 <script type="text/javascript" src="/m/js/calendar.js"></script>
-<link rel="stylesheet" href="member.css" />
+<link rel="stylesheet" href="member.css?v1" />
+<link rel="stylesheet" href="/m/css/sticky_table.css?" />
+<style>
+	.sticky-wrap {
+		margin: auto;
+		overflow: auto;
+		white-space: nowrap;
+	}
+	.sticky-wrap th:nth-child(1),
+	.sticky-wrap td:nth-child(1){
+		position: -webkit-sticky;
+		position: sticky;
+		left: 0px;
+		width: 40px;
+		min-width: 40px;
+	}
+	.sticky-wrap th:nth-child(2),
+	.sticky-wrap td:nth-child(2){
+		position: -webkit-sticky;
+		position: sticky;
+		left: 0px;
+		width: 50px;
+		min-width: 50px;
+		box-shadow: inset -4px 0px 3px -4px rgba(131, 131, 131, 0.5);
+	}
+	.sticky-wrap td:nth-child(1) { background: #ffffff; }
+	.sticky-wrap td:nth-child(2) { background: #ffffff; }
+</style>
 </head>
 <body>
 <!--#include virtual = "/m/_include/header.asp"-->
@@ -179,126 +206,122 @@
 	</form>
 </div>
 
+<%
+	'table sorter
+	'<thead></thead> 필수!
+%>
+<link rel="stylesheet" href="/jscript/tablesorter/jquery.wprTablesorter.css">
+<script type="text/javascript" src="/jscript/tablesorter/jquery.wprTablesorter.js"></script>
 <script type="text/javascript">
+	//table sorter
 	$(document).ready(function() {
-		var isData = $("#fixedTable td:first").attr("class");
-		//console.log(isData);
-		if (isData != "notData") {
-			$("#fTbl_D tr").each(function(index) {
-				var cloneTR = $("<tr></tr>");
-				$(this).find("th:lt(2)").clone().appendTo(cloneTR);
-				$(this).find("td:lt(2)").clone().appendTo(cloneTR);
-				$("#fTbl_O").append(cloneTR);
-			});
-		}
+		$("#sortTable").wprTablesorter({
+			firstColFix : false,	//첫번째열 고정
+			firstColasc : false,	//첫번째열 오름차순 여부	//firstColFix=true일 경우 필수값
+			//noSortColumns : [0]		//정렬안하는 컬럼
+		});
 	});
 </script>
 <div id="business">
 	<p class="titles"><%=LNG_TEXT_POINT_SEARCH_TOTAL%></p>
 	<table <%=tableatt%> class="total width100">
 		<thead>
-		<tr>
-			<th class="total"><%=LNG_TEXT_TOTAL_SALES_PRICE%></th>
-			<th class="total"><%=LNG_CS_BUSINESS_PURCHASE_TEXT03%><%=CS_PV%></th>
-		</tr><tr>
-			<td class="total"><%=num2cur(SUMPRICE)%></td>
-			<td class="total"><%=num2cur(SUMPV)%></td>
-		</tr>
-		<%If SDATE <> "" OR EDATE <> "" Then%>
-		<tr>
-			<th><%=LNG_CS_BUSINESS_PURCHASE_TEXT04%></th>
-			<th><%=LNG_CS_BUSINESS_PURCHASE_TEXT04%><%=CS_PV%></th>
-		</tr><tr>
-			<td><%=num2cur(SEARCHPRICE)%></td>
-			<td><%=num2cur(SEARCHPV)%></td>
-		</tr>
-		<%End If%>
+			<tr>
+				<th class="total"><%=LNG_TEXT_TOTAL_SALES_PRICE%></th>
+				<th class="total"><%=LNG_CS_BUSINESS_PURCHASE_TEXT03%><%=CS_PV%></th>
+			</tr><tr>
+				<td class="total"><%=num2cur(SUMPRICE)%></td>
+				<td class="total"><%=num2cur(SUMPV)%></td>
+			</tr>
+			<%If SDATE <> "" OR EDATE <> "" Then%>
+			<tr>
+				<th><%=LNG_CS_BUSINESS_PURCHASE_TEXT04%></th>
+				<th><%=LNG_CS_BUSINESS_PURCHASE_TEXT04%><%=CS_PV%></th>
+			</tr><tr>
+				<td><%=num2cur(SEARCHPRICE)%></td>
+				<td><%=num2cur(SEARCHPV)%></td>
+			</tr>
+			<%End If%>
 		</thead>
 	</table>
 
 	<p class="titles"><%=LNG_TEXT_LIST%></p>
-		<%'fixedTableWrap%>
-		<div class="fixedTableWrap tcenter">
-			<div id="fixedTable">
-				<div class="fixedTable_Default">
-					<table id="fTbl_D" <%=tableatt%> class="width100">
-						<tr>
-							<th class="first"><%=LNG_TEXT_NUMBER%></th>
-							<th class=""><%=LNG_TEXT_MEMID%></th>
-							<th><%=LNG_TEXT_NAME%></th>
-							<th><%=LNG_TEXT_SALES_DATE%></th>
-							<th><%=LNG_TEXT_SALES_PRICE%></th>
-							<th><%=CS_PV%></th>
-							<th><%=LNG_TEXT_SALES_TYPE%></th>
-							<th><%=LNG_TEXT_ORDER_APPROVAL_TF%></th>
-							<th><%=LNG_TEXT_PAY_CATEGORY%></th>
-						</tr>
-						<%
-							If IsArray(arrList) Then
-								For i = 0 To listLen
-									'ThisNum = ALL_COUNT - CInt(arrList(0,i)) + 1
-									ThisNum 		 		= arrList(0,i)
-									arrList_mbid	 		= arrList(1,i)
-									arrList_mbid2	 		= arrList(2,i)
-									arrList_M_Name	 		= arrList(3,i)
-									arrList_SellDate		= arrList(4,i)
-									arrList_SellTypeName	= arrList(5,i)
-									arrList_TotalPrice			= arrList(6,i)
-									arrList_TotalPV			= arrList(7,i)
-									arrList_TotalCV			= arrList(8,i)
-									arrList_ReturnTF		= arrList(9,i)
-									arrList_SellCode		= arrList(10,i)
-									arrList_Approval		= arrList(11,i)
-									arrList_Sell_Mem_TF		= arrList(12,i)
-									arrList_Ordernumber		= arrList(13,i)
-									arrList_Re_BaseOrderNumber		= arrList(14,i)		'취소/반품 원주문번호
-									arrList_Re_OrderNumber		= arrList(15,i)			'취소/반품 주문번호
-									arrList_Re_ReturnTF		= arrList(16,i)		'취소/반품 상태코드
 
-									If arrList_Approval = 1 Then
-										arrList_Approval = LNG_TEXT_ORDER_APPROVAL	'"승인"
-									ElseIf arrList_Approval = 0 Then
-										arrList_Approval = "<span class=""red"">"&LNG_TEXT_ORDER_DISAPPROVAL&"</span>"	'"미승인"
-									Else
-										arrList_Approval = ""
-									End If
+	<div class="sticky-wrap">
+		<table id="sortTable" <%=tableatt%> class="width100">
+			<thead>
+				<tr>
+					<th class="first"><%=LNG_TEXT_NUMBER%></th>
+					<th class=""><%=LNG_TEXT_MEMID%></th>
+					<th><%=LNG_TEXT_NAME%></th>
+					<th><%=LNG_TEXT_SALES_DATE%></th>
+					<th><%=LNG_TEXT_SALES_PRICE%></th>
+					<th><%=CS_PV%></th>
+					<th><%=LNG_TEXT_SALES_TYPE%></th>
+					<th><%=LNG_TEXT_ORDER_APPROVAL_TF%></th>
+					<th><%=LNG_TEXT_PAY_CATEGORY%></th>
+				</tr>
+			</thead>
+			<%
+				If IsArray(arrList) Then
+					For i = 0 To listLen
+						'ThisNum = ALL_COUNT - CInt(arrList(0,i)) + 1
+						ThisNum 		 		= arrList(0,i)
+						arrList_mbid	 		= arrList(1,i)
+						arrList_mbid2	 		= arrList(2,i)
+						arrList_M_Name	 		= arrList(3,i)
+						arrList_SellDate		= arrList(4,i)
+						arrList_SellTypeName	= arrList(5,i)
+						arrList_TotalPrice			= arrList(6,i)
+						arrList_TotalPV			= arrList(7,i)
+						arrList_TotalCV			= arrList(8,i)
+						arrList_ReturnTF		= arrList(9,i)
+						arrList_SellCode		= arrList(10,i)
+						arrList_Approval		= arrList(11,i)
+						arrList_Sell_Mem_TF		= arrList(12,i)
+						arrList_Ordernumber		= arrList(13,i)
+						arrList_Re_BaseOrderNumber		= arrList(14,i)		'취소/반품 원주문번호
+						arrList_Re_OrderNumber		= arrList(15,i)			'취소/반품 주문번호
+						arrList_Re_ReturnTF		= arrList(16,i)		'취소/반품 상태코드
 
-									'반품, 교환, 취소 여부
-									CANCEL_STATUS = FN_CANCEL_STATUS(arrList_ReturnTF)
+						If arrList_Approval = 1 Then
+							arrList_Approval = LNG_TEXT_ORDER_APPROVAL	'"승인"
+						ElseIf arrList_Approval = 0 Then
+							arrList_Approval = "<span class=""red"">"&LNG_TEXT_ORDER_DISAPPROVAL&"</span>"	'"미승인"
+						Else
+							arrList_Approval = ""
+						End If
 
-									'정상주문 이후 반품, 교환, 취소 여부
-									mline= ""
-									Re_CANCEL_STATUS= ""
-									If arrList_ReturnTF = "1" And arrList_Re_ReturnTF > 1 Then
-										Re_CANCEL_STATUS = "("&FN_CANCEL_STATUS(arrList_Re_ReturnTF)&")"
-										mline= "mline"
-									End If
+						'반품, 교환, 취소 여부
+						CANCEL_STATUS = FN_CANCEL_STATUS(arrList_ReturnTF)
 
-									PRINT TABS(1)& "	<tr>"
-									PRINT TABS(1)& "		<td>"&ThisNum&"</td>"
-									PRINT TABS(1)& "		<td>"&arrList_mbid&"-"&Fn_MBID2(arrList_mbid2)&"</td>"
-									PRINT TABS(1)& "		<td>"&arrList_M_Name&"</td>"
-									PRINT TABS(1)& "		<td>"&date8to10(arrList_SellDate)&"</td>"
-									PRINT TABS(1)& "		<td class=""inPrice "&mline&" "">"&num2cur(arrList_TotalPrice)&"</td>"
-									PRINT TABS(1)& "		<td class=""inPrice "&mline&" "">"&num2cur(arrList_TotalPV)&"</td>"
-									PRINT TABS(1)& "		<td>"&arrList_SellTypeName&"</td>"
-									PRINT TABS(1)& "		<td>"&arrList_Approval&"</td>"
-									PRINT TABS(1) & "		<td><span class="&mline&">"&CANCEL_STATUS&"</span> "&Re_CANCEL_STATUS&"</td>"
-									PRINT TABS(1)& "	</tr>"
-								Next
-							Else
-								PRINT TABS(1) & "		<tr>"
-								PRINT TABS(1) & "			<td colspan=""9"" class=""notData"">"&LNG_TEXT_NO_DATA&"</td>"
-								PRINT TABS(1) & "		</tr>"
-							End If
-						%>
-					</table>
-				</div>
-			<div class="fixedTable_overCell">
-			<table id="fTbl_O" <%=tableatt%> class="width100">
-			</table>
-			</div>
-		</div>
+						'정상주문 이후 반품, 교환, 취소 여부
+						mline= ""
+						Re_CANCEL_STATUS= ""
+						If arrList_ReturnTF = "1" And arrList_Re_ReturnTF > 1 Then
+							Re_CANCEL_STATUS = "("&FN_CANCEL_STATUS(arrList_Re_ReturnTF)&")"
+							mline= "mline"
+						End If
+
+						PRINT TABS(1)& "	<tr>"
+						PRINT TABS(1)& "		<td>"&ThisNum&"</td>"
+						PRINT TABS(1)& "		<td>"&arrList_mbid&"-"&Fn_MBID2(arrList_mbid2)&"</td>"
+						PRINT TABS(1)& "		<td>"&arrList_M_Name&"</td>"
+						PRINT TABS(1)& "		<td>"&date8to10(arrList_SellDate)&"</td>"
+						PRINT TABS(1)& "		<td class=""inPrice "&mline&" "">"&num2cur(arrList_TotalPrice)&"</td>"
+						PRINT TABS(1)& "		<td class=""inPrice "&mline&" "">"&num2cur(arrList_TotalPV)&"</td>"
+						PRINT TABS(1)& "		<td>"&arrList_SellTypeName&"</td>"
+						PRINT TABS(1)& "		<td>"&arrList_Approval&"</td>"
+						PRINT TABS(1) & "		<td><span class="&mline&">"&CANCEL_STATUS&"</span> "&Re_CANCEL_STATUS&"</td>"
+						PRINT TABS(1)& "	</tr>"
+					Next
+				Else
+					PRINT TABS(1) & "		<tr>"
+					PRINT TABS(1) & "			<td colspan=""9"" class=""notData"">"&LNG_TEXT_NO_DATA&"</td>"
+					PRINT TABS(1) & "		</tr>"
+				End If
+			%>
+		</table>
 	</div>
 </div>
 <div class="pagingArea pagingMob5n"><% Call pageListMob5n(PAGE,PAGECOUNT)%></div>

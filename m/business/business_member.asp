@@ -60,6 +60,25 @@
 <!--#include virtual = "/m/_include/jqueryload.asp"-->
 <script type="text/javascript" src="/m/js/calendar.js"></script>
 <link rel="stylesheet" href="member.css" />
+<link rel="stylesheet" href="/m/css/sticky_table.css?" />
+<style>
+	.sticky-wrap {
+		margin: auto;
+		overflow: auto;
+		white-space: nowrap;
+	}
+	.sticky-wrap th:nth-child(1),
+	.sticky-wrap td:nth-child(1){
+		position: -webkit-sticky;
+		position: sticky;
+		left: 0px;
+		width: 40px;
+		min-width: 40px;
+		box-shadow: inset -4px 0px 3px -4px rgba(131, 131, 131, 0.5);
+	}
+	.sticky-wrap td:nth-child(1) { background: #ffffff; }
+</style>
+
 </head>
 <body>
 <!--#include virtual = "/m/_include/header.asp"-->
@@ -139,83 +158,78 @@
 	</form>
 </div>
 
+<%
+	'table sorter
+	'<thead></thead> 필수!
+%>
+<link rel="stylesheet" href="/jscript/tablesorter/jquery.wprTablesorter.css">
+<script type="text/javascript" src="/jscript/tablesorter/jquery.wprTablesorter.js"></script>
 <script type="text/javascript">
+	//table sorter
 	$(document).ready(function() {
-		var isData = $("#fixedTable td:first").attr("class");
-		//console.log(isData);
-		if (isData != "notData") {
-			$("#fTbl_D tr").each(function(index) {
-				var cloneTR = $("<tr></tr>");
-				$(this).find("th:lt(2)").clone().appendTo(cloneTR);
-				$(this).find("td:lt(2)").clone().appendTo(cloneTR);
-				$("#fTbl_O").append(cloneTR);
-			});
-		}
+		$("#sortTable").wprTablesorter({
+			firstColFix : false,	//첫번째열 고정
+			firstColasc : false,	//첫번째열 오름차순 여부	//firstColFix=true일 경우 필수값
+			//noSortColumns : [0]		//정렬안하는 컬럼
+		});
 	});
 </script>
 <div id="business">
 	<p class="titles"><%=LNG_TEXT_LIST%> <%=UnderMemberInfo%></p>
-		<%'fixedTableWrap%>
-		<div class="fixedTableWrap tcenter" style="">
-			<div id="fixedTable">
-				<div class="fixedTable_Default">
-					<table id="fTbl_D" <%=tableatt%> class="width100">
-						<tr>
-							<th class="first"><%=LNG_TEXT_NUMBER%></th>
-							<th class="second"><%=LNG_TEXT_MEMID%></th>
-							<th><%=LNG_TEXT_NAME%></th>
-							<!-- <th><%=LNG_TEXT_TEL%></th>
-							<th><%=LNG_TEXT_MOBILE%></th> -->
-							<th><%=LNG_TEXT_POSITION%></th>
-							<th><%=LNG_TEXT_REGTIME%></th>
-						</tr>
-						<%
-						Set objEncrypter = Server.CreateObject ("Hyeongryeol.StringEncrypter")
-							objEncrypter.Key = con_EncryptKey
-							objEncrypter.InitialVector = con_EncryptKeyIV
-							On Error Resume Next
+	<div class="sticky-wrap">
+		<table id="sortTable" <%=tableatt%> class="width100">
+			<thead>
+				<tr>
+					<th class="first"><%=LNG_TEXT_NUMBER%></th>
+					<th class="second"><%=LNG_TEXT_MEMID%></th>
+					<th><%=LNG_TEXT_NAME%></th>
+					<!-- <th><%=LNG_TEXT_TEL%></th>
+					<th><%=LNG_TEXT_MOBILE%></th> -->
+					<th><%=LNG_TEXT_POSITION%></th>
+					<th><%=LNG_TEXT_REGTIME%></th>
+				</tr>
+			</thead>
+			<%
+			Set objEncrypter = Server.CreateObject ("Hyeongryeol.StringEncrypter")
+				objEncrypter.Key = con_EncryptKey
+				objEncrypter.InitialVector = con_EncryptKeyIV
+				On Error Resume Next
 
-							If IsArray(arrList) Then
-								For i = 0 To listLen
-									'ThisNum = ALL_COUNT - CInt(arrList(0,i)) + 1
-									ThisNum 		 = arrList(0,i)
-									arrList_mbid	 = arrList(1,i)
-									arrList_mbid2	 = arrList(2,i)
-									arrList_M_Name	 = arrList(3,i)
-									arrList_hometel	 = arrList(4,i)
-									arrList_hptel	 = arrList(5,i)
-									arrList_CurGrade = arrList(6,i)
-									arrList_regTime  = arrList(7,i)
+				If IsArray(arrList) Then
+					For i = 0 To listLen
+						'ThisNum = ALL_COUNT - CInt(arrList(0,i)) + 1
+						ThisNum 		 = arrList(0,i)
+						arrList_mbid	 = arrList(1,i)
+						arrList_mbid2	 = arrList(2,i)
+						arrList_M_Name	 = arrList(3,i)
+						arrList_hometel	 = arrList(4,i)
+						arrList_hptel	 = arrList(5,i)
+						arrList_CurGrade = arrList(6,i)
+						arrList_regTime  = arrList(7,i)
 
-									If arrList_hometel <> "" Then arrList_hometel = objEncrypter.Decrypt(arrList_hometel)
-									If arrList_hptel <> "" Then arrList_hptel = objEncrypter.Decrypt(arrList_hptel)
+						If arrList_hometel <> "" Then arrList_hometel = objEncrypter.Decrypt(arrList_hometel)
+						If arrList_hptel <> "" Then arrList_hptel = objEncrypter.Decrypt(arrList_hptel)
 
-									PRINT TABS(1)& "	<tr>"
-									PRINT TABS(1)& "		<td>"&ThisNum&"</td>"
-									PRINT TABS(1)& "		<td>"&arrList_mbid&"-"&Fn_MBID2(arrList_mbid2)&"</td>"
-									PRINT TABS(1)& "		<td>"&arrList_M_Name&"</td>"
-									'PRINT TABS(1)& "		<td>"&arrList_hometel&"</td>"
-									'PRINT TABS(1)& "		<td>"&arrList_hptel&"</td>"
-									PRINT TABS(1)& "		<td>"&arrList_CurGrade&"</td>"
-									PRINT TABS(1)& "		<td>"&date8to10(arrList_regTime)&"</td>"
-									PRINT TABS(1)& "	</tr>"
-								Next
-							Else
-								PRINT TABS(1) & "		<tr>"
-								PRINT TABS(1) & "			<td colspan=""5"" class=""notData"">"&LNG_TEXT_NO_DATA&"</td>"
-								PRINT TABS(1) & "		</tr>"
-							End If
+						PRINT TABS(1)& "	<tr>"
+						PRINT TABS(1)& "		<td>"&ThisNum&"</td>"
+						PRINT TABS(1)& "		<td>"&arrList_mbid&"-"&Fn_MBID2(arrList_mbid2)&"</td>"
+						PRINT TABS(1)& "		<td>"&arrList_M_Name&"</td>"
+						'PRINT TABS(1)& "		<td>"&arrList_hometel&"</td>"
+						'PRINT TABS(1)& "		<td>"&arrList_hptel&"</td>"
+						PRINT TABS(1)& "		<td>"&arrList_CurGrade&"</td>"
+						PRINT TABS(1)& "		<td>"&date8to10(arrList_regTime)&"</td>"
+						PRINT TABS(1)& "	</tr>"
+					Next
+				Else
+					PRINT TABS(1) & "		<tr>"
+					PRINT TABS(1) & "			<td colspan=""5"" class=""notData"">"&LNG_TEXT_NO_DATA&"</td>"
+					PRINT TABS(1) & "		</tr>"
+				End If
 
-							On Error GoTo 0
-						Set objEncrypter = Nothing
-						%>
-					</table>
-				</div>
-			<div class="fixedTable_overCell">
-				<table id="fTbl_O" <%=tableatt%> class="width100">
-				</table>
-			</div>
-		</div>
+				On Error GoTo 0
+			Set objEncrypter = Nothing
+			%>
+		</table>
 	</div>
 </div>
 <div class="pagingArea pagingMob5n"><% Call pageListMob5n(PAGE,PAGECOUNT)%></div>

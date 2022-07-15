@@ -23,18 +23,19 @@
 
 
 	#business {padding-top: 0px;}
-	#business tr:nth-Child(even) {background-color:#f4f4f4;}
-	#business tr:nth-Child(odd) {background-color:#fff;}
+/*	#business tr:nth-Child(even) {background-color:#f4f4f4;}
+	#business tr:nth-Child(odd) {background-color:#fff;}*/
 	#business th, #business td {padding:8px 10px; text-align: center;}
-	#business th {background: #7f7f7f; color:#fff; border: 1px solid #c5c5c5; font-size:13px; font-weight:300; white-space: nowrap;}
-	#business td {border:1px solid #e0e0e0;}
+	#business th {background: #fef0e6; color:#7e6a5b; border: 1px solid #c5c5c5; font-size: 15px; font-weight: 400; white-space: nowrap;border: 1px solid #fcd3b5; }
+
+	#business td { /*border:1px solid #e0e0e0; */}
 	#business .contents {width:470px; overflow:hidden;}
 	#business .table1 {width:470px;}
 	#business .inPrice {text-align: right;}
 
-	#business .total {text-align: center;}
+	#business .total {text-align: center; border:1px solid #c4d2eb;}
 	#business .total th {text-align: center; width: 50%; }
-	#business .total th.total {background: #49727a;}
+	#business .total th.total {background: #49727a; color: #fff;}
 	#business .total td {text-align: center; font-size: 15px;}
 	#business .total td.total {background: #d9ebef;  font-weight: 500;}
 

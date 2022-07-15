@@ -15,7 +15,7 @@
 .sticky-wrap tbody td:last-of-type { border-right: none; }
 .sticky-wrap th, .sticky-wrap td { height: 7rem; text-align: center; }
 .sticky-wrap #sortTable tr:hover td { background: #fffbf9; }
-.sticky-wrap #sortTable th:nth-child(2), .sticky-wrap #sortTable td:nth-child(2) { border-right: none; }
+/*.sticky-wrap #sortTable th:nth-child(2), .sticky-wrap #sortTable td:nth-child(2) { border-right: none; }
 .sticky-wrap #sortTable th:nth-child(3), .sticky-wrap #sortTable td:nth-child(3) { border-left: none; }
 .sticky-wrap #sortTable th:nth-child(2) { box-shadow: inset -3px 0 0 -2px #fcd3b5; }
-.sticky-wrap #sortTable td:nth-child(2) { box-shadow: inset -3px 0 0 -2px #efe8e3; }
+.sticky-wrap #sortTable td:nth-child(2) { box-shadow: inset -3px 0 0 -2px #efe8e3; } */
