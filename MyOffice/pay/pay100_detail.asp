@@ -16,27 +16,13 @@
 
 
 
-	PROCEDURE_NAME = "DKPS_CS_PRICE03_DETAIL_NEW"
+	PROCEDURE_NAME = "DKPS_CS_PRICE100_DETAIL_NEW"		'코즈미코 센터마감
 
 	Select Case MODES
 		Case "1"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS03_1
+			TABLE_TITLE = LNG_TEXT_PAY_BONUS100_1
 		Case "2"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS03_2
-		Case "3"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS03_3
-		Case "4"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS03_4
-		Case "5"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS03_5
-		Case "6"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS03_6
-		Case "7"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS03_7
-		Case "8"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS03_8
-		Case "9"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS03_9
+			TABLE_TITLE = LNG_TEXT_PAY_BONUS100_2
 	End Select
 
 	' print EDATE
@@ -74,6 +60,7 @@
 					<th><%=LNG_TEXT_MEMID%></th>
 					<th><%=LNG_TEXT_NAME%></th>
 					<th><%=LNG_TEXT_PAY_PRICE%></th>
+					<th>판매PV</th>
 					<th><%=LNG_TEXT_LEVEL%></th>
 					<th><%=LNG_TEXT_LINE%></th>
 				</tr>
@@ -86,16 +73,18 @@
 						arrList_RequestMbid			= arrList(1,i)
 						arrList_RequestMbid2			= arrList(2,i)
 						arrList_RequestName				= arrList(3,i)
-						arrList_DownPV		= arrList(4,i)
-						arrList_LevelCnt			= arrList(5,i)
-						arrList_LineCnt			= arrList(6,i)
-						arrList_GivePay			= arrList(7,i)
+						arrList_Sell_DownPV		= arrList(4,i)			'금액
+						arrList_R_DownPV		= arrList(5,i)		'판매PV
+						arrList_LevelCnt			= arrList(6,i)
+						arrList_LineCnt			= arrList(7,i)
+						arrList_OrderNumber			= arrList(8,i)
 			%>
 				<tr>
 					<td class="index"><%=arrList_ROWNUM%></td>
 					<td><%=arrList_RequestMbid%>-<%=arrList_RequestMbid2%></td>
 					<td class="name"><%=arrList_RequestName%></td>
-					<td class="tright amount"><%=num2cur(arrList_DownPV)%></td>
+					<td class="tright amount"><%=num2cur(arrList_Sell_DownPV)%></td>
+					<td class="tright amount"><%=num2cur(arrList_R_DownPV)%></td>
 					<td><%=arrList_LevelCnt%></td>
 					<td><%=arrList_LineCnt%></td>
 				</tr>
@@ -104,7 +93,7 @@
 				Else
 			%>
 				<tr>
-					<td colspan="6" class="nodata"><p><%=LNG_TEXT_NO_DATA%></p></td>
+					<td colspan="8" class="nodata"><p><%=LNG_TEXT_NO_DATA%></p></td>
 				</tr>
 			<%
 				End If

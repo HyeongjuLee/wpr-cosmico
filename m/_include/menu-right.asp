@@ -44,7 +44,8 @@
 				<%End If%>
 
 				<li class="Label"><a><%=LNG_MYOFFICE_BONUS%></a></li>
-					<li><a href="/m/pay/pay01.asp"><%=LNG_MYOFFICE_BONUS_01%></a></li>
+					<!-- <li><a href="/m/pay/pay01.asp"><%=LNG_MYOFFICE_BONUS_01%></a></li> -->
+					<li><a href="/m/pay/pay02.asp"><%=LNG_MYOFFICE_BONUS_02%></a></li>
 					<li><a href="/m/pay/pay03.asp"><%=LNG_MYOFFICE_BONUS_03%></a></li>
 				<%If 1=222 Then%>
 				<li class="Label"><a><%=LNG_MYOFFICE_AUTOSHIP%></a></li>
@@ -62,6 +63,7 @@
 					<li class="Label"><a><%=LNG_MYOFFICE_BCENTER%></a></li>
 						<li><a href="/m/business/business_member.asp"><%=LNG_MYOFFICE_BCENTER_01%></a></li>
 						<li><a href="/m/business/business_purchase.asp"><%=LNG_MYOFFICE_BCENTER_02%></a></li>
+						<li><a href="/m/pay/pay100.asp"><%=LNG_MYOFFICE_BONUS_100%></a></li>
 				<%End If%>
 
 			<%Else  ' 소비자회원%>
@@ -83,10 +85,10 @@
 					<li><a href="/m/autoship/order_list_CMS_reg.asp"><%=LNG_MYOFFICE_AUTOSHIP_02%></a></li> -->
 
 			<%End If%>
-			
+
 			<li class="Label" ><a><%=LNG_MARKETING_PLAN%></a></li>
 				<li><a href="/m/business/marketing_plan.asp"><%=LNG_MARKETING_PLAN%></a></li>
-				
+
 		<%Else%>
 
 			<li class="Label"><a><%=LNG_HEADER_LOGIN_M%></a></li>

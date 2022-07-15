@@ -1,10 +1,13 @@
 @import 'mixin-custom';
 
-$input-height: rem(40px);
+$input-height: rem(70px);
 $sub-color: complement($myoffice-color3);
 
 th, td {
 	&.price {
+		text-align: right !important;
+	}
+	&.inPrice {
 		text-align: right !important;
 	}
 }
@@ -25,23 +28,26 @@ th, td {
 }
 
 .total {
-	@include table-color-wrap($oc-blue-7, true, 'darken');
+	@include table-color-wrap($oc-grape-5, true, 'darken');
 	text-align: center;
+	font-size: $font-size - rem(2px);
 
 	th,
 	td {
-		height: rem(50px);
+		height: $input-height;
 	}
 
 	td {
 		&:hover {
-			background: rgba($oc-blue-0, 0.5);
+			background: rgba($oc-grape-0, 0.5);
 		}
 	}
 }
 
 .table {
 	@include table-color($myoffice-color, true);
+	font-size: $font-size - rem(2px);
+	margin-top: 0;
 
 	tr {
 		&:hover {
@@ -55,7 +61,8 @@ th, td {
 
 	th,
 	td {
-		height: rem(50px);
+		height: $input-height;
+		font-size: $parent-css;
 	}
 
 	.remarks {
@@ -65,12 +72,108 @@ th, td {
 
 .totals_table {
 	@include table-color-wrap($sub-color, true);
+	font-size: $font-size - rem(2px);
 
 	th,
 	td {
-		height: rem(50px);
+		height: $input-height;
+		font-size: $parent-css;
 	}
 }
+
+.width-scroll {
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	max-height: 350px;
+	// @include position;
+
+	&::-webkit-scrollbar {
+		@include position;
+		width: rem(14px);
+		z-index: 2;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		// background: mix($main-color, material-color('grey', '400'), 0%);
+		// background: map-get($nav-table, 'table-color-wrap');
+		background-clip: padding-box;
+		border: rem(3px) solid transparent;
+		@include rounded($radius: rem(14px));
+		cursor: pointer;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: material-color('grey', '100');
+		box-shadow: inset 1px 0 0 #aaa;
+		// @include rounded;
+		// @include position;
+		// background: map-get($nav-table, 'table-color-wrap');
+		z-index: 1;
+	}
+
+	table {
+		text-align: center;
+		// @include table-color-wrap($nav-color, true, 'darken', true);
+
+		th,
+		td {
+			height: $input-height;
+		}
+
+		thead {
+			th {
+				// @include position(sticky, $top: 0);
+				white-space: nowrap;
+			}
+		}
+		tbody {
+			th, td {
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.line-wrap {
+		@include position;
+		width: fit-content;
+		min-width: 100%;
+	}
+
+	.lines {
+		i {
+			@include position(absolute);
+			z-index: 1;
+			background: darken(mix(#fff, $oc-grape-5, 90), 20);
+
+			&:nth-of-type(1) {
+				top: 0;
+				left: 0;
+				width: 1px;
+				height: 100%;
+			}
+			&:nth-of-type(2) {
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 1px;
+			}
+			&:nth-of-type(3) {
+				bottom: 0;
+				right: 0;
+				width: 1px;
+				height: 100%;
+			}
+			&:nth-of-type(4) {
+				bottom: 0;
+				right: 0;
+				width: 100%;
+				height: 1px;
+			}
+		}
+	}
+}
+
 
 .pay_totals {
 	width: 100%;
@@ -83,17 +186,11 @@ th, td {
 
 .pay_detail {
 	&.left {
-		width: calc(50% - 30px);
+		width: calc(45% - 50px);
 	}
 
 	&.right {
-		width: 50%;
-	}
-}
-
-.cpay_detail {
-	&.left {
-		width: calc(50% - 30px);
+		width: 55%;
 	}
 }
 
@@ -103,7 +200,7 @@ th, td {
 
 	th,
 	td {
-		height: rem(45px);
+		height: $input-height;
 	}
 
 	.detail_btn {
@@ -430,6 +527,7 @@ th.total {
 
 		th,
 		td {
+			font-size: $parent-css;
 			background: $table-color;
 			font-weight: 500;
 			border: 1px solid $table-color-darken;
@@ -447,4 +545,8 @@ th.total {
 	.nodata {
 		text-align: center;
 	}
+}
+
+.detail_btn {
+	font-family: $parent-css;
 }

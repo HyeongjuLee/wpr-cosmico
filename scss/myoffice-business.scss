@@ -25,7 +25,7 @@ th, td {
 }
 
 .total {
-	@include table-color-wrap($oc-blue-7, true, 'darken');
+	@include table-color-wrap($oc-grape-5, true, 'darken');
 	text-align: center;
 
 	th,
@@ -35,7 +35,7 @@ th, td {
 
 	td {
 		&:hover {
-			background: rgba($oc-blue-0, 0.5);
+			background: rgba($oc-grape-0, 0.5);
 		}
 	}
 }

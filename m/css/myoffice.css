@@ -136,7 +136,7 @@ p.sub_title:before { content: "\2724"; font-size: inherit; padding-right: 3px; }
 .search_form .inputs button { width: calc((100% / 5) - 0.5rem); height: 7rem; line-height: 1.5; padding: 0; font-size: 2.4rem; color: #555; cursor: pointer; font-family: inherit; font-weight: 500; outline: none; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
 .search_form .inputs ~ .buttons { display: inline-flex; justify-content: space-between; align-items: center; width: 100%; }
 .search_form .inputs ~ .buttons button { font-size: 2.4rem; width: calc((100% / 5) - 0.5rem); height: 6.5rem; line-height: 1.5; outline: none; cursor: pointer; font-family: inherit; border: 2px solid #e0e0e0; background: #e0e0e0; color: #616161; word-break: keep-all; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
-.search_form .inputs ~ .buttons button:focus { border-color: #e3c784; background: #e3c784; color: #fff; }
+.search_form .inputs ~ .buttons button:focus { border-color: #f73f07; background: #f73f07; color: #fff; }
 .search_form .inputs ~ .buttons.btn6 button { width: calc((100% / 6) - 0.5rem); }
 .search_form .inputs ~ .buttons + .search_btn { margin-top: 2.5rem; }
 .search_form .inputs + .search_btn { margin-top: 0; }
@@ -155,7 +155,7 @@ p.sub_title:before { content: "\2724"; font-size: inherit; padding-right: 3px; }
 .search_form .labels label i { color: #bdbdbd; font-size: 2.2rem; margin-right: 1.25rem; }
 .search_form .labels label span { display: flex; justify-content: center; align-items: center; position: relative; width: 100%; height: 100%; padding: 0.5rem 1rem; background: #eeeeee; border: 1px solid #eeeeee; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; }
 .search_form .labels label input { position: absolute; visibility: hidden; z-index: -1; height: 0; }
-.search_form .labels label input:checked ~ span { color: #fff; background: #e3d784; border-color: #e3d784; }
+.search_form .labels label input:checked ~ span { color: #fff; background: #f76707; border-color: #f76707; }
 .search_form .labels label input:checked ~ span i { color: inherit; }
 .search_form article { width: 100%; display: flex; justify-content: space-between; align-items: center; flex-direction: column; }
 .search_form article:last-child { margin-top: 2rem; }
@@ -200,7 +200,7 @@ p.sub_title:before { content: "\2724"; font-size: inherit; padding-right: 3px; }
 .search_form article.table#filter > div { padding-bottom: 0; }
 .search_form article.table .standard { flex-direction: initial; }
 .search_form article.table .standard .input_text { border-top-right-radius: 0; border-bottom-right-radius: 0; width: calc(100% - 10rem); margin-right: 0; }
-.search_form article.table .standard .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px dimgray; background: #828282; border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem; border-color: #828282; color: #fff; width: 10rem; height: 7rem; display: inline-flex; justify-content: center; align-items: center; margin-right: 0; }
+.search_form article.table .standard .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px dimgray; background: #828282; border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem; border-color: #828282; color: #fff; width: 10rem; height: 7rem; display: inline-flex; justify-content: center; align-items: center; margin-right: 0; }
 .search_form article.table .standard .button:hover { color: #fff; text-decoration: none; background: #8f8f8f; }
 .search_form article.table .standard .button:active { color: white; background: #757575; }
 .search_form article.table .searchMem { flex-direction: initial; }
@@ -346,7 +346,7 @@ select { padding: 0px 0px 0px 4px; height: 35px; vertical-align: middle; border-
 .payment_blocker { position: fixed; top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%; overflow: auto; z-index: 901; padding: 2rem; box-sizing: border-box; background: rgba(0, 0, 0, 0.75); text-align: center; display: none; }
 .payment_blocker:before { content: ''; display: inline-block; height: 100%; vertical-align: middle; margin-right: -0.05em; }
 
-.payment_detail { position: fixed; top: 50%; left: 50%; z-index: 902; transform: translate(-50%, -50%); width: calc(100vw - 6rem); background: #fff; padding: 1.5rem; display: none; min-height: 50%; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; font-size: 2.5rem; }
+.payment_detail { position: fixed; top: 50%; left: 50%; z-index: 902; transform: translate(-50%, -50%); width: calc(100vw - 6rem); max-width: 640px; background: #fff; padding: 1.5rem; display: none; min-height: 50%; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; font-size: 2.5rem; }
 .payment_detail .close .icon-cancel { position: absolute; top: 0; right: 0; color: #222; font-size: 3.5rem; padding: 1rem; cursor: pointer; }
 .payment_detail h5 { text-align: center; font-size: 5rem; color: #222; padding: 5rem 0; }
 .payment_detail .pay_inDiv { overflow: hidden; height: auto; }
@@ -365,7 +365,7 @@ select { padding: 0px 0px 0px 4px; height: 35px; vertical-align: middle; border-
 .common.voter td { font-size: 2.5rem; }
 .common.voter td .input_text { height: 6rem; padding: 0 1.25rem; background: #fff; font-size: 2rem; border: 1px solid #ccc; border-radius: 3px; }
 .common.voter td .input_text:read-only { background: #eeeeee; outline: none; }
-.common.voter td .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #484848; background: #616161; margin: 0 2rem; text-align: center; color: #fff; cursor: pointer; font-family: inherit; height: 6rem; }
+.common.voter td .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #484848; background: #616161; margin: 0 2rem; text-align: center; color: #fff; cursor: pointer; font-family: inherit; height: 6rem; }
 .common.voter td .button:hover { color: #fff; text-decoration: none; background: #6e6e6e; }
 .common.voter td .button:active { color: #e1e1e1; background: #545454; }
 .common.voter td .inputs { width: 100%; display: flex; justify-content: flex-start; align-items: center; }
@@ -384,7 +384,7 @@ select { padding: 0px 0px 0px 4px; height: 35px; vertical-align: middle; border-
 .common.voter .innerTable2 .inputs .input_text { margin: 0; }
 .common.voter .innerTable2 .inputs .input_text:last-of-type { margin-top: 2rem; width: 100%; }
 .common.voter .buttons { display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 1.25rem; }
-.common.voter .buttons .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #080808; background: #212121; display: inline-flex; justify-content: center; align-items: center; height: 4rem; margin: 0.5rem 0; padding: 0 2.5rem; font-weight: 500; color: #fff; }
+.common.voter .buttons .button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #080808; background: #212121; display: inline-flex; justify-content: center; align-items: center; height: 4rem; margin: 0.5rem 0; padding: 0 2.5rem; font-weight: 500; color: #fff; }
 .common.voter .buttons .button:hover { color: #fff; text-decoration: none; background: #2e2e2e; }
 .common.voter .buttons .button:active { color: #a1a1a1; background: #141414; }
 .common.voter .buttons .button.red { background: #e91e63; }
@@ -408,7 +408,7 @@ select { padding: 0px 0px 0px 4px; height: 35px; vertical-align: middle; border-
 .common .voterWrite tr { border-bottom: 1px solid #eeeeee; }
 .common .voterWrite th { color: #222; }
 .common .voterWrite .btnZone { padding: 0.5rem 0; text-align: center; }
-.common .voterWrite .btnZone input { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #131a51; background: #1C287B; min-width: 15rem; width: 100%; font-size: 2.6rem; height: 7rem; letter-spacing: 0.05em; margin: 0 auto; }
+.common .voterWrite .btnZone input { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #131a51; background: #1C287B; min-width: 15rem; width: 100%; font-size: 2.6rem; height: 7rem; letter-spacing: 0.05em; margin: 0 auto; }
 .common .voterWrite .btnZone input:hover { color: #fff; text-decoration: none; background: #212f90; }
 .common .voterWrite .btnZone input:active { color: #aab3ec; background: #172166; }
 .common .voterWrite.list { padding: 1.5rem; border: none; border-bottom: 1px solid #222; margin: 0; }
@@ -421,7 +421,7 @@ select { padding: 0px 0px 0px 4px; height: 35px; vertical-align: middle; border-
 .common.sell .voterWrite table { margin-bottom: 0; }
 .common.sell .voterWrite table tr:last-of-type { border: none; }
 .common.sell .btnZone.voterWrite { padding: 2rem 0; border: none; }
-.common.sell .btnZone.voterWrite input { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #131a51; background: #1C287B; width: 100%; font-size: 2.6rem; height: 6.5rem; letter-spacing: 0.05em; }
+.common.sell .btnZone.voterWrite input { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #131a51; background: #1C287B; width: 100%; font-size: 2.6rem; height: 6.5rem; letter-spacing: 0.05em; }
 .common.sell .btnZone.voterWrite input:hover { color: #fff; text-decoration: none; background: #212f90; }
 .common.sell .btnZone.voterWrite input:active { color: #aab3ec; background: #172166; }
 .common label { position: relative; display: flex; justify-content: center; align-items: center; border: none; width: 3.5rem; height: 3.5rem; cursor: pointer; padding: 0; margin: 0 auto; }
@@ -439,7 +439,7 @@ select { padding: 0px 0px 0px 4px; height: 35px; vertical-align: middle; border-
 .common .table2.all th { padding: 2rem; }
 .common.orderList .titles { margin-top: 5rem; }
 .common .consumer { position: relative; }
-.common .consumer > .detail_btn { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #d39e00; background: #ffc107; width: 100%; display: inline-flex; justify-content: center; align-items: center; }
+.common .consumer > .detail_btn { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #d39e00; background: #ffc107; width: 100%; display: inline-flex; justify-content: center; align-items: center; }
 .common .consumer > .detail_btn:hover { color: #fff; text-decoration: none; background: #ffc721; }
 .common .consumer > .detail_btn:active { color: white; background: #edb100; }
 .common .consumer > .detail_btn:hover { background: #ffc107; }
@@ -458,7 +458,7 @@ select { padding: 0px 0px 0px 4px; height: 35px; vertical-align: middle; border-
 .total_sales_wrap .period { background: rgba(92, 107, 192, 0.1); }
 
 .pays .detail_btn { width: 100%; }
-.pays .detail_btn.noline { font-size: 1.7rem; }
+.pays .detail_btn.noline { font-size: 2.3rem; }
 .pays th.plus { background: #e3f2fd; }
 .pays th.minus { background: #ffebee; }
 .pays .plus { color: #1976d2; }

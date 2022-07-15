@@ -15,28 +15,15 @@
 
 	SORTORDER1 = MODES
 
-	PROCEDURE_NAME = "DKPS_CS_PRICE02_DETAIL_NEW"
+	PROCEDURE_NAME = "DKPS_CS_PRICE100_DETAIL_NEW"		'코즈미코 센터마감
 
 	Select Case MODES
 		Case "1"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS02_1
+			TABLE_TITLE = LNG_TEXT_PAY_BONUS100_1
 		Case "2"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS02_2
-		Case "3"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS02_3
-		Case "4"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS02_4
-		Case "5"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS02_5
-		Case "6"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS02_6
-		Case "7"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS02_7
-		Case "8"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS02_8
-		Case "9"
-			TABLE_TITLE = LNG_TEXT_PAY_BONUS02_9
+			TABLE_TITLE = LNG_TEXT_PAY_BONUS100_2
 	End Select
+
 
 ' print DK_MEMBER_ID1
 ' print DK_MEMBER_ID2
@@ -93,6 +80,7 @@
 						<th><%=LNG_TEXT_MEMID%></th>
 						<th><%=LNG_TEXT_NAME%></th>
 						<th><%=LNG_TEXT_PAY_PRICE%></th>
+						<th>판매PV</th>
 						<th><%=LNG_TEXT_LEVEL%></th>
 						<th><%=LNG_TEXT_LINE%></th>
 					</tr>
@@ -104,16 +92,18 @@
 						arrList_RequestMbid			= arrList(1,i)
 						arrList_RequestMbid2			= arrList(2,i)
 						arrList_RequestName				= arrList(3,i)
-						arrList_DownPV		= arrList(4,i)
-						arrList_LevelCnt			= arrList(5,i)
-						arrList_LineCnt			= arrList(6,i)
-						arrList_GivePay			= arrList(7,i)
+						arrList_Sell_DownPV		= arrList(4,i)			'금액
+						arrList_R_DownPV		= arrList(5,i)		'판매PV
+						arrList_LevelCnt			= arrList(6,i)
+						arrList_LineCnt			= arrList(7,i)
+						arrList_OrderNumber			= arrList(8,i)
 				%>
 					<tr>
 						<td class="tcenter f12"><%=arrList_ROWNUM%></td>
 						<td class="tcenter f12"><%=arrList_RequestMbid%>-<%=arrList_RequestMbid2%></td>
 						<td class="tcenter f12"><%=arrList_RequestName%></td>
-						<td class="tright  f12"><%=num2cur(arrList_DownPV)%></td>
+						<td class="tright  f12"><%=num2cur(arrList_Sell_DownPV)%></td>
+						<td class="tright  f12"><%=num2cur(arrList_R_DownPV)%></td>
 						<td class="tcenter f12"><%=arrList_LevelCnt%></td>
 						<td class="tcenter f12"><%=arrList_LineCnt%></td>
 					</tr>
@@ -126,7 +116,7 @@
 		<table class="width100">
 			<tbody>
 				<tr class="nodata">
-					<td class="nodata" colspan="6"><p><%=LNG_TEXT_NO_DATA%></p></td>
+					<td class="nodata" colspan="8"><p><%=LNG_TEXT_NO_DATA%></p></td>
 				</tr>
 			</tbody>
 		</table>

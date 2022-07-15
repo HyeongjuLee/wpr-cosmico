@@ -203,6 +203,22 @@
 		</thead>
 	</table>
 
+	<%
+		'table sorter
+		'<thead></thead> 필수!
+	%>
+	<link rel="stylesheet" href="/jscript/tablesorter/jquery.wprTablesorter.css">
+	<script type="text/javascript" src="/jscript/tablesorter/jquery.wprTablesorter.js"></script>
+	<script type="text/javascript">
+		//table sorter
+		$(document).ready(function() {
+			$("#sortTable").wprTablesorter({
+				firstColFix : false,	//첫번째열 고정
+				firstColasc : false,	//첫번째열 오름차순 여부	//firstColFix=true일 경우 필수값
+				//noSortColumns : [0]		//정렬안하는 컬럼
+			});
+		});
+	</script>
 	<p class="titles"><%=LNG_TEXT_LIST%>
 		<select name="PAGESIZE" class="fright" style="width: 80px;" onchange="pageSizeChange(this.value);">
 			<option value="10" <%=isSelect(PAGESIZE,"10")%>>10 개</option>
@@ -213,7 +229,7 @@
 			<option value="100" <%=isSelect(PAGESIZE,"100")%>>100 개</option>
 		</select>
 	</p>
-	<table <%=tableatt%> class="userCWidth list">
+	<table <%=tableatt%> class="userCWidth list" id="sortTable">
 		<colgroup>
 			<col width="70" />
 			<col width="" />
@@ -226,17 +242,17 @@
 			<col width="" />
 		</colgroup>
 		<thead>
-		<tr>
-			<th><%=LNG_TEXT_NUMBER%></th>
-			<th><%=LNG_TEXT_MEMID%></th>
-			<th><%=LNG_TEXT_NAME%></th>
-			<th><%=LNG_TEXT_SALES_DATE%></th>
-			<th><%=LNG_TEXT_SALES_PRICE%></th>
-			<th><%=CS_PV%></th>
-			<th><%=LNG_TEXT_SALES_TYPE%></th>
-			<th><%=LNG_TEXT_ORDER_APPROVAL_TF%></th>
-			<th><%=LNG_TEXT_PAY_CATEGORY%></th>
-		</tr>
+			<tr>
+				<th><%=LNG_TEXT_NUMBER%></th>
+				<th><%=LNG_TEXT_MEMID%></th>
+				<th><%=LNG_TEXT_NAME%></th>
+				<th><%=LNG_TEXT_SALES_DATE%></th>
+				<th><%=LNG_TEXT_SALES_PRICE%></th>
+				<th><%=CS_PV%></th>
+				<th><%=LNG_TEXT_SALES_TYPE%></th>
+				<th><%=LNG_TEXT_ORDER_APPROVAL_TF%></th>
+				<th><%=LNG_TEXT_PAY_CATEGORY%></th>
+			</tr>
 		</thead>
 		<%
 			If IsArray(arrList) Then

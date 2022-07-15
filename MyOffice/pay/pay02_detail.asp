@@ -64,52 +64,56 @@
 
 %>
 <p class="titles tleft"><%=TABLE_TITLE%></p>
-<div class="width100 sticky-wrap">
-	<table <%=tableatt%> class="inTable2 width100">
-		<thead>
-			<tr>
-				<th><%=LNG_TEXT_NUMBER%></th>
-				<th><%=LNG_TEXT_MEMID%></th>
-				<th><%=LNG_TEXT_NAME%></th>
-				<th><%=LNG_TEXT_PAY_PRICE%></th>
-				<th><%=LNG_TEXT_LEVEL%></th>
-				<th><%=LNG_TEXT_LINE%></th>
-			</tr>
-		</thead>
-		<tbody>
-		<%
-			If IsArray(arrList) Then
-				For i = 0 To listLen
-					arrList_ROWNUM			= arrList(0,i)
-					arrList_RequestMbid			= arrList(1,i)
-					arrList_RequestMbid2			= arrList(2,i)
-					arrList_RequestName				= arrList(3,i)
-					arrList_DownPV		= arrList(4,i)
-					arrList_LevelCnt			= arrList(5,i)
-					arrList_LineCnt			= arrList(6,i)
-					arrList_GivePay			= arrList(7,i)
-		%>
-			<tr>
-				<td class="index"><%=arrList_ROWNUM%></td>
-				<td><%=arrList_RequestMbid%>-<%=arrList_RequestMbid2%></td>
-				<td class="name"><%=arrList_RequestName%></td>
-				<td class="tright amount"><%=num2cur(arrList_DownPV)%></td>
-				<td><%=arrList_LevelCnt%></td>
-				<td><%=arrList_LineCnt%></td>
-			</tr>
-		<%
-				Next
-			Else
-		%>
-			<tr>
-				<td colspan="6" class="nodata"><p><%=LNG_TEXT_NO_DATA%></p></td>
-			</tr>
-		<%
-			End If
-		%>
-		</tbody>
-	</table>
+<div class="sticky-wrap">
+	<div class="line"></div>
+	<div class="sticky">
+		<table <%=tableatt%> class="pay_sticky_table">
+			<thead>
+				<tr>
+					<th><%=LNG_TEXT_NUMBER%></th>
+					<th><%=LNG_TEXT_MEMID%></th>
+					<th><%=LNG_TEXT_NAME%></th>
+					<th><%=LNG_TEXT_PAY_PRICE%></th>
+					<th><%=LNG_TEXT_LEVEL%></th>
+					<th><%=LNG_TEXT_LINE%></th>
+				</tr>
+			</thead>
+			<tbody>
+			<%
+				If IsArray(arrList) Then
+					For i = 0 To listLen
+						arrList_ROWNUM			= arrList(0,i)
+						arrList_RequestMbid			= arrList(1,i)
+						arrList_RequestMbid2			= arrList(2,i)
+						arrList_RequestName				= arrList(3,i)
+						arrList_DownPV		= arrList(4,i)
+						arrList_LevelCnt			= arrList(5,i)
+						arrList_LineCnt			= arrList(6,i)
+						arrList_GivePay			= arrList(7,i)
+			%>
+				<tr>
+					<td class="index"><%=arrList_ROWNUM%></td>
+					<td><%=arrList_RequestMbid%>-<%=arrList_RequestMbid2%></td>
+					<td class="name"><%=arrList_RequestName%></td>
+					<td class="tright amount"><%=num2cur(arrList_DownPV)%></td>
+					<td><%=arrList_LevelCnt%></td>
+					<td><%=arrList_LineCnt%></td>
+				</tr>
+			<%
+					Next
+				Else
+			%>
+				<tr>
+					<td colspan="6" class="nodata"><p><%=LNG_TEXT_NO_DATA%></p></td>
+				</tr>
+			<%
+				End If
+			%>
+			</tbody>
+		</table>
+	</div>
 </div>
 <%If IsArray(arrList) Then %>
-	<div class="pay_paging pagingNew3"><%Call pageList_pay(PAGE,PAGECOUNT,MODES,EDATE,viewID,AJAX_URL)%></div>
+	<div class="pay_paging"><%Call pageList_pay(PAGE,PAGECOUNT,MODES,EDATE,viewID,AJAX_URL)%></div>
 <%End If%>
+</div>

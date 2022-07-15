@@ -918,10 +918,13 @@ $input-height: $input-height - rem(10px);
 	}
 }
 
-.member.mt {
+.member {
 	.search_form {
 		article {
 			grid-template-columns: repeat(10, 0.5fr);
+		}
+		option[disabled] {
+			display: none;
 		}
 		.members {
 			> div {
@@ -931,12 +934,21 @@ $input-height: $input-height - rem(10px);
 			.inputs {
 				grid-column: 2/6;
 				min-width: auto;
-				border: 1px solid material-color('grey', '400');
+				border: 1px solid #bdbdbd;
 				background: #fff;
 
 				.input_text {
 					cursor: text;
 					text-align: left;
+					&:first-of-type {
+						padding-right: 0;
+					}
+					&:last-of-type {
+						padding-left: 0;
+					}
+				}
+				span {
+					margin: 0 rem(5px);
 				}
 
 				+ h6 {
@@ -949,6 +961,46 @@ $input-height: $input-height - rem(10px);
 				width: calc(100% - #{$font-size / 2});
 				border-color: #bdbdbd;
 				background: #fff;
+			}
+			.memberNum {
+				grid-column: 2/4;
+				.inputs {
+				}
+				.input_text {
+					padding: 0 rem(5px);
+					text-align: center;
+					width: 100%;
+					&:first-of-type {
+						width: 30%;
+					}
+				}
+				+ h6 {
+					grid-column: 4;
+					text-align: right;
+				}
+			}
+			.name {
+				grid-column: 5/7;
+				margin: 0;
+				margin-left: $font-size / 2;
+				+ h6 {
+					grid-column: 7;
+					text-align: right;
+				}
+			}
+			.rank {
+				grid-column: 8/10;
+				margin: 0;
+				margin-left: $font-size / 2;
+				+ h6 {
+					grid-column: 10;
+					text-align: right;
+				}
+			}
+			.level {
+				grid-column: 11/13;
+				margin-right: 0;
+				margin-left: $font-size / 2;
 			}
 		}
 		.searchs {
@@ -969,6 +1021,33 @@ $input-height: $input-height - rem(10px);
 			.search_reset {
 				grid-column: 10;
 			}
+
+			&.label-wrap {
+				.labels {
+					margin-right: 0;
+					padding-right: 0;
+					grid-column: 7/10;
+					span {
+						font-size: $font-size - rem(3px);
+					}
+					+h6 {
+						text-align: right;
+					}
+					&.rank {
+						grid-column: 2/6;
+					}
+				}
+				.search_btn {
+					grid-column: 10/12;
+				}
+				.search_reset {
+					grid-column: 12/13;
+					padding: 0 rem(10px);
+					font-size: $font-size - rem(3px);
+					line-height: 1;
+				}
+			}
+
 		}
 		.orders {
 			.input_select {
@@ -981,6 +1060,16 @@ $input-height: $input-height - rem(10px);
 			}
 			.labels {
 				grid-column: 7/10;
+
+				&.rank {
+					grid-column: 2/5;
+					margin-right: 0;
+					padding-right: 0;
+					+ h6 {
+						grid-column: 5;
+						text-align: right;
+					}
+				}
 			}
 
 			~ .searchs {
@@ -996,6 +1085,14 @@ $input-height: $input-height - rem(10px);
 					grid-column: 5/8;
 					margin-right: 0;
 				}
+			}
+		}
+	}
+
+	&.purchase {
+		.search_form {
+			article {
+				grid-template-columns: repeat(12, 0.5fr);
 			}
 		}
 	}

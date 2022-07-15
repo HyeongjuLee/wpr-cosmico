@@ -177,7 +177,7 @@
 						<span></span>
 					</div>
 					<ul>
-						<li><a href="/myoffice/pay/pay01.asp"><%=Fnc_leftmenu_color(INFO_MODE,"BONUS1-3",LNG_MYOFFICE_BONUS_01)%></a></li>
+						<!-- <li><a href="/myoffice/pay/pay01.asp"><%=Fnc_leftmenu_color(INFO_MODE,"BONUS1-1",LNG_MYOFFICE_BONUS_01)%></a></li> -->
 						<li><a href="/myoffice/pay/pay02.asp"><%=Fnc_leftmenu_color(INFO_MODE,"BONUS1-2",LNG_MYOFFICE_BONUS_02)%></a></li>
 						<li><a href="/myoffice/pay/pay03.asp"><%=Fnc_leftmenu_color(INFO_MODE,"BONUS1-3",LNG_MYOFFICE_BONUS_03)%></a></li>
 					</ul>
@@ -229,6 +229,7 @@
 					<ul>
 						<li><a href="/myoffice/business/business_member.asp"><%=Fnc_leftmenu_color(INFO_MODE,"BCENTER1-1",LNG_MYOFFICE_BCENTER_01)%></a></li>
 						<li><a href="/myoffice/business/business_purchase.asp"><%=Fnc_leftmenu_color(INFO_MODE,"BCENTER1-2",LNG_MYOFFICE_BCENTER_02)%></a></li>
+						<li><a href="/myoffice/pay/pay100.asp"><%=Fnc_leftmenu_color(INFO_MODE,"BONUS1-100",LNG_MYOFFICE_BONUS_100)%></a></li>
 					</ul>
 				</div>
 				<%End If%>

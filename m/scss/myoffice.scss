@@ -2340,6 +2340,7 @@ select {
 	z-index: 902;
 	transform: translate(-50%, -50%);
 	width: calc(100vw - 6rem);
+	max-width: 640px;
 	//height: calc(60vh - 12rem);
 	background: #fff;
 	padding: rem(15px);
@@ -2969,7 +2970,7 @@ select {
 	.detail_btn {
 		width: 100%;
 		&.noline {
-			font-size: $font-size - rem(8px);
+			font-size: $font-size - rem(2px);
 		}
 	}
 

@@ -32,23 +32,23 @@ html, body { font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; fo
 .input_text { line-height: 1.2; height: 4rem; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; vertical-align: middle; padding: 0px 1.5rem; border: 1px solid #bdbdbd; background: #fff; }
 .input_text:read-only { background: #eeeeee; }
 
-.button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; display: inline-flex; justify-content: center; align-items: center; margin: 0; color: #fff; min-width: 7rem; min-height: 3.5rem; padding: 0 1rem; }
+.button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; display: inline-flex; justify-content: center; align-items: center; margin: 0; color: #fff; min-width: 7rem; min-height: 3.5rem; padding: 0 1rem; }
 .button:hover { color: #fff; text-decoration: none; background: #828282; }
 .button:active { color: whitesmoke; background: #686868; }
 .button:link, .button:active, .button:visited, .button:hover { color: #fff; }
-.button.red { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
+.button.red { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
 .button.red:hover { color: #fff; text-decoration: none; background: #e84f4c; }
 .button.red:active { color: white; background: #e2231e; }
-.button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
+.button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
 .button.answer:hover { color: #fff; text-decoration: none; background: #a028bf; }
 .button.answer:active { color: #f0d7f6; background: #7c2095; }
-.button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
+.button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
 .button.delete:hover { color: #fff; text-decoration: none; background: #e4286d; }
 .button.delete:active { color: #fef4f8; background: #c11856; }
-.button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
+.button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
 .button.edit:hover { color: #fff; text-decoration: none; background: #3f51be; }
 .button.edit:active { color: #ebedf8; background: #334198; }
-.button.green { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
+.button.green { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
 .button.green:hover { color: #fff; text-decoration: none; background: #4bb24f; }
 .button.green:active { color: #ebf7ec; background: #3b8e3f; }
 
@@ -165,23 +165,45 @@ html, body { font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; fo
 #myoffice_pay .searchs .labels { grid-column: 2/7; margin-right: 0; padding-right: 0; }
 #myoffice_pay.pay03 .buttons { grid-column: 6/13; }
 
-.member.mt .search_form article { grid-template-columns: repeat(10, 0.5fr); }
-.member.mt .search_form .members > div { padding-right: 0; }
-.member.mt .search_form .members .inputs { grid-column: 2/6; min-width: auto; border: 1px solid #bdbdbd; background: #fff; }
-.member.mt .search_form .members .inputs .input_text { cursor: text; text-align: left; }
-.member.mt .search_form .members .inputs + h6 { grid-column: 6; text-align: right; }
-.member.mt .search_form .members > .input_text { grid-column: 7/9; width: calc(100% - 0.75rem); border-color: #bdbdbd; background: #fff; }
-.member.mt .search_form .searchs .labels { grid-column: 2/6; margin-right: 1.5rem; }
-.member.mt .search_form .searchs .labels + h6 { text-align: right; }
-.member.mt .search_form .searchs > .input_select { grid-column: 7/8; }
-.member.mt .search_form .searchs .search_btn { grid-column: 8/10; }
-.member.mt .search_form .searchs .search_reset { grid-column: 10; }
-.member.mt .search_form .orders .input_select { grid-column: 2/6; }
-.member.mt .search_form .orders .input_select + h6 { grid-column: 6; text-align: right; }
-.member.mt .search_form .orders .labels { grid-column: 7/10; }
-.member.mt .search_form .orders ~ .searchs > .input_select { grid-column: 2/4; }
-.member.mt .search_form .orders ~ .searchs > .input_select + h6 { grid-column: 4; text-align: right; }
-.member.mt .search_form .orders ~ .searchs .labels { grid-column: 5/8; margin-right: 0; }
+.member .search_form article { grid-template-columns: repeat(10, 0.5fr); }
+.member .search_form option[disabled] { display: none; }
+.member .search_form .members > div { padding-right: 0; }
+.member .search_form .members .inputs { grid-column: 2/6; min-width: auto; border: 1px solid #bdbdbd; background: #fff; }
+.member .search_form .members .inputs .input_text { cursor: text; text-align: left; }
+.member .search_form .members .inputs .input_text:first-of-type { padding-right: 0; }
+.member .search_form .members .inputs .input_text:last-of-type { padding-left: 0; }
+.member .search_form .members .inputs span { margin: 0 0.5rem; }
+.member .search_form .members .inputs + h6 { grid-column: 6; text-align: right; }
+.member .search_form .members > .input_text { grid-column: 7/9; width: calc(100% - 0.75rem); border-color: #bdbdbd; background: #fff; }
+.member .search_form .members .memberNum { grid-column: 2/4; }
+.member .search_form .members .memberNum .input_text { padding: 0 0.5rem; text-align: center; width: 100%; }
+.member .search_form .members .memberNum .input_text:first-of-type { width: 30%; }
+.member .search_form .members .memberNum + h6 { grid-column: 4; text-align: right; }
+.member .search_form .members .name { grid-column: 5/7; margin: 0; margin-left: 0.75rem; }
+.member .search_form .members .name + h6 { grid-column: 7; text-align: right; }
+.member .search_form .members .rank { grid-column: 8/10; margin: 0; margin-left: 0.75rem; }
+.member .search_form .members .rank + h6 { grid-column: 10; text-align: right; }
+.member .search_form .members .level { grid-column: 11/13; margin-right: 0; margin-left: 0.75rem; }
+.member .search_form .searchs .labels { grid-column: 2/6; margin-right: 1.5rem; }
+.member .search_form .searchs .labels + h6 { text-align: right; }
+.member .search_form .searchs > .input_select { grid-column: 7/8; }
+.member .search_form .searchs .search_btn { grid-column: 8/10; }
+.member .search_form .searchs .search_reset { grid-column: 10; }
+.member .search_form .searchs.label-wrap .labels { margin-right: 0; padding-right: 0; grid-column: 7/10; }
+.member .search_form .searchs.label-wrap .labels span { font-size: 1.2rem; }
+.member .search_form .searchs.label-wrap .labels + h6 { text-align: right; }
+.member .search_form .searchs.label-wrap .labels.rank { grid-column: 2/6; }
+.member .search_form .searchs.label-wrap .search_btn { grid-column: 10/12; }
+.member .search_form .searchs.label-wrap .search_reset { grid-column: 12/13; padding: 0 1rem; font-size: 1.2rem; line-height: 1; }
+.member .search_form .orders .input_select { grid-column: 2/6; }
+.member .search_form .orders .input_select + h6 { grid-column: 6; text-align: right; }
+.member .search_form .orders .labels { grid-column: 7/10; }
+.member .search_form .orders .labels.rank { grid-column: 2/5; margin-right: 0; padding-right: 0; }
+.member .search_form .orders .labels.rank + h6 { grid-column: 5; text-align: right; }
+.member .search_form .orders ~ .searchs > .input_select { grid-column: 2/4; }
+.member .search_form .orders ~ .searchs > .input_select + h6 { grid-column: 4; text-align: right; }
+.member .search_form .orders ~ .searchs .labels { grid-column: 5/8; margin-right: 0; }
+.member.purchase .search_form article { grid-template-columns: repeat(12, 0.5fr); }
 
 .total_sales_wrap { display: flex; justify-content: space-between; align-items: flex-start; margin: 1.5rem 0; }
 .total_sales_wrap div { display: inline-flex; justify-content: flex-start; align-items: center; width: calc(50% - 0.5rem); height: 3.3333333333rem; padding: 1rem; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; color: #333645; font-weight: 600; }
@@ -288,7 +310,7 @@ html, body { font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; fo
 .innerTablePay thead th:first-of-type { border-left: none; }
 .innerTablePay thead th:last-of-type { border-right: none; }
 .innerTablePay tbody th:first-of-type { border-left: none; }
-.innerTablePay tbody th:last-of-type { border-right: none; }
+.innerTablePay tbody th:not(:first-of-type):last-of-type { border-right: none; }
 .innerTablePay tbody td:first-of-type { border-left: none; }
 .innerTablePay tbody td:last-of-type { border-right: none; }
 .innerTablePay tr:first-of-type th { border-top: none; }
@@ -322,7 +344,7 @@ html, body { font-family: "Pretendard", "Roboto", "Noto Sans KR", sans-serif; fo
 .innerTableBuy thead th:first-of-type { border-left: none; }
 .innerTableBuy thead th:last-of-type { border-right: none; }
 .innerTableBuy tbody th:first-of-type { border-left: none; }
-.innerTableBuy tbody th:last-of-type { border-right: none; }
+.innerTableBuy tbody th:not(:first-of-type):last-of-type { border-right: none; }
 .innerTableBuy tbody td:first-of-type { border-left: none; }
 .innerTableBuy tbody td:last-of-type { border-right: none; }
 .innerTableBuy tr:first-of-type th { border-top: none; }

@@ -58,59 +58,51 @@
 	End If
 %>
 <!--#include virtual = "/_include/document.asp"-->
-<link rel="stylesheet" href="/myoffice/css/style_cs.css" />
-<link rel="stylesheet" href="/myoffice/css/layout_cs.css" />
+<!-- <link rel="stylesheet" href="/myoffice/css/style_cs.css" /> -->
+<!-- <link rel="stylesheet" href="/myoffice/css/layout_cs.css" /> -->
+<link rel="stylesheet" href="/css/myoffice-business.css?" />
 <link rel="stylesheet" href="default.css" />
 <script type="text/javascript" src="/jscript/calendar.js"></script>
 </head>
 <body>
 <!--#include virtual = "/_include/header.asp"-->
-<div id="business" class="member mt">
+<div id="myoffice_business" class="member">
 	<form name="dateFrm" action="business_member.asp" method="post">
-		<table <%=tableatt%> class="userCWidth table1">
-			<col width="15%" />
-			<col width="35%" />
-			<col width="15%" />
-			<col width="35%" />
-			<tr>
-				<th rowspan="2"><%=LNG_TEXT_REGTIME%></th>
-				<td colspan="3">
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=DateAdd("m",-1,ThisM_1stDate)%>','<%=DateAdd("d",-1,ThisM_1stDate)%>');"><%=LNG_TEXT_LASTMONTH%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=ThisM_1stDate%>','<%=nowDate%>');"><%=LNG_TEXT_THISMONTH%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=DateAdd("m",-3,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_3MONTH%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=nowDate%>','<%=nowDate%>');"><%=LNG_TEXT_TODAY%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=DateAdd("m",-6,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_6MONTH%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('<%=DateAdd("yyyy",-1,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_1YEAR%></button>
-					<button type="button" class="input_submit design2" onclick="chgDate('','');"><%=LNG_TEXT_ALL%></button>
-				</td>
-			</tr><tr>
-				<td colspan="3">
-					<input type="text" id="SDATE" name="SDATE" class="input_text tcenter" style="width:140px;" value="<%=SDATE%>" readonly="readonly" onclick="openCalendar(event, this, 'YYYY-MM-DD');" /> ~
-					<input type="text" id="EDATE" name="EDATE" class="input_text tcenter" style="width:140px;" value="<%=EDATE%>" readonly="readonly" onclick="openCalendar(event, this, 'YYYY-MM-DD');" />
-				</td>
-			</tr>
-			<tr>
-				<th><%=LNG_TEXT_MEMID%></th>
-				<td>
-					<input type="text" name="MBID1" class="input_text tcenter" style="width:70px;" value="<%=MBID1%>" maxlength="2" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');"/> ~
-					<input type="text" name="MBID2" class="input_text" style="width:120px;" value="<%=MBID2%>" maxlength="<%=MBID2_LEN%>" <%=onlyKeys%> />
-				</td>
-				<th><%=LNG_TEXT_NAME%></th>
-				<td>
-					<input type="text" name="M_NAME" class="input_text tcenter" style="width: 210px;" value="<%=M_NAME%>" maxlength="20" />
-				</td>
-			</tr>
-			<tr>
-				<th><%=LNG_MEMBER_LOGIN_TEXT12%></th>
-				<td>
-					<label><input type="radio" name="LEAVE_CHECK" value="" <%=isChecked(LEAVE_CHECK,"")%> checked="checked"><%=LNG_TEXT_ALL%></label>
-					<label><input type="radio" name="LEAVE_CHECK" value="1" <%=isChecked(LEAVE_CHECK,"1")%> ><%=LNG_STRTEXT_TEXT23_2%></label>
-					<label><input type="radio" name="LEAVE_CHECK" value="0" <%=isChecked(LEAVE_CHECK,"0")%> ><%=LNG_TEXT_TREE_RESIGNED_MEMBER%></label>
-				</td>
-				<th><%=LNG_TEXT_PAY_CATEGORY%>(<%=LNG_TEXT_POSITION%>)</th>
-				<td>
+		<div class="search_form">
+			<article class="date">
+				<h6><%=LNG_TEXT_PAY_DEADLINE%></h6>
+				<div class="inputs">
+					<input type="text" id="SDATE" name="SDATE" value="<%=SDATE%>" readonly="readonly" onclick="openCalendar(event, this, 'YYYY-MM-DD');" />
+					<span>~</span>
+					<input type="text" id="EDATE" name="EDATE" value="<%=EDATE%>" readonly="readonly" onclick="openCalendar(event, this, 'YYYY-MM-DD');" />
+				</div>
+				<div class="buttons">
+					<button type="button" onclick="chgDate('<%=DateAdd("m",-1,ThisM_1stDate)%>','<%=DateAdd("d",-1,ThisM_1stDate)%>');"><%=LNG_TEXT_LASTMONTH%></button>
+					<button type="button" onclick="chgDate('<%=ThisM_1stDate%>','<%=nowDate%>');"><%=LNG_TEXT_THISMONTH%></button>
+					<button type="button" onclick="chgDate('<%=DateAdd("m",-3,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_3MONTH%></button>
+					<button type="button" onclick="chgDate('<%=nowDate%>','<%=nowDate%>');"><%=LNG_TEXT_TODAY%></button>
+					<button type="button" onclick="chgDate('<%=DateAdd("m",-6,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_6MONTH%></button>
+					<button type="button" onclick="chgDate('<%=DateAdd("yyyy",-1,nowDate)%>','<%=nowDate%>');"><%=LNG_TEXT_1YEAR%></button>
+					<button type="button" onclick="chgDate('','');"><%=LNG_TEXT_ALL%></button>
+				</div>
+			</article>
+			<article class="members">
+				<h6><%=LNG_TEXT_MEMID%></h6>
+				<div class="memberNum">
+					<div class="inputs">
+						<input type="text" name="MBID1" class="input_text" value="<%=MBID1%>" maxlength="2" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');"/>
+						<span>-</span>
+						<input type="text" name="MBID2" class="input_text" value="<%=MBID2%>" maxlength="<%=MBID2_LEN%>" <%=onlyKeys%> />
+					</div>
+				</div>
+				<h6><%=LNG_TEXT_NAME%></h6>
+				<div class="name">
+					<input type="text" name="M_NAME" class="input_text" value="<%=M_NAME%>" maxlength="20" />
+				</div>
+				<h6><%=LNG_TEXT_PAY_CATEGORY%>(<%=LNG_TEXT_POSITION%>)</h6>
+				<div class="rank">
 					<select name="GRADE_CNT" class="input_select">
-						<option value=""></option>
+						<option value="" selected disabled><%=LNG_TEXT_POSITION%></option>
 						<%
 							SQL_BC = "SELECT [Grade_Cnt],[Grade_Name] FROM [tbl_Class] WITH(NOLOCK) ORDER BY [Grade_Cnt] ASC"
 							arrList_BC = Db.execRsList(SQL_BC,DB_TEXT,Nothing,listLenBC,DB3)
@@ -123,19 +115,40 @@
 							End If
 						%>
 					</select>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4" class="tcenter" style="padding: 12px;">
-					<input type="submit" value="<%=LNG_TEXT_SEARCH%>" class="input_submit design3" />
-					<a href="<%=Request.ServerVariables("SCRIPT_NAME")%>" class="a_submit design8"><%=LNG_TEXT_INITIALIZATION%></a>
-				</td>
-			</tr>
-		</table>
+				</div>
+			</article>
+			<article class="searchs">
+				<h6><%=LNG_MEMBER_LOGIN_TEXT12%></h6>
+				<div class="labels">
+					<label><input type="radio" name="LEAVE_CHECK" value="" <%=isChecked(LEAVE_CHECK,"")%> checked="checked"><span><i class="icon-ok"></i><%=LNG_TEXT_ALL%></span></label>
+					<label><input type="radio" name="LEAVE_CHECK" value="1" <%=isChecked(LEAVE_CHECK,"1")%> ><span><i class="icon-ok"></i><%=LNG_STRTEXT_TEXT23_2%></span></label>
+					<label><input type="radio" name="LEAVE_CHECK" value="0" <%=isChecked(LEAVE_CHECK,"0")%> ><span><i class="icon-ok"></i><%=LNG_TEXT_TREE_RESIGNED_MEMBER%></span></label>
+				</div>
+				<input type="submit" value="<%=LNG_TEXT_SEARCH%>" class="search_btn" />
+				<a href="<%=Request.ServerVariables("SCRIPT_NAME")%>" class="search_reset"><%=LNG_TEXT_INITIALIZATION%></a>
+			</article>
+		</div>
 	</form>
 
+
+	<%
+		'table sorter
+		'<thead></thead> 필수!
+	%>
+	<link rel="stylesheet" href="/jscript/tablesorter/jquery.wprTablesorter.css">
+	<script type="text/javascript" src="/jscript/tablesorter/jquery.wprTablesorter.js"></script>
+	<script type="text/javascript">
+		//table sorter
+		$(document).ready(function() {
+			$("#sortTable").wprTablesorter({
+				firstColFix : false,	//첫번째열 고정
+				firstColasc : false,	//첫번째열 오름차순 여부	//firstColFix=true일 경우 필수값
+				//noSortColumns : [0]		//정렬안하는 컬럼
+			});
+		});
+	</script>
 	<p class="titles"><%=LNG_TEXT_LIST%></p>
-	<table <%=tableatt1%> class="userCWidth list">
+	<table <%=tableatt0%> class="table tcenter" id="sortTable">
 		<colgroup>
 			<col width="70" />
 			<col width="" />
@@ -143,15 +156,17 @@
 			<col width="" />
 			<col width="" />
 		</colgroup>
-		<tr>
-			<th><%=LNG_TEXT_NUMBER%></th>
-			<th><%=LNG_TEXT_MEMID%></th>
-			<th><%=LNG_TEXT_NAME%></th>
-			<!-- <th><%=LNG_TEXT_TEL%></th>
-			<th><%=LNG_TEXT_MOBILE%></th> -->
-			<th><%=LNG_TEXT_POSITION%></th>
-			<th><%=LNG_TEXT_REGTIME%></th>
-		</tr>
+		<thead>
+			<tr>
+				<th><%=LNG_TEXT_NUMBER%></th>
+				<th><%=LNG_TEXT_MEMID%></th>
+				<th><%=LNG_TEXT_NAME%></th>
+				<!-- <th><%=LNG_TEXT_TEL%></th>
+				<th><%=LNG_TEXT_MOBILE%></th> -->
+				<th><%=LNG_TEXT_POSITION%></th>
+				<th><%=LNG_TEXT_REGTIME%></th>
+			</tr>
+		</thead>
 		<%
 			Set objEncrypter = Server.CreateObject ("Hyeongryeol.StringEncrypter")
 				objEncrypter.Key = con_EncryptKey
@@ -192,7 +207,7 @@
 			Set objEncrypter = Nothing
 		%>
 	</table>
-	<div class="pagingArea pagingNew3 userCWidth"><% Call pageListNew3(PAGE,PAGECOUNT)%></div>
+	<div class="pagingArea pagingNew3"><% Call pageListNew3(PAGE,PAGECOUNT)%></div>
 </div>
 <form name="frm" method="post" action="">
 	<input type="hidden" name="PAGE" value="<%=PAGE%>" />
@@ -205,5 +220,5 @@
 	<input type="hidden" name="MBID1" value="<%=MBID1%>" />
 	<input type="hidden" name="MBID2" value="<%=MBID2%>" />
 </form>
-
+</div>
 <!--#include virtual = "/_include/copyright.asp"-->

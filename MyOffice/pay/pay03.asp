@@ -12,7 +12,7 @@
 	Call ONLY_CS_MEMBER()
 
 	If UCase(DK_MEMBER_NATIONCODE) = "KR" And F_CPNO_CHANGE_TF = "T" Then
-		Call ALERTS("올바른 주민번호가 입력되지 않았습니다. \n\n주민번호는 마이페이지에서 입력가능합니다.","GO","/mypage/member_info.asp") '수당발생 체크X
+		'Call ALERTS("올바른 주민번호가 입력되지 않았습니다. \n\n주민번호는 마이페이지에서 입력가능합니다.","GO","/mypage/member_info.asp") '수당발생 체크X
 	End If
 
 	SDATE		= pRequestTF("SDATE",False)
@@ -28,7 +28,7 @@
 
 	'1(보임), 0(안보임)
 	If webproIP="T" Then
-		My_OF_View_TF = 1
+		My_OF_View_TF = 0
 	Else
 		My_OF_View_TF = 1
 	End if
@@ -63,9 +63,9 @@
 %>
 
 <!--#include virtual = "/_include/document.asp"-->
-<link rel="stylesheet" type="text/css" href="/myoffice/css/style_cs.css" />
-<link rel="stylesheet" type="text/css" href="/myoffice/css/layout_cs.css" />
-<link rel="stylesheet" type="text/css" href="/css/pay.css?v1.3" />
+<!-- <link rel="stylesheet" type="text/css" href="/myoffice/css/style_cs.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="/myoffice/css/layout_cs.css" /> -->
+<link rel="stylesheet" type="text/css" href="/css/pay2.css?" />
 <script type="text/javascript" src="/jscript/calendar.js"></script>
 <script type="text/javascript" src="pay.js?v1"></script>
 <%'sortTable%>
@@ -151,7 +151,7 @@
 	%>
 	<p class="titles"><%=LNG_TEXT_TOTAL%></p>
 	<div class="sum_totalWrap ">
-		<table <%=tableatt%> class="width100 sum_total table2">
+		<table <%=tableatt%> class="total">
 			<col span="5" width="20%" />
 			<thead>
 				<tr>
@@ -176,62 +176,60 @@
 	<%End If%>
 
 	<p class="titles"><%=LNG_TEXT_DETAIL_LIST%></p>
-	<div class="">
-		<table id="sortTable" <%=tableatt%> class="width100">
-			<thead>
-				<tr class="fixedTR">
-					<th><%=LNG_TEXT_NUMBER%></th>
-					<th><%=LNG_TEXT_START_DATE%></th>
-					<th><%=LNG_TEXT_END_DATE%></th>
-					<th><%=LNG_TEXT_PAYMENT_DATE%></th>
-					<th><%=LNG_TEXT_SUM_ALLOWANCE%></th>
-					<th><%=LNG_TEXT_RETURN_DEDUCT%></th>
-					<th><%=LNG_TEXT_INCOME_TEX%></th>
-					<th><%=LNG_TEXT_RESIDENT_TEX%></th>
-					<th><%=LNG_TEXT_ACTUAL_PAYMENT%></th>
-					<th><%=LNG_BTN_DETAIL%></th>
-				</tr>
-			</thead>
-			<tbody>
-			<%
-				If IsArray(arrList) Then
-					For i = 0 To listLen
-						ThisNum = CInt(arrList(0,i))
-						arrList_fromenddate			= arrList(1,i)
-						arrList_toenddate			= arrList(2,i)
-						arrList_paydate				= arrList(3,i)
-						arrList_sumallallowance		= arrList(4,i)
-						arrList_incomeTax			= arrList(5,i)
-						arrList_residentTax			= arrList(6,i)
-						arrList_truepayMent			= arrList(7,i)
+	<table id="sortTable" <%=tableatt%> class="table">
+		<thead>
+			<tr class="fixedTR">
+				<th><%=LNG_TEXT_NUMBER%></th>
+				<th><%=LNG_TEXT_START_DATE%></th>
+				<th><%=LNG_TEXT_END_DATE%></th>
+				<th><%=LNG_TEXT_PAYMENT_DATE%></th>
+				<th><%=LNG_TEXT_SUM_ALLOWANCE%></th>
+				<th><%=LNG_TEXT_RETURN_DEDUCT%></th>
+				<th><%=LNG_TEXT_INCOME_TEX%></th>
+				<th><%=LNG_TEXT_RESIDENT_TEX%></th>
+				<th><%=LNG_TEXT_ACTUAL_PAYMENT%></th>
+				<th><%=LNG_BTN_DETAIL%></th>
+			</tr>
+		</thead>
+		<tbody>
+		<%
+			If IsArray(arrList) Then
+				For i = 0 To listLen
+					ThisNum = CInt(arrList(0,i))
+					arrList_fromenddate			= arrList(1,i)
+					arrList_toenddate			= arrList(2,i)
+					arrList_paydate				= arrList(3,i)
+					arrList_sumallallowance		= arrList(4,i)
+					arrList_incomeTax			= arrList(5,i)
+					arrList_residentTax			= arrList(6,i)
+					arrList_truepayMent			= arrList(7,i)
 
-						arrList_Cur_DedCut_Pay		= arrList(18,i)
+					arrList_Cur_DedCut_Pay		= arrList(18,i)
 
-						Sumallallowance_NOT_DED = arrList_sumallallowance + arrList_Cur_DedCut_Pay
-			%>
-				<tr class="fixedTR">
-					<td class="tcenter first"><%=ThisNum%></td>
-					<td class="tcenter"><%=date8to13(arrList_fromenddate)%></td>
-					<td class="tcenter"><%=date8to13(arrList_toenddate)%></td>
-					<td class="tcenter"><%=date8to13(arrList_paydate)%></td>
-					<td class="inPrice"><%=num2cur(Sumallallowance_NOT_DED)%></td>
-					<td class="inPrice"><%=num2cur(arrList_Cur_DedCut_Pay)%></td>
-					<td class="inPrice"><%=num2cur(arrList_incomeTax)%></td>
-					<td class="inPrice"><%=num2cur(arrList_residentTax)%></td>
-					<td class="inPrice tweight"><%=num2cur(arrList_truepayMent)%></td>
-					<td class="tcenter"><button class="dialog-layer-opener a_submit2 design8" data-openerid="#dialog-layer<%=i%>"><%=LNG_BTN_DETAIL%></button></td>
-				</tr>
-			<%
-					Next
-				Else
-			%>
-				<tr>
-					<td colspan="10" class="nodata" ><%=LNG_CS_PAY_TEXT28%></td>
-				</tr>
-			<%End If%>
-			</tbody>
-		</table>
-	</div>
+					Sumallallowance_NOT_DED = arrList_sumallallowance + arrList_Cur_DedCut_Pay
+		%>
+			<tr class="fixedTR">
+				<td class="tcenter first"><%=ThisNum%></td>
+				<td class="tcenter"><%=date8to13(arrList_fromenddate)%></td>
+				<td class="tcenter"><%=date8to13(arrList_toenddate)%></td>
+				<td class="tcenter"><%=date8to13(arrList_paydate)%></td>
+				<td class="inPrice"><%=num2cur(Sumallallowance_NOT_DED)%></td>
+				<td class="inPrice"><%=num2cur(arrList_Cur_DedCut_Pay)%></td>
+				<td class="inPrice"><%=num2cur(arrList_incomeTax)%></td>
+				<td class="inPrice"><%=num2cur(arrList_residentTax)%></td>
+				<td class="inPrice tweight"><%=num2cur(arrList_truepayMent)%></td>
+				<td class="tcenter"><button class="dialog-layer-opener detail_btn noline" data-openerid="#dialog-layer<%=i%>"><%=LNG_BTN_DETAIL%></button></td>
+			</tr>
+		<%
+				Next
+			Else
+		%>
+			<tr>
+				<td colspan="10" class="nodata" ><%=LNG_CS_PAY_TEXT28%></td>
+			</tr>
+		<%End If%>
+		</tbody>
+	</table>
 
 	<%'modal dialog-layer 상세보기 S%>
 	<%
@@ -264,69 +262,67 @@
 	<div class="dialog-layer" id="dialog-layer<%=i%>" title="<%=dialog_title%>" style="display: none; overflow-y: auto;">
 
 		<%If 1=2 Then%>
-		<div class="cleft pay_totals">
-			<table <%=tableatt%> class="table2 width100">
-				<colgroup>
-					<col span="6" width="" />
-				</colgroup>
-				<tr>
-					<th class="th"><%=LNG_TEXT_START_DATE%></th>
-					<th class="th"><%=LNG_TEXT_END_DATE%></th>
-					<th class="th"><%=LNG_TEXT_PAYMENT_DATE%></th>
-					<th class="th"><%=LNG_TEXT_INCOME_TEX%></th>
-					<th class="th"><%=LNG_TEXT_RESIDENT_TEX%></th>
-					<th class="th"><%=LNG_TEXT_ACTUAL_PAYMENT%></th>
-				</tr>
-				<tr>
-					<td class="tcenter"><%=date8to13(arrList_FromEndDate)%></td>
-					<td class="tcenter"><%=date8to13(arrList_ToEndDate)%></td>
-					<td class="tcenter"><%=date8to13(arrList_PayDate)%></td>
-					<td class="inPrice"><%=num2cur(arrList_InComeTax)%></td>
-					<td class="inPrice"><%=num2cur(arrList_ResidentTax)%></td>
-					<td class="inPrice tweight thisNum<%=ThisNum%>" attr="<%=ThisNum%>"><%=num2cur(arrList_TruePayment)%></td>
-				</tr>
-			</table>
-		</div>
-		<div class="cleft pay_totals">
-			<p class="titles tleft"><%=LNG_TEXT_TOTAL_SALES_OF_UNDER_MEMBER%></p>
-			<table <%=tableatt%> class="inTable1 width100">
-				<col width="15%" />
-				<col width="17%" />
-				<col width="17%" />
-				<col width="17%" />
-				<col width="17%" />
-				<col width="17%" />
-				<thead>
-				<tr>
-					<th colspan="6" class="tcenter th1"><%=LNG_TEXT_TOTAL_SALES_OF_UNDER_MEMBER%></th>
-				</tr>
-				</thead>
-				<tbody class="pay_totals_td">
+			<div class="cleft pay_totals">
+				<table <%=tableatt%> class="totals_table">
+					<colgroup>
+						<col span="6" width="" />
+					</colgroup>
 					<tr>
-						<th><%=LNG_TEXT_PAY_CATEGORY%></th>
-						<th><%=LNG_TEXT_PAY_PREVIOUS%></th>
-						<th><%=LNG_TEXT_PAY_DEADLINE%></th>
-						<th><%=LNG_TEXT_PAY_DEDUCTIONS%></th>
-						<th><%=LNG_TEXT_PAY_BALANCE%></th>
-						<th><%=LNG_TEXT_PAY_CARRIED_FORWARD%></th>
-					</tr><tr>
-						<th><%=LNG_TEXT_PAY_LINE1%></th>
-						<td><%=num2cur(arrList_Be_PV_1)%></td>
-						<td><%=num2cur(arrList_Cur_PV_1)%></td>
-						<td><%=num2cur(arrList_Ded_1)%></td>
-						<td><%=num2cur(arrList_Fresh_1)%></td>
-						<td><%=num2cur(arrList_Sum_PV_1)%></td>
-					</tr><tr>
-						<th><%=LNG_TEXT_PAY_LINE2%></th>
-						<td><%=num2cur(arrList_Be_PV_2)%></td>
-						<td><%=num2cur(arrList_Cur_PV_2)%></td>
-						<td><%=num2cur(arrList_Ded_2)%></td>
-						<td><%=num2cur(arrList_Fresh_2)%></td>
-						<td><%=num2cur(arrList_Sum_PV_2)%></td>
+						<th><%=LNG_TEXT_START_DATE%></th>
+						<th><%=LNG_TEXT_END_DATE%></th>
+						<th><%=LNG_TEXT_PAYMENT_DATE%></th>
+						<th><%=LNG_TEXT_INCOME_TEX%></th>
+						<th><%=LNG_TEXT_RESIDENT_TEX%></th>
+						<th><%=LNG_TEXT_ACTUAL_PAYMENT%></th>
 					</tr>
-				</tbody>
-			</table>
-		</div>
+					<tr>
+						<td class="tcenter"><%=date8to13(arrList_FromEndDate)%></td>
+						<td class="tcenter"><%=date8to13(arrList_ToEndDate)%></td>
+						<td class="tcenter"><%=date8to13(arrList_PayDate)%></td>
+						<td class="inPrice"><%=num2cur(arrList_InComeTax)%></td>
+						<td class="inPrice"><%=num2cur(arrList_ResidentTax)%></td>
+						<td class="inPrice tweight thisNum<%=ThisNum%>" attr="<%=ThisNum%>"><%=num2cur(arrList_TruePayment)%></td>
+					</tr>
+				</table>
+			</div>
+			<div class="cleft pay_totals">
+				<p class="titles tleft"><%=LNG_TEXT_TOTAL_SALES_OF_UNDER_MEMBER%></p>
+				<table <%=tableatt%> class="totals_table">
+					<col width="10%" />
+					<col width="17%" />
+					<col width="17%" />
+					<col width="17%" />
+					<col width="17%" />
+					<col width="17%" />
+					<thead>
+						<tr>
+							<th><%=LNG_TEXT_PAY_CATEGORY%></th>
+							<th><%=LNG_TEXT_PAY_PREVIOUS%></th>
+							<th><%=LNG_TEXT_PAY_DEADLINE%></th>
+							<th><%=LNG_TEXT_PAY_DEDUCTIONS%></th>
+							<th><%=LNG_TEXT_PAY_BALANCE%></th>
+							<th><%=LNG_TEXT_PAY_CARRIED_FORWARD%></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th><%=LNG_TEXT_PAY_LINE1%></th>
+							<td><%=num2cur(arrList_Be_PV_1)%></td>
+							<td><%=num2cur(arrList_Cur_PV_1)%></td>
+							<td><%=num2cur(arrList_Ded_1)%></td>
+							<td><%=num2cur(arrList_Fresh_1)%></td>
+							<td><%=num2cur(arrList_Sum_PV_1)%></td>
+						</tr><tr>
+							<th><%=LNG_TEXT_PAY_LINE2%></th>
+							<td><%=num2cur(arrList_Be_PV_2)%></td>
+							<td><%=num2cur(arrList_Cur_PV_2)%></td>
+							<td><%=num2cur(arrList_Ded_2)%></td>
+							<td><%=num2cur(arrList_Fresh_2)%></td>
+							<td><%=num2cur(arrList_Sum_PV_2)%></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		<%End If%>
 
 		<%
@@ -336,129 +332,132 @@
 				pay_detail_left_width = "width: 100%;"
 			End If
 		%>
-		<div class="cleft pay_detail_left" style="<%=pay_detail_left_width%>">
-			<p class="titles tleft"><%=LNG_TEXT_PAY_ALLOWANCE_LIST%></p>
-			<table <%=tableatt%>  class="inTable1 width100">
-				<col width="150" />
-				<col width="*" />
-				<col width="100" />
-				<!-- <thead>
+		<div class="pay_detail_both">
+			<div class="cpay_detail left" style="<%=pay_detail_left_width%>">
+				<p class="titles tleft"><%=LNG_TEXT_PAY_ALLOWANCE_LIST%></p>
+				<table <%=tableatt%>  class="pay_detail_table">
+					<col width="150" />
+					<col width="*" />
+					<col width="90" />
+					<!-- <thead>
+						<tr>
+							<th colspan="3" class="tcenter"><%=LNG_TEXT_PAY_ALLOWANCE_LIST%></th>
+						</tr>
+					</thead> -->
+					<tbody>
+						<tr>
+							<th><%=LNG_TEXT_PAY_BONUS03_1%></th>
+							<td class="inPrice"><%=num2cur(arrList_Allowance1)%></td>
+							<td class="tcenter">
+								<a href="javascript:pay_ajax_view('1','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a>
+							</td>
+						</tr>
+						<tr>
+							<th><%=LNG_TEXT_PAY_BONUS03_2%></th>
+							<td class="inPrice"><%=num2cur(arrList_Allowance2)%></td>
+							<td class="tcenter">
+								<a href="javascript:pay_ajax_view('2','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a>
+							</td>
+						</tr>
+						</tr>
+						<tr>
+							<th><%=LNG_TEXT_PAY_BONUS03_3%></th>
+							<td class="inPrice"><%=num2cur(arrList_Allowance3)%></td>
+							<td class="tcenter">
+								<a href="javascript:pay_ajax_view('3','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a>
+							</td>
+						</tr>
+						<%If 1=2 Then%>
+						<tr>
+							<th><%=LNG_TEXT_PAY_BONUS03_4%></th>
+							<td class="inPrice"><%=num2cur(arrList_Allowance4)%></td>
+							<td class="tcenter">
+								<!-- <a href="javascript:pay_ajax_view('4','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a> -->
+							</td>
+						</tr>
+						<tr>
+							<th><%=LNG_TEXT_PAY_BONUS03_5%></th>
+							<td class="inPrice"><%=num2cur(arrList_Allowance5)%></td>
+							<td class="tcenter">
+								<!-- <a href="javascript:pay_ajax_view('5','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a> -->
+							</td>
+						</tr>
+						<tr>
+							<th><%=LNG_TEXT_PAY_BONUS03_6%></th>
+							<td class="inPrice"><%=num2cur(arrList_Allowance6)%></td>
+							<td class="tcenter">
+								<!-- <a href="javascript:pay_ajax_view('6','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a> -->
+							</td>
+						</tr>
+						<tr>
+							<th><%=LNG_TEXT_PAY_BONUS03_7%></th>
+							<td class="inPrice"><%=num2cur(arrList_Allowance7)%></td>
+							<td class="tcenter">
+								<!-- <a href="javascript:pay_ajax_view('7','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a> -->
+							</td>
+						</tr>
+						<tr>
+							<th><%=LNG_TEXT_PAY_BONUS03_8%></th>
+							<td class="inPrice"><%=num2cur(arrList_Allowance8)%></td>
+							<td class="tcenter">
+								<!-- <a href="javascript:pay_ajax_view('8','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a> -->
+							</td>
+						</tr>
+						<tr>
+							<th><%=LNG_TEXT_PAY_BONUS03_9%></th>
+							<td class="inPrice"><%=num2cur(arrList_Allowance9)%></td>
+							<td class="tcenter">
+								<!-- <a href="javascript:pay_ajax_view('9','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a> -->
+							</td>
+						</tr>
+						<tr>
+							<th><%=LNG_TEXT_PAY_BONUS03_10%></th>
+							<td class="inPrice"><%=num2cur(arrList_Allowance10)%></td>
+							<td class="tcenter">
+								<!-- <a href="javascript:pay_ajax_view('10','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a> -->
+							</td>
+						</tr>
+						<%End If%>
+						<tr class="plus">
+							<th><%=LNG_TEXT_SUM_ALLOWANCE%></th>
+							<td class="inPrice"><%=num2cur(Sumallallowance_NOT_DED)%></td>
+							<td></td>
+						</tr>
+						<tr class="minus">
+							<th><%=LNG_TEXT_INCOME_TEX%></th>
+							<td class="inPrice"><%=num2cur(arrList_incomeTax)%></td>
+							<td></td>
+						</tr>
+						<tr class="minus">
+							<th><%=LNG_TEXT_RESIDENT_TEX%></th>
+							<td class="inPrice"><%=num2cur(arrList_residentTax)%></td>
+							<td></td>
+						</tr>
+						<tr class="plus">
+							<th><%=LNG_TEXT_ACTUAL_PAYMENT%></th>
+							<td class="inPrice"><%=num2cur(arrList_truepayMent)%></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<%IF No_pay_detail <> "T" Then%>
+			<div class="pay_detail right" id="pay_detail<%=i%>" >
+				<p class="titles tleft"><%=LNG_TEXT_PAY_ALLOWANCE_DETAILS%></p>
+				<table <%=tableatt%> class="pay_detail_table">
 					<tr>
-						<th colspan="3" class="tcenter"><%=LNG_TEXT_PAY_ALLOWANCE_LIST%></th>
+						<td class="nodata"><p style="min-height:215px;"><%=LNG_CS_PAY_TEXT27%></p></td>
 					</tr>
-				</thead> -->
-				<tbody>
-					<tr>
-						<td class="th"><%=LNG_TEXT_PAY_BONUS03_1%></td>
-						<td class="inPrice"><%=num2cur(arrList_Allowance1)%></td>
-						<td class="tcenter">
-							<a href="javascript:pay_ajax_view('1','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();"><%=LNG_BTN_DETAIL%></a>
-						</td>
-					</tr>
-					<tr>
-						<td class="th"><%=LNG_TEXT_PAY_BONUS03_2%></td>
-						<td class="inPrice"><%=num2cur(arrList_Allowance2)%></td>
-						<td class="tcenter">
-							<a href="javascript:pay_ajax_view('2','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();"><%=LNG_BTN_DETAIL%></a>
-						</td>
-					</tr>
-					</tr>
-					<tr>
-						<td class="th"><%=LNG_TEXT_PAY_BONUS03_3%></td>
-						<td class="inPrice"><%=num2cur(arrList_Allowance3)%></td>
-						<td class="tcenter">
-							<a href="javascript:pay_ajax_view('3','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();"><%=LNG_BTN_DETAIL%></a>
-						</td>
-					</tr>
-					<%If 1=2 Then%>
-					<tr>
-						<td class="th"><%=LNG_TEXT_PAY_BONUS03_4%></td>
-						<td class="inPrice"><%=num2cur(arrList_Allowance4)%></td>
-						<td class="tcenter">
-							<!-- <a href="javascript:pay_ajax_view('4','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();"><%=LNG_BTN_DETAIL%></a> -->
-						</td>
-					</tr>
-					<tr>
-						<td class="th"><%=LNG_TEXT_PAY_BONUS03_5%></td>
-						<td class="inPrice"><%=num2cur(arrList_Allowance5)%></td>
-						<td class="tcenter">
-							<!-- <a href="javascript:pay_ajax_view('5','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();"><%=LNG_BTN_DETAIL%></a> -->
-						</td>
-					</tr>
-					<tr>
-						<td class="th"><%=LNG_TEXT_PAY_BONUS03_6%></td>
-						<td class="inPrice"><%=num2cur(arrList_Allowance6)%></td>
-						<td class="tcenter">
-							<!-- <a href="javascript:pay_ajax_view('6','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();"><%=LNG_BTN_DETAIL%></a> -->
-						</td>
-					</tr>
-					<tr>
-						<td class="th"><%=LNG_TEXT_PAY_BONUS03_7%></td>
-						<td class="inPrice"><%=num2cur(arrList_Allowance7)%></td>
-						<td class="tcenter">
-							<!-- <a href="javascript:pay_ajax_view('7','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();"><%=LNG_BTN_DETAIL%></a> -->
-						</td>
-					</tr>
-					<tr>
-						<td class="th"><%=LNG_TEXT_PAY_BONUS03_8%></td>
-						<td class="inPrice"><%=num2cur(arrList_Allowance8)%></td>
-						<td class="tcenter">
-							<!-- <a href="javascript:pay_ajax_view('8','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();"><%=LNG_BTN_DETAIL%></a> -->
-						</td>
-					</tr>
-					<tr>
-						<td class="th"><%=LNG_TEXT_PAY_BONUS03_9%></td>
-						<td class="inPrice"><%=num2cur(arrList_Allowance9)%></td>
-						<td class="tcenter">
-							<!-- <a href="javascript:pay_ajax_view('9','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();"><%=LNG_BTN_DETAIL%></a> -->
-						</td>
-					</tr>
-					<tr>
-						<td class="th"><%=LNG_TEXT_PAY_BONUS03_10%></td>
-						<td class="inPrice"><%=num2cur(arrList_Allowance10)%></td>
-						<td class="tcenter">
-							<!-- <a href="javascript:pay_ajax_view('10','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();"><%=LNG_BTN_DETAIL%></a> -->
-						</td>
-					</tr>
-					<%End If%>
-					<tr>
-						<td class="plus"><%=LNG_TEXT_SUM_ALLOWANCE%></td>
-						<td class="plus inPrice"><%=num2cur(Sumallallowance_NOT_DED)%></td>
-						<td class="plus"></td>
-					</tr>
-					<tr>
-						<td class="minus"><%=LNG_TEXT_INCOME_TEX%></td>
-						<td class="minus inPrice"><%=num2cur(arrList_incomeTax)%></td>
-						<td class="minus"></td>
-					</tr><tr>
-						<td class="minus"><%=LNG_TEXT_RESIDENT_TEX%></td>
-						<td class="minus inPrice"><%=num2cur(arrList_residentTax)%></td>
-						<td class="minus"></td>
-					</tr>
-					<tr>
-						<td class="plus"><%=LNG_TEXT_ACTUAL_PAYMENT%></td>
-						<td class="plus inPrice"><%=num2cur(arrList_truepayMent)%></td>
-						<td class="plus"></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<%IF No_pay_detail <> "T" Then%>
-		<div class="fright pay_detail_right" id="pay_detail<%=i%>" >
-			<p class="titles tleft"><%=LNG_TEXT_PAY_ALLOWANCE_DETAILS%></p>
-			<table <%=tableatt%> class="inTable1 width100">
-				<tr>
-					<td class="tcenter" style="height:325px;"><%=LNG_CS_PAY_TEXT27%></td>
-				</tr>
-			</table>
-		</div>
-		<%End If%>
+				</table>
+			</div>
+			<%End If%>
 
+		</div>
+		<%
+				Next
+			End If
+		%>
 	</div>
-	<%
-			Next
-		End If
-	%>
 	<%'modal dialog-layer 상세보기 E%>
 </div>
 
@@ -484,4 +483,5 @@
 	MODAL_NO_CLOSE_BUTTON = "T"
 %>
 <!--#include virtual="/_include/modal_config.asp" -->
+</div>
 <!--#include virtual = "/_include/copyright.asp"-->

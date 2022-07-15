@@ -369,7 +369,7 @@ $end: flex-end;
 				&:first-of-type {
 					border-left: none;
 				}
-				&:last-of-type {
+				&:not(:first-of-type):last-of-type {
 					border-right: none;
 				}
 			}

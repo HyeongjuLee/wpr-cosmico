@@ -505,6 +505,7 @@
 	LNG_MYOFFICE_BONUS_05						= "월마감수당"		'"주프로모션마감수당"
 	LNG_MYOFFICE_BONUS_06						= ""
 	LNG_MYOFFICE_BONUS_07						= "센터마감수당"
+	LNG_MYOFFICE_BONUS_100						= "센터마감수당"
 	LNG_MYOFFICE_BONUS_TOTAL					= "총 지급수당"
 
 	LNG_MYOFFICE_BOARD							= "게시판"
@@ -1351,16 +1352,16 @@
 		LNG_TEXT_PAY_BONUS01_11					= "싱코지급액"
 		LNG_TEXT_PAY_BONUS01_12					= "환율적용싱코합계"
 
-	'pay02(일일마감)
-		LNG_TEXT_PAY_BONUS02_1					= "직급보너스"
-		LNG_TEXT_PAY_BONUS02_2					= "센터보너스"
-		LNG_TEXT_PAY_BONUS02_3					= "보너스3"
-		LNG_TEXT_PAY_BONUS02_4					= "보너스4"
-		LNG_TEXT_PAY_BONUS02_5					= "보너스5"
-		LNG_TEXT_PAY_BONUS02_6					= "보너스6"
-		LNG_TEXT_PAY_BONUS02_7					= "보너스7"
-		LNG_TEXT_PAY_BONUS02_8					= "보너스8"
-		LNG_TEXT_PAY_BONUS02_9					= "보너스9"
+	'pay02(주간마감)
+		LNG_TEXT_PAY_BONUS02_1					= "소개수당"
+		LNG_TEXT_PAY_BONUS02_2					= "구매수당"
+		LNG_TEXT_PAY_BONUS02_3					= "책임교육수당"
+		LNG_TEXT_PAY_BONUS02_4					= ""
+		LNG_TEXT_PAY_BONUS02_5					= ""
+		LNG_TEXT_PAY_BONUS02_6					= ""
+		LNG_TEXT_PAY_BONUS02_7					= ""
+		LNG_TEXT_PAY_BONUS02_8					= ""
+		LNG_TEXT_PAY_BONUS02_9					= ""
 		LNG_TEXT_PAY_BONUS02_16					= ""
 	'pay03(월마감)
 		LNG_TEXT_PAY_BONUS03_1					= "육성장려금"
@@ -1380,6 +1381,11 @@
 		LNG_TEXT_PAY_BONUS05_2					= "공유수당1"
 		LNG_TEXT_PAY_BONUS05_3					= "공유수당2"
 		LNG_TEXT_PAY_BONUS05_4					= "공유수당3"
+
+	'pay100(센터마감)
+		LNG_TEXT_PAY_BONUS100_1					= "아카데미인센티브"
+		LNG_TEXT_PAY_BONUS100_2					= "본부장보너스"
+
 	'pay0*_detail.asp
 		LNG_TEXT_PAY_DETAIL						= " - 상세내역"
 		LNG_TEXT_PAY_PRICE						= "금액"

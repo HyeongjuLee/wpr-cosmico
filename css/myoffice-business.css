@@ -1,7 +1,7 @@
 th.price, td.price { text-align: right !important; }
 
-.myoffice_pay .searchs .labels { grid-column: 2/6; margin-right: 0; padding-right: 0; }
-.myoffice_pay.pay03 .buttons { grid-column: 6/13; }
+.member .searchs .labels { grid-column: 2/6; margin-right: 0; padding-right: 0; }
+.member.pay03 .buttons { grid-column: 6/13; }
 
 .total { width: 100%; box-shadow: 0px 0px 0px 1px #66a8e4; text-align: center; }
 .total table { border: none; }
