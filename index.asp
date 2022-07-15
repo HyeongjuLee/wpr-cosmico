@@ -341,7 +341,7 @@
 						<div class="txt">
 							<p class="name"><%=arrList_goodsName%></p>
 							<p class="comment"><%=arrList_GoodsComment%></p>
-							
+
 							<%If DK_MEMBER_LEVEL > 0 Then%>
 							<div class="price">
 								<%If CONST_CS_SOBIJA_PRICE_USE_TF = "T" And DK_MEMBER_STYPE = 1 Then	'소비자회원 소비자가%>
@@ -524,26 +524,62 @@
 		</ul>
 	</div>
 
-	<%If webproIP="T" Then%>
+	<%'동영상 팝업%>
 	<link rel="stylesheet" href="/css/type_video_popup.css?">
+	<script type="text/javascript" src="/jscript/youtubepopup/youtubePopup.jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("a").YouTubePopUp();
+		});
+	</script>
 	<div class="index-video layout_inner">
 		<div class="title"><b>COSMICOKOREA</b> in Videos</div>
 		<div class="video-visual swiper-container">
 			<div class="swiper-wrapper">
+				<%
+					arrParams = Array( _
+						Db.makeParam("@strBoardName",adVarChar,adParamInput,50,"movie"), _
+						Db.makeParam("@strNation",adVarChar,adParamInput,50,UCase(DK_MEMBER_NATIONCODE)), _
+						Db.makeParam("@TOP",adInteger,adParamInput,4,6) _
+					)
+					arrList = Db.execRsList("HJSP_NBOARD_MOVIE_MAIN_TOP",DB_PROC,arrParams,listLen,Nothing)
+					If IsArray(arrList) Then
+						totalRowCnt = listLen + 1
+						For i = 0 To listLen
+							arrList_intIDX				= arrList(0,i)
+							arrList_strUserID			= arrList(1,i)
+							arrList_strName				= arrList(2,i)
+							arrList_regDate				= arrList(3,i)
+							arrList_readCnt				= arrList(4,i)
+							arrList_strSubject			= arrList(5,i)
+							arrList_strPic				= arrList(6,i)
+							arrList_TOTALSCORE			= arrList(7,i)
+							arrList_TOTALVOTE			= arrList(8,i)
+							arrList_movieType			= arrList(9,i)
+							arrList_movieURL			= arrList(10,i)
+							arrList_regDate = Replace(Left(arrList_regDate,10),"-",".")
+
+							imgPath = VIR_PATH("board/thum")&"/"&backword(arrList_strPic)
+				%>
 				<div class="swiper-slide">
-					<a href="https://youtu.be/IAVQhpxwZE4"><div class="img"><i class="icon-play"></i><img src="/upload/board/thum/m2.png" width="365.079365079365" height="230" alt="" style="mar gin-top:-30px"></div>
-						<div class="txt">
-							<p>거울셀카 찍는 루피 만들기</p>
-						</div>
-					</a>
+					<%'If DK_MEMBER_LEVEL < 1 Then%>
+						<!-- <a href="<%=MOB_PATH&"/common/member_login.asp?backURL="&ThisPageURL%>">
+							<div class="img"><i class="icon-play"></i><img src="<%=imgPath%>" width="365.079365079365" height="230" alt="" style=""></div>
+						</a> -->
+					<%'Else%>
+						<a href="<%=arrList_movieURL%>">
+							<div class="img"><i class="icon-play"></i><img src="<%=imgPath%>" width="365.079365079365" height="230" alt="" style=""></div>
+							<div class="txt">
+								<p><%=backword_title(cutString(arrList_strSubject,15))%></p>
+							</div>
+						</a>
+					<%'End If%>
 				</div>
-				<div class="swiper-slide">
-					<a href="https://youtu.be/PsZw7c5RlYM"><div class="img"><i class="icon-play"></i><img src="/upload/board/thum/m1.png" width="423.312883435583" height="230" alt="" style="mar gin-top:-30px"></div>
-						<div class="txt">
-							<p>태어난 새끼를 가족으로 받아줄까?</p>
-						</div>
-					</a>
-				</div>
+				<%
+						Next
+					End If
+				%>
+
 			</div>
 		</div>
 		<div class="swiper-inner">
@@ -591,7 +627,7 @@
 			<a href="/cboard/board_list.asp?bname=movie" class="link" target="_blank">MORE<i class="icon-visual-right"></i></a>
 		</div>
 	</div>
-	<%End If%>
+
 </div>
 
 <!--#include virtual="/_include/copyright.asp" -->
