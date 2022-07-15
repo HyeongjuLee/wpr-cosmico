@@ -326,7 +326,7 @@
 		<%End If%>
 
 		<%
-			No_pay_detail = "F"
+			No_pay_detail = "T"
 			pay_detail_left_width = ""
 			IF No_pay_detail = "T" Then
 				pay_detail_left_width = "width: 100%;"
@@ -349,14 +349,14 @@
 							<th><%=LNG_TEXT_PAY_BONUS03_1%></th>
 							<td class="inPrice"><%=num2cur(arrList_Allowance1)%></td>
 							<td class="tcenter">
-								<a href="javascript:pay_ajax_view('1','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a>
+								<!-- <a href="javascript:pay_ajax_view('1','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a> -->
 							</td>
 						</tr>
 						<tr>
 							<th><%=LNG_TEXT_PAY_BONUS03_2%></th>
 							<td class="inPrice"><%=num2cur(arrList_Allowance2)%></td>
 							<td class="tcenter">
-								<a href="javascript:pay_ajax_view('2','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a>
+								<!-- <a href="javascript:pay_ajax_view('2','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a> -->
 							</td>
 						</tr>
 						</tr>
@@ -364,7 +364,7 @@
 							<th><%=LNG_TEXT_PAY_BONUS03_3%></th>
 							<td class="inPrice"><%=num2cur(arrList_Allowance3)%></td>
 							<td class="tcenter">
-								<a href="javascript:pay_ajax_view('3','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a>
+								<!-- <a href="javascript:pay_ajax_view('3','<%=arrList_toenddate%>','pay_detail<%=i%>','1','<%=payDetailPage%>')" onfocus="this.blur();" class="detail_btn"><%=LNG_BTN_DETAIL%></a> -->
 							</td>
 						</tr>
 						<%If 1=2 Then%>
