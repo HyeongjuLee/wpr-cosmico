@@ -969,7 +969,7 @@ End Select
 					Call ALERTS(LNG_SHOP_ORDER_DIRECT_08,"GO","/m/shop/cart.asp")
 				End If
 
-				'If webproIP="T" Then TOTAL_DeliveryFee = 1
+				'If webproIP="T" Then TOTAL_DeliveryFee = 1500
 
 				TOTAL_SUM_PRICE = TOTAL_GOODS_PRICE + TOTAL_DeliveryFee + TOTAL_OptionPrice
 
@@ -1380,10 +1380,10 @@ End Select
 
 						MCOMPLEX_USE_TF = "T"
 					%>
-					<%If 1=2 Then %>
 					<div class="selectPayBtn">
 						<div class="skin-blue"><input type="radio" name="paykind" value="Card" /><label><%=LNG_SHOP_ORDER_DIRECT_PAY_01%></label></div>
 					</div>
+					<%If 1=2 Then %>
 					<div class="selectPayBtn">
 						<div class="skin-blue"><input type="radio" name="paykind" value="mComplex" /><label>다카드 결제</label></div>
 					</div>
@@ -2404,6 +2404,6 @@ End Select
 			Case "NOTORDER" : Call ALERTS(LNG_CS_ORDERS_ALERT07,"BACK","")
 		End Select
 %>
-<script type="text/javascript" src="order.bottom.js?v1"></script>
+<script type="text/javascript" src="order.bottom.js?v5"></script>
 <!--#include virtual="/m/_include/modal_config.asp" -->
 <!--#include virtual = "/m/_include/copyright.asp"-->

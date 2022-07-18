@@ -287,9 +287,40 @@
 	)
 	ORDER_DUP_CNT = Db.execRsData(SQLNC1,DB_TEXT,arrParamsNC1,Nothing)
 
-'	If CDbl(ORDER_DUP_CNT) > 0  Then Call ALERTS("비정상적인 주문번호입니다. (새로고침 후 다시 시도해주세요.)","GO",GO_BACK_ADDR)
+	If CDbl(ORDER_DUP_CNT) > 0  Then Call ALERTS("비정상적인 주문번호입니다. (새로고침 후 다시 시도해주세요.)","GO",GO_BACK_ADDR)
 '▣ 웹주문번호 중복체크 E
 
+	'◆ #6-0. 구매금액 위변조체크 S
+		arrParams = Array(_
+			Db.makeParam("@intIDX",adInteger,adParamInput,0,OIDX), _
+			Db.makeParam("@OrderNum",adVarChar,adParamInput,20,OrderNum) _
+		)
+		Set AHJRS = Db.execRs("HJP_ORDER_TEMP_CHECK_VIEW",DB_PROC,arrParams,Nothing)
+		If Not AHJRS.BOF And Not AHJRS.EOF Then
+			AHJRS_totalPrice		= AHJRS("totalPrice")
+			AHJRS_totalDelivery		= AHJRS("totalDelivery")
+			AHJRS_totalOptionPrice	= AHJRS("totalOptionPrice")
+			AHJRS_totalPoint		= AHJRS("totalPoint")
+			AHJRS_usePoint			= AHJRS("usePoint")
+			AHJRS_usePoint2			= AHJRS("usePoint2")
+
+			'▣위변조체크
+			If CDbl(totalPrice) <> CDbl(AHJRS_totalPrice)		Then Call ALERTS("Data modulation (totPrice)!","GO",GO_BACK_ADDR)
+			If CDbl(totalDelivery) <> CDbl(AHJRS_totalDelivery) Then Call ALERTS("Data Modulation (totDelivery)!","GO",GO_BACK_ADDR)
+			If CDbl(totalOptionPrice) <> CDbl(AHJRS_totalOptionPrice) Then Call ALERTS("Data Modulation (totOptionPrice)!","GO",GO_BACK_ADDR)
+			If CDbl(totalPoint) <> CDbl(AHJRS_totalPoint) Then Call ALERTS("Data Modulation (totPoint)!","GO",GO_BACK_ADDR)
+			If CDbl(usePoint) <> CDbl(AHJRS_usePoint) Then Call ALERTS("Data Modulation (usePoint)!","GO",GO_BACK_ADDR)
+			If CDbl(usePoint2) <> CDbl(AHJRS_usePoint2) Then Call ALERTS("Data Modulation (usePoint)!","GO",GO_BACK_ADDR)
+
+			MILEAGE_TOTAL = CDbl(CStr(MILEAGE_TOTAL))
+			If CDbl(MILEAGE_TOTAL) < 0 Then Call ALERTS("Invalid value!(mtot)","GO",GO_BACK_ADDR)
+			If CDbl(AHJRS_usePoint) < 0 Then Call ALERTS("Invalid value!(upoint)","GO",GO_BACK_ADDR)
+			If CDbl(AHJRS_usePoint) > CDbl(MILEAGE_TOTAL) Then Call ALERTS(LNG_JS_POINT_EXCEEDED,"GO",GO_BACK_ADDR)
+		Else
+			Call ALERTS(LNG_TEXT_NO_DATA,"GO",GO_BACK_ADDR)
+		End If
+		Call closeRS(AHJRS)
+	'◆ #6-0. 구매금액 위변조체크 E
 
 	'◆ #6. 구매상품 1차 확인! S		COSMICO
 	' - [임시주문 상품테이블]에서 현 주문 상품 정보 호출(카트수량 변조 무시)
@@ -1120,7 +1151,6 @@
 							IF v_SellCode = "02" Then
 								DKRS6_price2 = vipPrice
 							End If
-
 							Item_Discount = "GradeCnt : "&nowGradeCnt
 							Item_SellCode = v_SellCode
 							IF Item_SellCode <> "02" Then Item_Discount = "No Discount"

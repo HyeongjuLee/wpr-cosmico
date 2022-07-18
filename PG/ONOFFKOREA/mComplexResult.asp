@@ -109,6 +109,28 @@
 	End If
 '▣ CS 특이사항 E
 
+%>
+<%
+	'COSMICO 매출구분
+	'- 본인 직급 VIP 이하인 판매원의 매출의 경우 회원매출이며, VIP 달성 이후 회원매출, VIP매출를 선택하여 등록할 수 있다.
+	'- 판매등록시 VIP매출의 경우 본인의 현직급에 따른 판매금액을 적용하여 구매가 가능하다.
+	'- 최종 구매 페이지에서 매출구분을 선택할 수 있으며, 해당 매출 구분의 선택에 따라 구매 및 결제하여야 하는 금액이 변경된다.
+	'- 소비자의 경우 VIP 달성 이후 VIP 매출만 등록이 가능하며, 자동으로 VIP 매출로 처리한다. (매출선택 없음)
+
+	v_SellCode_CHK = ""
+	If nowGradeCnt >= 20 Then
+		If Sell_Mem_TF = 1 Then
+			v_SellCode_CHK = "02"
+			If CStr(v_SellCode) <> CStr(v_SellCode_CHK) Then Call ALERTS("Data Modulation(v_SCode02)","GO",GO_BACK_ADDR)
+		End If
+	Else
+		v_SellCode_CHK = "01"
+		If CStr(v_SellCode) <> CStr(v_SellCode_CHK) Then Call ALERTS("Data Modulation(v_SCode01)","GO",GO_BACK_ADDR)
+	End If
+
+%>
+<%
+
 	If orderMemo <> "" And Len(orderMemo) > 100 Then Call ALERTS("배송요청사항은 100자를 넘길 수 없습니다.","GO",GO_BACK_ADDR)
 
 '직접수령관련 추가
@@ -368,12 +390,46 @@
 	If CDbl(ORDER_DUP_CNT) > 0  Then Call ALERTS("비정상적인 주문번호입니다. (새로고침 후 다시 시도해주세요.)","GO",GO_BACK_ADDR)
 '▣ 웹주문번호 중복체크 E
 
+	'◆ #6-0. 구매금액 위변조체크 S
+		arrParams = Array(_
+			Db.makeParam("@intIDX",adInteger,adParamInput,0,OIDX), _
+			Db.makeParam("@OrderNum",adVarChar,adParamInput,20,OrderNum) _
+		)
+		Set AHJRS = Db.execRs("HJP_ORDER_TEMP_CHECK_VIEW",DB_PROC,arrParams,Nothing)
+		If Not AHJRS.BOF And Not AHJRS.EOF Then
+			AHJRS_totalPrice		= AHJRS("totalPrice")
+			AHJRS_totalDelivery		= AHJRS("totalDelivery")
+			AHJRS_totalOptionPrice	= AHJRS("totalOptionPrice")
+			AHJRS_totalPoint		= AHJRS("totalPoint")
+			AHJRS_usePoint			= AHJRS("usePoint")
+			AHJRS_usePoint2			= AHJRS("usePoint2")
+
+			'▣위변조체크
+			If CDbl(totalPrice) <> CDbl(AHJRS_totalPrice)		Then Call ALERTS("Data modulation (totPrice)!","GO",GO_BACK_ADDR)
+			If CDbl(totalDelivery) <> CDbl(AHJRS_totalDelivery) Then Call ALERTS("Data Modulation (totDelivery)!","GO",GO_BACK_ADDR)
+			If CDbl(totalOptionPrice) <> CDbl(AHJRS_totalOptionPrice) Then Call ALERTS("Data Modulation (totOptionPrice)!","GO",GO_BACK_ADDR)
+			If CDbl(totalPoint) <> CDbl(AHJRS_totalPoint) Then Call ALERTS("Data Modulation (totPoint)!","GO",GO_BACK_ADDR)
+			If CDbl(usePoint) <> CDbl(AHJRS_usePoint) Then Call ALERTS("Data Modulation (usePoint)!","GO",GO_BACK_ADDR)
+			If CDbl(usePoint2) <> CDbl(AHJRS_usePoint2) Then Call ALERTS("Data Modulation (usePoint)!","GO",GO_BACK_ADDR)
+
+			MILEAGE_TOTAL = CDbl(CStr(MILEAGE_TOTAL))
+			If CDbl(MILEAGE_TOTAL) < 0 Then Call ALERTS("Invalid value!(mtot)","GO",GO_BACK_ADDR)
+			If CDbl(AHJRS_usePoint) < 0 Then Call ALERTS("Invalid value!(upoint)","GO",GO_BACK_ADDR)
+			If CDbl(AHJRS_usePoint) > CDbl(MILEAGE_TOTAL) Then Call ALERTS(LNG_JS_POINT_EXCEEDED,"GO",GO_BACK_ADDR)
+		Else
+			Call ALERTS(LNG_TEXT_NO_DATA,"GO",GO_BACK_ADDR)
+		End If
+		Call closeRS(AHJRS)
+	'◆ #6-0. 구매금액 위변조체크 E
+
     If DownMemID1 = "" Then DownMemID1 = ""
     If DownMemID2 = "" Then DownMemID2 = 0
 
-	'◆ #6. 구매상품 1차 확인! S
+	'◆ #6. 구매상품 1차 확인! S	COSMICO
 	' - [임시주문 상품테이블]에서 현 주문 상품 정보 호출(카트수량 변조 무시)
-	SQLC1 = "SELECT [GoodIDX],[strOption],[orderEa],[isShopType],[strShopID],[GoodsPrice] FROM [DK_ORDER_TEMP_GOODS] WITH (NOLOCK) WHERE [OrderIDX] = ? And [OrderNum] = ?"
+	'SQLC1 = "SELECT [GoodIDX],[strOption],[orderEa],[isShopType],[strShopID],[GoodsPrice] FROM [DK_ORDER_TEMP_GOODS] WITH (NOLOCK) WHERE [OrderIDX] = ? And [OrderNum] = ?"
+	SQLC1 = "SELECT [GoodIDX],[strOption],[orderEa],[isShopType],[strShopID],[GoodsPrice]		,[GoodsCode] "
+	SQLC1 = SQLC1 & " FROM [DK_ORDER_TEMP_GOODS] WITH (NOLOCK) WHERE [OrderIDX] = ? And [OrderNum] = ?"
 	arrParamsC1 = Array(_
 		Db.makeParam("@intIDX",adInteger,adParamInput,0,OIDX), _
 		Db.makeParam("@OrderNum",adVarChar,adParamInput,20,OrderNum) _
@@ -385,6 +441,46 @@
 			DKRSC1_strOption	= arrListC1(1,c)
 			DKRSC1_orderEa		= arrListC1(2,c)
 			DKRSC1_GoodsPrice	= arrListC1(5,c)
+			DKRSC1_CSGoodsCode	= arrListC1(6,c)		'CSGoodsCode	COSMICO
+
+			'#############################################################################################
+				vipPrice = 0	'COSMICO
+				arrParams = Array(_
+					Db.makeParam("@ncode",adVarChar,adParamInput,20,DKRSC1_CSGoodsCode) _
+				)
+				Set DKRS = Db.execRs("HJP_CSGOODS_PRICE_INFO",DB_PROC,arrParams,DB3)
+				If Not DKRS.BOF And Not DKRS.EOF Then
+					RS_ncode		= DKRS("ncode")
+					RS_price		= DKRS("price")
+					RS_price2		= DKRS("price2")
+					RS_price4		= DKRS("price4")
+					RS_price5		= DKRS("price5")
+					RS_price6		= DKRS("price6")		'COSMICO VIP 가
+					RS_price7		= DKRS("price7")		'COSMICO 셀러 가
+					RS_price8		= DKRS("price8")		'COSMICO 매니저 가
+					RS_price9		= DKRS("price9")		'COSMICO 지점장 가
+					RS_price10		= DKRS("price10")	'COSMICO 본부장 가
+
+					'COSMICO VIP 매출가
+					Select Case nowGradeCnt
+						Case "20"	vipPrice = RS_price6
+						Case "30"	vipPrice = RS_price7
+						Case "40"	vipPrice = RS_price8
+						Case "50"	vipPrice = RS_price9
+						Case "60"	vipPrice = RS_price10
+						Case Else vipPrice = 0
+					End Select
+
+				End If
+				Call closeRs(DKRS)
+
+				'price 검증 COSMICO
+				If v_SellCode = "02" Then		'VIP매출 : 본인의 현직급에 따른 판매금액을 적용하여 구매가 가능.
+					If CDbl(CStr(DKRSC1_GoodsPrice)) <> CDbl(CStr(vipPrice)) Then Call ALERTS("Data Modulation(vPrice)","GO",GO_BACK_ADDR)
+				Else
+					If CDbl(CStr(DKRSC1_GoodsPrice)) <> CDbl(CStr(RS_price2)) Then Call ALERTS("Data Modulation(Price)","GO",GO_BACK_ADDR)
+				End If
+			'#############################################################################################
 
 			If DKRSC1_GoodsPrice < 1 Then Call ALERTS(LNG_SHOP_DETAILVIEW_JS_NO_PRICE,"GO",GO_BACK_ADDR)
 
@@ -1215,10 +1311,12 @@
 										DKRS_intMinimum = DKRS_intMinVIP
 								End Select
 
-								'▣소비자 가격, 쇼핑몰가/CS가 비교(2018-05-18)
-							'	If DK_MEMBER_STYPE = "1" And DKRS_isCSGoods = "T" Then
-							'		DKRS_GoodsPrice	 = DKRS_GoodsCustomer
-							'	End If
+								'▣소비자 가격
+								If CONST_CS_SOBIJA_PRICE_USE_TF = "T" Then
+									If DK_MEMBER_STYPE = "1" And DKRS_isCSGoods = "T" Then
+										DKRS_GoodsPrice	 = DKRS_GoodsCustomer
+									End If
+								End If
 
 							Else
 								'ThisCancel = "T"
@@ -1226,6 +1324,46 @@
 								'Call PG_ONOFFKOREA_CANCEL(TX_ONOFF_TID, PGorderNum, orderNum, totalPrice, PGAcceptNum, PGAcceptDate, isDirect, GoodIDX, chgPage, ThisMsg)
 							End If
 							Call closeRS(DKRS)
+
+
+							'####################################################################
+							' web.DK_ORDER_GOODS.DKRS_GoodsPrice 치환
+								vipPrice = 0	'COSMICO
+								arrParams = Array(_
+									Db.makeParam("@ncode",adVarChar,adParamInput,20,DKRS_CSGoodsCode) _
+								)
+								Set DKRS = Db.execRs("HJP_CSGOODS_PRICE_INFO",DB_PROC,arrParams,DB3)
+								If Not DKRS.BOF And Not DKRS.EOF Then
+									RS_ncode		= DKRS("ncode")
+									RS_price		= DKRS("price")
+									RS_price2		= DKRS("price2")
+									RS_price4		= DKRS("price4")
+									RS_price5		= DKRS("price5")
+									RS_price6		= DKRS("price6")		'COSMICO VIP 가
+									RS_price7		= DKRS("price7")		'COSMICO 셀러 가
+									RS_price8		= DKRS("price8")		'COSMICO 매니저 가
+									RS_price9		= DKRS("price9")		'COSMICO 지점장 가
+									RS_price10		= DKRS("price10")	'COSMICO 본부장 가
+
+									'COSMICO VIP 매출가
+									Select Case nowGradeCnt
+										Case "20"	vipPrice = RS_price6
+										Case "30"	vipPrice = RS_price7
+										Case "40"	vipPrice = RS_price8
+										Case "50"	vipPrice = RS_price9
+										Case "60"	vipPrice = RS_price10
+										Case Else vipPrice = 0
+									End Select
+
+								End If
+								Call closeRs(DKRS)
+
+								'COSMICO VIP 매출가
+								IF v_SellCode = "02" Then
+									DKRS_GoodsPrice = vipPrice
+								End If
+							'####################################################################
+
 
 							If DKRS_DelTF = "T" Then
 								'ThisCancel = "T"
@@ -1522,6 +1660,7 @@
 										End If
 										Call closeRs(DKRS4)
 
+										vipPrice = 0	'COSMICO
 										If DKRS4_isCSGoods = "T" Then
 
 											'▣CS상품정보 변동정보 통합
@@ -1534,26 +1673,55 @@
 												DKRS6_price		= DKRS6("price")		'소비자가
 												DKRS6_price2	= DKRS6("price2")
 												DKRS6_price4	= DKRS6("price4")
-												DKRS6_price6	= DKRS6("price6")
+												DKRS6_price6		= DKRS6("price6")		'COSMICO VIP 가
+												DKRS6_price7		= DKRS6("price7")		'COSMICO 셀러 가
+												DKRS6_price8		= DKRS6("price8")		'COSMICO 매니저 가
+												DKRS6_price9		= DKRS6("price9")		'COSMICO 지점장 가
+												DKRS6_price10		= DKRS6("price10")	'COSMICO 본부장 가
+
+												'COSMICO VIP 매출가
+												Select Case nowGradeCnt
+													Case "20"	vipPrice = RS_price6
+													Case "30"	vipPrice = RS_price7
+													Case "40"	vipPrice = RS_price8
+													Case "50"	vipPrice = RS_price9
+													Case "60"	vipPrice = RS_price10
+													Case Else vipPrice = 0
+												End Select
+
 											End If
 											Call closeRs(DKRS6)
 
-											'▣소비자 가격, 쇼핑몰가/CS가 비교(2018-05-18)
-										'	If DK_MEMBER_STYPE = "1" And DKRS_isCSGoods = "T" Then
-										'		DKRS6_price2	= DKRS6_price
-										'	End If
+											'▣소비자 가격
+											If CONST_CS_SOBIJA_PRICE_USE_TF = "T" Then
+												If DK_MEMBER_STYPE = "1" And DKRS_isCSGoods = "T" Then
+													DKRS6_price2	= DKRS6_price
+												End If
+											End If
+
+											'COSMICO VIP 매출가
+											IF v_SellCode = "02" Then
+												DKRS6_price2 = vipPrice
+											End If
+											Item_Discount = "GradeCnt : "&nowGradeCnt
+											Item_SellCode = v_SellCode
+											IF Item_SellCode <> "02" Then Item_Discount = "No Discount"
 
 											SQL7 = "INSERT INTO [DK_ORDER_TEMP_GOODS] ( "
 											SQL7 = SQL7 & " [OrderIDX],[GoodsCode],[GoodsPrice],[GoodsPV],[ea] "
+											SQL7 = SQL7 & " ,[Item_Discount],[Item_SellCode] "			'COSMICO
 											SQL7 = SQL7 & " ) VALUES ("
 											SQL7 = SQL7 & " ?,?,?,?,?"
+											SQL7 = SQL7 & " ,?,?"
 											SQL7 = SQL7 & " )"
 											arrParams7 = Array(_
 												Db.makeParam("@orderIDX",adInteger,adParamInput,4,CS_IDENTITY), _
 												Db.makeParam("@GoodsCode",adVarChar,adParamInput,20,DKRS4_CSGoodsCode), _
 												Db.makeParam("@GoodsPrice",adDouble,adParamInput,16,DKRS6_price2), _
 												Db.makeParam("@GoodsPV",adInteger,adParamInput,4,DKRS6_price4), _
-												Db.makeParam("@ea",adInteger,adParamInput,4,arrList3_OrderEa) _
+												Db.makeParam("@ea",adInteger,adParamInput,4,arrList3_OrderEa), _
+													Db.makeParam("@Item_Discount",adVarChar,adParamInput,30,Item_Discount),_
+													Db.makeParam("@Item_SellCode",adVarChar,adParamInput,30,Item_SellCode)_
 											)
 											Call Db.exec(SQL7,DB_TEXT,arrParams7,DB3)
 										End If
@@ -1664,9 +1832,9 @@
 											Db.makeParam("@OUT_ORDERNUMBER",adVarChar,adParamOutput,50,""), _
 											Db.makeParam("@OUTPUT_VALUE",adVarChar,adParamOutput,10,"ERROR") _
 										)
-										Call Db.exec("HJP_ORDER_TOTAL_MCOMPLEX",DB_PROC,arrParams,DB3)
+										Call Db.exec("HJP_ORDER_TOTAL_MCOMPLEX_COSMICO",DB_PROC,arrParams,DB3)		'--COSMICO VIP매출관련
+										''Call Db.exec("HJP_ORDER_TOTAL_MCOMPLEX",DB_PROC,arrParams,DB3)
 										'Call Db.exec("HJP_ORDER_TOTAL_DownMemID12_MCOMPLEX",DB_PROC,arrParams,DB3)       '직하선소비자 (실구매자) 렌탈구매 (+ 일반구매추가 2019-12-12)
-										''Call Db.exec("DKP_ORDER_TOTAL_NEW",DB_PROC,arrParams,DB3)
 										OUT_ORDERNUMBER = arrParams(UBound(arrParams)-1)(4)
 										OUTPUT_VALUE = arrParams(Ubound(arrParams))(4)
 

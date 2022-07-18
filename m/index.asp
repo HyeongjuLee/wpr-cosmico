@@ -313,7 +313,7 @@
 				%>
 				<div class="goods">
 					<%If DK_MEMBER_LEVEL > 0 Then%>
-					<a href="/shop/detailView.asp?gidx=<%=arrList_intIDX%>">
+					<a href="/m/shop/detailView.asp?gidx=<%=arrList_intIDX%>">
 					<%Else%>
 					<a href="javascript: check_frm();">
 					<%End If %>

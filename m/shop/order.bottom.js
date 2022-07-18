@@ -7,74 +7,83 @@
 			$("#orderInfo").hide();
 			fillEmptyOrdererInfo();
 		}
-		let DIRECT_PICKUP_USE_TF = $("input[name=DIRECT_PICKUP_USE_TF]").val();
-		if (DIRECT_PICKUP_USE_TF == 'T') {
-			chgDelivery(DtoD);
-		}
 	});
 
 	function chgDelivery(DtoD) {
-		var price = $("input[name=ori_price]").val() * 1;
-		var deliFee = $("input[name=ori_delivery]").val() * 1;
-		var usePoint = $("input[name=useCmoney]").val() * 1;
-		let SHOP_ORDERINFO_VIEW_TF = $("input[name=SHOP_ORDERINFO_VIEW_TF]").val();
-
-		if (SHOP_ORDERINFO_VIEW_TF == 'T') {
-		}else{
-			$("#orderInfo").hide();
-			fillEmptyOrdererInfo();
-		}
-
-
-
-
-		//다카드 + DtoD 추가
-		let paymethod = $("input[name=gopaymethod]").val();
-		if (paymethod == 'mComplex') {
-			alert("※수령방식 변경 시 입력된 다카드결제정보는 모두 초기화 됩니다!");
-			resetAllmComplexInfo();		//복합결제 초기화
-		}
-
-		if (DtoD == 'F')		//현장수령
+		let DIRECT_PICKUP_USE_TF = $("input[name=DIRECT_PICKUP_USE_TF]").val();
+		if (DIRECT_PICKUP_USE_TF = 'T')
 		{
-			let getPrice = (price - deliFee - usePoint) * 1;
-			$("input[name=totalPrice], input[name=mComplexTotalPrice]").val(getPrice);		//다카드 추가
-			$("input[name=totalDelivery]").val(0);
+			let price = $("input[name=ori_price]").val() * 1;
+			let deliFee = $("input[name=ori_delivery]").val() * 1;
+			let usePoint = $("input[name=useCmoney]").val() * 1;
+			let SHOP_ORDERINFO_VIEW_TF = $("input[name=SHOP_ORDERINFO_VIEW_TF]").val();
 
-			$("#priTXT").text(NumberFormatter.format(0));
-			$("#lastTXT, #payArea").text(NumberFormatter.format(getPrice));
-			$("#mCardPrice_TXT, #mComplexTotal_TXT").text(NumberFormatter.format(getPrice));			//다카드 추가
-
-			//$("#deliveryInfo").hide();
 			if (SHOP_ORDERINFO_VIEW_TF == 'T') {
+			}else{
 				$("#orderInfo").hide();
 				fillEmptyOrdererInfo();
 			}
-			$("#deliveryInfo").show();
-			$(".directpickup").hide();
-			$(".directpickupTitle").show();
 
-		} else {
-			let getPrice = (price - usePoint) * 1;
-			$("input[name=totalPrice], input[name=mComplexTotalPrice]").val(getPrice);
-			$("input[name=totalDelivery]").val(deliFee);
 
-			$("#priTXT").text(NumberFormatter.format(deliFee));
-			$("#lastTXT, #payArea").text(NumberFormatter.format(getPrice));
-			$("#mCardPrice_TXT, #mComplexTotal_TXT").text(NumberFormatter.format(getPrice));			//다카드 추가
 
-			//$("#deliveryInfo").show();
 
-			if (SHOP_ORDERINFO_VIEW_TF == 'T') {
-				$("#orderInfo").show();
-				oriOrdererInfo();
+			//다카드 + DtoD 추가
+			let paymethod = $("input[name=gopaymethod]").val();
+			if (paymethod == 'mComplex') {
+				alert("※수령방식 변경 시 입력된 다카드결제정보는 모두 초기화 됩니다!");
+				resetAllmComplexInfo();		//복합결제 초기화
 			}
-			$("#deliveryInfo").show();
-			$(".directpickup").show();
-			$(".directpickupTitle").hide();
 
+			let getPrice = (price - usePoint) * 1;
+			if (DtoD == 'F')		//현장수령
+			{
+				getPrice = (getPrice - deliFee) * 1;
+				$("input[name=totalPrice], input[name=mComplexTotalPrice]").val(getPrice);		//다카드 추가
+				$("input[name=sndAmount]").val(getPrice);		//KSNET
+				$("input[name=Amt]").val(getPrice);		//NICEPAY
+				$("input[name=AMOUNT]").val(getPrice);		//DAOU
+
+				$("input[name=totalDelivery]").val(0);
+
+				$("#priTXT").text(NumberFormatter.format(0));
+				$("#lastTXT, #payArea").text(NumberFormatter.format(getPrice));
+				$("#mCardPrice_TXT, #mComplexTotal_TXT").text(NumberFormatter.format(getPrice));			//다카드 추가
+
+				//$("#deliveryInfo").hide();
+				if (SHOP_ORDERINFO_VIEW_TF == 'T') {
+					$("#orderInfo").hide();
+					fillEmptyOrdererInfo();
+				}
+				$("#deliveryInfo").show();
+				$(".directpickup").hide();
+				$(".directpickupTitle").show();
+
+			} else {
+				getPrice = getPrice;
+				$("input[name=totalPrice], input[name=mComplexTotalPrice]").val(getPrice);
+				$("input[name=sndAmount]").val(getPrice);		//KSNET
+				$("input[name=Amt]").val(getPrice);		//NICEPAY
+				$("input[name=AMOUNT]").val(getPrice);		//DAOU
+
+				$("input[name=totalDelivery]").val(deliFee);
+
+				$("#priTXT").text(NumberFormatter.format(deliFee));
+				$("#lastTXT, #payArea").text(NumberFormatter.format(getPrice));
+				$("#mCardPrice_TXT, #mComplexTotal_TXT").text(NumberFormatter.format(getPrice));			//다카드 추가
+
+				//$("#deliveryInfo").show();
+
+				if (SHOP_ORDERINFO_VIEW_TF == 'T') {
+					$("#orderInfo").show();
+					oriOrdererInfo();
+				}
+				$("#deliveryInfo").show();
+				$(".directpickup").show();
+				$(".directpickupTitle").hide();
+			}
+			sumAllPrice();			//업체별 택배수령, 현장수령 배송비 변경
+			chgDeliveryValue(DtoD);
 		}
-
 	}
 
 	//배송지선택

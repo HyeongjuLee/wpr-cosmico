@@ -919,7 +919,7 @@ End Select
 		%>
 	</table>
 	<%
-		'If webproIP="T" Then TOTAL_DeliveryFee = 2
+		'If webproIP="T" Then TOTAL_DeliveryFee = 1120
 
 		TOTAL_SUM_PRICE = TOTAL_GOODS_PRICE + TOTAL_DeliveryFee + TOTAL_OptionPrice
 
@@ -1454,22 +1454,22 @@ End Select
 											</td>
 											<th>카드번호</th>
 											<td>
-												<input type="text" title="카드번호 1" name="mCardNo1" class="input_text" style="width:55px" maxlength="4" onkeyup="focus_next_input(this);" value="" <%=onlyKeys%> /> -
-												<input type="password" title="카드번호 2" name="mCardNo2" class="input_text" style="width:55px" maxlength="4" onkeyup="focus_next_input(this);" value="" <%=onlyKeys%> /> -
-												<input type="password" title="카드번호 3" name="mCardNo3" class="input_text" style="width:55px" maxlength="4" onkeyup="focus_next_input(this);" value="" <%=onlyKeys%> /> -
-												<input type="text" title="카드번호 4" name="mCardNo4" class="input_text" style="width:55px" maxlength="4" value="" <%=onlyKeys%> />
+												<input type="text" title="카드번호 1" name="mCardNo1" class="input_text" style="width:62px" maxlength="4" onkeyup="focus_next_input(this);" value="" <%=onlyKeys%> />
+												<input type="password" title="카드번호 2" name="mCardNo2" class="input_text" style="width:62px" maxlength="4" onkeyup="focus_next_input(this);" value="" <%=onlyKeys%> />
+												<input type="password" title="카드번호 3" name="mCardNo3" class="input_text" style="width:62px" maxlength="4" onkeyup="focus_next_input(this);" value="" <%=onlyKeys%> />
+												<input type="text" title="카드번호 4" name="mCardNo4" class="input_text" style="width:62px" maxlength="4" value="" <%=onlyKeys%> />
 											</td>
 										</tr><tr>
 											<th>유효기간</th>
 											<td>
-												<select title="유효기간(월)" name="mCardMM" class="vmiddle input_select" style="width:60px;">
+												<select title="유효기간(월)" name="mCardMM" class="vmiddle input_select" style="width:70px;">
 													<option value="">월</option>
 													<%For j = 1 To 12%>
 														<%jsmm = Right("0"&j,2)%>
 														<option value="<%=jsmm%>" ><%=jsmm%></option>
 													<%Next%>
 												</select> /
-												<select title="유효기간(년)" name="mCardYY" class="vmiddle input_select" style="width:80px;">
+												<select title="유효기간(년)" name="mCardYY" class="vmiddle input_select" style="width:90px;">
 													<option value="">년</option>
 													<%For i = THIS_YEAR To EXPIRE_YEAR%>
 														<option value="<%=i%>" ><%=i%></option>
@@ -1604,10 +1604,10 @@ End Select
 								<tr>
 									<th>카드번호</th>
 									<td>
-										<input type="text" name="cardNo1" class="input_text tcenter" maxlength="4" onkeyup="focus_next_input(this);" style="width:60px;" placeholder="" <%=onlyKeys%> value="" /> -
-										<input type="password" name="cardNo2" class="input_text tcenter" maxlength="4" onkeyup="focus_next_input(this);" style="width:60px;" placeholder="" <%=onlyKeys%> value="" /> -
-										<input type="password" name="cardNo3" class="input_text tcenter" maxlength="4" onkeyup="focus_next_input(this);" style="width:60px;" placeholder="" <%=onlyKeys%> value="" /> -
-										<input type="text" name="cardNo4" class="input_text tcenter" maxlength="4" style="width:60px;" placeholder="" <%=onlyKeys%> value="" />
+										<input type="text" name="cardNo1" class="input_text tcenter" maxlength="4" onkeyup="focus_next_input(this);" style="width:70px;" placeholder="" <%=onlyKeys%> value="" /> -
+										<input type="password" name="cardNo2" class="input_text tcenter" maxlength="4" onkeyup="focus_next_input(this);" style="width:70px;" placeholder="" <%=onlyKeys%> value="" /> -
+										<input type="password" name="cardNo3" class="input_text tcenter" maxlength="4" onkeyup="focus_next_input(this);" style="width:70px;" placeholder="" <%=onlyKeys%> value="" /> -
+										<input type="text" name="cardNo4" class="input_text tcenter" maxlength="4" style="width:70px;" placeholder="" <%=onlyKeys%> value="" />
 									</td>
 								</tr><tr>
 									<th>유효기간</th>
@@ -1862,7 +1862,7 @@ End Select
 
 				<div id="Agreement">
 					<div class="ag">·<%=LNG_SHOP_ORDER_DIRECT_PAY_15%>
-						<div class="fright"><label class="yesagree ya00"><input type="checkbox" name="gAgreement" value="T" class="input_chk" /> <%=LNG_SHOP_ORDER_DIRECT_PAY_21%></label></div>
+						<div class="fright"><label class="yesagree ya00"><input type="checkbox" name="gAgreement" value="T" class="input_chk" style="width: 18px;height: 18px;" /> <%=LNG_SHOP_ORDER_DIRECT_PAY_21%></label></div>
 					</div>
 					<div class="AgreementBox">
 						-<span style="color:#d75623;"><%=LNG_SHOP_ORDER_DIRECT_PAY_16%></span><br />
@@ -2254,7 +2254,7 @@ End Select
 		End Select
 %>
 
-<script type="text/javascript" src="order.bottom.js?v3"></script>
+<script type="text/javascript" src="order.bottom.js?v5"></script>
 
 <%
 	MODAL_BORDER_THICKNESS = 1

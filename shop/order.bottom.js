@@ -7,75 +7,82 @@
 			$("#orderInfo").hide();
 			fillEmptyOrdererInfo();
 		}
-		let DIRECT_PICKUP_USE_TF = $("input[name=DIRECT_PICKUP_USE_TF]").val();
-		if (DIRECT_PICKUP_USE_TF == 'T') {
-			chgDelivery(DtoD);
-		}
 	});
 
 	function chgDelivery(DtoD) {
-		let price = $("input[name=ori_price]").val() * 1;
-		let deliFee = $("input[name=ori_delivery]").val() * 1;
-		let usePoint = $("input[name=useCmoney]").val() * 1;
-		let SHOP_ORDERINFO_VIEW_TF = $("input[name=SHOP_ORDERINFO_VIEW_TF]").val();
-
-		if (SHOP_ORDERINFO_VIEW_TF == 'T') {
-			$("#orderInfo").css("width","100%");
-			$("#deliveryInfo").css("width","100%");
-		}else{
-			$("#orderInfo").hide();
-			$("#deliveryInfo").css("width","100%");
-			fillEmptyOrdererInfo();
-		}
-
-		//다카드 + DtoD 추가
-		let paymethod = $("input[name=gopaymethod]").val();
-		if (paymethod == 'mComplex') {
-			alert("※수령방식 변경 시 입력된 다카드결제정보는 모두 초기화 됩니다!");
-			resetAllmComplexInfo();		//복합결제 초기화
-		}
-
-		if (DtoD == 'F')		//현장수령
+		let DIRECT_PICKUP_USE_TF = $("input[name=DIRECT_PICKUP_USE_TF]").val();
+		if (DIRECT_PICKUP_USE_TF = 'T')
 		{
-			let getPrice = (price - deliFee - usePoint) * 1;
-			$("input[name=totalPrice], input[name=mComplexTotalPrice]").val(getPrice);			//다카드 추가
-
-			$("input[name=totalDelivery]").val(0);
-
-			$("#DeliveryAreaID, #DeliveryAreaID2").text(NumberFormatter.format(0));
-			$("#LastAreaID, #payArea").text(NumberFormatter.format(getPrice));
-			$("#mCardPrice_TXT, #mComplexTotal_TXT").text(NumberFormatter.format(getPrice));			//다카드 추가
+			let price = $("input[name=ori_price]").val() * 1;
+			let deliFee = $("input[name=ori_delivery]").val() * 1;
+			let usePoint = $("input[name=useCmoney]").val() * 1;
+			let SHOP_ORDERINFO_VIEW_TF = $("input[name=SHOP_ORDERINFO_VIEW_TF]").val();
 
 			if (SHOP_ORDERINFO_VIEW_TF == 'T') {
+				$("#orderInfo").css("width","100%");
+				$("#deliveryInfo").css("width","100%");
+			}else{
 				$("#orderInfo").hide();
 				$("#deliveryInfo").css("width","100%");
 				fillEmptyOrdererInfo();
 			}
-			$("#deliveryInfo").show();
-			$(".directpickup").hide();
-			$(".directpickupTitle").show();
 
-		} else {
-			let getPrice = (price - usePoint) * 1;
-			$("input[name=totalPrice], input[name=mComplexTotalPrice]").val(getPrice);
-
-			$("input[name=totalDelivery]").val(deliFee);
-
-			$("#DeliveryAreaID, #DeliveryAreaID2").text(NumberFormatter.format(deliFee));
-			$("#LastAreaID, #payArea").text(NumberFormatter.format(getPrice));
-			$("#mCardPrice_TXT, #mComplexTotal_TXT").text(NumberFormatter.format(getPrice));			//다카드 추가
-
-			if (SHOP_ORDERINFO_VIEW_TF == 'T') {
-				$("#orderInfo").show();
-				$("#deliveryInfo").css("width","100%");
-				oriOrdererInfo();
+			//다카드 + DtoD 추가
+			let paymethod = $("input[name=gopaymethod]").val();
+			if (paymethod == 'mComplex') {
+				alert("※수령방식 변경 시 입력된 다카드결제정보는 모두 초기화 됩니다!");
+				resetAllmComplexInfo();		//복합결제 초기화
 			}
-			$("#deliveryInfo").show();
-			$(".directpickup").show();
-			$(".directpickupTitle").hide();
+
+			let getPrice = (price - usePoint) * 1;
+			if (DtoD == 'F') {			//현장수령
+				getPrice = (getPrice - deliFee) * 1;
+				$("input[name=totalPrice], input[name=mComplexTotalPrice]").val(getPrice);			//다카드 추가
+				$("input[name=sndAmount]").val(getPrice);		//KSNET
+				$("input[name=Amt]").val(getPrice);		//NICEPAY
+				$("input[name=AMOUNT]").val(getPrice);		//DAOU
+
+				$("input[name=totalDelivery]").val(0);
+
+				$("#DeliveryAreaID, #DeliveryAreaID2").text(NumberFormatter.format(0));
+				$("#LastAreaID, #payArea").text(NumberFormatter.format(getPrice));
+				$("#mCardPrice_TXT, #mComplexTotal_TXT").text(NumberFormatter.format(getPrice));			//다카드 추가
+
+				if (SHOP_ORDERINFO_VIEW_TF == 'T') {
+					$("#orderInfo").hide();
+					$("#deliveryInfo").css("width","100%");
+					fillEmptyOrdererInfo();
+				}
+				$("#deliveryInfo").show();
+				$(".directpickup").hide();
+				$(".directpickupTitle").show();
+
+			} else {
+				getPrice = getPrice;
+				$("input[name=totalPrice], input[name=mComplexTotalPrice]").val(getPrice);
+				$("input[name=sndAmount]").val(getPrice);		//KSNET
+				$("input[name=Amt]").val(getPrice);		//NICEPAY
+				$("input[name=AMOUNT]").val(getPrice);		//DAOU
+
+				$("input[name=totalDelivery]").val(deliFee);
+
+				$("#DeliveryAreaID, #DeliveryAreaID2").text(NumberFormatter.format(deliFee));
+				$("#LastAreaID, #payArea").text(NumberFormatter.format(getPrice));
+				$("#mCardPrice_TXT, #mComplexTotal_TXT").text(NumberFormatter.format(getPrice));			//다카드 추가
+
+				if (SHOP_ORDERINFO_VIEW_TF == 'T') {
+					$("#orderInfo").show();
+					$("#deliveryInfo").css("width","100%");
+					oriOrdererInfo();
+				}
+				$("#deliveryInfo").show();
+				$(".directpickup").show();
+				$(".directpickupTitle").hide();
+			}
+			sumAllPrice();			//업체별 택배수령, 현장수령 배송비 변경
+			chgDeliveryValue(DtoD);
 		}
 	}
-
 
 	//배송지선택
 	let takeName = $("input[name=takeName]");
@@ -92,6 +99,13 @@
 	let strADDR1 = $("input[name=strADDR1]");
 	let strADDR2 = $("input[name=strADDR2]");
 
+	let ori_strName = $("input[name=ori_strName]");
+	let ori_strTel = $("input[name=ori_strTel]");
+	let ori_strMobile = $("input[name=ori_strMobile]");
+	let ori_strZip = $("input[name=ori_strZip]");
+	let ori_strADDR1 = $("input[name=ori_strADDR1]");
+	let ori_strADDR2 = $("input[name=ori_strADDR2]");
+
 	//빈값처리
 	function fillEmptyOrdererInfo() {
 		if (strName.val() == "") strName.val('strName');
@@ -102,18 +116,15 @@
 		if (strADDR2.val() == "") strADDR2.val('strADDR2');
 	}
 
-	function oriOrdererInfo(f) {
+	function oriOrdererInfo() {
 		emptyDeliveryInfo();
-		if (typeof f == "undefined"){
-			f=window.document.forms[0];
-			f.dInfoType[0].checked = true;
-		}
-		strName.val(f.ori_strName.value);
-		strTel.val(f.ori_strTel.value);
-		strMobile.val(f.ori_strMobile.value);
-		strZip.val(f.ori_strZip.value);
-		strADDR1.val(f.ori_strADDR1.value);
-		strADDR2.val(f.ori_strADDR2.value);
+		$('input:radio[name=dInfoType]').eq(0).attr("checked", true);
+		strName.val(ori_strName.val());
+		strTel.val(ori_strTel.val());
+		strMobile.val(ori_strMobile.val());
+		strZip.val(ori_strZip.val());
+		strADDR1.val(ori_strADDR1.val());
+		strADDR2.val(ori_strADDR2.val());
 	}
 
 	function insertThisAddress(v1,v2,v3,v4,v5,v6) {
@@ -126,35 +137,26 @@
 		$("#takeZipBtn").hide();
 	}
 
-	function ordererDeliveryInfo(f) {		//shop order
+	function ordererDeliveryInfo() {		//shop order
 		emptyDeliveryInfo();
-		if (typeof f == "undefined"){
-			f=window.document.forms[0];
-			f.dInfoType[0].checked = true;
-		}
-		takeName.val(f.strName.value);
-		takeTel.val(f.strTel.value);
-		takeMobile.val(f.strMobile.value);
-		takeZip.val(f.strZip.value);
-		takeADDR1.val(f.strADDR1.value);
-		takeADDR2.val(f.strADDR2.value);
+		$('input:radio[name=dInfoType]').eq(0).attr("checked", true);
+		takeName.val(strName.val());
+		takeTel.val(strTel.val());
+		takeMobile.val(strMobile.val());
+		takeZip.val(strZip.val());
+		takeADDR1.val(strADDR1.val());
+		takeADDR2.val(strADDR2.val());
 	}
 
-	function baseDeliveryInfo(f) {		//myoffice order
-		//var f = document.orderFrm;
+	function baseDeliveryInfo() {		//myoffice order
 		emptyDeliveryInfo();
-		if (typeof f == "undefined"){
-			//f=window.document.forms[0];
-			f=window.document.forms[1];
-			//console.log(f);
-			f.dInfoType[0].checked = true;
-		}
-		takeName.val(f.ori_strName.value);
-		takeTel.val(f.ori_strTel.value);
-		takeMobile.val(f.ori_strMobile.value);
-		takeZip.val(f.ori_strZip.value);
-		takeADDR1.val(f.ori_strADDR1.value);
-		takeADDR2.val(f.ori_strADDR2.value);
+		$('input:radio[name=dInfoType]').eq(0).attr("checked", true);
+		takeName.val(ori_strName.val());
+		takeTel.val(ori_strTel.val());
+		takeMobile.val(ori_strMobile.val());
+		takeZip.val(ori_strZip.val());
+		takeADDR1.val(ori_strADDR1.val());
+		takeADDR2.val(ori_strADDR2.val());
 	}
 
 	function emptyDeliveryInfo() {
