@@ -1380,10 +1380,10 @@ End Select
 
 						MCOMPLEX_USE_TF = "T"
 					%>
+					<%If 1=2 Then %>
 					<div class="selectPayBtn">
 						<div class="skin-blue"><input type="radio" name="paykind" value="Card" /><label><%=LNG_SHOP_ORDER_DIRECT_PAY_01%></label></div>
 					</div>
-					<%If 1=2 Then %>
 					<div class="selectPayBtn">
 						<div class="skin-blue"><input type="radio" name="paykind" value="mComplex" /><label>다카드 결제</label></div>
 					</div>

@@ -128,7 +128,7 @@
 							<li><a href="/m/page/business.asp?view=1"><%=LNG_BUSINESS_01%></a></li>
 							<li><a href="/m/page/business.asp?view=2"><%=LNG_BUSINESS_02%></a></li>
 							<li><a href="/m/page/business.asp?view=3"><%=LNG_BUSINESS_03%></a></li>
-							<li><a href="/m/page/business.asp?view=4"><%=LNG_BUSINESS_04%></a></li>
+							<li><a href="/m/salesman/salesmanSearch.asp"><%=LNG_BUSINESS_04%></a></li>
 							<li><a href="/m/page/business.asp?view=5"><%=LNG_BUSINESS_05%></a></li>
 
 						<%' "GUIDE"%>

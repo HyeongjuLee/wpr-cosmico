@@ -1,0 +1,296 @@
+@import 'mixin-custom';
+
+$input-height: rem(80px);
+
+.content {
+	min-height: calc(#{$top-height} - #{$contain-height} - #{rem(250px)} - #{$footer-height});
+}
+
+#search_form {
+	width: 100%;
+	text-align: center;
+	font-size: $font-size;
+	line-height: 1.5;
+	margin-bottom: $font-size * 2;
+
+	form {
+		@include inline-flex($st, $st);
+		flex-direction: column;
+		padding: $font-size / 2 $font-size;
+		border: 1px solid $oc-gray-2;
+		background: $oc-gray-0;
+		width: 100%;
+	}
+
+	article {
+		@include inline-flex($st);
+		width: 100%;
+		margin: $font-size / 2 0;
+	}
+}
+
+#search_form {
+	h6 {
+		font-size: $parent-css;
+		font-weight: 600;
+		margin-right: $font-size;
+	}
+	input {
+		padding: 0 $font-size;
+		height: $input-height;
+	}
+	.inputs {
+		@include inline-flex;
+		// background: $oc-gray-2;
+		border: 1px solid $oc-gray-6;
+		background: #fff;
+		width: 100%;
+		flex: 1;
+		input {
+			@include default-0;
+			padding: 0 $font-size;
+			&:first-of-type {
+				width: rem(140px);
+				text-align: center;
+			}
+			&:last-of-type {
+				width: calc(100% - #{rem(140px)});
+			}
+		}
+	}
+}
+
+#search_form {
+	.search {
+		font-size: 0;
+		border: 1px solid $oc-gray-6;
+		background: #fff;
+		// background: $oc-gray-2;
+		width: 100%;
+		flex: 1;
+		.input_text {
+			@include default-0;
+			border-radius: 0;
+			padding: 0 rem(25px);
+			font-size: $font-size;
+			text-align: left;
+			width: calc(100% - #{$input-height});
+		}
+		.button {
+			@include position;
+			@include default-0;
+			display: inline-block;
+			width: $input-height;
+			height: $input-height;
+			cursor: pointer;
+			
+			input {
+				@include position(absolute);
+				width: 0;
+				height: 0;
+				padding: 0;
+				font-size: 0;
+				visibility: hidden;
+				left: 0;
+			}
+			i {
+				@include default-0;
+				left: 0;
+				display: $parent-css;
+				font-size: $font-size + rem(5px);
+				color: $main-color;
+				width: 100%;
+				height: 100%;
+				@include flex;
+			}
+		}
+	}
+}
+
+#search_form {
+	.inputs {
+		&:hover {
+			border-color: $main-color;
+		}
+	}
+	.search {
+		&:hover {
+			border-color: $main-color;
+		}
+	}
+}
+
+// #search_form {
+// 	.board {
+// 		@include table-color;
+// 	}
+// }
+
+.board {
+	@include table-color;
+}
+
+#salesman {
+	table {
+		margin-bottom: rem(15px);
+	}
+}
+
+#sales_pa {
+	.pages {
+		clear: both;
+		float: center;
+		overflow: hidden;
+	}
+
+	.pagers {
+		display: inline-block;
+		width: 15px;
+		height: 19px;
+		padding-top: 5px;
+		color: #858585;
+		margin-left: 3px;
+		text-align: center;
+	}
+
+	.pagers2 {
+		display: inline-block;
+		height: 15px;
+		padding: 5px 4px 0px 4px;
+		color: #858585;
+		margin-left: 3px;
+		text-align: center;
+	}
+
+	.pagers a {
+		color: #3063ab;
+		text-decoration: none;
+	}
+
+	.pagers2 a {
+		color: #858585;
+		text-decoration: none;
+	}
+
+	.pagers a:hover,
+	.pagers2 a:hover {
+		color: #3063ab;
+		text-decoration: none;
+	}
+}
+
+#salesman {
+	// th {
+	// 	height: 32px;
+	// 	border-top: 2px solid #858585;
+	// 	border-bottom: 1px solid #c3c3c3;
+	// 	height: 32px;
+	// 	font-size: 13px;
+	// }
+
+	// td {
+	// 	height: 32px;
+	// 	border-top: 1px solid #f0f0f0;
+	// 	font-size: 15px;
+	// 	text-align: center;
+	// }
+
+	.notData {
+		text-align: center;
+		height: 80px;
+	}
+
+	.dataText {
+		text-align: center;
+		height: 80px;
+		color: #3366ff;
+		padding: 30px 0px;
+	}
+
+	tr.for_td:hover {
+		background-color: #eee;
+	}
+}
+
+#faq {
+	th {
+		font-weight: normal;
+		color: #797979;
+		border-top: 2px solid #858585;
+		border-bottom: 1px solid #c3c3c3;
+		height: 32px;
+		font-size: 13px;
+	}
+
+	.td_q td {
+		border-top: 1px solid #f0f0f0;
+		padding: 8px 0px;
+
+		&.nots {
+			border-top: 0px none;
+			padding: 8px 0px;
+		}
+
+		a {
+			color: #858585;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.notData {
+		text-align: center;
+		height: 80px;
+	}
+}
+
+.searchBoard {
+	height: 26px;
+	width: 26px;
+	display: block;
+	position: relative;
+	border: 1px solid #c3c3c3;
+	border-left: 0 none;
+
+	.searchGlass:before {
+		content: '';
+		height: 8px;
+		display: block;
+		position: absolute;
+		top: 5px;
+		left: 5px;
+	}
+}
+
+.searchGlass:after {
+	content: '';
+	height: 8px;
+	display: block;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
+.searchBoard .searchGlass {
+	&:before {
+		width: 8px;
+		border: 2px #626262 solid;
+		border-radius: 100%;
+		-webkit-border-radius: 100%;
+		-moz-border-radius: 100%;
+	}
+
+	&:after {
+		width: 3px;
+		background: #626262;
+		transform: rotate(-45deg);
+		-webkit-transform: rotate(-45deg);
+		-moz-transform: rotate(-45deg);
+		-o-transform: rotate(-45deg);
+		-ms-transform: rotate(-45deg);
+		top: 13px;
+		left: 16px;
+	}
+}

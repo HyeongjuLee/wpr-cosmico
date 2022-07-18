@@ -1,7 +1,11 @@
 <!--#include virtual = "/_lib/strFunc.asp"-->
 <%
 
-	PAGE_SETTING = "BCENTER"
+	'PAGE_SETTING = "BCENTER"
+	PAGE_SETTING = "MYOFFICE"
+	INFO_MODE	 = "BCENTER1-1"
+
+	ISSUBTOP = "T"
 
 
 

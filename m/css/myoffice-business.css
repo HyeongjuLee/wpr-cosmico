@@ -1,7 +1,7 @@
 th.price, td.price { text-align: right !important; }
 
-.myoffice_pay .searchs .labels { grid-column: 2/6; margin-right: 0; padding-right: 0; }
-.myoffice_pay.pay03 .buttons { grid-column: 6/13; }
+.member .searchs .labels { grid-column: 2/6; margin-right: 0; padding-right: 0; }
+.member.pay03 .buttons { grid-column: 6/13; }
 
 .total { width: 100%; box-shadow: 0px 0px 0px 1px #66a8e4; text-align: center; }
 .total table { border: none; }
@@ -71,10 +71,10 @@ th.price, td.price { text-align: right !important; }
 
 .pay_detail_both { display: flex; justify-content: space-between; align-items: flex-start; }
 
-.cpay_detail.left { width: calc(47% - 20px); }
+.pay_detail.left { width: calc(50% - 30px); }
+.pay_detail.right { width: 50%; }
 
-.pay_detail.left { width: calc(47% - 20px); }
-.pay_detail.right { width: 53%; }
+.cpay_detail.left { width: calc(50% - 30px); }
 
 .pay_detail_table { width: 100%; box-shadow: 0px 0px 0px 1px #9d9da1; text-align: center; }
 .pay_detail_table table { border: none; }
@@ -109,10 +109,9 @@ th.price, td.price { text-align: right !important; }
 .sticky-wrap > .line:after { content: ""; position: absolute; bottom: 0; right: 0; width: 100%; height: 1px; z-index: 5; background: #9d9da1; }
 
 .sticky { width: 100%; height: auto; overflow: auto; max-height: 350px; }
-.sticky::-webkit-scrollbar { position: relative; width: 1.4rem; height: 1.5rem; z-index: 2; }
+.sticky::-webkit-scrollbar { position: relative; width: 1.4rem; z-index: 2; }
 .sticky::-webkit-scrollbar-thumb { background: #9d9da1; background-clip: padding-box; border: 0.3rem solid transparent; -moz-border-radius: 1.4rem; -webkit-border-radius: 1.4rem; border-radius: 1.4rem; cursor: pointer; }
-.sticky::-webkit-scrollbar-track { background: #f5f5f5; box-shadow: inset 1px 1px 0 #aaa; z-index: 1; }
-.sticky::-webkit-scrollbar-corner { background: #f5f5f5; }
+.sticky::-webkit-scrollbar-track { background: #f5f5f5; box-shadow: inset 1px 0 0 #aaa; z-index: 1; }
 
 .pay_sticky_table { text-align: center; width: 100%; box-shadow: 0px 0px 0px 1px #9d9da1; }
 .pay_sticky_table table { border: none; }
@@ -136,8 +135,8 @@ th.price, td.price { text-align: right !important; }
 .pay_sticky_table thead th { box-shadow: inset 0px 1px 0 #d1d1d3, inset -1px -1px 0 #d1d1d3; border: none; }
 .pay_sticky_table thead th:last-of-type { box-shadow: inset 0px 1px 0 #d1d1d3, inset 0px -1px 0 #d1d1d3; }
 .pay_sticky_table tbody th { background: #ececf1; }
-.pay_sticky_table th, .pay_sticky_table td { height: 4.5rem; white-space: nowrap; }
-.pay_sticky_table thead th { position: sticky; top: 0; }
+.pay_sticky_table th, .pay_sticky_table td { height: 4.5rem; }
+.pay_sticky_table thead th { position: sticky; top: 0; white-space: nowrap; }
 
 .plus th { background: #ebf5fe !important; border-color: #baddfc !important; color: #5d6f7e !important; }
 .plus td { background: #f5faff !important; border-color: #e4e8ec !important; }
@@ -145,17 +144,17 @@ th.price, td.price { text-align: right !important; }
 .minus th { background: #fff0f0 !important; border-color: #ffd7d7 !important; color: #806c6c !important; }
 .minus td { background: #fff8f8 !important; border-color: #ece6e6 !important; }
 
-.pay_paging { font-size: 0; padding-top: 3rem; text-align: center; display: flex; justify-content: center; align-items: center; width: 100%; }
-.pay_paging span { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; display: inline-flex; justify-content: center; align-items: center; position: relative; width: 3rem; height: 3rem; border: 1px solid #d6d7da; color: #5c5e6a; font-size: 1.5rem; font-weight: 500; margin: 0 -0.5px; }
+.pay_paging { font-size: 0; padding-top: 5rem; text-align: center; display: flex; justify-content: center; align-items: center; width: 100%; }
+.pay_paging span { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; display: inline-flex; justify-content: center; align-items: center; position: relative; width: 5rem; height: 5rem; border: 1px solid #d6d7da; color: #5c5e6a; font-size: 2.5rem; font-weight: 500; margin: 0 -0.5px; }
 .pay_paging span a { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; cursor: pointer; text-decoration: none; width: 100%; height: 100%; height: 100%; font-weight: 300; color: #6a6a6a; display: flex; justify-content: center; align-items: center; }
 .pay_paging span a:hover { color: #5c5e6a; text-decoration: none; border: none; background: #f7f7f8; }
 .pay_paging span.currentPage { border-color: #5c5e6a; background: #5c5e6a; color: #fff; font-weight: 500; z-index: 1; }
 .pay_paging span.arrow { border: 1px solid #c6c7cb; }
-.pay_paging span.arrow i { font-size: 1.7rem; color: #adb5bd; }
+.pay_paging span.arrow i { font-size: 2.7rem; color: #adb5bd; }
 .pay_paging span.arrow.left i { -moz-transform: translateX(-5%); -webkit-transform: translateX(-5%); transform: translateX(-5%); }
 .pay_paging span.arrow.right i { -moz-transform: translateX(5%); -webkit-transform: translateX(5%); transform: translateX(5%); }
-.pay_paging span.arrow.margin.left { margin-right: 1.5rem; }
-.pay_paging span.arrow.margin.right { margin-left: 1.5rem; }
+.pay_paging span.arrow.margin.left { margin-right: 2.5rem; }
+.pay_paging span.arrow.margin.right { margin-left: 2.5rem; }
 .pay_paging span.arrow:hover { border-color: #adb5bd; z-index: 1; }
 .pay_paging span.arrow:hover i { color: #495057; }
 

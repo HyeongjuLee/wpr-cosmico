@@ -3,7 +3,7 @@
 		<li><a href="/page/business.asp?view=1"><span><%=LNG_BUSINESS_01%></span></a></li>
 		<li><a href="/page/business.asp?view=2"><span><%=LNG_BUSINESS_02%></span></a></li>
 		<li><a href="/page/business.asp?view=3"><span><%=LNG_BUSINESS_03%></span></a></li>
-		<li><a href="/page/business.asp?view=4"><span><%=LNG_BUSINESS_04%></span></a></li>
+		<li><a href="/salesman/salesmanSearch.asp"><span><%=LNG_BUSINESS_04%></span></a></li>
 		<li><a href="/page/business.asp?view=5"><span><%=LNG_BUSINESS_05%></span></a></li>
 		<!-- <li><a href="/page/pyramid_law.asp?sview=1"><span><%=LNG_PYRAMID%></span></a>
 			<ol>

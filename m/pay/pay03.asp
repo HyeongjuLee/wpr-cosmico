@@ -69,12 +69,11 @@
 	//	fixedTable(0,1); //컬럼고정
 	});
 </script>
-<link rel="stylesheet" href="/m/css/pay.css?v0" />
+<link rel="stylesheet" href="/m/css/pay2.css?" />
 </head>
 <body>
 <!--#include virtual = "/m/_include/header.asp"-->
-<div class="orderList">
-
+<div id="myoffice_pay" class="orderList pays">
 	<form name="dateFrm" action="" method="post">
 		<div class="search_form vertical">
 			<article>
@@ -147,33 +146,41 @@
 			Call closeRS(HJRSC)
 	%>
 	<p class="titles"><%=LNG_TEXT_TOTAL%></p>
-	<div class="" style="overflow: auto;">
-		<table <%=tableatt%> class="width100 board1">
-			<col span="5" width="20%" />
-			<thead>
-				<tr class="">
-					<th><%=LNG_TEXT_SUM_ALLOWANCE%></th>
-					<th><%=LNG_TEXT_RETURN_DEDUCT%></th>
-					<th><%=LNG_TEXT_INCOME_TEX%></th>
-					<th><%=LNG_TEXT_RESIDENT_TEX%></th>
-					<th><%=LNG_TEXT_ACTUAL_PAYMENT%></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="">
-					<td class="inPrice"><%=num2cur(SUM_SumAllAllowance)%></td>
-					<td class="inPrice"><%=num2cur(SUM_Cur_DedCut_Pay)%></td>
-					<td class="inPrice"><%=num2cur(SUM_InComeTax)%></td>
-					<td class="inPrice"><%=num2cur(SUM_ResidentTax)%></td>
-					<td class="inPrice"><%=num2cur(SUM_TruePayment)%></td>
-				</tr>
-			</tbody>
-		</table>
+	<div class="width-scroll">
+		<div class="line-wrap">
+			<table <%=tableatt%> class="total">
+				<col span="5" width="20%" />
+				<thead>
+					<tr class="">
+						<th><%=LNG_TEXT_SUM_ALLOWANCE%></th>
+						<th><%=LNG_TEXT_RETURN_DEDUCT%></th>
+						<th><%=LNG_TEXT_INCOME_TEX%></th>
+						<th><%=LNG_TEXT_RESIDENT_TEX%></th>
+						<th><%=LNG_TEXT_ACTUAL_PAYMENT%></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="">
+						<td class="inPrice"><%=num2cur(SUM_SumAllAllowance)%></td>
+						<td class="inPrice"><%=num2cur(SUM_Cur_DedCut_Pay)%></td>
+						<td class="inPrice"><%=num2cur(SUM_InComeTax)%></td>
+						<td class="inPrice"><%=num2cur(SUM_ResidentTax)%></td>
+						<td class="inPrice"><%=num2cur(SUM_TruePayment)%></td>
+					</tr>
+				</tbody>
+			</table>
+			<span class="lines">
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+			</span>
+		</div>
 	</div>
 	<%End If%>
 
 	<p class="titles"><%=LNG_TEXT_DETAIL_LIST%></p>
-	<table <%=tableatt%> class="width100 board">
+	<table <%=tableatt%> class="table">
 		<col width="38%" />
 		<col width="38%" />
 		<col width="24%" />
@@ -246,9 +253,9 @@
 	%>
 	<div class="dialog-layer orderList" id="dialog-layer<%=i%>" title="<%=dialog_title%>" style="display: none; overflow-y: auto;">
 
-		<div class="htbody" style="background: #fff;">
+		<div class="pay_totals">
 			<!-- <p class="titles"><%=LNG_TEXT_PAY_ALLOWANCE_LIST%><%=vbTab%>(<%=date8to13(arrList_fromenddate)%> ~<%=date8to13(arrList_toenddate)%>)</p> -->
-			<table class="table1 width100">
+			<table class="totals_table">
 				<col width="32%" />
 				<col width="34%" />
 				<col width="34%" />
@@ -266,7 +273,7 @@
 				</tbody>
 			</table>
 			<%If 1=222 Then%>
-			<table class="table1 width100">
+			<table class="totals_table">
 				<col width="32%" />
 				<col width="34%" />
 				<col width="34%" />
@@ -303,7 +310,7 @@
 			</table>
 			<%End If%>
 			<p class="titles"><%=LNG_TEXT_PAY_ALLOWANCE_LIST%></p>
-			<table class="table1 width100">
+			<table class="pay_detail_table">
 				<tbody>
 					<!-- <tr>
 						<th colspan="3" class=""><%=LNG_TEXT_PAY_ALLOWANCE_LIST%></th>

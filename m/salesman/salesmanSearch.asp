@@ -4,7 +4,7 @@
 	PAGE_SETTING = "BUSINESS"
 	PAGE_SETTING2 = "SUBPAGE"
 
-	view = 5
+	view = 4
 
 	Dim MBID1			:	MBID1		= Request.Form("MBID1")
 	Dim MBID2			:	MBID2		= Request.Form("MBID2")
@@ -31,42 +31,42 @@
 %>
 <!--#include virtual = "/m/_include/document.asp"-->
 <!--#include virtual = "/m/_include/jqueryload.asp"-->
-<link rel="stylesheet" href="salesman.css" />
-<script type="text/javascript">
+<link rel="stylesheet" href="/m/css/salesman.css?" />
+<!-- <script type="text/javascript">
  $(document).ready(
 	function() {
 		$("tbody.htbody tr:last-child td").css("border-bottom", "2px solid #000");
 	});
-</script>
+</script> -->
 
 </head>
 <body onunload="">
 <!--#include virtual = "/m/_include/header.asp"-->
-<!-- <div id="subTitle" class="width100 tcenter text_noline" ><%=LNG_MEMBERSHIP_SALESMAN_SEARCH%></div> -->
 
-<div id="salesman" class="">
-	<div id="salesman_search">
-		<form action="" method="post" name="search" style="font-size:11px;">
-      <table <%=tableatt%> class="width100 s_area2">
-        <colgroup>
-          <col width="100">
-          <col width="">
-          <col width="100">
-        </colgroup>
-        <tr>
-          <th>회원번호</th>
-          <td><input type="text" name="MBID1" class="input_search vmiddle imes tcenter" style="width:60px;" value="<%=MBID1%>" maxlength="4" /> - <input type="tel" name="MBID2" class="input_search vmiddle" style="width:100px;" value="<%=MBID2%>" <%=onlyKeys%> maxlength="<%=MBID2_LEN%>"/></td>
-          <td rowspan="2">
-            <div class="tcenter"><input type="submit" class="txtBtn small" value="<%=LNG_TEXT_SEARCH%>" /></div>
-          </td>
-        </tr><tr>
-          <th>이름</th>
-          <td colpan="2" class=""><input type="text" name="M_NAME" class="input_search vmiddle imes_kr width95a" value="<%=M_NAME%>" maxlength="20" /></td>
-        </tr>
-      </table>
+	<div id="search_form">
+		<form action="" method="post" name="search">
+			<article>
+				<h6>판매원 번호</h6>
+				<div class="inputs">
+					<input type="text" name="MBID1" value="<%=MBID1%>" maxlength="4" />
+					<span>-</span>
+					<input type="tel" name="MBID2" value="<%=MBID2%>" <%=onlyKeys%> maxlength="<%=MBID2_LEN%>"/>
+				</div>
+			</article>
+			<article>
+				<h6>판매원 이름</h6>
+				<div class="search">
+					<input type="text" name="M_NAME" class="input_text" value="<%=M_NAME%>" maxlength="20" />
+					<label class="button">
+						<input type="submit" value="<%=LNG_TEXT_SEARCH%>" />
+						<i class="icon-search-sharp"></i>
+					</label>
+				</div>
+			</article>
 		</form>
 	</div>
-  <%
+	<div id="salesman">
+	<%
 			arrParams = Array(_
 				Db.makeParam("@MBID1",adVarChar,adParamInput,20,MBID1),_
 				Db.makeParam("@MBID2",adInteger,adParamInput,0,MBID2),_
@@ -85,28 +85,29 @@
 			Else
 				CNT = All_Count - ((CCur(PAGE)-1)*CInt(PAGESIZE)) '
 			End If
-  %>
-	<table <%=tableatt%> class="width100">
-		<col width="*" />
-		<%
-			If IsArray(arrList) Then
+	%>
+		<table <%=tableatt%> class="width100 board">
+			<col width="*" />
+			<%
+				If IsArray(arrList) Then
+						PRINT TABS(1) & "	<tr>"
+						PRINT TABS(1) & "		<td class=""dataText"">판매원으로 등록된 회원입니다</td>"
+						PRINT TABS(1) & "	</tr>"
+				Else
 					PRINT TABS(1) & "	<tr>"
-					PRINT TABS(1) & "		<td class=""dataText"">판매원으로 등록된 회원입니다</td>"
+						PRINT TABS(1) & "		<td class=""notData"">"&NO_DATA_TXT&"</td>"
 					PRINT TABS(1) & "	</tr>"
-			Else
-				PRINT TABS(1) & "	<tr>"
-					PRINT TABS(1) & "		<td class=""notData"">"&NO_DATA_TXT&"</td>"
-				PRINT TABS(1) & "	</tr>"
-			End If
-		%>
-	</table>
-</div>
+				End If
+			%>
+		</table>
+	</div>
 
-<form name="frm" method="post" action="">
-		<input type="hidden" name="PAGE" value="<%=PAGE%>" />
-		<input type="hidden" name="MBID1" value="<%=MBID1%>" />
-		<input type="hidden" name="MBID2" value="<%=MBID2%>" />
-		<input type="hidden" name="M_NAME" value="<%=M_NAME%>" />
-</form>
+	<form name="frm" method="post" action="">
+			<input type="hidden" name="PAGE" value="<%=PAGE%>" />
+			<input type="hidden" name="MBID1" value="<%=MBID1%>" />
+			<input type="hidden" name="MBID2" value="<%=MBID2%>" />
+			<input type="hidden" name="M_NAME" value="<%=M_NAME%>" />
+	</form>
+</div>
 
 <!--#include virtual = "/m/_include/copyright.asp"-->

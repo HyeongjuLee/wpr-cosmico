@@ -6,7 +6,7 @@
 	ISLEFT = "T"
 	ISSUBTOP = "T"
 
-	view = 5
+	view = 4
 	mNum = 2
 	sNum = view
 
@@ -35,7 +35,7 @@
 %>
 <!--#include virtual = "/_include/document.asp"-->
 <link rel="stylesheet" href="/css/select.css" />
-<link rel="stylesheet" href="salesman.css?v0" />
+<link rel="stylesheet" href="/css/salesman.css?" />
 <!-- <script type="text/javascript" src="/jscript/jcombox-1.0b.packed.js"></script> -->
 <script type="text/javascript" src="salesman.js"></script>
 
@@ -44,11 +44,26 @@
 <!--#include virtual = "/_include/header.asp"-->
 <div id="pages">
 
-	<div id="bbs_search_top" class="">
-		<form action="" method="post" name="search" style="font-size:11px;">
-			<span class="searchText tweight vmiddle">판매원번호 </span><input type="text" name="MBID1" class="searchstr vmiddle imes tcenter" style="width:60px;" value="<%=MBID1%>" maxlength="6" /> -<input type="text" name="MBID2" class="searchstr vmiddle" style="width:100px;" value="<%=MBID2%>" <%=onlyKeys%> maxlength="<%=MBID2_LEN%>"/>&nbsp;&nbsp;
-			<span class="searchText tweight vmiddle"> 판매원 이름 </span><input type="text" name="M_NAME" class="searchstr vmiddle imes_kr" value="<%=M_NAME%>" size="9" maxlength="20" />&nbsp;&nbsp;
-			<span><input type="submit" class="txtBtn j_medium" value="<%=LNG_TEXT_SEARCH%>" /></span>
+	<div id="search_form">
+		<form action="" method="post" name="search">
+			<article>
+				<h6>판매원 번호</h6>
+				<div class="inputs">
+					<input type="text" name="MBID1" value="<%=MBID1%>" maxlength="6" />
+					<span>-</span>
+					<input type="text" name="MBID2" value="<%=MBID2%>" <%=onlyKeys%> maxlength="<%=MBID2_LEN%>"/>
+				</div>
+			</article>
+			<article>
+				<h6>판매원 이름</h6>
+				<div class="searchs">
+					<input type="text" name="M_NAME" class="input_text" value="<%=M_NAME%>" size="9" maxlength="20" />
+					<label class="button">
+						<input type="submit" value="<%=LNG_TEXT_SEARCH%>" />
+						<i class="icon-search-sharp"></i>
+					</label>
+				</div>
+			</article>
 		</form>
 	</div>
 	<div id="salesman">
@@ -74,7 +89,7 @@
 
 		%>
 		<!-- <table <%=tableatt%> class="userCWidth2"> -->
-		<table <%=tableatt%> class="width100">
+		<table <%=tableatt%> class="width100 board">
 			<colgroup>
 				<col width="*" />
 			</colgroup>

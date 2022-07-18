@@ -135,7 +135,8 @@
 		'table sorter
 		'<thead></thead> ÇÊ¼ö!
 	%>
-	<link rel="stylesheet" href="/jscript/tablesorter/jquery.wprTablesorter.css">
+	<!-- <link rel="stylesheet" href="/jscript/tablesorter/jquery.wprTablesorter.css"> -->
+	<link rel="stylesheet" href="/css/sortTable.css?">
 	<script type="text/javascript" src="/jscript/tablesorter/jquery.wprTablesorter.js"></script>
 	<script type="text/javascript">
 		//table sorter

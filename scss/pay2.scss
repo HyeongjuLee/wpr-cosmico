@@ -81,21 +81,22 @@ th, td {
 	@include flex($bet, $st);
 }
 
+.cpay_detail {
+	&.left {
+		width: calc(47% - 20px);
+	}
+}
+
 .pay_detail {
 	&.left {
-		width: calc(50% - 30px);
+		width: calc(47% - 20px);
 	}
 
 	&.right {
-		width: 50%;
+		width: 53%;
 	}
 }
 
-.cpay_detail {
-	&.left {
-		width: calc(50% - 30px);
-	}
-}
 
 .pay_detail_table {
 	@include table-color-wrap($nav-color, true, 'darken');
@@ -179,6 +180,7 @@ $nav-table: (
 	&::-webkit-scrollbar {
 		@include position;
 		width: rem(14px);
+		height: rem(15px);
 		z-index: 2;
 	}
 
@@ -193,11 +195,14 @@ $nav-table: (
 
 	&::-webkit-scrollbar-track {
 		background: material-color('grey', '100');
-		box-shadow: inset 1px 0 0 #aaa;
+		box-shadow: inset 1px 1px 0 #aaa;
 		// @include rounded;
 		// @include position;
 		// background: map-get($nav-table, 'table-color-wrap');
 		z-index: 1;
+	}
+	&::-webkit-scrollbar-corner{ 
+	    background: material-color('grey', '100');
 	}
 }
 
@@ -208,12 +213,12 @@ $nav-table: (
 	th,
 	td {
 		height: rem(45px);
+		white-space: nowrap;
 	}
 
 	thead {
 		th {
 			@include position(sticky, $top: 0);
-			white-space: nowrap;
 		}
 	}
 
