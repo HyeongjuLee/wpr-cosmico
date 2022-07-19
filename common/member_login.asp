@@ -109,7 +109,7 @@
 						<%If KAKAO_LOGIN_TF = "T" Then%>
 							<div class="kakao"><a href="#" class="kakaoLogin" data-ripplet><i class="icon-kakao"></i><span>카카오 아이디로 로그인</span></a></div>
 							<!--#include virtual = "/SNS/kakao/kakaoLogin.asp"-->
-							<%If webproIP = "T" and 1=1 Then%>
+							<%If webproIP = "T" and 1=2 Then%>
 							<span class="kakaoLogout" style="color:#cdcdcd;">카카오 로그아웃</span>
 							<%End if%>
 						<%End If%>

@@ -26,6 +26,27 @@
 			Set objEncrypter = Nothing
 		End If
 
+		'=== SNS 회원체크 (webid 존재(자동생성), password 없는 경우) s ====
+			IF SNS_LOGIN_TF = "T" Then		'snsType 컬럼추가 확인!
+				SQL_SNS = "SELECT [snsType] FROM [tbl_memberinfo] WITH(NOLOCK) "
+				SQL_SNS = SQL_SNS& "WHERE [WebID] = ? AND [M_Name] = ? AND [Email] = ? AND [LeaveCheck] = '1' AND [WebPassword] = '' "
+				arrParams_SNS = Array(_
+					Db.makeParam("@WebID",adVarChar,adParamInput,100,mem_id), _
+					Db.makeParam("@M_Name",adVarWChar,adParamInput,100,mem_name), _
+					Db.makeParam("@Email",adVarChar,adParamInput,512,mem_email) _
+				)
+				Set HJRS_SNS = Db.execRs(SQL_SNS,DB_TEXT,arrParams_SNS,DB3)
+				If Not HJRS_SNS.BOF And Not HJRS_SNS.EOF Then
+					HJRS_snsType = HJRS_SNS("snsType")
+				End If
+				Call CloseRS(HJRS_SNS)
+				If HJRS_snsType <> "" Then
+					PRINT "<strong class=""red2"">SNS 가입회원</span>"
+					Response.End
+				End If
+			End If
+		'=== SNS 회원체크 (webid 존재(자동생성), password 없는 경우) e ====
+
 		SQL = "SELECT [Email] FROM [tbl_Memberinfo] WHERE [WebID] = ? AND [M_Name] = ? AND [Email] = ? AND [LeaveCheck] = '1'"
 
 		arrParams = Array(_

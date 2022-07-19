@@ -40,6 +40,16 @@
 		If Not DKRS2.BOF And Not DKRS2.EOF Then
 			WebID = DKRS2(0)
 
+			IF SNS_LOGIN_TF = "T" Then		'snsType 컬럼추가 확인!
+				On Error Resume Next
+				WebPassword = DKRS2(1)
+				snsType = DKRS2(2)
+				On Error Goto 0
+			Else
+				WebPassword = ""
+				snsType = ""
+			End If
+
 			If DKCONF_SITE_ENC = "T" And DKCONF_ISCSNEW = "T" Then	'▣CS신버전 암/복호화 추가
 				Set objEncrypter = Server.CreateObject ("Hyeongryeol.StringEncrypter")
 					objEncrypter.Key = con_EncryptKey
@@ -52,10 +62,18 @@
 			idLeng = idLens - 3
 
 			If WebID = "" Then
-				PRINT "<strong class=""red2"">"&LNG_AJAX_IDPW_TEXT01&"</span>"
+				If snsType <> "" Then
+					PRINT "<strong class=""red2"">SNS 가입회원</span>"
+				Else
+					PRINT "<strong class=""red2"">"&LNG_AJAX_IDPW_TEXT01&"</span>"
+				End If
 			Else
-				PRINT ""&LNG_AJAX_IDPW_TEXT02&"<br /><strong class=""red font_verdana"" style=""font-size:15px;"">"& Left(WebID,idLeng)&"*** </strong><br /><span class=""f8pt"">"&LNG_AJAX_IDPW_TEXT03&"</span>"
-				'PRINT ""&LNG_AJAX_IDPW_TEXT02&"<br /><strong class=""red font_verdana"" style=""font-size:15px;"">"&WebID&"</strong>"
+				If snsType <> "" And WebPassword = "" Then
+					PRINT "<strong class=""red2"">SNS 가입회원!</span>"
+				Else
+					PRINT ""&LNG_AJAX_IDPW_TEXT02&"<br /><strong class=""red font_verdana"" style=""font-size:15px;"">"& Left(WebID,idLeng)&"*** </strong><br /><span class=""f8pt"">"&LNG_AJAX_IDPW_TEXT03&"</span>"
+					'PRINT ""&LNG_AJAX_IDPW_TEXT02&"<br /><strong class=""red font_verdana"" style=""font-size:15px;"">"&WebID&"</strong>"
+				End If
 			End If
 		Else
 			PRINT "<strong class=""green"">"&LNG_AJAX_IDPW_TEXT04&"</strong>"
