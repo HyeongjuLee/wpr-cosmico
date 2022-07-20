@@ -8,7 +8,7 @@
 '		End If
 '	End If
 
-If webproIP <>"T" Then  Response.Redirect "/index.asp"
+'If webproIP <>"T" Then  Response.Redirect "/index.asp"
 
 '	If Request.ServerVariables("HTTPS") = "off" Then
 '		Response.Redirect "https://www.starcomps.co.kr:4455/m"

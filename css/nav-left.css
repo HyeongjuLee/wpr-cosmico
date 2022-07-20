@@ -16,7 +16,7 @@
 .nav-left ol .depth a { color: #1C287B; font-weight: 700; }
 .nav-left .depth1.view > a, .nav-left .depth2.view > a { background: rgba(115, 115, 115, 0.05); -moz-transition: all, 0.5s; -webkit-transition: all, 0.5s; transition: all, 0.5s; }
 .nav-left .depth1.view i.right, .nav-left .depth2.view i.right { transform: translateY(-50%) rotate(90deg) scale(1.2); opacity: .7; }
-.nav-left .depth1.view ol, .nav-left .depth2.view ol { z-index: 9; }
+.nav-left .depth1.view ol, .nav-left .depth2.view ol { z-index: 100; }
 .nav-left .depth2 > a { color: #1C287B; }
 .nav-left .depth2 i.right { opacity: 0; }
 .nav-left .depth2:hover i.right, .nav-left .depth2.view i.right { opacity: 1; }

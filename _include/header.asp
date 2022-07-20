@@ -6,7 +6,7 @@
 <%'If PAGE_SETTING = "SHOP" Then%>
 
 <%If Left(PAGE_SETTING,4) = "SHOP" Then %><!--#include virtual = "/_include/header_shop.asp"-->
-<%Else If PAGE_SETTING = "COMMUNITY" Then%><!--#include virtual = "/_include/header_community.asp"-->
+<%'Else If PAGE_SETTING = "COMMUNITY" Then%><!--include virtual = "/_include/header_community.asp"-->
 <%Else If PAGE_SETTING = "MYOFFICE" Then%><!--#include virtual = "/_include/header_myoffice.asp"-->
 <%Else%>
 	<!--#include virtual = "/_include/header_home.asp"-->
@@ -16,7 +16,7 @@
 	<%End If%>
 <%End If%>
 <%End If%>
-<%End If%>
+<%'End If%>
 
 
 
