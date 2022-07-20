@@ -80,7 +80,8 @@
 		End If
 
 		If DKRS_WebID = "" Then
-			DKRS_WebID = LNG_MYPAGE_INFO_COMPANY_TEXT01
+			DKRS_WebID_ori = ""
+			DKRS_WebID = ""		'"웹아이디 미등록 계정" LNG_MYPAGE_INFO_COMPANY_TEXT01
 			isWebID = "F"		'한국회원: 회원앞자리 & 주민뒷자리(no Webid) 로그인시
 		Else
 			isWebID = "T"
@@ -518,7 +519,7 @@
 					</div>
 				</div>
 			</div>
-			<%If VIRAL_USE_TF = "T" Then%>
+			<%If VIRAL_USE_TF = "T" And DKRS_WebID_ori <> "" Then%>
 			<%If DK_MEMBER_STYPE = "0" Then	'판매원만 바이럴 추천가능%>
 			<div class="voter">
 				<h5><%=LNG_MYPAGE_INFO_VOTER_ADDRESS%></h5>

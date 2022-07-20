@@ -76,7 +76,8 @@
 		End If
 
 		If DKRS_WebID = "" Then
-			DKRS_WebID = ""		'"웹아이디 미등록 계정"
+			DKRS_WebID_ori = ""
+			DKRS_WebID = ""		'"웹아이디 미등록 계정" LNG_MYPAGE_INFO_COMPANY_TEXT01
 			isWebID = "F"
 		Else
 			isWebID = "T"
@@ -548,7 +549,7 @@
 					<td><%=DKRS_Nominid%> - <%=Fn_MBID2(DKRS_Nominid2)%> (<%=NOMINID_NAME%>)</td>
 				</tr> -->
 
-			<%If VIRAL_USE_TF = "T" Then%>
+			<%If VIRAL_USE_TF = "T" And DKRS_WebID_ori <> "" Then%>
 			<%If DK_MEMBER_STYPE <> "1" Then	'판매원만 바이럴 추천가능%>
 			<div class="voter">
 				<h5><%=LNG_MYPAGE_INFO_VOTER_ADDRESS%></h5>
