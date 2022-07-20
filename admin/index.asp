@@ -5,6 +5,7 @@
 	ADMIN_LEFT_MODE = "STATISTICS"
 	INFO_MODE = "STATISTICS1-1"
 
+	Response.Redirect "/admin/basic/default.asp"
 %>
 <link rel="stylesheet" href="/admin/css/style2.css" />
 </head>
