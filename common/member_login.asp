@@ -92,8 +92,6 @@
 				<input class="button" type="submit" value="<%=LNG_TEXT_LOGIN%>" tabindex="3" data-ripplet />
 				<a class="button" href="/common/joinStep01.asp" data-ripplet><%=LNG_TEXT_JOIN%></a>
 
-				<%If webproIP="T" Then%>
-
 					<div class="sns-login">
 						<%If SNS_LOGIN_TF = "T" Then%>
 						<h6><span>SNS 간편 로그인</span></h6>
@@ -121,7 +119,6 @@
 						<%End If%>
 					</div>
 
-				<%End If%>
 			</form>
 
 			<div class="cleft login_alert" id="login_alert" style="display: none;">

@@ -121,7 +121,6 @@ $(document).ready(function() {
 			<input class="button" type="submit" value="<%=LNG_TEXT_LOGIN%>" />
 			<a class="button" href="/m/common/joinStep01.asp"><%=LNG_TEXT_JOIN%></a>
 
-			<%If webproIP="T" Then%>
 				<%If SNS_LOGIN_TF = "T" Then%>
 				<div class="sns_login_tit"><span>SNS 간편 로그인</span></div>
 				<%End If%>
@@ -148,7 +147,6 @@ $(document).ready(function() {
 						<div class="google"><a href="#;" data-ripplet><i></i><span>구글 아이디로 로그인</span></a></div>
 					<%End If%>
 				</div>
-			<%End If%>
 
 		</form>
 	</div>
