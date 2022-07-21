@@ -12,7 +12,7 @@
 	Call ONLY_CS_MEMBER()
 
 	If UCase(DK_MEMBER_NATIONCODE) = "KR" And F_CPNO_CHANGE_TF = "T" Then
-		'Call ALERTS("올바른 주민번호가 입력되지 않았습니다. \n\n주민번호는 마이페이지에서 입력가능합니다.","GO","/m/mypage/member_info.asp") '수당발생 체크X
+		Call ALERTS("올바른 주민번호가 입력되지 않았습니다. \n\n주민번호는 마이페이지에서 입력가능합니다.","GO","/m/mypage/member_info.asp") '수당발생 체크X
 	End If
 
 
@@ -29,7 +29,7 @@
 
 	'1(보임), 0(안보임)
 	If webproIP="T" Then
-		My_OF_View_TF = 0
+		My_OF_View_TF = 1
 	Else
 		My_OF_View_TF = 1
 	End if
