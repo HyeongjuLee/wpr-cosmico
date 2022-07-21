@@ -1338,9 +1338,9 @@ End Select
 
 				MCOMPLEX_USE_TF = "T"		'♠
 			%>
-				<%If 1=2 Then%>
 				<label><input type="radio" name="paykind" value="Card" onclick="chgPay(this.value)" class="input_radio" /><i class="icon-ok"></i><span><%=LNG_SHOP_ORDER_DIRECT_PAY_01%></span></label>
 				<label><input type="radio" name="paykind" value="mComplex" onclick="chgPay(this.value)" class="input_radio" /><i class="icon-ok"></i><span>다카드결제</span></label>
+				<%If 1=2 Then%>
 				<label><input type="radio" name="paykind" value="CardAPI" onclick="chgPay(this.value)" class="input_radio" /><i class="icon-ok"></i><span><%=LNG_SHOP_ORDER_DIRECT_PAY_01%> - 수기</span></label>
 				<!-- <label><input type="radio" name="paykind" value="CardAPI" onclick="chgPay(this.value)" class="input_radio" /> <%=LNG_SHOP_ORDER_DIRECT_PAY_01%>API</label> -->
 				<!-- <label><input type="radio" name="paykind" value="Bank" onclick="chgPay(this.value)" class="input_radio" /> 실시간계좌이체(TEST)</label> -->

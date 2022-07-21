@@ -68,7 +68,7 @@
 		DKRS_For_Kind_TF		= DKRS("For_Kind_TF")
 		DKRS_Sell_Mem_TF		= DKRS("Sell_Mem_TF")
 		DKRS_CurGrade			= DKRS("CurGrade")
-		DKRS_Remarks			= DKRS("Remarks")			'비고
+		DKRS_snsType			= DKRS("snsType")			'snsType
 
 		DKRS_Reg_bankaccnt		= DKRS("Reg_bankaccnt")		'■계좌인증확인
 		If NICE_MOBILE_CONFIRM_TF = "T" Then
@@ -79,51 +79,34 @@
 			DKRS_mobileAuth = ""
 		End If
 
+		WebID_ORI = DKRS_WebID	'Viral Address Check
 		If DKRS_WebID = "" Then
-			DKRS_WebID_ori = ""
 			DKRS_WebID = ""		'"웹아이디 미등록 계정" LNG_MYPAGE_INFO_COMPANY_TEXT01
-			isWebID = "F"		'한국회원: 회원앞자리 & 주민뒷자리(no Webid) 로그인시
-		Else
-			isWebID = "T"
 		End If
 
-		'If DKCONF_SITE_ENC = "T" Then
-			Set objEncrypter = Server.CreateObject ("Hyeongryeol.StringEncrypter")
-				objEncrypter.Key = con_EncryptKey
-				objEncrypter.InitialVector = con_EncryptKeyIV
-				On Error Resume Next
-					If DKRS_Address1		<> "" Then DKRS_Address1	= objEncrypter.Decrypt(DKRS_Address1)
-					If DKRS_Address2		<> "" Then DKRS_Address2	= objEncrypter.Decrypt(DKRS_Address2)
-					If DKRS_Address3		<> "" Then DKRS_Address3	= objEncrypter.Decrypt(DKRS_Address3)
-					If DKRS_hometel			<> "" Then DKRS_hometel		= objEncrypter.Decrypt(DKRS_hometel)
-					If DKRS_hptel			<> "" Then DKRS_hptel		= objEncrypter.Decrypt(DKRS_hptel)
-					If DKRS_bankaccnt		<> "" Then DKRS_bankaccnt	= objEncrypter.Decrypt(DKRS_bankaccnt)
-					If DKRS_Reg_bankaccnt		<> "" Then DKRS_Reg_bankaccnt	= objEncrypter.Decrypt(DKRS_Reg_bankaccnt)		'추가
+		passwordView = ""
+		IF DKRS_snsType <> "" Then
+			'DKRS_WebID = DKRS_snsType&" 계정 가입 회원"
+			passwordView = "display: none;"
+		End If
 
-					'If DKCONF_ISCSNEW = "T" Then	''▣CS신버전 암/복호화 추가
-						If DKRS_Email		<> "" Then DKRS_Email		= objEncrypter.Decrypt(DKRS_Email)
-						'If DKRS_WebID		<> "" Then DKRS_WebID		= objEncrypter.Decrypt(DKRS_WebID)
-						If DKRS_WebPassWord	<> "" Then DKRS_WebPassWord	= objEncrypter.Decrypt(DKRS_WebPassWord)
-						If DKRS_cpno		<> "" Then DKRS_cpno		= objEncrypter.Decrypt(DKRS_cpno)				'▣cpno
-					'End If
-				On Error GoTo 0
-			'	PRINT  objEncrypter.Decrypt("Z0SPQ6DkhLd4e")
-			Set objEncrypter = Nothing
-		'End If
+		Set objEncrypter = Server.CreateObject ("Hyeongryeol.StringEncrypter")
+			objEncrypter.Key = con_EncryptKey
+			objEncrypter.InitialVector = con_EncryptKeyIV
+			On Error Resume Next
+				If DKRS_Address1		<> "" Then DKRS_Address1	= objEncrypter.Decrypt(DKRS_Address1)
+				If DKRS_Address2		<> "" Then DKRS_Address2	= objEncrypter.Decrypt(DKRS_Address2)
+				If DKRS_Address3		<> "" Then DKRS_Address3	= objEncrypter.Decrypt(DKRS_Address3)
+				If DKRS_hometel			<> "" Then DKRS_hometel		= objEncrypter.Decrypt(DKRS_hometel)
+				If DKRS_hptel			<> "" Then DKRS_hptel		= objEncrypter.Decrypt(DKRS_hptel)
+				If DKRS_bankaccnt		<> "" Then DKRS_bankaccnt	= objEncrypter.Decrypt(DKRS_bankaccnt)
+				If DKRS_Reg_bankaccnt		<> "" Then DKRS_Reg_bankaccnt	= objEncrypter.Decrypt(DKRS_Reg_bankaccnt)		'추가
+				If DKRS_Email		<> "" Then DKRS_Email		= objEncrypter.Decrypt(DKRS_Email)
+				If DKRS_WebPassWord	<> "" Then DKRS_WebPassWord	= objEncrypter.Decrypt(DKRS_WebPassWord)
+				If DKRS_cpno		<> "" Then DKRS_cpno		= objEncrypter.Decrypt(DKRS_cpno)				'▣cpno
+			On Error GoTo 0
+		Set objEncrypter = Nothing
 
-
-
-'		If DKRS_hometel = "" Or IsNull(DKRS_hometel) Then DKRS_hometel = "--"
-'			arrTEL = Split(DKRS_hometel,"-")
-'		If DKRS_hptel = "" Or IsNull(DKRS_hptel) Then DKRS_hptel = "--"
-'			arrMob = Split(DKRS_hptel,"-")
-
-	'	If DKRS_BirthDay = "" Or IsNull(DKRS_BirthDay) Then
-	'		DKRS_BirthDay = "--"
-	'	Else
-	'		DKRS_BirthDay = date8to10(DKRS_BirthDay)
-	'	End If
-	'	arrBIRTH = Split(DKRS_BirthDay,"-")
 
 		'▣cpno체크
 		CPNO_CHANGE_TF = "F"
@@ -304,10 +287,9 @@
 					<div class="con"><%=date8to10(DKRS_Regtime)%></div>
 				</div>
 			</div>
-			<div class="password">
+			<div class="password" style="<%=passwordView%>">
 				<h5><%=LNG_TEXT_PASSWORD%> <%=starText%></h5>
 				<div class="con">
-					<input type="hidden" name="isWebIDUse" value="T">
 					<input type="password" name="strPass" class="input_text" maxlength="20" />
 					<label class="checkbox"><input type="checkbox" name="isChgPass" value="T" class="vmiddle" onClick="checkChgPass(this)" /><span><i class="icon-ok"></i><%=LNG_TEXT_PASSWORD_CHANGE%></span></label>
 				</div>
@@ -519,27 +501,25 @@
 					</div>
 				</div>
 			</div>
-			<%If VIRAL_USE_TF = "T" And DKRS_WebID_ori <> "" Then%>
+			<%If VIRAL_USE_TF = "T" And WebID_ORI <> "" Then%>
 			<%If DK_MEMBER_STYPE = "0" Then	'판매원만 바이럴 추천가능%>
 			<div class="voter">
 				<h5><%=LNG_MYPAGE_INFO_VOTER_ADDRESS%></h5>
 				<div class="con">
-					<%If DKRS_WebID <> "" Then%>
-						<script src="/jscript/jquery.base62.js"></script>
-						<script>
-							$(document).ready(function(){
-								let vidBase62Enc = $d.encodeBase62('<%=DKRS_WebID%>');
-								$("#vid").text(vidBase62Enc);
-							});
-						</script>
-						<%
-							sUrl = Replace(houUrl,"www.","")
-							MY_VOTER_ADDRESS = HTTPS&"://"&sUrl&"/v/"
-						%>
-						<p id="vidAddr"><%=MY_VOTER_ADDRESS%><span id="vid"></span></p>
-						<input type="button" class="button" value="<%=LNG_MYPAGE_INFO_COPY%>" onclick="copyAddr();" />
-						<!-- <p><%=LNG_MYPAGE_INFO_VOTER_ADDRESS_A%></p> -->
-					<%End If%>
+					<script src="/jscript/jquery.base62.js"></script>
+					<script>
+						$(document).ready(function(){
+							let vidBase62Enc = $d.encodeBase62('<%=WebID_ORI%>');
+							$("#vid").text(vidBase62Enc);
+						});
+					</script>
+					<%
+						sUrl = Replace(houUrl,"www.","")
+						MY_VOTER_ADDRESS = HTTPS&"://"&sUrl&"/v/"
+					%>
+					<p id="vidAddr"><%=MY_VOTER_ADDRESS%><span id="vid"></span></p>
+					<input type="button" class="button" value="<%=LNG_MYPAGE_INFO_COPY%>" onclick="copyAddr();" />
+					<!-- <p><%=LNG_MYPAGE_INFO_VOTER_ADDRESS_A%></p> -->
 				</div>
 			</div>
 			<%End If%>

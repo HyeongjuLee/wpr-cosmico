@@ -40,8 +40,6 @@
 		isMailing		= pRequestTF("sendemail",False)
 		isSMS			= pRequestTF("sendsms",False)
 
-		isWebIDUse		= pRequestTF("isWebIDUse",False)		'회원앞자리, 주민뒷자리(no Webid) 회원용(2015-06-23)
-
 		bankCode	 = pRequestTF("bankCode",False)
 		bankOwner	 = pRequestTF("bankOwner",False)
 		bankNumber	 = pRequestTF("bankNumber",False)

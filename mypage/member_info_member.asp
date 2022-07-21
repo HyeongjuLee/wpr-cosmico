@@ -71,7 +71,7 @@
 <div id="mypage" class="common">
 	<!-- <p><img src="<%=IMG_JOIN%>/join_into_tit_01.gif" alt="" /></p> -->
 	<form name="cfrm" method="post" action="member_info_member_handler.asp" onsubmit="return memInfoChk(this);">
-	
+
 		<article>
 			<h6><%=LNG_TEXT_MEMBER_BASIC_INFO%></h6>
 			<div class="drow">
@@ -97,7 +97,6 @@
 			<div class="password">
 				<h5><%=LNG_TEXT_PASSWORD%> <%=starText%></h5>
 				<div class="con">
-					<!--<input type="hidden" name="isWebIDUse" value="T">-->
 					<input type="password" name="strPass" class="input_text" maxlength="20" />
 					<label><input type="checkbox" name="isChgPass" value="T" class="vmiddle" onClick="checkChgPass(this)" /><%=LNG_TEXT_PASSWORD_CHANGE%></label>
 				</div>
@@ -215,7 +214,7 @@
 				</div> -->
 			</div>
 		</article>
-				
+
 				<!-- <%If UCase(DK_MEMBER_NATIONCODE) = "KR" Then%>
 				<tr>
 					<th><%=LNG_MYPAGE_INFO_MEMBER_TEXT32%> <%=starText%></th>
