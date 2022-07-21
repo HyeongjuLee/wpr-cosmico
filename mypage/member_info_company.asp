@@ -112,14 +112,6 @@
 		CPNO_CHANGE_TF = "F"
 		JOMIN_ERROR_TF = ""
 
-		'▣수당발생내역 확인
-		'arrParmas = Array(_
-		'	Db.makeParam("@mbid1",adVarChar,adParmaInput,20,DK_MEMBER_ID1), _
-		'	Db.makeParam("@mbid2",adInteger,adParmaInput,4,DK_MEMBER_ID2) _
-		')
-		'MY_TOTAL_ALLOWANCE = Db.execRsData("HJPS_CS_PRICE_TOTAL",DB_PROC,arrParams,DB3)
-		'If MY_TOTAL_ALLOWANCE > 0 Then '▣수당발생한경우만 주민번호 변경/수집가능
-
 		If UCase(DK_MEMBER_NATIONCODE) = "KR" And DK_MEMBER_TYPE = "COMPANY" And Sell_Mem_TF = "0" Then		'KR회원 , 판매원
 
 			'▣cpno 앞자리만 입력 = 생년월일
