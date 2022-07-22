@@ -38,10 +38,14 @@
 
 #counseling.cs_write input, #counseling.cs_write select, #counseling.cs_write textarea { width: 100%; }
 #counseling.cs_write input:disabled, #counseling.cs_write select:disabled, #counseling.cs_write textarea:disabled { background: #f5f5f5; }
+#counseling.cs_write input.input_text { background: #ffffff; }
+#counseling.cs_write input.readonly { background: #f5f5f5; }
+
+
 #counseling.cs_write input { height: 8rem; }
 #counseling.cs_write .info { border: 1px solid #f5f5f5; background: #fafafa; font-size: 2.5rem; padding: 2.5rem; margin-bottom: 5rem; margin-top: 2.5rem; }
 #counseling.cs_write .info li { text-indent: -1.25rem; margin-left: 1.25rem; }
-#counseling.cs_write .board { padding: 0; }
+#counseling.cs_write .board { width: 100%; padding: 0; }
 #counseling.cs_write .board tr { border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; }
 #counseling.cs_write .board th { text-align: right; font-size: 2.2rem; font-weight: 500; padding-right: 1rem; background: none !important; color: #9e9e9e; }
 #counseling.cs_write .board td { padding: 0; font-size: 2.5rem; }
@@ -57,7 +61,7 @@
 #counseling.cs_write .board .file td input.active::-moz-input-placeholder { color: #424242; font-weight: 500; }
 #counseling.cs_write .board .file td input.active::-ms-input-placeholder { color: #424242; font-weight: 500; }
 #counseling.cs_write .board .file .upload-name { margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; display: inline-flex; justify-content: center; align-items: center; width: calc(100% - 14rem); height: 7rem; padding: 1.25rem; border: 1px solid #e0e0e0; }
-#counseling.cs_write .board .file label { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #080808; background: #212121; display: inline-flex; justify-content: center; align-items: center; height: 7rem; margin-left: 1rem; width: 13rem; }
+#counseling.cs_write .board .file label { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #080808; background: #212121; display: inline-flex; justify-content: center; align-items: center; height: 7rem; margin-left: 1rem; width: 13rem; }
 #counseling.cs_write .board .file label:hover { color: #fff; text-decoration: none; background: #2e2e2e; }
 #counseling.cs_write .board .file label:active { color: #a1a1a1; background: #141414; }
 #counseling.cs_write .board .file label input[type="file"] { position: absolute; visibility: hidden; width: 0; height: 0; }
@@ -85,22 +89,22 @@
 #counseling .btnZone { display: flex; justify-content: center; align-items: center; padding-top: 5rem; padding-bottom: 5rem; width: 100%; }
 #counseling .btnZone a, #counseling .btnZone input { display: inline-flex; justify-content: center; align-items: center; margin: 0; padding: 0; border: none; outline: none; font-style: normal; text-decoration: none; background: none; -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; border-radius: 0.5em; width: 50%; height: 8rem; cursor: pointer; font-size: 2.7rem; line-height: 1.5; text-align: center; -moz-transition: all 0.3s; -webkit-transition: all 0.3s; transition: all 0.3s; text-decoration: none; }
 #counseling .btnZone a:first-child, #counseling .btnZone input:first-child { margin-right: 2rem; }
-#counseling .btnZone a.button, #counseling .btnZone input.button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; margin: 0; width: 15rem; height: 7rem; font-size: 12px; }
+#counseling .btnZone a.button, #counseling .btnZone input.button { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #5c5c5c; background: #757575; margin: 0; width: 15rem; height: 7rem; font-size: 12px; }
 #counseling .btnZone a.button:hover, #counseling .btnZone input.button:hover { color: #fff; text-decoration: none; background: #828282; }
 #counseling .btnZone a.button:active, #counseling .btnZone input.button:active { color: whitesmoke; background: #686868; }
-#counseling .btnZone a.button.admin, #counseling .btnZone input.button.admin { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
+#counseling .btnZone a.button.admin, #counseling .btnZone input.button.admin { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #cd1e1a; background: #e53935; }
 #counseling .btnZone a.button.admin:hover, #counseling .btnZone input.button.admin:hover { color: #fff; text-decoration: none; background: #e84f4c; }
 #counseling .btnZone a.button.admin:active, #counseling .btnZone input.button.admin:active { color: white; background: #e2231e; }
-#counseling .btnZone a.button.answer, #counseling .btnZone input.button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
+#counseling .btnZone a.button.answer, #counseling .btnZone input.button.answer { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #6b1b80; background: #8e24aa; }
 #counseling .btnZone a.button.answer:hover, #counseling .btnZone input.button.answer:hover { color: #fff; text-decoration: none; background: #a028bf; }
 #counseling .btnZone a.button.answer:active, #counseling .btnZone input.button.answer:active { color: #f0d7f6; background: #7c2095; }
-#counseling .btnZone a.button.delete, #counseling .btnZone input.button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
+#counseling .btnZone a.button.delete, #counseling .btnZone input.button.delete { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #ab154c; background: #d81b60; }
 #counseling .btnZone a.button.delete:hover, #counseling .btnZone input.button.delete:hover { color: #fff; text-decoration: none; background: #e4286d; }
 #counseling .btnZone a.button.delete:active, #counseling .btnZone input.button.delete:active { color: #fef4f8; background: #c11856; }
-#counseling .btnZone a.button.edit, #counseling .btnZone input.button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
+#counseling .btnZone a.button.edit, #counseling .btnZone input.button.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #2c3985; background: #3949ab; }
 #counseling .btnZone a.button.edit:hover, #counseling .btnZone input.button.edit:hover { color: #fff; text-decoration: none; background: #3f51be; }
 #counseling .btnZone a.button.edit:active, #counseling .btnZone input.button.edit:active { color: #ebedf8; background: #334198; }
-#counseling .btnZone a.button.save, #counseling .btnZone input.button.save { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
+#counseling .btnZone a.button.save, #counseling .btnZone input.button.save { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #347c37; background: #43a047; }
 #counseling .btnZone a.button.save:hover, #counseling .btnZone input.button.save:hover { color: #fff; text-decoration: none; background: #4bb24f; }
 #counseling .btnZone a.button.save:active, #counseling .btnZone input.button.save:active { color: #ebf7ec; background: #3b8e3f; }
 #counseling .btnZone .cancel { background: #e0e0e0; color: #222; }

@@ -48,6 +48,7 @@
 
 	If Left(category2,3) <> category1 Then Call ALERTS(LNG_ALERT_WRONG_ACCESS,"BACK","")
 
+	'◆◆◆ 휴대전화, 이메일 없는경우 직접 입력가능 ◆◆◆
 	AstrEmail		= upfORM("AstrEmail",False)
 	AstrMobile		= upfORM("AstrMobile",False)
 	strEmail = AstrEmail

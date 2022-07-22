@@ -11,8 +11,9 @@
 
 
 			$("#ModalScrollable1 input[name=strCateName]").val(strCateName);
-			$("#ModalScrollable1 textarea[name=strBaseText]").val(strBaseText);
+			//$("#ModalScrollable1 textarea[name=strBaseText]").val(strBaseText);
 			//$("#ModalScrollable1 textarea[name=strBaseText]").val(strBaseText.replace(\<br \/>\gi, '\n'));
+			$("#ModalScrollable1 textarea[name=strBaseText]").val(strBaseText.replace(/<br \/>/gi, '\n'));
 			$("#ModalScrollable1 input[name=isView]:radio[value="+isView+"]").attr("checked",true);
 			$("#ModalScrollable1 input[name=strCateCode]").val(strCateCode);
 

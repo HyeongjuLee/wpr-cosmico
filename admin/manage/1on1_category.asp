@@ -48,7 +48,7 @@
 %>
 <link rel="stylesheet" type="text/css" href="/modP/bootstrap/bootstrap.css" />
 <link rel="stylesheet" href="1on1.css" />
-<script type="text/javascript" src="1on1.js"></script>
+<script type="text/javascript" src="1on1.js?v1"></script>
 <script type="text/javascript">
 	/*
 	$(document).ready(function(){

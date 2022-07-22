@@ -58,7 +58,6 @@
 		DKRS_memoCnt		= DKRS("memoCnt")
 
 
-
 		strDataPath1	= ""
 		strDataPath2	= ""
 		strDataPath3	= ""
@@ -210,7 +209,7 @@
 				<td><%=BACKWORD(DKRS_strSubject)%></td>
 			</tr><tr>
 				<th>내용</th>
-				<td class="counselContent"><%=DKRS_strContent%></td>
+				<td class="counselContent"><%=BACKWORD_TAG(DKRS_strContent)%></td>
 			</tr><tr>
 				<th>작성자 / 웹아이디 / CS</th>
 				<td><%=DKRS_strName%> / <%=DKRS_strWebID%> / <%=CSID1%>-<%=CSID2%></td>

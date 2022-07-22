@@ -1,6 +1,7 @@
 <!--#include virtual = "/_lib/strFunc.asp"-->
 <!--#include virtual = "/counsel/1on1_config.asp"-->
 <%
+	'◆◆◆ 휴대전화, 이메일 없는경우 직접 입력가능 ◆◆◆
 
 	PAGE_SETTING = "CUSTOMER"
 	PAGE_SETTING2 = "SUBPAGE"
@@ -74,30 +75,19 @@
 		DKRS_For_Kind_TF		= DKRS("For_Kind_TF")
 		DKRS_Sell_Mem_TF		= DKRS("Sell_Mem_TF")
 		DKRS_CurGrade			= DKRS("CurGrade")
-		DKRS_Remarks			= DKRS("Remarks")			'비고
 
-		'If DKCONF_SITE_ENC = "T" Then
-			Set objEncrypter = Server.CreateObject ("Hyeongryeol.StringEncrypter")
-				objEncrypter.Key = con_EncryptKey
-				objEncrypter.InitialVector = con_EncryptKeyIV
-				On Error Resume Next
-					If DKRS_Address1		<> "" Then DKRS_Address1	= objEncrypter.Decrypt(DKRS_Address1)
-					If DKRS_Address2		<> "" Then DKRS_Address2	= objEncrypter.Decrypt(DKRS_Address2)
-					If DKRS_Address3		<> "" Then DKRS_Address3	= objEncrypter.Decrypt(DKRS_Address3)
-					If DKRS_hometel			<> "" Then DKRS_hometel		= objEncrypter.Decrypt(DKRS_hometel)
-					If DKRS_hptel			<> "" Then DKRS_hptel		= objEncrypter.Decrypt(DKRS_hptel)
-					If DKRS_bankaccnt		<> "" Then DKRS_bankaccnt	= objEncrypter.Decrypt(DKRS_bankaccnt)
-
-					'If DKCONF_ISCSNEW = "T" Then	''▣CS신버전 암/복호화 추가
-						If DKRS_Email		<> "" Then DKRS_Email		= objEncrypter.Decrypt(DKRS_Email)
-						If DKRS_WebID		<> "" Then DKRS_WebID		= objEncrypter.Decrypt(DKRS_WebID)
-						If DKRS_WebPassWord	<> "" Then DKRS_WebPassWord	= objEncrypter.Decrypt(DKRS_WebPassWord)
-						If DKRS_cpno		<> "" Then DKRS_cpno		= objEncrypter.Decrypt(DKRS_cpno)				'▣cpno
-					'End If
-				On Error GoTo 0
-			'	PRINT  objEncrypter.Decrypt("Z0SPQ6DkhLd4e")
-			Set objEncrypter = Nothing
-		'End If
+		Set objEncrypter = Server.CreateObject ("Hyeongryeol.StringEncrypter")
+			objEncrypter.Key = con_EncryptKey
+			objEncrypter.InitialVector = con_EncryptKeyIV
+			On Error Resume Next
+				If DKRS_Address1		<> "" Then DKRS_Address1	= objEncrypter.Decrypt(DKRS_Address1)
+				If DKRS_Address2		<> "" Then DKRS_Address2	= objEncrypter.Decrypt(DKRS_Address2)
+				If DKRS_Address3		<> "" Then DKRS_Address3	= objEncrypter.Decrypt(DKRS_Address3)
+				If DKRS_hometel			<> "" Then DKRS_hometel		= objEncrypter.Decrypt(DKRS_hometel)
+				If DKRS_hptel			<> "" Then DKRS_hptel		= objEncrypter.Decrypt(DKRS_hptel)
+				If DKRS_Email		<> "" Then DKRS_Email		= objEncrypter.Decrypt(DKRS_Email)
+			On Error GoTo 0
+		Set objEncrypter = Nothing
 
 	Else
 		Call ALERTS(LNG_JS_MEMBERINFO_FAIL,"back","")
@@ -111,7 +101,7 @@
 %>
 <!--#include virtual = "/m/_include/document.asp"-->
 <!--#include virtual = "/m/_include/jqueryload.asp"-->
-<link rel="stylesheet" href="/m/css/1on1.css?" />
+<link rel="stylesheet" href="/m/css/1on1.css?v1" />
 <script type="text/javascript">
 <!--
 
@@ -239,6 +229,14 @@
 			$("#strSubject").attr("disabled",true).attr("placeholder","<%=LNG_CS_GETCATE2_TEXT01%>").val('');
 			$("#sSelectTF").val('F');
 			$('tr.file, tr.member').addClass('disabled');
+
+			<%If DKRS_hptel = "" Then	'◆◆◆%>
+				$("input[name=AstrMobile]").attr("readonly",true).addClass('readonly').val('');
+			<%End If %>
+			<%If DKRS_Email = "" Then	'◆◆◆%>
+				$("input[name=AstrEmail]").attr("readonly",true).addClass('readonly').val('');
+			<%End IF%>
+
 		} else {
 			$.ajax({
 				type: "POST"
@@ -251,15 +249,20 @@
 				,success: function(xhrData) {
 					jsonData = $.parseJSON(xhrData);
 					if (jsonData.result == 'SUCCESS') {
-						$("#strContent").attr({"disabled":false, "placeholder":"<%=LNG_1on1_ENTER_INQUIRY%>\n<%=LNG_1on1_ILLEGAL_CONTENT_MAYBE_DELETED%>" }).val(jsonData.resultMsg);
+						//$("#strContent").attr({"disabled":false, "placeholder":"<%=LNG_1on1_ENTER_INQUIRY%>\n<%=LNG_1on1_ILLEGAL_CONTENT_MAYBE_DELETED%>" }).val(jsonData.resultMsg);
+						$("#strContent").attr({"disabled":false, "placeholder":"<%=LNG_1on1_ENTER_INQUIRY%>\n<%=LNG_1on1_ILLEGAL_CONTENT_MAYBE_DELETED%>" }).val(jsonData.resultMsg.replace(/<br \/>/gi, '\n'));
 						$("#strSubject").attr("disabled",false).attr("placeholder","<%=LNG_1on1_ENTER_TITLE%>").val('');
 						$('tr.file').removeClass('disabled');
 
-						<%If DKRS_hptel = "" Then%>
-							$("input[name=AstrMobile]").attr("disabled",false).css("background","#fff");
+						<%If DKRS_hptel = "" Then	'◆◆◆%>
+							$("input[name=AstrMobile]").attr("disabled",false);
+							$("input[name=AstrMobile]").attr("readonly",false).removeClass('readonly');
+							$('tr.member').removeClass('disabled');
 						<%End If %>
-						<%If DKRS_Email = "" Then%>
-							$("input[name=AstrEmail]").attr("disabled",false).css("background","#fff");
+						<%If DKRS_Email = "" Then	'◆◆◆%>
+							$("input[name=AstrEmail]").attr("disabled",false);
+							$("input[name=AstrEmail]").attr("readonly",false).removeClass('readonly');
+							$('tr.member').removeClass('disabled');
 						<%End If %>
 
 					} else {
@@ -444,7 +447,8 @@
 				<th><%=LNG_TEXT_CONTACT_NUMBER%></th>
 				<td>
 					<div>
-						<input type="text" name="AstrMobile" class="input_text" disabled="disabled" value="<%=DKRS_hptel%>" maxlength="15" <%=onLyKeys%> placeholder="" />
+						<%'◆◆◆ disabled 값 안넘어감, readonly 변경%>
+						<input type="text" name="AstrMobile" class="input_text readonly" readonly="readonly" value="<%=DKRS_hptel%>" maxlength="15" <%=onLyKeys%> placeholder="" />
 						<input type="hidden" name="strMobile" value="<%=DKRS_hptel%>" readonly="readonly" />
 						<%If USE_REPLY_MMS = "T" Then%>
 							<label for="isSmsSend">
@@ -462,8 +466,9 @@
 				<th><%=LNG_TEXT_EMAIL%></th>
 				<td>
 					<div>
-						<input type="text" name="AstrEmail" class="input_text" disabled="disabled" value="<%=DKRS_Email%>" placeholder="" />
-						<input type="hidden" name="strEmail" value="<%=DKRS_Email%>" readonly="readonly" />
+						<%'◆◆◆ disabled 값 안넘어감, readonly 변경%>
+						<input type="text" name="AstrEmail" class="input_text readonly" read only="readonly" value="<%=DKRS_Email%>" placeholder="" />
+						<input type="hidden" name="strEmail" value="<%=DKRS_Email%>" read only="readonly" />
 						<%If USE_REPLY_MMS = "T" Then%>
 							<label for="isMailSend">
 								<input type="checkbox" name="isMailSend" id="isMailSend">

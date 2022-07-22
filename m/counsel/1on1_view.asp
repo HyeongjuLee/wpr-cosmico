@@ -86,7 +86,7 @@
 		</h6>
 		<div class="content"><%=DKRS_strContent%></div>
 		<%
-			If DKRS_strData1 <> "" Then 
+			If DKRS_strData1 <> "" Then
 				strDataSize1 = num2cur(ChkFileSize(REAL_PATH2("/uploadData/counselData1")&"\"&DKRS_strData1) / 1024)
 		%>
 		<div class="file">
@@ -107,7 +107,7 @@
 			<!-- <h6><p><%=LNG_1ON1_FINAL_ANSWER_REGISTRATION%><i></i><%=DKRS_repDate%></p></h6> -->
 			<h6><p><%=LNG_1ON1_ANSWER%><i></i><%=DKRS_repDate%></p></h6>
 			<div class="content">
-				<%=DKRS_strReply%>	
+				<%=DKRS_strReply%>
 			</div>
 			<%
 				If DKRS_strReplyData1 <> "" Then
@@ -123,7 +123,7 @@
 		<%End If%>
 		</div>
 	<%End If%>
-		
+
 		<div class="btnZone">
 			<a href="1on1_list.asp?page=<%=PAGE%>" class="button"><%=LNG_BOARD_BTN_LIST%></a>
 		</div>
