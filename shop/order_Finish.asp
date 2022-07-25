@@ -133,6 +133,20 @@
 
 %>
 <%
+	'Cosmico v_SellCode 02 PV X
+	If DKRS_CSORDERNUM <> "" Then
+		SQL2 = "SELECT [SellCode] FROM [tbl_SalesDetail] WITH(NOLOCK) WHERE [OrderNumber] = ? "
+		arrParams = Array(Db.makeParam("@OrderNum",adVarChar,adParamInput,20,DKRS_CSORDERNUM))
+		Set HJRSC = DB.execRs(SQL2,DB_TEXT,arrParams,DB3)
+		If Not HJRSC.BOF And Not HJRSC.EOF Then
+			v_SellCode = HJRSC(0)
+		Else
+			v_SellCode = ""
+		End If
+		Call closeRS(HJRSC)
+	End If
+%>
+<%
 	'직판 공제번호
 	If DK_MEMBER_TYPE = "COMPANY" And DKCONF_SITE_ENC = "T" And isMACCO = "T" Then
 		SQL2 = "SELECT [InsuranceNumber],[INS_Num_Err] FROM [tbl_SalesDetail] WITH(NOLOCK) WHERE [ETC2] = '웹주문번호:'+ ? AND ([InsuranceNumber] <> '' OR [INS_Num_Err] <> '') "
@@ -521,11 +535,13 @@
 						</td>
 						<td class="tcenter bor_l">
 							<%=spans(num2cur(self_GoodsPrice/arrList_orderEa),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
-							<%If PV_VIEW_TF = "T" Then%>
-							<br /><%=spans(num2curINT(self_PV/arrList_orderEa),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#f2002e","10","400")%>
-							<%End If%>
-							<%If BV_VIEW_TF = "T" Then%>
-							<br /><%=spans(num2curINT(self_GV/arrList_orderEa),"green","11","400")%><%=spans(""&CS_PV2&"","green","10","400")%>
+							<%If v_SellCode <> "02"  Then 'COSMICO%>
+								<%If PV_VIEW_TF = "T" Then%>
+								<br /><%=spans(num2curINT(self_PV/arrList_orderEa),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#f2002e","10","400")%>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
+								<br /><%=spans(num2curINT(self_GV/arrList_orderEa),"green","11","400")%><%=spans(""&CS_PV2&"","green","10","400")%>
+								<%End If%>
 							<%End If%>
 						</td>
 						<td class="tcenter bor_l">
@@ -539,11 +555,13 @@
 						</td>
 						<td class="tcenter bor_l">
 							<%=spans(num2cur(self_GoodsPrice),"#222222","12","400")%><%=spans(""&Chg_currencyISO&"","#222222","11","400")%>
-							<%If PV_VIEW_TF = "T" Then%>
-							<br /><%=spans(num2curINT(self_PV),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#f2002e","10","400")%>
-							<%End If%>
-							<%If BV_VIEW_TF = "T" Then%>
-							<br /><%=spans(num2curINT(self_GV),"green","11","400")%><%=spans(""&CS_PV&"","green","10","400")%>
+							<%If v_SellCode <> "02"  Then 'COSMICO%>
+								<%If PV_VIEW_TF = "T" Then%>
+								<br /><%=spans(num2curINT(self_PV),"#f2002e","11","400")%><%=spans(""&CS_PV&"","#f2002e","10","400")%>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
+								<br /><%=spans(num2curINT(self_GV),"green","11","400")%><%=spans(""&CS_PV&"","green","10","400")%>
+								<%End If%>
 							<%End If%>
 						</td>
 						<%
@@ -614,12 +632,14 @@
 												<span class="pPrice sPrice TOTorderPriceShopID_<%=attrShopIdTOT%>_txt">0</span>
 												<span class="pUnit"><%=Chg_CurrencyISO%></span>
 											</div>
-											<%If PV_VIEW_TF = "T" Then%>
-											<div class="sumCart03">
-												<span class="pStitle tWidth"><%=LNG_CS_ORDERS_TOTAL_PV%></span>
-												<span class="pPrice sPrice pv TOTsumPvShopID_<%=attrShopIdTOT%>_txt">0</span>
-												<span class="pvUnit"><%=CS_PV%></span>
-											</div>
+											<%If v_SellCode <> "02"  Then 'COSMICO%>
+												<%If PV_VIEW_TF = "T" Then%>
+												<div class="sumCart03">
+													<span class="pStitle tWidth"><%=LNG_CS_ORDERS_TOTAL_PV%></span>
+													<span class="pPrice sPrice pv TOTsumPvShopID_<%=attrShopIdTOT%>_txt">0</span>
+													<span class="pvUnit"><%=CS_PV%></span>
+												</div>
+												<%End If%>
 											<%End If%>
 										</div>
 										<div></div>
@@ -719,11 +739,13 @@
 								<li>·<%=LNG_SHOP_ORDER_FINISH_14%> : <span id="viewPoint" class="mline"><%=num2cur(DKRS_totalPoint)%></span>&nbsp;<%=Chg_CurrencyISO%></li>
 								<li class="red2">·<%=LNG_SHOP_ORDER_FINISH_15%></li>
 							<%End If%>
-							<%If PV_VIEW_TF = "T" Then%>
-								<li class="red2">·<%=CS_PV%>: <span><%=num2curINT(TOTAL_PV)%></span> <%=CS_PV%></li>
-							<%End If%>
-							<%If BV_VIEW_TF = "T" Then%>
-								<li class="green">·<%=CS_PV2%>: <span><%=num2curINT(TOTAL_GV)%></span> <%=CS_PV2%></li>
+							<%If v_SellCode <> "02"  Then 'COSMICO%>
+								<%If PV_VIEW_TF = "T" Then%>
+									<li class="red2">·<%=CS_PV%>: <span><%=num2curINT(TOTAL_PV)%></span> <%=CS_PV%></li>
+								<%End If%>
+								<%If BV_VIEW_TF = "T" Then%>
+									<li class="green">·<%=CS_PV2%>: <span><%=num2curINT(TOTAL_GV)%></span> <%=CS_PV2%></li>
+								<%End If%>
 							<%End If%>
 						</ul>
 					</td>
