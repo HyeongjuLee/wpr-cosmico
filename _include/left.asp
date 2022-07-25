@@ -9,15 +9,14 @@
 			Select Case PAGE_SETTING
 				Case "COMPANY" 		NAVI_P_NUM = 1
 				Case "BRAND"		NAVI_P_NUM = 2
-				Case "PRODUCT"		NAVI_P_NUM = 3
-				Case "BUSINESS" 	NAVI_P_NUM = 4
-				Case "GUIDE"		NAVI_P_NUM = 5
-				Case "SHOP"			NAVI_P_NUM = 6
-				Case "COMMUNITY"	NAVI_P_NUM = 7
-				Case "CUSTOMER"		NAVI_P_NUM = 8
-				Case "SNS"			NAVI_P_NUM = 9
+				Case "BUSINESS" 	NAVI_P_NUM = 3
+				Case "GUIDE"		NAVI_P_NUM = 4
+				Case "SHOP"			NAVI_P_NUM = 5
+				Case "COMMUNITY"	NAVI_P_NUM = 6
+				Case "CUSTOMER"		NAVI_P_NUM = 7
+				Case "SNS"			NAVI_P_NUM = 8
 				'Case "MYPAGE"		NAVI_P_NUM = 6
-				Case "MYOFFICE","MY_BUY","MY_MEMBER","PAY","MY_POINT" NAVI_P_NUM = 10
+				Case "MYOFFICE","MY_BUY","MY_MEMBER","PAY","MY_POINT" NAVI_P_NUM = 9
 				Case Else
 					NAVI_P_NUM = 0
 			End Select
@@ -38,8 +37,6 @@
 						<!--#include virtual = "/navi/company.asp"-->
 						<%Case "BRAND"%>
 						<!--#include virtual = "/navi/brand.asp"-->
-						<%Case "PRODUCT"%>
-						<!--#include virtual = "/navi/product.asp"-->
 						<%Case "BUSINESS"%>
 						<!--#include virtual = "/navi/business.asp"-->
 						<%Case "GUIDE"%>
@@ -59,7 +56,16 @@
 						<%End Select%>
 					</ol>
 				</li>
-
+				<%If sub_title_d4 <> "" Then %>
+					<li class="depth3">
+						<ol>
+							<%Select Case PAGE_SETTING%>
+							<%Case "BRAND"%>
+							<!--#include virtual = "/navi/brand.asp"-->
+							<%End Select%>
+						</ol>
+					</li>
+				<%End If%>
 			</ul>
 		</article>
 		
@@ -68,6 +74,7 @@
 				var right = '<i class="right icon-right-open-big"></i>';
 				$('li.main:last').addClass('view');
 				$('li.main.view').children().not('.nav-sub').remove();
+				$('.depth2 .nav-sub2').remove();
 
 				$('#left').attr('id', '');
 
@@ -83,10 +90,19 @@
 				$('.nav-left .depth2').each(function(){
 					var main = $('.depth2 ul li');
 					var depth = main.eq(<%=view%> - 1);
-					var navSub = $('.depth2 .nav-sub');
-
+					var navSub = $('.depth2 .nav-sub').not('.nav-sub2');
 
 					$('.depth2 ol').html(navSub.find('li'));
+
+					depth.addClass('depth');
+				});
+
+				$('.nav-left .depth3').each(function(){
+					var main = $('.depth3 ul li');
+					var depth = main.eq(<%=sview%> - 0);
+					var navSub = $('.depth3 .nav-sub2');
+
+					$('.depth3 ol').html(navSub.find('li'));
 					depth.addClass('depth');
 				});
 
@@ -99,12 +115,17 @@
 					$('.depth2 > a').append(right).attr('href', '#;').addClass('depth');
 					$('.depth2 ol').find('.depth');
 					$('.depth2 a.depth').attr('data-ripplet', '');
-					//$('.depth2 a').attr('data-ripplet', '');
+					// return false;
+
+					$('.depth3 ol').before($('.depth3 li.depth').html());
+					$('.depth3 > a').append(right).attr('href', '#;').addClass('depth');
+					$('.depth3 ol').find('.depth');
+					$('.depth3 a.depth').attr('data-ripplet', '');
 					return false;
 
 				});
 
-				$('.depth1, .depth2').each(function(){
+				$('.depth1, .depth2, .depth3').each(function(){
 					$(this).click(function(){
 						if (!$(this).hasClass('view')) {
 							!$(this).removeClass('view')
@@ -118,15 +139,19 @@
 
 					$(this).mouseleave(function(){
 						setTimeout(function(){
-							$('.depth1, .depth2').removeClass('view');
+							$('.depth1, .depth2, .depth3').removeClass('view');
 							$('li ol').removeClass('view');
 						}, 0);
 					});
 
 				});
 
+				if ($('.depth3').length > 0) {
+					$('.depth2').addClass('none');
+				}
+
 				console.log('<%=PAGE_SETTING%>', ' NAVI_P_NUM:' + '<%=NAVI_P_NUM%>', ' view : ' + '<%=view%>', ' mNum:' + '<%=mNum%>', ' sNum:' + '<%=sNum%>', ' sVar:' + '<%=sVar%>');
-				console.log('sub_title_d2 : ' + '<%=sub_title_d2%>', ' sub_title_d3 : ' + '<%=sub_title_d3%>', ' sview:' + '<%=sview%>');
+				console.log('sub_title_d2 : ' + '<%=sub_title_d2%>', ' sub_title_d3 : ' + '<%=sub_title_d3%>', ' sview:' + '<%=sview%>', ' sub_title_d4 : ' + '<%=sub_title_d4%>');
 
 			});
 		</script>

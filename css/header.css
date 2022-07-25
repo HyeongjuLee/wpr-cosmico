@@ -58,7 +58,7 @@ header { height: 13rem; margin-bottom: -13rem; }
 .header .nav-sub > li { position: relative; float: left; font-size: 0; width: 100%; text-align: center; }
 .header .nav-sub > li > a { display: inline-block; -moz-transition: all 0.3s ease; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; cursor: pointer; color: #424242; padding: 1rem 1rem; font-size: 1.6rem; word-wrap: break-word; word-break: keep-all; }
 
-.header .nav-main .main.cosmetic .nav-sub li, .header .nav-main .main.enter .nav-sub li { display: none !important; }
+.header .nav-main .main .salesman { display: none !important; }
 
 header.index #header { color: #fff; }
 header.index #header .nav-main > li { color: #fff; }

@@ -279,6 +279,7 @@ $sub-color: $myoffice-color;
 		}
 
 		.board {
+			width: 100%;
 			// @include table-color;
 			tr {
 				border-top: 1px solid material-color('grey', '300');

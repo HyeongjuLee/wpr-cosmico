@@ -360,9 +360,10 @@
 
 	LNG_BRAND									= "BRAND"
 	LNG_BRAND_OVER								= "브랜드"
-	LNG_BRAND_01								= "디앤에잇 스토리"
-	LNG_BRAND_02								= "세타몬드 스토리"
-	LNG_BRAND_03								= "ROR-M"
+	LNG_BRAND_01								= "PRODUCTS"
+	LNG_BRAND_01_01								= "디앤에잇"
+	LNG_BRAND_01_02								= "세타몬드"
+	LNG_BRAND_02								= "ROR-M"
 
 	LNG_PRODUCT									= "PRODUCTS"
 	LNG_PRODUCT_OVER							= "제품"
@@ -371,11 +372,8 @@
 
 	LNG_BUSINESS								= "BUSINESS"
 	LNG_BUSINESS_OVER							= "비즈니스"
-	LNG_BUSINESS_01								= "주문관리"
-	LNG_BUSINESS_02								= "배송현황"
-	LNG_BUSINESS_03								= "VIP 관리"
-	LNG_BUSINESS_04								= "셀러(아이디)확인"
-	LNG_BUSINESS_05								= "본부소개"
+	LNG_BUSINESS_01								= "본부소개"
+	LNG_BUSINESS_02								= "셀러확인"
 
 	LNG_MARKETING_PLAN							= "마케팅플랜"
 
@@ -390,8 +388,8 @@
 
 	LNG_GUIDE									= "HOW TO USE"
 	LNG_GUIDE_OVER								= "사용법"
-	LNG_GUIDE_01								= "디앤에잇 화장품 순서"
-	LNG_GUIDE_02								= "세타몬드 섭취가이드"
+	LNG_GUIDE_01								= "디앤에잇 바르는 방법"
+	LNG_GUIDE_02								= "세타몬드 섭취 가이드"
 
 	LNG_SHOP									= "SHOP"
 	LNG_SHOP_OVER								= "샵"

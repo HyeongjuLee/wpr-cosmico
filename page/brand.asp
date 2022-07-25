@@ -5,7 +5,7 @@
 	ISSUBTOP = "T"
 
 	view = gRequestTF("view",True)
-	'sview = gRequestTF("sview",True)
+	sview = gRequestTF("sview",True)
 	mNum = 2
 	sNum = view
 
@@ -20,10 +20,21 @@
 	<div id="pages">
 	<%Select Case view%>
 	<%Case "1"%>
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
-		</div>
+		
+		<%Select Case sview%>
+		<%Case "1"%>
+			<div class="ready">
+				<div><img src="/images/content/maintenance-line.svg" alt=""></div>
+				<p><%=LNG_READY_02_01%></p>
+			</div>
+		<%Case "2"%>
+			<div class="ready">
+				<div><img src="/images/content/maintenance-line.svg" alt=""></div>
+				<p><%=LNG_READY_02_01%></p>
+			</div>
+		<%Case Else%>
+		<%End Select%>
+
 	<%Case "2"%>
 		<div class="ready">
 			<div><img src="/images/content/maintenance-line.svg" alt=""></div>

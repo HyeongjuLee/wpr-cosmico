@@ -18,12 +18,14 @@
 <%End If%>
 <%End If%>
 <%
+	LNG_SALESMAN_SEARCH = LNG_BUSINESS_02
+
 	'footer-menu
 	FOO_MENU_LINE 		= "<li class=""foo-menu-line""></li>" & VbCrLf
 	FOO_MENU_COMPANY 	= "<li><a href=""/page/company.asp?view=1&sview=1"">"&LNG_BOTTOM_COMPANY&"</a></li>" & VbCrLf
 	FOO_MENU_POLICY1 	= "<li><a href=""/page/policy.asp?view=1"">"&LNG_BOTTOM_POLICY1&"</a></li>" & VbCrLf
 	FOO_MENU_POLICY2 	= "<li class=""policy2""><a href=""/page/policy.asp?view=2"">"&LNG_BOTTOM_POLICY2&"</a></li>" & VbCrLf
-	'FOO_MENU_SALESMAN 	= "<li><a href=""/salesman/salesman.asp"">"&LNG_SALESMAN_SEARCH&"</a></li>" & VbCrLf
+	FOO_MENU_SALESMAN 	= "<li><a href=""/salesman/salesman.asp"">"&LNG_SALESMAN_SEARCH&"</a></li>" & VbCrLf
 	FOO_MENU_LOCATION 	= "<li><a href=""/page/location.asp"">"&LNG_BOTTOM_LOCATION&"</a></li>" & VbCrLf
 	FOO_MENU_CUSTOMER 	= "<li><a href=""/cboard/board_list.asp?bname=notice"">"&LNG_CUSTOMER&"</a></li>" & VbCrLf
 	FOO_MENU_GOODS 		= "<li><a href= ""javascript: popWindow('/common/pop_admission.asp','admission','500','600');"">"&LNG_BOTTOM_GOODS&"</a></li>" & VbCrLf
@@ -32,7 +34,7 @@
 
 	If PG_EXAM_MODE = "T" Then FOO_MENU_SALESMAN = ""
 
-	FOO_MENU_SET = FOO_MENU_COMPANY & FOO_MENU_POLICY2 & FOO_MENU_POLICY1 & FOO_MENU_LOCATION
+	FOO_MENU_SET = FOO_MENU_COMPANY & FOO_MENU_POLICY2 & FOO_MENU_POLICY1 & FOO_MENU_LOCATION & FOO_MENU_SALESMAN
 
 
 	'footer-info

@@ -1,0 +1,81 @@
+@import 'mixin-custom';
+/*레이어팝업 기본*/
+
+.popupLayer {
+	position: absolute;
+	box-shadow: 0 3px 6px rgba(#000, .19), 0 6px 10px rgba(#000, .23);
+	background: #fff;
+
+	$z-index: 1;
+
+	&-close {
+		cursor: pointer;
+		@include position(absolute, $ri: rem(30px) / 5, $top: rem(30px) / 5);
+		z-index: $z-index + 1;
+
+		i {
+			@include transition(all .3s ease);
+			font-size: rem(20px);
+			line-height: 1.5;
+			color: #111;
+			background: #fff;
+			//border-radius: 100%;
+			-webkit-text-stroke: 1.5px #fff;
+			display: block;
+			width: rem(30px);
+			height: rem(30px);
+			text-align: center;
+			opacity: 0.8;
+		}
+	}
+
+	&-content {
+		overflow: hidden;
+		z-index: $z-index;
+	}
+
+	&-close-today {
+		display: table;
+		width: 100%;
+		z-index: $z-index + 1;
+
+		.close-today, .close {
+			@include transition(all .3s ease);
+			cursor: pointer;
+			color: rgba(0,0,0,0.5);
+			font-size: rem(15px);
+			line-height: 1.5;
+			font-weight: 500;
+			text-align: center;
+			display: table-cell;
+			width: 50%;
+			border: 1px solid #eee;
+			padding: rem(15px) 0;
+			background: #fff;
+
+			&:hover {
+				color: darken($sub-color, 40%);
+				background: #fefefe;
+			}
+		}
+
+		.close-today {
+			label {
+				
+			}
+
+			input {
+				visibility: hidden;
+				width: 0;
+				height: 0;
+				@include position(absolute);
+				z-index: 0;
+			}
+		}
+
+		.close {
+
+		}
+
+	}
+}

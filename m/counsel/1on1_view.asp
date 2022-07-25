@@ -84,7 +84,7 @@
 			<p><%=LNG_TEXT_WRITE_DATE%><i></i><%=DKRS_regDate%></p>
 			<span><%=BACKWORD(DKRS_strSubject)%></span>
 		</h6>
-		<div class="content"><%=DKRS_strContent%></div>
+		<div class="content"><%=BACKWORD_TAG(DKRS_strContent)%></div>
 		<%
 			If DKRS_strData1 <> "" Then
 				strDataSize1 = num2cur(ChkFileSize(REAL_PATH2("/uploadData/counselData1")&"\"&DKRS_strData1) / 1024)

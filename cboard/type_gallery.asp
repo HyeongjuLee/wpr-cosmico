@@ -8,9 +8,9 @@
 	ImgsLeftMargin = Int((1050 - (252*PCONF_LINECNT)) / (PCONF_LINECNT-1))
 	'print ImgsLeftMargin
 %>
-<div id="img_board" class="" >
-	<div id="thumb_image" class="cleft width100 img_board_Line">
-		<div class="thumb_image">
+<link rel="stylesheet" href="/css/board-gallery.css?">
+<div id="img_board" class="gallery" >
+	<ul>
 		<%
 			If IsArray(arrList) Then
 				For i = 0 To listLen
@@ -62,88 +62,79 @@
 							newimgHeight = NEW_LENGTH
 						End If
 
-					liMarginTop = (170 - newimgHeight) / 2
+					liMarginTop = (325 - newimgHeight) / 2
 
 					thumbImg = "<img src="""&imgPath&""" width="""&newimgWidth&""" height="""&newimgHeight&""" alt="""" style=""margin-top:"&liMarginTop&"px""/>"
 
 					'NO IMAGE
 					If arrList_strPic = "" Then
-						thumbImg = "<img src=""/images/noimages.png"" width=""170"" hei ght=""75"" alt="""" style=""margin-top:30px""/>"
+						thumbImg = "<img src=""/images/noimages.png"" width=""170"" hei ght=""75"" alt=""""/>"
 					End If
 
 					isFirst = ""
 
-					If (i) Mod PCONF_LINECNT = 0 Or i = 0 Then
-						PRINT "<div class=""cleft width100"">"
-					Else
-						isFirst = " style=""margin-left:"&ImgsLeftMargin&"px"" "
-					End If
+					' If (i) Mod PCONF_LINECNT = 0 Or i = 0 Then
+					' 	PRINT "<div class=""cleft width100"">"
+					' Else
+					' 	isFirst = " style=""margin-left:"&ImgsLeftMargin&"px"" "
+					' End If
 		%>
-			<div class="thumb_imageArea" <%=isFirst%>>
-				<a href="board_view.asp?bname=<%=strBoardName%>&num=<%=arrList_intIDX%>"><div class="images"><%=thumbImg%></div></a>
-				<div class="txt_line">
-					<!-- <p class="txt2"><%=arrList_strSubject%></p> -->
-					<table <%=tableatt%> class="width100 thumb_Table">
-						<colgroup>
-							<col width="" />
-							<col width="" />
-						</colgroup>
-						<tr class="">
-							<td class="th fleft">
-								<a href="board_view.asp?bname=<%=strBoardName%>&num=<%=arrList_intIDX%>"><%=backword_title(cutString(arrList_strSubject,15))%><!-- &nbsp;<%=comment_Cnt%> --></a>
-							</td>
-							<td class="th fright">
-								<%If isVote = "T" Then%>
-									<span class="heart1 fright"><span class="heartTxt"><%=num2cur(arrList_TOTALVOTE)%></span></span>
-								<%End If%>
-							</td>
-						</tr>
-						<tr class="">
-							<td class="td fleft"><%=LNG_TEXT_COUNT_NUMBER%> : <%=arrList_readCnt%></td>
-							<td class="td fright"><%=arrList_regDate%></td>
-						</tr>
-					</table>
+		<li class="thumb_imageArea" <%=isFirst%>>
+			<a href="board_view.asp?bname=<%=strBoardName%>&num=<%=arrList_intIDX%>"><div class="img"><%=thumbImg%></div>
+				<div class="txt">
+					<p><%=backword_title(cutString(arrList_strSubject,15))%><!-- &nbsp;<%=comment_Cnt%> -->
+						<%If isVote = "T" Then%>
+							<span class="heart1 fright"><span class="heartTxt"><%=num2cur(arrList_TOTALVOTE)%></span></span>
+						<%End If%>
+					</p>
+					<div class="info">
+						<span class="views"><%=LNG_TEXT_COUNT_NUMBER%> <i></i> <%=arrList_readCnt%></span>
+						<span class="date"><%=arrList_regDate%></span>
+					</div>
 				</div>
-			</div>
-			<%
-						If (i + 1) Mod PCONF_LINECNT = 0 Or i = listLen Then
-			%>
-			</div>
-			<%			End If
+			</a>
+		</li>
+		<%
+					If (i + 1) Mod PCONF_LINECNT = 0 Or i = listLen Then
+		%>
+		<%			End If
 
-					Next
-				Else
-			%>
-			<div class="cleft width100" style="text-align:center; padding:50px 0px;"><%=LNG_TEXT_NO_REGISTERED_POST%></div>
+				Next
+			Else
+		%>
+		<div class="cleft width100" style="text-align:center; padding:50px 0px;"><%=LNG_TEXT_NO_REGISTERED_POST%></div>
 
-			<%
-				End If
-			%>
-		</div>
-	</div>
+		<%
+			End If
+		%>
+	</ul>
 </div>
 
-<div class="gallery_wrap fleft" style="margin:120px 0px; 70px 0px">
-	<table <%=tableatt%> id="board1" class="gallery userCWidth2">
+<div class="gallery_wrap fleft" style="margin:70px 0px;">
+	<table <%=tableatt%> id="board1" class="gallery userCWidth2" style="width: 1200px;">
 	<colgroup>
 		<col width="60%" />
 		<col width="40%" />
 	</colgroup>
 		<tfoot>
 			<tr>
-				<td colspan="1" height="30" class="tleft"><%Call pageList(PAGE,PAGECOUNT)%></td>
-				<td colspan="1" height="30" class="tright">
+				<td colspan="2" height="30">
+					<div class="pageList"><%Call pageList(PAGE,PAGECOUNT)%></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" height="30" class="tright">
 				<%
 					Select Case DK_MEMBER_TYPE
 						Case "MEMBER","GUEST","COMPANY"
 							If DK_MEMBER_LEVEL >= intLevelWrite Then
-								PRINT TABS(3)& "	<input type=""button"" class=""txtBtn small2 pd7"" value=""작성하기"" onclick=""location.href='board_write.asp?bname="&strBoardName&"'"" />"
+								PRINT TABS(3)& "	<input type=""button"" class=""button write"" value=""작성하기"" onclick=""location.href='board_write.asp?bname="&strBoardName&"'"" />"
 							End If
 						Case "ADMIN","OPERATOR"
-							PRINT TABS(3)& "	<input type=""button"" class=""txtBtn small2 pd7"" value=""작성하기"" onclick=""location.href='board_write.asp?bname="&strBoardName&"'"" />"
+							PRINT TABS(3)& "	<input type=""button"" class=""button write"" value=""작성하기"" onclick=""location.href='board_write.asp?bname="&strBoardName&"'"" />"
 
 					End Select
-							PRINT TABS(3)& "	<input type=""button"" class=""txtBtn small2 pd7"" value=""목록보기"" onclick=""location.href='board_list.asp?bname="&strBoardName&"'"" />"
+							PRINT TABS(3)& "	<input type=""button"" class=""button basic"" value=""목록보기"" onclick=""location.href='board_list.asp?bname="&strBoardName&"'"" />"
 				%>
 				</td>
 			</tr>

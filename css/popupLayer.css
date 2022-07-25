@@ -1,3 +1,10 @@
 @charset "UTF-8";
 /*레이어팝업 기본*/
-.popupLayer {}
+.popupLayer { position: absolute; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23); background: #fff; }
+.popupLayer-close { cursor: pointer; position: absolute; top: 0.6rem; right: 0.6rem; z-index: 2; }
+.popupLayer-close i { -moz-transition: all 0.3s ease; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; font-size: 2rem; line-height: 1.5; color: #111; background: #fff; -webkit-text-stroke: 1.5px #fff; display: block; width: 3rem; height: 3rem; text-align: center; opacity: 0.8; }
+.popupLayer-content { overflow: hidden; z-index: 1; }
+.popupLayer-close-today { display: table; width: 100%; z-index: 2; }
+.popupLayer-close-today .close-today, .popupLayer-close-today .close { -moz-transition: all 0.3s ease; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; cursor: pointer; color: rgba(0, 0, 0, 0.5); font-size: 1.5rem; line-height: 1.5; font-weight: 500; text-align: center; display: table-cell; width: 50%; border: 1px solid #eee; padding: 1.5rem 0; background: #fff; }
+.popupLayer-close-today .close-today:hover, .popupLayer-close-today .close:hover { color: #999999; background: #fefefe; }
+.popupLayer-close-today .close-today input { visibility: hidden; width: 0; height: 0; position: absolute; z-index: 0; }

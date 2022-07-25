@@ -68,6 +68,13 @@
 				Select Case view
 					Case "1"
 						sub_title_d3 = LNG_BRAND_01
+						Select Case sview
+							Case "1"
+								sub_title_d4 = LNG_BRAND_01_01
+							Case "2"
+								sub_title_d4 = LNG_BRAND_01_02
+							Case Else
+						End Select
 					Case "2"
 						sub_title_d3 = LNG_BRAND_02
 					Case "3"

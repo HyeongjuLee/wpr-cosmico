@@ -448,12 +448,8 @@ $top-menu-height: ($top-menu-font-size * (150 / 100)) + ($padding * 2);
 .header {
 	.nav-main {
 		.main {
-			&.cosmetic, &.enter {
-				.nav-sub {
-					li {
-						display: none !important;
-					}
-				}
+			.salesman {
+				display: none !important;
 			}
 		}
 	}
@@ -920,6 +916,7 @@ $sub_title-height: rem(320px);
 // 		}
 // 	}
 // }
+
 
 #sub-header {
 	@include position;

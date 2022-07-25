@@ -54,7 +54,7 @@
 	});
 // -->
 </script>
-<link rel="stylesheet" type="text/css" href="/css/popupLayer.css">
+<link rel="stylesheet" type="text/css" href="/css/popupLayer.css?">
 <div id="<%=Layer_Name%>" class="popupLayer" style="position:absolute; left:<%=arrList1(9,i)%>px; top:<%=arrList1(8,i)%>px; width:<%=arrList1(3,i)%>px;z-index:9999;" onmouseover="dragObj=<%=Layer_Name%>; drag=1;move=0;" onmouseout="drag=0">
 	<div class="popupLayer-close" onclick="<%=Layer_Name%>.style.display='none';"><i class="icon-cancel"></i></div>
 	<div class="popupLayer-content">

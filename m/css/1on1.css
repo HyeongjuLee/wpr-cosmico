@@ -38,10 +38,7 @@
 
 #counseling.cs_write input, #counseling.cs_write select, #counseling.cs_write textarea { width: 100%; }
 #counseling.cs_write input:disabled, #counseling.cs_write select:disabled, #counseling.cs_write textarea:disabled { background: #f5f5f5; }
-#counseling.cs_write input.input_text { background: #ffffff; }
 #counseling.cs_write input.readonly { background: #f5f5f5; }
-
-
 #counseling.cs_write input { height: 8rem; }
 #counseling.cs_write .info { border: 1px solid #f5f5f5; background: #fafafa; font-size: 2.5rem; padding: 2.5rem; margin-bottom: 5rem; margin-top: 2.5rem; }
 #counseling.cs_write .info li { text-indent: -1.25rem; margin-left: 1.25rem; }

@@ -109,7 +109,8 @@
 	}
 
 	.depth1,
-	.depth2 {
+	.depth2,
+	.depth3, {
 		&.view {
 			&>a {
 				background: rgba($nav-color, 0.05);
@@ -127,7 +128,28 @@
 		}
 	}
 
-	.depth2 {
+	.depth2:not(.none) {
+		&>a {
+			color: $main-color;
+		}
+
+		i.right {
+			opacity: 0;
+		}
+
+		&:hover,
+		&.view {
+			i.right {
+				opacity: 1;
+			}
+		}
+
+		&.view>a {
+			background: rgba($main-color, 0.05);
+		}
+	}
+
+	.depth3 {
 		&>a {
 			color: $main-color;
 		}
@@ -173,7 +195,8 @@
 	}
 
 	.depth1,
-	.depth2 {
+	.depth2,
+	.depth3 {
 		&.view {
 			ol {
 				max-height: 100vh;
