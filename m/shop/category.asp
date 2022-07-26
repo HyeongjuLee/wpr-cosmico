@@ -555,27 +555,31 @@
 						<p class="name"><%=arrList_goodsName%></p>
 						<p class="comment"><%=arrList_GoodsComment%></p>
 						<%If DK_MEMBER_LEVEL > 0 Then%>
-						<div class="price">
-							<%If CONST_CS_SOBIJA_PRICE_USE_TF = "T" And DK_MEMBER_STYPE = 1 Then	'소비자회원 소비자가%>
-							<div><span><%=num2cur(arrList_GoodsCustomer)%></span><%=Chg_CurrencyISO%></div>
-							<%Else%>
-							<p class="line"><span><%=num2cur(arrList_GoodsCustomer)%></span><%=Chg_CurrencyISO%></p>
-							<div><span><%=num2cur(notPrice)%></span><%=Chg_CurrencyISO%></div>
+							<div class="price">
+								<%If CONST_CS_SOBIJA_PRICE_USE_TF = "T" And DK_MEMBER_STYPE = 1 Then	'소비자회원 소비자가%>
+									<div><span><%=num2cur(arrList_GoodsCustomer)%></span><%=Chg_CurrencyISO%></div>
+								<%Else%>
+									<p class="line"><span><%=num2cur(arrList_GoodsCustomer)%></span><%=Chg_CurrencyISO%></p>
+									<div><span><%=num2cur(notPrice)%></span><%=Chg_CurrencyISO%></div>
 
-							<%If nowGradeCnt >= 20 And vipPrice > 0 Then	'COSMICO%>
-								<p class="pv green"><span><%=LNG_VIP_PRICE%> : <%=num2cur(vipPrice)%></span><%=Chg_CurrencyISO%></p>
-							<%End If%>
+									<%If nowGradeCnt >= 20 And vipPrice > 0 Then	'COSMICO%>
+										<p class="pv green"><span><%=LNG_VIP_PRICE%> : <%=num2cur(vipPrice)%></span><%=Chg_CurrencyISO%></p>
+									<%End If%>
 
-							<%If RS_price4 <> "" And DK_MEMBER_LEVEL > 0 And DK_MEMBER_STYPE <> "1" Then %>
-								<%If PV_VIEW_TF = "T" Then%>
-									<p class="pv"><span><%=num2cur(RS_price4)%></span><%=CS_PV%></p>
+									<%If RS_price4 <> "" And DK_MEMBER_LEVEL > 0 And DK_MEMBER_STYPE <> "1" Then %>
+										<%If PV_VIEW_TF = "T" Then%>
+											<p class="pv"><span><%=num2cur(RS_price4)%></span><%=CS_PV%></p>
+										<%End If%>
+										<%If BV_VIEW_TF = "T" Then%>
+											<p class="bv"><span><%=num2cur(RS_price5)%></span><%=CS_PV2%></p>
+										<%End If%>
+									<%End If%>
 								<%End If%>
-								<%If BV_VIEW_TF = "T" Then%>
-									<p class="bv"><span><%=num2cur(RS_price5)%></span><%=CS_PV2%></p>
-								<%End If%>
-							<%End If%>
-						<%End If%>
-						</div>
+							</div>
+						<%Else%>
+							<div class="price" style="margin-bottom: 40px;">
+								<div><span><%=num2cur(arrList_GoodsCustomer)%></span><%=Chg_CurrencyISO%></div>
+							</div>
 						<%End If%>
 					</div>
 				</a>
