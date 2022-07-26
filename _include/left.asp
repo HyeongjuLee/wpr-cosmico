@@ -81,7 +81,6 @@
 				$('.nav-left .depth1').each(function(){
 					var main = $('.depth1 li.main');
 					var depth = main.eq(<%=NAVI_P_NUM%> - 1);
-					console.log(depth.text());
 
 					depth.addClass('depth');
 					main.not(depth).find('i').remove();

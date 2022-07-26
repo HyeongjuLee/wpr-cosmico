@@ -15,8 +15,6 @@
 					<!--#include virtual = "/navi/company.asp"-->
 					<%Case "BRAND"%>
 					<!--#include virtual = "/navi/brand.asp"-->
-					<%Case "PRODUCT"%>
-					<!--#include virtual = "/navi/product.asp"-->
 					<%Case "BUSINESS"%>
 					<!--#include virtual = "/navi/business.asp"-->
 					<%Case "GUIDE"%>
@@ -36,8 +34,17 @@
 					<%End Select%>
 				</ol>
 			</li>
-
 		</ul>
+		<%If sub_title_d4 <> "" Then %>
+			<div class="depth3">
+				<ol>
+					<%Select Case PAGE_SETTING%>
+					<%Case "BRAND"%>
+					<!--#include virtual = "/navi/brand.asp"-->
+					<%End Select%>
+				</ol>
+			</div>
+		<%End If%>
 	</article>
 	
 	<script type="text/javascript">
@@ -55,6 +62,7 @@
 			var right = '<i class="right icon-down-open-big"></i>';
 			$('li.main:last').addClass('view');
 			$('li.main.view').children().not('.nav-sub').remove();
+			$('.depth2 .nav-sub2').remove();
 
 			$('#left').attr('id', '');
 
@@ -75,6 +83,15 @@
 				depth.addClass('depth');
 			});
 
+			$('.nav-left .depth3').each(function(){
+				var main = $('.depth3 ul li');
+				var depth = main.eq(<%=sview%> - 0);
+				var navSub = $('.depth3 .nav-sub2');
+
+				$('.depth3 ol').html(navSub.find('li'));
+				depth.addClass('depth');
+			});
+
 			$('.depth').each(function(){
 				$('.depth1 ol').before($('.depth1 li.depth').html());
 				$('.depth1 > a').append(right).attr('href', '#;').addClass('depth');
@@ -84,12 +101,17 @@
 				$('.depth2 > a').append(right).attr('href', '#;').addClass('depth');
 				$('.depth2 ol').find('.depth');
 				$('.depth2 a.depth').attr('data-ripplet', '');
-				//$('.depth2 a').attr('data-ripplet', '');
+				// return false;
+
+				$('.depth3 ol').before($('.depth3 li.depth').html());
+				$('.depth3 > a').append(right).attr('href', '#;').addClass('depth');
+				$('.depth3 ol').find('.depth');
+				$('.depth3 a.depth').attr('data-ripplet', '');
 				return false;
 
 			});
 
-			$('.depth1, .depth2').each(function(){
+			$('.depth1, .depth2, .depth3').each(function(){
 				$(this).click(function(){
 					if (!$(this).hasClass('view')) {
 						!$(this).removeClass('view')
@@ -103,7 +125,7 @@
 
 				$(this).mouseleave(function(){
 					setTimeout(function(){
-						$('.depth1, .depth2').removeClass('view');
+						$('.depth1, .depth2, .depth3').removeClass('view');
 						$('li ol').removeClass('view');
 					}, 0);
 				});
@@ -111,7 +133,7 @@
 			});
 
 			console.log('<%=PAGE_SETTING%>', ' NAVI_P_NUM:' + '<%=NAVI_P_NUM%>', ' view : ' + '<%=view%>', ' mNum:' + '<%=mNum%>', ' sNum:' + '<%=sNum%>', ' sVar:' + '<%=sVar%>');
-			console.log('sub_title_d2 : ' + '<%=sub_title_d2%>', ' sub_title_d3 : ' + '<%=sub_title_d3%>', ' sview:' + '<%=sview%>');
+			console.log('sub_title_d2 : ' + '<%=sub_title_d2%>', ' sub_title_d3 : ' + '<%=sub_title_d3%>', ' sub_title_d4 : ' + '<%=sub_title_d4%>', ' sview:' + '<%=sview%>');
 
 		});
 	</script>

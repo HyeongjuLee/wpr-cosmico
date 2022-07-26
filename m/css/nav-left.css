@@ -10,7 +10,7 @@
 .nav-left li { position: relative; white-space: nowrap; }
 .nav-left i.right { font-size: 2rem; position: absolute; top: 50%; right: 2.5rem; transform: translateY(-50%); -moz-transition: all, 0.15s; -webkit-transition: all, 0.15s; transition: all, 0.15s; }
 .nav-left a.depth { position: relative; }
-.nav-left ol { position: absolute; min-width: 100%; max-width: 100vh; overflow: hidden; background: #3a49a4; -moz-transition: all, 0.5s; -webkit-transition: all, 0.5s; transition: all, 0.5s; }
+.nav-left ol { position: absolute; min-width: 100%; max-width: 100vh; overflow: hidden; background: #3a49a4; }
 .nav-left ol li { margin: 0; width: 100%; }
 .nav-left ol a { cursor: pointer; text-decoration: none; width: 100%; height: 100%; display: block; padding: 1.6rem; padding-left: 2.5rem; padding-right: 4rem; z-index: 10; overflow: hidden; font-size: 2.4rem; color: #fff; text-align: left; -moz-transition: all, 0.3s; -webkit-transition: all, 0.3s; transition: all, 0.3s; }
 .nav-left ol .depth a { color: #fff; font-weight: 700; background: #2e3c97; }
@@ -21,3 +21,11 @@
 .nav-left .depth2.view > a { background: rgba(48, 63, 159, 0.05); }
 .nav-left ol { max-height: 0; }
 .nav-left .depth1.view ol, .nav-left .depth2.view ol { max-height: 100vh; padding-bottom: 2rem; }
+
+.nav-left { flex-wrap: wrap; height: auto; box-shadow: none; }
+.nav-left .depth3 { padding: 3rem; width: 100%; }
+.nav-left .depth3 > a { display: none; }
+.nav-left .depth3 ol { position: relative; width: 100%; max-height: 8rem; display: flex; justify-content: center; align-items: center; }
+.nav-left .depth3 ol li { width: auto; height: 8rem; flex: 1; }
+.nav-left .depth3 ol li a { padding: 1.6rem !important; display: flex; justify-content: center; align-items: center; background: #e9ecef; color: #222; }
+.nav-left .depth3 ol li.depth a { color: #303f9f; background: #fff; border: 2px solid #303f9f; }

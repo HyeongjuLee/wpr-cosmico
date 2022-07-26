@@ -114,22 +114,18 @@
 
 						<%' "BRAND"%>
 						<li class="Label"><a><%=LNG_BRAND%></a></li>
-							<li><a href="/m/page/brand.asp?view=1"><%=LNG_BRAND_01%></a></li>
-							<li><a href="/m/page/brand.asp?view=2"><%=LNG_BRAND_02%></a></li>
-							<li><a href="/m/page/brand.asp?view=3"><%=LNG_BRAND_03%></a></li>
-
-						<%' "PRODUCT"%>
-						<li class="Label"><a><%=LNG_PRODUCT%></a></li>
-							<li><a href="/m/page/product.asp?view=1"><%=LNG_PRODUCT_01%></a></li>
-							<li><a href="/m/page/product.asp?view=2"><%=LNG_PRODUCT_02%></a></li>
+							<li><a href="/m/page/brand.asp?view=1&sview=1"><%=LNG_BRAND_01%></a>
+								<ul>
+									<li><a href="/m/page/brand.asp?view=1&sview=1"><%=LNG_BRAND_01_01%></a></li>
+									<li><a href="/m/page/brand.asp?view=1&sview=2"><%=LNG_BRAND_01_02%></a></li>
+								</ul>
+							</li>
+							<li><a href="/m/page/brand.asp?view=2&sview=1"><%=LNG_BRAND_02%></a></li>
 
 						<%' "BUSINESS"%>
 						<li class="Label"><a><%=LNG_BUSINESS%></a></li>
 							<li><a href="/m/page/business.asp?view=1"><%=LNG_BUSINESS_01%></a></li>
-							<li><a href="/m/page/business.asp?view=2"><%=LNG_BUSINESS_02%></a></li>
-							<li><a href="/m/page/business.asp?view=3"><%=LNG_BUSINESS_03%></a></li>
-							<li><a href="/m/salesman/salesmanSearch.asp"><%=LNG_BUSINESS_04%></a></li>
-							<li><a href="/m/page/business.asp?view=5"><%=LNG_BUSINESS_05%></a></li>
+							<!-- <li><a href="/m/salesman/salesmanSearch.asp"><%=LNG_BUSINESS_04%></a></li> -->
 
 						<%' "GUIDE"%>
 						<li class="Label"><a><%=LNG_GUIDE%></a></li>
@@ -193,8 +189,9 @@
 
 						<%' "COMMUNITY"%>
 						<li class="Label"><a><%=LNG_COMMUNITY%></a></li>
-							<li><a href="javascript:alert('준비중입니다');"><%=LNG_COMMUNITY_01%></a></li>
-							<li><a href="javascript:alert('준비중입니다');"><%=LNG_COMMUNITY_02%></a></li>
+							<li><a href="/m/cboard/board_list.asp?bname=magazine"><%=LNG_COMMUNITY_01%></a></li>
+							<li><a href="/m/cboard/board_list.asp?bname=technology"><%=LNG_COMMUNITY_02%></a></li>
+							<li><a href="/m/cboard/board_list.asp?bname=movie">동영상게시판</a></li>
 
 						<%' "CUSTOMER"%>
 						<li class="Label"><a><%=LNG_CUSTOMER%></a></li>
@@ -202,7 +199,6 @@
 							<li><a href="/m/faq/faq_list.asp"><%=LNG_FAQ%></a></li>
 							<li><a href="/m/counsel/1on1_list.asp"><%=LNG_1ON1%></a></li>
 							<li><a href="/m/cboard/board_list.asp?bname=pds"><%=LNG_PDS%></a></li>
-							<li><a href="/m/cboard/board_list.asp?bname=movie">동영상게시판</a></li>
 					</ul>
 
 				</nav>
@@ -218,15 +214,14 @@
 		Select Case PAGE_SETTING
 			Case "COMPANY" 		NAVI_P_NUM = 1
 			Case "BRAND"		NAVI_P_NUM = 2
-			Case "PRODUCT"		NAVI_P_NUM = 3
-			Case "BUSINESS" 	NAVI_P_NUM = 4
-			Case "GUIDE"		NAVI_P_NUM = 5
-			Case "SHOP"			NAVI_P_NUM = 6
-			Case "COMMUNITY"	NAVI_P_NUM = 7
-			Case "CUSTOMER"		NAVI_P_NUM = 8
-			Case "SNS"			NAVI_P_NUM = 9
+			Case "BUSINESS" 	NAVI_P_NUM = 3
+			Case "GUIDE"		NAVI_P_NUM = 4
+			Case "SHOP"			NAVI_P_NUM = 5
+			Case "COMMUNITY"	NAVI_P_NUM = 6
+			Case "CUSTOMER"		NAVI_P_NUM = 7
+			Case "SNS"			NAVI_P_NUM = 8
 			'Case "MYPAGE"		NAVI_P_NUM = 6
-			Case "MYOFFICE","MY_BUY","MY_MEMBER","PAY","MY_POINT" NAVI_P_NUM = 10
+			Case "MYOFFICE","MY_BUY","MY_MEMBER","PAY","MY_POINT" NAVI_P_NUM = 9
 			Case Else
 				NAVI_P_NUM = 0
 		End Select

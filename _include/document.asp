@@ -88,7 +88,7 @@
 <!-- <link rel="shortcut icon" href="<%=VIR_PATH("favicon")%>/<%=DKCONF_FAVICON%>" /> -->
 
 <link rel="stylesheet" href="/css/common2.css?" />
-<link rel="stylesheet" href="/css/header.css?">
+<link rel="stylesheet" href="/css/header.css?v0">
 <%If Left(PAGE_SETTING,4) = "SHOP" Then %>
 <link rel="stylesheet" href="/css/shop_style.css?" />
 <link rel="stylesheet" href="/css/shop_style_<%=LCase(DK_MEMBER_LNG_CODE)%>.css?" /><%'언어선택%>

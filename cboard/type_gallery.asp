@@ -50,7 +50,7 @@
 					newimgWidth = 0
 					newimgHeight = 0
 
-					NEW_LENGTH = 150
+					NEW_LENGTH = 250
 					Call imgInfoNew(imgPath,newimgWidth,newimgHeight,"",NEW_LENGTH)
 
 					imgPaddingW = (NEW_LENGTH - newimgWidth)/2
@@ -62,13 +62,14 @@
 							newimgHeight = NEW_LENGTH
 						End If
 
-					liMarginTop = (325 - newimgHeight) / 2
+					liMarginTop = (250 - newimgHeight) / 2
 
-					thumbImg = "<img src="""&imgPath&""" width="""&newimgWidth&""" height="""&newimgHeight&""" alt="""" style=""margin-top:"&liMarginTop&"px""/>"
+					' thumbImg = "<img src="""&imgPath&""" width="""&newimgWidth&""" height="""&newimgHeight&""" alt="""" style=""margin-top:"&liMarginTop&"px""/>"
+					thumbImg = "<img src="""&imgPath&""" alt="""" style=""margin-top:"&liMarginTop&"px""/>"
 
 					'NO IMAGE
 					If arrList_strPic = "" Then
-						thumbImg = "<img src=""/images/noimages.png"" width=""170"" hei ght=""75"" alt=""""/>"
+						thumbImg = "<img src=""/images/noimages.png"" width=""250"" hei ght=""75"" alt=""""/>"
 					End If
 
 					isFirst = ""

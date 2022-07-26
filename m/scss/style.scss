@@ -1475,16 +1475,6 @@ a:hover {
 	}
 }
 
-.nav-left {
-	.depth2 {
-		ol {
-			.salesman {
-				display: none !important;
-			}
-		}
-	}
-}
-
 #faq {
 	.menu {
 		@include flex(flex-start, flex-start);

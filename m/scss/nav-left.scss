@@ -88,7 +88,7 @@ $main-color: material-color('indigo', '700');
 		background: mix($main-color, #fff, 95);
 		//box-shadow: 0 rem(2px) rem(10px) rgba(#000, 0.15);
 		//@include rounded(rem(3px));
-		@include transition(all, .5s);
+		// @include transition(all, .5s);
 
 		li {
 			margin: 0;
@@ -206,4 +206,41 @@ $main-color: material-color('indigo', '700');
 	// 		}
 	// 	}
 	// }
+}
+
+.nav-left {
+	flex-wrap: wrap;
+	height: auto;
+	box-shadow: none;
+	.depth3 {
+		padding: rem(30px);
+		width: 100%;
+		> a {
+			display: none;
+		}
+		ol {
+			@include position;
+			width: 100%;
+			max-height: rem(80px);
+			@include flex;
+			li {
+				width: auto;
+				height: rem(80px);
+				flex: 1;
+				a {
+					padding: rem(16px) !important;
+					@include flex;
+					background: $oc-gray-2;
+					color: #222;
+				}
+				&.depth {
+					a {
+						color: $main-color;
+						background: #fff;
+						border: 2px solid $main-color;
+					}
+				}
+			}
+		}
+	}
 }
