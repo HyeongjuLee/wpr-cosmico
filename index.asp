@@ -341,20 +341,23 @@
 						<div class="txt">
 							<p class="name"><%=arrList_goodsName%></p>
 							<p class="comment"><%=arrList_GoodsComment%></p>
-
 							<%If DK_MEMBER_LEVEL > 0 Then%>
-							<div class="price">
-								<%If CONST_CS_SOBIJA_PRICE_USE_TF = "T" And DK_MEMBER_STYPE = 1 Then	'소비자회원 소비자가%>
-									<div><span><%=num2cur(arrList_GoodsCustomer)%></span><%=Chg_CurrencyISO%></div>
-								<%Else%>
-									<p class="line"><span><%=num2cur(arrList_GoodsCustomer)%></span><!-- <%=Chg_CurrencyISO%> --></p>
-									<div><span><%=num2cur(notPrice)%></span><%=Chg_CurrencyISO%></div>
-									<%If RS_price4 <> "" And DK_MEMBER_LEVEL > 0 And DK_MEMBER_STYPE <> "1" Then %>
-									<p class="pv"><span><%=num2cur(RS_price4)%></span><%=CS_PV%></p>
-									<!--<p class="bv"><span><%=num2cur(RS_price5)%></span><%=CS_PV2%></p>-->
+								<div class="price">
+									<%If CONST_CS_SOBIJA_PRICE_USE_TF = "T" And DK_MEMBER_STYPE = 1 Then	'소비자회원 소비자가%>
+										<div><span><%=num2cur(arrList_GoodsCustomer)%></span><%=Chg_CurrencyISO%></div>
+									<%Else%>
+										<p class="line"><span><%=num2cur(arrList_GoodsCustomer)%></span><!-- <%=Chg_CurrencyISO%> --></p>
+										<div><span><%=num2cur(notPrice)%></span><%=Chg_CurrencyISO%></div>
+										<%If RS_price4 <> "" And DK_MEMBER_LEVEL > 0 And DK_MEMBER_STYPE <> "1" Then %>
+										<p class="pv"><span><%=num2cur(RS_price4)%></span><%=CS_PV%></p>
+										<!--<p class="bv"><span><%=num2cur(RS_price5)%></span><%=CS_PV2%></p>-->
+										<%End If%>
 									<%End If%>
-								<%End If%>
-							</div>
+								</div>
+							<%Else%>
+								<div class="price" style="margin-bottom: 40px;">
+									<div><span><%=num2cur(arrList_GoodsCustomer)%></span><%=Chg_CurrencyISO%></div>
+								</div>
 							<%End If%>
 						</div>
 					</a>
