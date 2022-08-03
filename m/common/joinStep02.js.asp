@@ -9,6 +9,8 @@
 				document.getElementById("agree03Chk").checked = true;
 				//document.getElementById("agree04Chk").checked = true;
 			<%End If%>
+			document.getElementById("agree04Chk").checked = true;
+
 		} else if (document.getElementById("allAgree").checked == false)	{
 			document.getElementById("agree01Chk").checked = false;
 			document.getElementById("agree02Chk").checked = false;
@@ -16,6 +18,7 @@
 				document.getElementById("agree03Chk").checked = false;
 				//document.getElementById("agree04Chk").checked = false;
 			<%End If%>
+			document.getElementById("agree04Chk").checked = false;
 		}
 	}
 
@@ -40,6 +43,11 @@
 				return false;
 			}
 		<%End If%>
+		if (f.agree04.checked == false) {
+			alert("<%=LNG_JS_POLICY04%>");
+			f.agree04.focus();
+			return false;
+		}
 		<%If S_SellMemTF = 0 Then%>
 			// if (f.agree04.checked == false) {
 			// 	alert("판매원 유의사항에 동의하셔야합니다.");
@@ -88,7 +96,7 @@
 					f.M_Name_First.focus();
 					return false;
 				}
-				if (f.birthYY.value != f.birthYYCHK.value || f.birthMM.value != f.birthMMCHK.value || f.birthDD.value != d.birthDDCHK.value) {
+				if (f.birthYY.value != f.birthYYCHK.value || f.birthMM.value != f.birthMMCHK.value || f.birthDD.value != f.birthDDCHK.value) {
 					alert("<%=LNG_JS_DUPLICATE_BIRTH_CHANGE%>\n<%=LNG_JS_DUPLICATION_CHECK%>");
 					$("#result_text").text("중복체크시 입력정보와 현재 입력된 정보가 틀립니다").addClass("red2").removeClass("blue2");
 					f.birthYY.focus();

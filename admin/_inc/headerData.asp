@@ -57,9 +57,9 @@
 				)
 			Case "CONFIG2-4"
 				MAP_DEPTH2 = "정책관리"
-				MAP_DEPTH3 = "영업지침"
+				MAP_DEPTH3 = "임의적인 가공 및 재판매 금지서약"
 				arrayLi = Array(_
-					Array(True, "영업지침에 대한 안내를 수정할 수 있습니다.")_
+					Array(True, "임의적인 가공 및 재판매 금지서약에 대한 안내를 수정할 수 있습니다.")_
 				)
 			Case "CONFIG2-5"
 				MAP_DEPTH2 = "정책관리"

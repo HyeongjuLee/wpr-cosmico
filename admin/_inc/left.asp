@@ -82,11 +82,11 @@
 				<li class="ssub"><a href="policy.asp?type=policy01"><%=LEFT_MENU_HIGHLIGHT2("CONFIG2-1","온라인 이용약관")%></a></li>
 				<li class="ssub"><a href="policy.asp?type=policy02"><%=LEFT_MENU_HIGHLIGHT2("CONFIG2-2","개인정보 수집 및 이용")%></a></li>
 				<li class="ssub"><a href="policy.asp?type=policy03"><%=LEFT_MENU_HIGHLIGHT2("CONFIG2-3","사업자회원 가입약관")%></a></li>
-				<!-- <li class="ssub"><a href="policy.asp?type=policy04"><%=LEFT_MENU_HIGHLIGHT("CONFIG2-4",11,"제품구매 약관")%></a></li> -->
+				<li class="ssub"><a href="policy.asp?type=policy04"><%=LEFT_MENU_HIGHLIGHT2("CONFIG2-4","임의적인 가공 및 재판매 금지서약")%></a></li>
 				<li class="ssub"><a href="policy.asp?type=delivery"><%=LEFT_MENU_HIGHLIGHT2("CONFIG2-7","배송정책")%></a></li>
-				<!-- <li class="ssub"><a href="policy.asp?type=policy04"><%=LEFT_MENU_HIGHLIGHT("CONFIG2-4",9,"영업지침")%></a></li>
-				<li class="ssub"><a href="policy.asp?type=policy06"><%=LEFT_MENU_HIGHLIGHT("CONFIG2-6",9,"납세관리인 설정신고")%></a></li>
-				<li class="ssub"><a href="policy.asp?type=policy05"><%=LEFT_MENU_HIGHLIGHT("CONFIG2-5",9,"회원가입 전 확인사항")%></a></li> -->
+				<!-- <li class="ssub"><a href="policy.asp?type=policy04"><%=LEFT_MENU_HIGHLIGHT2("CONFIG2-4","영업지침")%></a></li>
+				<li class="ssub"><a href="policy.asp?type=policy06"><%=LEFT_MENU_HIGHLIGHT2("CONFIG2-6","납세관리인 설정신고")%></a></li>
+				<li class="ssub"><a href="policy.asp?type=policy05"><%=LEFT_MENU_HIGHLIGHT2("CONFIG2-5","회원가입 전 확인사항")%></a></li> -->
 			</ul>
 
 			<%If DK_MEMBER_LEVEL > 10 And webproIP="T" And UCase(viewAdminLangCode) = "KR" Then %>

@@ -229,6 +229,7 @@
 	LNG_JS_POLICY01								= "이용약관에 동의하셔야 합니다."
 	LNG_JS_POLICY02								= "개인정보 수집 및 이용에 동의하셔야 합니다."
 	LNG_JS_POLICY03								= "사업자회원 약관에 동의하셔야 합니다."
+	LNG_JS_POLICY04								= "임의적인 가공 및 재판매 금지서약에 동의하셔야합니다."
 	LNG_JS_NAME									= "이름을 입력해 주세요."
 	LNG_JS_FAMILY_NAME							= "성을 입력해 주세요."
 	LNG_JS_GIVEN_NAME							= "이름을 입력해 주세요."
@@ -432,6 +433,7 @@
 	LNG_POLICY_02								= "개인정보처리방침"
 	'LNG_POLICY_03								= "사업자 회원약관"
 	LNG_POLICY_03								= "회원약관"
+	LNG_POLICY_04								= "임의적인 가공 및 재판매 금지서약"
 
 	LNG_MYPAGE									= "마이페이지"
 	LNG_MYPAGE_01								= "회원정보수정"

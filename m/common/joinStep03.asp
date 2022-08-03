@@ -86,16 +86,19 @@
 	agree01 = pRequestTF("agree01",False)
 	agree02 = pRequestTF("agree02",False)
 	agree03 = pRequestTF("agree03",False)
+	agree04 = pRequestTF("agree04",False)
 
 	If agree01 = "" Then agree01 = "F"
 	If agree02 = "" Then agree02 = "F"
 	If agree03 = "" Then agree03 = "F"
+	If agree04 = "" Then agree04 = "F"
 
 	If agree01 <> "T" Then Call ALERTS(LNG_JS_POLICY01,"back","")
 	If agree02 <> "T" Then Call ALERTS(LNG_JS_POLICY02,"back","")
 	If S_SellMemTF = 0 Then
 		If agree03 <> "T" Then Call ALERTS(LNG_JS_POLICY03,"back","")
 	End If
+	If agree04 <> "T" Then Call ALERTS(LNG_JS_POLICY04,"back","")
 %>
 <%
 	If NICE_BANK_CONFIRM_TF = "T" And NICE_MOBILE_CONFIRM_TF <> "T" Then	'계좌인증, 핸드폰인증 X

@@ -9,6 +9,8 @@
 				document.getElementById("agree03Chk").checked = true;
 				//document.getElementById("agree04Chk").checked = true;
 			<%End If%>
+			document.getElementById("agree04Chk").checked = true;
+
 		} else if (document.getElementById("allAgree").checked == false)	{
 			document.getElementById("agree01Chk").checked = false;
 			document.getElementById("agree02Chk").checked = false;
@@ -16,6 +18,7 @@
 				document.getElementById("agree03Chk").checked = false;
 				//document.getElementById("agree04Chk").checked = false;
 			<%End If%>
+			document.getElementById("agree04Chk").checked = false;
 		}
 	}
 
@@ -40,6 +43,12 @@
 				return false;
 			}
 		<%End If%>
+
+		if (f.agree04.checked == false) {
+			alert("<%=LNG_JS_POLICY04%>");
+			f.agree04.focus();
+			return false;
+		}
 		<%'If S_SellMemTF = 0 Then%>
 			// if (f.agree04.checked == false) {
 			// 	alert("판매원 유의사항에 동의하셔야합니다.");

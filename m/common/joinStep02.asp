@@ -98,7 +98,7 @@
 	)
 	policyContent4 = Db.execRsData("DKP_POLICY_CONTENT",DB_PROC,arrParams4,Nothing)
 	policyContent4 = Replace(policyContent4,"OOO",LNG_SITE_TITLE)
-	If IsNull(policyContent4) Or policyContent4 = "" Then policyContent4 = "판매원 유의사항 이용약관이 등록되지 않았습니다."
+	If IsNull(policyContent4) Or policyContent4 = "" Then policyContent4 = "임의적인 가공 및 재판매 금지서약 약관이 등록되지 않았습니다."
 
 %>
 <%
@@ -242,6 +242,19 @@
 			</div>
 		</section>
 		<%End IF%>
+
+		<section>
+			<div class="agree_tit">
+				<h6><%=LNG_POLICY_04%></h6>
+				<label>
+					<input type="checkbox" id="agree04Chk" name="agree04" value="T" />
+					<span><%=LNG_TEXT_I_AGREE%></span>
+				</label>
+			</div>
+			<div class="agree_box" style="height: 17rem;">
+				<div class="agree_content"><%=backword_tag(policyContent4)%></div>
+			</div>
+		</section>
 
 		<%
 			If UCase(R_NationCode) = "KR" Then
