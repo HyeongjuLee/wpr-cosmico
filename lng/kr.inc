@@ -9,7 +9,7 @@
 
 	LNG_TEXT_MEMID								= "회원번호"
 	LNG_TEXT_NORMAL_MEMBER						= "일반회원"
-	LNG_TEXT_BUSINESS_MEMBER					= "사업자회원"
+	LNG_TEXT_BUSINESS_MEMBER					= "판매원"		'"사업자회원"
 	LNG_TEXT_CONFIRM							= "확인"
 	LNG_TEXT_LOGIN								= "로그인"
 	LNG_TEXT_LOGOUT								= "로그아웃"
@@ -194,7 +194,7 @@
 	LNG_TEXT_END_DATE							= "종료일"
 	LNG_TEXT_REMARKS							= "비고"
 	LNG_TEXT_JOIN_CONSUMER_MEMBER				= "소비자 회원가입"
-	LNG_TEXT_JOIN_BUSINESS_MEMBER				= "사업자 회원가입"
+	LNG_TEXT_JOIN_BUSINESS_MEMBER				= "판매원 등록"		'"사업자 회원가입"
 	LNG_TEXT_MEMBER_BASIC_INFO					= "회원기본정보"
 	LNG_TEXT_MEMBER_ADDITIONAL_INFO				= "회원부가정보"
 	LNG_TEXT_CENTER_UNDER_PURCHASE				= "지사-하선회원구매"
@@ -228,7 +228,7 @@
 	LNG_JS_ID									= "아이디를 입력하셔야 합니다."
 	LNG_JS_POLICY01								= "이용약관에 동의하셔야 합니다."
 	LNG_JS_POLICY02								= "개인정보 수집 및 이용에 동의하셔야 합니다."
-	LNG_JS_POLICY03								= "사업자회원 약관에 동의하셔야 합니다."
+	LNG_JS_POLICY03								= "판매원 약관에 동의하셔야 합니다."		'사업자회원
 	LNG_JS_POLICY04								= "임의적인 가공 및 재판매 금지서약에 동의하셔야합니다."
 	LNG_JS_NAME									= "이름을 입력해 주세요."
 	LNG_JS_FAMILY_NAME							= "성을 입력해 주세요."
@@ -431,7 +431,7 @@
 	LNG_POLICY									= "약관 및 정책" '"이용약관"
 	LNG_POLICY_01								= "이용약관"
 	LNG_POLICY_02								= "개인정보처리방침"
-	'LNG_POLICY_03								= "사업자 회원약관"
+	'LNG_POLICY_03								= "판매원 약관"		'"사업자 회원약관"
 	LNG_POLICY_03								= "회원약관"
 	LNG_POLICY_04								= "임의적인 가공 및 재판매 금지서약"
 
@@ -593,7 +593,7 @@
 	LNG_SUBTITLE_TEXT25							= "회원종류선택"
 	LNG_SUBTITLE_TEXT26							= "약관동의"
 	LNG_SUBTITLE_TEXT27							= "회원정보입력"
-	LNG_SUBTITLE_TEXT28							= "사업자회원가입"	'"사업자회원가입:약관동의"
+	LNG_SUBTITLE_TEXT28							= "판매원 등록"		'"사업자회원가입"	'"사업자회원가입:약관동의"
 	LNG_SUBTITLE_TEXT29							= "본인인증"	'"사업자회원가입:본인인증"
 	LNG_SUBTITLE_TEXT30							= "회원정보입력"	'"사업자회원가입:회원정보입력"
 	LNG_SUBTITLE_TEXT31							= "본인인증절차"
@@ -891,8 +891,8 @@
 	LNG_JOINSTEP01_TEXT01_2						= "일반 소비자 회원에서 사업자 회원으로 변경하고 싶은 회원의 경우, 고객센터에 문의하면 자세한 안내를 받을 수 있습니다."
 	LNG_JOINSTEP01_TEXT01_3						= "일반 소비자 회원은 가입 시 주민등록번호나 본인확인 절차를 진행하지 않습니다."
 	LNG_JOINSTEP01_TEXT02_1						= "추천인으로 등록 가능한 사업자 회원이 있다면, 회원으로 가입할 수 있습니다."
-	LNG_JOINSTEP01_TEXT02_2						= "사업자 회원으로 가입하면 사업자 전용 메뉴를 이용할 수 있습니다."
-	LNG_JOINSTEP01_TEXT02_3						= "사업자 회원에서 일반 회원으로 변경하고 싶은 회원의 경우, 고객센터에 문의하여 등급을 조정할 수 있습니다."
+	LNG_JOINSTEP01_TEXT02_2						= "판매원으로 가입하면 사업자 전용 메뉴를 이용할 수 있습니다."			'사업자 회원으로
+	LNG_JOINSTEP01_TEXT02_3						= "판매원에서 일반 회원으로 변경하고 싶은 회원의 경우, 고객센터에 문의하여 등급을 조정할 수 있습니다."			'사업자 회원에서
 
 '/common/joinStep02_u.asp
 	LNG_JOINSTEP02_U_TEXT01						= "사이트 이용약관이 등록되지 않았습니다."
@@ -926,7 +926,7 @@
 
 
 '/common/joinStep03_u.asp
-	LNG_JOINSTEP03_U_JS28						= "사업자 회원가입을 하시겠습니까?"
+	LNG_JOINSTEP03_U_JS28						= "회원가입을 하시겠습니까?"		'사업자
 
 	LNG_JOINSTEP03_U_TEXT04						= "띄어쓰기 없는 영문, 숫자 4~20자"
 	LNG_JOINSTEP03_U_TEXT09						= "센터 선택"
@@ -1023,7 +1023,7 @@
 	LNG_MEMBER_LOGIN_JS02						= "잘못된 아이디입니다. 아이디 형식은 회원번호앞자리-회원번호뒷자리 입니다.\n\n 예) KR-1"
 	LNG_MEMBER_LOGIN_TEXT01						= "아이디로 로그인"
 	LNG_MEMBER_LOGIN_TEXT02						= "회원번호로 로그인"	'"회원번호로 로그인(사업자 전용)"
-	LNG_MEMBER_LOGIN_TEXT05						= "사업자회원 로그인 주의사항"
+	LNG_MEMBER_LOGIN_TEXT05						= "판매원 로그인 주의사항"		'사업자회원
 	LNG_MEMBER_LOGIN_TEXT06						= """회원번호로 로그인(사업자전용)""을 이용할 경우에는, 아이디란에 회원번호 앞자리와 뒷자리 사이에 하이픈(-)을 넣어주세요"
 	LNG_MEMBER_LOGIN_TEXT07						= "예) KR-1, KR-9999"
 	LNG_MEMBER_LOGIN_TEXT08						= """아이디로 로그인""을 이용하는 회원은 ""회원번호로 로그인""을 사용할 수 없습니다."

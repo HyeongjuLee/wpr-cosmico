@@ -294,14 +294,15 @@
 		<%IF DKRS_Email = "" Then	'◆◆◆%>
 			if (f.AstrEmail.value == '')
 			{
-				alert("<%=LNG_JS_EMAIL%>");
-				f.AstrEmail.focus();
-				return false;
-			}
-			if (!checkEmail(f.AstrEmail.value)) {
-				alert("<%=LNG_JS_EMAIL_CONFIRM%>");
-				f.AstrEmail.focus();
-				return false;
+				//alert("<%=LNG_JS_EMAIL%>");
+				//f.AstrEmail.focus();
+				//return false;
+			} else {
+				if (!checkEmail(f.AstrEmail.value)) {
+					alert("<%=LNG_JS_EMAIL_CONFIRM%>");
+					f.AstrEmail.focus();
+					return false;
+				}
 			}
 		<%End If%>
 
