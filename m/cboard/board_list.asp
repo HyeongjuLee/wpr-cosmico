@@ -40,8 +40,9 @@
 			'FN_PROCEDURE_NAME = "DKP_NBOARD_GALLERY_LIST2"
 			FN_PROCEDURE_NAME = "DKSP_NBOARD_GALLERY_LIST"
 		Case "movie","movie2","video_pop"		'팝업동영상 추가
-			'FN_PROCEDURE_NAME = "DKP_NBOARD_MOVIE_LIST"
 			FN_PROCEDURE_NAME = "DKSP_NBOARD_MOVIE_LIST"
+		Case "sns"		'SNS 추가
+			FN_PROCEDURE_NAME = "DKSP_NBOARD_SNS_LIST"
 	End Select
 
 	arrParams = Array( _
@@ -95,6 +96,9 @@
 
 <%		Case "video_pop"		'팝업동영상%>
 		<!--#include file = "type_video_popup.asp" -->
+
+<%		Case "sns"		'SNS%>
+		<!--#include file = "type_sns.asp" -->
 
 <%End Select%>
 

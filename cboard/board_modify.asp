@@ -113,6 +113,8 @@
 		movieType			= DKRS("movieType")		'추가
 		movieURL			= DKRS("movieURL")		'추가
 
+		strHashtag			= DKRS("strHashtag")		'추가
+
 	Else
 		Call ALERTS(LNG_TEXT_INCORRECT_BOARD_SETTING,"back","")
 	End If
@@ -377,11 +379,23 @@
 			content = content.replace(/<span>/gi, "");
 			console.log(content);
 
+			<%
+				Select Case strBoardType
+					Case "video_pop","sns"
+					Case Else
+			%>
+					if (content == "<p></p>" || content == "" || content == "</span>") {
+						alert("<%=LNG_JS_CONTENTS%>");
+						return false;
+					}
+			<%
+				End Select
+			%>
 			<%IF strBoardType <> "video_pop" Then	'팝업동영상X%>
-				if (content == "<p></p>" || content == "" || content == "</span>") {
-					alert("<%=LNG_JS_CONTENTS%>");
-					return false;
-				}
+				//if (content == "<p></p>" || content == "" || content == "</span>") {
+				//	alert("<%=LNG_JS_CONTENTS%>");
+				//	return false;
+				//}
 			<%End If%>
 
 			if (checkDataImages(form.content1.value)) {
@@ -393,7 +407,7 @@
 		<%if isEmail = "T" And isEmailTF = "T" then%>	if(!chkMail(form.strEmail, "<%=LNG_JS_EMAIL_CONFIRM%>")) return false;<%end if%>
 		<%if isTel = "T" And isTelTF = "T" then%>		if(!chkNull(form.strTel, "<%=LNG_JS_TEL%>")) return false;<%end if%>
 		<%if isMobile = "T" And isMobileTF = "T" then%>if(!chkNull(form.strMobile, "<%=LNG_JS_MOBILE%>")) return false;<%end if%>
-		<%if isLink1 = "T" And isLink1TF = "T" then%>	if(!chkNull(form.strLink1, "<%=LNG_JS_LINK1%>")) return false;<%end if%>
+		<%if isLink = "T" And isLinkTF = "T" then%>	if(!chkNull(form.strLink, "<%=LNG_JS_LINK1%>")) return false;<%end if%>
 		<%if isData1 = "T" And isData1TF = "T" then%>	if(!chkNull(form.strData1, "<%=LNG_JS_FILE1%>")) return false;<%end if%>
 		<%if isData2 = "T" And isData2TF = "T" then%>	if(!chkNull(form.strData2, "<%=LNG_JS_FILE2%>")) return false;<%end if%>
 		<%if isData3 = "T" And isData3TF = "T" then%>	if(!chkNull(form.strData3, "<%=LNG_JS_FILE3%>")) return false;<%end if%>
@@ -502,11 +516,21 @@
 			<%=printTel%>
 			<%=printMobile%>
 			<%
-				IF strBoardType = "video_pop" Then		'팝업동영상
-					contentTD_View = "display:none;"
-				Else
-					contentTD_View = ""
-				End If
+			'	IF strBoardType = "video_pop" Then		'팝업동영상
+			'		contentTD_View = "display:none;"
+			'	Else
+			'		contentTD_View = ""
+			'	End If
+			%>
+			<%
+				Select Case strBoardType
+					Case "video_pop","sns"
+						contentTD_View = "display:none;"
+						strBoardTypeDelete = "T"
+					Case Else
+						contentTD_View = ""
+						strBoardTypeDelete = ""
+				End Select
 			%>
 			<tr>
 				<td colspan="2" class="contentTD" style="<%=contentTD_View%>">
@@ -523,6 +547,14 @@
 				</td>
 			</tr>
 			<%=printLink%>
+
+			<%If strBoardType = "sns" Then%>
+			<tr>
+				<th>HashTag</th>
+				<td><input type="text" name="strHashtag" class="input_text" style="width: 100%" value="<%=strHashtag%>" /></td>
+			</tr>
+			<%End If%>
+
 			<%=printPic%>
 			<%=printData1%>
 			<%=printData2%>
@@ -540,7 +572,7 @@
 					<input type="submit" class="button write" value="<%=LNG_BOARD_BTN_SAVE%>" />
 					<input type="button" class="button" value="<%=LNG_BOARD_BTN_LIST%>" onclick="history.back(-1);"/>
 
-					<%IF DK_MEMBER_TYPE = "ADMIN" And strBoardType = "video_pop" Then	'팝업동영상%>
+					<%IF DK_MEMBER_TYPE = "ADMIN" And strBoardTypeDelete = "T" Then	'팝업동영상, SNS%>
 					<input type="button" class="button delete" value="<%=LNG_BOARD_BTN_DELETE%>" onclick="javascript:delFrm('<%=intIDX%>');"/>
 					<%End If%>
 
@@ -550,7 +582,7 @@
 	</form>
 </div>
 </div>
-<%IF strBoardType = "video_pop" Then	'팝업동영상X%>
+<%IF strBoardTypeDelete = "T" Then	'팝업동영상, SNSX%>
 	<script>
 		function delFrm(idx) {
 			var f = document.w_form;

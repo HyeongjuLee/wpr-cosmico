@@ -39,6 +39,8 @@
 		isSecret		= upfORM("isSecret",False)
 		If isSecret = "" Then isSecret = "F"
 		strLink			= upfORM("strLink",False)
+
+		strHashtag			= upfORM("strHashtag",False)			'strHashtag
 		'strLink2 = upfORM("strLink2",False)
 
 		category		= upfORM("category",False)
@@ -140,10 +142,20 @@
 		strData2 = FN_FILEUPLOAD("strData2","F",MaxDataSize2,REAL_PATH2("/uploadData/data2"),ostrData2)
 		strData3 = FN_FILEUPLOAD("strData3","F",MaxDataSize3,REAL_PATH2("/uploadData/data3"),ostrData3)
 
+'		print strBoardType
+'		Response.End
+
+		If strBoardType = "sns" Then
+			boardImgWidths_Thum = 340
+			boardImgHeight_Thum = 340
+		Else
+			boardImgWidths_Thum = 360
+			boardImgHeight_Thum = 250
+		End If
 
 		If Upload.Form("strPic") <> "" Then
 			strPic = uploadImg("strPic",REAL_PATH("board\OriginalPic"),REAL_PATH("board\pic"),650,650)
-			Call ThumImg(strPic,REAL_PATH("board\pic"),REAL_PATH("board\thum"),300,200)
+			Call ThumImg(strPic,REAL_PATH("board\pic"),REAL_PATH("board\thum"),boardImgWidths_Thum,boardImgHeight_Thum)
 			Call ThumImg(strPic,REAL_PATH("board\pic"),REAL_PATH("board\index"),115,75)
 		Else
 			strPic = ostrPic
@@ -277,6 +289,16 @@
 				boardIntIdx = arrParams(UBound(arrParams)-1)(4)
 				OUTPUT_VALUE = arrParams(UBound(arrParams))(4)
 
+				IF OUTPUT_VALUE = "FINISH" Then
+					IF boardIntIdx <> "" And strHashtag <> "" Then		'HASH Tag 입력
+						SQL_HS = "UPDATE [DK_NBOARD_CONTENT] SET [strHashtag] = ? WHERE [intIDX] = ?"
+						arrParamsHS = Array(_
+							Db.makeParam("@strHashtag",adVarWChar,adParamInput,500,strHashtag), _
+							Db.makeParam("@intIDX",adInteger,adParamInput,4,boardIntIdx) _
+						)
+						Call Db.exec(SQL_HS,DB_TEXT,arrParamsHS,Nothing)
+					End If
+				End If
 
 				arrParams9 = Array(_
 					Db.makeParam("@strBoardName",adVarChar,adParamInput,50,strBoardName) _
@@ -387,6 +409,17 @@
 				)
 				Call Db.exec("DKP_NBOARD_UPDATE",4,arrParams,Nothing)
 				OUTPUT_VALUE = arrParams(UBound(arrParams))(4)
+
+				IF OUTPUT_VALUE = "FINISH" Then
+					IF intIDX <> "" And strHashtag <> "" Then		'HASH Tag 입력
+						SQL_HS = "UPDATE [DK_NBOARD_CONTENT] SET [strHashtag] = ? WHERE [intIDX] = ?"
+						arrParamsHS = Array(_
+							Db.makeParam("@strHashtag",adVarWChar,adParamInput,500,strHashtag), _
+							Db.makeParam("@intIDX",adInteger,adParamInput,4,intIDX) _
+						)
+						Call Db.exec(SQL_HS,DB_TEXT,arrParamsHS,Nothing)
+					End If
+				End If
 
 			Case "REPLY"
 				intIDX = upfORM("intIDX",False)

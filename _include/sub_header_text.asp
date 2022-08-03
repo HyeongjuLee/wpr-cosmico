@@ -96,14 +96,14 @@
 				End Select
 			Case "SNS"
 				' sub_title_d2 = LNG_SNS& ""
-				sub_title_d3 = "<div><b>SNS</b> "&LNG_COPYRIGHT_COMPANY_INC&"</div><p>Share your moment and meet the light of "&LNG_COPYRIGHT_COMPANY_INC&"</p>"
+				sub_title_d3 = "<div style=""color: #000;""><b>SNS</b> "&LNG_COPYRIGHT_COMPANY_INC&"</div><p style=""color: #9e9e9e; font-size: 1.5rem;"">Share your moment and meet the light of "&LNG_COPYRIGHT_COMPANY_INC&"</p>"
 				Select Case view
 					Case "1"
-						sub_title_d3 = LNG_SNS_01
+						'sub_title_d3 = LNG_SNS_01
 					Case "2"
-						sub_title_d3 = LNG_SNS_02
+						'sub_title_d3 = LNG_SNS_02
 					Case "3"
-						sub_title_d3 = LNG_SNS_03
+						'sub_title_d3 = LNG_SNS_03
 					Case "4"
 						sub_title_d3 = LNG_SNS_04
 				End Select

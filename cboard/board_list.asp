@@ -53,6 +53,8 @@
 			FN_PROCEDURE_NAME = "DKSP_NBOARD_GALLERY_LIST"
 		Case "movie","movie2","video_pop"		'팝업동영상 추가
 			FN_PROCEDURE_NAME = "DKSP_NBOARD_MOVIE_LIST"
+		Case "sns"		'SNS 추가
+			FN_PROCEDURE_NAME = "DKSP_NBOARD_SNS_LIST"
 	End Select
 
 	'그룹조건 주기 S
@@ -135,6 +137,9 @@
 		<!--#include file = "Type_gallery2.asp" -->
 <%		Case "video_pop"		'팝업동영상%>
 		<!--#include file = "type_video_popup.asp" -->
+<%		Case "sns"		'SNS%>
+		<!--#include file = "type_sns.asp" -->
+
 <%		Case "liner"%>
 		<!--#include file = "Type_liner.asp" -->
 <%		Case "review"%>

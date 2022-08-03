@@ -187,7 +187,7 @@
 	LNG_TEXT_IMAGE1								= "이미지파일1"
 	LNG_TEXT_IMAGE2								= "이미지파일2"
 	LNG_TEXT_IMAGE3								= "이미지파일3"
-	LNG_TEXT_ARTICLE							= "기사링크"
+	LNG_TEXT_ARTICLE							= "링크"		'"기사링크"
 	LNG_TEXT_DIRECT_INPUT						= "직접입력"
 
 	LNG_TEXT_START_DATE							= "시작일"
@@ -272,7 +272,7 @@
 	LNG_JS_MODIFY_COMPLETED						= "정보수정이 완료되었습니다."
 	LNG_JS_MEMBERINFO_FAIL						= "회원정보가 로드되지 못했습니다. 다시 로그인 해주세요"
 	LNG_JS_WRITER								= "작성자를 입력해 주세요."
-	LNG_JS_LINK1								= "링크1을 입력해 주세요."
+	LNG_JS_LINK1								= "링크를 입력해 주세요."
 	LNG_JS_FILE1								= "첨부파일1을 선택해 주세요."
 	LNG_JS_FILE2								= "첨부파일2을 선택해 주세요."
 	LNG_JS_FILE3								= "첨부파일3을 선택해 주세요."
@@ -790,7 +790,7 @@
 	LNG_BOARD_WRITE_TEXT12						= "휴대전화는 일반회원에게 공개되지 않습니다."
 	LNG_BOARD_WRITE_TEXT16						= "MB 이하"
 	LNG_BOARD_WRITE_TEXT18						= "MB 이하의 gif,jpg,png,bmp"
-	LNG_BOARD_WRITE_TEXT20						= "http:// 포함"
+	LNG_BOARD_WRITE_TEXT20						= "http(s):// 포함"
 	LNG_BOARD_WRITE_TEXT34						= "은(는) 사용할 수 없는 작성자명입니다. "
 	LNG_BOARD_WRITE_TEXT36						= "비밀글"
 

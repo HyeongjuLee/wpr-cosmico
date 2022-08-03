@@ -120,6 +120,7 @@
 						<option value="liner" <%=isSelect(DKRS_strBoardType,"liner")%>>한 줄 게시판 타입</option>
 						<option value="review" <%=isSelect(DKRS_strBoardType,"review")%>>리뷰게시판</option>
 						<option value="kin" <%=isSelect(DKRS_strBoardType,"kin")%>>지식인타입</option>
+						<option value="sns" <%=isSelect(DKRS_strBoardType,"sns")%>>sns타입</option>
 
 					</select>
 				</td>

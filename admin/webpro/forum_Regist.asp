@@ -74,6 +74,7 @@
 						<option value="liner">한 줄 게시판 타입</option>
 						<option value="review">리뷰게시판</option>
 						<option value="kin">지식인타입</option>
+						<option value="sns">SNS</option>
 					</select>
 
 
