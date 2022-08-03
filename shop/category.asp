@@ -579,7 +579,8 @@
 			<%If DK_MEMBER_LEVEL > 0 Then%>
 			<a href="/shop/detailView.asp?gidx=<%=arrList_intIDX%>">
 			<%Else%>
-			<a href="javascript: check_frm();">
+			<!-- <a href="javascript: check_frm();"> -->
+			<a href="/shop/detailView.asp?gidx=<%=arrList_intIDX%>">
 			<%End If %>
 				<%=DisCountPercent_view%>
 				<div class="soldout"><%=Soldoutflag%></div>

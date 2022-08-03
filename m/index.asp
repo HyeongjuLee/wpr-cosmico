@@ -315,7 +315,8 @@
 					<%If DK_MEMBER_LEVEL > 0 Then%>
 					<a href="/m/shop/detailView.asp?gidx=<%=arrList_intIDX%>">
 					<%Else%>
-					<a href="javascript: check_frm();">
+					<!-- <a href="javascript: check_frm();"> -->
+					<a href="/m/shop/detailView.asp?gidx=<%=arrList_intIDX%>">
 					<%End If %>
 						<div class="img"><%=goodsImg%></div>
 						<div class="txt">

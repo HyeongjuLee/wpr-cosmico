@@ -13,7 +13,7 @@
 
 	'============================================================
 	'#1 POST
- 	Dim CATE_MODE1		:	CATE_MODE1 = pRequestTF("cm1",False)
+	Dim CATE_MODE1		:	CATE_MODE1 = pRequestTF("cm1",False)
 
 	'#POST값 있는경우 CATE_MODE 치환
 	If CATE_MODE1 <> "" Then CATE_MODE = CATE_MODE1
@@ -546,7 +546,8 @@
 				<%If DK_MEMBER_LEVEL > 0 Then%>
 				<a href="/m/shop/detailView.asp?gidx=<%=arrList_intIDX%>">
 				<%Else%>
-				<a href="javascript: check_frm();">
+				<!-- <a href="javascript: check_frm();"> -->
+				<a href="/m/shop/detailView.asp?gidx=<%=arrList_intIDX%>">
 				<%End If %>
 					<%=DisCountPercent_view%>
 					<div class="soldout"><%=Soldoutflag%></div>
