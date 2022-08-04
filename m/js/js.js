@@ -172,3 +172,9 @@ function mob_path() {
 	function right(s,c){
 		return s.substr(-c);
 	}
+
+
+		/* 우클릭 방지 */
+		document.oncontextmenu=Function("return false");
+		document.ondragstart=Function("return false");
+		document.onselectstart=Function("return false");

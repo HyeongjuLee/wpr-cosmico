@@ -57,11 +57,11 @@
 	function popIdea() {
 		openPopup('/shop/page/idea.asp', 'idea', 'top=100px,left=200px,width=426,height=427,resizable=no,status=no,toolbar=no,menubar=no,scrollbars=no');
 	}
-	/* 우클릭 방지
+	/* 우클릭 방지 */
 		document.oncontextmenu=Function("return false");
 		document.ondragstart=Function("return false");
 		document.onselectstart=Function("return false");
-	*/
+
 
 	function fTrans(files,transPath) {
 		location.href = "/trans/trans.asp?filename="+encodeURIComponent(files)+"&path="+encodeURIComponent(transPath);

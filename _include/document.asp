@@ -55,7 +55,7 @@
 <script type="text/javascript" src="/jscript/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="/jscript/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="/jscript/jquery.navi.left.js"></script>
-<script type="text/javascript" src="/jscript/common.js?"></script>
+<script type="text/javascript" src="/jscript/common.js?v8"></script>
 <script type="text/javascript" src="/jscript/check.js?"></script>
 <script type="text/javascript" src="/jscript/ajax.js"></script>
 <script type="text/javascript" src="/jscript/openPopup.js"></script>

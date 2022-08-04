@@ -27,7 +27,7 @@
 <title><%=LNG_SITE_TITLE%> Mobile Site</title>
 
 <!-- <script type="text/javascript" src="@string.Format("/m/css/style_<%=LANG%>.css?v={0}", DateTime.Now.Ticks)"></script> -->
-<script type="text/javascript" src="/m/js/js.js?v3"></script>
+<script type="text/javascript" src="/m/js/js.js?v9"></script>
 <script type="text/javascript" src="/m/js/check.js?v1.0"></script>
 <script type="text/javascript" src="/jscript/ajax.js"></script>
 <!-- <script type="text/javascript" src="/jscript/common.js"></script> -->
