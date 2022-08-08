@@ -149,8 +149,8 @@
 			boardImgWidths_Thum = 340
 			boardImgHeight_Thum = 340
 		Else
-			boardImgWidths_Thum = 360
-			boardImgHeight_Thum = 250
+			boardImgWidths_Thum = 560
+			boardImgHeight_Thum = 560
 		End If
 
 		If Upload.Form("strPic") <> "" Then
