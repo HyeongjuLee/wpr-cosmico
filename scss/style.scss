@@ -1896,3 +1896,49 @@ $input-height: rem(50px);
 		flex-direction: column;
 	}
 }
+
+.guide {
+	.tab_wrap {
+		ul {
+			@include flex($bet, $st);
+			@include position;
+			width: 100%;
+			&:before {
+				@include presudo($le: 0, $bot: 0, $h: 2px);
+				background: $main-color;
+				z-index: 1;
+			}
+		}
+		li {
+			@include flex;
+			width: 395px;
+			height: $input-height + 1;
+			background: $oc-gray-2;
+			color: $oc-gray-7;
+			cursor: pointer;
+			font-size: $font-size + 0.3;
+			// margin: 0 rem(5px);
+
+			&:first-child {
+				margin-left: 0;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&.active {
+				background: $main-color;
+				color: #fff;
+			}
+		}
+	}
+	.con_wrap {
+		@include position;
+		.con {
+			display: none;
+			&.active {
+				display: block;
+			}
+		}
+	}
+}

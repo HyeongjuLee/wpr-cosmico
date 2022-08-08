@@ -2,7 +2,7 @@
 <!--#include virtual = "/_include/document.asp"-->
 
 <%
-	'Call ONLY_MEMBER(DK_MEMBER_LEVEL)
+	Call ONLY_MEMBER(DK_MEMBER_LEVEL)
 
 	intIDX = pRequestTF("idx",True)
 	goodsOption = pRequestTF("goodsOption",True)

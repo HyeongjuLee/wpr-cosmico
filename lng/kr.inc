@@ -421,7 +421,9 @@
 
 	LNG_SNS										= "SNS"
 	LNG_SNS_OVER								= "SNS"
-	LNG_SNS_01									= "SNS"
+	LNG_SNS_01									= "카카오톡채널"
+	LNG_SNS_02									= "인스타그램"
+	LNG_SNS_03									= "페이스북"
 
 	LNG_MEMBERSHIP								= "멤버쉽"
 	LNG_MEMBERSHIP_SALESMAN_SEARCH				= "판매원조회"

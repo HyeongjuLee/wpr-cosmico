@@ -12,6 +12,9 @@
 <%Else%>
 <!--#include virtual = "/_include/document.asp"-->
 <%End If%>
+<%
+	IMG_SIZE_TEXT = "<p class='img_size'>이미지 사이즈 : 560 x 340</p>"
+%>
 <link rel="stylesheet" href="css_common.css" />
 <link rel="stylesheet" href="/css/board.css?" />
 <link rel="stylesheet" href="a_btnCss.css" />
@@ -286,7 +289,7 @@
 		If isPic = "T" Then
 			printPic = printPic&tabs(2)&"<tr>" &VbCrlf
 			printPic = printPic&tabs(2)&"	<th>"&LNG_TEXT_THUMBNAIL&"</th>" &VbCrlf
-			printPic = printPic&tabs(2)&"	<td><input type=""file"" name=""strPic"" class=""input_file"" style=""width:400px"" value="""" /> ("&intPicMB&" "&LNG_BOARD_WRITE_TEXT18&")</td>"
+			printPic = printPic&tabs(2)&"	<td><input type=""file"" name=""strPic"" class=""input_file"" style=""width:400px"" value="""" /> ("&intPicMB&" "&LNG_BOARD_WRITE_TEXT18&")"&IMG_SIZE_TEXT&"</td>"
 			printPic = printPic&tabs(2)&"</tr>" &VbCrlf
 		End If
 

@@ -2,13 +2,16 @@
 <!--#include virtual = "/_include/document.asp"-->
 <%
 	Call FN_NationCurrency(DK_MEMBER_NATIONCODE,Chg_CurrencyName,Chg_CurrencyISO)
-	Call ONLY_MEMBER(DK_MEMBER_LEVEL)
 
 	'jQuery Modal Dialog방식변경
 	If Not (checkRef(houUrl &"/shop/cart_pop_ea.asp") _
 			Or checkRef(houUrl &"/shop/cart.asp")) Then
 		Call alerts(LNG_ALERT_WRONG_ACCESS,"close_p_modal","")
 	End If
+
+	If DK_MEMBER_LEVEL < 1 Then	Call alerts(LNG_MEMBER_LOGOUT_ALERT01,"p_reload","")	'세션로그아웃시!!
+
+	Call ONLY_MEMBER(DK_MEMBER_LEVEL)
 
 	intIDX = gRequestTF("idx",True)
 

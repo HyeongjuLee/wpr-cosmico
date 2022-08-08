@@ -63,7 +63,7 @@
 #contain .board thead th { border-left: none; border-right: none; }
 #contain .board tbody th { border-left: none; border-right: none; }
 #contain .board tbody td { border-left: none; border-right: none; }
-#contain .board.write { width: 100%; box-shadow: 0px 0px 0px 1px darkgray; width: 900px; }
+#contain .board.write { width: 100%; box-shadow: 0px 0px 0px 1px darkgray; width: 950px; }
 #contain .board.write table { border: none; }
 #contain .board.write tr { border: none; }
 #contain .board.write th, #contain .board.write td { border: none; padding: 0.5rem 1rem; }
@@ -74,7 +74,7 @@
 #contain .board.write thead th:first-of-type { border-left: none; }
 #contain .board.write thead th:last-of-type { border-right: none; }
 #contain .board.write tbody th:first-of-type { border-left: none; }
-#contain .board.write tbody th:last-of-type { border-right: none; }
+#contain .board.write tbody th:not(:first-of-type):last-of-type { border-right: none; }
 #contain .board.write tbody td:first-of-type { border-left: none; }
 #contain .board.write tbody td:last-of-type { border-right: none; }
 #contain .board.write tr:first-of-type th { border-top: none; }
@@ -83,7 +83,7 @@
 #contain .board.write tbody tr:last-of-type th { border-bottom: none; }
 #contain .board.write tbody tr:last-of-type td { border-bottom: none; }
 #contain .board.write tbody th { background: #f5f5f5; }
-#contain .board.modify { width: 100%; box-shadow: 0px 0px 0px 1px darkgray; width: 900px; }
+#contain .board.modify { width: 100%; box-shadow: 0px 0px 0px 1px darkgray; width: 950px; }
 #contain .board.modify table { border: none; }
 #contain .board.modify tr { border: none; }
 #contain .board.modify th, #contain .board.modify td { border: none; padding: 0.5rem 1rem; }
@@ -94,7 +94,7 @@
 #contain .board.modify thead th:first-of-type { border-left: none; }
 #contain .board.modify thead th:last-of-type { border-right: none; }
 #contain .board.modify tbody th:first-of-type { border-left: none; }
-#contain .board.modify tbody th:last-of-type { border-right: none; }
+#contain .board.modify tbody th:not(:first-of-type):last-of-type { border-right: none; }
 #contain .board.modify tbody td:first-of-type { border-left: none; }
 #contain .board.modify tbody td:last-of-type { border-right: none; }
 #contain .board.modify tr:first-of-type th { border-top: none; }
@@ -103,6 +103,7 @@
 #contain .board.modify tbody tr:last-of-type th { border-bottom: none; }
 #contain .board.modify tbody tr:last-of-type td { border-bottom: none; }
 #contain .board.modify tbody th { background: #f5f5f5; }
+#contain .board .img_size { float: right; background: #fff5f5; color: #f03e3e; padding: 5px 10px; font-weight: 700; font-size: 1.3rem; }
 
 #contain #forum.board.view td:not(.contentTD) { border: none; }
 #contain #forum.board.view .contentTD { border-color: #ebebeb; }

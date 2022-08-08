@@ -22,7 +22,12 @@
 			End Select
 		%>
 
+		<%Select Case PAGE_SETTING%>
+		<%Case "SNS"%>
+		<article class="nav-left sns"> <%' sns left 상단에 보더값 주기 위함%>
+		<%Case Else%>
 		<article class="nav-left">
+		<%End Select%>
 			<ul>
 				<li class="home"><a href="/index.asp" data-ripplet><i class="icon-home-1"></i><i class="right icon-right-open-big"></i></a></li>
 				<li class="depth1">

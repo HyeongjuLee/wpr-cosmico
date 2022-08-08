@@ -229,7 +229,8 @@
 		text-align: left;
 		&.write {
 			@include table-color-wrap($wrap: true);
-			width: 900px;
+			// width: 900px;
+			width: 950px;
 			tbody {
 				th {
 					background: material-color('grey', '100');
@@ -238,12 +239,23 @@
 		}
 		&.modify {
 			@include table-color-wrap($wrap: true);
-			width: 900px;
+			// width: 900px;
+			width: 950px;
 			tbody {
 				th {
 					background: material-color('grey', '100');
 				}
 			}
+		}
+
+		.img_size {
+			// display: inline-block;
+			float: right;
+			background: $oc-red-0;
+			color: $oc-red-7;
+			padding: 5px 10px;
+			font-weight: 700;
+			font-size: $font-size - 0.2;
 		}
 	}
 }

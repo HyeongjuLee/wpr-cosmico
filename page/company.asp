@@ -17,36 +17,35 @@
 	<div id="pages">
 	<%Select Case view%>
 	<%Case "1"%>
-		<!-- <div id="company" class="company01">
-			<div class="txt">
-				<div class="tit"><%=LNG_COMPANY_01_1%></div>
-				<i></i>
-				<p><%=LNG_COMPANY_01_2%></p><br>
-				<p><%=LNG_COMPANY_01_3%></p><br>
-				<p><%=LNG_COMPANY_01_4%></p><br>
-				<p><%=LNG_COMPANY_01_5%></p><br>
-				<p><%=LNG_COMPANY_01_6%></p>
-			</div>
-			<div class="img"><img src="/images/content/company01_2.jpg" alt=""></div>
-		</div> -->
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
-		</div>
+		<div><img src="/images/content/company01_2.jpg" alt=""></div>
 	<%Case "2"%>
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
-		</div>
+		<div><img src="/images/content/company02_2.jpg" alt=""></div>
 	<%Case "3"%>
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
-		</div>
+		<div><img src="/images/content/company03_2.jpg" alt=""></div>
 	<%Case "4"%>
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
+		<link rel="stylesheet" href="/css/company.css?">
+		<div id="company" class="company04">
+			<section class="s01">
+				<img src="/images/content/company04_1.jpg" alt="">
+				<a href="/images/content/COSMICO KOREA(LOGO).ai" class="btn" download>
+					<i class="icon-download"></i>
+					<span>DOWNLOAD</span>
+				</a>
+			</section>
+			<section class="s02">
+				<img src="/images/content/company04_2.jpg" alt="">
+				<a href="/images/content/DN_8(LOGO).ai" class="btn" download>
+					<i class="icon-download"></i>
+					<span>DOWNLOAD</span>
+				</a>
+			</section>
+			<section class="s03">
+				<img src="/images/content/company04_3.jpg" alt="">
+				<a href="/images/content/Theta Mond(LOGO).ai" class="btn" download>
+					<i class="icon-download"></i>
+					<span>DOWNLOAD</span>
+				</a>
+			</section>
 		</div>
 
 	<%Case Else Call ALERTS(LNG_PAGE_ALERT01,"BACK","")%>

@@ -1,6 +1,7 @@
 #left i.line { display: none; }
 
 .nav-left { width: 100%; position: relative; font-size: 1.7rem; font-weight: 600; line-height: 1.5; letter-spacing: -0.05em; color: #737373; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+.nav-left.sns { border-top: 1px solid rgba(0, 0, 0, 0.5); }
 .nav-left ul { width: 120rem; margin: 0 auto; position: relative; display: flex; flex-direction: row; }
 .nav-left ul > li { margin: 0 0.12rem; min-width: 15rem; }
 .nav-left ul > li > a { display: flex; align-items: center; padding: 1.7rem; padding-right: 4.25rem; color: #737373; }

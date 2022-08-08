@@ -1,0 +1,72 @@
+@import 'mixin-custom';
+
+#company {}
+
+.company04 {
+	@include position;
+	.sample_image {
+		@include position(absolute, $le: 0, $top: 0);
+		z-index: 9;
+		opacity: .5;
+		display: none;
+	}
+	section {
+		@include position;
+
+		img {
+			@include position;
+			z-index: -1;
+		}
+
+		.btn {
+			@include default-0;
+			@include position(absolute);
+			z-index: 0;
+			color: #3c3c3c;
+			font-size: 14px;
+			font-weight: 700;
+			width: 172px;
+			height: 48px;
+			@include flex;
+			border: 1px solid #e7e7e8;
+			cursor: pointer;
+			line-height: 1.2;
+			@include transition(all .1s);
+
+			i {
+				margin-right: 12px;
+				margin-left: -12px;
+			}
+
+			&:hover {
+				background: $main-color;
+				border-color: $main-color;
+				color: #fff;
+			}
+			&:active {
+				background: lighten($main-color, 10);
+				border-color: lighten($main-color, 10);
+				color: mix(#fff, $main-color, 95);
+			}
+		}
+	}
+
+	.s01 {
+		.btn {
+			right: 0;
+			top: 295px;
+		}
+	}
+	.s02 {
+		.btn {
+			left: 327px;
+			top: 383px;
+		}
+	}
+	.s03 {
+		.btn {
+			right: 0;
+			top: 385px;
+		}
+	}
+}
