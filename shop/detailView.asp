@@ -236,14 +236,16 @@
 			End If
 		End If
 
-		'If DK_MEMBER_LEVEL > 0 Then
+		If DK_MEMBER_LEVEL > 0 Then
 			viewPrice = DKRS_GoodsPrice
 			viewPV = RS_price4
 			viewBV = RS_price5
-		'Else
+		Else
 		'	viewPrice = 0
 		'	viewPV = 0
-		'End If
+
+			viewPrice =	DKRS_GoodsCustomer
+		End If
 
 	End If
 	'################################################################## END
@@ -694,8 +696,9 @@
 						<div class="GoodsPrice"><%=LNG_SHOP_DETAILVIEW_16%> : <span class="GoodsNumber"><%=num2cur(DKRS_GoodsPrice)%></span> <%=Chg_CurrencyISO%></div>
 					<%End If%>
 				<%Else%>
-					<div class="GoodsCustomer"><%=LNG_SHOP_DETAILVIEW_15%> : <span class="GoodsNumber"><%=num2cur(DKRS_GoodsCustomer)%></span> <%=Chg_CurrencyISO%></div>
-					<div class="GoodsPrice"><%=LNG_SHOP_DETAILVIEW_16%> : <span class="GoodsNumber"><%=num2cur(DKRS_GoodsPrice)%></span> <%=Chg_CurrencyISO%></div>
+					<!-- <div class="GoodsCustomer"><%=LNG_SHOP_DETAILVIEW_15%> : <span class="GoodsNumber"><%=num2cur(DKRS_GoodsCustomer)%></span> <%=Chg_CurrencyISO%></div>
+					<div class="GoodsPrice"><%=LNG_SHOP_DETAILVIEW_16%> : <span class="GoodsNumber"><%=num2cur(DKRS_GoodsPrice)%></span> <%=Chg_CurrencyISO%></div> -->
+					<div class="GoodsPrice"><%=LNG_SHOP_DETAILVIEW_16%> : <span class="GoodsNumber"><%=num2cur(DKRS_GoodsCustomer)%></span> <%=Chg_CurrencyISO%></div>
 				<%End If%>
 				<%If nowGradeCnt >= 20 And vipPrice > 0 Then 'COSMICO%>
 					<div class="GoodsPrice"><%=LNG_VIP_PRICE%> : <span class="GoodsNumber"><%=num2cur(vipPrice)%></span> <%=Chg_CurrencyISO%></div>

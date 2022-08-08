@@ -201,13 +201,15 @@
     End If
 
 
-  '	If DK_MEMBER_LEVEL > 0 Then
+		If DK_MEMBER_LEVEL > 0 Then
       viewPrice = DKRS_GoodsPrice
       viewPV = RS_price4
-  '	Else
+		Else
   '		viewPrice = 0
   '		viewPV = 0
-  '	End If
+			viewPrice =	DKRS_GoodsCustomer
+
+		End If
 
 	End If
 	'################################################################## END
@@ -697,13 +699,17 @@
 							</li>
 						<%End If%>
 					<%Else%>
-						<li class="price-default">
+						<!-- <li class="price-default">
 							<h6><%=LNG_SHOP_DETAILVIEW_15%></h6>
 							<span><strong><%=num2cur(DKRS_GoodsCustomer)%></strong><%=Chg_CurrencyISO%></span>
 						</li>
 						<li class="price-customer">
 							<h6><%=LNG_SHOP_DETAILVIEW_16%></h6>
 							<span><strong><%=num2cur(DKRS_GoodsPrice)%></strong><%=Chg_CurrencyISO%></span>
+						</li> -->
+						<li class="price-customer">
+							<h6><%=LNG_SHOP_DETAILVIEW_16%></h6>
+							<span><strong><%=num2cur(DKRS_GoodsCustomer)%></strong><%=Chg_CurrencyISO%></span>
 						</li>
 					<%End If%>
 
