@@ -5,11 +5,11 @@
 
 	' 총 WIDTH 값에서 썸네일 갯수에 맞춰 LEFT-MARGIN 값 설정
 	' 이미지 넓이는 border 를 포함하여 2를 더해준다
-	ImgsLeftMargin = Int((1050 - (252*PCONF_LINECNT)) / (PCONF_LINECNT-1))
+	ImgsLeftMargin = Int((1200 - (360*PCONF_LINECNT)) / (PCONF_LINECNT-1))
 	'print ImgsLeftMargin
 %>
 <!-- <link rel="stylesheet" type="text/css" href="/jscript/youtubepopup/youtubePopup.css"> -->
-<link rel="stylesheet" href="/css/type_video_popup.css?">
+<link rel="stylesheet" href="/css/type_video_popup.css?v0">
 <script type="text/javascript" src="/jscript/youtubepopup/youtubePopup.jquery.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -60,7 +60,7 @@
 					newimgWidth = 0
 					newimgHeight = 0
 
-					NEW_LENGTH = 230
+					NEW_LENGTH = 219
 					Call imgInfoNew(imgPath,newimgWidth,newimgHeight,"",NEW_LENGTH)
 
 					imgPaddingW = (NEW_LENGTH - newimgWidth)/2
