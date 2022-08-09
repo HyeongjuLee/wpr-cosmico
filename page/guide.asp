@@ -56,19 +56,13 @@
 			</div>
 			<div class="con_wrap">
 				<div class="con">
-					<div class="ready">
-						<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-						<p><%=LNG_READY_02_01%></p>
-					</div>
+					<div><img src="/images/content/guide01_1.jpg" alt=""></div>
 				</div>
 				<div class="con">
-					<div class="ready">
-						<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-						<p><%=LNG_READY_02_01%></p>
-					</div>
+					<div><img src="/images/content/guide01_2.jpg" alt=""></div>
 				</div>
 				<div class="con">
-					이 안에 내용 작성
+					<div><img src="/images/content/guide01_3.jpg" alt=""></div>
 				</div>
 			</div>
 		</div>

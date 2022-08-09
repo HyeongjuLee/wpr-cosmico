@@ -1,21 +1,24 @@
-﻿<!--#include virtual = "/_lib/strFunc.asp"-->
+<!--#include virtual = "/_lib/strFunc.asp"-->
 <%
 	PAGE_SETTING = "SNS"
+	PAGE_SETTING2 = "SUBPAGE"
 	ISLEFT = "F"
 	ISSUBTOP = "T"
 
-	'view = gRequestTF("view",True)
+	' view = gRequestTF("view",True)
 	'sview = gRequestTF("sview",True)
 	mNum = 9
 	sNum = view
 	sVar = sNum
 
 %>
-<!--#include virtual = "/_include/document.asp"-->
-<link rel="stylesheet" href="/css/sns.css?">
+<!--#include virtual = "/m/_include/document.asp"-->
+<!--#include virtual = "/m/_include/jqueryload.asp"-->
+
+<link rel="stylesheet" href="/m/css/sns.css?v0">
 </head>
 <body>
-<!--#include virtual = "/_include/header.asp"-->
+<!--#include virtual = "/m/_include/header.asp"-->
 <%
 	strBoardName = "sns_k"
 	arrParams = Array(_
@@ -37,7 +40,7 @@
 	Call closeRs(DKRS)
 %>
 <style>
-	.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #1d276b; background: #283593; display: inline-flex; justify-content: center; align-items: center; margin-top: 10px; width: 8rem; font-size: 1.3rem; }
+	.edit { outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: inherit; padding: 0.5rem 1rem; display: inline-flex; justify-content: center; align-items: center; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; color: #fff; font-weight: 400; border: solid 1px #1d276b; background: #283593; display: inline-flex; justify-content: center; align-items: center; margin-top: 10px; width: 8rem; font-size: 1.3rem; display: none;}
 	.edit:hover { color: #fff; text-decoration: none; background: #2d3ca7; }
 	.edit:active { color: #fff; background: #232e7f; }
 	.edit:hover { text-decoration: underline; }
@@ -206,4 +209,5 @@
 		</article>
 	</div>
 </div>
-<!--#include virtual = "/_include/copyright.asp"-->
+
+<!--#include virtual = "/m/_include/copyright.asp"-->

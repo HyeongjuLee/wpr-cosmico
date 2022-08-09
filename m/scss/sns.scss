@@ -26,7 +26,7 @@ $input-height: $input-height - rem(5px);
 
 .sns_wrap {
 	margin: 0 auto;
-	width: 1400px;
+	width: 100%;
 
 	$w: 8px;
 
@@ -48,21 +48,22 @@ $input-height: $input-height - rem(5px);
 			margin: 0 $w * -1;
 		}
 		li {
-			$li: 338px;
-			width: calc(25% - (#{$w * 2}));
-			height: $li;
+			width: calc(50% - (#{$w * 2}));
 			overflow: hidden;
 			margin: $w;
 			@include position;
 
 			a {
 				@include default-a;
+				height: 0;
+				padding-bottom: 100%;
+				// @include position;
 			}
 
 			.img {
 				width: 100%;
 				height: 100%;
-				// @include position;
+				@include position;
 				overflow: hidden;
 				&:before {
 					@include presudo($le: 0, $top: 0);
@@ -78,8 +79,11 @@ $input-height: $input-height - rem(5px);
 				@include flex;
 				opacity: 0;
 				color: #fff;
-				font-size: $font-size + rem(2px);
+				font-size: $font-size - rem(2px);
 				z-index: 2;
+				word-wrap: break-word;
+				word-break: keep-all;
+				padding: rem(15px);
 			}
 			img {
 				width: 100%;
@@ -101,7 +105,8 @@ $input-height: $input-height - rem(5px);
 		.link {
 			@include inline-flex;
 			@include position;
-			width: rem(200px);
+			width: 60%;
+			max-width: 360px;
 			height: $input-height;
 			@include rounded($input-height);
 			border: 1px solid $oc-gray-5;
@@ -114,11 +119,11 @@ $input-height: $input-height - rem(5px);
 			$i: rem(20px) !global;
 
 			i {
-				font-size: $i;
+				font-size: $i + rem(5px);
 				margin-right: $i / -2;
 				margin-left: $i / 2;
 				opacity: 0.6;
-				@include transition(margin .1s);
+				@include transition(margin .5s);
 				// @include transform(rotate(-45deg));
 			}
 
@@ -132,7 +137,7 @@ $input-height: $input-height - rem(5px);
 					margin-right: $i * -1;
 					margin-left: $i;
 					opacity: 0.9;
-					animation: .5s link infinite alternate;
+					// animation: .5s link infinite alternate;
 				}
 			}
 		}

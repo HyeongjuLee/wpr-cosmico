@@ -201,10 +201,10 @@
 							<li><a href="/m/cboard/board_list.asp?bname=pds"><%=LNG_PDS%></a></li>
 
 						<%' "SNS"%>
-						<li class="Label"><a><%=LNG_SNS%></a></li>
-							<li><a href="/m/cboard/board_list.asp?bname=sns_k"><span><%=LNG_SNS_01%></span></a></li>
-							<li><a href="/m/cboard/board_list.asp?bname=sns_i"><span><%=LNG_SNS_02%></span></a></li>
-							<li><a href="/m/cboard/board_list.asp?bname=sns_f"><span><%=LNG_SNS_03%></span></a></li>
+						<li class="Label"><a><%=LNG_SNS%> COSMICOKOREA</a></li>
+							<li><a href="/m/page/sns.asp"><span><%=LNG_SNS%></span></a></li>
+							<!-- <li><a href="/m/cboard/board_list.asp?bname=sns_i"><span><%=LNG_SNS_02%></span></a></li>
+							<li><a href="/m/cboard/board_list.asp?bname=sns_f"><span><%=LNG_SNS_03%></span></a></li> -->
 					</ul>
 
 				</nav>

@@ -92,9 +92,9 @@
 <%If Left(PAGE_SETTING,4) = "SHOP" Then %>
 <link rel="stylesheet" href="/css/shop_style.css?" />
 <link rel="stylesheet" href="/css/shop_style_<%=LCase(DK_MEMBER_LNG_CODE)%>.css?" /><%'언어선택%>
-<link rel="stylesheet" href="/css/style.css?" />
+<link rel="stylesheet" href="/css/style.css?v0.2" />
 <%Else%>
-<link rel="stylesheet" href="/css/style.css?" />
+<link rel="stylesheet" href="/css/style.css?v0.2" />
 <link rel="stylesheet" href="/css/style_<%=LCase(DK_MEMBER_LNG_CODE)%>.css?" /><%'언어선택%>
 
 	<%If PAGE_SETTING = "MYOFFICE" Then %>

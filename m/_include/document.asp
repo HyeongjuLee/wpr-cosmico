@@ -45,7 +45,7 @@
 <link rel="stylesheet" type="text/css" href="/m/css/shop_style.css?6" />
 <link rel="stylesheet" href="/m/css/shop_style_<%=LCase(DK_MEMBER_LNG_CODE)%>.css?v1" /><%'언어선택%>
 <%Else%>
-<link rel="stylesheet" type="text/css" href="/m/css/style.css?v0" />
+<link rel="stylesheet" type="text/css" href="/m/css/style.css?v0.1" />
 <link rel="stylesheet" href="/m/css/style_<%=LCase(DK_MEMBER_LNG_CODE)%>.css?v1" /><%'언어선택%>
 <%End if%>
 <link rel="stylesheet" type="text/css" href="/css/NotoSansKR.css" />

@@ -1,3 +1,4 @@
+<% If ISLEFT = "T" Then %>
 	<%If PAGE_SETTING = "MYOFFICE" Then %>
 	<%Else%>
 
@@ -137,4 +138,5 @@
 
 		});
 	</script>
+<%End If%>
 <%End If%>

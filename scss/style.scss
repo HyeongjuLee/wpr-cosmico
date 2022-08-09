@@ -1899,25 +1899,26 @@ $input-height: rem(50px);
 
 .guide {
 	.tab_wrap {
+		text-align: center;
 		ul {
-			@include flex($bet, $st);
+			@include inline-flex($bet, $st);
 			@include position;
-			width: 100%;
-			&:before {
-				@include presudo($le: 0, $bot: 0, $h: 2px);
-				background: $main-color;
-				z-index: 1;
-			}
+			// &:before {
+			// 	@include presudo($le: 0, $bot: 0, $h: 2px);
+			// 	background: $main-color;
+			// 	z-index: 1;
+			// }
 		}
 		li {
 			@include flex;
-			width: 395px;
+			width: 300px;
 			height: $input-height + 1;
-			background: $oc-gray-2;
+			background: $oc-gray-1;
+			border: 1px solid $oc-gray-1;
 			color: $oc-gray-7;
 			cursor: pointer;
 			font-size: $font-size + 0.3;
-			// margin: 0 rem(5px);
+			margin: 0 rem(5px);
 
 			&:first-child {
 				margin-left: 0;
@@ -1927,8 +1928,10 @@ $input-height: rem(50px);
 			}
 
 			&.active {
-				background: $main-color;
-				color: #fff;
+				border-color: $main-color;
+				background: #fff;
+				color: $main-color;
+				font-weight: 700;
 			}
 		}
 	}

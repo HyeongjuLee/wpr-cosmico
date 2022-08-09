@@ -1634,17 +1634,18 @@ select {
 			@include flex($bet, $st);
 			@include position;
 			width: 100%;
-			&:before {
-				@include presudo($le: 0, $bot: 0, $h: 2px);
-				background: $main-color;
-				z-index: 1;
-			}
+			// &:before {
+			// 	@include presudo($le: 0, $bot: 0, $h: 2px);
+			// 	background: $main-color;
+			// 	z-index: 1;
+			// }
 		}
 		li {
 			@include flex;
 			width: 32%;
 			height: $input-height + 0.5;
-			background: $oc-gray-2;
+			background: $oc-gray-1;
+			border: 1px solid $oc-gray-1;
 			color: $oc-gray-7;
 			cursor: pointer;
 			font-size: $font-size + 0.2;
@@ -1658,8 +1659,10 @@ select {
 			}
 
 			&.active {
-				background: $main-color;
-				color: #fff;
+				border-color: $main-color;
+				background: #fff;
+				color: $main-color;
+				font-weight: 700;
 			}
 		}
 	}

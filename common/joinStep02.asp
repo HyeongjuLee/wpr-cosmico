@@ -191,8 +191,7 @@
 		<section class="all">
 			<label>
 				<input type="checkbox" id="allAgree" onclick="allCheckAgree()" name="allAgree" value="T" />
-				<i class="icon-ok"></i>
-				<span><%=LNG_JOINSTEP02_U_TEXT07%></span>
+				<span><i class="icon-ok"></i><%=LNG_JOINSTEP02_U_TEXT07%></span>
 			</label>
 		</section>
 		<section>
@@ -200,8 +199,7 @@
 				<h3><%=LNG_POLICY_01%></h3>
 				<label>
 					<input type="checkbox" id="agree01Chk" name="agree01" value="T" />
-					<i class="icon-ok"></i>
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">
@@ -213,8 +211,7 @@
 				<h3><%=LNG_POLICY_02%></h3>
 				<label>
 					<input type="checkbox" id="agree02Chk" name="agree02" value="T" />
-					<i class="icon-ok"></i>
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">
@@ -227,8 +224,7 @@
 				<h3><%=LNG_POLICY_03%></h3>
 				<label>
 					<input type="checkbox" id="agree03Chk" name="agree03" value="T" />
-					<i class="icon-ok"></i>
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box">
@@ -242,8 +238,7 @@
 				<h3><%=LNG_POLICY_04%></h3>
 				<label>
 					<input type="checkbox" id="agree04Chk" name="agree04" value="T" />
-					<i class="icon-ok"></i>
-					<span><%=LNG_TEXT_I_AGREE%></span>
+					<span><i class="icon-ok"></i><%=LNG_TEXT_I_AGREE%></span>
 				</label>
 			</div>
 			<div class="agree_box" style="height: 9rem;">
@@ -267,7 +262,7 @@
 			<article class="privacy">
 				<h3><%=LNG_TEXT_MEMBER_REGIST_CHECK%><p><%=LNG_TEXT_CLASS_P%></p></h3>
 				<%If UCase(R_NationCode) = "KR" Then%>
-				<p><span class="e"><%=DKCONF_SITE_TITLE%></span> 회원의 소중한 개인정보를 안전하게 보호하고 있으며 개인정보 보호 정책을 준수합니다.</p>
+				<p><%=DKCONF_SITE_TITLE%>는 회원의 소중한 개인정보를 안전하게 보호하고 있으며 개인정보 보호 정책을 준수합니다.</p>
 				<%End If%>
 				<div class="info">
 					<%If NICE_BANK_CONFIRM_TF = "T" And S_SellMemTF = 0 Then		'계좌인증(판매원)%>
