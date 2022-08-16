@@ -198,6 +198,11 @@
 		<input type="hidden" name="idx" value="<%=DKRS_intIDX%>" />
 		<input type="hidden" name="o_strReplyData1" value="<%=DKRS_strReplyData1%>" />
 
+		<%'COSMICO SMS%>
+		<input type="hidden" name="strMobile" value="<%=DKRS_strMobile%>" readonly="readonly" />
+		<input type="hidden" name="strWebID" value="<%=DKRS_strWebID%>" readonly="readonly" />
+
+
 		<table <%=tableatt%> class="width100">
 			<col width="160" />
 			<col width="*" />

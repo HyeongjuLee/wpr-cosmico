@@ -57,8 +57,6 @@
 
 
 
-
-
 	MODE			= upForm("mode",True)
 	intIDX			= upForm("idx",False)
 
@@ -97,6 +95,22 @@
 				Else
 					If isReply = "T" Then
 						repDate = Now()
+
+
+						If DK_MEMBER_ID = "webpro" And webproIP="T" and 1=2 Then
+						'COSMICO SMS 1:1문의 관리자 답변 문자메세지 전송
+							strMobile = upfORM("strMobile",False)
+							strWebID = upfORM("strWebID",False)
+
+							strMobile = "01082860240"
+
+							strCate = "1on1"
+							MMS_BODY = "안녕하세요 코즈미코 코리아 입니다. 1:1 문의 하신 내역의 답변이 등록되었습니다."
+							MMS_SUBJECT = "안녕하세요 코즈미코 코리아 입니다"
+							MSG_MMS_USE = "F"  'MMS도 사용시
+							Call FN_SMS_MOBILE_INFO_SEND(strMobile, strWebID, MMS_BODY, MMS_SUBJECT, strCate, MSG_MMS_USE)
+						End If
+
 					Else
 						repDate = Now()
 						isReply = isReply

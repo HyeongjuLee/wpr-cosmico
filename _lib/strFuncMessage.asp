@@ -128,6 +128,84 @@
 <%
 
 ' *****************************************************************************
+' Function Name : FN_SMS_MOBILE_INFO_SEND
+' Discription		: 메세지 전송(모바일 정보)
+'	MSG_MMS_USE :  MMS도 사용시 T
+'	Call FN_SMS_MOBILE_INFO_SEND(strMobile, strWebID, MMS_BODY, MMS_SUBJECT, strCate, MSG_MMS_USE)
+' *****************************************************************************
+	Function FN_SMS_MOBILE_INFO_SEND(ByVal strMobile, ByVal strWebID, ByVal MMS_BODY, ByVal MMS_SUBJECT, ByVal strCate, ByVal mmsUse)
+
+			DEC_strMobile = strMobile
+			MMS_SUBJECT = MMS_SUBJECT
+			MMS_BODY = MMS_BODY
+			MSG_MMS_USE = mmsUse
+
+			If MSG_strComName = "" OR MSG_strCallback ="" Or DEC_strMobile = "" Then
+				Call ALERTS("필수정보가 없습니다.","BACK","")
+				Exit Function
+			End If
+
+			tran_comID = strWebID
+			MSG_PRICE = MSG_LMS_PRICE
+			TRAN_REFKEY = strCate
+
+			If calcStringLenByte(MMS_BODY) > 80 And MSG_MMS_USE = "T" Then
+				MSG_PRICE = MSG_LMS_PRICE
+
+				arrParamsM1 = Array(_
+					Db.makeParam("@strComName",adVarChar,adParamInput,20,MSG_strComName),_
+					Db.makeParam("@tran_phone",adVarChar,adParamInput,15,DEC_strMobile),_
+					Db.makeParam("@tran_callback",adVarChar,adParamInput,15,Replace(MSG_strCallback,"-","")),_
+					Db.makeParam("@tran_comID",adVarChar,adParamInput,64,tran_comID), _
+					Db.makeParam("@tran_refkey",adVarChar,adParamInput,40,TRAN_REFKEY), _
+
+					Db.makeParam("@mms_body",adVarChar,adParamInput,2000,backword(MMS_BODY)),_
+					Db.makeParam("@mms_subject",adVarChar,adParamInput,40,MMS_SUBJECT),_
+
+					Db.makeParam("@tran_etc2",adVarChar,adParamInput,16,Left(getUserIP(),16)),_
+					Db.makeParam("@tran_etc3",adVarChar,adParamInput,16,""),_
+
+					Db.makeParam("@LMS_PRICE",adInteger,adParamInput,4,MSG_PRICE), _
+					Db.makeParam("@OUTPUT_VALUE",adVarChar,adParamOutput,10,"ERROR") _
+				)
+				Call Db.exec("DKP_WEBPRO_LMS_SEND",DB_PROC,arrParamsM1,DB5)
+				OUTPUT_VALUEM1 = arrParamsM1(Ubound(arrParamsM1))(4)
+
+			Else
+				MSG_PRICE = MSG_SMS_PRICE
+
+				arrParamsM1 = Array(_
+					Db.makeParam("@strComName",adVarChar,adParamInput,20,MSG_strComName),_
+					Db.makeParam("@tran_phone",adVarChar,adParamInput,15,DEC_strMobile),_
+					Db.makeParam("@tran_callback",adVarChar,adParamInput,15,Replace(MSG_strCallback,"-","")),_
+					Db.makeParam("@tran_comID",adVarChar,adParamInput,64,DK_MEMBER_ID), _
+					Db.makeParam("@tran_refkey",adVarChar,adParamInput,40,TRAN_REFKEY), _
+
+					Db.makeParam("@tran_msg",adVarChar,adParamInput,80,backword(MMS_BODY)),_
+
+					Db.makeParam("@tran_etc2",adVarChar,adParamInput,16,Left(getUserIP(),16)),_
+					Db.makeParam("@tran_etc3",adVarChar,adParamInput,16,""),_
+
+					Db.makeParam("@LMS_PRICE",adInteger,adParamInput,4,MSG_PRICE), _
+					Db.makeParam("@OUTPUT_VALUE",adVarChar,adParamOutput,10,"ERROR") _
+				)
+				Call Db.exec("DKP_WEBPRO_SMS_SEND",DB_PROC,arrParamsM1,DB5)
+				OUTPUT_VALUEM1 = arrParamsM1(Ubound(arrParamsM1))(4)
+
+			End If
+
+			Select Case OUTPUT_VALUEM1
+				Case "ERROR" : Call ALERTS("메세지 전송중 오류가 발생했습니다.","BACK","")
+				Case "FINISH"
+				Case "NOTCNT" : Call ALERTS("메세지 전송 금액이 부족합니다.","BACK","")
+				Case Else : Call ALERTS("메세지 전송중 알수없는 오류가 발생했습니다.","BACK","")
+			End Select
+
+	End Function
+%>
+<%
+
+' *****************************************************************************
 ' Function Name : FN_MemMessage_Send
 ' Discription		: 통합 메세지 전송(회원)
 '		Call FN_MemMessage_Send(Mbid, Mbid2, strCate)

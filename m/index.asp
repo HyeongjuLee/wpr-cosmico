@@ -180,7 +180,7 @@
 				// },
 
 				pagination: {
-					el: '.swiper-pagination',
+					el: '.main-visual .swiper-pagination',
 					type: 'bullets',
 					//type: 'fraction',
 					// type: 'progressbar',
@@ -426,7 +426,7 @@
 			</div>
 
 			<script type="text/javascript">
-				var swiper = new Swiper('.index-list .swiper-container', {
+				var swiper2 = new Swiper('.index-list .swiper-container', {
 					centeredSlides: true,
 					effect: 'slide',
 					loop: true,
@@ -443,7 +443,7 @@
 					},
 
 					pagination: {
-						el: '.swiper-pagination',
+						el: '.index-list .swiper-pagination',
 						//type: 'bullets',
 						// type: 'fraction',
 						// type: 'progressbar',
@@ -564,7 +564,7 @@
 		</div> -->
 
 		<script type="text/javascript">
-			var swiper = new Swiper('.video-visual', {
+			var swiper3 = new Swiper('.video-visual', {
 				// centeredSlides: true,
 				effect: 'slide',
 				loop: true,
@@ -580,7 +580,7 @@
 				},
 
 				pagination: {
-					el: '.swiper-pagination',
+					el: '.video-visual .swiper-pagination',
 					// type: 'bullets',
 					// type: 'fraction',
 					// type: 'progressbar',

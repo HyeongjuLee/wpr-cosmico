@@ -176,13 +176,13 @@
 				<%Case "COMPANY"%>
 					<img src="/images/top/s01.jpg" alt="" />
 				<%Case "BRAND"%>
-					<img src="/images/top/s02.jpg" alt="" />
+					<img src="/images/top/s02_2.jpg" alt="" />
 				<%Case "PRODUCT"%>
 					<img src="/images/top/s03.jpg" alt="" />
 				<%Case "BUSINESS"%>
 					<img src="/images/top/s04.jpg" alt="" />
 				<%Case "GUIDE"%>
-					<img src="/images/top/s05.jpg" alt="" />
+					<img src="/images/top/s05_2.jpg" alt="" />
 				<%Case "COMMUNITY"%>
 					<img src="/images/top/s06.jpg" alt="" />
 				<%Case "CUSTOMER"%>
