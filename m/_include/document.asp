@@ -50,7 +50,7 @@
 <%End if%>
 <link rel="stylesheet" type="text/css" href="/css/NotoSansKR.css" />
 <!-- <link rel="stylesheet" type="text/css" href="/css/Roboto.css" /> -->
-<link rel="stylesheet" href="/fontello/css/icon-font.css?v0">
+<link rel="stylesheet" href="/fontello/css/icon-font.css?v0.2">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
 <!-- <link rel="stylesheet" type="text/css" href="/css/pretendard.css" /> -->
 

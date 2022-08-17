@@ -22,27 +22,44 @@
 <META NAME="GOOGLEBOT" CONTENT="NOINDEX, NOFOLLOW">
 <%Select Case view%>
 	<%Case "1"%>
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
-		</div>
+		<img src="/m/images/content/company01.jpg" alt="" width="100%" />
 	<%Case "2"%>
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
-		</div>
+		<img src="/m/images/content/company02.jpg" alt="" width="100%" />
 	<%Case "3"%>
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
-		</div>
+		<img src="/m/images/content/company03.jpg" alt="" width="100%" />
 	<%Case "4"%>
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
+		<link rel="stylesheet" href="/m/css/company.css?v0">
+		<div id="company" class="company04">
+			<img src="/m/images/content/company04.jpg" alt="" width="100%" class="sample_image" />
+			<section class="s01">
+				<img src="/m/images/content/company04_1.jpg" alt="">
+				<a href="/images/content/COSMICO KOREA(LOGO).ai" class="btn" download>
+					<p>
+						<i class="icon-download"></i>
+						<span>DOWNLOAD</span>
+					</p>
+				</a>
+			</section>
+			<section class="s02">
+				<img src="/m/images/content/company04_2.jpg" alt="">
+				<a href="/images/content/DN_8(LOGO).ai" class="btn" download>
+					<p>
+						<i class="icon-download"></i>
+						<span>DOWNLOAD</span>
+					</p>
+				</a>
+			</section>
+			<section class="s03">
+				<img src="/m/images/content/company04_3.jpg" alt="">
+				<a href="/images/content/Theta Mond(LOGO).ai" class="btn" download>
+					<p>
+						<i class="icon-download"></i>
+						<span>DOWNLOAD</span>
+					</p>
+				</a>
+			</section>
 		</div>
 
 	<%Case Else Call ALERTS(LNG_PAGE_ALERT01,"BACK","")%>
 <%End Select%>
-
 <!--#include virtual = "/m/_include/copyright.asp"-->

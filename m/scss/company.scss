@@ -1,0 +1,100 @@
+@import 'mixin-custom';
+
+#company {}
+
+.company04 {
+	@include position;
+	.sample_image {
+		@include position(absolute, $le: 0, $top: 0);
+		z-index: 9;
+		opacity: .5;
+		display: none;
+	}
+	section {
+		@include position;
+		width: 100%;
+
+		img {
+			@include position;
+			z-index: -1;
+			width: 100%;
+		}
+
+		.btn {
+			@include default-0;
+			@include position(absolute, $ri: 11%);
+			z-index: 0;
+			color: #3c3c3c;
+			// font-size: 70%;
+			font-size: 2vw;
+			font-weight: 700;
+			width: 30%;
+			height: 0;
+			padding-bottom: 10%;
+			border: 1px solid #e7e7e8;
+			cursor: pointer;
+			line-height: 1.2;
+			@include transition(all .1s);
+
+			p {
+				@include position(absolute, $le: 0, $top: 0);
+				width: 100%;
+				height: 100%;
+				@include flex;
+			}
+
+			i {
+				margin-right: 5%;
+				// margin-right: 12px;
+				// margin-left: -12px;
+			}
+
+			&:hover {
+				background: $main-color;
+				border-color: $main-color;
+				color: #fff;
+			}
+			&:active {
+				background: lighten($main-color, 10);
+				border-color: lighten($main-color, 10);
+				color: mix(#fff, $main-color, 95);
+			}
+		}
+	}
+
+	.s01 {
+		.btn {
+			bottom: 8%;
+		}
+	}
+	.s02 {
+		.btn {
+			bottom: 5%;
+		}
+	}
+	.s03 {
+		.btn {
+			bottom: 5.8%;
+		}
+	}
+}
+
+@include media($max: 280px) {
+	.company04 {
+		section {
+			.btn {
+				font-size: 40%;
+			}
+		}
+	}
+}
+
+@include media($min: 740px) {
+	.company04 {
+		section {
+			.btn {
+				font-size: 14px;
+			}
+		}
+	}
+}

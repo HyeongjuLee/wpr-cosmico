@@ -167,8 +167,8 @@
 				centeredSlides: true,
 				effect: 'slide',
 				loop: true,
-				simulateTouch: false,
-				allowTouchMove: false,
+				// simulateTouch: false,
+				// allowTouchMove: false,
 				//slidesPerGroup: 1,
 				//slidesPerView: 1,
 				//spaceBetween: 0;

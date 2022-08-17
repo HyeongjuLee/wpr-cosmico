@@ -195,12 +195,12 @@
 				speed: 1000,
 
 				navigation: {
-					nextEl: '.swiper-button.next',
-					prevEl: '.swiper-button.prev',
+					nextEl: 'main-visual .swiper-button.next',
+					prevEl: 'main-visual .swiper-button.prev',
 				},
 
 				pagination: {
-					el: '.swiper-pagination',
+					el: 'main-visual .swiper-pagination',
 					type: 'bullets',
 					// type: 'fraction',
 					// type: 'progressbar',
@@ -457,12 +457,12 @@
 					slideToClickedSlide: false,
 
 					navigation: {
-						nextEl: '.swiper-button.next',
-						prevEl: '.swiper-button.prev',
+						nextEl: '.index-list .swiper-button.next',
+						prevEl: '.index-list .swiper-button.prev',
 					},
 
 					pagination: {
-						el: '.swiper-pagination',
+						el: '.index-list .swiper-pagination',
 						//type: 'bullets',
 						type: 'fraction',
 						// type: 'progressbar',
@@ -604,12 +604,12 @@
 				speed: 1000,
 
 				navigation: {
-					nextEl: '.swiper-button.next',
-					prevEl: '.swiper-button.prev',
+					nextEl: '.index-video .swiper-button.next',
+					prevEl: '.index-video .swiper-button.prev',
 				},
 
 				pagination: {
-					el: '.swiper-pagination',
+					el: '.index-video .swiper-pagination',
 					// type: 'bullets',
 					// type: 'fraction',
 					// type: 'progressbar',

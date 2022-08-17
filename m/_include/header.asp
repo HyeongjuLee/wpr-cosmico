@@ -40,7 +40,7 @@
 			<div id="header" class="header">
 				<article>
 					<div class="navi-left">
-						<a href="#menu"><i class="icon-menu"></i></a>
+						<a href="#menu"><i class="icon-menu-2"></i></a>
 					</div>
 					<div id="logo"><a href="/m/index.asp"><img src="/images/share/logo.svg" alt="" /></a></div>
 					<!--include virtual = "/_include/header_Lang.asp"-->
@@ -48,7 +48,7 @@
 						<a href="/m/buy/order_list.asp" title="<%=LNG_HEADER_MYOFFICE%>"><i class="icon-member-1"></i></a>
 					</div>
 					<div class="navi-right">
-						<a href="#menu-right"><i class="icon-menu"></i></a>
+						<a href="#menu-right"><i class="icon-menu-2"></i></a>
 					</div>
 				</article>
 				<!-- <article class="top_menu">
@@ -366,7 +366,12 @@
 		<!--include virtual = "/m/_include/mobile-height.asp"-->
 		<!--#include virtual = "/m/_include/left.asp"-->
 		<link rel="stylesheet" type="text/css" href="/m/css/nav-left.css?">
-		<div class="content">
+		<%Select Case PAGE_SETTING%>
+		<%Case "COMPANY", "BRAND", "BUSINESS", "GUIDE"%>
+			<div class="content width100">
+		<%Case Else%>
+			<div class="content">
+		<%End Select%>
 
 	<%
 		End If

@@ -678,9 +678,11 @@
 				<div class="flags">
 					<%=flagBest%><%=flagNew%><%=FlagVote%><%=FlagCS%>
 				</div>
+				<%If DK_MEMBER_LEVEL > 0 Then%>
 				<div class="price-summary">
 					<%=DisCountPercent_view%>
 				</div>
+				<%End If%>
 				<ul class="price">
 					<%If DK_MEMBER_STYPE = "1" Then%>
 						<%If CONST_CS_SOBIJA_PRICE_USE_TF = "T" Then	'소비자회원 소비자가%>

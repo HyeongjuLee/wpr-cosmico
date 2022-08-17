@@ -27,10 +27,7 @@
 		
 	<%Select Case sview%>
 	<%Case "1"%>
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
-		</div>
+		<img src="/m/images/content/brand01_1.jpg" alt="" width="100%" />
 	<%Case "2"%>
 		<div class="ready">
 			<div><img src="/images/content/maintenance-line.svg" alt=""></div>

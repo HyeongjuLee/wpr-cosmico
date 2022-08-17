@@ -10,6 +10,7 @@
 
 .content { padding: 3rem; box-sizing: border-box; position: relative; }
 .content * { box-sizing: border-box; }
+.content.width100 { padding: 3rem 0; }
 .content .contain { width: 100%; padding: 0 3rem; margin: 0 auto; background: #fff; overflow: hidden; max-width: 64rem; }
 
 th { color: #555; }
@@ -112,7 +113,7 @@ a:hover { color: #1C287B; }
 .index-list .txt div { color: #111; font-size: 3.2rem; font-weight: 700; width: 100%; letter-spacing: -0.005em; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 1; }
 .index-list .txt i { width: 100%; height: 1px; background: #d8d8d8; margin: 3rem 0; }
 .index-list .txt p { color: #848484; margin-bottom: 1rem; letter-spacing: -0.05em; line-height: 1.4; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
-.index-list .txt .btn { width: 22rem; height: 6rem; font-size: 2.1rem; display: inline-flex; justify-content: center; align-items: center; color: #6b6b6b; border: 1px solid #747474; cursor: pointer; font-weight: 700; margin-top: auto; margin-right: auto; }
+.index-list .txt .btn { width: 22rem; height: 6rem; font-size: 2.1rem; display: inline-flex; justify-content: center; align-items: center; color: #6b6b6b; border: 1px solid #747474; cursor: pointer; font-weight: 700; margin-top: auto; margin-right: auto; margin-left: 0.1rem; }
 .index-list .txt .btn:hover { color: #fff; background: #1C287B; border-color: #1C287B; }
 .index-list .swiper-inner { width: 100% !important; }
 .index-list .swiper-button { position: absolute; display: flex; justify-content: center; align-items: center; width: 6rem; height: 6rem; border: 1px solid #ddd; font-size: 1.5rem; color: #000; padding: 0; background: rgba(252, 252, 253, 0.8); margin-top: -6rem; top: initial; -moz-border-radius: 100%; -webkit-border-radius: 100%; border-radius: 100%; }
@@ -161,7 +162,7 @@ a:hover { color: #1C287B; }
 .index-video .more a:hover { color: #fff; background: #1C287B; border-color: #1C287B; }
 
 /*오시는 길*/
-.location { width: 100%; position: relative; display: flex; justify-content: space-between; align-items: center; flex-direction: column-reverse; font-size: 2.5rem; padding: 3rem 0; }
+.location { width: 100%; position: relative; display: flex; justify-content: space-between; align-items: center; flex-direction: column-reverse; font-size: 2.5rem; padding: 3rem; }
 .location .wrap_map { height: 100% !important; }
 .location .wrap_controllers { display: none; }
 .location .map_border { display: none !important; }
@@ -274,6 +275,7 @@ a:hover { color: #1C287B; }
 /* 1:1문의 */
 select { padding: 0px 0px 0px 4px; height: 35px; vertical-align: middle; border-color: #ccc; border-radius: 3px; }
 
+.guide .tab_wrap { padding: 0 3rem; width: 100%; }
 .guide .tab_wrap ul { display: flex; justify-content: space-between; align-items: flex-start; position: relative; width: 100%; }
 .guide .tab_wrap li { display: flex; justify-content: center; align-items: center; width: 32%; height: 8.5rem; background: #f1f3f5; border: 1px solid #f1f3f5; color: #495057; cursor: pointer; font-size: 2.7rem; }
 .guide .tab_wrap li:first-child { margin-left: 0; }
