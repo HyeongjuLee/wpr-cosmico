@@ -460,7 +460,7 @@
 			</style>
 			<div class="drow">
 				<div class="email mobile"> <!-- mobile 스타일 적용 -->
-					<h5><%=LNG_TEXT_EMAIL%> <%=startext%></h5>
+					<h5><%=LNG_TEXT_EMAIL%> <!-- <%=startext%> --></h5>
 					<div class="con">
 						<div class="inputs_wrap">
 							<div class="inputs">

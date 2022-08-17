@@ -126,7 +126,7 @@
 			If Not checkPass(newPass, 6, 20)	Then Call ALERTS(LNG_MYPAGE_INFO_COMPANY_HANDLER_ALERT04&"DDD","back","")
 		End If
 
-		If strEmail = "" Or strEmail = ""	Then Call ALERTS(LNG_JS_EMAIL,"back","")
+	''	If strEmail = "" Or strEmail = ""	Then Call ALERTS(LNG_JS_EMAIL,"back","")		'COSMICO XXX
 
 
 	' 값 병합

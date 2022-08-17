@@ -617,7 +617,7 @@
 						starText_MOBILE		= starText
 						starText_bankNumber		= starText
 						starText_bankOwner		= starText
-						starText_email		= starText
+						starText_email		= ""		'선택 COSMICO 2022-08-17
 
 						If starText_bankNumber <> "" Then
 							bankOwner = strName

@@ -30,9 +30,9 @@
 				<%IF CONST_MOBILE_ONLY = "T" Then%>
 				<li><a href="/admin/cboard/default.asp"><p class="myoffice"><span class="<%=FNC_ADMIN_MENU_HOVER(ADMIN_LEFT_MODE,"CBOARD")%>">게시판</span></p></a></li>
 				<%End If%>
+				<li><a href="/admin/design/default.asp"><p class="design"><span class="<%=FNC_ADMIN_MENU_HOVER(ADMIN_LEFT_MODE,"DESIGN")%>">디자인</span></p></a></li>
 				<%If UCase(DK_MEMBER_ID) = "WEBPRO" Then%>
 					<li>|<br />|<br />|<br />|<br />|</li>
-					<li><a href="/admin/design/default.asp"><p class="design"><span class="<%=FNC_ADMIN_MENU_HOVER(ADMIN_LEFT_MODE,"DESIGN")%>">디자인</span></p></a></li>
 					<li><a href="/admin/myoffice/default.asp"><p class="myoffice"><span class="<%=FNC_ADMIN_MENU_HOVER(ADMIN_LEFT_MODE,"MYOFFICE")%>">마이오피스</span></p></a></li>
 					<li><a href="/admin/order/default.asp"><p class="order"><span class="<%=FNC_ADMIN_MENU_HOVER(ADMIN_LEFT_MODE,"ORDERS")%>">주문관리</span></p></a></li>
 

@@ -459,7 +459,7 @@
 				</div>
 			</div>
 			<div class="mobile">
-				<h5><%=LNG_TEXT_EMAIL%> <%=startext%></h5>
+				<h5><%=LNG_TEXT_EMAIL%> <!-- <%=startext%> --></h5>
 				<div class="con">
 					<input type="email" name="strEmail" class="input_text" maxlength="200" value="<%=DKRS_Email%>" />
 					<!-- <input type="button" name="" class="button" value="중복체크"> -->

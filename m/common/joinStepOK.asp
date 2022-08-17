@@ -460,7 +460,7 @@
 		End If
 
 		If S_SellMemTF = "0" Then 'COSMICO
-			If strEmail = "" Then Call ALERTS(LNG_JS_EMAIL,"back","")
+			''If strEmail = "" Then Call ALERTS(LNG_JS_EMAIL,"back","")			'cosmico 선택 2022-08-17
 
 			If strZip = "" Or strADDR1 = "" Or strADDR2 = "" Then Call ALERTS(LNG_JS_ADDRESS1,"back","")
 			If strMobile = "" Then Call ALERTS(LNG_JS_MOBILE,"back","")

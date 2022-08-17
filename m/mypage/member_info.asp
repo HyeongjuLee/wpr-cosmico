@@ -365,10 +365,11 @@
 
 		if (f.strEmail.value == "")
 		{
+			/*
 			alert2("<%=LNG_JS_EMAIL%>", "#emailCheckTXT", "F");
 			f.strEmail.focus();
 			return false;
-
+			*/
 		} else {
 
 			if (!checkEmail(f.strEmail.value)) {

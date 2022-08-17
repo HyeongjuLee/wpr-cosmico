@@ -184,7 +184,7 @@ Select Case UCase(DK_MEMBER_NATIONCODE)
 				BODYLOAD = ""
 				FORMDATA = "<form name=""orderFrm"" id=""orderFrm"" onsubmit=""return orderSubmit(this);"" method=""post"">"
 		%>
-		<script type="text/javascript" src="/PG/ONOFFKOREA/pay.js?v2"></script>
+		<script type="text/javascript" src="/PG/ONOFFKOREA/pay.js?v3.3"></script>
 		<script type="text/javascript" src="order_mComplex.js?v1"></script>
 		<script type="text/javascript" src="cashReceipt.js?v531"></script>
 		<%
@@ -1219,7 +1219,7 @@ End Select
 					</tr>
 					<%If SHOP_ORDERINFO_VIEW_TF = "T" Then%>
 					<tr>
-						<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_20%> <%=startext%></th>
+						<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_20%> <!-- <%=startext%> --></th>
 						<td><input type="text" class="input_text imes width95" name="strEmail" value="<%=strEmail%>" maxlength="200" /></td>
 					</tr>
 					<%End IF%>
@@ -1274,7 +1274,7 @@ End Select
 							<input type="text" class="input_text" name="takeMobile" maxlength="15" <%=onLyKeys%> value="" />
 						</td>
 						<%If SHOP_ORDERINFO_VIEW_TF <> "T" Then%>
-							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_20%> <%=startext%></th>
+							<th><%=LNG_SHOP_ORDER_DIRECT_TABLE_20%> <!-- <%=startext%> --></th>
 							<td><input type="text" class="input_text imes width95" name="strEmail" value="<%=strEmail%>" maxlength="200" /></td>
 						<%Else%>
 							<th></th>
@@ -1690,7 +1690,7 @@ End Select
 												<option value="00">일시불</option>
 												<option value="02">2개월</option>
 												<option value="03">3개월</option>
-												<!-- <option value="04">4개월</option>
+												<option value="04">4개월</option>
 												<option value="05">5개월</option>
 												<option value="06">6개월</option>
 												<option value="07">7개월</option>
@@ -1698,7 +1698,7 @@ End Select
 												<option value="09">9개월</option>
 												<option value="10">10개월</option>
 												<option value="11">11개월</option>
-												<option value="12">12개월</option> -->
+												<option value="12">12개월</option>
 											<%Else%>
 												<option value="00">일시불</option>
 											<%End If%>

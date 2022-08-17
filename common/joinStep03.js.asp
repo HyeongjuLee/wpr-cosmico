@@ -536,10 +536,12 @@
 		<%End If%>
 
 		if (f.strEmail.value == "")	{
-			<%IF S_SellMemTF = 0 Then		'COSMICO%>
+			<%IF S_SellMemTF = 0 Then		'COSMICO 이메일 선택%>
+			/*
 				alert2("<%=LNG_JS_EMAIL%>", "#emailCheckTXT", "F");
 				f.strEmail.focus();
 				return false;
+			*/
 			<%End If%>
 		} else {
 

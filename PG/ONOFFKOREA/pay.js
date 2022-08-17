@@ -64,12 +64,12 @@ function orderSubmit(f) {
 	}
 
 	if (chkEmpty(f.strEmail)) {
-
+		/*
 		alert("이메일 주소를 입력해 주세요.");
 		f.strEmail.focus();
 		doubleSubmit = false;
 		return false;
-
+		*/
 	} else {
 		if (!checkEmail(f.strEmail.value)) {
 			alert("형식에 맞지 않는 이메일 주소입니다.\n\n이메일 주소를 정확하게 입력해 주세요.");
