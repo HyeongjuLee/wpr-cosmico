@@ -157,6 +157,12 @@
 				Sell_Mem_TF		= DKRS("Sell_Mem_TF")
 				Na_Code			= DKRS("Na_Code")
 
+				If Sell_Mem_TF = "1" Then
+					memLevel		= 1
+				Else
+					memLevel		= 2
+				End If
+
 			Case "seller"
 				mbid1			= ""
 				mbid2			= ""

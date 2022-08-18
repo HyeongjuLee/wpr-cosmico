@@ -29,18 +29,12 @@
 	<%Case "1"%>
 		<img src="/m/images/content/brand01_1.jpg" alt="" width="100%" />
 	<%Case "2"%>
-		<div class="ready">
-			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-			<p><%=LNG_READY_02_01%></p>
-		</div>
+		<img src="/m/images/content/brand01_2.jpg" alt="" width="100%" />
 	<%Case Else%>
 	<%End Select%>
 
 <%Case "2"%>
-	<div class="ready">
-		<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-		<p><%=LNG_READY_02_01%></p>
-	</div>
+	<img src="/m/images/content/brand02.jpg" alt="" width="100%" />
 <%Case "3"%>
 	<div class="ready">
 		<div><img src="/images/content/maintenance-line.svg" alt=""></div>

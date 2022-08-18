@@ -392,8 +392,8 @@
 	LNG_GUIDE_01								= "디앤에잇 바르는 방법"
 	LNG_GUIDE_02								= "세타몬드 섭취 가이드"
 
-	LNG_SHOP									= "SHOP"
-	LNG_SHOP_OVER								= "샵"
+	LNG_SHOP									= "쇼핑몰"
+	LNG_SHOP_OVER								= "쇼핑몰"
 	LNG_SHOP_01									= "쇼핑몰"
 
 	LNG_MYOFFICE								= "마이오피스"
@@ -1692,7 +1692,7 @@
 '/shop common
 	LNG_SHOP_NOT_DATA_TXT_01					= LNG_CS_GOODSLIST_TEXT22 '"등록된 상품이 없습니다."
 
-	LNG_SHOP_COMMON_TXT_01						= "전체 카테고리"
+	LNG_SHOP_COMMON_TXT_01						= "전체 상품 보기"
 	LNG_SHOP_COMMON_TXT_02						= "베스트 상품"
 	LNG_SHOP_COMMON_TXT_03						= "추천 상품"
 	LNG_SHOP_COMMON_TXT_04						= "등록 상품"

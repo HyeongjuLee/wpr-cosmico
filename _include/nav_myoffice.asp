@@ -261,6 +261,7 @@
 			<%
 			End Select
 			%>
+			<%If DK_MEMBER_STYPE = "0" Then%>
 			<%'마케팅%>
 			<div class="list">
 				<a href="/myoffice/business/marketing_plan.asp"><i class="icon-insert_chart_outlined"></i>
@@ -268,6 +269,7 @@
 					<span></span>
 				</a>
 			</div>
+			<%End If%>
 		</div>
 	</article>
 </div>

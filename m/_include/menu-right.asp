@@ -86,8 +86,10 @@
 
 			<%End If%>
 
+			<%If DK_MEMBER_STYPE = "0" Then%>
 			<li class="Label" ><a><%=LNG_MARKETING_PLAN%></a></li>
 				<li><a href="/m/business/marketing_plan.asp"><%=LNG_MARKETING_PLAN%></a></li>
+			<%End If%>
 
 		<%Else%>
 

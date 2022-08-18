@@ -6,7 +6,7 @@
 
 	view = gRequestTF("view",True)
 	'sview = gRequestTF("sview",True)
-	mNum = 4
+	mNum = 5
 	sNum = view
 	sVar = sNum
 
@@ -88,6 +88,9 @@
 			</article>
 		</div>
 	<%Case "1"%>
+		<style type="text/css">
+			.nav-left .salesman {display: none;}
+		</style>
 		<div class="ready">
 			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
 			<p><%=LNG_READY_02_01%></p>

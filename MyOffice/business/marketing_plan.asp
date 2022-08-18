@@ -6,7 +6,7 @@
 	ISLEFT = "T"
 	ISSUBTOP = "T"
 
-	'Call ONLY_BUSINESS_MEMBER(DK_MEMBER_LEVEL,2)
+	Call ONLY_BUSINESS_MEMBER(DK_MEMBER_LEVEL,2)
 	'Call ONLY_CS_MEMBER()
 	'Call ONLY_CS_MEMBER_ALL()											'◈(소비자) 조회 허용 DK_MEMBER_STYPE
 	'Call FN_NationCurrency(DK_MEMBER_NATIONCODE,Chg_CurrencyName,Chg_CurrencyISO)
@@ -20,5 +20,5 @@
 <!--#include virtual = "/page/marketing_plan.asp"-->
 <!-- </div> -->
 
-	
+
 <!--#include virtual = "/_include/copyright.asp"-->

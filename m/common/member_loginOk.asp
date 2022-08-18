@@ -111,12 +111,18 @@
 				memSite			= "CS"
 				memPass			= DKRS("webpassword")
 				memName			= DKRS("m_name")
-				memLevel		= 2
+				'memLevel		= 2
 				memType			= "COMPANY"
 				SAdminSite		= ""
 				memState		= DKRS("leaveCheck")
 				Sell_Mem_TF		= DKRS("Sell_Mem_TF")
 				Na_Code			= DKRS("Na_Code")
+
+				If Sell_Mem_TF = "1" Then
+					memLevel		= 1
+				Else
+					memLevel		= 2
+				End If
 			Case "N"
 				mbid1			= DKRS("mbid")
 				mbid2			= DKRS("mbid2")
@@ -126,12 +132,19 @@
 				memSite			= "CS"
 				memPass			= DKRS("webpassword")
 				memName			= DKRS("m_name")
-				memLevel		= 2
+				'memLevel		= 2
 				memType			= "COMPANY"
 				SAdminSite		= ""
 				memState		= DKRS("leaveCheck")
 				Sell_Mem_TF		= DKRS("Sell_Mem_TF")
 				Na_Code			= DKRS("Na_Code")
+
+				If Sell_Mem_TF = "1" Then
+					memLevel		= 1
+				Else
+					memLevel		= 2
+				End If
+
 				If WebID <> "" Then Call ALERTS(LNG_MEMBER_LOGINOK_ALERT03,"BACK","")
 				'If WebID <> "" Then Call ALERTS("웹아이디 등록회원은 아이디로만 로그인 할 수 있습니다.","BACK","")
 
