@@ -57,27 +57,18 @@
 		</div>
 		<div class="con_wrap">
 			<div class="con">
-				<div class="ready">
-					<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-					<p><%=LNG_READY_02_01%></p>
-				</div>
+				<img src="/m/images/content/guide01_1.jpg" alt="" width="100%" />
 			</div>
 			<div class="con">
-				<div class="ready">
-					<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-					<p><%=LNG_READY_02_01%></p>
-				</div>
+				<img src="/m/images/content/guide01_2.jpg" alt="" width="100%" />
 			</div>
 			<div class="con">
-				이 안에 내용 작성
+				<img src="/m/images/content/guide01_3.jpg" alt="" width="100%" />
 			</div>
 		</div>
 	</div>
 <%Case "2"%>
-	<div class="ready">
-		<div><img src="/images/content/maintenance-line.svg" alt=""></div>
-		<p><%=LNG_READY_02_01%></p>
-	</div>
+	<img src="/m/images/content/guide02_2.jpg" alt="" width="100%" />
 
 	<%Case Else Call ALERTS(LNG_PAGE_ALERT01,"BACK","")%>
 <%End Select%>

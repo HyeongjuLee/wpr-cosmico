@@ -2747,3 +2747,7 @@
 	LNG_VIP_PRICE = "VIP 매출가"
 	LNG_VIP = "VIP"
 
+
+	'0825 본부소개 추가
+	LNG_BUSINESS_info 	= "(본사)"
+	LNG_BUSINESS_info_ADDRESS 						= "울산 남구 화합로 210번길 15-1, 1층 코즈미코코리아 본사"

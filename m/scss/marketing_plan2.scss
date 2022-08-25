@@ -25,6 +25,9 @@ $font-size: $font-size - rem(1px);
 			}
 		}
 	}
+	.blue {
+		color: $oc-blue-7;
+	}
 	> .img {
 		img {
 			width: 100%;
@@ -99,8 +102,9 @@ $font-size: $font-size - rem(1px);
 			height: $input-height - rem(5px);
 			padding: rem(5px);
 		}
-		td[rowspan="6"] {
+		td[rowspan="8"] {
 			border-bottom: none;
+			border-right: 1px solid #d9d9da !important;
 		}
 		thead th {
 			width: 33%;
@@ -443,8 +447,8 @@ section {
 	font-family: 'Noto Serif KR', 'Pretendard', 'Roboto', 'Noto Sans KR', sans-serif;
 	font-size: $font-size + rem(5px);
 	text-align: center;
-	background: #000;
-	color: rgba(#fff, 0.8) !important;
+	// background: #000;
+	// color: rgba(#fff, 0.8) !important;
 	padding: rem(30px);
 	div {
 		font-size: $font-size * 2;
@@ -587,5 +591,186 @@ h2 {
 .article09 {
 	section {
 		margin-bottom: 0;
+	}
+}
+
+.article03 {
+	text-align: left;
+	section {
+		margin-bottom: 0 !important;
+	}
+	h2 {
+		flex-direction: column;
+		align-items: flex-start;
+		span {
+			display: block;
+			font-size: $font-size;
+			font-weight: 400;
+			margin-bottom: rem(10px);
+			color: $oc-gray-5;
+		}
+		.img {
+			img {
+				margin-top: rem(5px);
+			}
+		}
+		& ~ p {
+			width: 50%;
+		}
+	}
+	ul {
+		margin-top: rem(30px);
+		@include flex(center, $st);
+		flex-wrap: wrap;
+		> li {
+			padding-left: 0;
+			text-indent: 0;
+			@include inline-flex($st);
+			flex-direction: column;
+			text-align: center;
+			width: 50%;
+			margin: $font-size 0;
+
+			.img {
+				width: 100%;
+				height: rem(70px);
+				text-align: center;
+				margin-bottom: rem(10px);
+			}
+			h6 {
+				margin-bottom: rem(20px);
+				font-size: $font-size + rem(2px);
+				
+				& + div {
+					padding: rem(10px) rem(15px);
+					background: $oc-gray-1;
+				}
+			}
+		}
+	}
+	.only_text {
+		font-size: $font-size + rem(5px);
+		width: 100%;
+	}
+}
+
+.article04 {
+	margin: 0 !important;
+	section {
+		margin: 0;
+		margin-bottom: -1px;
+		padding: rem(50px) 0;
+		width: 100%;
+		border-top: 1px solid $oc-gray-2;
+		border-bottom: 1px solid $oc-gray-2;
+		@include flex($st);
+		flex-direction: column;
+
+		// &:first-of-type {
+		// 	border-top: none;
+		// }
+		&:last-of-type {
+			border-bottom: none;
+		}
+		.txt {
+			width: 100%;
+			span {
+				font-size: $font-size + rem(5px);
+				font-weight: 800;
+				font-family: 'Pretendard', 'Roboto', 'Noto Sans KR', sans-serif;
+				color: $oc-gray-7;
+			}
+			h5 {
+				font-size: $font-size + rem(8px);
+				margin-bottom: rem(50px);
+			}
+		}
+		.img {
+			width: 100%;
+			margin-top: rem(50px);
+			img {
+				width: 25%;
+			}
+		}
+		.num {
+			font-size: $font-size * 3;
+			font-weight: 800;
+			font-family: 'Pretendard', 'Roboto', 'Noto Sans KR', sans-serif;
+			color: rgba(#000, 0.8);
+
+			span {
+				@include position;
+				&:before {
+					@include presudo($le: -10%, $bot: 0, $w: 120%, $h: 50%);
+					z-index: 0;
+					background: rgba($main-color, 0.1);
+				}
+			}
+		}
+
+		table {
+			th {
+				width: 50%;
+			}
+		}
+	}
+
+}
+
+.article05 {
+	section {
+		margin-bottom: 0;
+	}
+	tr:first-of-type {
+		th {
+			background: $oc-gray-2;
+			font-weight: 600;
+		}
+	}
+	td {
+		p {
+			margin-bottom: $font-size * 2;
+		}
+	}
+	.txt {
+		// margin-top: rem(50px);
+		// border: 1px solid $oc-gray-2;
+	}
+	.only_text {
+		font-size: $font-size + rem(5px);
+		flex-direction: column;
+		margin-top: $font-size * 2;
+		border: none;
+		div {
+			color: #000;
+		}
+	}
+}
+
+.table {
+	overflow: auto;
+
+	&::-webkit-scrollbar {
+		@include position;
+		height: rem(14px);
+		z-index: 2;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		// background: mix($main-color, material-color('grey', '400'), 0%);
+		// background: map-get($nav-table, 'table-color-wrap');
+		background-clip: padding-box;
+		border: rem(3px) solid transparent;
+		@include rounded($radius: rem(14px));
+		cursor: pointer;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: material-color('grey', '100');
+		box-shadow: inset 1px 0 0 #aaa;
+		// @include rounded;
+		// @include position;
+		// background: map-get($nav-table, 'table-color-wrap');
+		z-index: 1;
 	}
 }

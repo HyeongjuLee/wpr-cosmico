@@ -27,14 +27,14 @@
 		
 	<%Select Case sview%>
 	<%Case "1"%>
-		<img src="/m/images/content/brand01_1.jpg" alt="" width="100%" />
+		<img src="/m/images/content/brand01_1_2.jpg" alt="" width="100%" />
 	<%Case "2"%>
 		<img src="/m/images/content/brand01_2.jpg" alt="" width="100%" />
 	<%Case Else%>
 	<%End Select%>
 
 <%Case "2"%>
-	<img src="/m/images/content/brand02.jpg" alt="" width="100%" />
+	<img src="/m/images/content/brand02_2.jpg" alt="" width="100%" />
 <%Case "3"%>
 	<div class="ready">
 		<div><img src="/images/content/maintenance-line.svg" alt=""></div>

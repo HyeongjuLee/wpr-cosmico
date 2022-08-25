@@ -195,12 +195,12 @@
 				speed: 1000,
 
 				navigation: {
-					nextEl: 'main-visual .swiper-button.next',
-					prevEl: 'main-visual .swiper-button.prev',
+					nextEl: '.main-visual .swiper-button.next',
+					prevEl: '.main-visual .swiper-button.prev',
 				},
 
 				pagination: {
-					el: 'main-visual .swiper-pagination',
+					el: '.main-visual .swiper-pagination',
 					type: 'bullets',
 					// type: 'fraction',
 					// type: 'progressbar',

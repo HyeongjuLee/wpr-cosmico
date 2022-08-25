@@ -67,7 +67,7 @@
 			</div>
 		</div>
 	<%Case "2"%>
-		<div><img src="/images/content/guide02.jpg" alt=""></div>
+		<div><img src="/images/content/guide02_2.jpg" alt=""></div>
 	<%Case "3"%>
 		<div class="ready">
 			<div><img src="/images/content/maintenance-line.svg" alt=""></div>
