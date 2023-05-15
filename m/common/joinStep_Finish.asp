@@ -80,22 +80,3 @@
 	</div>
 	<!--#include virtual = "/m/_include/copyright.asp"-->
 </div>
-
-<script>
-	function selectSellMemTF(value) {
-		var f = document.mfrm;
-		f.S_SellMemTF.value = value
-		/*
-		if (value == 0)	{
-			f.action="joinStep02.asp";			//계좌인증
-			//f.action="joinStep_n01_m.asp";		//핸드폰인증 (+ 계좌인증)
-		}
-		*/
-
-		f.submit();
-	}
-</script>
-<form name="mfrm" method="post" action="joinStep_n02_g.asp">
-	<input type="hidden" name="S_SellMemTF" value = "">
-	<input type="hidden" name="sns_auth" value = "">
-</form>

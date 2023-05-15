@@ -1,9 +1,9 @@
 <%
-	'WEBID		= "<div><span>"&LNG_TEXT_WEBID&"</span><p>"&DK_MEMBER_WEBID&"</p></div>" & VbCrLf
-	'MEMID		= "<div><span>"&LNG_TEXT_MEMID&"</span><p>"&DK_MEMBER_ID1&" - "&Fn_MBID2(DK_MEMBER_ID2)&"</p></div>" & VbCrLf
-	'CENTER		= "<div><span>"&LNG_LEFT_MEM_INFO_CENTER&"</span><p>"&RS_BusinessName&"</p></div>" & VbCrLf
-	POSITION	= "<div><span>"&LNG_TEXT_POSITION&"</span><p>"&nowGrade&"</p></div>" & VbCrLf
-	REGTIME		= "<div><span>"&LNG_TEXT_REGTIME&"</span><p>"&date8to10(DKRSG_regTime)&"</p></div>" & VbCrLf
+	'L_WEBID		= "<div><span>"&LNG_TEXT_WEBID&"</span><p>"&DK_MEMBER_WEBID&"</p></div>" & VbCrLf
+	'L_MEMID		= "<div><span>"&LNG_TEXT_MEMID&"</span><p>"&DK_MEMBER_ID1&" - "&Fn_MBID2(DK_MEMBER_ID2)&"</p></div>" & VbCrLf
+	'L_CENTER		= "<div><span>"&LNG_LEFT_MEM_INFO_CENTER&"</span><p>"&RS_BusinessName&"</p></div>" & VbCrLf
+	L_POSITION	= "<div><span>"&LNG_TEXT_POSITION&"</span><p>"&nowGrade&"</p></div>" & VbCrLf
+	L_REGTIME		= "<div><span>"&LNG_TEXT_REGTIME&"</span><p>"&date8to10(DKRSG_regTime)&"</p></div>" & VbCrLf
 
 	Function Fnc_leftmenu_color(valThisPage, valThisPage2, valText)
 		If valThisPage = valThisPage2 Then

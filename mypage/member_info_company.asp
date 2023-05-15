@@ -362,7 +362,7 @@
 					<%End IF%>
 
 				</div>
-				<%'If CPNO_CHANGE_TF = "T" Then '▣cpno 변경%>
+				<%If CPNO_CHANGE_TF = "T" Then '▣cpno 변경%>
 				<div class="bank" id="cpno" style="display:none;">
 					<h5><%=LNG_TEXT_CPNO%></h5>
 					<div class="con">
@@ -392,7 +392,7 @@
 						<div class="agree_content"><%=backword_tag(policyContent99)%></div>
 					</div>
 				</div>
-				<%'End If%>
+				<%End If%>
 			<%END IF%>
 		</article>
 
