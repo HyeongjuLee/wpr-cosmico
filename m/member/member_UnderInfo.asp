@@ -188,7 +188,9 @@
 					<input type="hidden" id="UnderID2" name="UnderID2" value="<%=UnderID2%>" readonly="readonly" />
 					<input type="text" id="UnderName" name="UnderName" class="tweight tcenter input_text" value="<%=UnderName%>" readonly="readonly" />
 					<%'#modal dialog%>
+					<%If NOT IS_LIMIT_LEVEL Then%>
 					<a name="modal" id="underMember" class="button" href="/m/member/pop_underMember.asp?u=<%=sc%>" title="<%=LNG_TEXT_UNDER_MEMBER_SEARCH%>"><%=LNG_TEXT_SEARCH%></a>
+					<%End If%>
 				</div>
 				<%'검색회원명%>
 				<div class="searchMem">
@@ -232,16 +234,25 @@
 						%>
 					</div>
 				</div>
+				<%If false Then%>
 				<%'대수%>
-				<!-- <h6><%=LNG_TEXT_LEVEL%></h6>
+				<%
+					v_LEVEL = 50
+					'대수제한
+					If IS_LIMIT_LEVEL Then
+						v_LEVEL = CS_LIMIT_LEVEL
+					End IF
+				%>
+				<h6><%=LNG_TEXT_LEVEL%></h6>
 				<div class="level">
 					<select id="v_LEVEL" name="v_LEVEL" class="vmiddle input_select">
 						<option value=""  ><%=LNG_TEXT_ALL%></option>
-						<%For i = 1 To 50%>
+						<%For i = 1 To v_LEVEL%>
 							<option value="<%=i%>"  <%=isSelect(v_LEVEL,i)%>><%=i%></option>
 						<%Next%>
 					</select>
-				</div> -->
+				</div>
+				<%End If%>
 				<%'검색%>
 			</article>
 			<article class="table">

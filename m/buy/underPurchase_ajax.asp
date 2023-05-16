@@ -99,6 +99,11 @@
 			TOT_SUMPrice_P	= 0
 			TOT_SUMPrice_M	= 0
 
+			'대수제한
+			If IS_LIMIT_LEVEL Then
+				sLvl = CS_LIMIT_LEVEL
+			End IF
+
 			arrParams = Array(_
 				Db.makeParam("@mbid",adVarChar,adParamInput,20,UnderID1), _
 				Db.makeParam("@mbid2",adInteger,adParamInput,0,UnderID2) _

@@ -32,6 +32,9 @@
 	If PAGE = ""		Then PAGE = 1
 	If PAGESIZE = ""	Then PAGESIZE = 20
 
+	If IS_LIMIT_LEVEL Then	'대수제한
+		sLvl = CS_LIMIT_LEVEL
+	End IF
 
 	arrParams = Array(_
 		Db.makeParam("@MBID1",adVarChar,adParamInput,20,MBID1),_

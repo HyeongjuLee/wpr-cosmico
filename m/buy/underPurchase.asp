@@ -103,7 +103,9 @@
 					<input type="hidden" id="UnderID2" name="UnderID2" value="<%=UnderID2%>" readonly="readonly" />
 					<input type="text" id="UnderName" name="UnderName" class="tweight tcenter input_text" value="<%=UnderName%>" readonly="readonly" />
 					<%'#modal dialog%>
+					<%If NOT IS_LIMIT_LEVEL Then%>
 					<a name="modal" id="underMember" class="button" href="/m/member/pop_underMember.asp?u=<%=underType%>" title="<%=LNG_TEXT_UNDER_MEMBER_SEARCH%>"><%=LNG_TEXT_SEARCH%></a>
+					<%End If%>
 				</div>
 				<div>
 					<h6><%=LNG_TEXT_SALES_TYPE%></h6>

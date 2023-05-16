@@ -66,6 +66,11 @@
 
 	End If
 
+	'대수제한
+	If IS_LIMIT_LEVEL Then
+		v_LEVEL = CS_LIMIT_LEVEL
+	End IF
+
 	'조회구분
 	Select Case SearchCate
 		Case "vd" : If NOM_MENU_USING Then MEMBER_INFOS_PROC = "HJP_MEMBER_INFOS_DIRECT_UNDER_VOTER"		'직대추천인

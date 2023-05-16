@@ -521,7 +521,7 @@
 		var ofs = $("#topNodeTop").position().left;
 
 		setTimeout(function() {
-			console.log(moveWidth, ($("#cZoom").val()) );
+			//console.log(moveWidth, ($("#cZoom").val()) );
 
 			//console.log("ddd");
 			//console.log("ofs" + ofs);

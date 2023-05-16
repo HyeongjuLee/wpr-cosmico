@@ -32,6 +32,9 @@
 	If PAGE = ""		Then PAGE = 1
 	If PAGESIZE = ""	Then PAGESIZE = 10
 
+	If IS_LIMIT_LEVEL Then	'대수제한
+		sLvl = CS_LIMIT_LEVEL
+	End IF
 
 	arrParams = Array(_
 		Db.makeParam("@MBID1",adVarChar,adParamInput,20,MBID1),_
@@ -133,15 +136,15 @@
 
 		%>
 		<tr <%=trc%> >
-			<td><%=SELLDATE%></td>
-			<td><%=arr_mbid%>-<%=Fn_MBID2(arr_mbid2)%></td>
-			<td class="price bd1"><span class="<%=mline%>"><%=num2cur(arr_TotalPrice)%></span>
-			<td rowspan="2"><%=arr_SellTypeName%></td>
+			<td class="tcenter"><%=SELLDATE%></td>
+			<td class="tcenter"><%=arr_mbid%>-<%=Fn_MBID2(arr_mbid2)%></td>
+			<td class="tright price bd1"><span class="<%=mline%>"><%=num2cur(arr_TotalPrice)%></span>
+			<td class="tcenter" rowspan="2"><%=arr_SellTypeName%></td>
 		</tr>
 		<tr>
 			<td><%=arr_SellDate%></td>
-			<td class="dv_cell2"><%=arr_M_name%><!-- (<%=FN_SELL_MEM_TF(arr_Sell_Mem_TF)%>) --></td>
-			<td class="dv_cell2"><%=num2cur(arr_TotalPV)%></td>
+			<td class="tcenter dv_cell2"><%=arr_M_name%><!-- (<%=FN_SELL_MEM_TF(arr_Sell_Mem_TF)%>) --></td>
+			<td class="tright dv_cell2"><%=num2cur(arr_TotalPV)%></td>
 		</tr>
 		<%
 				Next
