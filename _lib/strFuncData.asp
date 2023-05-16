@@ -163,6 +163,14 @@
 			End If
 			Call closeRS(DKRSG)
 
+			'▣ 대수제한 설정
+				If nowGradeCnt < 60 Then '코즈미코 본부장(60) 직급 이하 2대까지 보임
+					CS_LIMIT_LEVEL = 2		'대수까지      , sFrmSubmit anchor작동 X
+					If CS_LIMIT_LEVEL > 0 Then
+						IS_LIMIT_LEVEL = True
+					End IF
+				End IF
+			'▣ 대수제한 설정
 
 
 			MILEAGE_TOTAL = 0

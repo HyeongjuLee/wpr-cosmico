@@ -190,10 +190,12 @@
 	});
 
 	function sFrmSubmit(sid1,sid2){
-		var f = document.sfrm;
-		f.sid1.value = sid1;
-		f.sid2.value = sid2;
-		f.submit();
+		<%If Not IS_LIMIT_LEVEL Then %>
+			var f = document.sfrm;
+			f.sid1.value = sid1;
+			f.sid2.value = sid2;
+			f.submit();
+		<%End IF%>
 	}
 
 

@@ -111,6 +111,10 @@
 
 	If SEARCH_CHECK > 0 Then SEARCHCSS = "display:block" Else SEARCHCSS = "display:none" End If
 
+	If IS_LIMIT_LEVEL Then
+		cLvl = CS_LIMIT_LEVEL
+	End IF
+
 	arrParams = Array(_
 		Db.makeParam("@mbid1",adVarChar,adParamInput,20,SDK_MEMBER_ID1),_
 		Db.makeParam("@mbid2",adInteger,adParamInput,0,SDK_MEMBER_ID2),_
@@ -121,6 +125,12 @@
 	)
 	arrList = Db.execRsList("DKSP_TREE_SPONSOR_DETAIL_V11",DB_PROC,arrParams,listLen,DB3)
 	MAX_LVL_OUT = arrParams(Ubound(arrParams))(4)
+
+	If IS_LIMIT_LEVEL Then
+		If MAX_LVL_OUT > CS_LIMIT_LEVEL Then
+			MAX_LVL_OUT = CS_LIMIT_LEVEL
+		End If
+	End If
 %>
 </head>
 <body>
@@ -131,7 +141,9 @@
 			<a href="javascript:fnCheckSearch();" class="a_submit design8" id="etcBtn"><!-- 기타검색조건열기 --><%=LNG_TEXT_DATE_SEARCH%></a>
 
 			<a href="javascript:fnFaList();" class="a_submit design3"><%=LNG_TEXT_FAVORITE_MEMBER%></a>
+			<%If Not IS_LIMIT_LEVEL Then%>
 			<a href="javascript:fnUnderList();" class="a_submit design3"><%=LNG_TEXT_UNDER_MEMBER_SEARCH%></a>
+			<%End If%>
 			<select name="cLvl" class="select" id="cLvl">
 				<option value=""   <%=isSelect(cLvl,"")%>><%=LNG_TEXT_TREE_SELECT_LEVEL%></option>
 				<%For i = 1 To MAX_LVL_OUT%>

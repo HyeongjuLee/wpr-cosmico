@@ -59,14 +59,13 @@
 %>
 <div class="width100 innerTableVote">
 	<table <%=tableatt%> class="width100">
-		<col width="10%" />
-		<col width="9%" />
-		<col width="15%" />
-		<col width="10%" />
-		<col width="8%" />
-		<col width="18%" />
-		<col width="18%" />
-		<col width="12%" />
+		<col width="115" />
+		<col width="115" />
+		<col width="" />
+		<col width="120" />
+		<col width="" />
+		<col width="" />
+		<col width="" />
 		<thead>
 			<tr>
 				<th><%=LNG_TEXT_SALES_DATE%></th>
@@ -117,7 +116,7 @@
 
 					If arr_TotalPrice < 0 Then
 						trc = " class=""trc"""
-						arr_SellDate = "<span>"&date8to10(arr_SellDate)&"</span>"
+						arr_SellDate = "<span>"&date8to13(arr_SellDate)&"</span>"
 					Else
 						trc = " "
 						arr_SellDate = ""
@@ -126,7 +125,7 @@
 					'판매일자
 					SELLDATE = arr_Re_SellDate
 					If SELLDATE <> SELLDATE2 Then
-						SELLDATE = date8to10(arr_Re_SellDate)
+						SELLDATE = date8to13(arr_Re_SellDate)
 						d_style = "selldate-bd-top"
 					Else
 						SELLDATE  = ""
@@ -137,10 +136,10 @@
 
 		%>
 		<tr <%=trc%>>
-			<td class="first-cell <%=d_style%>"><%=SELLDATE%></td>
-			<td class="bd1"><%=arr_SellDate%></td>
-			<td class="bd1"><%=arr_mbid%>-<%=Fn_MBID2(arr_mbid2)%></td>
-			<td class="bd1" colspan="2"><%=arr_M_name%></td>
+			<td class="tcenter first-cell <%=d_style%>"><%=SELLDATE%></td>
+			<td class="tcenter bd1"><%=arr_SellDate%></td>
+			<td class="tcenter bd1"><%=arr_mbid%>-<%=Fn_MBID2(arr_mbid2)%></td>
+			<td class="tcenter bd1" colspan="2"><%=arr_M_name%></td>
 			<!-- <td class="bd1"><%=FN_SELL_MEM_TF(arr_Sell_Mem_TF)%></td> -->
 			<td class="bd1 price <%=mline%>">
 				<%=num2cur(arr_TotalPrice)%><span class="cur1"><%=Chg_CurrencyISO%></span>
@@ -149,7 +148,7 @@
 				<%=num2curINT(arr_TotalPV)%><span class="cur1"><%=CS_PV%></span>
 				<!-- <br /><%=num2curINT(CVS1)%><span class="cur1"><%=CS_PV2%></span> -->
 			</td>
-			<td class="bd1"><%=arr_SellTypeName%></td>
+			<td class="tcenter bd1"><%=arr_SellTypeName%></td>
 		</tr>
 		<%
 				Next

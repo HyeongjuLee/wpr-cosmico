@@ -152,11 +152,11 @@
 
 			%>
 			<tr class="trData">
-				<td><%=arr_mbid%>-<%=Fn_MBID2(arr_mbid2)%></td>
-				<td><%=arr_M_name%></td>
+				<td class="tcenter"><%=arr_mbid%>-<%=Fn_MBID2(arr_mbid2)%></td>
+				<td class="tcenter"><%=arr_M_name%></td>
 				<!-- <td><%=FN_SELL_MEM_TF(arr_Sell_Mem_TF)%></td> -->
-				<td>1</td>
-				<td><%=arr_N_LineCnt%></td>
+				<td class="tcenter">1</td>
+				<td class="tcenter"><%=arr_N_LineCnt%></td>
 				<td class="price">
 					<%=num2curINT(SUMPrice_P)%><span class="cur1"><%=Chg_CurrencyISO%></span>
 					<br /><%=num2curINT(SUMPV_P)%><span class="cur2"><%=CS_PV%></span>
@@ -174,7 +174,7 @@
 			</tr>
 			<tr style="display: none;" id="purchase<%=i%>">
 				<td colspan="7" id="underPurchase_detail<%=i%>" class="underPurchase_detail">
-					<div class="loadingUnderbuy" style="">
+					<div class="loadingUnderbuy" style="text-align: center;">
 						<img src="<%=IMG%>/159.gif" width="60" alt=""/>
 						<table <%=tableatt%> class="inTable1 width100" class="ins" >
 						</table>

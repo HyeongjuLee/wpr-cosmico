@@ -54,6 +54,11 @@
 <!-- <link rel="stylesheet" href="/css/style_cs.css?v4" /> -->
 <link rel="stylesheet" href="/css/pay2.css?" />
 <link rel="stylesheet" href="/myoffice/css/layout_cs.css" />
+<style>
+	.cur {font-size: 13px; width: 25px; display: inline-block; text-align: left; padding-left: 4px;}
+	.cur1 {font-size: 14px; width: 25px; display: inline-block; text-align: left; padding-left: 4px;}
+	.cur2 {font-size: 13px; width: 25px; display: inline-block; text-align: left; padding-left: 4px;}
+</style>
 <script type="text/javascript" src="/jscript/calendar.js"></script>
 <script type="text/javascript" src="underPurchase.js?v4"></script>
 <script type="text/javascript">

@@ -94,13 +94,24 @@
 <div id="treeview">
 	<ul id="tree">
 		<%
-			arrParams = Array(_
-				Db.makeParam("@mbid1",adVarChar,adParamInput,20,SDK_MEMBER_ID1),_
-				Db.makeParam("@mbid2",adInteger,adParamInput,4,SDK_MEMBER_ID2),_
-				Db.makeParam("@SDATE",adVarChar,adParamInput,10,SDATE),_
-				Db.makeParam("@EDATE",adVarChar,adParamInput,10,EDATE)_
-			)
-			arrList = Db.execRsList("DKP_E_TREE_SS_V1",DB_PROC,arrParams,listLen,DB3)
+			If IS_LIMIT_LEVEL Then	'대수제한
+				arrParams = Array(_
+					Db.makeParam("@mbid1",adVarChar,adParamInput,20,SDK_MEMBER_ID1),_
+					Db.makeParam("@mbid2",adInteger,adParamInput,4,SDK_MEMBER_ID2),_
+					Db.makeParam("@SDATE",adVarChar,adParamInput,10,SDATE),_
+					Db.makeParam("@EDATE",adVarChar,adParamInput,10,EDATE),_
+					Db.makeParam("@DEPTH",adInteger,adParamInput,0,CS_LIMIT_LEVEL)_
+				)
+				arrList = Db.execRsList("DKP_E_TREE_SS_V1_DEPTH",DB_PROC,arrParams,listLen,DB3)
+			Else
+				arrParams = Array(_
+					Db.makeParam("@mbid1",adVarChar,adParamInput,20,SDK_MEMBER_ID1),_
+					Db.makeParam("@mbid2",adInteger,adParamInput,4,SDK_MEMBER_ID2),_
+					Db.makeParam("@SDATE",adVarChar,adParamInput,10,SDATE),_
+					Db.makeParam("@EDATE",adVarChar,adParamInput,10,EDATE)_
+				)
+				arrList = Db.execRsList("DKP_E_TREE_SS_V1",DB_PROC,arrParams,listLen,DB3)
+			End If
 
 			If IsArray(arrList) Then
 				prevLvL = 0
